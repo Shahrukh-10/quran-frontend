@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn · Islamic Website</title>
+<meta name="description" content="Sourced biographies of the Prophets, Sahabah, and classical scholars. Every fact cites a classical source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+:root {
+  --systemBackground:#ffffff; --secondarySystemBackground:#f2f2f7;
+  --systemGroupedBackground:#f2f2f7; --secondarySystemGroupedBackground:#ffffff;
+  --label:#000; --secondaryLabel:rgba(60,60,67,.60); --tertiaryLabel:rgba(60,60,67,.30);
+  --separator:rgba(60,60,67,.29); --opaqueSeparator:#c6c6c8;
+  --fill:rgba(120,120,128,.20); --secondaryFill:rgba(120,120,128,.16); --tertiaryFill:rgba(118,118,128,.12);
+  --systemBlue:#007aff; --systemBlueHover:#0060df; --systemGreen:#34c759;
+  --glassBg:rgba(255,255,255,.72); --glassBorder:rgba(60,60,67,.18);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+  --r-lg:8px; --r-xl:12px; --r-2xl:16px; --r-3xl:24px;
+  --font-system:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro Display','Helvetica Neue','Segoe UI',Roboto,Arial,sans-serif;
+  --font-arabic-ui:-apple-system,'SF Arabic','Geeza Pro','Arabic UI Text','Amiri',serif;
+  --font-quran:'Amiri Quran','Amiri','SF Arabic',serif;
+}
+[data-theme="dark"] {
+  --systemBackground:#000; --secondarySystemBackground:#1c1c1e;
+  --systemGroupedBackground:#000; --secondarySystemGroupedBackground:#1c1c1e;
+  --label:#fff; --secondaryLabel:rgba(235,235,245,.60); --tertiaryLabel:rgba(235,235,245,.30);
+  --separator:rgba(84,84,88,.60); --opaqueSeparator:#38383a;
+  --fill:rgba(120,120,128,.36); --secondaryFill:rgba(120,120,128,.32); --tertiaryFill:rgba(118,118,128,.24);
+  --systemBlue:#0a84ff;
+  --glassBg:rgba(28,28,30,.72); --glassBorder:rgba(84,84,88,.60);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { background:var(--systemGroupedBackground); color:var(--label); font-family:var(--font-system); -webkit-font-smoothing:antialiased; line-height:1.47; font-size:17px; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+/* Nav — Liquid Glass */
+.nav { position:sticky; top:0; z-index:50; height:52px; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--glassBg); backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%); border-bottom:.5px solid var(--separator); }
+.brand { font-weight:600; font-size:15px; letter-spacing:-.01em; display:flex; align-items:center; gap:8px; }
+.brand svg { width:22px; height:22px; }
+.nav-links { display:flex; gap:24px; font-size:14px; color:var(--secondaryLabel); }
+.nav-links a { transition:color .2s var(--spring); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--label); }
+.nav-links a[aria-current="page"] { font-weight:600; }
+.icon-btn { width:32px; height:32px; border-radius:99px; display:grid; place-items:center; color:var(--secondaryLabel); transition:background .2s var(--spring), color .2s var(--spring); }
+.icon-btn:hover { background:var(--secondaryFill); color:var(--label); }
+
+/* Page container */
+main { padding:32px 24px 96px; max-width:1120px; margin:0 auto; }
+
+/* Header */
+.page-head { margin-bottom:40px; }
+.kicker { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--systemBlue); text-transform:uppercase; margin-bottom:8px; }
+.page-title { font-size:clamp(34px, 6vw, 56px); font-weight:700; letter-spacing:-.028em; line-height:1.05; margin-bottom:12px; }
+.page-lede { font-size:19px; color:var(--secondaryLabel); max-width:640px; line-height:1.5; }
+
+/* Segmented control (categories filter) */
+.segmented { display:inline-flex; padding:2px; background:var(--tertiaryFill); border-radius:9px; margin:24px 0 32px; overflow-x:auto; max-width:100%; }
+.segmented button { padding:7px 14px; font-size:13px; font-weight:500; color:var(--label); border-radius:7px; white-space:nowrap; transition:all .2s var(--spring); }
+.segmented button[aria-pressed="true"] { background:var(--secondarySystemGroupedBackground); box-shadow:0 1px 2px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06); }
+
+/* Section heading */
+.section-head { margin:40px 0 12px; padding:0 4px; display:flex; align-items:baseline; justify-content:space-between; }
+.section-head h2 { font-size:22px; font-weight:700; letter-spacing:-.02em; }
+.section-head .count { font-size:13px; color:var(--tertiaryLabel); }
+
+/* Card grid */
+.figure-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; }
+.figure-card { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-2xl); padding:20px; display:flex; flex-direction:column; gap:10px; transition:transform .35s var(--spring); position:relative; }
+.figure-card:hover { transform:translateY(-2px); }
+.figure-card .fc-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.figure-card .fc-init { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, rgba(0,122,255,.14), rgba(0,122,255,.06)); color:var(--systemBlue); display:grid; place-items:center; font-weight:600; font-size:15px; flex-shrink:0; }
+.figure-card .fc-tag { font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--systemBlue); padding:3px 8px; background:rgba(0,122,255,.10); border-radius:99px; }
+[data-theme="dark"] .figure-card .fc-tag { background:rgba(10,132,255,.16); }
+.figure-card h3 { font-size:19px; font-weight:600; letter-spacing:-.01em; margin-top:4px; }
+.figure-card .fc-ar { font-family:var(--font-arabic-ui); font-size:20px; color:var(--secondaryLabel); direction:rtl; text-align:right; margin-top:-4px; }
+.figure-card .fc-body { font-size:14px; color:var(--secondaryLabel); line-height:1.5; }
+.figure-card .fc-meta { font-size:12px; color:var(--tertiaryLabel); margin-top:2px; display:flex; gap:12px; flex-wrap:wrap; }
+.figure-card .fc-meta b { font-weight:600; color:var(--secondaryLabel); }
+.figure-card .fc-source { font-size:11px; color:var(--tertiaryLabel); font-style:italic; padding-top:10px; border-top:.5px solid var(--separator); margin-top:6px; }
+.figure-card::after { content:"↗"; position:absolute; top:20px; right:20px; color:var(--tertiaryLabel); font-size:14px; opacity:0; transform:translate(-2px,2px); transition:all .3s var(--spring); }
+.figure-card:hover::after { opacity:1; transform:translate(0,0); color:var(--systemBlue); }
+
+/* Filter behavior */
+.figure-card.hidden { display:none; }
+
+/* Search field */
+.search-row { margin:8px 0 8px; }
+.search-field { position:relative; background:var(--secondarySystemGroupedBackground); border-radius:10px; padding:10px 14px 10px 38px; display:flex; align-items:center; border:.5px solid var(--separator); }
+.search-field svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--tertiaryLabel); }
+.search-field input { flex:1; border:none; outline:none; background:transparent; color:var(--label); font-size:15px; font-family:var(--font-system); }
+
+/* Featured biography */
+.feature-bio { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-3xl); padding:32px; margin-bottom:32px; }
+.feature-bio .fb-kicker { font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--systemBlue); margin-bottom:8px; }
+.feature-bio h3 { font-size:32px; font-weight:700; letter-spacing:-.022em; margin-bottom:4px; }
+.feature-bio .fb-arabic { font-family:var(--font-arabic-ui); font-size:24px; color:var(--secondaryLabel); direction:rtl; text-align:right; margin-bottom:16px; }
+.feature-bio .fb-meta { font-size:13px; color:var(--tertiaryLabel); margin-bottom:20px; display:flex; gap:20px; flex-wrap:wrap; }
+.feature-bio .fb-meta b { color:var(--secondaryLabel); font-weight:600; }
+.feature-bio .fb-body p { font-size:16px; color:var(--label); line-height:1.6; margin-bottom:14px; max-width:65ch; }
+.feature-bio .fb-sources { padding-top:20px; margin-top:20px; border-top:.5px solid var(--separator); font-size:12px; color:var(--tertiaryLabel); }
+.feature-bio .fb-sources b { color:var(--secondaryLabel); font-weight:600; }
+
+/* Footer */
+footer { background:var(--systemGroupedBackground); padding:40px 24px; margin-top:60px; border-top:.5px solid var(--separator); }
+.foot-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; font-size:14px; color:var(--secondaryLabel); }
+@media(max-width:768px){.foot-inner{grid-template-columns:1fr 1fr}}
+.foot-inner h4 { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--label); margin-bottom:10px; }
+.foot-inner a { display:block; padding:4px 0; transition:color .2s var(--spring); }
+.foot-inner a:hover { color:var(--label); }
+.copyright { max-width:1120px; margin:32px auto 0; padding-top:24px; border-top:.5px solid var(--separator); font-size:12px; color:var(--tertiaryLabel); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="apple-touch-icon" href="_favicon.svg">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="01-home.html" class="brand">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a1a3f"/><path d="M12 40 Q12 24 32 26 L32 46 Q22 44 12 40 Z M52 40 Q52 24 32 26 L32 46 Q42 44 52 40 Z" fill="#fff"/><circle cx="32" cy="18" r="6" fill="#5ac8fa"/></svg>
+    <span>Islamic Website</span>
+  </a>
+  <div class="nav-links">
+    <a href="02-quran-index.html">Quran</a>
+    <a href="04-duas-index.html">Duas</a>
+    <a href="05-prayer-times.html">Prayer Times</a>
+    <a href="06-learn.html" aria-current="page">Learn</a>
+    <a href="08-names.html">99 Names</a>
+  </div>
+  <button class="icon-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()" aria-label="Focus mode" data-role="focus-toggle" title="Focus mode (press .)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+  </button>
+  <button class="icon-btn" onclick="document.documentElement.dataset.theme=(document.documentElement.dataset.theme==='dark'?'light':'dark')" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.03-.98-.09-1.46A5.6 5.6 0 0 1 12 3z"/></svg>
+  </button>
+</nav>
+
+<main>
+  <div class="page-head">
+    <p class="kicker">Learn</p>
+    <h1 class="page-title">The people of Islam.</h1>
+    <p class="page-lede">Biographies of the Prophets, the Ṣaḥābah, and the classical scholars — every fact cited from Bukhārī, Muslim, Ibn Hishām, adh-Dhahabī, or Ibn Kathīr. No fabrications, no folk stories.</p>
+  </div>
+
+  <div class="search-row">
+    <label class="search-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Search 32 figures — try 'Abu Bakr', 'Al-Ghazali', 'Musa'…" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="segmented" role="tablist">
+    <button aria-pressed="true" data-filter="all">All (32)</button>
+    <button aria-pressed="false" data-filter="prophets">Prophets (7)</button>
+    <button aria-pressed="false" data-filter="rashidun">The Rāshidūn (4)</button>
+    <button aria-pressed="false" data-filter="sahabah">Ṣaḥābah (8)</button>
+    <button aria-pressed="false" data-filter="imams">Imams of Fiqh (4)</button>
+    <button aria-pressed="false" data-filter="hadith">Hadith masters (5)</button>
+    <button aria-pressed="false" data-filter="scholars">Later scholars (4)</button>
+  </div>
+
+  <!-- Featured biography -->
+  <section class="feature-bio">
+    <p class="fb-kicker">Featured · Rāshidūn Caliph I</p>
+    <h3>Abū Bakr aṣ-Ṣiddīq</h3>
+    <p class="fb-arabic">أَبُو بَكْرٍ الصِّدِّيقُ</p>
+    <p class="fb-meta">
+      <span><b>Born</b> c. 573 CE, Makkah</span>
+      <span><b>Died</b> 23 Jumādā al-Ākhirah 13 AH / 634 CE, Madīnah</span>
+      <span><b>Companion of the Prophet ﷺ</b></span>
+    </p>
+    <div class="fb-body">
+      <p>ʿAbdullāh ibn Abī Quḥāfah, known by his kunyah Abū Bakr and the epithet <em>aṣ-Ṣiddīq</em> ("the Truthful"), was among the first free adult men to accept Islam. A modest cloth merchant of the Banū Taym clan of Quraysh, he was the Prophet ﷺ's closest friend before and after prophethood.</p>
+      <p>He accompanied the Prophet ﷺ on the Hijrah, hidden with him in the cave of Thawr — a moment preserved in Qur'ān 9:40. He led the ḥajj in 9 AH, and after the Prophet's death in 11 AH was elected the first caliph, holding the community together through the <em>Riddah</em> wars and initiating the compilation of the Qur'ān as one text.</p>
+      <p>His caliphate lasted only two years and three months. He was buried beside the Prophet ﷺ in ʿĀʾishah's chamber.</p>
+    </div>
+    <p class="fb-sources"><b>Sources:</b> Ṣaḥīḥ al-Bukhārī 3653–3691 (Manāqib Abī Bakr) · Ibn Hishām, <em>as-Sīrah an-Nabawiyyah</em> · adh-Dhahabī, <em>Siyar aʿlām an-nubalāʾ</em> · Ibn Kathīr, <em>al-Bidāyah wa-n-Nihāyah</em></p>
+  </section>
+
+  <!-- Prophets -->
+  <div class="section-head"><h2>Prophets (peace be upon them)</h2><span class="count">7 of 25</span></div>
+  <div class="figure-grid" id="grid">
+
+    <a class="figure-card" data-cat="prophets" data-name="adam" href="#">
+      <div class="fc-head">
+        <div class="fc-init">آ</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>Ādam (Adam)</h3>
+      <p class="fc-ar">آدَم</p>
+      <p class="fc-body">The first human and first prophet. Taught the names of all things (Q 2:31), fell from the Garden, and repented with the words Allāh Himself taught him (Q 7:23).</p>
+      <p class="fc-source">Qur'ān 2:30–39, 7:19–25 · Bukhārī 3326</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="nuh noah" href="#">
+      <div class="fc-head">
+        <div class="fc-init">ن</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>Nūḥ (Noah)</h3>
+      <p class="fc-ar">نُوح</p>
+      <p class="fc-body">Preached for 950 years (Q 29:14) before the Deluge. Called the "second Ādam" because all later humans descend from his line (Q 37:77).</p>
+      <p class="fc-source">Sūrat Nūḥ (71) · Q 11:25–49 · Bukhārī 3339</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="ibrahim abraham" href="#">
+      <div class="fc-head">
+        <div class="fc-init">إ</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>Ibrāhīm (Abraham)</h3>
+      <p class="fc-ar">إِبْرَاهِيم</p>
+      <p class="fc-body">"Khalīl Allāh" — the intimate friend of God (Q 4:125). Rebuilt the Kaʿbah with his son Ismāʿīl (Q 2:127). Progenitor of the prophetic lineage.</p>
+      <p class="fc-source">Q 2:124–141, 6:74–83, 37:83–113 · Bukhārī 3364</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="musa moses" href="#">
+      <div class="fc-head">
+        <div class="fc-init">م</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>Mūsā (Moses)</h3>
+      <p class="fc-ar">مُوسَى</p>
+      <p class="fc-body">"Kalīm Allāh" — the one to whom God spoke directly (Q 4:164). Received the Tawrāh at Mount Sinai. The Qur'ān mentions him by name more than any other prophet.</p>
+      <p class="fc-source">Sūrat Ṭāhā (20), Sūrat al-Qaṣaṣ (28) · Bukhārī 3401</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="isa jesus" href="#">
+      <div class="fc-head">
+        <div class="fc-init">ع</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>ʿĪsā ibn Maryam (Jesus)</h3>
+      <p class="fc-ar">عِيسَى ابْنُ مَرْيَم</p>
+      <p class="fc-body">Born of the Virgin Maryam by God's word (Q 3:47). Received the Injīl. Raised bodily to God (Q 4:158) and will return before the Day of Judgment.</p>
+      <p class="fc-source">Sūrat Maryam (19), Q 3:33–63, 5:110–120 · Muslim 155</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="dawud david" href="#">
+      <div class="fc-head">
+        <div class="fc-init">د</div><span class="fc-tag">Prophet</span>
+      </div>
+      <h3>Dāwūd (David)</h3>
+      <p class="fc-ar">دَاوُد</p>
+      <p class="fc-body">Prophet and king. Given the Zabūr (Psalms). Softened iron in his hands (Q 34:10). Father of Sulaymān.</p>
+      <p class="fc-source">Q 2:251, 21:78–80, 34:10–11, 38:17–26</p>
+    </a>
+
+    <a class="figure-card" data-cat="prophets" data-name="muhammad" href="#">
+      <div class="fc-head">
+        <div class="fc-init">م</div><span class="fc-tag">Seal · ﷺ</span>
+      </div>
+      <h3>Muḥammad ﷺ</h3>
+      <p class="fc-ar">مُحَمَّد ﷺ</p>
+      <p class="fc-body">The final prophet. Born in the Year of the Elephant, c. 570 CE. Received revelation over 23 years. His life is the primary lens through which every earlier prophet is remembered.</p>
+      <p class="fc-source">Ibn Hishām · Ibn Kathīr's Sīrah · the Ṣaḥīḥayn passim</p>
+    </a>
+  </div>
+
+  <!-- Rashidun -->
+  <div class="section-head"><h2>The Rāshidūn Caliphs</h2><span class="count">4</span></div>
+  <div class="figure-grid">
+
+    <a class="figure-card" data-cat="rashidun" data-name="abu bakr" href="#">
+      <div class="fc-head"><div class="fc-init">أ</div><span class="fc-tag">Caliph I</span></div>
+      <h3>Abū Bakr aṣ-Ṣiddīq</h3>
+      <p class="fc-ar">أَبُو بَكْرٍ الصِّدِّيقُ</p>
+      <p class="fc-body">c. 573 – 634 CE. First caliph. The Prophet's ﷺ companion in the cave of Thawr. Led the Riddah wars; initiated the compilation of the Qur'ān.</p>
+      <p class="fc-source">Bukhārī 3653–3691 · Ibn Kathīr, <em>Bidāyah</em> vol. 6</p>
+    </a>
+
+    <a class="figure-card" data-cat="rashidun" data-name="umar" href="#">
+      <div class="fc-head"><div class="fc-init">ع</div><span class="fc-tag">Caliph II</span></div>
+      <h3>ʿUmar ibn al-Khaṭṭāb</h3>
+      <p class="fc-ar">عُمَر بْن الْخَطَّاب</p>
+      <p class="fc-body">c. 584 – 644 CE. Second caliph. Al-Fārūq — "the one who distinguishes." Established the Hijri calendar, the ʿaṭāʾ registers, and much of the early administrative order.</p>
+      <p class="fc-source">Bukhārī 3689 · adh-Dhahabī, <em>Siyar</em> · Ibn Saʿd, <em>Ṭabaqāt</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="rashidun" data-name="uthman" href="#">
+      <div class="fc-head"><div class="fc-init">ع</div><span class="fc-tag">Caliph III</span></div>
+      <h3>ʿUthmān ibn ʿAffān</h3>
+      <p class="fc-ar">عُثْمَان بْن عَفَّان</p>
+      <p class="fc-body">c. 576 – 656 CE. Third caliph. "Dhū an-Nūrayn" — "the one of two lights" — for marrying two of the Prophet's ﷺ daughters. Standardized the muṣḥaf into the ʿUthmānī rasm still used today.</p>
+      <p class="fc-source">Bukhārī 3695–3706 · Ibn Kathīr, <em>Bidāyah</em> vol. 7</p>
+    </a>
+
+    <a class="figure-card" data-cat="rashidun" data-name="ali" href="#">
+      <div class="fc-head"><div class="fc-init">ع</div><span class="fc-tag">Caliph IV</span></div>
+      <h3>ʿAlī ibn Abī Ṭālib</h3>
+      <p class="fc-ar">عَلِي بْن أَبِي طَالِب</p>
+      <p class="fc-body">c. 600 – 661 CE. Fourth caliph. Cousin and son-in-law of the Prophet ﷺ. The first child to embrace Islam. Renowned for eloquence, judgment, and courage.</p>
+      <p class="fc-source">Bukhārī 3701 · Muslim 2404 · Nahj al-Balāghah (attrib.)</p>
+    </a>
+  </div>
+
+  <!-- Sahabah -->
+  <div class="section-head"><h2>Selected Ṣaḥābah</h2><span class="count">8 of ~15,000</span></div>
+  <div class="figure-grid">
+
+    <a class="figure-card" data-cat="sahabah" data-name="aisha" href="#">
+      <div class="fc-head"><div class="fc-init">ع</div><span class="fc-tag">Umm al-Muʾminīn</span></div>
+      <h3>ʿĀʾishah bint Abī Bakr</h3>
+      <p class="fc-ar">عَائِشَة بِنْت أَبِي بَكْر</p>
+      <p class="fc-body">c. 614 – 678 CE. Wife of the Prophet ﷺ. Transmitter of 2,210 aḥādīth. Foundational voice in fiqh, tafsīr, and Sīrah. Known as "the most jurisprudent of the ummah."</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 2 · Bukhārī <em>passim</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="khadija" href="#">
+      <div class="fc-head"><div class="fc-init">خ</div><span class="fc-tag">Umm al-Muʾminīn</span></div>
+      <h3>Khadījah bint Khuwaylid</h3>
+      <p class="fc-ar">خَدِيجَة بِنْت خُوَيْلِد</p>
+      <p class="fc-body">c. 555 – 619 CE. The Prophet's ﷺ first wife. First person to accept Islam. Merchant of Makkah. Mother of all his surviving children except Ibrāhīm.</p>
+      <p class="fc-source">Bukhārī 3820, Muslim 2432 · Ibn Hishām</p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="bilal" href="#">
+      <div class="fc-head"><div class="fc-init">ب</div><span class="fc-tag">Ṣaḥābī</span></div>
+      <h3>Bilāl ibn Rabāḥ</h3>
+      <p class="fc-ar">بِلَال بْن رَبَاح</p>
+      <p class="fc-body">c. 580 – 640 CE. Abyssinian former slave. First muʾadhdhin of Islam. Tortured under Umayyah in Makkah, freed by Abū Bakr. His voice in Madīnah is preserved in memory.</p>
+      <p class="fc-source">Bukhārī 3754 · Ibn Saʿd, <em>Ṭabaqāt</em> vol. 3</p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="abu hurairah" href="#">
+      <div class="fc-head"><div class="fc-init">أ</div><span class="fc-tag">Ṣaḥābī</span></div>
+      <h3>Abū Hurayrah</h3>
+      <p class="fc-ar">أَبُو هُرَيْرَة</p>
+      <p class="fc-body">d. 678 CE. From the Dawsī tribe. The most prolific transmitter of prophetic ḥadīth — 5,374 narrations. Accompanied the Prophet ﷺ intensely for the last three years of his life.</p>
+      <p class="fc-source">Bukhārī 3708 · adh-Dhahabī, <em>Siyar</em> vol. 2</p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="fatimah" href="#">
+      <div class="fc-head"><div class="fc-init">ف</div><span class="fc-tag">Ahl al-Bayt</span></div>
+      <h3>Fāṭimah az-Zahrāʾ</h3>
+      <p class="fc-ar">فَاطِمَة الزَّهْرَاء</p>
+      <p class="fc-body">c. 604 – 632 CE. Youngest daughter of the Prophet ﷺ, wife of ʿAlī, mother of Ḥasan and Ḥusayn. "The mistress of the women of Paradise" (Bukhārī 3624). Died six months after her father.</p>
+      <p class="fc-source">Bukhārī 3623–3624 · Muslim 2450</p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="khalid" href="#">
+      <div class="fc-head"><div class="fc-init">خ</div><span class="fc-tag">Ṣaḥābī · Commander</span></div>
+      <h3>Khālid ibn al-Walīd</h3>
+      <p class="fc-ar">خَالِد بْن الْوَلِيد</p>
+      <p class="fc-body">d. 642 CE. "Sayf Allāh al-Maslūl" — the drawn Sword of God. Undefeated commander through the Riddah wars and the conquests of ash-Shām and ʿIrāq.</p>
+      <p class="fc-source">Bukhārī 3757 · Ṭabarī, <em>Tārīkh</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="abdullah ibn abbas" href="#">
+      <div class="fc-head"><div class="fc-init">ع</div><span class="fc-tag">Ṣaḥābī · Scholar</span></div>
+      <h3>ʿAbdullāh ibn ʿAbbās</h3>
+      <p class="fc-ar">عَبْدُ اللَّه بْن عَبَّاس</p>
+      <p class="fc-body">c. 619 – 687 CE. Cousin of the Prophet ﷺ, "Ḥabr al-Ummah" — the scholar of the ummah. Foundational voice in tafsīr; the Prophet ﷺ prayed for him to be taught taʾwīl.</p>
+      <p class="fc-source">Bukhārī 75 (the duʿāʾ) · Ibn Kathīr's Muqaddimah</p>
+    </a>
+
+    <a class="figure-card" data-cat="sahabah" data-name="salman farsi" href="#">
+      <div class="fc-head"><div class="fc-init">س</div><span class="fc-tag">Ṣaḥābī</span></div>
+      <h3>Salmān al-Fārisī</h3>
+      <p class="fc-ar">سَلْمَان الْفَارِسِي</p>
+      <p class="fc-body">d. c. 656 CE. Persian by origin. Sought the truth across Zoroastrianism, Christianity, and finally Islam. Proposed the trench at the Battle of the Khandaq. "Salmān is of us, Ahl al-Bayt" (aṭ-Ṭabarānī).</p>
+      <p class="fc-source">Bukhārī 4104 · Ṭabarānī, <em>al-Muʿjam al-Kabīr</em></p>
+    </a>
+  </div>
+
+  <!-- Imams -->
+  <div class="section-head"><h2>Imams of the Four Sunnī Schools</h2><span class="count">4</span></div>
+  <div class="figure-grid">
+
+    <a class="figure-card" data-cat="imams" data-name="abu hanifa hanafi" href="#">
+      <div class="fc-head"><div class="fc-init">أ</div><span class="fc-tag">Ḥanafī</span></div>
+      <h3>Abū Ḥanīfah an-Nuʿmān</h3>
+      <p class="fc-ar">أَبُو حَنِيفَة النُّعْمَان</p>
+      <p class="fc-body">80 – 150 AH / 699 – 767 CE. Kūfah. Cloth merchant, systematic jurist. Founder of the Ḥanafī madhhab. Refused to serve as chief qāḍī and died in an Abbasid prison.</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 6 · al-Khaṭīb, <em>Tārīkh Baghdād</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="imams" data-name="malik maliki" href="#">
+      <div class="fc-head"><div class="fc-init">م</div><span class="fc-tag">Mālikī</span></div>
+      <h3>Mālik ibn Anas</h3>
+      <p class="fc-ar">مَالِك بْن أَنَس</p>
+      <p class="fc-body">93 – 179 AH / 711 – 795 CE. Madīnah. Compiler of <em>al-Muwaṭṭaʾ</em>, the earliest surviving major work of ḥadīth-fiqh. Founder of the Mālikī madhhab. Taught for 62 years.</p>
+      <p class="fc-source">al-Muwaṭṭaʾ (his own) · Qāḍī ʿIyāḍ, <em>Tartīb al-Madārik</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="imams" data-name="shafii" href="#">
+      <div class="fc-head"><div class="fc-init">ش</div><span class="fc-tag">Shāfiʿī</span></div>
+      <h3>Muḥammad ibn Idrīs ash-Shāfiʿī</h3>
+      <p class="fc-ar">الشَّافِعِي</p>
+      <p class="fc-body">150 – 204 AH / 767 – 820 CE. Gaza → Makkah → Baghdad → Egypt. Founder of uṣūl al-fiqh as a formal discipline via his <em>Risālah</em>. Student of Mālik.</p>
+      <p class="fc-source">ar-Rāzī, <em>Manāqib ash-Shāfiʿī</em> · Ibn Abī Ḥātim</p>
+    </a>
+
+    <a class="figure-card" data-cat="imams" data-name="ahmad hanbali" href="#">
+      <div class="fc-head"><div class="fc-init">أ</div><span class="fc-tag">Ḥanbalī</span></div>
+      <h3>Aḥmad ibn Ḥanbal</h3>
+      <p class="fc-ar">أَحْمَد بْن حَنْبَل</p>
+      <p class="fc-body">164 – 241 AH / 780 – 855 CE. Baghdad. Compiled the <em>Musnad</em> of 30,000+ narrations. Endured the Miḥnah under three caliphs rather than affirm the createdness of the Qur'ān.</p>
+      <p class="fc-source">Ibn al-Jawzī, <em>Manāqib al-Imām Aḥmad</em> · adh-Dhahabī, <em>Siyar</em></p>
+    </a>
+  </div>
+
+  <!-- Hadith masters -->
+  <div class="section-head"><h2>The Six Ḥadīth Compilers</h2><span class="count">5 shown</span></div>
+  <div class="figure-grid">
+
+    <a class="figure-card" data-cat="hadith" data-name="bukhari" href="#">
+      <div class="fc-head"><div class="fc-init">ب</div><span class="fc-tag">Ṣaḥīḥ al-Bukhārī</span></div>
+      <h3>Muḥammad al-Bukhārī</h3>
+      <p class="fc-ar">الْبُخَارِي</p>
+      <p class="fc-body">194 – 256 AH / 810 – 870 CE. Bukhārā (Uzbekistan). Selected 7,563 narrations from ~600,000. His <em>Ṣaḥīḥ</em> is the most authoritative book after the Qur'ān in Sunnī tradition.</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 12 · Ibn Ḥajar, <em>Hady as-Sārī</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="hadith" data-name="muslim" href="#">
+      <div class="fc-head"><div class="fc-init">م</div><span class="fc-tag">Ṣaḥīḥ Muslim</span></div>
+      <h3>Muslim ibn al-Ḥajjāj</h3>
+      <p class="fc-ar">مُسْلِم بْن الْحَجَّاج</p>
+      <p class="fc-body">c. 202 – 261 AH / 817 – 875 CE. Nīshāpūr. Student of Bukhārī. His <em>Ṣaḥīḥ</em> is arranged thematically and second only to Bukhārī's in authority.</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 12 · an-Nawawī's <em>Muqaddimah</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="hadith" data-name="abu dawud" href="#">
+      <div class="fc-head"><div class="fc-init">أ</div><span class="fc-tag">Sunan</span></div>
+      <h3>Abū Dāwūd as-Sijistānī</h3>
+      <p class="fc-ar">أَبُو دَاوُد</p>
+      <p class="fc-body">202 – 275 AH / 817 – 889 CE. Baṣrah. Compiler of <em>Sunan Abī Dāwūd</em>, focused on legal ḥadīth. One of the "Kutub as-Sittah."</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 13</p>
+    </a>
+
+    <a class="figure-card" data-cat="hadith" data-name="tirmidhi" href="#">
+      <div class="fc-head"><div class="fc-init">ت</div><span class="fc-tag">Jāmiʿ</span></div>
+      <h3>Muḥammad at-Tirmidhī</h3>
+      <p class="fc-ar">التِّرْمِذِي</p>
+      <p class="fc-body">c. 209 – 279 AH / 824 – 892 CE. Termez (Uzbekistan). Author of <em>al-Jāmiʿ</em>, which grades each ḥadīth (ṣaḥīḥ, ḥasan, ḍaʿīf) — a first in the genre.</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 13</p>
+    </a>
+
+    <a class="figure-card" data-cat="hadith" data-name="nasai" href="#">
+      <div class="fc-head"><div class="fc-init">ن</div><span class="fc-tag">Sunan</span></div>
+      <h3>Aḥmad an-Nasāʾī</h3>
+      <p class="fc-ar">النَّسَائِي</p>
+      <p class="fc-body">c. 215 – 303 AH / 830 – 915 CE. Nasā (Khurāsān). His <em>Sunan al-Kubrā</em> and its abridgement <em>al-Mujtabā</em> are among the strictest of the Six Books.</p>
+      <p class="fc-source">adh-Dhahabī, <em>Siyar</em> vol. 14</p>
+    </a>
+  </div>
+
+  <!-- Later scholars -->
+  <div class="section-head"><h2>Later scholars</h2><span class="count">4</span></div>
+  <div class="figure-grid">
+
+    <a class="figure-card" data-cat="scholars" data-name="ghazali" href="#">
+      <div class="fc-head"><div class="fc-init">غ</div><span class="fc-tag">Ḥujjat al-Islām</span></div>
+      <h3>Abū Ḥāmid al-Ghazālī</h3>
+      <p class="fc-ar">الْغَزَالِي</p>
+      <p class="fc-body">450 – 505 AH / 1058 – 1111 CE. Ṭūs → Baghdad → Damascus. Author of <em>Iḥyāʾ ʿUlūm ad-Dīn</em>. Bridged fiqh, kalām, and taṣawwuf.</p>
+      <p class="fc-source">as-Subkī, <em>Ṭabaqāt ash-Shāfiʿiyyah</em> vol. 6</p>
+    </a>
+
+    <a class="figure-card" data-cat="scholars" data-name="ibn taymiyyah" href="#">
+      <div class="fc-head"><div class="fc-init">ت</div><span class="fc-tag">Shaykh al-Islām</span></div>
+      <h3>Ibn Taymiyyah</h3>
+      <p class="fc-ar">ابْن تَيْمِيَّة</p>
+      <p class="fc-body">661 – 728 AH / 1263 – 1328 CE. Ḥarrān → Damascus. Reformer and prolific writer. His <em>Majmūʿ al-Fatāwā</em> spans 37 volumes. Died in the Damascus citadel.</p>
+      <p class="fc-source">Ibn Kathīr, <em>Bidāyah</em> vol. 14</p>
+    </a>
+
+    <a class="figure-card" data-cat="scholars" data-name="ibn kathir" href="#">
+      <div class="fc-head"><div class="fc-init">ك</div><span class="fc-tag">Mufassir · Historian</span></div>
+      <h3>Ibn Kathīr</h3>
+      <p class="fc-ar">ابْن كَثِير</p>
+      <p class="fc-body">c. 700 – 774 AH / 1300 – 1373 CE. Boṣrā → Damascus. Student of Ibn Taymiyyah. Author of the widely read <em>Tafsīr al-Qurʾān al-ʿAẓīm</em> and <em>al-Bidāyah wa-n-Nihāyah</em>.</p>
+      <p class="fc-source">Ibn Ḥajar, <em>ad-Durar al-Kāminah</em></p>
+    </a>
+
+    <a class="figure-card" data-cat="scholars" data-name="nawawi" href="#">
+      <div class="fc-head"><div class="fc-init">ن</div><span class="fc-tag">Muḥaddith · Faqīh</span></div>
+      <h3>Yaḥyā an-Nawawī</h3>
+      <p class="fc-ar">النَّوَوِي</p>
+      <p class="fc-body">631 – 676 AH / 1233 – 1277 CE. Nawā (Syria) → Damascus. Author of <em>al-Arbaʿīn</em> (the Forty Ḥadīth), <em>Riyāḍ aṣ-Ṣāliḥīn</em>, and the commentary on Ṣaḥīḥ Muslim. Died at 44.</p>
+      <p class="fc-source">as-Sakhāwī, <em>at-Tarjamah</em> · adh-Dhahabī</p>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <p style="font-weight:600;color:var(--label)">Islamic Website</p>
+      <p style="margin-top:6px;line-height:1.5">Free forever. Every fact cites a classical source. No tracking, no accounts, works offline.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <a href="02-quran-index.html">Quran</a><a href="04-duas-index.html">Duas</a><a href="08-names.html">99 Names</a><a href="#">Hadith</a>
+    </div>
+    <div>
+      <h4>Practice</h4>
+      <a href="05-prayer-times.html">Prayer times</a><a href="#">Qibla</a><a href="#">Learn Salah</a><a href="#">Tools</a>
+    </div>
+    <div>
+      <h4>Around</h4>
+      <a href="06-learn.html">Learn</a><a href="#">Sources</a><a href="#">Privacy</a><a href="#">EN · ID</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>Sources: Bukhārī · Muslim · Ibn Hishām · adh-Dhahabī · Ibn Kathīr · classical ṭabaqāt works</span>
+    <span>© 1448 AH / 2026 CE</span>
+  </div>
+</footer>
+
+<script src="_focus.js" defer></script>
+<script>
+// Segmented filter + search
+const grid = document.querySelectorAll('.figure-card');
+const segButtons = document.querySelectorAll('.segmented button');
+const q = document.getElementById('q');
+let currentFilter = 'all';
+
+function applyFilter(){
+  const query = (q.value || '').trim().toLowerCase();
+  grid.forEach(card => {
+    const cat = card.dataset.cat || '';
+    const name = (card.dataset.name || '') + ' ' + (card.textContent || '');
+    const matchesCat = currentFilter === 'all' || cat === currentFilter;
+    const matchesQ = !query || name.toLowerCase().includes(query);
+    card.classList.toggle('hidden', !(matchesCat && matchesQ));
+  });
+}
+segButtons.forEach(b => b.addEventListener('click', () => {
+  segButtons.forEach(x => x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');
+  currentFilter = b.dataset.filter;
+  applyFilter();
+}));
+q.addEventListener('input', applyFilter);
+</script>
+</body>
+</html>

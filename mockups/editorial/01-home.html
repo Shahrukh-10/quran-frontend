@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Direction C · Editorial / Magazine — Islamic Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f8f6f1; --ink:#111; --ink-2:#333; --dim:#6b6b66;
+  --accent:#2d5016; /* forest green */
+  --accent-warm:#8b0000; /* classical red - reserved for kickers */
+  --line:#111;
+  --line-hair:#c9c4b8;
+  --serif:'Fraunces',ui-serif,Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --sans:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
+  --arabic:'Amiri Quran',serif;
+  --bg:var(--paper); --text:var(--ink);
+}
+[data-theme="dark"]{
+  --paper:#1a1a1a; --ink:#e8e2d5; --ink-2:#c2bdae; --dim:#8a857a;
+  --line:#e8e2d5; --line-hair:#3a3630;
+  --accent:#a8c48a; --accent-warm:#e5a5a5;
+  --bg:var(--paper); --text:var(--ink);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1,"pnum" 1,"kern" 1,"liga" 1}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--text);color:var(--bg)}
+
+/* Masthead */
+.masthead{max-width:1200px;margin:0 auto;padding:32px 40px 24px;border-bottom:2px solid var(--line);text-align:center;position:relative}
+.masthead-top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.masthead-top a{transition:color .2s}
+.masthead-top a:hover{color:var(--text)}
+.masthead-title{font-family:var(--serif);font-weight:900;font-size:clamp(56px,10vw,120px);
+  letter-spacing:-.04em;line-height:.9;font-variation-settings:"opsz" 144}
+.masthead-title em{font-style:italic;font-weight:400;font-variation-settings:"opsz" 144}
+.masthead-dateline{display:flex;justify-content:space-between;font-family:var(--sans);
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:24px;padding-top:14px;
+  border-top:1px solid var(--line-hair);flex-wrap:wrap;gap:12px}
+.masthead-nav{padding:14px 0;border-top:1px solid var(--line-hair);border-bottom:1px solid var(--line-hair);
+  margin-top:14px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.masthead-nav a{transition:color .2s;font-weight:500}
+.masthead-nav a:hover{color:var(--accent)}
+.masthead-nav .theme-toggle{border:none;cursor:pointer;color:var(--dim);letter-spacing:.16em;font-size:12px;text-transform:uppercase;padding:0}
+.masthead-nav .theme-toggle:hover{color:var(--accent)}
+
+/* Container */
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* Feature article */
+.feature{padding:80px 0 60px;border-bottom:1px solid var(--line-hair);text-align:center}
+.kicker{font-family:var(--sans);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-warm);margin-bottom:24px;font-weight:500}
+.headline{font-family:var(--serif);font-weight:400;font-size:clamp(52px,8.5vw,108px);letter-spacing:-.03em;
+  line-height:.95;margin-bottom:24px;font-variation-settings:"opsz" 144}
+.headline em{font-style:italic}
+.dek{font-family:var(--body);font-style:italic;font-size:clamp(20px,2vw,26px);color:var(--ink-2);
+  max-width:720px;margin:0 auto 32px;line-height:1.4;font-weight:400}
+.byline{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:56px}
+.byline b{color:var(--text);font-weight:500}
+
+.feature-quote{padding:56px 0 40px;max-width:900px;margin:0 auto}
+.feature-arabic{font-family:var(--arabic);font-size:clamp(30px,4vw,52px);direction:rtl;line-height:2;
+  text-align:center;color:var(--text);margin-bottom:40px}
+.feature-translit{font-family:var(--body);font-style:italic;font-size:20px;color:var(--dim);
+  text-align:center;line-height:1.7;margin-bottom:8px;letter-spacing:.01em}
+.feature-en{font-family:var(--body);font-size:22px;font-style:italic;line-height:1.55;text-align:center;
+  max-width:640px;margin:0 auto 32px;color:var(--ink-2)}
+.pull-cite{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);text-align:center;margin-bottom:56px}
+
+.reflection{max-width:680px;margin:0 auto;text-align:left;font-size:20px;line-height:1.65;color:var(--ink-2)}
+.reflection::first-letter{font-family:var(--serif);font-style:italic;font-weight:400;font-size:5.4em;line-height:.85;
+  float:left;padding:8px 12px 0 0;color:var(--text);font-variation-settings:"opsz" 144}
+.reflection p+p{margin-top:1em;text-indent:2em}
+
+.rule-fancy{display:flex;align-items:center;justify-content:center;gap:16px;padding:56px 0 0;color:var(--dim)}
+.rule-fancy::before,.rule-fancy::after{content:"";width:80px;height:1px;background:currentColor}
+.rule-fancy span{font-family:var(--serif);font-style:italic;font-size:22px}
+
+/* Three-column layout */
+.three-col{padding:60px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
+  border-bottom:1px solid var(--line-hair)}
+@media (max-width:900px){.three-col{grid-template-columns:1fr;gap:56px}}
+.col-head{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-warm);margin-bottom:12px;font-weight:500}
+.col-title{font-family:var(--serif);font-weight:500;font-size:32px;letter-spacing:-.015em;line-height:1.05;margin-bottom:20px}
+.col-title em{font-style:italic;font-weight:400}
+.col-lede{font-family:var(--body);font-style:italic;font-size:17px;color:var(--dim);margin-bottom:24px;line-height:1.5}
+
+/* Column 1 - Surah index */
+.surah-index{list-style:none;font-family:var(--body);font-size:17px}
+.surah-index li{display:grid;grid-template-columns:2ch 1fr auto;gap:16px;padding:10px 0;
+  border-bottom:1px dotted var(--line-hair);align-items:baseline}
+.surah-index .num{font-variant-numeric:oldstyle-nums;color:var(--dim);font-size:15px}
+.surah-index .name{font-weight:500}
+.surah-index .ar{font-family:var(--arabic);font-size:17px;color:var(--dim);direction:rtl;font-weight:400}
+
+/* Column 2 - Prayer times */
+.prayer-table{font-family:var(--body);font-size:17px;width:100%;border-collapse:collapse;margin-top:0}
+.prayer-table caption{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:8px;text-align:left}
+.prayer-table th,.prayer-table td{padding:10px 0;text-align:left;border-bottom:1px dotted var(--line-hair)}
+.prayer-table th{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.prayer-table td.time{text-align:right;font-variant-numeric:oldstyle-nums;font-weight:500;font-size:19px}
+.prayer-table tr.active td{color:var(--accent);font-weight:500}
+.prayer-note{font-family:var(--body);font-style:italic;font-size:14px;color:var(--dim);margin-top:16px}
+.prayer-note b{font-style:normal;color:var(--text);font-weight:500}
+
+/* Column 3 - Dua feature */
+.dua-feature{}
+.dua-arabic{font-family:var(--arabic);font-size:26px;direction:rtl;line-height:1.8;color:var(--text);margin-bottom:20px}
+.dua-translit{font-family:var(--body);font-style:italic;font-size:16px;color:var(--dim);line-height:1.55;margin-bottom:12px}
+.dua-en{font-family:var(--body);font-size:17px;line-height:1.55;margin-bottom:14px}
+.dua-when{font-family:var(--body);font-style:italic;font-size:14px;color:var(--dim);line-height:1.55}
+.dua-source{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:14px;padding-top:10px;border-top:1px solid var(--line-hair)}
+
+/* Colophon / footer */
+.colophon{padding:60px 40px 40px;max-width:900px;margin:0 auto;text-align:center;font-family:var(--body);font-size:15px;color:var(--dim);line-height:1.6}
+.colophon-title{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:24px;font-weight:500}
+.colophon p{margin-bottom:14px;max-width:680px;margin-left:auto;margin-right:auto;font-style:italic}
+.colophon p b{font-style:normal;color:var(--text);font-weight:500;letter-spacing:.02em}
+.colophon-nav{margin-top:32px;padding-top:24px;border-top:1px solid var(--line-hair);display:flex;justify-content:center;gap:32px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.colophon-nav a{color:var(--dim);transition:color .2s}
+.colophon-nav a:hover{color:var(--text)}
+
+.copyright{padding:24px 40px 40px;text-align:center;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Vol. I · No. 001</span>
+    <span>Rabīʿ al-Awwal 15, 1448 AH · September 18, 2026 CE</span>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+  <h1 class="masthead-title">The <em>Ummah</em> Review</h1>
+  <div class="masthead-dateline">
+    <span>Founded 1448 AH</span>
+    <span>Free for the ummah. No tracking. No accounts.</span>
+    <span>Issue: Verse of the Day</span>
+  </div>
+  <nav class="masthead-nav">
+    <a href="#">The Qur'ān</a>
+    <a href="#">Duʿās</a>
+    <a href="#">Prayer Times</a>
+    <a href="#">Learn Ṣalāh</a>
+    <a href="#">99 Names</a>
+    <a href="#">Calendar</a>
+    <a href="#">Almanac</a>
+    <a href="#">Colophon</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- Feature article: The Verse of the Day -->
+<article class="feature container">
+  <p class="kicker">The Verse of the Day · Al-Baqarah 2:255</p>
+  <h2 class="headline">The <em>Throne</em> Verse</h2>
+  <p class="dek">Perhaps the most-recited single verse of the Qur'ān — on protection, wakefulness, and the incomparability of God.</p>
+  <p class="byline">A translation with notes · By <b>the editors</b></p>
+
+  <div class="feature-quote">
+    <p class="feature-arabic">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ</p>
+    <p class="feature-translit">Allāhu lā ilāha illā huwal-ḥayyul-qayyūm · lā ta'khudhuhu sinatun wa lā nawm.</p>
+    <p class="feature-en">"Allāh — there is no god but Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him, nor sleep."</p>
+    <p class="pull-cite">— Translation: Ṣaḥīḥ International</p>
+  </div>
+
+  <div class="reflection">
+    <p>Of the six thousand two hundred and thirty-six āyāt of the Qur'ān, no single verse is recited more often than this one. It is said after every obligatory prayer. It is whispered before sleep. It is written on doorposts, on amulets, on the covers of children's books. Its density is astonishing: a full theology folded into a single arc of grammar.</p>
+    <p>What returns, again and again, is the negation. "There is no god" — and then the exception. The verse refuses easy analogies. It does not compare God to a king (though God is sovereign), nor to a father (though God is compassionate). It compares God to nothing at all, because nothing is comparable. What is offered instead is a series of attributes — Living, Sustaining, unforgetful, unslumbering, unwearied — that the reciter is invited not to grasp but to sit inside. To recite the verse is, in this small way, to rest.</p>
+  </div>
+</article>
+
+<div class="rule-fancy container" aria-hidden="true"><span>&#10086;</span></div>
+
+<!-- Three-column layout -->
+<section class="three-col container">
+
+  <!-- Column 1: Read the Qur'an -->
+  <div>
+    <p class="col-head">Section I</p>
+    <h3 class="col-title">Read the <em>Qur'ān</em></h3>
+    <p class="col-lede">All 114 surahs, verse-by-verse, offline. Every ayah is its own page and permanent URL.</p>
+    <ul class="surah-index">
+      <li><span class="num">1.</span><span class="name">Al-Fātiḥah <span style="color:var(--dim);font-size:14px">· The Opening</span></span><span class="ar">ٱلْفَاتِحَة</span></li>
+      <li><span class="num">2.</span><span class="name">Al-Baqarah <span style="color:var(--dim);font-size:14px">· The Cow</span></span><span class="ar">ٱلْبَقَرَة</span></li>
+      <li><span class="num">18.</span><span class="name">Al-Kahf <span style="color:var(--dim);font-size:14px">· The Cave</span></span><span class="ar">ٱلْكَهْف</span></li>
+      <li><span class="num">36.</span><span class="name">Yā-Sīn <span style="color:var(--dim);font-size:14px">· Yā-Sīn</span></span><span class="ar">يس</span></li>
+      <li><span class="num">55.</span><span class="name">Ar-Raḥmān <span style="color:var(--dim);font-size:14px">· The Merciful</span></span><span class="ar">ٱلرَّحْمَٰن</span></li>
+      <li><span class="num">67.</span><span class="name">Al-Mulk <span style="color:var(--dim);font-size:14px">· The Sovereignty</span></span><span class="ar">ٱلْمُلْك</span></li>
+    </ul>
+    <p style="font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-top:24px;padding-top:14px;border-top:1px solid var(--line-hair)"><a href="#" style="color:var(--accent);border-bottom:1px solid var(--accent)">The full table of contents →</a></p>
+  </div>
+
+  <!-- Column 2: Today's Prayer Times -->
+  <div>
+    <p class="col-head">Section II</p>
+    <h3 class="col-title">Today's <em>ṣalāt</em></h3>
+    <p class="col-lede">Computed on your device. London, GMT. Method: Muslim World League. Never sent anywhere.</p>
+    <table class="prayer-table">
+      <tr><th>Prayer</th><th style="text-align:right">Time</th></tr>
+      <tr><td>Fajr</td><td class="time">5:23</td></tr>
+      <tr><td style="color:var(--dim)">Sunrise</td><td class="time" style="color:var(--dim)">6:52</td></tr>
+      <tr><td>Ẓuhr</td><td class="time">12:34</td></tr>
+      <tr><td>ʿAṣr</td><td class="time">15:41</td></tr>
+      <tr class="active"><td>Maghrib</td><td class="time">18:16</td></tr>
+      <tr><td>ʿIshāʾ</td><td class="time">19:44</td></tr>
+    </table>
+    <p class="prayer-note">Next: <b>Maghrib</b>, in 2 hours 41 minutes. Ḥanafī ʿaṣr times shift approximately 45 minutes later.</p>
+  </div>
+
+  <!-- Column 3: Dua of the week -->
+  <div>
+    <p class="col-head">Section III</p>
+    <h3 class="col-title">A <em>duʿā</em> from<br>this week</h3>
+    <p class="col-lede">Sayyid al-Istighfār — the master of seeking forgiveness. To be said in the morning and evening.</p>
+    <div class="dua-feature">
+      <p class="dua-arabic">اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ</p>
+      <p class="dua-translit">Allāhumma anta rabbī, lā ilāha illā ant, khalaqtanī wa anā ʿabduk…</p>
+      <p class="dua-en">"O Allāh, You are my Lord — there is no god but You. You created me and I am Your servant…"</p>
+      <p class="dua-when">Whoever recites it with certainty in the morning and dies that day, enters Paradise; likewise for the evening.</p>
+      <p class="dua-source">— Ṣaḥīḥ al-Bukhārī 6306</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Colophon -->
+<section class="colophon">
+  <p class="colophon-title">A Colophon</p>
+  <p>This work is a small, non-commercial effort to gather the Qur'ān, the sunnah of daily duʿā, and the essentials of Muslim practice in one careful place. No advertisements are shown. No account is required. Nothing is tracked. If a claim cannot be sourced, it does not appear.</p>
+  <p>Set in <b>Fraunces</b> for the display, <b>Newsreader</b> for the body, and <b>Amiri Quran</b> for the Arabic. Sourced from Tanzil, Al-Quran Cloud, Sunnah.com, and Aladhan. Reviewed before publishing.</p>
+  <div class="colophon-nav">
+    <a href="#">Editorial policy</a>
+    <a href="#">Sources</a>
+    <a href="#">Privacy</a>
+    <a href="#">Contact the editors</a>
+    <a href="#">EN · ID</a>
+  </div>
+</section>
+
+<div class="copyright">© 1448 AH · 2026 CE — Free forever · Direction C · Editorial / Quiet Luxury</div>
+
+<script>
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme=h.dataset.theme==='light'?'dark':'light';
+}
+if(matchMedia('(prefers-color-scheme: dark)').matches){
+  document.documentElement.dataset.theme='dark';
+}
+</script>
+</body>
+</html>

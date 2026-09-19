@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Quran, offline · Islamic Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+/* -----------------------------------------------------------
+   Islamic Website · Apple HIG mockup
+   color.md › System colors — hard-coded here for the mockup;
+   in a real Apple app these would be resolved via UIColor / Color.
+   typography.md › Ensuring legibility — SF Pro Text / Display via
+   the system font stack; Amiri Quran ONLY for Quran verses.
+   liquid-glass.md › The two layers — glass reserved for the
+   functional layer (nav + audio bar). Content cards use plain
+   surfaces, per liquid-glass.md › Where the material belongs.
+   ----------------------------------------------------------- */
+:root {
+  /* iOS light-mode system colors (color.md › System colors) */
+  --systemBackground: #ffffff;
+  --secondarySystemBackground: #f2f2f7;
+  --tertiarySystemBackground: #ffffff;
+  --systemGroupedBackground: #f2f2f7;
+  --secondarySystemGroupedBackground: #ffffff;
+  --tertiarySystemGroupedBackground: #f2f2f7;
+
+  --label: #000000;
+  --secondaryLabel: rgba(60,60,67,.60);
+  --tertiaryLabel: rgba(60,60,67,.30);
+  --quaternaryLabel: rgba(60,60,67,.18);
+
+  --separator: rgba(60,60,67,.29);
+  --opaqueSeparator: #c6c6c8;
+  --fill: rgba(120,120,128,.20);
+  --secondaryFill: rgba(120,120,128,.16);
+  --tertiaryFill: rgba(118,118,128,.12);
+  --quaternaryFill: rgba(116,116,128,.08);
+
+  /* system tints */
+  --systemBlue: #007aff;
+  --systemBlueHover: #0060df;
+  --systemGreen: #34c759;
+  --systemRed: #ff3b30;
+  --systemOrange: #ff9500;
+  --systemIndigo: #5856d6;
+  --systemGray: #8e8e93;
+
+  /* Liquid Glass fallback tints (liquid-glass.md › Color on glass) */
+  --glassBg: rgba(255,255,255,.72);
+  --glassBorder: rgba(60,60,67,.18);
+
+  /* motion (subtle spring per HIG) */
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* radii on 8pt system (layout.md › Best practices) */
+  --r-lg: 8px;    /* buttons */
+  --r-xl: 12px;   /* small cards */
+  --r-2xl: 16px;  /* larger cards */
+  --r-3xl: 24px;  /* hero surfaces */
+
+  /* typography stack: system for everything Latin (typography.md) */
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-arabic-ui: -apple-system, 'SF Arabic', 'Geeza Pro', 'Arabic UI Text', 'Amiri', serif;
+  --font-quran: 'Amiri Quran', 'Amiri', 'SF Arabic', serif;
+}
+
+/* Dark appearance (color.md › System colors — dark variants) */
+[data-theme="dark"] {
+  --systemBackground: #000000;
+  --secondarySystemBackground: #1c1c1e;
+  --tertiarySystemBackground: #2c2c2e;
+  --systemGroupedBackground: #000000;
+  --secondarySystemGroupedBackground: #1c1c1e;
+  --tertiarySystemGroupedBackground: #2c2c2e;
+
+  --label: #ffffff;
+  --secondaryLabel: rgba(235,235,245,.60);
+  --tertiaryLabel: rgba(235,235,245,.30);
+  --quaternaryLabel: rgba(235,235,245,.18);
+
+  --separator: rgba(84,84,88,.65);
+  --opaqueSeparator: #38383a;
+  --fill: rgba(120,120,128,.36);
+  --secondaryFill: rgba(120,120,128,.32);
+  --tertiaryFill: rgba(118,118,128,.24);
+  --quaternaryFill: rgba(118,118,128,.18);
+
+  --systemBlue: #0a84ff;
+  --systemBlueHover: #409cff;
+  --systemGreen: #30d158;
+  --systemRed: #ff453a;
+  --systemOrange: #ff9f0a;
+  --systemIndigo: #5e5ce6;
+  --systemGray: #98989d;
+
+  --glassBg: rgba(0,0,0,.60);
+  --glassBorder: rgba(255,255,255,.10);
+}
+
+/* Reset — restrained */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  /* typography.md › Ensuring legibility — 17pt default body on iOS */
+  font-size: 17px;
+  line-height: 1.47;
+  color: var(--label);
+  background: var(--systemBackground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: transparent; border: 0; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+/* Focus ring — accessibility.md */
+:focus-visible {
+  outline: 2px solid var(--systemBlue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   Sticky navigation bar — the ONE glass surface at the top
+   liquid-glass.md › The two layers (functional layer)
+   toolbars.md › Reduce use of toolbar backgrounds
+   ----------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(16px, env(safe-area-inset-left)) 0 max(16px, env(safe-area-inset-right));
+  background: var(--glassBg);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
+  border-bottom: 0.5px solid var(--separator);
+}
+.nav__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nav__brand {
+  font-family: var(--font-system);
+  font-size: 15px;         /* typography.md › headline size on iOS */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--label);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__brand-mark {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: var(--systemBlue);
+  display: inline-grid; place-items: center;
+  color: #fff; font-size: 12px; font-weight: 700;
+  letter-spacing: 0;
+}
+.nav__links {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.nav__link {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondaryLabel);
+  border-radius: 6px;
+  transition: color .18s var(--spring), background .18s var(--spring);
+}
+.nav__link:hover { color: var(--label); background: var(--tertiaryFill); }
+.nav__link[aria-current="page"] { color: var(--label); }
+
+.nav__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon button — rounded-full applies ONLY to icon-only buttons (per brief) */
+.icon-btn {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  border-radius: 999px;
+  display: inline-grid; place-items: center;
+  color: var(--label);
+  transition: background .18s var(--spring);
+}
+.icon-btn:hover { background: var(--tertiaryFill); }
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 1.75; }
+
+/* Mobile: collapse center links */
+@media (max-width: 720px) {
+  .nav__links { display: none; }
+  .nav__inner { grid-template-columns: 1fr auto; }
+  .nav__brand-full { display: none; }
+}
+
+/* -----------------------------------------------------------
+   Buttons (buttons.md › Style + Role)
+   ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;   /* buttons.md › 44x44pt minimum */
+  padding: 10px 20px;
+  border-radius: var(--r-lg);
+  font-family: var(--font-system);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform .12s var(--spring), background .18s var(--spring), border-color .18s var(--spring), opacity .18s var(--spring);
+  will-change: transform;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--systemBlue);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--systemBlueHover); }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--label);
+  border: 1px solid var(--separator);
+}
+.btn--secondary:hover { background: var(--tertiaryFill); }
+
+.btn--tertiary {
+  background: var(--tertiaryFill);
+  color: var(--label);
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 15px;
+  border-radius: var(--r-lg);
+}
+.btn--tertiary:hover { background: var(--secondaryFill); }
+
+/* -----------------------------------------------------------
+   Containers & type utilities
+   layout.md › Safe area margins
+   ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container--narrow { max-width: 760px; }
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.section-title {
+  font-family: var(--font-system);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.section-caption {
+  font-size: 15px;
+  color: var(--secondaryLabel);
+  margin: 0 0 20px;
+}
+
+/* -----------------------------------------------------------
+   Footer — plain, no glass (per brief)
+   ----------------------------------------------------------- */
+.footer {
+  margin-top: 80px;
+  background: var(--systemGroupedBackground);
+  border-top: 0.5px solid var(--separator);
+  padding: 48px 0 32px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.footer__col h4 {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer__col a { font-size: 14px; color: var(--label); }
+.footer__col a:hover { color: var(--systemBlue); }
+.footer__copy {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 0.5px solid var(--separator);
+  font-size: 12px;
+  color: var(--tertiaryLabel);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+}
+@media (max-width: 720px) {
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Utility */
+.hstack { display: flex; align-items: center; gap: 8px; }
+.vstack { display: flex; flex-direction: column; gap: 8px; }
+.spacer { flex: 1; }
+
+/* Prefers-reduced-motion (accessibility.md) */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<style>
+/* -----------------------------------------------------------
+   Home page — specific styles
+   ----------------------------------------------------------- */
+
+/* Hero — restraint, no gradient mesh (per brief / color.md) */
+.hero {
+  position: relative;
+  padding: 96px 0 72px;
+  overflow: hidden;
+}
+.hero__bg {
+  /* Very soft Basmala texture at 15% opacity — the ONE bg ornament */
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__bg span {
+  font-family: var(--font-quran);
+  font-size: clamp(180px, 32vw, 480px);
+  color: var(--label);
+  opacity: 0.06;
+  line-height: 1;
+  white-space: nowrap;
+  direction: rtl;
+}
+.hero__inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; text-align: center; }
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.hero__title {
+  /* typography.md › Avoid light font weights; 700 is fine for display */
+  font-family: var(--font-system);
+  font-weight: 700;
+  font-size: clamp(54px, 8vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  color: var(--label);
+}
+.hero__subtitle {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--secondaryLabel);
+  margin: 0 auto 32px;
+  max-width: 560px;
+}
+.hero__ctas { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+@media (max-width: 520px) {
+  .hero { padding: 64px 0 48px; }
+  .hero__title { font-size: 44px; }
+  .hero__subtitle { font-size: 17px; }
+}
+
+/* Section wrapper */
+.section { padding: 56px 0; }
+.section__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 20px; gap: 16px;
+}
+.section__head h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.section__head p { margin: 4px 0 0; color: var(--secondaryLabel); font-size: 15px; }
+.section__link {
+  color: var(--systemBlue);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Horizontal-scroll card rail — Featured surahs */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 260px);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 20px 12px;
+  margin: 0 -20px;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+
+.surah-card {
+  scroll-snap-align: start;
+  background: var(--secondarySystemGroupedBackground);
+  border-radius: var(--r-2xl);
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  min-height: 180px;
+  border: 0.5px solid var(--separator);
+  transition: transform .2s var(--spring);
+}
+.surah-card:hover { transform: translateY(-2px); }
+.surah-card__num {
+  font-size: 13px; font-weight: 600;
+  color: var(--systemBlue);
+  letter-spacing: 0.02em;
+}
+.surah-card__arabic {
+  font-family: var(--font-quran);
+  font-size: 32px;
+  color: var(--label);
+  line-height: 1;
+  direction: rtl;
+  margin: 4px 0;
+}
+.surah-card__name { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.surah-card__meta { font-size: 13px; color: var(--secondaryLabel); margin-top: auto; }
+
+/* Prayer widget */
+.prayer-card {
+  background: var(--secondarySystemGroupedBackground);
+  border: 0.5px solid var(--separator);
+  border-radius: var(--r-2xl);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+.prayer-card__label { font-size: 13px; color: var(--secondaryLabel); font-weight: 500; }
+.prayer-card__next {
+  margin-top: 4px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.prayer-card__accent { color: var(--systemBlue); }
+.prayer-card__sub { font-size: 15px; color: var(--secondaryLabel); margin-top: 2px; }
+.prayer-card__times {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0,1fr));
+  gap: 8px;
+  min-width: 0;
+}
+.prayer-card__tile {
+  padding: 10px 8px;
+  border-radius: var(--r-xl);
+  background: var(--tertiaryFill);
+  text-align: center;
+  min-width: 56px;
+}
+.prayer-card__tile[aria-current="true"] {
+  background: var(--systemBlue);
+  color: #fff;
+}
+.prayer-card__tile-name { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--secondaryLabel); }
+.prayer-card__tile[aria-current="true"] .prayer-card__tile-name { color: rgba(255,255,255,.75); }
+.prayer-card__tile-time { font-size: 13px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+@media (max-width: 820px) {
+  .prayer-card { grid-template-columns: 1fr; }
+  .prayer-card__times { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* How it works — three-column list */
+.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.how__item {
+  padding: 24px;
+  background: var(--secondarySystemGroupedBackground);
+  border: 0.5px solid var(--separator);
+  border-radius: var(--r-2xl);
+}
+.how__num {
+  width: 28px; height: 28px; border-radius: 999px;
+  background: var(--tertiaryFill);
+  display: grid; place-items: center;
+  font-size: 13px; font-weight: 600; color: var(--label);
+  margin-bottom: 12px;
+}
+.how__title { font-size: 17px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+.how__body { font-size: 15px; color: var(--secondaryLabel); line-height: 1.47; margin: 0; }
+@media (max-width: 820px) { .how { grid-template-columns: 1fr; } }
+
+/* Feature grid — 8 items */
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 820px) { .features { grid-template-columns: repeat(2, 1fr); } }
+.feature {
+  padding: 20px;
+  background: var(--secondarySystemGroupedBackground);
+  border: 0.5px solid var(--separator);
+  border-radius: var(--r-xl);
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 116px;
+  transition: transform .2s var(--spring), background .2s var(--spring);
+}
+.feature:hover { transform: translateY(-1px); background: var(--tertiarySystemGroupedBackground); }
+.feature__icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(0,122,255,.10);
+  color: var(--systemBlue);
+  display: grid; place-items: center;
+}
+.feature__icon svg { width: 18px; height: 18px; stroke-width: 1.75; }
+.feature__title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.feature__caption { font-size: 13px; color: var(--secondaryLabel); }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="apple-touch-icon" href="_favicon.svg">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a class="nav__brand" href="01-home.html" aria-label="Islamic Website — Home">
+      <span class="nav__brand-mark" aria-hidden="true">ك</span>
+      <span class="nav__brand-full">Islamic Website</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link " href="02-quran-index.html">Quran</a>
+      <a class="nav__link " href="04-duas-index.html">Duas</a>
+      <a class="nav__link " href="05-prayer-times.html">Prayer Times</a>
+      <a class="nav__link" href="#">Learn Salah</a>
+      <a class="nav__link" href="#">99 Names</a>
+    </nav>
+    <div class="nav__right">
+      
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle appearance" title="Toggle appearance">
+        <!-- Sun symbol (visible in light mode) — lucide-style -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero: restraint, single soft Basmala background at 6% opacity (color.md › Best practices) -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"><span>بِسْمِ ٱللَّهِ</span></div>
+    <div class="container hero__inner">
+      <span class="hero__eyebrow">Free · Sourced · Zero tracking</span>
+      <h1 class="hero__title">The Quran,<br>offline.</h1>
+      <p class="hero__subtitle">Read all 114 surahs, listen to five reciters, and keep your prayer times, duas, and Qibla close — no account, no ads, no analytics.</p>
+      <div class="hero__ctas">
+        <!-- buttons.md › one or two prominent buttons per view -->
+        <a class="btn btn--primary" href="02-quran-index.html">Open the Quran <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a class="btn btn--secondary" href="05-prayer-times.html">Prayer times</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Featured surahs</h2>
+          <p>Frequently read. Tap any card to open the reader.</p>
+        </div>
+        <a class="section__link hstack" href="02-quran-index.html">All 114 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="rail" role="list">
+        
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 001</span>
+      <span class="surah-card__arabic">الفاتحة</span>
+      <span class="surah-card__name">Al-Fatihah</span>
+      <span class="surah-card__meta">The Opening · Meccan · 7 ayat</span>
+    </a>
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 002</span>
+      <span class="surah-card__arabic">البقرة</span>
+      <span class="surah-card__name">Al-Baqarah</span>
+      <span class="surah-card__meta">The Cow · Medinan · 286 ayat</span>
+    </a>
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 036</span>
+      <span class="surah-card__arabic">يس</span>
+      <span class="surah-card__name">Ya-Sin</span>
+      <span class="surah-card__meta">Ya Sin · Meccan · 83 ayat</span>
+    </a>
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 055</span>
+      <span class="surah-card__arabic">الرحمن</span>
+      <span class="surah-card__name">Ar-Rahman</span>
+      <span class="surah-card__meta">The Most Merciful · Medinan · 78 ayat</span>
+    </a>
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 067</span>
+      <span class="surah-card__arabic">الملك</span>
+      <span class="surah-card__name">Al-Mulk</span>
+      <span class="surah-card__meta">The Sovereignty · Meccan · 30 ayat</span>
+    </a>
+    <a class="surah-card" href="03-ayah-reader.html">
+      <span class="surah-card__num">Surah 018</span>
+      <span class="surah-card__arabic">الكهف</span>
+      <span class="surah-card__name">Al-Kahf</span>
+      <span class="surah-card__meta">The Cave · Meccan · 110 ayat</span>
+    </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Today · London</h2>
+          <p>Muslim World League · Sunset today at 18:16.</p>
+        </div>
+        <a class="section__link hstack" href="05-prayer-times.html">Change city <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="prayer-card" role="group" aria-label="Prayer times for London today">
+        <div>
+          <div class="prayer-card__label">Next prayer</div>
+          <div class="prayer-card__next"><span class="prayer-card__accent">Maghrib</span> · 18:16</div>
+          <div class="prayer-card__sub" id="pt-countdown">in 2h 41m</div>
+        </div>
+        <div class="prayer-card__times">
+          <div class="prayer-card__tile"><div class="prayer-card__tile-name">Fajr</div><div class="prayer-card__tile-time">5:23</div></div>
+          <div class="prayer-card__tile"><div class="prayer-card__tile-name">Sunrise</div><div class="prayer-card__tile-time">6:52</div></div>
+          <div class="prayer-card__tile"><div class="prayer-card__tile-name">Dhuhr</div><div class="prayer-card__tile-time">12:34</div></div>
+          <div class="prayer-card__tile"><div class="prayer-card__tile-name">Asr</div><div class="prayer-card__tile-time">15:41</div></div>
+          <div class="prayer-card__tile" aria-current="true"><div class="prayer-card__tile-name">Maghrib</div><div class="prayer-card__tile-time">18:16</div></div>
+          <div class="prayer-card__tile"><div class="prayer-card__tile-name">Isha</div><div class="prayer-card__tile-time">19:44</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head"><div><h2>How this site works</h2><p>Three principles behind every page.</p></div></div>
+      <div class="how">
+        <div class="how__item">
+          <div class="how__num">1</div>
+          <h3 class="how__title">Sourced, not generated</h3>
+          <p class="how__body">Every ayah, dua, hadith, and translation carries a citation. Nothing is invented by AI.</p>
+        </div>
+        <div class="how__item">
+          <div class="how__num">2</div>
+          <h3 class="how__title">Offline first</h3>
+          <p class="how__body">The Quran text, all duas, and prayer-time schedules load once and work with no network.</p>
+        </div>
+        <div class="how__item">
+          <div class="how__num">3</div>
+          <h3 class="how__title">No tracking, no account</h3>
+          <p class="how__body">Bookmarks live in your browser. There are no ads, no analytics, no login walls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head"><div><h2>Everything you need</h2><p>Eight tools built for daily practice.</p></div></div>
+      <div class="features">
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="feature__title">Quran</div>
+          <div class="feature__caption">All 114 surahs</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
+          <div class="feature__title">Duas</div>
+          <div class="feature__caption">35 authentic supplications</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="feature__title">Prayer</div>
+          <div class="feature__caption">Times for any city</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <div class="feature__title">Qibla</div>
+          <div class="feature__caption">Direction to Makkah</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="feature__title">Learn Salah</div>
+          <div class="feature__caption">Step-by-step guide</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg></div>
+          <div class="feature__title">99 Names</div>
+          <div class="feature__caption">Meanings & audio</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="feature__title">Hijri</div>
+          <div class="feature__caption">Islamic calendar</div>
+        </a>
+        <a class="feature" href="#">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="feature__title">Tools</div>
+          <div class="feature__caption">Tasbih & more</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h4>Read</h4>
+        <ul>
+          <li><a href="02-quran-index.html">The Noble Quran</a></li>
+          <li><a href="#">Translations</a></li>
+          <li><a href="#">Tafsir</a></li>
+          <li><a href="#">Reciters</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="05-prayer-times.html">Prayer times</a></li>
+          <li><a href="04-duas-index.html">Duas</a></li>
+          <li><a href="#">Qibla direction</a></li>
+          <li><a href="#">Hijri calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">How to pray</a></li>
+          <li><a href="#">99 Names of Allah</a></li>
+          <li><a href="#">The Seerah</a></li>
+          <li><a href="#">Glossary</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Sources &amp; scholars</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 Islamic Website · Made as a sadaqah jariyah.</span>
+      <span>All translations, tafsir, and hadith are sourced from published works.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Persist theme in localStorage. DEFAULT LIGHT (color.md › Dark mode).
+  const KEY = 'iw-theme';
+  const html = document.documentElement;
+  const saved = localStorage.getItem(KEY);
+  if (saved === 'dark' || saved === 'light') html.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem(KEY, next);
+    });
+  }
+})();
+</script>
+
+<script src="_focus.js" defer></script>
+</body>
+</html>

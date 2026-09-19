@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qibla · Direction to the Kaʿbah</title>
+<meta name="description" content="The direction from your location to the Kaʿbah in Makkah — pure Haversine math, computed on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+:root {
+  --systemBackground:#fff; --secondarySystemBackground:#f2f2f7;
+  --systemGroupedBackground:#f2f2f7; --secondarySystemGroupedBackground:#fff;
+  --label:#000; --secondaryLabel:rgba(60,60,67,.60); --tertiaryLabel:rgba(60,60,67,.30);
+  --separator:rgba(60,60,67,.29);
+  --fill:rgba(120,120,128,.20); --secondaryFill:rgba(120,120,128,.16); --tertiaryFill:rgba(118,118,128,.12);
+  --systemBlue:#007aff;
+  --glassBg:rgba(255,255,255,.72);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+  --r-lg:8px; --r-2xl:16px; --r-3xl:24px;
+  --font-system:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;
+  --font-quran:'Amiri Quran','Amiri',serif;
+}
+[data-theme="dark"] {
+  --systemBackground:#000; --secondarySystemBackground:#1c1c1e;
+  --systemGroupedBackground:#000; --secondarySystemGroupedBackground:#1c1c1e;
+  --label:#fff; --secondaryLabel:rgba(235,235,245,.60); --tertiaryLabel:rgba(235,235,245,.30);
+  --separator:rgba(84,84,88,.60); --tertiaryFill:rgba(118,118,128,.24); --secondaryFill:rgba(120,120,128,.32);
+  --systemBlue:#0a84ff;
+  --glassBg:rgba(28,28,30,.72);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { background:var(--systemGroupedBackground); color:var(--label); font-family:var(--font-system); -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.47; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+.nav { position:sticky; top:0; z-index:50; height:52px; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--glassBg); backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%); border-bottom:.5px solid var(--separator); }
+.brand { font-weight:600; font-size:15px; display:flex; align-items:center; gap:8px; }
+.brand svg { width:22px; height:22px; }
+.nav-links { display:flex; gap:24px; font-size:14px; color:var(--secondaryLabel); }
+.nav-links a { transition:color .2s var(--spring); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--label); font-weight:600; }
+.icon-btn { width:32px; height:32px; border-radius:99px; display:grid; place-items:center; color:var(--secondaryLabel); transition:background .2s var(--spring); }
+.icon-btn:hover { background:var(--secondaryFill); color:var(--label); }
+
+main { padding:32px 24px 96px; max-width:1120px; margin:0 auto; }
+.kicker { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--systemBlue); text-transform:uppercase; margin-bottom:8px; }
+.page-title { font-size:clamp(34px,6vw,56px); font-weight:700; letter-spacing:-.028em; line-height:1.05; }
+.page-lede { font-size:19px; color:var(--secondaryLabel); max-width:640px; line-height:1.5; margin-top:8px; margin-bottom:40px; }
+
+.qibla-layout { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+@media(max-width:768px){.qibla-layout{grid-template-columns:1fr}}
+
+.compass-card { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-3xl); padding:40px 32px; text-align:center; }
+.compass-wrap { position:relative; width:min(300px,80vw); aspect-ratio:1; margin:16px auto 24px; }
+
+/* Compass dial */
+.compass-dial {
+  position:absolute; inset:0;
+  border-radius:99px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), transparent 60%),
+              radial-gradient(circle, var(--secondarySystemGroupedBackground), var(--tertiaryFill));
+  box-shadow:
+    inset 0 0 0 2px rgba(60,60,67,.15),
+    inset 0 0 40px rgba(0,0,0,.06),
+    0 20px 40px -20px rgba(0,0,0,.2),
+    0 4px 12px rgba(0,0,0,.08);
+}
+[data-theme="dark"] .compass-dial {
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.1),
+    inset 0 0 40px rgba(0,0,0,.5),
+    0 20px 40px -20px rgba(0,0,0,.8);
+}
+.compass-marks { position:absolute; inset:0; }
+.compass-marks span {
+  position:absolute; left:50%; top:8px;
+  transform-origin:50% calc(min(300px,80vw) / 2 - 8px);
+  font-size:11px; font-weight:600; color:var(--tertiaryLabel);
+  letter-spacing:.05em;
+}
+.compass-marks span.cardinal { font-size:14px; color:var(--secondaryLabel); }
+.compass-marks span.N { color:var(--systemBlue); }
+
+.compass-needle {
+  position:absolute; left:50%; top:50%;
+  width:6px; height:44%;
+  transform-origin:50% 100%;
+  transform:translate(-50%,-100%) rotate(0deg);
+  transition:transform 1.2s var(--spring);
+}
+.compass-needle::before {
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, var(--systemBlue) 0%, var(--systemBlue) 60%, transparent 60%);
+  clip-path:polygon(50% 0, 100% 60%, 50% 55%, 0 60%);
+}
+.compass-needle::after {
+  content:"";
+  position:absolute; left:50%; top:100%;
+  width:12px; height:12px; border-radius:99px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 30% 30%, #fff, var(--systemBlue));
+  box-shadow:0 2px 4px rgba(0,0,0,.2);
+}
+.compass-kaaba {
+  position:absolute; left:50%; top:8%;
+  width:40px; height:40px;
+  transform:translateX(-50%);
+  display:grid; place-items:center;
+  background:linear-gradient(135deg, #1a1a1a, #333);
+  border:2px solid var(--systemBlue);
+  border-radius:6px;
+  color:#c9a961;
+  font-size:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+
+.compass-label { font-size:13px; color:var(--secondaryLabel); margin-bottom:6px; letter-spacing:.02em; text-transform:uppercase; font-weight:600; }
+.compass-bearing { font-size:56px; font-weight:700; letter-spacing:-.03em; line-height:1; }
+.compass-dir { font-size:15px; color:var(--secondaryLabel); margin-top:6px; }
+
+.info-card { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-3xl); padding:32px; }
+.info-card h3 { font-size:22px; font-weight:700; letter-spacing:-.02em; margin-bottom:16px; }
+.info-list { list-style:none; display:grid; gap:14px; }
+.info-list li { display:flex; justify-content:space-between; align-items:baseline; padding:12px 0; border-bottom:.5px solid var(--separator); }
+.info-list li:last-child { border-bottom:none; }
+.info-list .k { color:var(--secondaryLabel); font-size:14px; }
+.info-list .v { font-weight:600; font-size:15px; }
+
+.location-btn { width:100%; padding:14px 20px; margin-top:20px; background:var(--systemBlue); color:#fff; border-radius:12px; font-weight:600; font-size:15px; display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:all .2s var(--spring); box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,122,255,.4), 0 4px 12px rgba(0,122,255,.24); }
+.location-btn:hover { transform:translateY(-1px); }
+
+.tafsir-quote { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-3xl); padding:40px 32px; margin-top:24px; text-align:center; }
+.tafsir-quote .verse-ar { font-family:var(--font-quran); font-size:clamp(24px,3vw,34px); direction:rtl; line-height:2.2; color:var(--label); margin-bottom:16px; }
+.tafsir-quote .verse-en { font-size:17px; color:var(--secondaryLabel); font-style:italic; max-width:560px; margin:0 auto; line-height:1.55; }
+.tafsir-quote .verse-cite { font-size:12px; color:var(--tertiaryLabel); margin-top:12px; letter-spacing:.06em; text-transform:uppercase; }
+
+footer { background:var(--systemGroupedBackground); padding:40px 24px; margin-top:60px; border-top:.5px solid var(--separator); text-align:center; font-size:13px; color:var(--tertiaryLabel); }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="01-home.html" class="brand">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a1a3f"/><path d="M12 40 Q12 24 32 26 L32 46 Q22 44 12 40 Z M52 40 Q52 24 32 26 L32 46 Q42 44 52 40 Z" fill="#fff"/><circle cx="32" cy="18" r="6" fill="#5ac8fa"/></svg>
+    <span>Islamic Website</span>
+  </a>
+  <div class="nav-links">
+    <a href="02-quran-index.html">Quran</a>
+    <a href="04-duas-index.html">Duas</a>
+    <a href="05-prayer-times.html">Prayer Times</a>
+    <a href="06-learn.html">Learn</a>
+    <a href="08-names.html">99 Names</a>
+  </div>
+  <button class="icon-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()" aria-label="Focus mode" data-role="focus-toggle" title="Focus mode (press .)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+  </button>
+  <button class="icon-btn" onclick="document.documentElement.dataset.theme=(document.documentElement.dataset.theme==='dark'?'light':'dark')" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.03-.98-.09-1.46A5.6 5.6 0 0 1 12 3z"/></svg>
+  </button>
+</nav>
+
+<main>
+  <p class="kicker">Qibla · Direction to the Kaʿbah</p>
+  <h1 class="page-title">Face Makkah.</h1>
+  <p class="page-lede">Great-circle bearing computed on your device using the Haversine formula. Nothing sent to any server.</p>
+
+  <div class="qibla-layout">
+    <div class="compass-card">
+      <p class="compass-label">Bearing from London</p>
+      <div class="compass-wrap">
+        <div class="compass-dial"></div>
+        <div class="compass-marks" id="marks"></div>
+        <div class="compass-needle" id="needle" style="transform:translate(-50%,-100%) rotate(118deg)"></div>
+        <div class="compass-kaaba" style="transform:translateX(-50%) rotate(118deg) translateY(-135%)">﷽</div>
+      </div>
+      <div class="compass-bearing" id="bearing">118°</div>
+      <div class="compass-dir" id="direction">Southeast · 4,432 km</div>
+    </div>
+
+    <div class="info-card">
+      <h3>Location</h3>
+      <ul class="info-list">
+        <li><span class="k">Your city</span><span class="v">London, GB</span></li>
+        <li><span class="k">Coordinates</span><span class="v">51.5074° N · 0.1278° W</span></li>
+        <li><span class="k">Makkah</span><span class="v">21.4225° N · 39.8262° E</span></li>
+        <li><span class="k">Great-circle bearing</span><span class="v">118.87°</span></li>
+        <li><span class="k">Compass direction</span><span class="v">SE (Southeast)</span></li>
+        <li><span class="k">Distance</span><span class="v">4,432 km / 2,754 mi</span></li>
+      </ul>
+      <button class="location-btn" onclick="alert('Would prompt for geolocation permission')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/></svg>
+        Use my location
+      </button>
+    </div>
+  </div>
+
+  <div class="tafsir-quote">
+    <p class="verse-ar">فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ ۚ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا۟ وُجُوهَكُمْ شَطْرَهُۥ</p>
+    <p class="verse-en">"So turn your face toward al-Masjid al-Ḥarām, and wherever you are, turn your faces toward it."</p>
+    <p class="verse-cite">Qur'ān 2:144 · Al-Baqarah</p>
+  </div>
+</main>
+
+<footer>
+  Compass icons and Kaʿbah glyph are stylised. On mobile with device orientation permission, the needle also rotates with the phone — falling back to a static bearing if the sensor isn't available.
+</footer>
+
+<script src="_focus.js" defer></script>
+<script>
+// Render compass marks
+const marks = document.getElementById('marks');
+for (let deg = 0; deg < 360; deg += 30) {
+  const s = document.createElement('span');
+  const cardinal = { 0:'N', 90:'E', 180:'S', 270:'W' }[deg];
+  s.textContent = cardinal || String(deg);
+  s.className = cardinal ? 'cardinal ' + cardinal : '';
+  s.style.transform = `translateX(-50%) rotate(${deg}deg)`;
+  marks.appendChild(s);
+}
+</script>
+</body>
+</html>

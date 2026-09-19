@@ -1,0 +1,519 @@
+[
+  {
+    "slug": "wudu",
+    "category": "obligatory",
+    "order": 1,
+    "title": { "en": "How to make Wudu (ablution)", "id": "Cara berwudu" },
+    "summary": {
+      "en": "Wudu is the ritual washing that purifies you for Salah, tawaf, and reading the Quran directly. It stays valid until broken by things like sleep, using the bathroom, or passing wind.",
+      "id": "Wudu adalah bersuci sebelum salat, tawaf, dan menyentuh mushaf. Wudu tetap sah sampai batal karena tidur, buang air, atau kentut."
+    },
+    "when": {
+      "en": "Before every prayer (unless your previous wudu is still valid), and before touching the Mushaf.",
+      "id": "Sebelum setiap salat (jika wudu sebelumnya sudah batal), dan sebelum menyentuh mushaf."
+    },
+    "steps": [
+      {
+        "title": { "en": "Intention (niyyah)", "id": "Niat" },
+        "body": {
+          "en": "Silently intend, in your heart, that you are performing wudu for the sake of Allah. No verbal formula is required.",
+          "id": "Niatkan dalam hati untuk berwudu karena Allah. Tidak perlu diucapkan."
+        }
+      },
+      {
+        "title": { "en": "Say Bismillah", "id": "Ucapkan Bismillah" },
+        "body": {
+          "en": "Say 'Bismillah' (In the name of Allah) before you begin.",
+          "id": "Ucapkan 'Bismillah' sebelum memulai."
+        }
+      },
+      {
+        "title": { "en": "Wash hands three times", "id": "Cuci kedua tangan tiga kali" },
+        "body": {
+          "en": "Wash both hands up to the wrists three times, ensuring between the fingers is wet.",
+          "id": "Cuci kedua tangan sampai pergelangan tiga kali, pastikan sela-sela jari terkena air."
+        }
+      },
+      {
+        "title": { "en": "Rinse mouth three times", "id": "Berkumur tiga kali" },
+        "body": {
+          "en": "Take water in your right hand, rinse your mouth three times, swishing thoroughly.",
+          "id": "Ambil air dengan tangan kanan, berkumur tiga kali dengan sungguh-sungguh."
+        }
+      },
+      {
+        "title": {
+          "en": "Sniff water into the nose three times",
+          "id": "Isap air ke hidung tiga kali"
+        },
+        "body": {
+          "en": "Sniff water into your nostrils and blow it out with the left hand. Repeat three times.",
+          "id": "Isap air ke hidung dan keluarkan dengan tangan kiri. Ulangi tiga kali."
+        }
+      },
+      {
+        "title": { "en": "Wash the face three times", "id": "Cuci wajah tiga kali" },
+        "body": {
+          "en": "From the hairline to the chin, and from ear to ear. Three times.",
+          "id": "Dari batas rambut sampai dagu, dan dari telinga ke telinga. Tiga kali."
+        }
+      },
+      {
+        "title": { "en": "Wash the arms three times", "id": "Cuci lengan tiga kali" },
+        "body": {
+          "en": "Wash the right arm from fingertips up to and including the elbow, three times. Then the left arm the same way.",
+          "id": "Cuci lengan kanan dari ujung jari hingga siku, tiga kali. Lalu lengan kiri dengan cara yang sama."
+        }
+      },
+      {
+        "title": { "en": "Wipe the head", "id": "Usap kepala" },
+        "body": {
+          "en": "Wet your hands and wipe them once over your head, from the front to the back and back to the front.",
+          "id": "Basahi tangan dan usapkan sekali ke kepala, dari depan ke belakang lalu ke depan lagi."
+        }
+      },
+      {
+        "title": { "en": "Wipe the ears", "id": "Usap kedua telinga" },
+        "body": {
+          "en": "With the same wetness, wipe the inside of your ears with your index fingers and the outside with your thumbs.",
+          "id": "Dengan sisa air, usap bagian dalam telinga dengan telunjuk dan bagian luar dengan ibu jari."
+        }
+      },
+      {
+        "title": { "en": "Wash the feet three times", "id": "Cuci kedua kaki tiga kali" },
+        "body": {
+          "en": "Wash the right foot up to the ankle, ensuring between the toes gets wet. Three times. Then the left foot.",
+          "id": "Cuci kaki kanan hingga mata kaki, pastikan sela-sela jari terkena air. Tiga kali. Lalu kaki kiri."
+        }
+      },
+      {
+        "title": { "en": "Closing du'a", "id": "Doa penutup" },
+        "body": {
+          "en": "Say: Ash-hadu an lā ilāha illallāh waḥdahu lā sharīka lah, wa ash-hadu anna Muḥammadan ʿabduhu wa rasūluh — the eight gates of Paradise open for the one who says this after wudu (Sahih Muslim 234).",
+          "id": "Ucapkan: 'Asyhadu an lā ilāha illallāh waḥdahu lā syarīka lah, wa asyhadu anna Muḥammadan ʿabduhu wa rasūluh' — delapan pintu surga dibukakan bagi yang membacanya setelah wudu (HR Muslim 234)."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "The order (face, arms, head, feet) is important — do it in sequence.",
+        "Don't waste water: even at a river, use only what you need (Prophetic sunnah).",
+        "Wudu is broken by: sleep, passing wind, urine or stool, deep sleep. If any of these happen, wudu must be repeated."
+      ],
+      "id": [
+        "Urutannya penting — wajah, tangan, kepala, kaki secara berurutan.",
+        "Jangan boros air — meski di sungai, pakai secukupnya (sunnah).",
+        "Wudu batal karena: tidur, kentut, buang air kecil/besar, tidur nyenyak. Ulangi wudu jika terjadi hal-hal tersebut."
+      ]
+    }
+  },
+  {
+    "slug": "how-to-pray",
+    "category": "obligatory",
+    "order": 2,
+    "title": { "en": "How to pray Salah (general)", "id": "Cara salat (umum)" },
+    "summary": {
+      "en": "The universal structure of a rakat. Once you know this, you can pray any Salah — the number of rakats changes, the rakat itself does not.",
+      "id": "Struktur umum satu rakaat. Setelah menguasainya, Anda bisa salat apa pun — jumlah rakaat berbeda, tetapi bentuk rakaatnya sama."
+    },
+    "when": {
+      "en": "Once wudu is valid and prayer time has entered.",
+      "id": "Setelah wudu sah dan waktu salat telah tiba."
+    },
+    "rakats": 2,
+    "steps": [
+      {
+        "title": { "en": "Stand facing Qibla", "id": "Berdiri menghadap kiblat" },
+        "body": {
+          "en": "Feet shoulder-width apart, eyes on the place of prostration.",
+          "id": "Kaki selebar bahu, mata pada tempat sujud."
+        }
+      },
+      {
+        "title": { "en": "Takbiratul-Ihram", "id": "Takbiratul Ihram" },
+        "body": {
+          "en": "Raise both hands to your ears, say 'Allāhu Akbar', then place the right hand over the left on your chest.",
+          "id": "Angkat kedua tangan sejajar telinga, ucapkan 'Allāhu Akbar', lalu letakkan tangan kanan di atas kiri di dada."
+        }
+      },
+      {
+        "title": { "en": "Opening du'a & Al-Fatihah", "id": "Doa iftitah & Al-Fatihah" },
+        "body": {
+          "en": "Recite an opening du'a silently, then say 'Aʿūdhu billāhi minash-shayṭānir-rajīm, Bismillāhir-raḥmānir-raḥīm', then recite Surah Al-Fatihah.",
+          "id": "Baca doa iftitah pelan, lalu 'Aʿūdhu billāhi minasy-syaiṭānir-rajīm, Bismillāhir-raḥmānir-raḥīm', kemudian Surah Al-Fatihah."
+        }
+      },
+      {
+        "title": { "en": "Second surah", "id": "Surah tambahan" },
+        "body": {
+          "en": "In the first two rakats, follow Al-Fatihah with any short surah — starting with the short surahs is easiest for beginners.",
+          "id": "Pada dua rakaat pertama, ikuti Al-Fatihah dengan surah pendek — pemula dianjurkan mulai dari surah-surah pendek."
+        }
+      },
+      {
+        "title": { "en": "Ruku (bowing)", "id": "Ruku" },
+        "body": {
+          "en": "Say 'Allāhu Akbar', bow so your back is parallel to the ground with hands on your knees. Say 'Subḥāna Rabbiyal-ʿAẓīm' three times.",
+          "id": "Ucapkan 'Allāhu Akbar', rukuk hingga punggung lurus dengan kedua tangan pada lutut. Baca 'Subḥāna Rabbiyal-ʿAẓīm' tiga kali."
+        }
+      },
+      {
+        "title": { "en": "Rise from Ruku", "id": "I'tidal" },
+        "body": {
+          "en": "Stand up saying 'Sami'allāhu liman ḥamidah' (God hears whoever praises Him), then 'Rabbanā wa lakal-ḥamd' (Our Lord, all praise is for You).",
+          "id": "Berdiri tegak sambil membaca 'Sami'allāhu liman ḥamidah', lalu 'Rabbanā wa lakal-ḥamd'."
+        }
+      },
+      {
+        "title": { "en": "First Sujud", "id": "Sujud pertama" },
+        "body": {
+          "en": "Say 'Allāhu Akbar', prostrate placing forehead, nose, both palms, both knees, and both toes on the ground. Say 'Subḥāna Rabbiyal-Aʿlā' three times.",
+          "id": "Ucapkan 'Allāhu Akbar', sujud dengan dahi, hidung, kedua telapak tangan, kedua lutut, dan ujung jari kaki menyentuh lantai. Baca 'Subḥāna Rabbiyal-Aʿlā' tiga kali."
+        }
+      },
+      {
+        "title": { "en": "Sit between the two sujuds", "id": "Duduk di antara dua sujud" },
+        "body": {
+          "en": "Rise from sujud, sit briefly saying 'Rabbighfir lī' (My Lord, forgive me), then prostrate again.",
+          "id": "Bangkit dari sujud, duduk sejenak sambil membaca 'Rabbighfir lī', kemudian sujud lagi."
+        }
+      },
+      {
+        "title": { "en": "Second Sujud & rise", "id": "Sujud kedua & bangkit" },
+        "body": {
+          "en": "Perform the second sujud as the first. Then, saying 'Allāhu Akbar', rise for the next rakat.",
+          "id": "Sujud kedua seperti sebelumnya. Lalu, sambil membaca 'Allāhu Akbar', bangkit untuk rakaat berikutnya."
+        }
+      },
+      {
+        "title": { "en": "Tashahhud (sitting)", "id": "Tasyahud (duduk)" },
+        "body": {
+          "en": "After the second rakat, sit and recite the tashahhud: 'At-taḥiyyātu lillāh...'.  After the final rakat, add ṣalawāt on the Prophet ﷺ.",
+          "id": "Setelah rakaat kedua, duduk dan baca tasyahud: 'At-taḥiyyātu lillāh...'. Setelah rakaat terakhir, tambahkan shalawat."
+        }
+      },
+      {
+        "title": { "en": "Salam (closing)", "id": "Salam" },
+        "body": {
+          "en": "Turn your head to the right saying 'As-salāmu ʿalaykum wa raḥmatullāh', then to the left saying the same. Salah is complete.",
+          "id": "Menoleh ke kanan sambil membaca 'Assalāmu ʿalaikum wa raḥmatullāh', lalu ke kiri dengan lafaz yang sama. Salat selesai."
+        }
+      }
+    ],
+    "duas": [
+      {
+        "arabic": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَهَ غَيْرُكَ",
+        "transliteration": "Subḥānaka Allāhumma wa bi-ḥamdika, wa tabāraka ismuka, wa taʿālā jadduka, wa lā ilāha ghayruk",
+        "translation": {
+          "en": "Glory be to You, O Allah, and praise. Blessed is Your name, exalted is Your majesty, and there is no god but You.",
+          "id": "Mahasuci Engkau, ya Allah, segala puji bagi-Mu. Mahasuci nama-Mu, Mahatinggi keagungan-Mu, dan tiada Tuhan selain Engkau."
+        },
+        "note": {
+          "en": "Opening du'a said silently after Takbir.",
+          "id": "Doa iftitah, dibaca pelan setelah takbir."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "how-to-pray-fajr",
+    "category": "obligatory",
+    "order": 3,
+    "title": { "en": "How to pray Fajr", "id": "Cara salat Subuh" },
+    "summary": {
+      "en": "Fajr is 2 rakats. It is prayed audibly (imam recites aloud when in congregation).",
+      "id": "Salat Subuh 2 rakaat. Dibaca dengan jahar (bacaan imam terdengar dalam jamaah)."
+    },
+    "when": {
+      "en": "From true dawn until sunrise.",
+      "id": "Dari terbit fajar sadiq hingga terbit matahari."
+    },
+    "rakats": 2,
+    "steps": [
+      {
+        "title": { "en": "2 sunnah rakats before", "id": "2 rakaat sunah sebelum" },
+        "body": {
+          "en": "Two light rakats before the obligatory Fajr — one of the most emphasized sunnah prayers.",
+          "id": "Dua rakaat sunah ringan sebelum salat wajib Subuh — sunah rawatib yang paling ditekankan."
+        }
+      },
+      {
+        "title": { "en": "Rakat 1", "id": "Rakaat 1" },
+        "body": {
+          "en": "Follow the general 2-rakat structure. Recite Al-Fatihah + a surah aloud.",
+          "id": "Ikuti struktur umum. Baca Al-Fatihah + surah pendek dengan jahar."
+        }
+      },
+      {
+        "title": { "en": "Rakat 2", "id": "Rakaat 2" },
+        "body": {
+          "en": "Same as rakat 1. Some scholars encourage a short qunut du'a after ruku in the second rakat; either practice is fine.",
+          "id": "Sama seperti rakaat 1. Sebagian ulama menganjurkan qunut setelah rukuk di rakaat kedua; keduanya sah."
+        }
+      },
+      {
+        "title": { "en": "Tashahhud & salam", "id": "Tasyahud & salam" },
+        "body": {
+          "en": "Sit after the second sujud of rakat 2, recite the full tashahhud with salawat, then salam.",
+          "id": "Duduk setelah sujud kedua di rakaat 2, baca tasyahud lengkap dengan shalawat, lalu salam."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "Fajr is the hardest prayer for hypocrites — praying it consistently is a mark of iman.",
+        "The 2 sunnah rakats are more beloved than the world and everything in it (Sahih Muslim 725)."
+      ],
+      "id": [
+        "Subuh adalah salat terberat bagi orang munafik — konsisten mengerjakannya menandakan keimanan.",
+        "Dua rakaat sunahnya lebih dicintai daripada dunia dan seisinya (HR Muslim 725)."
+      ]
+    }
+  },
+  {
+    "slug": "how-to-pray-dhuhr-asr-isha",
+    "category": "obligatory",
+    "order": 4,
+    "title": { "en": "How to pray Dhuhr, Asr, and Isha", "id": "Cara salat Zuhur, Asar, Isya" },
+    "summary": {
+      "en": "All three are 4 rakats. Dhuhr and Asr are silent; Isha's first two rakats are audible in congregation.",
+      "id": "Ketiganya 4 rakaat. Zuhur dan Asar dibaca sirr; Isya dua rakaat pertama jahar dalam jamaah."
+    },
+    "when": {
+      "en": "Dhuhr: after zawal until Asr. Asr: mid-afternoon until Maghrib. Isha: after twilight fades until midnight.",
+      "id": "Zuhur: setelah zawal sampai Asar. Asar: sore hingga Magrib. Isya: setelah senja hilang hingga pertengahan malam."
+    },
+    "rakats": 4,
+    "steps": [
+      {
+        "title": { "en": "Rakat 1", "id": "Rakaat 1" },
+        "body": { "en": "Al-Fatihah + short surah.", "id": "Al-Fatihah + surah pendek." }
+      },
+      {
+        "title": { "en": "Rakat 2", "id": "Rakaat 2" },
+        "body": {
+          "en": "Al-Fatihah + short surah. Sit for the middle tashahhud (only up to 'ashhadu anna Muḥammadan ʿabduhu wa rasūluh'), then stand for rakat 3.",
+          "id": "Al-Fatihah + surah pendek. Duduk untuk tasyahud awal (sampai 'asyhadu anna Muḥammadan ʿabduhu wa rasūluh'), lalu berdiri ke rakaat 3."
+        }
+      },
+      {
+        "title": { "en": "Rakat 3", "id": "Rakaat 3" },
+        "body": {
+          "en": "Al-Fatihah only. No additional surah.",
+          "id": "Al-Fatihah saja. Tanpa surah tambahan."
+        }
+      },
+      {
+        "title": { "en": "Rakat 4", "id": "Rakaat 4" },
+        "body": {
+          "en": "Al-Fatihah only. After the second sujud, sit for the final tashahhud with salawat, then salam.",
+          "id": "Al-Fatihah saja. Setelah sujud kedua, duduk untuk tasyahud akhir dengan shalawat, lalu salam."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "The Sunnah rawatib: 4 before Dhuhr and 2 after, 2 after Maghrib, 2 after Isha.",
+        "Rushing rakats 3 and 4 by omitting Al-Fatihah is a common mistake — Al-Fatihah is a pillar in every rakat."
+      ],
+      "id": [
+        "Sunah rawatib: 4 sebelum Zuhur dan 2 sesudahnya, 2 setelah Magrib, 2 setelah Isya.",
+        "Kesalahan umum: melewatkan Al-Fatihah di rakaat 3 dan 4 — Al-Fatihah adalah rukun di setiap rakaat."
+      ]
+    }
+  },
+  {
+    "slug": "how-to-pray-maghrib",
+    "category": "obligatory",
+    "order": 5,
+    "title": { "en": "How to pray Maghrib", "id": "Cara salat Magrib" },
+    "summary": {
+      "en": "Maghrib is 3 rakats. First 2 rakats audible; rakat 3 silent. Prayed just after sunset.",
+      "id": "Salat Magrib 3 rakaat. Dua rakaat pertama jahar; rakaat ketiga sirr. Dilakukan tepat setelah matahari terbenam."
+    },
+    "when": {
+      "en": "From sunset until the red twilight fades from the sky.",
+      "id": "Dari matahari terbenam sampai mega merah menghilang."
+    },
+    "rakats": 3,
+    "steps": [
+      {
+        "title": { "en": "Rakat 1", "id": "Rakaat 1" },
+        "body": {
+          "en": "Al-Fatihah + short surah, recited aloud.",
+          "id": "Al-Fatihah + surah pendek, jahar."
+        }
+      },
+      {
+        "title": { "en": "Rakat 2", "id": "Rakaat 2" },
+        "body": {
+          "en": "Al-Fatihah + short surah aloud. Middle tashahhud, then rise for rakat 3.",
+          "id": "Al-Fatihah + surah pendek, jahar. Tasyahud awal, lalu berdiri ke rakaat 3."
+        }
+      },
+      {
+        "title": { "en": "Rakat 3", "id": "Rakaat 3" },
+        "body": {
+          "en": "Al-Fatihah only, recited silently. Final tashahhud with salawat, then salam.",
+          "id": "Al-Fatihah saja, sirr. Tasyahud akhir dengan shalawat, lalu salam."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "how-to-pray-witr",
+    "category": "sunnah",
+    "order": 6,
+    "title": { "en": "How to pray Witr", "id": "Cara salat Witir" },
+    "summary": {
+      "en": "Witr is an odd-numbered voluntary prayer — 1, 3, 5, 7, or 9 rakats. The Prophet ﷺ never left it. The most common practice is 3 rakats.",
+      "id": "Salat Witir adalah salat sunah dengan rakaat ganjil — 1, 3, 5, 7, atau 9 rakaat. Nabi ﷺ tidak pernah meninggalkannya. Umumnya dilakukan 3 rakaat."
+    },
+    "when": {
+      "en": "Any time after Isha and before Fajr. Better in the last third of the night.",
+      "id": "Kapan saja setelah Isya hingga sebelum Subuh. Utama pada sepertiga malam terakhir."
+    },
+    "rakats": 3,
+    "steps": [
+      {
+        "title": {
+          "en": "Method 1: 3 rakats in one salam",
+          "id": "Cara 1: 3 rakaat dengan satu salam"
+        },
+        "body": {
+          "en": "Pray 3 rakats without sitting for tashahhud after rakat 2. Sit only after the third rakat. Some scholars recite qunut du'a in the third rakat before or after ruku.",
+          "id": "Salat 3 rakaat tanpa duduk tasyahud setelah rakaat 2. Duduk hanya setelah rakaat ketiga. Sebagian ulama membaca qunut sebelum atau sesudah rukuk di rakaat ketiga."
+        }
+      },
+      {
+        "title": { "en": "Method 2: 2 + 1", "id": "Cara 2: 2 + 1" },
+        "body": {
+          "en": "Pray 2 rakats and give salam. Then pray a separate 1-rakat witr with Al-Fatihah + a short surah, ending with tashahhud and salam.",
+          "id": "Salat 2 rakaat, lalu salam. Kemudian salat 1 rakaat witir dengan Al-Fatihah + surah pendek, diakhiri tasyahud dan salam."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "Witr is often prayed with Surah Al-Ala in rakat 1, Al-Kafirun in rakat 2, and Al-Ikhlas (with the Mu'awwidhatan on some nights) in rakat 3.",
+        "If you tend to miss Witr, pray it right after Isha. If you're confident of waking up, defer it to Tahajjud."
+      ],
+      "id": [
+        "Witir sering dibaca Surah Al-A'la di rakaat 1, Al-Kafirun di rakaat 2, dan Al-Ikhlas (di malam tertentu ditambah Al-Falaq dan An-Nas) di rakaat 3.",
+        "Jika sering ketiduran, kerjakan setelah Isya. Jika yakin bisa bangun, tunda hingga tahajud."
+      ]
+    }
+  },
+  {
+    "slug": "how-to-pray-jumuah",
+    "category": "obligatory",
+    "order": 7,
+    "title": { "en": "How to pray Jumu'ah (Friday prayer)", "id": "Cara salat Jumat" },
+    "summary": {
+      "en": "Jumu'ah replaces the Dhuhr prayer on Fridays for men in congregation. It is 2 rakats preceded by two khutbahs (sermons).",
+      "id": "Salat Jumat menggantikan Zuhur di hari Jumat bagi laki-laki secara berjamaah. Terdiri dari 2 rakaat setelah dua khutbah."
+    },
+    "when": {
+      "en": "At the time of Dhuhr on Friday. Attendance in a masjid is obligatory for men.",
+      "id": "Pada waktu Zuhur hari Jumat. Wajib bagi laki-laki menghadirinya di masjid."
+    },
+    "rakats": 2,
+    "steps": [
+      {
+        "title": { "en": "Prepare well before", "id": "Bersiap jauh sebelum masuk" },
+        "body": {
+          "en": "Ghusl (full bath), best clothes, perfume, sit near the imam, recite Surah Al-Kahf.",
+          "id": "Mandi Jumat, pakaian terbaik, wewangian, duduk dekat imam, baca Surah Al-Kahfi."
+        }
+      },
+      {
+        "title": { "en": "Listen to the two khutbahs silently", "id": "Diam menyimak dua khutbah" },
+        "body": {
+          "en": "Talking during the khutbah invalidates its reward. Even 'be quiet' to another person is not allowed once the imam is speaking.",
+          "id": "Berbicara saat khutbah menggugurkan pahala. Bahkan menegur orang lain 'diam' pun tidak boleh saat khatib berkhutbah."
+        }
+      },
+      {
+        "title": { "en": "Two loud rakats", "id": "Dua rakaat jahar" },
+        "body": {
+          "en": "The imam leads 2 rakats, reciting aloud. Follow along in your own prayer.",
+          "id": "Imam memimpin 2 rakaat dengan bacaan jahar. Ikuti imam dalam salat Anda."
+        }
+      },
+      {
+        "title": { "en": "Sunnah after", "id": "Sunah sesudahnya" },
+        "body": {
+          "en": "2 or 4 rakats sunnah at home after Jumu'ah.",
+          "id": "2 atau 4 rakaat sunah di rumah setelah Jumat."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "The last hour of Friday before Maghrib is a time of accepted du'a. Make du'a during that hour.",
+        "Whoever reads Surah Al-Kahf on Friday will have a light between the two Fridays (Sunan al-Kubra of al-Bayhaqi)."
+      ],
+      "id": [
+        "Waktu terakhir Jumat sebelum Magrib adalah saat doa dikabulkan. Perbanyaklah doa di waktu itu.",
+        "Barangsiapa membaca Al-Kahfi pada hari Jumat, ia mendapat cahaya di antara dua Jumat (Sunan al-Kubra al-Baihaqi)."
+      ]
+    }
+  },
+  {
+    "slug": "how-to-pray-janazah",
+    "category": "occasional",
+    "order": 8,
+    "title": { "en": "How to pray Janazah", "id": "Cara salat jenazah" },
+    "summary": {
+      "en": "The funeral prayer — a communal obligation (fard kifayah). Four takbirs, no ruku, no sujud. Prayed standing.",
+      "id": "Salat jenazah — fardu kifayah. Empat takbir, tanpa rukuk dan sujud. Dikerjakan sambil berdiri."
+    },
+    "when": {
+      "en": "After the deceased has been washed and shrouded. Prayed before burial.",
+      "id": "Setelah jenazah dimandikan dan dikafani. Sebelum dimakamkan."
+    },
+    "steps": [
+      {
+        "title": { "en": "First takbir & Al-Fatihah", "id": "Takbir pertama & Al-Fatihah" },
+        "body": {
+          "en": "Face the qibla with the deceased in front. First takbir. Recite Surah Al-Fatihah silently.",
+          "id": "Menghadap kiblat, jenazah di depan. Takbir pertama. Baca Surah Al-Fatihah pelan."
+        }
+      },
+      {
+        "title": { "en": "Second takbir & salawat", "id": "Takbir kedua & shalawat" },
+        "body": {
+          "en": "Second takbir. Recite the Ibrahimiyya salawat (as in the tashahhud).",
+          "id": "Takbir kedua. Baca shalawat Ibrahimiyah (sebagaimana dalam tasyahud)."
+        }
+      },
+      {
+        "title": {
+          "en": "Third takbir & du'a for the deceased",
+          "id": "Takbir ketiga & doa untuk jenazah"
+        },
+        "body": {
+          "en": "Third takbir. Recite: 'Allāhummagh-fir lahu warḥamhu, waʿāfihi waʿfu ʿanhu...' — a du'a specifically for the deceased. If the person was a child, add a du'a for their parents.",
+          "id": "Takbir ketiga. Baca: 'Allāhummagh-fir lahu warḥamhu, waʿāfihi waʿfu ʿanhu...' — doa khusus untuk jenazah. Jika anak-anak, tambahkan doa untuk orang tuanya."
+        }
+      },
+      {
+        "title": { "en": "Fourth takbir & salam", "id": "Takbir keempat & salam" },
+        "body": {
+          "en": "Fourth takbir. Pause briefly. Then a single salam to the right (some also salam to the left).",
+          "id": "Takbir keempat. Diam sebentar. Kemudian satu salam ke kanan (sebagian juga ke kiri)."
+        }
+      }
+    ],
+    "notes": {
+      "en": [
+        "The reward for attending a Janazah is one qirat, and following it to the burial is another qirat — each qirat is like the mountain of Uhud (Sahih al-Bukhari 1325).",
+        "This is a fard kifayah — if some Muslims perform it, the obligation is lifted from the rest."
+      ],
+      "id": [
+        "Pahala menghadiri jenazah adalah satu qirat, dan mengiringinya sampai dimakamkan satu qirat lagi — setiap qirat sebesar Gunung Uhud (HR Bukhari 1325).",
+        "Fardu kifayah — jika sebagian Muslim melaksanakannya, gugur kewajiban dari yang lain."
+      ]
+    }
+  }
+]

@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prayer times · Islamic Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+/* -----------------------------------------------------------
+   Islamic Website · Apple HIG mockup
+   color.md › System colors — hard-coded here for the mockup;
+   in a real Apple app these would be resolved via UIColor / Color.
+   typography.md › Ensuring legibility — SF Pro Text / Display via
+   the system font stack; Amiri Quran ONLY for Quran verses.
+   liquid-glass.md › The two layers — glass reserved for the
+   functional layer (nav + audio bar). Content cards use plain
+   surfaces, per liquid-glass.md › Where the material belongs.
+   ----------------------------------------------------------- */
+:root {
+  /* iOS light-mode system colors (color.md › System colors) */
+  --systemBackground: #ffffff;
+  --secondarySystemBackground: #f2f2f7;
+  --tertiarySystemBackground: #ffffff;
+  --systemGroupedBackground: #f2f2f7;
+  --secondarySystemGroupedBackground: #ffffff;
+  --tertiarySystemGroupedBackground: #f2f2f7;
+
+  --label: #000000;
+  --secondaryLabel: rgba(60,60,67,.60);
+  --tertiaryLabel: rgba(60,60,67,.30);
+  --quaternaryLabel: rgba(60,60,67,.18);
+
+  --separator: rgba(60,60,67,.29);
+  --opaqueSeparator: #c6c6c8;
+  --fill: rgba(120,120,128,.20);
+  --secondaryFill: rgba(120,120,128,.16);
+  --tertiaryFill: rgba(118,118,128,.12);
+  --quaternaryFill: rgba(116,116,128,.08);
+
+  /* system tints */
+  --systemBlue: #007aff;
+  --systemBlueHover: #0060df;
+  --systemGreen: #34c759;
+  --systemRed: #ff3b30;
+  --systemOrange: #ff9500;
+  --systemIndigo: #5856d6;
+  --systemGray: #8e8e93;
+
+  /* Liquid Glass fallback tints (liquid-glass.md › Color on glass) */
+  --glassBg: rgba(255,255,255,.72);
+  --glassBorder: rgba(60,60,67,.18);
+
+  /* motion (subtle spring per HIG) */
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* radii on 8pt system (layout.md › Best practices) */
+  --r-lg: 8px;    /* buttons */
+  --r-xl: 12px;   /* small cards */
+  --r-2xl: 16px;  /* larger cards */
+  --r-3xl: 24px;  /* hero surfaces */
+
+  /* typography stack: system for everything Latin (typography.md) */
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-arabic-ui: -apple-system, 'SF Arabic', 'Geeza Pro', 'Arabic UI Text', 'Amiri', serif;
+  --font-quran: 'Amiri Quran', 'Amiri', 'SF Arabic', serif;
+}
+
+/* Dark appearance (color.md › System colors — dark variants) */
+[data-theme="dark"] {
+  --systemBackground: #000000;
+  --secondarySystemBackground: #1c1c1e;
+  --tertiarySystemBackground: #2c2c2e;
+  --systemGroupedBackground: #000000;
+  --secondarySystemGroupedBackground: #1c1c1e;
+  --tertiarySystemGroupedBackground: #2c2c2e;
+
+  --label: #ffffff;
+  --secondaryLabel: rgba(235,235,245,.60);
+  --tertiaryLabel: rgba(235,235,245,.30);
+  --quaternaryLabel: rgba(235,235,245,.18);
+
+  --separator: rgba(84,84,88,.65);
+  --opaqueSeparator: #38383a;
+  --fill: rgba(120,120,128,.36);
+  --secondaryFill: rgba(120,120,128,.32);
+  --tertiaryFill: rgba(118,118,128,.24);
+  --quaternaryFill: rgba(118,118,128,.18);
+
+  --systemBlue: #0a84ff;
+  --systemBlueHover: #409cff;
+  --systemGreen: #30d158;
+  --systemRed: #ff453a;
+  --systemOrange: #ff9f0a;
+  --systemIndigo: #5e5ce6;
+  --systemGray: #98989d;
+
+  --glassBg: rgba(0,0,0,.60);
+  --glassBorder: rgba(255,255,255,.10);
+}
+
+/* Reset — restrained */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  /* typography.md › Ensuring legibility — 17pt default body on iOS */
+  font-size: 17px;
+  line-height: 1.47;
+  color: var(--label);
+  background: var(--systemBackground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: transparent; border: 0; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+/* Focus ring — accessibility.md */
+:focus-visible {
+  outline: 2px solid var(--systemBlue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   Sticky navigation bar — the ONE glass surface at the top
+   liquid-glass.md › The two layers (functional layer)
+   toolbars.md › Reduce use of toolbar backgrounds
+   ----------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(16px, env(safe-area-inset-left)) 0 max(16px, env(safe-area-inset-right));
+  background: var(--glassBg);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
+  border-bottom: 0.5px solid var(--separator);
+}
+.nav__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nav__brand {
+  font-family: var(--font-system);
+  font-size: 15px;         /* typography.md › headline size on iOS */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--label);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__brand-mark {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: var(--systemBlue);
+  display: inline-grid; place-items: center;
+  color: #fff; font-size: 12px; font-weight: 700;
+  letter-spacing: 0;
+}
+.nav__links {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.nav__link {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondaryLabel);
+  border-radius: 6px;
+  transition: color .18s var(--spring), background .18s var(--spring);
+}
+.nav__link:hover { color: var(--label); background: var(--tertiaryFill); }
+.nav__link[aria-current="page"] { color: var(--label); }
+
+.nav__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon button — rounded-full applies ONLY to icon-only buttons (per brief) */
+.icon-btn {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  border-radius: 999px;
+  display: inline-grid; place-items: center;
+  color: var(--label);
+  transition: background .18s var(--spring);
+}
+.icon-btn:hover { background: var(--tertiaryFill); }
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 1.75; }
+
+/* Mobile: collapse center links */
+@media (max-width: 720px) {
+  .nav__links { display: none; }
+  .nav__inner { grid-template-columns: 1fr auto; }
+  .nav__brand-full { display: none; }
+}
+
+/* -----------------------------------------------------------
+   Buttons (buttons.md › Style + Role)
+   ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;   /* buttons.md › 44x44pt minimum */
+  padding: 10px 20px;
+  border-radius: var(--r-lg);
+  font-family: var(--font-system);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform .12s var(--spring), background .18s var(--spring), border-color .18s var(--spring), opacity .18s var(--spring);
+  will-change: transform;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--systemBlue);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--systemBlueHover); }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--label);
+  border: 1px solid var(--separator);
+}
+.btn--secondary:hover { background: var(--tertiaryFill); }
+
+.btn--tertiary {
+  background: var(--tertiaryFill);
+  color: var(--label);
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 15px;
+  border-radius: var(--r-lg);
+}
+.btn--tertiary:hover { background: var(--secondaryFill); }
+
+/* -----------------------------------------------------------
+   Containers & type utilities
+   layout.md › Safe area margins
+   ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container--narrow { max-width: 760px; }
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.section-title {
+  font-family: var(--font-system);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.section-caption {
+  font-size: 15px;
+  color: var(--secondaryLabel);
+  margin: 0 0 20px;
+}
+
+/* -----------------------------------------------------------
+   Footer — plain, no glass (per brief)
+   ----------------------------------------------------------- */
+.footer {
+  margin-top: 80px;
+  background: var(--systemGroupedBackground);
+  border-top: 0.5px solid var(--separator);
+  padding: 48px 0 32px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.footer__col h4 {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer__col a { font-size: 14px; color: var(--label); }
+.footer__col a:hover { color: var(--systemBlue); }
+.footer__copy {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 0.5px solid var(--separator);
+  font-size: 12px;
+  color: var(--tertiaryLabel);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+}
+@media (max-width: 720px) {
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Utility */
+.hstack { display: flex; align-items: center; gap: 8px; }
+.vstack { display: flex; flex-direction: column; gap: 8px; }
+.spacer { flex: 1; }
+
+/* Prefers-reduced-motion (accessibility.md) */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<style>
+/* -----------------------------------------------------------
+   Prayer times page
+   ----------------------------------------------------------- */
+.pt-hero { padding: 48px 0 16px; }
+.pt-hero h1 {
+  font-size: clamp(40px, 5.5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin: 0 0 12px;
+}
+.pt-hero p { color: var(--secondaryLabel); font-size: 19px; margin: 0; max-width: 620px; }
+
+.section { padding: 24px 0 40px; }
+.section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.section p.section__caption { color: var(--secondaryLabel); font-size: 15px; margin: 0 0 20px; }
+
+/* Primary prayer card — content surface, NO glass */
+.pt-card {
+  background: var(--secondarySystemGroupedBackground);
+  border: 0.5px solid var(--separator);
+  border-radius: var(--r-3xl);
+  padding: 32px;
+}
+.pt-card__meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  font-size: 13px; color: var(--secondaryLabel);
+}
+.pt-card__meta strong { color: var(--label); font-weight: 600; }
+.pt-card__meta .dot { width: 3px; height: 3px; background: var(--tertiaryLabel); border-radius: 999px; }
+.pt-card__next {
+  margin: 24px 0 8px;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+.pt-card__next-name { color: var(--systemBlue); }
+.pt-card__count {
+  font-size: 17px;
+  color: var(--secondaryLabel);
+  margin-bottom: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.pt-card__tiles {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+@media (max-width: 720px) { .pt-card__tiles { grid-template-columns: repeat(3, 1fr); } }
+.pt-tile {
+  padding: 14px 10px;
+  border-radius: var(--r-xl);
+  background: var(--tertiaryFill);
+  text-align: center;
+  transition: transform .18s var(--spring);
+}
+.pt-tile[aria-current="true"] {
+  background: var(--systemBlue);
+  color: #fff;
+}
+.pt-tile__name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.pt-tile[aria-current="true"] .pt-tile__name { color: rgba(255,255,255,.80); }
+.pt-tile__time {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Segmented picker — segmented-controls */
+.segmented {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--tertiaryFill);
+  border-radius: 10px;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+}
+.segmented::-webkit-scrollbar { display: none; }
+.segmented__seg {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--label);
+  white-space: nowrap;
+  transition: background .18s var(--spring);
+}
+.segmented__seg[aria-selected="true"] {
+  background: var(--secondarySystemGroupedBackground);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 0.5px 0 rgba(0,0,0,.04);
+}
+[data-theme="dark"] .segmented__seg[aria-selected="true"] {
+  background: var(--tertiarySystemGroupedBackground);
+}
+
+/* Cities grid — iOS list rows */
+.cities {
+  background: var(--secondarySystemGroupedBackground);
+  border: 0.5px solid var(--separator);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 720px) { .cities { grid-template-columns: 1fr; } }
+
+.city {
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  position: relative;
+  transition: background .15s var(--spring);
+}
+.city:hover { background: var(--tertiaryFill); }
+/* separators — bottom line unless last-in-row */
+.city::after {
+  content: '';
+  position: absolute;
+  left: 16px; right: 16px; bottom: 0;
+  height: 0.5px;
+  background: var(--separator);
+}
+/* Right column: hide bottom line on the very last two rows */
+.cities > .city:nth-last-child(-n+2)::after { display: none; }
+/* But at single column, only hide bottom of the last */
+@media (max-width: 720px) {
+  .cities > .city:nth-last-child(-n+2)::after { display: block; }
+  .cities > .city:last-child::after { display: none; }
+}
+/* Vertical separator between the two columns */
+.cities > .city:nth-child(odd) {
+  border-right: 0.5px solid var(--separator);
+}
+@media (max-width: 720px) {
+  .cities > .city:nth-child(odd) { border-right: 0; }
+}
+.city__name { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.city__region { font-size: 13px; color: var(--secondaryLabel); margin-top: 2px; }
+.city__time {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.city__time-name { font-size: 11px; color: var(--secondaryLabel); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.city__time-value { font-size: 15px; font-weight: 600; margin-top: 2px; }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="apple-touch-icon" href="_favicon.svg">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a class="nav__brand" href="01-home.html" aria-label="Islamic Website — Home">
+      <span class="nav__brand-mark" aria-hidden="true">ك</span>
+      <span class="nav__brand-full">Islamic Website</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link " href="02-quran-index.html">Quran</a>
+      <a class="nav__link " href="04-duas-index.html">Duas</a>
+      <a class="nav__link " href="05-prayer-times.html" aria-current="page">Prayer Times</a>
+      <a class="nav__link" href="#">Learn Salah</a>
+      <a class="nav__link" href="#">99 Names</a>
+    </nav>
+    <div class="nav__right">
+      
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle appearance" title="Toggle appearance">
+        <!-- Sun symbol (visible in light mode) — lucide-style -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="pt-hero">
+    <div class="container">
+      <h1>Prayer times</h1>
+      <p>Accurate times for any city, calculated with your preferred method — no login, no tracking.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pt-card" role="region" aria-label="Today's prayer times for London">
+        <div class="pt-card__meta">
+          <span><strong>London, GMT</strong></span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>Muslim World League</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>15 Ramaḍān 1447</span>
+        </div>
+        <div class="pt-card__next">
+          <span class="pt-card__next-name">Maghrib</span> · <span>18:16</span>
+        </div>
+        <div class="pt-card__count" id="pt-countdown">Counting down to next prayer…</div>
+        <div class="pt-card__tiles">
+          <div class="pt-tile"><div class="pt-tile__name">Fajr</div><div class="pt-tile__time">5:23</div></div>
+          <div class="pt-tile"><div class="pt-tile__name">Sunrise</div><div class="pt-tile__time">6:52</div></div>
+          <div class="pt-tile"><div class="pt-tile__name">Dhuhr</div><div class="pt-tile__time">12:34</div></div>
+          <div class="pt-tile"><div class="pt-tile__name">Asr</div><div class="pt-tile__time">15:41</div></div>
+          <div class="pt-tile" aria-current="true"><div class="pt-tile__name">Maghrib</div><div class="pt-tile__time">18:16</div></div>
+          <div class="pt-tile"><div class="pt-tile__name">Isha</div><div class="pt-tile__time">19:44</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Calculation method</h2>
+      <p class="section__caption">Different methods use different Fajr/Isha twilight angles. Pick the one your local mosque follows.</p>
+      <div class="segmented" role="tablist" aria-label="Calculation method"><button class="segmented__seg" data-seg="0" aria-selected="true">Muslim World League</button><button class="segmented__seg" data-seg="1" aria-selected="false">ISNA</button><button class="segmented__seg" data-seg="2" aria-selected="false">Egyptian</button><button class="segmented__seg" data-seg="3" aria-selected="false">Umm al-Qura</button><button class="segmented__seg" data-seg="4" aria-selected="false">Karachi</button><button class="segmented__seg" data-seg="5" aria-selected="false">Tehran</button><button class="segmented__seg" data-seg="6" aria-selected="false">Jafari</button></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Popular cities</h2>
+      <p class="section__caption">Tap any city to see its full schedule.</p>
+      <ul class="cities" role="list">
+      <li class="city">
+        <div>
+          <div class="city__name">Makkah</div>
+          <div class="city__region">Saudi Arabia · AST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">18:44</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Madinah</div>
+          <div class="city__region">Saudi Arabia · AST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">18:48</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Istanbul</div>
+          <div class="city__region">Türkiye · TRT</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">19:37</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Jakarta</div>
+          <div class="city__region">Indonesia · WIB</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Isha</div>
+          <div class="city__time-value">19:12</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Kuala Lumpur</div>
+          <div class="city__region">Malaysia · MYT</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Isha</div>
+          <div class="city__time-value">20:26</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Cairo</div>
+          <div class="city__region">Egypt · EET</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">18:32</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Dubai</div>
+          <div class="city__region">UAE · GST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Isha</div>
+          <div class="city__time-value">19:44</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Riyadh</div>
+          <div class="city__region">Saudi Arabia · AST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">18:20</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">London</div>
+          <div class="city__region">United Kingdom · GMT</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Maghrib</div>
+          <div class="city__time-value">18:16</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">New York</div>
+          <div class="city__region">United States · EST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Asr</div>
+          <div class="city__time-value">15:52</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Toronto</div>
+          <div class="city__region">Canada · EST</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Asr</div>
+          <div class="city__time-value">15:47</div>
+        </div>
+      </li>
+      <li class="city">
+        <div>
+          <div class="city__name">Sydney</div>
+          <div class="city__region">Australia · AEDT</div>
+        </div>
+        <div class="city__time">
+          <div class="city__time-name">Fajr</div>
+          <div class="city__time-value">5:04</div>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h4>Read</h4>
+        <ul>
+          <li><a href="02-quran-index.html">The Noble Quran</a></li>
+          <li><a href="#">Translations</a></li>
+          <li><a href="#">Tafsir</a></li>
+          <li><a href="#">Reciters</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="05-prayer-times.html">Prayer times</a></li>
+          <li><a href="04-duas-index.html">Duas</a></li>
+          <li><a href="#">Qibla direction</a></li>
+          <li><a href="#">Hijri calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">How to pray</a></li>
+          <li><a href="#">99 Names of Allah</a></li>
+          <li><a href="#">The Seerah</a></li>
+          <li><a href="#">Glossary</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Sources &amp; scholars</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 Islamic Website · Made as a sadaqah jariyah.</span>
+      <span>All translations, tafsir, and hadith are sourced from published works.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Persist theme in localStorage. DEFAULT LIGHT (color.md › Dark mode).
+  const KEY = 'iw-theme';
+  const html = document.documentElement;
+  const saved = localStorage.getItem(KEY);
+  if (saved === 'dark' || saved === 'light') html.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem(KEY, next);
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  // Countdown to Maghrib (18:16). Fake "now" = 15:35 local, so ~2h 41m.
+  // Real JS that runs the countdown, updating every 30s.
+  const target = new Date();
+  target.setHours(18, 16, 0, 0);
+  // Base current time — we anchor at 15:35 on script load, then let it tick.
+  const anchor = new Date();
+  anchor.setHours(15, 35, 0, 0);
+  const startedAt = Date.now();
+
+  const el = document.getElementById('pt-countdown');
+  function fmt() {
+    const now = new Date(anchor.getTime() + (Date.now() - startedAt));
+    let diff = Math.max(0, Math.floor((target - now) / 1000));
+    const h = Math.floor(diff / 3600);
+    const m = Math.floor((diff % 3600) / 60);
+    const s = diff % 60;
+    if (diff <= 0) {
+      el.textContent = 'Maghrib has begun.';
+      return;
+    }
+    let parts = [];
+    if (h) parts.push(h + 'h');
+    parts.push(m + 'm');
+    if (h === 0) parts.push(s + 's');
+    el.textContent = 'in ' + parts.join(' ') + ' — Maghrib';
+  }
+  fmt();
+  setInterval(fmt, 1000);
+
+  // Segmented picker
+  document.querySelectorAll('.segmented').forEach(seg => {
+    seg.addEventListener('click', (e) => {
+      const btn = e.target.closest('.segmented__seg');
+      if (!btn) return;
+      seg.querySelectorAll('.segmented__seg').forEach(b => b.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+    });
+  });
+})();
+</script>
+
+<script src="_focus.js" defer></script>
+</body>
+</html>

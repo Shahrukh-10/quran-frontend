@@ -1,0 +1,1927 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Noble Quran · Islamic Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+/* -----------------------------------------------------------
+   Islamic Website · Apple HIG mockup
+   color.md › System colors — hard-coded here for the mockup;
+   in a real Apple app these would be resolved via UIColor / Color.
+   typography.md › Ensuring legibility — SF Pro Text / Display via
+   the system font stack; Amiri Quran ONLY for Quran verses.
+   liquid-glass.md › The two layers — glass reserved for the
+   functional layer (nav + audio bar). Content cards use plain
+   surfaces, per liquid-glass.md › Where the material belongs.
+   ----------------------------------------------------------- */
+:root {
+  /* iOS light-mode system colors (color.md › System colors) */
+  --systemBackground: #ffffff;
+  --secondarySystemBackground: #f2f2f7;
+  --tertiarySystemBackground: #ffffff;
+  --systemGroupedBackground: #f2f2f7;
+  --secondarySystemGroupedBackground: #ffffff;
+  --tertiarySystemGroupedBackground: #f2f2f7;
+
+  --label: #000000;
+  --secondaryLabel: rgba(60,60,67,.60);
+  --tertiaryLabel: rgba(60,60,67,.30);
+  --quaternaryLabel: rgba(60,60,67,.18);
+
+  --separator: rgba(60,60,67,.29);
+  --opaqueSeparator: #c6c6c8;
+  --fill: rgba(120,120,128,.20);
+  --secondaryFill: rgba(120,120,128,.16);
+  --tertiaryFill: rgba(118,118,128,.12);
+  --quaternaryFill: rgba(116,116,128,.08);
+
+  /* system tints */
+  --systemBlue: #007aff;
+  --systemBlueHover: #0060df;
+  --systemGreen: #34c759;
+  --systemRed: #ff3b30;
+  --systemOrange: #ff9500;
+  --systemIndigo: #5856d6;
+  --systemGray: #8e8e93;
+
+  /* Liquid Glass fallback tints (liquid-glass.md › Color on glass) */
+  --glassBg: rgba(255,255,255,.72);
+  --glassBorder: rgba(60,60,67,.18);
+
+  /* motion (subtle spring per HIG) */
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* radii on 8pt system (layout.md › Best practices) */
+  --r-lg: 8px;    /* buttons */
+  --r-xl: 12px;   /* small cards */
+  --r-2xl: 16px;  /* larger cards */
+  --r-3xl: 24px;  /* hero surfaces */
+
+  /* typography stack: system for everything Latin (typography.md) */
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-arabic-ui: -apple-system, 'SF Arabic', 'Geeza Pro', 'Arabic UI Text', 'Amiri', serif;
+  --font-quran: 'Amiri Quran', 'Amiri', 'SF Arabic', serif;
+}
+
+/* Dark appearance (color.md › System colors — dark variants) */
+[data-theme="dark"] {
+  --systemBackground: #000000;
+  --secondarySystemBackground: #1c1c1e;
+  --tertiarySystemBackground: #2c2c2e;
+  --systemGroupedBackground: #000000;
+  --secondarySystemGroupedBackground: #1c1c1e;
+  --tertiarySystemGroupedBackground: #2c2c2e;
+
+  --label: #ffffff;
+  --secondaryLabel: rgba(235,235,245,.60);
+  --tertiaryLabel: rgba(235,235,245,.30);
+  --quaternaryLabel: rgba(235,235,245,.18);
+
+  --separator: rgba(84,84,88,.65);
+  --opaqueSeparator: #38383a;
+  --fill: rgba(120,120,128,.36);
+  --secondaryFill: rgba(120,120,128,.32);
+  --tertiaryFill: rgba(118,118,128,.24);
+  --quaternaryFill: rgba(118,118,128,.18);
+
+  --systemBlue: #0a84ff;
+  --systemBlueHover: #409cff;
+  --systemGreen: #30d158;
+  --systemRed: #ff453a;
+  --systemOrange: #ff9f0a;
+  --systemIndigo: #5e5ce6;
+  --systemGray: #98989d;
+
+  --glassBg: rgba(0,0,0,.60);
+  --glassBorder: rgba(255,255,255,.10);
+}
+
+/* Reset — restrained */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  /* typography.md › Ensuring legibility — 17pt default body on iOS */
+  font-size: 17px;
+  line-height: 1.47;
+  color: var(--label);
+  background: var(--systemBackground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: transparent; border: 0; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+/* Focus ring — accessibility.md */
+:focus-visible {
+  outline: 2px solid var(--systemBlue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   Sticky navigation bar — the ONE glass surface at the top
+   liquid-glass.md › The two layers (functional layer)
+   toolbars.md › Reduce use of toolbar backgrounds
+   ----------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(16px, env(safe-area-inset-left)) 0 max(16px, env(safe-area-inset-right));
+  background: var(--glassBg);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
+  border-bottom: 0.5px solid var(--separator);
+}
+.nav__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nav__brand {
+  font-family: var(--font-system);
+  font-size: 15px;         /* typography.md › headline size on iOS */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--label);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__brand-mark {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: var(--systemBlue);
+  display: inline-grid; place-items: center;
+  color: #fff; font-size: 12px; font-weight: 700;
+  letter-spacing: 0;
+}
+.nav__links {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.nav__link {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondaryLabel);
+  border-radius: 6px;
+  transition: color .18s var(--spring), background .18s var(--spring);
+}
+.nav__link:hover { color: var(--label); background: var(--tertiaryFill); }
+.nav__link[aria-current="page"] { color: var(--label); }
+
+.nav__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon button — rounded-full applies ONLY to icon-only buttons (per brief) */
+.icon-btn {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  border-radius: 999px;
+  display: inline-grid; place-items: center;
+  color: var(--label);
+  transition: background .18s var(--spring);
+}
+.icon-btn:hover { background: var(--tertiaryFill); }
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 1.75; }
+
+/* Mobile: collapse center links */
+@media (max-width: 720px) {
+  .nav__links { display: none; }
+  .nav__inner { grid-template-columns: 1fr auto; }
+  .nav__brand-full { display: none; }
+}
+
+/* -----------------------------------------------------------
+   Buttons (buttons.md › Style + Role)
+   ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;   /* buttons.md › 44x44pt minimum */
+  padding: 10px 20px;
+  border-radius: var(--r-lg);
+  font-family: var(--font-system);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform .12s var(--spring), background .18s var(--spring), border-color .18s var(--spring), opacity .18s var(--spring);
+  will-change: transform;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--systemBlue);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--systemBlueHover); }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--label);
+  border: 1px solid var(--separator);
+}
+.btn--secondary:hover { background: var(--tertiaryFill); }
+
+.btn--tertiary {
+  background: var(--tertiaryFill);
+  color: var(--label);
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 15px;
+  border-radius: var(--r-lg);
+}
+.btn--tertiary:hover { background: var(--secondaryFill); }
+
+/* -----------------------------------------------------------
+   Containers & type utilities
+   layout.md › Safe area margins
+   ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container--narrow { max-width: 760px; }
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.section-title {
+  font-family: var(--font-system);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.section-caption {
+  font-size: 15px;
+  color: var(--secondaryLabel);
+  margin: 0 0 20px;
+}
+
+/* -----------------------------------------------------------
+   Footer — plain, no glass (per brief)
+   ----------------------------------------------------------- */
+.footer {
+  margin-top: 80px;
+  background: var(--systemGroupedBackground);
+  border-top: 0.5px solid var(--separator);
+  padding: 48px 0 32px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.footer__col h4 {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondaryLabel);
+}
+.footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer__col a { font-size: 14px; color: var(--label); }
+.footer__col a:hover { color: var(--systemBlue); }
+.footer__copy {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 0.5px solid var(--separator);
+  font-size: 12px;
+  color: var(--tertiaryLabel);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+}
+@media (max-width: 720px) {
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Utility */
+.hstack { display: flex; align-items: center; gap: 8px; }
+.vstack { display: flex; flex-direction: column; gap: 8px; }
+.spacer { flex: 1; }
+
+/* Prefers-reduced-motion (accessibility.md) */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<style>
+/* -----------------------------------------------------------
+   Quran index — iOS Grouped Table
+   layout.md › Group related items · Extend content to fill
+   ----------------------------------------------------------- */
+.page-hero {
+  padding: 56px 0 24px;
+}
+.page-hero h1 {
+  font-family: var(--font-system);
+  font-size: clamp(40px, 5.5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin: 0 0 12px;
+}
+.page-hero p {
+  color: var(--secondaryLabel);
+  font-size: 19px;
+  margin: 0;
+  max-width: 620px;
+}
+
+/* Sticky search field — Liquid Glass row (liquid-glass.md › Where the material belongs — functional layer) */
+.search-bar {
+  position: sticky;
+  top: 52px; /* nav height */
+  z-index: 50;
+  padding: 12px 0;
+  background: var(--glassBg);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  border-bottom: 0.5px solid var(--separator);
+  margin-bottom: 24px;
+}
+.search-field {
+  display: flex; align-items: center; gap: 10px;
+  height: 40px;
+  background: var(--tertiaryFill);
+  border-radius: 10px;
+  padding: 0 12px;
+  color: var(--label);
+}
+.search-field svg { width: 16px; height: 16px; color: var(--secondaryLabel); stroke-width: 2; }
+.search-field input {
+  flex: 1;
+  border: 0; background: transparent; outline: none;
+  font: inherit; color: inherit;
+  font-size: 15px;
+}
+.search-field input::placeholder { color: var(--secondaryLabel); }
+.search-clear {
+  color: var(--secondaryLabel);
+  padding: 4px;
+  border-radius: 999px;
+  display: none;
+}
+.search-field[data-has-value="true"] .search-clear { display: inline-flex; }
+.search-clear svg { width: 14px; height: 14px; }
+
+/* iOS grouped list */
+.grouped-list { padding-bottom: 40px; }
+.group {
+  margin-bottom: 32px;
+}
+.group__header {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--secondaryLabel);
+  text-transform: uppercase;
+}
+.group__list {
+  background: var(--secondarySystemGroupedBackground);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  border: 0.5px solid var(--separator);
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  min-height: 60px;
+  position: relative;
+  transition: background .15s var(--spring);
+}
+.row + .row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 76px; right: 0;
+  height: 0.5px;
+  background: var(--separator);
+}
+.row:hover, .row:focus-visible { background: var(--tertiaryFill); }
+.row__num {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--systemBlue);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.row__main { min-width: 0; }
+.row__name {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--label);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.row__caption {
+  font-size: 13px;
+  color: var(--secondaryLabel);
+  margin-top: 2px;
+}
+.row__arabic {
+  font-family: var(--font-arabic-ui);
+  font-size: 20px;
+  color: var(--label);
+  direction: rtl;
+}
+.row__chevron {
+  color: var(--tertiaryLabel);
+  margin-left: 4px;
+}
+.row__chevron svg { width: 14px; height: 14px; stroke-width: 2.5; }
+
+.empty {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--secondaryLabel);
+  font-size: 15px;
+  display: none;
+}
+.empty.is-visible { display: block; }
+
+@media (max-width: 520px) {
+  .row { grid-template-columns: 36px 1fr auto; padding: 12px; }
+  .row + .row::before { left: 64px; }
+  .row__arabic { font-size: 18px; }
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="apple-touch-icon" href="_favicon.svg">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a class="nav__brand" href="01-home.html" aria-label="Islamic Website — Home">
+      <span class="nav__brand-mark" aria-hidden="true">ك</span>
+      <span class="nav__brand-full">Islamic Website</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link " href="02-quran-index.html" aria-current="page">Quran</a>
+      <a class="nav__link " href="04-duas-index.html">Duas</a>
+      <a class="nav__link " href="05-prayer-times.html">Prayer Times</a>
+      <a class="nav__link" href="#">Learn Salah</a>
+      <a class="nav__link" href="#">99 Names</a>
+    </nav>
+    <div class="nav__right">
+      
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle appearance" title="Toggle appearance">
+        <!-- Sun symbol (visible in light mode) — lucide-style -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container container--narrow">
+      <h1>The Noble Quran</h1>
+      <p>All 114 surahs, grouped in the traditional order of the Mushaf. Tap any surah to open it.</p>
+    </div>
+  </section>
+
+  <div class="search-bar">
+    <div class="container container--narrow">
+      <div class="search-field" id="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Search surahs by name, meaning, or number" aria-label="Search surahs" autocomplete="off">
+        <button class="search-clear icon-btn" id="q-clear" aria-label="Clear search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--narrow grouped-list">
+    
+    <section class="group">
+      <h2 class="group__header">Al-Fatihah & The Long Surahs (as-Sabʿ aṭ-Ṭiwāl)</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="al-fatihah the opening الفاتحة 1">
+          <div class="row__num">1</div>
+          <div class="row__main">
+            <div class="row__name">Al-Fatihah <span style="font-weight:400;color:var(--secondaryLabel);">· The Opening</span></div>
+            <div class="row__caption">Meccan · 7 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفاتحة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-baqarah the cow البقرة 2">
+          <div class="row__num">2</div>
+          <div class="row__main">
+            <div class="row__name">Al-Baqarah <span style="font-weight:400;color:var(--secondaryLabel);">· The Cow</span></div>
+            <div class="row__caption">Medinan · 286 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">البقرة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ali 'imran family of imran آل عمران 3">
+          <div class="row__num">3</div>
+          <div class="row__main">
+            <div class="row__name">Ali 'Imran <span style="font-weight:400;color:var(--secondaryLabel);">· Family of Imran</span></div>
+            <div class="row__caption">Medinan · 200 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">آل عمران</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nisa the women النساء 4">
+          <div class="row__num">4</div>
+          <div class="row__main">
+            <div class="row__name">An-Nisa <span style="font-weight:400;color:var(--secondaryLabel);">· The Women</span></div>
+            <div class="row__caption">Medinan · 176 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النساء</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ma'idah the table spread المائدة 5">
+          <div class="row__num">5</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ma'idah <span style="font-weight:400;color:var(--secondaryLabel);">· The Table Spread</span></div>
+            <div class="row__caption">Medinan · 120 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المائدة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-an'am the cattle الأنعام 6">
+          <div class="row__num">6</div>
+          <div class="row__main">
+            <div class="row__name">Al-An'am <span style="font-weight:400;color:var(--secondaryLabel);">· The Cattle</span></div>
+            <div class="row__caption">Meccan · 165 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأنعام</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-a'raf the heights الأعراف 7">
+          <div class="row__num">7</div>
+          <div class="row__main">
+            <div class="row__name">Al-A'raf <span style="font-weight:400;color:var(--secondaryLabel);">· The Heights</span></div>
+            <div class="row__caption">Meccan · 206 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأعراف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="group">
+      <h2 class="group__header">Al-Miʾīn — surahs of around a hundred ayat</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="al-anfal the spoils of war الأنفال 8">
+          <div class="row__num">8</div>
+          <div class="row__main">
+            <div class="row__name">Al-Anfal <span style="font-weight:400;color:var(--secondaryLabel);">· The Spoils of War</span></div>
+            <div class="row__caption">Medinan · 75 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأنفال</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-tawbah the repentance التوبة 9">
+          <div class="row__num">9</div>
+          <div class="row__main">
+            <div class="row__name">At-Tawbah <span style="font-weight:400;color:var(--secondaryLabel);">· The Repentance</span></div>
+            <div class="row__caption">Medinan · 129 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التوبة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="yunus jonah يونس 10">
+          <div class="row__num">10</div>
+          <div class="row__main">
+            <div class="row__name">Yunus <span style="font-weight:400;color:var(--secondaryLabel);">· Jonah</span></div>
+            <div class="row__caption">Meccan · 109 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">يونس</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="hud hud هود 11">
+          <div class="row__num">11</div>
+          <div class="row__main">
+            <div class="row__name">Hud <span style="font-weight:400;color:var(--secondaryLabel);">· Hud</span></div>
+            <div class="row__caption">Meccan · 123 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">هود</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="yusuf joseph يوسف 12">
+          <div class="row__num">12</div>
+          <div class="row__main">
+            <div class="row__name">Yusuf <span style="font-weight:400;color:var(--secondaryLabel);">· Joseph</span></div>
+            <div class="row__caption">Meccan · 111 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">يوسف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ar-ra'd the thunder الرعد 13">
+          <div class="row__num">13</div>
+          <div class="row__main">
+            <div class="row__name">Ar-Ra'd <span style="font-weight:400;color:var(--secondaryLabel);">· The Thunder</span></div>
+            <div class="row__caption">Medinan · 43 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الرعد</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ibrahim abraham إبراهيم 14">
+          <div class="row__num">14</div>
+          <div class="row__main">
+            <div class="row__name">Ibrahim <span style="font-weight:400;color:var(--secondaryLabel);">· Abraham</span></div>
+            <div class="row__caption">Meccan · 52 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">إبراهيم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-hijr the rocky tract الحجر 15">
+          <div class="row__num">15</div>
+          <div class="row__main">
+            <div class="row__name">Al-Hijr <span style="font-weight:400;color:var(--secondaryLabel);">· The Rocky Tract</span></div>
+            <div class="row__caption">Meccan · 99 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحجر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nahl the bee النحل 16">
+          <div class="row__num">16</div>
+          <div class="row__main">
+            <div class="row__name">An-Nahl <span style="font-weight:400;color:var(--secondaryLabel);">· The Bee</span></div>
+            <div class="row__caption">Meccan · 128 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النحل</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-isra the night journey الإسراء 17">
+          <div class="row__num">17</div>
+          <div class="row__main">
+            <div class="row__name">Al-Isra <span style="font-weight:400;color:var(--secondaryLabel);">· The Night Journey</span></div>
+            <div class="row__caption">Meccan · 111 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الإسراء</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-kahf the cave الكهف 18">
+          <div class="row__num">18</div>
+          <div class="row__main">
+            <div class="row__name">Al-Kahf <span style="font-weight:400;color:var(--secondaryLabel);">· The Cave</span></div>
+            <div class="row__caption">Meccan · 110 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الكهف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="maryam mary مريم 19">
+          <div class="row__num">19</div>
+          <div class="row__main">
+            <div class="row__name">Maryam <span style="font-weight:400;color:var(--secondaryLabel);">· Mary</span></div>
+            <div class="row__caption">Meccan · 98 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">مريم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="taha ta-ha طه 20">
+          <div class="row__num">20</div>
+          <div class="row__main">
+            <div class="row__name">Taha <span style="font-weight:400;color:var(--secondaryLabel);">· Ta-Ha</span></div>
+            <div class="row__caption">Meccan · 135 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">طه</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-anbiya the prophets الأنبياء 21">
+          <div class="row__num">21</div>
+          <div class="row__main">
+            <div class="row__name">Al-Anbiya <span style="font-weight:400;color:var(--secondaryLabel);">· The Prophets</span></div>
+            <div class="row__caption">Meccan · 112 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأنبياء</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-hajj the pilgrimage الحج 22">
+          <div class="row__num">22</div>
+          <div class="row__main">
+            <div class="row__name">Al-Hajj <span style="font-weight:400;color:var(--secondaryLabel);">· The Pilgrimage</span></div>
+            <div class="row__caption">Medinan · 78 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحج</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mu'minun the believers المؤمنون 23">
+          <div class="row__num">23</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mu'minun <span style="font-weight:400;color:var(--secondaryLabel);">· The Believers</span></div>
+            <div class="row__caption">Meccan · 118 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المؤمنون</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nur the light النور 24">
+          <div class="row__num">24</div>
+          <div class="row__main">
+            <div class="row__name">An-Nur <span style="font-weight:400;color:var(--secondaryLabel);">· The Light</span></div>
+            <div class="row__caption">Medinan · 64 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النور</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-furqan the criterion الفرقان 25">
+          <div class="row__num">25</div>
+          <div class="row__main">
+            <div class="row__name">Al-Furqan <span style="font-weight:400;color:var(--secondaryLabel);">· The Criterion</span></div>
+            <div class="row__caption">Meccan · 77 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفرقان</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ash-shu'ara the poets الشعراء 26">
+          <div class="row__num">26</div>
+          <div class="row__main">
+            <div class="row__name">Ash-Shu'ara <span style="font-weight:400;color:var(--secondaryLabel);">· The Poets</span></div>
+            <div class="row__caption">Meccan · 227 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الشعراء</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-naml the ant النمل 27">
+          <div class="row__num">27</div>
+          <div class="row__main">
+            <div class="row__name">An-Naml <span style="font-weight:400;color:var(--secondaryLabel);">· The Ant</span></div>
+            <div class="row__caption">Meccan · 93 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النمل</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qasas the stories القصص 28">
+          <div class="row__num">28</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qasas <span style="font-weight:400;color:var(--secondaryLabel);">· The Stories</span></div>
+            <div class="row__caption">Meccan · 88 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القصص</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-'ankabut the spider العنكبوت 29">
+          <div class="row__num">29</div>
+          <div class="row__main">
+            <div class="row__name">Al-'Ankabut <span style="font-weight:400;color:var(--secondaryLabel);">· The Spider</span></div>
+            <div class="row__caption">Meccan · 69 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">العنكبوت</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ar-rum the romans الروم 30">
+          <div class="row__num">30</div>
+          <div class="row__main">
+            <div class="row__name">Ar-Rum <span style="font-weight:400;color:var(--secondaryLabel);">· The Romans</span></div>
+            <div class="row__caption">Meccan · 60 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الروم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="luqman luqman لقمان 31">
+          <div class="row__num">31</div>
+          <div class="row__main">
+            <div class="row__name">Luqman <span style="font-weight:400;color:var(--secondaryLabel);">· Luqman</span></div>
+            <div class="row__caption">Meccan · 34 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">لقمان</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="as-sajdah the prostration السجدة 32">
+          <div class="row__num">32</div>
+          <div class="row__main">
+            <div class="row__name">As-Sajdah <span style="font-weight:400;color:var(--secondaryLabel);">· The Prostration</span></div>
+            <div class="row__caption">Meccan · 30 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">السجدة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ahzab the combined forces الأحزاب 33">
+          <div class="row__num">33</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ahzab <span style="font-weight:400;color:var(--secondaryLabel);">· The Combined Forces</span></div>
+            <div class="row__caption">Medinan · 73 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأحزاب</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="saba sheba سبأ 34">
+          <div class="row__num">34</div>
+          <div class="row__main">
+            <div class="row__name">Saba <span style="font-weight:400;color:var(--secondaryLabel);">· Sheba</span></div>
+            <div class="row__caption">Meccan · 54 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">سبأ</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="fatir originator فاطر 35">
+          <div class="row__num">35</div>
+          <div class="row__main">
+            <div class="row__name">Fatir <span style="font-weight:400;color:var(--secondaryLabel);">· Originator</span></div>
+            <div class="row__caption">Meccan · 45 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">فاطر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ya-sin ya sin يس 36">
+          <div class="row__num">36</div>
+          <div class="row__main">
+            <div class="row__name">Ya-Sin <span style="font-weight:400;color:var(--secondaryLabel);">· Ya Sin</span></div>
+            <div class="row__caption">Meccan · 83 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">يس</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="as-saffat those ranged in ranks الصافات 37">
+          <div class="row__num">37</div>
+          <div class="row__main">
+            <div class="row__name">As-Saffat <span style="font-weight:400;color:var(--secondaryLabel);">· Those Ranged in Ranks</span></div>
+            <div class="row__caption">Meccan · 182 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الصافات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="sad the letter sad ص 38">
+          <div class="row__num">38</div>
+          <div class="row__main">
+            <div class="row__name">Sad <span style="font-weight:400;color:var(--secondaryLabel);">· The Letter Sad</span></div>
+            <div class="row__caption">Meccan · 88 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">ص</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="az-zumar the groups الزمر 39">
+          <div class="row__num">39</div>
+          <div class="row__main">
+            <div class="row__name">Az-Zumar <span style="font-weight:400;color:var(--secondaryLabel);">· The Groups</span></div>
+            <div class="row__caption">Meccan · 75 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الزمر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ghafir the forgiver غافر 40">
+          <div class="row__num">40</div>
+          <div class="row__main">
+            <div class="row__name">Ghafir <span style="font-weight:400;color:var(--secondaryLabel);">· The Forgiver</span></div>
+            <div class="row__caption">Meccan · 85 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">غافر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="fussilat explained in detail فصلت 41">
+          <div class="row__num">41</div>
+          <div class="row__main">
+            <div class="row__name">Fussilat <span style="font-weight:400;color:var(--secondaryLabel);">· Explained in Detail</span></div>
+            <div class="row__caption">Meccan · 54 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">فصلت</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ash-shura the consultation الشورى 42">
+          <div class="row__num">42</div>
+          <div class="row__main">
+            <div class="row__name">Ash-Shura <span style="font-weight:400;color:var(--secondaryLabel);">· The Consultation</span></div>
+            <div class="row__caption">Meccan · 53 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الشورى</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="az-zukhruf the gold adornments الزخرف 43">
+          <div class="row__num">43</div>
+          <div class="row__main">
+            <div class="row__name">Az-Zukhruf <span style="font-weight:400;color:var(--secondaryLabel);">· The Gold Adornments</span></div>
+            <div class="row__caption">Meccan · 89 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الزخرف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ad-dukhan the smoke الدخان 44">
+          <div class="row__num">44</div>
+          <div class="row__main">
+            <div class="row__name">Ad-Dukhan <span style="font-weight:400;color:var(--secondaryLabel);">· The Smoke</span></div>
+            <div class="row__caption">Meccan · 59 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الدخان</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-jathiyah the kneeling الجاثية 45">
+          <div class="row__num">45</div>
+          <div class="row__main">
+            <div class="row__name">Al-Jathiyah <span style="font-weight:400;color:var(--secondaryLabel);">· The Kneeling</span></div>
+            <div class="row__caption">Meccan · 37 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الجاثية</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ahqaf the curved sand-hills الأحقاف 46">
+          <div class="row__num">46</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ahqaf <span style="font-weight:400;color:var(--secondaryLabel);">· The Curved Sand-hills</span></div>
+            <div class="row__caption">Meccan · 35 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأحقاف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="muhammad muhammad محمد 47">
+          <div class="row__num">47</div>
+          <div class="row__main">
+            <div class="row__name">Muhammad <span style="font-weight:400;color:var(--secondaryLabel);">· Muhammad</span></div>
+            <div class="row__caption">Medinan · 38 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">محمد</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-fath the victory الفتح 48">
+          <div class="row__num">48</div>
+          <div class="row__main">
+            <div class="row__name">Al-Fath <span style="font-weight:400;color:var(--secondaryLabel);">· The Victory</span></div>
+            <div class="row__caption">Medinan · 29 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفتح</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-hujurat the chambers الحجرات 49">
+          <div class="row__num">49</div>
+          <div class="row__main">
+            <div class="row__name">Al-Hujurat <span style="font-weight:400;color:var(--secondaryLabel);">· The Chambers</span></div>
+            <div class="row__caption">Medinan · 18 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحجرات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="group">
+      <h2 class="group__header">Al-Mathānī — the oft-repeated</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="qaf the letter qaf ق 50">
+          <div class="row__num">50</div>
+          <div class="row__main">
+            <div class="row__name">Qaf <span style="font-weight:400;color:var(--secondaryLabel);">· The Letter Qaf</span></div>
+            <div class="row__caption">Meccan · 45 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">ق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="adh-dhariyat the winnowing winds الذاريات 51">
+          <div class="row__num">51</div>
+          <div class="row__main">
+            <div class="row__name">Adh-Dhariyat <span style="font-weight:400;color:var(--secondaryLabel);">· The Winnowing Winds</span></div>
+            <div class="row__caption">Meccan · 60 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الذاريات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-tur the mount الطور 52">
+          <div class="row__num">52</div>
+          <div class="row__main">
+            <div class="row__name">At-Tur <span style="font-weight:400;color:var(--secondaryLabel);">· The Mount</span></div>
+            <div class="row__caption">Meccan · 49 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الطور</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-najm the star النجم 53">
+          <div class="row__num">53</div>
+          <div class="row__main">
+            <div class="row__name">An-Najm <span style="font-weight:400;color:var(--secondaryLabel);">· The Star</span></div>
+            <div class="row__caption">Meccan · 62 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النجم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qamar the moon القمر 54">
+          <div class="row__num">54</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qamar <span style="font-weight:400;color:var(--secondaryLabel);">· The Moon</span></div>
+            <div class="row__caption">Meccan · 55 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القمر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ar-rahman the most merciful الرحمن 55">
+          <div class="row__num">55</div>
+          <div class="row__main">
+            <div class="row__name">Ar-Rahman <span style="font-weight:400;color:var(--secondaryLabel);">· The Most Merciful</span></div>
+            <div class="row__caption">Medinan · 78 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الرحمن</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-waqi'ah the event الواقعة 56">
+          <div class="row__num">56</div>
+          <div class="row__main">
+            <div class="row__name">Al-Waqi'ah <span style="font-weight:400;color:var(--secondaryLabel);">· The Event</span></div>
+            <div class="row__caption">Meccan · 96 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الواقعة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-hadid the iron الحديد 57">
+          <div class="row__num">57</div>
+          <div class="row__main">
+            <div class="row__name">Al-Hadid <span style="font-weight:400;color:var(--secondaryLabel);">· The Iron</span></div>
+            <div class="row__caption">Medinan · 29 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحديد</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mujadila the pleading woman المجادلة 58">
+          <div class="row__num">58</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mujadila <span style="font-weight:400;color:var(--secondaryLabel);">· The Pleading Woman</span></div>
+            <div class="row__caption">Medinan · 22 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المجادلة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-hashr the gathering الحشر 59">
+          <div class="row__num">59</div>
+          <div class="row__main">
+            <div class="row__name">Al-Hashr <span style="font-weight:400;color:var(--secondaryLabel);">· The Gathering</span></div>
+            <div class="row__caption">Medinan · 24 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحشر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mumtahanah the woman examined الممتحنة 60">
+          <div class="row__num">60</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mumtahanah <span style="font-weight:400;color:var(--secondaryLabel);">· The Woman Examined</span></div>
+            <div class="row__caption">Medinan · 13 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الممتحنة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="as-saff the ranks الصف 61">
+          <div class="row__num">61</div>
+          <div class="row__main">
+            <div class="row__name">As-Saff <span style="font-weight:400;color:var(--secondaryLabel);">· The Ranks</span></div>
+            <div class="row__caption">Medinan · 14 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الصف</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-jumu'ah friday الجمعة 62">
+          <div class="row__num">62</div>
+          <div class="row__main">
+            <div class="row__name">Al-Jumu'ah <span style="font-weight:400;color:var(--secondaryLabel);">· Friday</span></div>
+            <div class="row__caption">Medinan · 11 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الجمعة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-munafiqun the hypocrites المنافقون 63">
+          <div class="row__num">63</div>
+          <div class="row__main">
+            <div class="row__name">Al-Munafiqun <span style="font-weight:400;color:var(--secondaryLabel);">· The Hypocrites</span></div>
+            <div class="row__caption">Medinan · 11 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المنافقون</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-taghabun mutual disillusion التغابن 64">
+          <div class="row__num">64</div>
+          <div class="row__main">
+            <div class="row__name">At-Taghabun <span style="font-weight:400;color:var(--secondaryLabel);">· Mutual Disillusion</span></div>
+            <div class="row__caption">Medinan · 18 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التغابن</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-talaq the divorce الطلاق 65">
+          <div class="row__num">65</div>
+          <div class="row__main">
+            <div class="row__name">At-Talaq <span style="font-weight:400;color:var(--secondaryLabel);">· The Divorce</span></div>
+            <div class="row__caption">Medinan · 12 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الطلاق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-tahrim the prohibition التحريم 66">
+          <div class="row__num">66</div>
+          <div class="row__main">
+            <div class="row__name">At-Tahrim <span style="font-weight:400;color:var(--secondaryLabel);">· The Prohibition</span></div>
+            <div class="row__caption">Medinan · 12 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التحريم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mulk the sovereignty الملك 67">
+          <div class="row__num">67</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mulk <span style="font-weight:400;color:var(--secondaryLabel);">· The Sovereignty</span></div>
+            <div class="row__caption">Meccan · 30 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الملك</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qalam the pen القلم 68">
+          <div class="row__num">68</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qalam <span style="font-weight:400;color:var(--secondaryLabel);">· The Pen</span></div>
+            <div class="row__caption">Meccan · 52 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القلم</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-haqqah the inevitable الحاقة 69">
+          <div class="row__num">69</div>
+          <div class="row__main">
+            <div class="row__name">Al-Haqqah <span style="font-weight:400;color:var(--secondaryLabel);">· The Inevitable</span></div>
+            <div class="row__caption">Meccan · 52 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الحاقة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ma'arij the ways of ascent المعارج 70">
+          <div class="row__num">70</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ma'arij <span style="font-weight:400;color:var(--secondaryLabel);">· The Ways of Ascent</span></div>
+            <div class="row__caption">Meccan · 44 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المعارج</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="nuh noah نوح 71">
+          <div class="row__num">71</div>
+          <div class="row__main">
+            <div class="row__name">Nuh <span style="font-weight:400;color:var(--secondaryLabel);">· Noah</span></div>
+            <div class="row__caption">Meccan · 28 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">نوح</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-jinn the jinn الجن 72">
+          <div class="row__num">72</div>
+          <div class="row__main">
+            <div class="row__name">Al-Jinn <span style="font-weight:400;color:var(--secondaryLabel);">· The Jinn</span></div>
+            <div class="row__caption">Meccan · 28 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الجن</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-muzzammil the enshrouded one المزمل 73">
+          <div class="row__num">73</div>
+          <div class="row__main">
+            <div class="row__name">Al-Muzzammil <span style="font-weight:400;color:var(--secondaryLabel);">· The Enshrouded One</span></div>
+            <div class="row__caption">Meccan · 20 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المزمل</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-muddaththir the cloaked one المدثر 74">
+          <div class="row__num">74</div>
+          <div class="row__main">
+            <div class="row__name">Al-Muddaththir <span style="font-weight:400;color:var(--secondaryLabel);">· The Cloaked One</span></div>
+            <div class="row__caption">Meccan · 56 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المدثر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qiyamah the resurrection القيامة 75">
+          <div class="row__num">75</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qiyamah <span style="font-weight:400;color:var(--secondaryLabel);">· The Resurrection</span></div>
+            <div class="row__caption">Meccan · 40 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القيامة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-insan the man الإنسان 76">
+          <div class="row__num">76</div>
+          <div class="row__main">
+            <div class="row__name">Al-Insan <span style="font-weight:400;color:var(--secondaryLabel);">· The Man</span></div>
+            <div class="row__caption">Medinan · 31 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الإنسان</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mursalat those sent forth المرسلات 77">
+          <div class="row__num">77</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mursalat <span style="font-weight:400;color:var(--secondaryLabel);">· Those Sent Forth</span></div>
+            <div class="row__caption">Meccan · 50 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المرسلات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="group">
+      <h2 class="group__header">Al-Mufaṣṣal — Long</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="an-naba the great news النبأ 78">
+          <div class="row__num">78</div>
+          <div class="row__main">
+            <div class="row__name">An-Naba <span style="font-weight:400;color:var(--secondaryLabel);">· The Great News</span></div>
+            <div class="row__caption">Meccan · 40 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النبأ</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nazi'at those who pull out النازعات 79">
+          <div class="row__num">79</div>
+          <div class="row__main">
+            <div class="row__name">An-Nazi'at <span style="font-weight:400;color:var(--secondaryLabel);">· Those Who Pull Out</span></div>
+            <div class="row__caption">Meccan · 46 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النازعات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="'abasa he frowned عبس 80">
+          <div class="row__num">80</div>
+          <div class="row__main">
+            <div class="row__name">'Abasa <span style="font-weight:400;color:var(--secondaryLabel);">· He Frowned</span></div>
+            <div class="row__caption">Meccan · 42 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">عبس</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-takwir the overthrowing التكوير 81">
+          <div class="row__num">81</div>
+          <div class="row__main">
+            <div class="row__name">At-Takwir <span style="font-weight:400;color:var(--secondaryLabel);">· The Overthrowing</span></div>
+            <div class="row__caption">Meccan · 29 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التكوير</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-infitar the cleaving الانفطار 82">
+          <div class="row__num">82</div>
+          <div class="row__main">
+            <div class="row__name">Al-Infitar <span style="font-weight:400;color:var(--secondaryLabel);">· The Cleaving</span></div>
+            <div class="row__caption">Meccan · 19 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الانفطار</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-mutaffifin the defrauding المطففين 83">
+          <div class="row__num">83</div>
+          <div class="row__main">
+            <div class="row__name">Al-Mutaffifin <span style="font-weight:400;color:var(--secondaryLabel);">· The Defrauding</span></div>
+            <div class="row__caption">Meccan · 36 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المطففين</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-inshiqaq the splitting asunder الانشقاق 84">
+          <div class="row__num">84</div>
+          <div class="row__main">
+            <div class="row__name">Al-Inshiqaq <span style="font-weight:400;color:var(--secondaryLabel);">· The Splitting Asunder</span></div>
+            <div class="row__caption">Meccan · 25 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الانشقاق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-buruj the stars البروج 85">
+          <div class="row__num">85</div>
+          <div class="row__main">
+            <div class="row__name">Al-Buruj <span style="font-weight:400;color:var(--secondaryLabel);">· The Stars</span></div>
+            <div class="row__caption">Meccan · 22 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">البروج</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="group">
+      <h2 class="group__header">Al-Mufaṣṣal — Medium</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="at-tariq the night-comer الطارق 86">
+          <div class="row__num">86</div>
+          <div class="row__main">
+            <div class="row__name">At-Tariq <span style="font-weight:400;color:var(--secondaryLabel);">· The Night-Comer</span></div>
+            <div class="row__caption">Meccan · 17 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الطارق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-a'la the most high الأعلى 87">
+          <div class="row__num">87</div>
+          <div class="row__main">
+            <div class="row__name">Al-A'la <span style="font-weight:400;color:var(--secondaryLabel);">· The Most High</span></div>
+            <div class="row__caption">Meccan · 19 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الأعلى</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ghashiyah the overwhelming الغاشية 88">
+          <div class="row__num">88</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ghashiyah <span style="font-weight:400;color:var(--secondaryLabel);">· The Overwhelming</span></div>
+            <div class="row__caption">Meccan · 26 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الغاشية</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-fajr the dawn الفجر 89">
+          <div class="row__num">89</div>
+          <div class="row__main">
+            <div class="row__name">Al-Fajr <span style="font-weight:400;color:var(--secondaryLabel);">· The Dawn</span></div>
+            <div class="row__caption">Meccan · 30 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفجر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-balad the city البلد 90">
+          <div class="row__num">90</div>
+          <div class="row__main">
+            <div class="row__name">Al-Balad <span style="font-weight:400;color:var(--secondaryLabel);">· The City</span></div>
+            <div class="row__caption">Meccan · 20 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">البلد</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ash-shams the sun الشمس 91">
+          <div class="row__num">91</div>
+          <div class="row__main">
+            <div class="row__name">Ash-Shams <span style="font-weight:400;color:var(--secondaryLabel);">· The Sun</span></div>
+            <div class="row__caption">Meccan · 15 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الشمس</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-layl the night الليل 92">
+          <div class="row__num">92</div>
+          <div class="row__main">
+            <div class="row__name">Al-Layl <span style="font-weight:400;color:var(--secondaryLabel);">· The Night</span></div>
+            <div class="row__caption">Meccan · 21 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الليل</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ad-duha the forenoon الضحى 93">
+          <div class="row__num">93</div>
+          <div class="row__main">
+            <div class="row__name">Ad-Duha <span style="font-weight:400;color:var(--secondaryLabel);">· The Forenoon</span></div>
+            <div class="row__caption">Meccan · 11 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الضحى</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="ash-sharh the opening forth الشرح 94">
+          <div class="row__num">94</div>
+          <div class="row__main">
+            <div class="row__name">Ash-Sharh <span style="font-weight:400;color:var(--secondaryLabel);">· The Opening Forth</span></div>
+            <div class="row__caption">Meccan · 8 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الشرح</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-tin the fig التين 95">
+          <div class="row__num">95</div>
+          <div class="row__main">
+            <div class="row__name">At-Tin <span style="font-weight:400;color:var(--secondaryLabel);">· The Fig</span></div>
+            <div class="row__caption">Meccan · 8 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التين</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-'alaq the clot العلق 96">
+          <div class="row__num">96</div>
+          <div class="row__main">
+            <div class="row__name">Al-'Alaq <span style="font-weight:400;color:var(--secondaryLabel);">· The Clot</span></div>
+            <div class="row__caption">Meccan · 19 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">العلق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qadr the night of decree القدر 97">
+          <div class="row__num">97</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qadr <span style="font-weight:400;color:var(--secondaryLabel);">· The Night of Decree</span></div>
+            <div class="row__caption">Meccan · 5 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القدر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="group">
+      <h2 class="group__header">Al-Mufaṣṣal — Short</h2>
+      <ul class="group__list" role="list">
+        <li class="row" role="listitem" data-search="al-bayyinah the clear evidence البينة 98">
+          <div class="row__num">98</div>
+          <div class="row__main">
+            <div class="row__name">Al-Bayyinah <span style="font-weight:400;color:var(--secondaryLabel);">· The Clear Evidence</span></div>
+            <div class="row__caption">Medinan · 8 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">البينة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="az-zalzalah the earthquake الزلزلة 99">
+          <div class="row__num">99</div>
+          <div class="row__main">
+            <div class="row__name">Az-Zalzalah <span style="font-weight:400;color:var(--secondaryLabel);">· The Earthquake</span></div>
+            <div class="row__caption">Medinan · 8 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الزلزلة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-'adiyat the chargers العاديات 100">
+          <div class="row__num">100</div>
+          <div class="row__main">
+            <div class="row__name">Al-'Adiyat <span style="font-weight:400;color:var(--secondaryLabel);">· The Chargers</span></div>
+            <div class="row__caption">Meccan · 11 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">العاديات</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-qari'ah the striking hour القارعة 101">
+          <div class="row__num">101</div>
+          <div class="row__main">
+            <div class="row__name">Al-Qari'ah <span style="font-weight:400;color:var(--secondaryLabel);">· The Striking Hour</span></div>
+            <div class="row__caption">Meccan · 11 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">القارعة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="at-takathur the piling up التكاثر 102">
+          <div class="row__num">102</div>
+          <div class="row__main">
+            <div class="row__name">At-Takathur <span style="font-weight:400;color:var(--secondaryLabel);">· The Piling Up</span></div>
+            <div class="row__caption">Meccan · 8 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">التكاثر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-'asr the time العصر 103">
+          <div class="row__num">103</div>
+          <div class="row__main">
+            <div class="row__name">Al-'Asr <span style="font-weight:400;color:var(--secondaryLabel);">· The Time</span></div>
+            <div class="row__caption">Meccan · 3 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">العصر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-humazah the slanderer الهمزة 104">
+          <div class="row__num">104</div>
+          <div class="row__main">
+            <div class="row__name">Al-Humazah <span style="font-weight:400;color:var(--secondaryLabel);">· The Slanderer</span></div>
+            <div class="row__caption">Meccan · 9 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الهمزة</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-fil the elephant الفيل 105">
+          <div class="row__num">105</div>
+          <div class="row__main">
+            <div class="row__name">Al-Fil <span style="font-weight:400;color:var(--secondaryLabel);">· The Elephant</span></div>
+            <div class="row__caption">Meccan · 5 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفيل</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="quraysh quraysh قريش 106">
+          <div class="row__num">106</div>
+          <div class="row__main">
+            <div class="row__name">Quraysh <span style="font-weight:400;color:var(--secondaryLabel);">· Quraysh</span></div>
+            <div class="row__caption">Meccan · 4 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">قريش</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ma'un the small kindnesses الماعون 107">
+          <div class="row__num">107</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ma'un <span style="font-weight:400;color:var(--secondaryLabel);">· The Small Kindnesses</span></div>
+            <div class="row__caption">Meccan · 7 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الماعون</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-kawthar the abundance الكوثر 108">
+          <div class="row__num">108</div>
+          <div class="row__main">
+            <div class="row__name">Al-Kawthar <span style="font-weight:400;color:var(--secondaryLabel);">· The Abundance</span></div>
+            <div class="row__caption">Meccan · 3 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الكوثر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-kafirun the disbelievers الكافرون 109">
+          <div class="row__num">109</div>
+          <div class="row__main">
+            <div class="row__name">Al-Kafirun <span style="font-weight:400;color:var(--secondaryLabel);">· The Disbelievers</span></div>
+            <div class="row__caption">Meccan · 6 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الكافرون</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nasr the help النصر 110">
+          <div class="row__num">110</div>
+          <div class="row__main">
+            <div class="row__name">An-Nasr <span style="font-weight:400;color:var(--secondaryLabel);">· The Help</span></div>
+            <div class="row__caption">Medinan · 3 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">النصر</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-masad the palm fiber المسد 111">
+          <div class="row__num">111</div>
+          <div class="row__main">
+            <div class="row__name">Al-Masad <span style="font-weight:400;color:var(--secondaryLabel);">· The Palm Fiber</span></div>
+            <div class="row__caption">Meccan · 5 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">المسد</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-ikhlas the sincerity الإخلاص 112">
+          <div class="row__num">112</div>
+          <div class="row__main">
+            <div class="row__name">Al-Ikhlas <span style="font-weight:400;color:var(--secondaryLabel);">· The Sincerity</span></div>
+            <div class="row__caption">Meccan · 4 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الإخلاص</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="al-falaq the daybreak الفلق 113">
+          <div class="row__num">113</div>
+          <div class="row__main">
+            <div class="row__name">Al-Falaq <span style="font-weight:400;color:var(--secondaryLabel);">· The Daybreak</span></div>
+            <div class="row__caption">Meccan · 5 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الفلق</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+        <li class="row" role="listitem" data-search="an-nas the mankind الناس 114">
+          <div class="row__num">114</div>
+          <div class="row__main">
+            <div class="row__name">An-Nas <span style="font-weight:400;color:var(--secondaryLabel);">· The Mankind</span></div>
+            <div class="row__caption">Meccan · 6 ayat</div>
+          </div>
+          <div class="hstack">
+            <span class="row__arabic">الناس</span>
+            <span class="row__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <div class="empty" id="empty">No surahs match that search.</div>
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h4>Read</h4>
+        <ul>
+          <li><a href="02-quran-index.html">The Noble Quran</a></li>
+          <li><a href="#">Translations</a></li>
+          <li><a href="#">Tafsir</a></li>
+          <li><a href="#">Reciters</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="05-prayer-times.html">Prayer times</a></li>
+          <li><a href="04-duas-index.html">Duas</a></li>
+          <li><a href="#">Qibla direction</a></li>
+          <li><a href="#">Hijri calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">How to pray</a></li>
+          <li><a href="#">99 Names of Allah</a></li>
+          <li><a href="#">The Seerah</a></li>
+          <li><a href="#">Glossary</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Sources &amp; scholars</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 Islamic Website · Made as a sadaqah jariyah.</span>
+      <span>All translations, tafsir, and hadith are sourced from published works.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Persist theme in localStorage. DEFAULT LIGHT (color.md › Dark mode).
+  const KEY = 'iw-theme';
+  const html = document.documentElement;
+  const saved = localStorage.getItem(KEY);
+  if (saved === 'dark' || saved === 'light') html.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem(KEY, next);
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  const input = document.getElementById('q');
+  const field = document.getElementById('search-field');
+  const clear = document.getElementById('q-clear');
+  const empty = document.getElementById('empty');
+  const rows = Array.from(document.querySelectorAll('.row'));
+  const groups = Array.from(document.querySelectorAll('.group'));
+
+  function apply(){
+    const q = (input.value || '').trim().toLowerCase();
+    field.setAttribute('data-has-value', q ? 'true' : 'false');
+    let anyVisible = false;
+    for (const r of rows) {
+      const hay = r.getAttribute('data-search') || '';
+      const match = !q || hay.includes(q);
+      r.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    }
+    for (const g of groups) {
+      const visible = g.querySelectorAll('.row:not([style*="display: none"])').length > 0;
+      g.style.display = visible ? '' : 'none';
+    }
+    empty.classList.toggle('is-visible', !anyVisible);
+  }
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+})();
+</script>
+
+<script src="_focus.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+[
+  {
+    "surah": 103,
+    "ayah": 1,
+    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلْعَصْرِ",
+    "transliteration": "Wal' asr",
+    "translations": {
+      "en.sahih": "By time,",
+      "en.pickthall": "By the declining day,",
+      "en.yusufali": "By (the Token of) Time (through the ages),",
+      "id.indonesian": "Demi masa."
+    },
+    "juz": 30,
+    "page": 601,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6177.mp3"
+    }
+  },
+  {
+    "surah": 103,
+    "ayah": 2,
+    "arabic": "إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ",
+    "transliteration": "Innal insaana lafee khusr",
+    "translations": {
+      "en.sahih": "Indeed, mankind is in loss,",
+      "en.pickthall": "Lo! man is a state of loss,",
+      "en.yusufali": "Verily Man is in loss,",
+      "id.indonesian": "Sesungguhnya manusia itu benar-benar dalam kerugian,"
+    },
+    "juz": 30,
+    "page": 601,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6178.mp3"
+    }
+  },
+  {
+    "surah": 103,
+    "ayah": 3,
+    "arabic": "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ",
+    "transliteration": "Il lal lazeena aamanu wa 'amilus saali haati wa tawa saw bil haqqi wa tawa saw bis sabr",
+    "translations": {
+      "en.sahih": "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
+      "en.pickthall": "Save those who believe and do good works, and exhort one another to truth and exhort one another to endurance.",
+      "en.yusufali": "Except such as have Faith, and do righteous deeds, and (join together) in the mutual teaching of Truth, and of Patience and Constancy.",
+      "id.indonesian": "kecuali orang-orang yang beriman dan mengerjakan amal saleh dan nasehat menasehati supaya mentaati kebenaran dan nasehat menasehati supaya menetapi kesabaran."
+    },
+    "juz": 30,
+    "page": 601,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6179.mp3"
+    }
+  }
+]

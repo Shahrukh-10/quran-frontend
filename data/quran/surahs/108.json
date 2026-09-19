@@ -1,0 +1,53 @@
+[
+  {
+    "surah": 108,
+    "ayah": 1,
+    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ",
+    "transliteration": "Innaa a'taina kal kauthar",
+    "translations": {
+      "en.sahih": "Indeed, We have granted you, [O Muhammad], al-Kawthar.",
+      "en.pickthall": "Lo! We have given thee Abundance;",
+      "en.yusufali": "To thee have We granted the Fount (of Abundance).",
+      "id.indonesian": "Sesungguhnya Kami telah memberikan kepadamu nikmat yang banyak."
+    },
+    "juz": 30,
+    "page": 602,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6205.mp3"
+    }
+  },
+  {
+    "surah": 108,
+    "ayah": 2,
+    "arabic": "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ",
+    "transliteration": "Fa salli li rabbika wanhar",
+    "translations": {
+      "en.sahih": "So pray to your Lord and sacrifice [to Him alone].",
+      "en.pickthall": "So pray unto thy Lord, and sacrifice.",
+      "en.yusufali": "Therefore to thy Lord turn in Prayer and Sacrifice.",
+      "id.indonesian": "Maka dirikanlah shalat karena Tuhanmu; dan berkorbanlah."
+    },
+    "juz": 30,
+    "page": 602,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6206.mp3"
+    }
+  },
+  {
+    "surah": 108,
+    "ayah": 3,
+    "arabic": "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ",
+    "transliteration": "Inna shani-aka huwal abtar",
+    "translations": {
+      "en.sahih": "Indeed, your enemy is the one cut off.",
+      "en.pickthall": "Lo! it is thy insulter (and not thou) who is without posterity.",
+      "en.yusufali": "For he who hateth thee, he will be cut off (from Future Hope).",
+      "id.indonesian": "Sesungguhnya orang-orang yang membenci kamu dialah yang terputus."
+    },
+    "juz": 30,
+    "page": 602,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6207.mp3"
+    }
+  }
+]

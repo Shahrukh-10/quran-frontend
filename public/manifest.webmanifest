@@ -1,0 +1,15 @@
+{
+  "name": "Islamic Website",
+  "short_name": "Islamic",
+  "description": "Free, sourced, offline-first Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBFBFD",
+  "theme_color": "#0B7A3E",
+  "orientation": "any",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

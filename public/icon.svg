@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Islamic Website favicon
+     Motif: open Quran with a stylized crescent + star, geometric restraint.
+     Dark navy backdrop for trust + Apple system blue accent.
+     Works at 16px (main shapes readable), 32px (full detail).
+     Cited: app-icons.md - readable at smallest size, no fine text, high contrast. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1a3f"/>
+      <stop offset="1" stop-color="#0b2a5b"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e6f0ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5ac8fa"/>
+      <stop offset="1" stop-color="#007aff"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background (matches Apple app-icon corner radius ≈ 22.5% of side) -->
+  <rect x="0" y="0" width="64" height="64" rx="14" ry="14" fill="url(#bg)"/>
+
+  <!-- Subtle inner highlight (Apple app icons have a top-to-bottom sheen) -->
+  <rect x="0" y="0" width="64" height="32" rx="14" ry="14" fill="url(#accent)" opacity=".12"/>
+
+  <!-- Open Quran shape: two page-panels forming a slight V, centered -->
+  <g transform="translate(32 34)">
+    <!-- Left page -->
+    <path d="M -20 6 Q -20 -14 0 -12 L 0 10 Q -12 8 -20 6 Z"
+          fill="url(#page)" stroke="rgba(0,0,0,.05)" stroke-width=".5"/>
+    <!-- Right page -->
+    <path d="M 20 6 Q 20 -14 0 -12 L 0 10 Q 12 8 20 6 Z"
+          fill="url(#page)" stroke="rgba(0,0,0,.05)" stroke-width=".5"/>
+    <!-- Spine shadow between pages -->
+    <line x1="0" y1="-12" x2="0" y2="10" stroke="rgba(0,0,0,.12)" stroke-width=".7"/>
+    <!-- Faint text rules on left page (evokes ayat lines, not readable text) -->
+    <g stroke="rgba(0,122,255,.35)" stroke-width=".5" stroke-linecap="round">
+      <line x1="-16" y1="-6" x2="-3" y2="-5"/>
+      <line x1="-16" y1="-2" x2="-3" y2="-1"/>
+      <line x1="-16" y1="2" x2="-3" y2="3"/>
+    </g>
+    <g stroke="rgba(0,122,255,.35)" stroke-width=".5" stroke-linecap="round">
+      <line x1="3" y1="-5" x2="16" y2="-6"/>
+      <line x1="3" y1="-1" x2="16" y2="-2"/>
+      <line x1="3" y1="3" x2="16" y2="2"/>
+    </g>
+  </g>
+
+  <!-- Crescent + star above the book, glowing -->
+  <g transform="translate(32 16)" filter="url(#glow)">
+    <!-- Crescent: outer circle minus inner offset circle -->
+    <path d="M -6 0 A 6 6 0 1 1 6 0 A 4.6 4.6 0 1 0 -6 0 Z"
+          fill="url(#accent)"/>
+    <!-- Five-point star inside the crescent's opening -->
+    <path d="M 2.5 -1 L 3.3 1.4 L 5.8 1.4 L 3.75 2.9 L 4.55 5.3 L 2.5 3.8 L 0.45 5.3 L 1.25 2.9 L -0.8 1.4 L 1.7 1.4 Z"
+          fill="#ffffff" opacity=".95"/>
+  </g>
+</svg>

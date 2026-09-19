@@ -1,0 +1,56 @@
+{
+  "name": "islamic-website",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Free, global Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun || true",
+    "fetch:quran": "tsx scripts/fetch-quran.ts",
+    "sync:quran-com": "tsx scripts/sync-quran-com.ts",
+    "quran:bootstrap": "tsx scripts/quran-bootstrap.ts",
+    "quran:sync": "tsx scripts/sync-quran-com.ts",
+    "quran:build-index": "tsx scripts/build-index.ts",
+    "quran:verify": "tsx scripts/quran-verify.ts",
+    "quran:stats": "tsx scripts/quran-stats.ts",
+    "fetch:cities": "tsx scripts/fetch-cities.ts"
+  },
+  "dependencies": {
+    "adhan": "^4.4.3",
+    "gray-matter": "^4.0.3",
+    "hijri-converter": "^1.1.1",
+    "lucide-react": "^0.462.0",
+    "next": "^15.5.0",
+    "next-intl": "^3.26.0",
+    "next-mdx-remote": "^5.0.0",
+    "pdfjs-dist": "^6.3.289",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-pdf": "^11.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  },
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=20.11"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "common": {
+    "siteName": "Islamic Website",
+    "tagline": "Free. Sourced. Zero tracking.",
+    "skipToContent": "Skip to content",
+    "loading": "Loading",
+    "readMore": "Read more"
+  },
+  "nav": {
+    "home": "Home",
+    "quran": "Quran",
+    "duas": "Duas",
+    "prayerTimes": "Prayer times",
+    "qibla": "Qibla",
+    "learnSalah": "Learn Salah",
+    "names": "99 Names",
+    "calendar": "Calendar",
+    "about": "About",
+    "sources": "Sources",
+    "tools": "Tools",
+    "learn": "Learn",
+    "mushaf": "Muṣḥaf"
+  },
+  "home": {
+    "hero": {
+      "title": "The Quran, duas, and prayer times — free, sourced, and offline-first.",
+      "subtitle": "Every ayah, dua, and hadith cites its source. No ads. No tracking. No login required.",
+      "ctaPrimary": "Read the Quran",
+      "ctaSecondary": "Find a dua"
+    },
+    "principles": {
+      "title": "How this site works",
+      "sourced": {
+        "title": "Every word is sourced",
+        "body": "Duas, hadith, translations, and tafsir excerpts all cite where they come from. If we can't source it, we don't publish it."
+      },
+      "privacy": {
+        "title": "No tracking. Ever.",
+        "body": "No ads, no third-party trackers, no fingerprinting. Your bookmarks and progress live only on your device."
+      },
+      "offline": {
+        "title": "Works offline",
+        "body": "The Quran, duas, and tutorials are cached after your first visit. Read on the train, on hajj, or anywhere with no signal."
+      }
+    },
+    "sections": {
+      "quran": "Read the Quran",
+      "duas": "Duas for every moment",
+      "prayerTimes": "Prayer times & Qibla",
+      "learnSalah": "Learn to pray",
+      "names": "99 Names of Allah",
+      "calendar": "Hijri calendar",
+      "tools": "Tools"
+    }
+  },
+  "footer": {
+    "sourcesLine": "Sources: Tanzil, Al-Quran Cloud, Sunnah.com, Aladhan. Full list on the sources page.",
+    "editorialLine": "Islamic content is reviewed before publishing. Report issues on the contact page.",
+    "copy": "Free to use, forever. No account required."
+  },
+  "about": {
+    "title": "About this site",
+    "intro": "This is a free, non-commercial Islamic resource. No ads, no tracking, no accounts required, no paywalls.",
+    "whyTitle": "Why it exists",
+    "whyBody": "There are many Islamic apps, and yet most sell data, run ads, or lock features behind paywalls. This site is a small attempt at something different: everything free, everything sourced, nothing tracked.",
+    "howTitle": "How content is verified",
+    "howBody": "Quran text comes from Tanzil. Translations come from published, licensed translators. Hadith come from Sunnah.com with authenticity grading. Duas come from Hisnul Muslim (Fortress of the Muslim), each with a source reference. Anything without a source doesn't get published.",
+    "notATitle": "What this site is not",
+    "notABody": "It is not a fatwa engine. It is not a substitute for a qualified scholar. For religious rulings, please consult a local imam or an established Q&A resource — the sources page links several."
+  },
+  "sources": {
+    "title": "Sources",
+    "intro": "Everything on this site is built from the sources below. Where a page includes a specific narration, dua, or translation, the source is cited on the page itself.",
+    "quranTitle": "Quran text",
+    "translationsTitle": "Translations",
+    "hadithTitle": "Hadith",
+    "prayerTimesTitle": "Prayer times",
+    "duasTitle": "Duas"
+  },
+  "quran": {
+    "list": {
+      "eyebrow": "The Noble Quran",
+      "title": "Read the Quran",
+      "description": "All 114 surahs of the Quran with Arabic, translations, transliteration, and verse-by-verse audio. Free. No login. Works offline.",
+      "intro": "Every ayah is its own page with a permanent URL, so any verse can be linked, cited, or shared. Bookmarks live on your device only.",
+      "ayat": "ayat",
+      "meccan": "Meccan",
+      "medinan": "Medinan"
+    },
+    "surah": {
+      "surahLabel": "Surah {number}",
+      "ayat": "ayat",
+      "meccan": "Meccan",
+      "medinan": "Medinan",
+      "juz": "Juz",
+      "previous": "Previous surah",
+      "next": "Next surah",
+      "stubIntro": "The full text of Surah {name} is fetched at build time.",
+      "stubHow": "Run",
+      "stubTail": "to pull it from Al-Quran Cloud, then commit the JSON. The URL and structure are already permanent.",
+      "stubSeed": "Currently seeded surahs (shipped in-repo): Al-Fatihah, Al-Ikhlas, Al-Falaq, An-Nas."
+    },
+    "ayah": {
+      "eyebrow": "{surah}, ayah {ayah}",
+      "backToSurah": "← Back to Surah {surah}",
+      "stub": "The full text for this ayah is fetched at build time. Structure and URL are permanent.",
+      "previous": "Previous ayah",
+      "next": "Next ayah"
+    }
+  },
+  "duas": {
+    "list": {
+      "eyebrow": "Sourced duas",
+      "title": "Duas for every moment",
+      "description": "Short prayers from the Quran and authentic hadith, organized by life situation. Every dua cites its source and grading.",
+      "categoriesTitle": "Categories",
+      "readMore": "Read"
+    },
+    "category": {
+      "backToDuas": "← All duas",
+      "count": "{count} duas"
+    },
+    "dua": {
+      "backToCategory": "← Back to {category}",
+      "sourceLabel": "Source",
+      "gradingLabel": "Grading",
+      "whenTitle": "When to recite",
+      "referenceTitle": "Reference"
+    }
+  },
+  "prayer": {
+    "index": {
+      "eyebrow": "Local salah times",
+      "title": "Prayer times",
+      "description": "Prayer times computed on your device. Nothing sent to any server. All major calculation methods supported.",
+      "useLocation": "Use my location",
+      "orCity": "or pick a city",
+      "citiesTitle": "Prayer times by city",
+      "unavailable": "Location unavailable. Pick a city below or check browser settings.",
+      "notNow": "Not this time",
+      "next": "Next"
+    },
+    "prayers": {
+      "fajr": "Fajr",
+      "sunrise": "Sunrise",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
+    },
+    "settings": {
+      "method": "Calculation method",
+      "madhab": "Asr madhab",
+      "shafi": "Shafi (majority)",
+      "hanafi": "Hanafi"
+    }
+  },
+  "qibla": {
+    "title": "Qibla direction",
+    "eyebrow": "Direction to the Kaaba",
+    "description": "The direction to Makkah from your location. Uses your device compass; falls back to a text bearing if the compass is unavailable.",
+    "useLocation": "Use my location",
+    "compassUnavailable": "Compass unavailable. Bearing shown as degrees.",
+    "bearing": "Bearing",
+    "distance": "Distance to Makkah",
+    "km": "km",
+    "instructionsTitle": "How to use",
+    "instructions": "Face the direction of the arrow (or the degrees shown). On iOS, you may need to grant motion & orientation permission when prompted.",
+    "allowMotion": "Allow compass access"
+  },
+  "learnSalah": {
+    "index": {
+      "eyebrow": "Learn to pray",
+      "title": "How to pray Salah",
+      "description": "Step-by-step tutorials for each of the five daily prayers, Jumu'ah, Janazah, Witr, and Tahajjud. For new Muslims and children.",
+      "topicsTitle": "Topics"
+    },
+    "topic": {
+      "backToIndex": "← All tutorials",
+      "stepsTitle": "Steps",
+      "duasTitle": "Duas said in this prayer",
+      "notesTitle": "Notes"
+    }
+  },
+  "names": {
+    "index": {
+      "eyebrow": "Asma ul Husna",
+      "title": "The 99 Names of Allah",
+      "description": "The beautiful names of Allah — with Arabic, transliteration, translation, and a short reflection for each."
+    },
+    "name": {
+      "backToIndex": "← All names",
+      "meaningTitle": "Meaning",
+      "reflectionTitle": "Reflection",
+      "quranicRef": "In the Quran"
+    }
+  },
+  "calendar": {
+    "title": "Islamic calendar",
+    "eyebrow": "Hijri ⇄ Gregorian",
+    "description": "Convert between the Islamic (Hijri) and Gregorian calendars. Important Islamic dates flagged when they fall on the shown month.",
+    "todayIs": "Today is",
+    "convertTitle": "Convert a date",
+    "gregToHij": "Gregorian → Hijri",
+    "hijToGreg": "Hijri → Gregorian",
+    "importantTitle": "Important dates",
+    "months": {
+      "muharram": "Muharram",
+      "safar": "Safar",
+      "rabiAlAwwal": "Rabi' al-Awwal",
+      "rabiAlThani": "Rabi' al-Thani",
+      "jumadaAlAwwal": "Jumada al-Awwal",
+      "jumadaAlThani": "Jumada al-Thani",
+      "rajab": "Rajab",
+      "shaban": "Sha'ban",
+      "ramadan": "Ramadan",
+      "shawwal": "Shawwal",
+      "dhuAlQidah": "Dhul-Qi'dah",
+      "dhuAlHijjah": "Dhul-Hijjah"
+    }
+  },
+  "tools": {
+    "index": {
+      "eyebrow": "Everyday tools",
+      "title": "Islamic tools",
+      "description": "Small, focused tools — tasbih counter, prayer tracker, Zakat calculator, and more."
+    },
+    "tasbih": {
+      "title": "Tasbih counter",
+      "description": "Tap to count. Reset when you're done. Nothing is saved anywhere except your device.",
+      "count": "Count",
+      "target": "Target",
+      "reset": "Reset",
+      "presets": "Presets",
+      "custom": "Custom"
+    },
+    "prayerTracker": {
+      "title": "Prayer tracker",
+      "description": "A discreet daily check-in — did you pray on time, late, or make it up? Streaks stay on-device.",
+      "onTime": "On time",
+      "late": "Late",
+      "clear": "Clear",
+      "streak": "Current streak",
+      "days": "days"
+    },
+    "zakat": {
+      "title": "Zakat calculator",
+      "description": "Cash, gold, silver, business assets. Nisab defaults to the silver standard (safer for the poor).",
+      "cash": "Cash on hand & in bank",
+      "gold": "Gold value (in your currency)",
+      "silver": "Silver value (in your currency)",
+      "business": "Business assets (stock, receivables)",
+      "debts": "Short-term debts owed",
+      "currency": "Currency code (ISO)",
+      "nisabTitle": "Nisab (silver standard)",
+      "nisabHelp": "Enter the current local value of 595g of silver. Update every few weeks — silver price moves.",
+      "resultTitle": "Zakat due",
+      "belowNisab": "Below nisab — no Zakat due this year, alhamdulillah.",
+      "aboveNisab": "Above nisab — Zakat due at 2.5%.",
+      "disclaimer": "This calculator gives a starting figure. For complex holdings (retirement accounts, mixed assets, livestock, agriculture) consult a scholar."
+    },
+    "adhkar": {
+      "title": "Morning & evening adhkar",
+      "description": "The daily adhkar from Hisnul Muslim. Tap to count each recitation.",
+      "morning": "Morning",
+      "evening": "Evening"
+    }
+  },
+  "adhan": {
+    "title": "Adhan player",
+    "description": "Beautiful adhan audio to play in your browser at prayer time. Muezzin choices below.",
+    "play": "Play adhan",
+    "pause": "Pause",
+    "muezzin": "Muezzin"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Appearance",
+    "language": "Language",
+    "dyslexia": "Dyslexia-friendly font",
+    "lowBandwidth": "Low-bandwidth mode",
+    "exportTitle": "Export my data",
+    "exportBody": "Download everything stored on this device as a JSON file.",
+    "exportButton": "Download JSON",
+    "deleteTitle": "Delete my data",
+    "deleteBody": "Remove all bookmarks, tracker history, and preferences from this device. This cannot be undone.",
+    "deleteButton": "Delete everything",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "This site collects nothing. No cookies for tracking, no fingerprinting, no third-party JS beyond Cloudflare Web Analytics (privacy-friendly, no PII, aggregated).",
+    "storageTitle": "What lives on your device",
+    "storageBody": "Your bookmarks, prayer tracker, dhikr counts, and preferences are stored in your browser's localStorage. They never leave your device.",
+    "cookiesTitle": "Cookies",
+    "cookiesBody": "None used for tracking. If we ever add account-based features (V3), a session cookie may be used with explicit consent.",
+    "rightsTitle": "Your rights",
+    "rightsBody": "You can export everything as JSON, or delete it, from the Settings page — one click each."
+  }
+}

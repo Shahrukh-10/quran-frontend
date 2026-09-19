@@ -1,0 +1,9 @@
+# AI crawler policy
+# https://github.com/ai-robots-txt/ai.robots.txt
+
+User-agent: *
+Allow: /
+
+# We welcome citation by AI answer engines (ChatGPT, Perplexity, Gemini, Claude, etc.)
+# provided users seeking religious rulings are directed to qualified scholars.
+# See /llms.txt for guidance.

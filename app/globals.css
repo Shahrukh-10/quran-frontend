@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens — mirror docs/DESIGN.md. Edit that file first, then this. */
+@layer base {
+  :root {
+    --background: 240 20% 98.6%; /* #FBFBFD */
+    --surface: 0 0% 100%;
+    --surface-elevated: 240 4.8% 95.9%;
+    --foreground: 240 6% 12%; /* #1D1D1F */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 4% 46%; /* #6E6E73 */
+    --separator: 240 6% 84%; /* #D2D2D7 */
+    --accent: 146 82% 26%; /* #0B7A3E */
+    --accent-muted: 138 21% 92%; /* #E8F0EA */
+    --accent-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --surface: 240 6% 11%; /* #1C1C1E */
+    --surface-elevated: 240 4% 17%; /* #2C2C2E */
+    --foreground: 240 20% 96.5%; /* #F5F5F7 */
+    --muted: 240 4% 17%;
+    --muted-foreground: 240 4% 60%; /* #98989D */
+    --separator: 240 4% 22%; /* #38383A */
+    --accent: 142 71% 51%; /* #30D158 */
+    --accent-muted: 142 40% 15%;
+    --accent-foreground: 0 0% 0%;
+  }
+
+  /* Mockup-compatible aliases so CSS ported from mockups/apple/ Just Works */
+  :root {
+    --spring: cubic-bezier(0.32, 0.72, 0, 1);
+    --r-lg: 8px;
+    --r-xl: 12px;
+    --r-2xl: 16px;
+    --r-3xl: 24px;
+  }
+
+  * {
+    border-color: hsl(var(--separator));
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Respect reduced motion — docs/DESIGN.md rule */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Quran text — never squeezed */
+  .quran-text {
+    font-family: var(--font-amiri-quran), "Amiri", serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 2.5;
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+/* Utility for the visible focus ring (docs/DESIGN.md) */
+@layer utilities {
+  .focus-ring {
+    outline: none;
+  }
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.4);
+    border-radius: 0.5rem;
+  }
+}
+
+/* =============================================================
+   Enrichment layer — Apple-HIG glassmorphism + ambient depth
+   -------------------------------------------------------------
+   Mirrors mockups/apple/_enrichment.css. Additive; every rule is
+   defensive against the existing token names in this file
+   (hsl-var background, hsl-var accent, hsl-var separator).
+   HIG discipline preserved: glass only on floating chrome,
+   ambient depth via low-opacity radials, no gradient washes on
+   content cards. Respects prefers-reduced-motion.
+   ============================================================= */
+
+/* Ambient background depth (accent-only tint at ~3% opacity) */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(60% 40% at 15% 10%, hsl(var(--accent) / 0.045), transparent 65%),
+    radial-gradient(50% 40% at 85% 20%, hsl(var(--accent) / 0.035), transparent 60%),
+    radial-gradient(70% 50% at 50% 95%, hsl(var(--accent) / 0.03), transparent 70%);
+}
+.dark html::before {
+  background: radial-gradient(60% 40% at 15% 10%, hsl(var(--accent) / 0.1), transparent 65%),
+    radial-gradient(50% 40% at 85% 20%, hsl(var(--accent) / 0.08), transparent 60%),
+    radial-gradient(70% 50% at 50% 95%, hsl(var(--accent) / 0.06), transparent 70%);
+}
+
+/* Subtle grain (paper texture) */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+.dark html::after {
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Liquid Glass on header / nav */
+header,
+nav[role="navigation"],
+.site-header,
+[data-role="site-header"] {
+  background: linear-gradient(180deg, hsl(var(--background) / 0.85), hsl(var(--background) / 0.65)) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+  box-shadow: inset 0 1px 0 hsl(var(--surface) / 0.6), 0 1px 0 hsl(var(--separator) / 0.5) !important;
+}
+
+/* Card depth — subtle elevation on content cards */
+article,
+.card {
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.35s
+    cubic-bezier(0.32, 0.72, 0, 1);
+}
+article[class*="rounded-2xl"],
+article[class*="rounded-xl"],
+.card[class*="rounded-2xl"],
+.card[class*="rounded-xl"] {
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.02), 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px
+    rgb(0 0 0 / 0.06);
+}
+.dark article[class*="rounded-2xl"],
+.dark article[class*="rounded-xl"],
+.dark .card[class*="rounded-2xl"],
+.dark .card[class*="rounded-xl"] {
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.02), 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px
+    rgb(0 0 0 / 0.5);
+}
+
+/* Primary button — depth + shine on the accent */
+button.bg-accent,
+a.bg-accent,
+[class*="bg-accent"]:not(.bg-accent-muted) {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 1px 2px hsl(var(--accent) / 0.4), 0 4px 12px
+    hsl(var(--accent) / 0.24);
+  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.2s
+    cubic-bezier(0.32, 0.72, 0, 1);
+}
+button.bg-accent:hover,
+a.bg-accent:hover {
+  transform: translateY(-1px);
+}
+
+/* Page-load stagger */
+@keyframes iw-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+main > section,
+main > article,
+main > div > section {
+  animation: iw-fade-up 0.6s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+main > section:nth-child(1) {
+  animation-delay: 0ms;
+}
+main > section:nth-child(2) {
+  animation-delay: 80ms;
+}
+main > section:nth-child(3) {
+  animation-delay: 160ms;
+}
+main > section:nth-child(4) {
+  animation-delay: 240ms;
+}
+main > section:nth-child(n + 5) {
+  animation-delay: 320ms;
+}
+
+/* Text selection */
+::selection {
+  background: hsl(var(--accent) / 0.22);
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--separator) / 0.7);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Focus mode (JS-toggled on <html>) */
+html.focus-mode header,
+html.focus-mode nav,
+html.focus-mode footer,
+html.focus-mode [data-role="audio-bar"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+html.focus-mode main {
+  padding-top: 40px;
+}

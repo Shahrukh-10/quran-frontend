@@ -1,0 +1,682 @@
+[
+  {
+    "surah": 75,
+    "ayah": 1,
+    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ لَآ أُقْسِمُ بِيَوْمِ ٱلْقِيَٰمَةِ",
+    "transliteration": "Laaa uqsimu bi yawmil qiyaamah",
+    "translations": {
+      "en.sahih": "I swear by the Day of Resurrection",
+      "en.pickthall": "Nay, I swear by the Day of Resurrection;",
+      "en.yusufali": "I do call to witness the Resurrection Day;",
+      "id.indonesian": "Aku bersumpah demi hari kiamat,"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5552.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 2,
+    "arabic": "وَلَآ أُقْسِمُ بِٱلنَّفْسِ ٱللَّوَّامَةِ",
+    "transliteration": "Wa laaa uqsimu bin nafsil lawwaamah",
+    "translations": {
+      "en.sahih": "And I swear by the reproaching soul [to the certainty of resurrection].",
+      "en.pickthall": "Nay, I swear by the accusing soul (that this Scripture is true).",
+      "en.yusufali": "And I do call to witness the self-reproaching spirit: (Eschew Evil).",
+      "id.indonesian": "dan aku bersumpah dengan jiwa yang amat menyesali (dirinya sendiri)."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5553.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 3,
+    "arabic": "أَيَحْسَبُ ٱلْإِنسَٰنُ أَلَّن نَّجْمَعَ عِظَامَهُۥ",
+    "transliteration": "Ayahsabul insaanu al lan najm'a 'izaamah",
+    "translations": {
+      "en.sahih": "Does man think that We will not assemble his bones?",
+      "en.pickthall": "Thinketh man that We shall not assemble his bones?",
+      "en.yusufali": "Does man think that We cannot assemble his bones?",
+      "id.indonesian": "Apakah manusia mengira, bahwa Kami tidak akan mengumpulkan (kembali) tulang belulangnya?"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5554.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 4,
+    "arabic": "بَلَىٰ قَٰدِرِينَ عَلَىٰٓ أَن نُّسَوِّىَ بَنَانَهُۥ",
+    "transliteration": "Balaa qaadireena 'alaaa an nusawwiya banaanah",
+    "translations": {
+      "en.sahih": "Yes. [We are] Able [even] to proportion his fingertips.",
+      "en.pickthall": "Yea, verily. We are Able to restore his very fingers!",
+      "en.yusufali": "Nay, We are able to put together in perfect order the very tips of his fingers.",
+      "id.indonesian": "Bukan demikian, sebenarnya Kami kuasa menyusun (kembali) jari jemarinya dengan sempurna."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5555.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 5,
+    "arabic": "بَلْ يُرِيدُ ٱلْإِنسَٰنُ لِيَفْجُرَ أَمَامَهُۥ",
+    "transliteration": "Bal yureedul insaanu liyafjura amaamah",
+    "translations": {
+      "en.sahih": "But man desires to continue in sin.",
+      "en.pickthall": "But man would fain deny what is before him.",
+      "en.yusufali": "But man wishes to do wrong (even) in the time in front of him.",
+      "id.indonesian": "Bahkan manusia itu hendak membuat maksiat terus menerus."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5556.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 6,
+    "arabic": "يَسْـَٔلُ أَيَّانَ يَوْمُ ٱلْقِيَٰمَةِ",
+    "transliteration": "Yas'alu ayyyaana yawmul qiyaamah",
+    "translations": {
+      "en.sahih": "He asks, \"When is the Day of Resurrection?\"",
+      "en.pickthall": "He asketh: When will be this Day of Resurrection?",
+      "en.yusufali": "He questions: \"When is the Day of Resurrection?\"",
+      "id.indonesian": "Ia berkata: \"Bilakah hari kiamat itu?\""
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5557.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 7,
+    "arabic": "فَإِذَا بَرِقَ ٱلْبَصَرُ",
+    "transliteration": "Fa izaa bariqal basar",
+    "translations": {
+      "en.sahih": "So when vision is dazzled",
+      "en.pickthall": "But when sight is confounded",
+      "en.yusufali": "At length, when the sight is dazed,",
+      "id.indonesian": "Maka apabila mata terbelalak (ketakutan),"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5558.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 8,
+    "arabic": "وَخَسَفَ ٱلْقَمَرُ",
+    "transliteration": "We khasafal qamar",
+    "translations": {
+      "en.sahih": "And the moon darkens",
+      "en.pickthall": "And the moon is eclipsed",
+      "en.yusufali": "And the moon is buried in darkness.",
+      "id.indonesian": "dan apabila bulan telah hilang cahayanya,"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5559.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 9,
+    "arabic": "وَجُمِعَ ٱلشَّمْسُ وَٱلْقَمَرُ",
+    "transliteration": "Wa jumi'ash shamusu wal qamar",
+    "translations": {
+      "en.sahih": "And the sun and the moon are joined,",
+      "en.pickthall": "And sun and moon are united,",
+      "en.yusufali": "And the sun and moon are joined together,-",
+      "id.indonesian": "dan matahari dan bulan dikumpulkan,"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5560.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 10,
+    "arabic": "يَقُولُ ٱلْإِنسَٰنُ يَوْمَئِذٍ أَيْنَ ٱلْمَفَرُّ",
+    "transliteration": "Yaqoolul insaanu yaw ma 'izin aynal mafarr",
+    "translations": {
+      "en.sahih": "Man will say on that Day, \"Where is the [place of] escape?\"",
+      "en.pickthall": "On that day man will cry: Whither to flee!",
+      "en.yusufali": "That Day will Man say: \"Where is the refuge?\"",
+      "id.indonesian": "pada hari itu manusia berkata: \"Ke mana tempat berlari?\""
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5561.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 11,
+    "arabic": "كَلَّا لَا وَزَرَ",
+    "transliteration": "Kallaa laa wazar",
+    "translations": {
+      "en.sahih": "No! There is no refuge.",
+      "en.pickthall": "Alas! No refuge!",
+      "en.yusufali": "By no means! No place of safety!",
+      "id.indonesian": "sekali-kali tidak! Tidak ada tempat berlindung!"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5562.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 12,
+    "arabic": "إِلَىٰ رَبِّكَ يَوْمَئِذٍ ٱلْمُسْتَقَرُّ",
+    "transliteration": "Ilaa rabbika yawma 'izinil mustaqarr",
+    "translations": {
+      "en.sahih": "To your Lord, that Day, is the [place of] permanence.",
+      "en.pickthall": "Unto thy Lord is the recourse that day.",
+      "en.yusufali": "Before thy Lord (alone), that Day will be the place of rest.",
+      "id.indonesian": "Hanya kepada Tuhanmu sajalah pada hari itu tempat kembali."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5563.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 13,
+    "arabic": "يُنَبَّؤُا۟ ٱلْإِنسَٰنُ يَوْمَئِذٍۭ بِمَا قَدَّمَ وَأَخَّرَ",
+    "transliteration": "Yunabba 'ul insaanu yawma 'izim bimaa qaddama wa akhkhar",
+    "translations": {
+      "en.sahih": "Man will be informed that Day of what he sent ahead and kept back.",
+      "en.pickthall": "On that day man is told the tale of that which he hath sent before and left behind.",
+      "en.yusufali": "That Day will Man be told (all) that he put forward, and all that he put back.",
+      "id.indonesian": "Pada hari itu diberitakan kepada manusia apa yang telah dikerjakannya dan apa yang dilalaikannya."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5564.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 14,
+    "arabic": "بَلِ ٱلْإِنسَٰنُ عَلَىٰ نَفْسِهِۦ بَصِيرَةٌۭ",
+    "transliteration": "Balil insaanu 'alaa nafsihee baseerah",
+    "translations": {
+      "en.sahih": "Rather, man, against himself, will be a witness,",
+      "en.pickthall": "Oh, but man is a telling witness against himself,",
+      "en.yusufali": "Nay, man will be evidence against himself,",
+      "id.indonesian": "Bahkan manusia itu menjadi saksi atas dirinya sendiri,"
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5565.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 15,
+    "arabic": "وَلَوْ أَلْقَىٰ مَعَاذِيرَهُۥ",
+    "transliteration": "Wa law alqaa ma'aazeerah",
+    "translations": {
+      "en.sahih": "Even if he presents his excuses.",
+      "en.pickthall": "Although he tender his excuses.",
+      "en.yusufali": "Even though he were to put up his excuses.",
+      "id.indonesian": "meskipun dia mengemukakan alasan-alasannya."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5566.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 16,
+    "arabic": "لَا تُحَرِّكْ بِهِۦ لِسَانَكَ لِتَعْجَلَ بِهِۦٓ",
+    "transliteration": "Laa tuharrik bihee lisaa naka lita'jala bih",
+    "translations": {
+      "en.sahih": "Move not your tongue with it, [O Muhammad], to hasten with recitation of the Qur'an.",
+      "en.pickthall": "Stir not thy tongue herewith to hasten it.",
+      "en.yusufali": "Move not thy tongue concerning the (Qur'an) to make haste therewith.",
+      "id.indonesian": "Janganlah kamu gerakkan lidahmu untuk (membaca) Al Quran karena hendak cepat-cepat (menguasai)nya."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5567.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 17,
+    "arabic": "إِنَّ عَلَيْنَا جَمْعَهُۥ وَقُرْءَانَهُۥ",
+    "transliteration": "Inna 'alainaa jam'ahoo wa qur aanah",
+    "translations": {
+      "en.sahih": "Indeed, upon Us is its collection [in your heart] and [to make possible] its recitation.",
+      "en.pickthall": "Lo! upon Us (resteth) the putting together thereof and the reading thereof.",
+      "en.yusufali": "It is for Us to collect it and to promulgate it:",
+      "id.indonesian": "Sesungguhnya atas tanggungan Kamilah mengumpulkannya (di dadamu) dan (membuatmu pandai) membacanya."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5568.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 18,
+    "arabic": "فَإِذَا قَرَأْنَٰهُ فَٱتَّبِعْ قُرْءَانَهُۥ",
+    "transliteration": "Fa izaa qaraanaahu fattabi' qur aanah",
+    "translations": {
+      "en.sahih": "So when We have recited it [through Gabriel], then follow its recitation.",
+      "en.pickthall": "And when We read it, follow thou the reading;",
+      "en.yusufali": "But when We have promulgated it, follow thou its recital (as promulgated):",
+      "id.indonesian": "Apabila Kami telah selesai membacakannya maka ikutilah bacaannya itu."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5569.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 19,
+    "arabic": "ثُمَّ إِنَّ عَلَيْنَا بَيَانَهُۥ",
+    "transliteration": "Summa inna 'alainaa bayaanah",
+    "translations": {
+      "en.sahih": "Then upon Us is its clarification [to you].",
+      "en.pickthall": "Then lo! upon Us (resteth) the explanation thereof.",
+      "en.yusufali": "Nay more, it is for Us to explain it (and make it clear):",
+      "id.indonesian": "Kemudian, sesungguhnya atas tanggungan Kamilah penjelasannya."
+    },
+    "juz": 29,
+    "page": 577,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5570.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 20,
+    "arabic": "كَلَّا بَلْ تُحِبُّونَ ٱلْعَاجِلَةَ",
+    "transliteration": "Kallaa bal tuhibboonal 'aajilah",
+    "translations": {
+      "en.sahih": "No! But you love the immediate",
+      "en.pickthall": "Nay, but ye do love the fleeting Now",
+      "en.yusufali": "Nay, (ye men!) but ye love the fleeting life,",
+      "id.indonesian": "Sekali-kali janganlah demikian. Sebenarnya kamu (hai manusia) mencintai kehidupan dunia,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5571.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 21,
+    "arabic": "وَتَذَرُونَ ٱلْءَاخِرَةَ",
+    "transliteration": "Wa tazaroonal Aakhirah",
+    "translations": {
+      "en.sahih": "And leave the Hereafter.",
+      "en.pickthall": "And neglect the Hereafter.",
+      "en.yusufali": "And leave alone the Hereafter.",
+      "id.indonesian": "dan meninggalkan (kehidupan) akhirat."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5572.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 22,
+    "arabic": "وُجُوهٌۭ يَوْمَئِذٍۢ نَّاضِرَةٌ",
+    "transliteration": "Wujoohuny yawma 'izin naadirah",
+    "translations": {
+      "en.sahih": "[Some] faces, that Day, will be radiant,",
+      "en.pickthall": "That day will faces be resplendent,",
+      "en.yusufali": "Some faces, that Day, will beam (in brightness and beauty);-",
+      "id.indonesian": "Wajah-wajah (orang-orang mukmin) pada hari itu berseri-seri."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5573.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 23,
+    "arabic": "إِلَىٰ رَبِّهَا نَاظِرَةٌۭ",
+    "transliteration": "Ilaa rabbihaa naazirah",
+    "translations": {
+      "en.sahih": "Looking at their Lord.",
+      "en.pickthall": "Looking toward their Lord;",
+      "en.yusufali": "Looking towards their Lord;",
+      "id.indonesian": "Kepada Tuhannyalah mereka melihat."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5574.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 24,
+    "arabic": "وَوُجُوهٌۭ يَوْمَئِذٍۭ بَاسِرَةٌۭ",
+    "transliteration": "Wa wujoohuny yawma 'izim baasirah",
+    "translations": {
+      "en.sahih": "And [some] faces, that Day, will be contorted,",
+      "en.pickthall": "And that day will other faces be despondent,",
+      "en.yusufali": "And some faces, that Day, will be sad and dismal,",
+      "id.indonesian": "Dan wajah-wajah (orang kafir) pada hari itu muram,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5575.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 25,
+    "arabic": "تَظُنُّ أَن يُفْعَلَ بِهَا فَاقِرَةٌۭ",
+    "transliteration": "Tazunnu any yuf'ala bihaa faaqirah",
+    "translations": {
+      "en.sahih": "Expecting that there will be done to them [something] backbreaking.",
+      "en.pickthall": "Thou wilt know that some great disaster is about to fall on them.",
+      "en.yusufali": "In the thought that some back-breaking calamity was about to be inflicted on them;",
+      "id.indonesian": "mereka yakin bahwa akan ditimpakan kepadanya malapetaka yang amat dahsyat."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5576.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 26,
+    "arabic": "كَلَّآ إِذَا بَلَغَتِ ٱلتَّرَاقِىَ",
+    "transliteration": "Kallaaa izaa balaghatit taraaqee",
+    "translations": {
+      "en.sahih": "No! When the soul has reached the collar bones",
+      "en.pickthall": "Nay, but when the life cometh up to the throat",
+      "en.yusufali": "Yea, when (the soul) reaches to the collar-bone (in its exit),",
+      "id.indonesian": "Sekali-kali jangan. Apabila nafas (seseorang) telah (mendesak) sampai ke kerongkongan,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5577.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 27,
+    "arabic": "وَقِيلَ مَنْ ۜ رَاقٍۢ",
+    "transliteration": "Wa qeela man raaq",
+    "translations": {
+      "en.sahih": "And it is said, \"Who will cure [him]?\"",
+      "en.pickthall": "And men say: Where is the wizard (who can save him now)?",
+      "en.yusufali": "And there will be a cry, \"Who is a magician (to restore him)?\"",
+      "id.indonesian": "dan dikatakan (kepadanya): \"Siapakah yang dapat menyembuhkan?\","
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5578.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 28,
+    "arabic": "وَظَنَّ أَنَّهُ ٱلْفِرَاقُ",
+    "transliteration": "Wa zanna annahul firaaq",
+    "translations": {
+      "en.sahih": "And the dying one is certain that it is the [time of] separation",
+      "en.pickthall": "And he knoweth that it is the parting;",
+      "en.yusufali": "And he will conclude that it was (the Time) of Parting;",
+      "id.indonesian": "dan dia yakin bahwa sesungguhnya itulah waktu perpisahan (dengan dunia),"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5579.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 29,
+    "arabic": "وَٱلْتَفَّتِ ٱلسَّاقُ بِٱلسَّاقِ",
+    "transliteration": "Waltaffatis saaqu bissaaq",
+    "translations": {
+      "en.sahih": "And the leg is wound about the leg,",
+      "en.pickthall": "And agony is heaped on agony;",
+      "en.yusufali": "And one leg will be joined with another:",
+      "id.indonesian": "dan bertaut betis (kiri) dan betis (kanan),"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5580.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 30,
+    "arabic": "إِلَىٰ رَبِّكَ يَوْمَئِذٍ ٱلْمَسَاقُ",
+    "transliteration": "Ilaa rabbika yawma'izinil masaaq",
+    "translations": {
+      "en.sahih": "To your Lord, that Day, will be the procession.",
+      "en.pickthall": "Unto thy Lord that day will be the driving.",
+      "en.yusufali": "That Day the Drive will be (all) to thy Lord!",
+      "id.indonesian": "kepada Tuhanmulah pada hari itu kamu dihalau."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5581.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 31,
+    "arabic": "فَلَا صَدَّقَ وَلَا صَلَّىٰ",
+    "transliteration": "Falaa saddaqa wa laa sallaa",
+    "translations": {
+      "en.sahih": "And the disbeliever had not believed, nor had he prayed.",
+      "en.pickthall": "For he neither trusted, nor prayed.",
+      "en.yusufali": "So he gave nothing in charity, nor did he pray!-",
+      "id.indonesian": "Dan ia tidak mau membenarkan (Rasul dan Al Quran) dan tidak mau mengerjakan shalat,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5582.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 32,
+    "arabic": "وَلَٰكِن كَذَّبَ وَتَوَلَّىٰ",
+    "transliteration": "Wa laakin kazzaba wa tawalla",
+    "translations": {
+      "en.sahih": "But [instead], he denied and turned away.",
+      "en.pickthall": "But he denied and flouted.",
+      "en.yusufali": "But on the contrary, he rejected Truth and turned away!",
+      "id.indonesian": "tetapi ia mendustakan (Rasul) dam berpaling (dari kebenaran),"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5583.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 33,
+    "arabic": "ثُمَّ ذَهَبَ إِلَىٰٓ أَهْلِهِۦ يَتَمَطَّىٰٓ",
+    "transliteration": "Summa zahaba ilaaa ahlihee yatamatta",
+    "translations": {
+      "en.sahih": "And then he went to his people, swaggering [in pride].",
+      "en.pickthall": "Then went he to his folk with glee.",
+      "en.yusufali": "Then did he stalk to his family in full conceit!",
+      "id.indonesian": "kemudian ia pergi kepada ahlinya dengan berlagak (sombong)."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5584.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 34,
+    "arabic": "أَوْلَىٰ لَكَ فَأَوْلَىٰ",
+    "transliteration": "Awlaa laka fa awlaa",
+    "translations": {
+      "en.sahih": "Woe to you, and woe!",
+      "en.pickthall": "Nearer unto thee and nearer,",
+      "en.yusufali": "Woe to thee, (O men!), yea, woe!",
+      "id.indonesian": "Kecelakaanlah bagimu (hai orang kafir) dan kecelakaanlah bagimu,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5585.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 35,
+    "arabic": "ثُمَّ أَوْلَىٰ لَكَ فَأَوْلَىٰٓ",
+    "transliteration": "Summa awlaa laka fa awla",
+    "translations": {
+      "en.sahih": "Then woe to you, and woe!",
+      "en.pickthall": "Again nearer unto thee and nearer (is the doom).",
+      "en.yusufali": "Again, Woe to thee, (O men!), yea, woe!",
+      "id.indonesian": "kemudian kecelakaanlah bagimu (hai orang kafir) dan kecelakaanlah bagimu."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5586.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 36,
+    "arabic": "أَيَحْسَبُ ٱلْإِنسَٰنُ أَن يُتْرَكَ سُدًى",
+    "transliteration": "Ayahsabul insaanu anyytraka sudaa",
+    "translations": {
+      "en.sahih": "Does man think that he will be left neglected?",
+      "en.pickthall": "Thinketh man that he is to be left aimless?",
+      "en.yusufali": "Does man think that he will be left uncontrolled, (without purpose)?",
+      "id.indonesian": "Apakah manusia mengira, bahwa ia akan dibiarkan begitu saja (tanpa pertanggung jawaban)?"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5587.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 37,
+    "arabic": "أَلَمْ يَكُ نُطْفَةًۭ مِّن مَّنِىٍّۢ يُمْنَىٰ",
+    "transliteration": "Alam yaku nutfatam mim maniyyiny yumnaa",
+    "translations": {
+      "en.sahih": "Had he not been a sperm from semen emitted?",
+      "en.pickthall": "Was he not a drop of fluid which gushed forth?",
+      "en.yusufali": "Was he not a drop of sperm emitted (in lowly form)?",
+      "id.indonesian": "Bukankah dia dahulu setetes mani yang ditumpahkan (ke dalam rahim),"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5588.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 38,
+    "arabic": "ثُمَّ كَانَ عَلَقَةًۭ فَخَلَقَ فَسَوَّىٰ",
+    "transliteration": "Summa kaana 'alaqata fakhalaq fasawwaa",
+    "translations": {
+      "en.sahih": "Then he was a clinging clot, and [Allah] created [his form] and proportioned [him]",
+      "en.pickthall": "Then he became a clot; then (Allah) shaped and fashioned",
+      "en.yusufali": "Then did he become a leech-like clot; then did (Allah) make and fashion (him) in due proportion.",
+      "id.indonesian": "kemudian mani itu menjadi segumpal darah, lalu Allah menciptakannya, dan menyempurnakannya,"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5589.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 39,
+    "arabic": "فَجَعَلَ مِنْهُ ٱلزَّوْجَيْنِ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ",
+    "transliteration": "Faja'ala minhuz zawjayniz zakara wal unsaa",
+    "translations": {
+      "en.sahih": "And made of him two mates, the male and the female.",
+      "en.pickthall": "And made of him a pair, the male and female.",
+      "en.yusufali": "And of him He made two sexes, male and female.",
+      "id.indonesian": "lalu Allah menjadikan daripadanya sepasang: laki-laki dan perempuan."
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5590.mp3"
+    }
+  },
+  {
+    "surah": 75,
+    "ayah": 40,
+    "arabic": "أَلَيْسَ ذَٰلِكَ بِقَٰدِرٍ عَلَىٰٓ أَن يُحْۦِىَ ٱلْمَوْتَىٰ",
+    "transliteration": "Alaisa zaalika biqaadirin 'alaaa any yuhyiyal mawtaa",
+    "translations": {
+      "en.sahih": "Is not that [Creator] Able to give life to the dead?",
+      "en.pickthall": "Is not He (Who doeth so) Able to bring the dead to life?",
+      "en.yusufali": "Has not He, (the same), the power to give life to the dead?",
+      "id.indonesian": "Bukankah (Allah yang berbuat) demikian berkuasa (pula) menghidupkan orang mati?"
+    },
+    "juz": 29,
+    "page": 578,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5591.mp3"
+    }
+  }
+]

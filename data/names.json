@@ -1,0 +1,1167 @@
+[
+  {
+    "order": 1,
+    "slug": "ar-rahman",
+    "arabic": "الرَّحْمَٰنُ",
+    "transliteration": "Ar-Rahman",
+    "meaning": { "en": "The Entirely Merciful", "id": "Yang Maha Pengasih" },
+    "reflection": {
+      "en": "Allah's mercy encompasses all of creation, believer and disbeliever alike — the daily rain, sunrise, and breath.",
+      "id": "Rahmat Allah mencakup seluruh makhluk — hujan, matahari terbit, napas kita setiap hari."
+    },
+    "quranicRef": "55:1"
+  },
+  {
+    "order": 2,
+    "slug": "ar-rahim",
+    "arabic": "الرَّحِيمُ",
+    "transliteration": "Ar-Rahim",
+    "meaning": { "en": "The Especially Merciful", "id": "Yang Maha Penyayang" },
+    "reflection": {
+      "en": "A specific mercy reserved for the believers in the Hereafter — the mercy of forgiveness and Paradise.",
+      "id": "Rahmat khusus bagi kaum beriman di akhirat — rahmat ampunan dan surga."
+    },
+    "quranicRef": "2:163"
+  },
+  {
+    "order": 3,
+    "slug": "al-malik",
+    "arabic": "الْمَلِكُ",
+    "transliteration": "Al-Malik",
+    "meaning": { "en": "The King, the Sovereign", "id": "Sang Raja, Yang Menguasai" },
+    "reflection": {
+      "en": "Every king answers to Him. His dominion has no beginning, no end, no rival.",
+      "id": "Semua raja tunduk kepada-Nya. Kekuasaan-Nya tanpa awal, akhir, atau saingan."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 4,
+    "slug": "al-quddus",
+    "arabic": "الْقُدُّوسُ",
+    "transliteration": "Al-Quddus",
+    "meaning": { "en": "The Most Holy", "id": "Yang Mahasuci" },
+    "reflection": {
+      "en": "Absolutely pure of every deficiency — no partner, no likeness, no need.",
+      "id": "Suci mutlak dari setiap kekurangan — tanpa sekutu, tanpa serupa, tanpa kebutuhan."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 5,
+    "slug": "as-salam",
+    "arabic": "السَّلَامُ",
+    "transliteration": "As-Salam",
+    "meaning": { "en": "The Source of Peace", "id": "Sumber Kesejahteraan" },
+    "reflection": {
+      "en": "He is peace itself. To seek peace is to seek Him.",
+      "id": "Dia adalah kedamaian itu sendiri. Mencari damai berarti mencari-Nya."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 6,
+    "slug": "al-mumin",
+    "arabic": "الْمُؤْمِنُ",
+    "transliteration": "Al-Mu'min",
+    "meaning": { "en": "The Guardian of Faith", "id": "Pemberi Keamanan" },
+    "reflection": {
+      "en": "He safeguards those who trust in Him from ultimate loss.",
+      "id": "Dia menjaga orang yang berserah kepada-Nya dari kerugian sejati."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 7,
+    "slug": "al-muhaymin",
+    "arabic": "الْمُهَيْمِنُ",
+    "transliteration": "Al-Muhaymin",
+    "meaning": { "en": "The Overseer", "id": "Yang Maha Memelihara" },
+    "reflection": {
+      "en": "Nothing escapes His witnessing — every atom, every intention, every whisper.",
+      "id": "Tidak ada yang lepas dari pengawasan-Nya — setiap atom, niat, dan bisikan."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 8,
+    "slug": "al-aziz",
+    "arabic": "الْعَزِيزُ",
+    "transliteration": "Al-Aziz",
+    "meaning": { "en": "The Almighty", "id": "Yang Mahaperkasa" },
+    "reflection": {
+      "en": "He cannot be overcome. His plans do not fail.",
+      "id": "Dia tidak dapat dikalahkan. Rencana-Nya tidak pernah gagal."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 9,
+    "slug": "al-jabbar",
+    "arabic": "الْجَبَّارُ",
+    "transliteration": "Al-Jabbar",
+    "meaning": { "en": "The Compeller, the Restorer", "id": "Yang Mahakuasa, Yang Memperbaiki" },
+    "reflection": {
+      "en": "He mends what is broken — the shattered heart, the crushed spirit.",
+      "id": "Dia memulihkan yang patah — hati yang hancur, jiwa yang terluka."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 10,
+    "slug": "al-mutakabbir",
+    "arabic": "الْمُتَكَبِّرُ",
+    "transliteration": "Al-Mutakabbir",
+    "meaning": { "en": "The Supreme", "id": "Yang Mahatinggi" },
+    "reflection": {
+      "en": "Greatness belongs to Him alone. All human pride is borrowed and fleeting.",
+      "id": "Kebesaran hanya milik-Nya. Semua kesombongan manusia hanya pinjaman sesaat."
+    },
+    "quranicRef": "59:23"
+  },
+  {
+    "order": 11,
+    "slug": "al-khaliq",
+    "arabic": "الْخَالِقُ",
+    "transliteration": "Al-Khaliq",
+    "meaning": { "en": "The Creator", "id": "Sang Pencipta" },
+    "reflection": {
+      "en": "He designs, forms, and gives being to everything from nothing.",
+      "id": "Dia merancang, membentuk, dan mengadakan segala sesuatu dari ketiadaan."
+    },
+    "quranicRef": "59:24"
+  },
+  {
+    "order": 12,
+    "slug": "al-bari",
+    "arabic": "الْبَارِئُ",
+    "transliteration": "Al-Bari",
+    "meaning": { "en": "The Maker", "id": "Yang Mengadakan" },
+    "reflection": {
+      "en": "He brings forth creation, precise and unrepeated.",
+      "id": "Dia mewujudkan ciptaan dengan presisi dan tanpa duplikat."
+    },
+    "quranicRef": "59:24"
+  },
+  {
+    "order": 13,
+    "slug": "al-musawwir",
+    "arabic": "الْمُصَوِّرُ",
+    "transliteration": "Al-Musawwir",
+    "meaning": { "en": "The Fashioner", "id": "Sang Pembentuk Rupa" },
+    "reflection": {
+      "en": "Every face, every leaf pattern, every fingerprint bears His artistry.",
+      "id": "Setiap wajah, pola daun, dan sidik jari menunjukkan seni-Nya."
+    },
+    "quranicRef": "59:24"
+  },
+  {
+    "order": 14,
+    "slug": "al-ghaffar",
+    "arabic": "الْغَفَّارُ",
+    "transliteration": "Al-Ghaffar",
+    "meaning": { "en": "The All-Forgiving", "id": "Yang Maha Pengampun" },
+    "reflection": {
+      "en": "Repeatedly forgiving, no matter how many times we return.",
+      "id": "Selalu mengampuni, berapa kali pun kita kembali."
+    },
+    "quranicRef": "20:82"
+  },
+  {
+    "order": 15,
+    "slug": "al-qahhar",
+    "arabic": "الْقَهَّارُ",
+    "transliteration": "Al-Qahhar",
+    "meaning": { "en": "The Subduer", "id": "Yang Maha Perkasa" },
+    "reflection": {
+      "en": "Every tyrant will one day stand before Him.",
+      "id": "Setiap penindas suatu hari akan berdiri di hadapan-Nya."
+    },
+    "quranicRef": "13:16"
+  },
+  {
+    "order": 16,
+    "slug": "al-wahhab",
+    "arabic": "الْوَهَّابُ",
+    "transliteration": "Al-Wahhab",
+    "meaning": { "en": "The Bestower", "id": "Yang Maha Pemberi" },
+    "reflection": {
+      "en": "He gives without expectation, without exhaustion, without being asked.",
+      "id": "Dia memberi tanpa mengharap balasan, tanpa lelah, tanpa harus diminta."
+    },
+    "quranicRef": "3:8"
+  },
+  {
+    "order": 17,
+    "slug": "ar-razzaq",
+    "arabic": "الرَّزَّاقُ",
+    "transliteration": "Ar-Razzaq",
+    "meaning": { "en": "The Provider", "id": "Sang Pemberi Rezeki" },
+    "reflection": {
+      "en": "Every creature's provision is written with Him — from the whale to the ant.",
+      "id": "Rezeki setiap makhluk tercatat di sisi-Nya — dari paus hingga semut."
+    },
+    "quranicRef": "51:58"
+  },
+  {
+    "order": 18,
+    "slug": "al-fattah",
+    "arabic": "الْفَتَّاحُ",
+    "transliteration": "Al-Fattah",
+    "meaning": { "en": "The Opener", "id": "Yang Maha Membuka" },
+    "reflection": {
+      "en": "He opens doors no one can close — of understanding, provision, and mercy.",
+      "id": "Dia membuka pintu-pintu yang tak dapat ditutup siapa pun — pemahaman, rezeki, rahmat."
+    },
+    "quranicRef": "34:26"
+  },
+  {
+    "order": 19,
+    "slug": "al-alim",
+    "arabic": "الْعَلِيمُ",
+    "transliteration": "Al-Alim",
+    "meaning": { "en": "The All-Knowing", "id": "Yang Maha Mengetahui" },
+    "reflection": {
+      "en": "Not a leaf falls without His knowledge.",
+      "id": "Tidak sehelai daun pun jatuh tanpa pengetahuan-Nya."
+    },
+    "quranicRef": "2:32"
+  },
+  {
+    "order": 20,
+    "slug": "al-qabid",
+    "arabic": "الْقَابِضُ",
+    "transliteration": "Al-Qabid",
+    "meaning": { "en": "The Restrainer", "id": "Yang Menyempitkan" },
+    "reflection": {
+      "en": "He withholds according to wisdom — sometimes the closed door is the mercy.",
+      "id": "Dia menahan sesuai hikmah — kadang pintu tertutup itulah rahmat."
+    }
+  },
+  {
+    "order": 21,
+    "slug": "al-basit",
+    "arabic": "الْبَاسِطُ",
+    "transliteration": "Al-Basit",
+    "meaning": { "en": "The Expander", "id": "Yang Melapangkan" },
+    "reflection": {
+      "en": "He opens up what was constrained — provision, heart, and horizon.",
+      "id": "Dia melapangkan yang sempit — rezeki, hati, dan cakrawala."
+    }
+  },
+  {
+    "order": 22,
+    "slug": "al-khafid",
+    "arabic": "الْخَافِضُ",
+    "transliteration": "Al-Khafid",
+    "meaning": { "en": "The Abaser", "id": "Yang Merendahkan" },
+    "reflection": {
+      "en": "He humbles the arrogant, whatever throne they sit upon.",
+      "id": "Dia merendahkan orang yang sombong, di singgasana mana pun mereka duduk."
+    }
+  },
+  {
+    "order": 23,
+    "slug": "ar-rafi",
+    "arabic": "الرَّافِعُ",
+    "transliteration": "Ar-Rafi",
+    "meaning": { "en": "The Exalter", "id": "Yang Meninggikan" },
+    "reflection": {
+      "en": "He raises the humble, the sincere, the servant nobody notices.",
+      "id": "Dia meninggikan orang yang rendah hati, yang ikhlas, hamba yang tak diperhatikan siapa pun."
+    }
+  },
+  {
+    "order": 24,
+    "slug": "al-muizz",
+    "arabic": "الْمُعِزُّ",
+    "transliteration": "Al-Mu'izz",
+    "meaning": { "en": "The Giver of Honor", "id": "Yang Memuliakan" },
+    "reflection": {
+      "en": "True honor comes only from His pleasure.",
+      "id": "Kemuliaan sejati hanya datang dari keridaan-Nya."
+    },
+    "quranicRef": "3:26"
+  },
+  {
+    "order": 25,
+    "slug": "al-mudhill",
+    "arabic": "الْمُذِلُّ",
+    "transliteration": "Al-Mudhill",
+    "meaning": { "en": "The Humiliator", "id": "Yang Menghinakan" },
+    "reflection": {
+      "en": "He humbles the tyrant in ways they never saw coming.",
+      "id": "Dia menghinakan penindas dengan cara yang tak pernah mereka duga."
+    },
+    "quranicRef": "3:26"
+  },
+  {
+    "order": 26,
+    "slug": "as-sami",
+    "arabic": "السَّمِيعُ",
+    "transliteration": "As-Sami",
+    "meaning": { "en": "The All-Hearing", "id": "Yang Maha Mendengar" },
+    "reflection": {
+      "en": "He hears the whisper of the ant on a black stone on a moonless night.",
+      "id": "Dia mendengar bisikan semut di atas batu hitam di malam tanpa bulan."
+    },
+    "quranicRef": "2:127"
+  },
+  {
+    "order": 27,
+    "slug": "al-basir",
+    "arabic": "الْبَصِيرُ",
+    "transliteration": "Al-Basir",
+    "meaning": { "en": "The All-Seeing", "id": "Yang Maha Melihat" },
+    "reflection": {
+      "en": "No moment of yours goes unseen — good or bad, alone or in a crowd.",
+      "id": "Tidak ada saat pun dari hidupmu yang luput — baik atau buruk, sendiri atau di keramaian."
+    },
+    "quranicRef": "17:1"
+  },
+  {
+    "order": 28,
+    "slug": "al-hakam",
+    "arabic": "الْحَكَمُ",
+    "transliteration": "Al-Hakam",
+    "meaning": { "en": "The Judge", "id": "Sang Hakim" },
+    "reflection": {
+      "en": "His judgment is absolute justice — no bribe, no bias, no error.",
+      "id": "Keputusan-Nya adalah keadilan mutlak — tanpa suap, bias, atau kesalahan."
+    },
+    "quranicRef": "22:69"
+  },
+  {
+    "order": 29,
+    "slug": "al-adl",
+    "arabic": "الْعَدْلُ",
+    "transliteration": "Al-Adl",
+    "meaning": { "en": "The Just", "id": "Yang Mahaadil" },
+    "reflection": {
+      "en": "Perfect justice — not one grain of wrong goes unaccounted.",
+      "id": "Keadilan sempurna — tak sebutir zarah pun luput dari perhitungan."
+    }
+  },
+  {
+    "order": 30,
+    "slug": "al-latif",
+    "arabic": "اللَّطِيفُ",
+    "transliteration": "Al-Latif",
+    "meaning": { "en": "The Most Subtle", "id": "Yang Mahalembut" },
+    "reflection": {
+      "en": "He arranges affairs so gently and precisely that we often miss His hand in them.",
+      "id": "Dia mengatur segala urusan begitu lembut dan cermat sehingga sering kita luput melihat tangan-Nya."
+    },
+    "quranicRef": "6:103"
+  },
+  {
+    "order": 31,
+    "slug": "al-khabir",
+    "arabic": "الْخَبِيرُ",
+    "transliteration": "Al-Khabir",
+    "meaning": { "en": "The All-Aware", "id": "Yang Mahateliti" },
+    "reflection": {
+      "en": "He knows the depth of every situation — every motive behind every act.",
+      "id": "Dia mengetahui kedalaman setiap keadaan — setiap motif di balik setiap perbuatan."
+    },
+    "quranicRef": "6:103"
+  },
+  {
+    "order": 32,
+    "slug": "al-halim",
+    "arabic": "الْحَلِيمُ",
+    "transliteration": "Al-Halim",
+    "meaning": { "en": "The Forbearing", "id": "Yang Maha Penyantun" },
+    "reflection": {
+      "en": "He does not rush to punish. He gives time. He gives more time.",
+      "id": "Dia tidak tergesa menghukum. Dia memberi waktu, dan waktu lagi."
+    },
+    "quranicRef": "2:225"
+  },
+  {
+    "order": 33,
+    "slug": "al-azim",
+    "arabic": "الْعَظِيمُ",
+    "transliteration": "Al-Azim",
+    "meaning": { "en": "The Magnificent", "id": "Yang Mahaagung" },
+    "reflection": {
+      "en": "His majesty exceeds every attempt to describe or imagine.",
+      "id": "Keagungan-Nya melampaui setiap upaya untuk digambarkan atau dibayangkan."
+    },
+    "quranicRef": "2:255"
+  },
+  {
+    "order": 34,
+    "slug": "al-ghafur",
+    "arabic": "الْغَفُورُ",
+    "transliteration": "Al-Ghafur",
+    "meaning": { "en": "The Ever-Forgiving", "id": "Yang Maha Pengampun" },
+    "reflection": {
+      "en": "His forgiveness covers what no eye has seen — including our secret sins.",
+      "id": "Ampunan-Nya menutupi apa yang tak pernah dilihat mata — termasuk dosa-dosa rahasia kita."
+    },
+    "quranicRef": "39:53"
+  },
+  {
+    "order": 35,
+    "slug": "ash-shakur",
+    "arabic": "الشَّكُورُ",
+    "transliteration": "Ash-Shakur",
+    "meaning": { "en": "The Appreciative", "id": "Yang Maha Menerima Syukur" },
+    "reflection": {
+      "en": "He multiplies the reward for the smallest sincere deed.",
+      "id": "Dia melipatgandakan pahala dari perbuatan tulus yang paling kecil."
+    },
+    "quranicRef": "35:30"
+  },
+  {
+    "order": 36,
+    "slug": "al-aliy",
+    "arabic": "الْعَلِيُّ",
+    "transliteration": "Al-Aliy",
+    "meaning": { "en": "The Most High", "id": "Yang Mahatinggi" },
+    "reflection": {
+      "en": "Above all creation in essence, attributes, and status.",
+      "id": "Di atas seluruh ciptaan dalam zat, sifat, dan kedudukan."
+    },
+    "quranicRef": "2:255"
+  },
+  {
+    "order": 37,
+    "slug": "al-kabir",
+    "arabic": "الْكَبِيرُ",
+    "transliteration": "Al-Kabir",
+    "meaning": { "en": "The Most Great", "id": "Yang Mahabesar" },
+    "reflection": {
+      "en": "Everything else, however great we call it, is small before Him.",
+      "id": "Segala sesuatu, betapapun besar disebut, adalah kecil di hadapan-Nya."
+    },
+    "quranicRef": "22:62"
+  },
+  {
+    "order": 38,
+    "slug": "al-hafiz",
+    "arabic": "الْحَفِيظُ",
+    "transliteration": "Al-Hafiz",
+    "meaning": { "en": "The Preserver", "id": "Yang Maha Memelihara" },
+    "reflection": {
+      "en": "He guards the Quran, our deeds' record, and every atom of creation.",
+      "id": "Dia memelihara Al-Qur'an, catatan amal, dan setiap atom ciptaan."
+    },
+    "quranicRef": "11:57"
+  },
+  {
+    "order": 39,
+    "slug": "al-muqit",
+    "arabic": "الْمُقِيتُ",
+    "transliteration": "Al-Muqit",
+    "meaning": { "en": "The Sustainer", "id": "Sang Pemberi Nafkah" },
+    "reflection": {
+      "en": "He measures out the sustenance of every soul, every meal, every breath.",
+      "id": "Dia mengukur nafkah setiap jiwa, setiap makanan, setiap napas."
+    },
+    "quranicRef": "4:85"
+  },
+  {
+    "order": 40,
+    "slug": "al-hasib",
+    "arabic": "الْحَسِيبُ",
+    "transliteration": "Al-Hasib",
+    "meaning": { "en": "The Reckoner", "id": "Yang Membuat Perhitungan" },
+    "reflection": {
+      "en": "Every deed will be weighed — nothing is too small to count.",
+      "id": "Setiap amal akan ditimbang — tidak ada yang terlalu kecil untuk diperhitungkan."
+    },
+    "quranicRef": "4:6"
+  },
+  {
+    "order": 41,
+    "slug": "al-jalil",
+    "arabic": "الْجَلِيلُ",
+    "transliteration": "Al-Jalil",
+    "meaning": { "en": "The Majestic", "id": "Yang Mahamulia" },
+    "reflection": {
+      "en": "Overwhelming in glory and grandeur.",
+      "id": "Mahamulia dalam keagungan dan kebesaran."
+    }
+  },
+  {
+    "order": 42,
+    "slug": "al-karim",
+    "arabic": "الْكَرِيمُ",
+    "transliteration": "Al-Karim",
+    "meaning": { "en": "The Generous", "id": "Yang Mahamulia" },
+    "reflection": {
+      "en": "He gives before being asked and forgives before being sought.",
+      "id": "Dia memberi sebelum diminta dan mengampuni sebelum dimohon."
+    },
+    "quranicRef": "27:40"
+  },
+  {
+    "order": 43,
+    "slug": "ar-raqib",
+    "arabic": "الرَّقِيبُ",
+    "transliteration": "Ar-Raqib",
+    "meaning": { "en": "The Watchful", "id": "Yang Maha Mengawasi" },
+    "reflection": {
+      "en": "He watches over you when no one else does.",
+      "id": "Dia mengawasimu saat tidak ada yang lain memperhatikan."
+    },
+    "quranicRef": "4:1"
+  },
+  {
+    "order": 44,
+    "slug": "al-mujib",
+    "arabic": "الْمُجِيبُ",
+    "transliteration": "Al-Mujib",
+    "meaning": { "en": "The Responsive", "id": "Yang Maha Mengabulkan" },
+    "reflection": {
+      "en": "He answers every prayer — sometimes with yes, sometimes with better.",
+      "id": "Dia menjawab setiap doa — kadang dengan ya, kadang dengan yang lebih baik."
+    },
+    "quranicRef": "11:61"
+  },
+  {
+    "order": 45,
+    "slug": "al-wasi",
+    "arabic": "الْوَاسِعُ",
+    "transliteration": "Al-Wasi",
+    "meaning": { "en": "The All-Encompassing", "id": "Yang Mahaluas" },
+    "reflection": {
+      "en": "His mercy and knowledge encompass every corner of existence.",
+      "id": "Rahmat dan ilmu-Nya meliputi setiap sudut keberadaan."
+    },
+    "quranicRef": "2:115"
+  },
+  {
+    "order": 46,
+    "slug": "al-hakim",
+    "arabic": "الْحَكِيمُ",
+    "transliteration": "Al-Hakim",
+    "meaning": { "en": "The All-Wise", "id": "Yang Mahabijaksana" },
+    "reflection": {
+      "en": "His wisdom is unseen but every event fits within it.",
+      "id": "Hikmah-Nya tak terlihat, tetapi setiap peristiwa selaras dengannya."
+    },
+    "quranicRef": "2:32"
+  },
+  {
+    "order": 47,
+    "slug": "al-wadud",
+    "arabic": "الْوَدُودُ",
+    "transliteration": "Al-Wadud",
+    "meaning": { "en": "The Most Loving", "id": "Yang Maha Mencintai" },
+    "reflection": {
+      "en": "He loves those who turn to Him — a love that never withdraws.",
+      "id": "Dia mencintai mereka yang kembali kepada-Nya — cinta yang tidak pernah menarik diri."
+    },
+    "quranicRef": "85:14"
+  },
+  {
+    "order": 48,
+    "slug": "al-majid",
+    "arabic": "الْمَجِيدُ",
+    "transliteration": "Al-Majid",
+    "meaning": { "en": "The Most Glorious", "id": "Yang Mahamulia" },
+    "reflection": {
+      "en": "His glory is intrinsic — not granted, not diminishable.",
+      "id": "Kemuliaan-Nya melekat — tidak diberi, tidak dapat berkurang."
+    },
+    "quranicRef": "11:73"
+  },
+  {
+    "order": 49,
+    "slug": "al-baith",
+    "arabic": "الْبَاعِثُ",
+    "transliteration": "Al-Ba'ith",
+    "meaning": { "en": "The Resurrector", "id": "Yang Membangkitkan" },
+    "reflection": {
+      "en": "He will raise every soul from the earth — a return, not a beginning.",
+      "id": "Dia akan membangkitkan setiap jiwa dari bumi — sebuah kembali, bukan permulaan."
+    }
+  },
+  {
+    "order": 50,
+    "slug": "ash-shahid",
+    "arabic": "الشَّهِيدُ",
+    "transliteration": "Ash-Shahid",
+    "meaning": { "en": "The Witness", "id": "Yang Maha Menyaksikan" },
+    "reflection": {
+      "en": "He witnesses every act you thought was private.",
+      "id": "Dia menyaksikan setiap perbuatan yang kau kira rahasia."
+    },
+    "quranicRef": "4:79"
+  },
+  {
+    "order": 51,
+    "slug": "al-haqq",
+    "arabic": "الْحَقُّ",
+    "transliteration": "Al-Haqq",
+    "meaning": { "en": "The Truth", "id": "Yang Mahabenar" },
+    "reflection": {
+      "en": "Everything else changes; He does not.",
+      "id": "Segala hal lain berubah; Dia tidak."
+    },
+    "quranicRef": "22:6"
+  },
+  {
+    "order": 52,
+    "slug": "al-wakil",
+    "arabic": "الْوَكِيلُ",
+    "transliteration": "Al-Wakil",
+    "meaning": { "en": "The Trustee", "id": "Yang Mahakuasa Diserahi" },
+    "reflection": {
+      "en": "Hand your affairs to Him and He handles what you cannot.",
+      "id": "Serahkan urusanmu kepada-Nya, dan Dia akan menangani yang tidak dapat kau tangani."
+    },
+    "quranicRef": "3:173"
+  },
+  {
+    "order": 53,
+    "slug": "al-qawiyy",
+    "arabic": "الْقَوِيُّ",
+    "transliteration": "Al-Qawiyy",
+    "meaning": { "en": "The Most Strong", "id": "Yang Mahakuat" },
+    "reflection": {
+      "en": "Every strength you meet — your own, another's — is on loan from Him.",
+      "id": "Setiap kekuatan yang kau temui — milikmu atau orang lain — hanyalah pinjaman dari-Nya."
+    },
+    "quranicRef": "22:40"
+  },
+  {
+    "order": 54,
+    "slug": "al-matin",
+    "arabic": "الْمَتِينُ",
+    "transliteration": "Al-Matin",
+    "meaning": { "en": "The Firm, the Steadfast", "id": "Yang Mahakukuh" },
+    "reflection": {
+      "en": "Absolute, unwavering, tireless.",
+      "id": "Mutlak, tidak goyah, tidak pernah lelah."
+    },
+    "quranicRef": "51:58"
+  },
+  {
+    "order": 55,
+    "slug": "al-waliyy",
+    "arabic": "الْوَلِيُّ",
+    "transliteration": "Al-Waliyy",
+    "meaning": { "en": "The Protecting Friend", "id": "Sang Pelindung Sejati" },
+    "reflection": {
+      "en": "He is closer to the believer than any friend can be.",
+      "id": "Dia lebih dekat kepada orang beriman daripada teman mana pun."
+    },
+    "quranicRef": "2:257"
+  },
+  {
+    "order": 56,
+    "slug": "al-hamid",
+    "arabic": "الْحَمِيدُ",
+    "transliteration": "Al-Hamid",
+    "meaning": { "en": "The All-Praiseworthy", "id": "Yang Maha Terpuji" },
+    "reflection": {
+      "en": "He is praised in every language, every atom, whether we notice or not.",
+      "id": "Dia dipuji dalam setiap bahasa, setiap atom, sadar atau tidak sadar kita."
+    },
+    "quranicRef": "14:1"
+  },
+  {
+    "order": 57,
+    "slug": "al-muhsi",
+    "arabic": "الْمُحْصِي",
+    "transliteration": "Al-Muhsi",
+    "meaning": { "en": "The Accounter", "id": "Yang Menghitung" },
+    "reflection": {
+      "en": "He counts every hair on every head, every drop in every ocean.",
+      "id": "Dia menghitung setiap rambut di setiap kepala, setiap tetes di setiap lautan."
+    },
+    "quranicRef": "72:28"
+  },
+  {
+    "order": 58,
+    "slug": "al-mubdi",
+    "arabic": "الْمُبْدِئُ",
+    "transliteration": "Al-Mubdi",
+    "meaning": { "en": "The Originator", "id": "Yang Memulai" },
+    "reflection": {
+      "en": "He begins every existence out of nothing.",
+      "id": "Dia memulai setiap keberadaan dari ketiadaan."
+    },
+    "quranicRef": "85:13"
+  },
+  {
+    "order": 59,
+    "slug": "al-muid",
+    "arabic": "الْمُعِيدُ",
+    "transliteration": "Al-Mu'id",
+    "meaning": { "en": "The Restorer", "id": "Yang Mengembalikan" },
+    "reflection": {
+      "en": "He returns every soul to Him — a homecoming, not an ending.",
+      "id": "Dia mengembalikan setiap jiwa kepada-Nya — sebuah pulang, bukan akhir."
+    },
+    "quranicRef": "85:13"
+  },
+  {
+    "order": 60,
+    "slug": "al-muhyi",
+    "arabic": "الْمُحْيِي",
+    "transliteration": "Al-Muhyi",
+    "meaning": { "en": "The Giver of Life", "id": "Sang Pemberi Kehidupan" },
+    "reflection": {
+      "en": "He revived the dry earth with rain — He can revive any heart.",
+      "id": "Dia menghidupkan bumi yang kering dengan hujan — Dia dapat menghidupkan hati mana pun."
+    },
+    "quranicRef": "30:50"
+  },
+  {
+    "order": 61,
+    "slug": "al-mumit",
+    "arabic": "الْمُمِيتُ",
+    "transliteration": "Al-Mumit",
+    "meaning": { "en": "The Bringer of Death", "id": "Yang Mematikan" },
+    "reflection": {
+      "en": "He measures the moment of every soul's departure with perfect wisdom.",
+      "id": "Dia menetapkan saat kepergian setiap jiwa dengan hikmah sempurna."
+    }
+  },
+  {
+    "order": 62,
+    "slug": "al-hayy",
+    "arabic": "الْحَيُّ",
+    "transliteration": "Al-Hayy",
+    "meaning": { "en": "The Ever-Living", "id": "Yang Mahahidup" },
+    "reflection": {
+      "en": "His life is not sustained by anything else.",
+      "id": "Kehidupan-Nya tidak ditopang oleh apa pun."
+    },
+    "quranicRef": "2:255"
+  },
+  {
+    "order": 63,
+    "slug": "al-qayyum",
+    "arabic": "الْقَيُّومُ",
+    "transliteration": "Al-Qayyum",
+    "meaning": { "en": "The Self-Sustaining", "id": "Yang Berdiri Sendiri" },
+    "reflection": {
+      "en": "Every existence depends on Him; He depends on none.",
+      "id": "Setiap keberadaan bergantung kepada-Nya; Dia tidak bergantung kepada siapa pun."
+    },
+    "quranicRef": "2:255"
+  },
+  {
+    "order": 64,
+    "slug": "al-wajid",
+    "arabic": "الْوَاجِدُ",
+    "transliteration": "Al-Wajid",
+    "meaning": { "en": "The Finder", "id": "Yang Mahakaya" },
+    "reflection": {
+      "en": "He lacks nothing. Anything He wills, He has.",
+      "id": "Dia tidak kekurangan apa pun. Apa yang Dia kehendaki, Dia memilikinya."
+    }
+  },
+  {
+    "order": 65,
+    "slug": "al-majid-2",
+    "arabic": "الْمَاجِدُ",
+    "transliteration": "Al-Majid",
+    "meaning": { "en": "The Glorious", "id": "Yang Mahamulia" },
+    "reflection": {
+      "en": "Noble in essence, generous in giving.",
+      "id": "Mulia dalam zat, dermawan dalam pemberian."
+    }
+  },
+  {
+    "order": 66,
+    "slug": "al-wahid",
+    "arabic": "الْوَاحِدُ",
+    "transliteration": "Al-Wahid",
+    "meaning": { "en": "The One", "id": "Yang Mahaesa" },
+    "reflection": {
+      "en": "One in essence, in attributes, in worship deserved.",
+      "id": "Esa dalam zat, sifat, dan hak untuk disembah."
+    },
+    "quranicRef": "2:163"
+  },
+  {
+    "order": 67,
+    "slug": "al-ahad",
+    "arabic": "الْأَحَدُ",
+    "transliteration": "Al-Ahad",
+    "meaning": { "en": "The Unique, the Only", "id": "Yang Maha Tunggal" },
+    "reflection": {
+      "en": "He has no partner, no equivalent, no image.",
+      "id": "Dia tidak punya sekutu, tidak ada yang setara, tidak ada rupa."
+    },
+    "quranicRef": "112:1"
+  },
+  {
+    "order": 68,
+    "slug": "as-samad",
+    "arabic": "الصَّمَدُ",
+    "transliteration": "As-Samad",
+    "meaning": { "en": "The Eternal Refuge", "id": "Tempat Bergantung" },
+    "reflection": {
+      "en": "All creation depends on Him; He depends on nothing.",
+      "id": "Semua makhluk bergantung kepada-Nya; Dia tidak bergantung kepada apa pun."
+    },
+    "quranicRef": "112:2"
+  },
+  {
+    "order": 69,
+    "slug": "al-qadir",
+    "arabic": "الْقَادِرُ",
+    "transliteration": "Al-Qadir",
+    "meaning": { "en": "The All-Powerful", "id": "Yang Mahakuasa" },
+    "reflection": {
+      "en": "When He decrees a thing, He only says 'Be,' and it is.",
+      "id": "Bila Dia menetapkan sesuatu, cukup Dia berfirman 'Jadilah,' maka jadilah ia."
+    },
+    "quranicRef": "2:20"
+  },
+  {
+    "order": 70,
+    "slug": "al-muqtadir",
+    "arabic": "الْمُقْتَدِرُ",
+    "transliteration": "Al-Muqtadir",
+    "meaning": { "en": "The Omnipotent", "id": "Yang Mahakuasa Menetapkan" },
+    "reflection": {
+      "en": "His power is complete and always in place.",
+      "id": "Kekuasaan-Nya sempurna dan senantiasa berlaku."
+    },
+    "quranicRef": "54:55"
+  },
+  {
+    "order": 71,
+    "slug": "al-muqaddim",
+    "arabic": "الْمُقَدِّمُ",
+    "transliteration": "Al-Muqaddim",
+    "meaning": { "en": "The Expediter", "id": "Yang Mendahulukan" },
+    "reflection": {
+      "en": "He advances whom He wills for reasons only He knows.",
+      "id": "Dia mendahulukan siapa yang Dia kehendaki karena hikmah yang hanya Dia tahu."
+    }
+  },
+  {
+    "order": 72,
+    "slug": "al-muakhkhir",
+    "arabic": "الْمُؤَخِّرُ",
+    "transliteration": "Al-Mu'akhkhir",
+    "meaning": { "en": "The Delayer", "id": "Yang Mengakhirkan" },
+    "reflection": {
+      "en": "When your answer feels late, it may be perfectly on time.",
+      "id": "Ketika jawabanmu terasa terlambat, mungkin itu justru tepat waktunya."
+    }
+  },
+  {
+    "order": 73,
+    "slug": "al-awwal",
+    "arabic": "الْأَوَّلُ",
+    "transliteration": "Al-Awwal",
+    "meaning": { "en": "The First", "id": "Yang Awal" },
+    "reflection": { "en": "Before all beginnings, Him.", "id": "Sebelum segala permulaan, Dia." },
+    "quranicRef": "57:3"
+  },
+  {
+    "order": 74,
+    "slug": "al-akhir",
+    "arabic": "الْآخِرُ",
+    "transliteration": "Al-Akhir",
+    "meaning": { "en": "The Last", "id": "Yang Akhir" },
+    "reflection": { "en": "After all endings, Him.", "id": "Setelah segala akhir, Dia." },
+    "quranicRef": "57:3"
+  },
+  {
+    "order": 75,
+    "slug": "az-zahir",
+    "arabic": "الظَّاهِرُ",
+    "transliteration": "Az-Zahir",
+    "meaning": { "en": "The Manifest", "id": "Yang Zahir" },
+    "reflection": {
+      "en": "His signs are everywhere — for those who look.",
+      "id": "Tanda-tanda-Nya ada di mana-mana — bagi yang mau melihat."
+    },
+    "quranicRef": "57:3"
+  },
+  {
+    "order": 76,
+    "slug": "al-batin",
+    "arabic": "الْبَاطِنُ",
+    "transliteration": "Al-Batin",
+    "meaning": { "en": "The Hidden", "id": "Yang Batin" },
+    "reflection": {
+      "en": "Beyond every category, form, and perception.",
+      "id": "Di luar setiap kategori, bentuk, dan persepsi."
+    },
+    "quranicRef": "57:3"
+  },
+  {
+    "order": 77,
+    "slug": "al-wali",
+    "arabic": "الْوَالِي",
+    "transliteration": "Al-Wali",
+    "meaning": { "en": "The Governor", "id": "Sang Penguasa" },
+    "reflection": {
+      "en": "He governs every event, no matter how chaotic it looks to us.",
+      "id": "Dia mengatur setiap peristiwa, seberantakan apa pun tampak bagi kita."
+    },
+    "quranicRef": "13:11"
+  },
+  {
+    "order": 78,
+    "slug": "al-mutaali",
+    "arabic": "الْمُتَعَالِي",
+    "transliteration": "Al-Muta'ali",
+    "meaning": { "en": "The Most Exalted", "id": "Yang Mahaluhur" },
+    "reflection": {
+      "en": "Beyond every high we can imagine.",
+      "id": "Di atas setiap ketinggian yang dapat kita bayangkan."
+    },
+    "quranicRef": "13:9"
+  },
+  {
+    "order": 79,
+    "slug": "al-barr",
+    "arabic": "الْبَرُّ",
+    "transliteration": "Al-Barr",
+    "meaning": { "en": "The Source of Goodness", "id": "Yang Mahabaik" },
+    "reflection": {
+      "en": "Every good you meet flows from Him.",
+      "id": "Setiap kebaikan yang kau temui mengalir dari-Nya."
+    },
+    "quranicRef": "52:28"
+  },
+  {
+    "order": 80,
+    "slug": "at-tawwab",
+    "arabic": "التَّوَّابُ",
+    "transliteration": "At-Tawwab",
+    "meaning": { "en": "The Ever-Accepting of Repentance", "id": "Yang Maha Menerima Tobat" },
+    "reflection": {
+      "en": "Every return is welcomed. The door does not close.",
+      "id": "Setiap kembali disambut. Pintunya tidak tertutup."
+    },
+    "quranicRef": "2:37"
+  },
+  {
+    "order": 81,
+    "slug": "al-muntaqim",
+    "arabic": "الْمُنْتَقِمُ",
+    "transliteration": "Al-Muntaqim",
+    "meaning": { "en": "The Avenger", "id": "Yang Membalas" },
+    "reflection": {
+      "en": "He rectifies wrongs, sometimes slowly, always fully.",
+      "id": "Dia memperbaiki kezaliman, kadang perlahan, tetapi selalu tuntas."
+    },
+    "quranicRef": "32:22"
+  },
+  {
+    "order": 82,
+    "slug": "al-afuww",
+    "arabic": "الْعَفُوُّ",
+    "transliteration": "Al-Afuww",
+    "meaning": { "en": "The Pardoner", "id": "Yang Maha Memaafkan" },
+    "reflection": {
+      "en": "He wipes the record clean — not just forgives, but erases.",
+      "id": "Dia menghapus catatan bersih — bukan sekadar mengampuni, tetapi menghapus."
+    },
+    "quranicRef": "4:99"
+  },
+  {
+    "order": 83,
+    "slug": "ar-rauf",
+    "arabic": "الرَّءُوفُ",
+    "transliteration": "Ar-Rauf",
+    "meaning": { "en": "The Most Kind", "id": "Yang Maha Belas Kasih" },
+    "reflection": {
+      "en": "Tender, gentle, patient with our fragility.",
+      "id": "Lembut, ramah, sabar terhadap kelemahan kita."
+    },
+    "quranicRef": "2:143"
+  },
+  {
+    "order": 84,
+    "slug": "malik-al-mulk",
+    "arabic": "مَالِكُ الْمُلْكِ",
+    "transliteration": "Malik-ul-Mulk",
+    "meaning": { "en": "Owner of All Sovereignty", "id": "Pemilik Kerajaan" },
+    "reflection": {
+      "en": "He gives kingdom to whom He wills, and takes it away.",
+      "id": "Dia memberi kekuasaan kepada yang Dia kehendaki, dan mencabutnya."
+    },
+    "quranicRef": "3:26"
+  },
+  {
+    "order": 85,
+    "slug": "dhul-jalali-wal-ikram",
+    "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+    "transliteration": "Dhul-Jalali wal-Ikram",
+    "meaning": { "en": "Lord of Majesty and Honor", "id": "Pemilik Keagungan dan Kemuliaan" },
+    "reflection": {
+      "en": "Feared for His majesty, loved for His generosity.",
+      "id": "Ditakuti karena keagungan-Nya, dicintai karena kemurahan-Nya."
+    },
+    "quranicRef": "55:78"
+  },
+  {
+    "order": 86,
+    "slug": "al-muqsit",
+    "arabic": "الْمُقْسِطُ",
+    "transliteration": "Al-Muqsit",
+    "meaning": { "en": "The Equitable", "id": "Yang Mahaadil dalam Menetapkan" },
+    "reflection": {
+      "en": "He balances the scales that this world could never balance.",
+      "id": "Dia menyeimbangkan neraca yang tak dapat diseimbangkan dunia."
+    },
+    "quranicRef": "3:18"
+  },
+  {
+    "order": 87,
+    "slug": "al-jami",
+    "arabic": "الْجَامِعُ",
+    "transliteration": "Al-Jami",
+    "meaning": { "en": "The Gatherer", "id": "Yang Menghimpun" },
+    "reflection": {
+      "en": "He will bring every soul back on the day of gathering.",
+      "id": "Dia akan menghimpun setiap jiwa pada hari perhimpunan."
+    },
+    "quranicRef": "3:9"
+  },
+  {
+    "order": 88,
+    "slug": "al-ghaniyy",
+    "arabic": "الْغَنِيُّ",
+    "transliteration": "Al-Ghaniyy",
+    "meaning": { "en": "The Self-Sufficient", "id": "Yang Mahakaya" },
+    "reflection": {
+      "en": "He needs nothing from us; we need everything from Him.",
+      "id": "Dia tidak butuh apa pun dari kita; kita butuh segalanya dari-Nya."
+    },
+    "quranicRef": "2:263"
+  },
+  {
+    "order": 89,
+    "slug": "al-mughni",
+    "arabic": "الْمُغْنِي",
+    "transliteration": "Al-Mughni",
+    "meaning": { "en": "The Enricher", "id": "Yang Mencukupi" },
+    "reflection": {
+      "en": "He makes rich the poor and the heart of the poor rich.",
+      "id": "Dia mencukupi orang miskin dan mencukupi hati orang miskin."
+    },
+    "quranicRef": "9:28"
+  },
+  {
+    "order": 90,
+    "slug": "al-mani",
+    "arabic": "الْمَانِعُ",
+    "transliteration": "Al-Mani",
+    "meaning": { "en": "The Preventer", "id": "Yang Menghalangi" },
+    "reflection": {
+      "en": "He withholds what would harm us, even if we begged for it.",
+      "id": "Dia menahan apa yang akan mencelakakan kita, meski kita memintanya."
+    }
+  },
+  {
+    "order": 91,
+    "slug": "ad-darr",
+    "arabic": "الضَّارُّ",
+    "transliteration": "Ad-Darr",
+    "meaning": { "en": "The Distresser", "id": "Yang Mendatangkan Mudarat" },
+    "reflection": {
+      "en": "Sometimes hardship is the exact medicine we need.",
+      "id": "Kadang kesulitanlah obat yang tepat untuk kita."
+    }
+  },
+  {
+    "order": 92,
+    "slug": "an-nafi",
+    "arabic": "النَّافِعُ",
+    "transliteration": "An-Nafi",
+    "meaning": { "en": "The Benefactor", "id": "Yang Mendatangkan Manfaat" },
+    "reflection": {
+      "en": "Every benefit in your life came from Him — not luck, not skill.",
+      "id": "Setiap manfaat dalam hidupmu berasal dari-Nya — bukan keberuntungan, bukan kemampuan."
+    }
+  },
+  {
+    "order": 93,
+    "slug": "an-nur",
+    "arabic": "النُّورُ",
+    "transliteration": "An-Nur",
+    "meaning": { "en": "The Light", "id": "Sang Cahaya" },
+    "reflection": {
+      "en": "The light of the heavens and the earth, and of every guided heart.",
+      "id": "Cahaya langit dan bumi, dan cahaya setiap hati yang mendapat petunjuk."
+    },
+    "quranicRef": "24:35"
+  },
+  {
+    "order": 94,
+    "slug": "al-hadi",
+    "arabic": "الْهَادِي",
+    "transliteration": "Al-Hadi",
+    "meaning": { "en": "The Guide", "id": "Sang Pemberi Petunjuk" },
+    "reflection": {
+      "en": "He guides whom He wills — ask Him for guidance daily.",
+      "id": "Dia memberi petunjuk kepada siapa yang Dia kehendaki — mintalah setiap hari."
+    },
+    "quranicRef": "22:54"
+  },
+  {
+    "order": 95,
+    "slug": "al-badi",
+    "arabic": "الْبَدِيعُ",
+    "transliteration": "Al-Badi",
+    "meaning": { "en": "The Incomparable", "id": "Yang Menciptakan tanpa Contoh" },
+    "reflection": {
+      "en": "His creation follows no pattern before it. Every galaxy is new to Him.",
+      "id": "Ciptaan-Nya tidak mengikuti pola sebelumnya. Setiap galaksi baru bagi-Nya."
+    },
+    "quranicRef": "2:117"
+  },
+  {
+    "order": 96,
+    "slug": "al-baqi",
+    "arabic": "الْبَاقِي",
+    "transliteration": "Al-Baqi",
+    "meaning": { "en": "The Everlasting", "id": "Yang Kekal" },
+    "reflection": {
+      "en": "Everything perishes except His face.",
+      "id": "Segala sesuatu binasa kecuali wajah-Nya."
+    },
+    "quranicRef": "28:88"
+  },
+  {
+    "order": 97,
+    "slug": "al-warith",
+    "arabic": "الْوَارِثُ",
+    "transliteration": "Al-Warith",
+    "meaning": { "en": "The Inheritor", "id": "Yang Mewarisi" },
+    "reflection": {
+      "en": "All that we possess returns to Him.",
+      "id": "Semua yang kita miliki kembali kepada-Nya."
+    },
+    "quranicRef": "15:23"
+  },
+  {
+    "order": 98,
+    "slug": "ar-rashid",
+    "arabic": "الرَّشِيدُ",
+    "transliteration": "Ar-Rashid",
+    "meaning": { "en": "The Guide to the Right Path", "id": "Yang Menuntun ke Jalan Lurus" },
+    "reflection": {
+      "en": "He shows the way to those sincerely searching.",
+      "id": "Dia menunjukkan jalan bagi yang sungguh-sungguh mencari."
+    }
+  },
+  {
+    "order": 99,
+    "slug": "as-sabur",
+    "arabic": "الصَّبُورُ",
+    "transliteration": "As-Sabur",
+    "meaning": { "en": "The Most Patient", "id": "Yang Mahasabar" },
+    "reflection": {
+      "en": "He is patient with our forgetfulness, our sins, our slow return.",
+      "id": "Dia sabar terhadap kelalaian, dosa, dan kembali kita yang lambat."
+    }
+  }
+]

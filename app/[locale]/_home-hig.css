@@ -1,0 +1,657 @@
+/* -----------------------------------------------------------
+   Islamic Website · Apple HIG mockup
+   color.md › System colors — hard-coded here for the mockup;
+   in a real Apple app these would be resolved via UIColor / Color.
+   typography.md › Ensuring legibility — SF Pro Text / Display via
+   the system font stack; Amiri Quran ONLY for Quran verses.
+   liquid-glass.md › The two layers — glass reserved for the
+   functional layer (nav + audio bar). Content cards use plain
+   surfaces, per liquid-glass.md › Where the material belongs.
+   ----------------------------------------------------------- */
+
+/* Dark appearance (color.md › System colors — dark variants) */
+
+/* Reset — restrained */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  /* typography.md › Ensuring legibility — 17pt default body on iOS */
+  font-size: 17px;
+  line-height: 1.47;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  min-height: 100vh;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Focus ring — accessibility.md */
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   Sticky navigation bar — the ONE glass surface at the top
+   liquid-glass.md › The two layers (functional layer)
+   toolbars.md › Reduce use of toolbar backgrounds
+   ----------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 max(16px, env(safe-area-inset-left)) 0 max(16px, env(safe-area-inset-right));
+  background: hsl(var(--background) / 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
+  border-bottom: 0.5px solid hsl(var(--separator));
+}
+.nav__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nav__brand {
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  font-size: 15px; /* typography.md › headline size on iOS */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: hsl(var(--foreground));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: hsl(var(--accent));
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.nav__links {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.nav__link {
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  border-radius: 6px;
+  transition: color .18s var(--spring), background .18s var(--spring);
+}
+.nav__link:hover {
+  color: hsl(var(--foreground));
+  background: hsl(var(--muted) / 0.3);
+}
+.nav__link[aria-current="page"] {
+  color: hsl(var(--foreground));
+}
+
+.nav__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon button — rounded-full applies ONLY to icon-only buttons (per brief) */
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  color: hsl(var(--foreground));
+  transition: background .18s var(--spring);
+}
+.icon-btn:hover {
+  background: hsl(var(--muted) / 0.3);
+}
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
+}
+
+/* Mobile: collapse center links */
+@media (max-width: 720px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__inner {
+    grid-template-columns: 1fr auto;
+  }
+  .nav__brand-full {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------
+   Buttons (buttons.md › Style + Role)
+   ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px; /* buttons.md › 44x44pt minimum */
+  padding: 10px 20px;
+  border-radius: var(--r-lg);
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform .12s var(--spring), background .18s var(--spring), border-color .18s
+    var(--spring), opacity .18s var(--spring);
+  will-change: transform;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: hsl(var(--accent));
+  color: #fff;
+}
+.btn--primary:hover {
+  background: hsl(var(--accent) / 0.85);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--separator));
+}
+.btn--secondary:hover {
+  background: hsl(var(--muted) / 0.3);
+}
+
+.btn--tertiary {
+  background: hsl(var(--muted) / 0.3);
+  color: hsl(var(--foreground));
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 15px;
+  border-radius: var(--r-lg);
+}
+.btn--tertiary:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+/* -----------------------------------------------------------
+   Containers & type utilities
+   layout.md › Safe area margins
+   ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container--narrow {
+  max-width: 760px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.section-title {
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.section-caption {
+  font-size: 15px;
+  color: hsl(var(--muted-foreground));
+  margin: 0 0 20px;
+}
+
+/* -----------------------------------------------------------
+   Footer — plain, no glass (per brief)
+   ----------------------------------------------------------- */
+.footer {
+  margin-top: 80px;
+  background: hsl(var(--muted));
+  border-top: 0.5px solid hsl(var(--separator));
+  padding: 48px 0 32px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.footer__col h4 {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.footer__col a {
+  font-size: 14px;
+  color: hsl(var(--foreground));
+}
+.footer__col a:hover {
+  color: hsl(var(--accent));
+}
+.footer__copy {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 0.5px solid hsl(var(--separator));
+  font-size: 12px;
+  color: hsl(var(--muted-foreground) / 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+@media (max-width: 720px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Utility */
+.hstack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vstack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.spacer {
+  flex: 1;
+}
+
+/* Prefers-reduced-motion (accessibility.md) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -----------------------------------------------------------
+   Home page — specific styles
+   ----------------------------------------------------------- */
+
+/* Hero — restraint, no gradient mesh (per brief / color.md) */
+.hero {
+  position: relative;
+  padding: 96px 0 72px;
+  overflow: hidden;
+}
+.hero__bg {
+  /* Very soft Basmala texture at 15% opacity — the ONE bg ornament */
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__bg span {
+  font-family: var(--font-amiri-quran), "Amiri", serif;
+  font-size: clamp(180px, 32vw, 480px);
+  color: hsl(var(--foreground));
+  opacity: 0.06;
+  line-height: 1;
+  white-space: nowrap;
+  direction: rtl;
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.hero__title {
+  /* typography.md › Avoid light font weights; 700 is fine for display */
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(54px, 8vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  color: hsl(var(--foreground));
+}
+.hero__subtitle {
+  font-size: 19px;
+  line-height: 1.5;
+  color: hsl(var(--muted-foreground));
+  margin: 0 auto 32px;
+  max-width: 560px;
+}
+.hero__ctas {
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 520px) {
+  .hero {
+    padding: 64px 0 48px;
+  }
+  .hero__title {
+    font-size: 44px;
+  }
+  .hero__subtitle {
+    font-size: 17px;
+  }
+}
+
+/* Section wrapper */
+.section {
+  padding: 56px 0;
+}
+.section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+.section__head h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.section__head p {
+  margin: 4px 0 0;
+  color: hsl(var(--muted-foreground));
+  font-size: 15px;
+}
+.section__link {
+  color: hsl(var(--accent));
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Horizontal-scroll card rail — Featured surahs */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 260px);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 20px 12px;
+  margin: 0 -20px;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.surah-card {
+  scroll-snap-align: start;
+  background: hsl(var(--surface));
+  border-radius: var(--r-2xl);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 180px;
+  border: 0.5px solid hsl(var(--separator));
+  transition: transform .2s var(--spring);
+}
+.surah-card:hover {
+  transform: translateY(-2px);
+}
+.surah-card__num {
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(var(--accent));
+  letter-spacing: 0.02em;
+}
+.surah-card__arabic {
+  font-family: var(--font-amiri-quran), "Amiri", serif;
+  font-size: 32px;
+  color: hsl(var(--foreground));
+  line-height: 1;
+  direction: rtl;
+  margin: 4px 0;
+}
+.surah-card__name {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.surah-card__meta {
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+  margin-top: auto;
+}
+
+/* Prayer widget */
+.prayer-card {
+  background: hsl(var(--surface));
+  border: 0.5px solid hsl(var(--separator));
+  border-radius: var(--r-2xl);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+.prayer-card__label {
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+}
+.prayer-card__next {
+  margin-top: 4px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.prayer-card__accent {
+  color: hsl(var(--accent));
+}
+.prayer-card__sub {
+  font-size: 15px;
+  color: hsl(var(--muted-foreground));
+  margin-top: 2px;
+}
+.prayer-card__times {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+}
+.prayer-card__tile {
+  padding: 10px 8px;
+  border-radius: var(--r-xl);
+  background: hsl(var(--muted) / 0.3);
+  text-align: center;
+  min-width: 56px;
+}
+.prayer-card__tile[aria-current="true"] {
+  background: hsl(var(--accent));
+  color: #fff;
+}
+.prayer-card__tile-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.prayer-card__tile[aria-current="true"] .prayer-card__tile-name {
+  color: rgba(255, 255, 255, 0.75);
+}
+.prayer-card__tile-time {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 820px) {
+  .prayer-card {
+    grid-template-columns: 1fr;
+  }
+  .prayer-card__times {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* How it works — three-column list */
+.how {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.how__item {
+  padding: 24px;
+  background: hsl(var(--surface));
+  border: 0.5px solid hsl(var(--separator));
+  border-radius: var(--r-2xl);
+}
+.how__num {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: hsl(var(--muted) / 0.3);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: 12px;
+}
+.how__title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.how__body {
+  font-size: 15px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.47;
+  margin: 0;
+}
+@media (max-width: 820px) {
+  .how {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Feature grid — 8 items */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 820px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.feature {
+  padding: 20px;
+  background: hsl(var(--surface));
+  border: 0.5px solid hsl(var(--separator));
+  border-radius: var(--r-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 116px;
+  transition: transform .2s var(--spring), background .2s var(--spring);
+}
+.feature:hover {
+  transform: translateY(-1px);
+  background: hsl(var(--muted));
+}
+.feature__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 122, 255, 0.1);
+  color: hsl(var(--accent));
+  display: grid;
+  place-items: center;
+}
+.feature__icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
+}
+.feature__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.feature__caption {
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+}

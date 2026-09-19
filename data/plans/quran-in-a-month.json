@@ -1,0 +1,188 @@
+{
+  "id": "quran-in-a-month",
+  "name": "Quran in a Month",
+  "description": "One Juz per day. Completes the Quran in 30 days — the classical Ramadan pace.",
+  "totalDays": 30,
+  "days": [
+    {
+      "day": 1,
+      "title": "Juz 1 — Alif Lam Meem",
+      "juz": 1,
+      "reflection": "Opens the Quran with Al-Fatiha and the early passages of Al-Baqarah on faith, guidance, and the trial of Adam."
+    },
+    {
+      "day": 2,
+      "title": "Juz 2 — Sayaqul",
+      "juz": 2,
+      "reflection": "Continues Al-Baqarah with the change of qibla and rulings on fasting, pilgrimage, and family life."
+    },
+    {
+      "day": 3,
+      "title": "Juz 3 — Tilkal Rusul",
+      "juz": 3,
+      "reflection": "Concludes Al-Baqarah with Ayat al-Kursi and moves into Aal-Imran on the People of the Book."
+    },
+    {
+      "day": 4,
+      "title": "Juz 4 — Lan Tana Loo",
+      "juz": 4,
+      "reflection": "Aal-Imran on the family of Imran and the battle of Uhud, then opens An-Nisa on justice for women and orphans."
+    },
+    {
+      "day": 5,
+      "title": "Juz 5 — Wal Mohsanat",
+      "juz": 5,
+      "reflection": "An-Nisa continues with inheritance, marriage rulings, and prayer during travel and fear."
+    },
+    {
+      "day": 6,
+      "title": "Juz 6 — La Yuhibbullah",
+      "juz": 6,
+      "reflection": "Finishes An-Nisa and opens Al-Ma'idah on covenants, dietary law, and the story of the two sons of Adam."
+    },
+    {
+      "day": 7,
+      "title": "Juz 7 — Wa Iza Samiu",
+      "juz": 7,
+      "reflection": "Al-Ma'idah completes, and Al-An'am begins with a sustained argument for tawhid against idolatry."
+    },
+    {
+      "day": 8,
+      "title": "Juz 8 — Wa Lau Annana",
+      "juz": 8,
+      "reflection": "Al-An'am on the signs of God in creation, then Al-A'raf on the stories of earlier prophets."
+    },
+    {
+      "day": 9,
+      "title": "Juz 9 — Qadd Aflaha",
+      "juz": 9,
+      "reflection": "Al-A'raf continues with Musa and Pharaoh, then Al-Anfal on the ethics of Badr."
+    },
+    {
+      "day": 10,
+      "title": "Juz 10 — Wa A'lamu",
+      "juz": 10,
+      "reflection": "Al-Anfal closes and At-Tawbah addresses treaties, hypocrisy, and community accountability."
+    },
+    {
+      "day": 11,
+      "title": "Juz 11 — Ya'tazerun",
+      "juz": 11,
+      "reflection": "At-Tawbah concludes and Yunus, Hud, and part of Yusuf recount prophets sent to their peoples."
+    },
+    {
+      "day": 12,
+      "title": "Juz 12 — Wa Mamin Da'abat",
+      "juz": 12,
+      "reflection": "Hud and Yusuf: the patience of Yaqub and the trials and rise of Yusuf in Egypt."
+    },
+    {
+      "day": 13,
+      "title": "Juz 13 — Wa Ma Ubarri'u",
+      "juz": 13,
+      "reflection": "Yusuf's reunion with his family, and Ar-Ra'd and Ibrahim on revelation and gratitude."
+    },
+    {
+      "day": 14,
+      "title": "Juz 14 — Rubama",
+      "juz": 14,
+      "reflection": "Al-Hijr and An-Nahl catalogue the natural signs of God and warn Makkan disbelievers."
+    },
+    {
+      "day": 15,
+      "title": "Juz 15 — Subhanallazi",
+      "juz": 15,
+      "reflection": "Al-Isra opens with the night journey; Al-Kahf tells of the sleepers, Musa and Khidr, and Dhul-Qarnayn."
+    },
+    {
+      "day": 16,
+      "title": "Juz 16 — Qal Alam",
+      "juz": 16,
+      "reflection": "Maryam on the births of Yahya and Isa, then Ta-Ha on Musa's mission to Pharaoh."
+    },
+    {
+      "day": 17,
+      "title": "Juz 17 — Aqtarabath",
+      "juz": 17,
+      "reflection": "Al-Anbiya on many prophets and Al-Hajj on pilgrimage and steadfastness under trial."
+    },
+    {
+      "day": 18,
+      "title": "Juz 18 — Qadd Aflaha",
+      "juz": 18,
+      "reflection": "Al-Mu'minun on the traits of true believers, An-Nur on modesty and social ethics, and Al-Furqan begins."
+    },
+    {
+      "day": 19,
+      "title": "Juz 19 — Wa Qalallazina",
+      "juz": 19,
+      "reflection": "Al-Furqan, Ash-Shu'ara, and An-Naml revisit Nuh, Ibrahim, Musa, Sulayman, and their peoples."
+    },
+    {
+      "day": 20,
+      "title": "Juz 20 — A'man Khalaq",
+      "juz": 20,
+      "reflection": "Al-Qasas on Musa's early life and Al-Ankabut on the trials that test faith."
+    },
+    {
+      "day": 21,
+      "title": "Juz 21 — Utlu Ma Oohi",
+      "juz": 21,
+      "reflection": "Ar-Rum, Luqman, As-Sajdah, and the opening of Al-Ahzab: wisdom, gratitude, and the trial of the Trench."
+    },
+    {
+      "day": 22,
+      "title": "Juz 22 — Wa Manyaqnut",
+      "juz": 22,
+      "reflection": "Al-Ahzab on the Prophet's household and manners, then Saba and Fatir on divine sovereignty."
+    },
+    {
+      "day": 23,
+      "title": "Juz 23 — Wa Mali",
+      "juz": 23,
+      "reflection": "Ya-Sin, As-Saffat, and Sad: resurrection, the ranks of angels, and the story of Dawud."
+    },
+    {
+      "day": 24,
+      "title": "Juz 24 — Faman Azlam",
+      "juz": 24,
+      "reflection": "Az-Zumar, Ghafir, and Fussilat on sincere worship and God's forbearance with humanity."
+    },
+    {
+      "day": 25,
+      "title": "Juz 25 — Elahe Yuruddo",
+      "juz": 25,
+      "reflection": "Ash-Shura and Az-Zukhruf on consultation and the futility of worldly ornament without faith."
+    },
+    {
+      "day": 26,
+      "title": "Juz 26 — Ha Meem",
+      "juz": 26,
+      "reflection": "Ad-Dukhan through Al-Ahqaf: the night of decree, the coming of the Hour, and warnings to the arrogant."
+    },
+    {
+      "day": 27,
+      "title": "Juz 27 — Qala Fama Khatbukum",
+      "juz": 27,
+      "reflection": "Muhammad, Al-Fath, Al-Hujurat, Qaf, and Adh-Dhariyat on victory, manners of the community, and the afterlife."
+    },
+    {
+      "day": 28,
+      "title": "Juz 28 — Qadd Sami Allah",
+      "juz": 28,
+      "reflection": "At-Tur through At-Tahrim: God's promises to the believers and the ethics of family and community."
+    },
+    {
+      "day": 29,
+      "title": "Juz 29 — Tabaraka Allazi",
+      "juz": 29,
+      "reflection": "Al-Mulk through Al-Mursalat: short, powerful surahs on sovereignty, the Day of Judgment, and the Quran itself."
+    },
+    {
+      "day": 30,
+      "title": "Juz 30 — Amma",
+      "juz": 30,
+      "reflection": "Juz Amma: the short Makkan surahs on resurrection, the mercy of God, and the return to Him."
+    }
+  ]
+}

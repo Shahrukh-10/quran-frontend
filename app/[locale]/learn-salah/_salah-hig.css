@@ -1,0 +1,231 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 52px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: hsl(var(--background) / 0.72);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: .5px solid hsl(var(--separator));
+}
+.brand {
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand svg {
+  width: 22px;
+  height: 22px;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: hsl(var(--muted-foreground));
+}
+.nav-links a {
+  transition: color .2s var(--spring);
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 99px;
+  display: grid;
+  place-items: center;
+  color: hsl(var(--muted-foreground));
+  transition: background .2s var(--spring);
+}
+.icon-btn:hover {
+  background: hsl(var(--muted) / 0.5);
+  color: hsl(var(--foreground));
+}
+
+main {
+  padding: 32px 24px 96px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: hsl(var(--accent));
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.page-title {
+  font-size: clamp(34px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: -.028em;
+  line-height: 1.05;
+}
+.page-lede {
+  font-size: 19px;
+  color: hsl(var(--muted-foreground));
+  max-width: 640px;
+  line-height: 1.5;
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-top: 24px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, hsl(var(--accent)), transparent);
+  border-radius: 99px;
+}
+.step {
+  position: relative;
+  margin-bottom: 32px;
+  background: hsl(var(--surface));
+  border-radius: var(--r-2xl);
+  padding: 24px 24px 20px;
+}
+.step::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 22px;
+  width: 18px;
+  height: 18px;
+  border-radius: 99px;
+  background: hsl(var(--background));
+  border: 3px solid hsl(var(--accent));
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.14);
+}
+.step .step-num {
+  display: inline-block;
+  background: rgba(0, 122, 255, 0.1);
+  color: hsl(var(--accent));
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 8px;
+}
+.step h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 6px;
+}
+.step .subtitle {
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 14px;
+  letter-spacing: .02em;
+}
+.step .body {
+  font-size: 16px;
+  color: hsl(var(--foreground));
+  line-height: 1.55;
+}
+.step .body p + p {
+  margin-top: 10px;
+}
+.step .dhikr {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: hsl(var(--muted) / 0.3);
+  border-radius: 12px;
+  border-left: 3px solid hsl(var(--accent));
+}
+.step .dhikr .ar {
+  font-family: var(--font-amiri-quran), "Amiri", serif;
+  font-size: 22px;
+  direction: rtl;
+  line-height: 1.9;
+}
+.step .dhikr .translit {
+  font-size: 13px;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  margin-top: 6px;
+}
+.step .dhikr .en {
+  font-size: 14px;
+  color: hsl(var(--muted-foreground));
+  margin-top: 4px;
+}
+.step .source {
+  font-size: 11px;
+  color: hsl(var(--muted-foreground) / 0.5);
+  margin-top: 12px;
+  letter-spacing: .04em;
+}
+.step .source b {
+  color: hsl(var(--muted-foreground));
+  font-weight: 600;
+}
+
+.prayer-picker {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 16px 0 8px;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.prayer-picker::-webkit-scrollbar {
+  display: none;
+}
+.prayer-picker button {
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: hsl(var(--surface));
+  border: .5px solid hsl(var(--separator));
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all .2s var(--spring);
+}
+.prayer-picker button[aria-pressed="true"] {
+  background: hsl(var(--accent));
+  color: #fff;
+  border-color: transparent;
+}
+
+footer {
+  background: hsl(var(--muted));
+  padding: 40px 24px;
+  margin-top: 60px;
+  border-top: .5px solid hsl(var(--separator));
+  text-align: center;
+  font-size: 13px;
+  color: hsl(var(--muted-foreground) / 0.5);
+}

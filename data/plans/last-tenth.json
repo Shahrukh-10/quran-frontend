@@ -1,0 +1,230 @@
+{
+  "id": "last-tenth",
+  "name": "The Last Tenth",
+  "description": "37 short surahs of Juz 30 — the surahs most Muslims memorize first. One surah per day. Great for beginners.",
+  "totalDays": 37,
+  "days": [
+    {
+      "day": 1,
+      "title": "An-Naba (78)",
+      "surah": 78,
+      "reflection": "The great announcement of the Day of Judgment and the signs of God's power in creation."
+    },
+    {
+      "day": 2,
+      "title": "An-Nazi'at (79)",
+      "surah": 79,
+      "reflection": "The angels who wrench souls, and a reminder of Musa's warning to Pharaoh."
+    },
+    {
+      "day": 3,
+      "title": "'Abasa (80)",
+      "surah": 80,
+      "reflection": "A gentle correction: do not turn away from the sincere seeker of guidance."
+    },
+    {
+      "day": 4,
+      "title": "At-Takwir (81)",
+      "surah": 81,
+      "reflection": "Cosmic imagery of the Day when the sun is folded up and the scrolls are laid open."
+    },
+    {
+      "day": 5,
+      "title": "Al-Infitar (82)",
+      "surah": 82,
+      "reflection": "When the sky is cleft asunder — every soul will know what it has sent forward."
+    },
+    {
+      "day": 6,
+      "title": "Al-Mutaffifin (83)",
+      "surah": 83,
+      "reflection": "A warning to those who cheat in weights and measures; the record of the righteous and the wicked."
+    },
+    {
+      "day": 7,
+      "title": "Al-Inshiqaq (84)",
+      "surah": 84,
+      "reflection": "When the sky splits, humanity meets its Lord bearing the record of its deeds."
+    },
+    {
+      "day": 8,
+      "title": "Al-Buruj (85)",
+      "surah": 85,
+      "reflection": "The people of the trench, and God's protection of the believers who hold firm."
+    },
+    {
+      "day": 9,
+      "title": "At-Tariq (86)",
+      "surah": 86,
+      "reflection": "By the night-comer: every soul has a watcher over it."
+    },
+    {
+      "day": 10,
+      "title": "Al-A'la (87)",
+      "surah": 87,
+      "reflection": "Glorify the name of your Lord, the Most High, who created and proportioned."
+    },
+    {
+      "day": 11,
+      "title": "Al-Ghashiyah (88)",
+      "surah": 88,
+      "reflection": "The overwhelming Day, and the contrast between the faces of the wretched and the delighted."
+    },
+    {
+      "day": 12,
+      "title": "Al-Fajr (89)",
+      "surah": 89,
+      "reflection": "The oaths of the dawn, and the fates of ancient nations who transgressed."
+    },
+    {
+      "day": 13,
+      "title": "Al-Balad (90)",
+      "surah": 90,
+      "reflection": "This city — humanity is created in toil, and the steep path is deeds of mercy."
+    },
+    {
+      "day": 14,
+      "title": "Ash-Shams (91)",
+      "surah": 91,
+      "reflection": "By the sun and the soul: he who purifies it has succeeded; he who corrupts it has failed."
+    },
+    {
+      "day": 15,
+      "title": "Al-Layl (92)",
+      "surah": 92,
+      "reflection": "By the night: two paths — giving and mindfulness, or hoarding and heedlessness."
+    },
+    {
+      "day": 16,
+      "title": "Ad-Duha (93)",
+      "surah": 93,
+      "reflection": "The morning brightness: your Lord has not forsaken you nor is displeased."
+    },
+    {
+      "day": 17,
+      "title": "Ash-Sharh (94)",
+      "surah": 94,
+      "reflection": "Have We not expanded your breast? With hardship comes ease."
+    },
+    {
+      "day": 18,
+      "title": "At-Tin (95)",
+      "surah": 95,
+      "reflection": "By the fig and the olive: humanity is created in the best of forms — except those who fall."
+    },
+    {
+      "day": 19,
+      "title": "Al-'Alaq (96)",
+      "surah": 96,
+      "reflection": "The first revelation — Read, in the name of your Lord who created."
+    },
+    {
+      "day": 20,
+      "title": "Al-Qadr (97)",
+      "surah": 97,
+      "reflection": "The night of decree: better than a thousand months; peace until the break of dawn."
+    },
+    {
+      "day": 21,
+      "title": "Al-Bayyinah (98)",
+      "surah": 98,
+      "reflection": "The clear evidence, and the reward of those who believe and do righteous deeds."
+    },
+    {
+      "day": 22,
+      "title": "Az-Zalzalah (99)",
+      "surah": 99,
+      "reflection": "When the earth is shaken with its final quake, and every atom's weight is seen."
+    },
+    {
+      "day": 23,
+      "title": "Al-'Adiyat (100)",
+      "surah": 100,
+      "reflection": "By the charging steeds: humanity is ungrateful to its Lord, and knows it."
+    },
+    {
+      "day": 24,
+      "title": "Al-Qari'ah (101)",
+      "surah": 101,
+      "reflection": "The striking calamity — the day scales are set and destinies are weighed."
+    },
+    {
+      "day": 25,
+      "title": "At-Takathur (102)",
+      "surah": 102,
+      "reflection": "The rivalry for worldly increase distracts, until you visit the graves."
+    },
+    {
+      "day": 26,
+      "title": "Al-'Asr (103)",
+      "surah": 103,
+      "reflection": "By time: humanity is in loss, except those of faith, good deeds, truth, and patience."
+    },
+    {
+      "day": 27,
+      "title": "Al-Humazah (104)",
+      "surah": 104,
+      "reflection": "A warning against the slanderer and hoarder of wealth."
+    },
+    {
+      "day": 28,
+      "title": "Al-Fil (105)",
+      "surah": 105,
+      "reflection": "The people of the elephant — God turned their plot against them."
+    },
+    {
+      "day": 29,
+      "title": "Quraysh (106)",
+      "surah": 106,
+      "reflection": "For the security of Quraysh — let them worship the Lord of this House."
+    },
+    {
+      "day": 30,
+      "title": "Al-Ma'un (107)",
+      "surah": 107,
+      "reflection": "He who denies the faith turns away the orphan and does not urge feeding the poor."
+    },
+    {
+      "day": 31,
+      "title": "Al-Kawthar (108)",
+      "surah": 108,
+      "reflection": "We have given you abundance — so pray to your Lord and sacrifice."
+    },
+    {
+      "day": 32,
+      "title": "Al-Kafirun (109)",
+      "surah": 109,
+      "reflection": "To you your way, and to me mine — a declaration of religious independence."
+    },
+    {
+      "day": 33,
+      "title": "An-Nasr (110)",
+      "surah": 110,
+      "reflection": "When God's help and victory come, glorify and seek forgiveness of your Lord."
+    },
+    {
+      "day": 34,
+      "title": "Al-Masad (111)",
+      "surah": 111,
+      "reflection": "The ruin of Abu Lahab, who opposed the message."
+    },
+    {
+      "day": 35,
+      "title": "Al-Ikhlas (112)",
+      "surah": 112,
+      "reflection": "The pure declaration: God is One, the Eternal Refuge; none is comparable to Him."
+    },
+    {
+      "day": 36,
+      "title": "Al-Falaq (113)",
+      "surah": 113,
+      "reflection": "Seek refuge in the Lord of daybreak from the evil of what He has created."
+    },
+    {
+      "day": 37,
+      "title": "An-Nas (114)",
+      "surah": 114,
+      "reflection": "Seek refuge in the Lord of humanity from the whisperer who withdraws."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "surah": 112,
+    "ayah": 1,
+    "arabic": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+    "transliteration": "Qul huwallāhu aḥad",
+    "translations": {
+      "en.sahih": "Say, 'He is Allah, [who is] One,",
+      "id.indonesian": "Katakanlah (Muhammad), 'Dialah Allah, Yang Maha Esa."
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6222.mp3" }
+  },
+  {
+    "surah": 112,
+    "ayah": 2,
+    "arabic": "ٱللَّهُ ٱلصَّمَدُ",
+    "transliteration": "Allāhuṣ-ṣamad",
+    "translations": {
+      "en.sahih": "Allah, the Eternal Refuge.",
+      "id.indonesian": "Allah tempat meminta segala sesuatu."
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6223.mp3" }
+  },
+  {
+    "surah": 112,
+    "ayah": 3,
+    "arabic": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+    "transliteration": "Lam yalid wa lam yūlad",
+    "translations": {
+      "en.sahih": "He neither begets nor is born,",
+      "id.indonesian": "(Allah) tidak beranak dan tidak pula diperanakkan."
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6224.mp3" }
+  },
+  {
+    "surah": 112,
+    "ayah": 4,
+    "arabic": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+    "transliteration": "Wa lam yakun lahū kufuwan aḥad",
+    "translations": {
+      "en.sahih": "Nor is there to Him any equivalent.'",
+      "id.indonesian": "Dan tidak ada sesuatu yang setara dengan Dia.'"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6225.mp3" }
+  }
+]

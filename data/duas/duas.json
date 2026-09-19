@@ -1,0 +1,772 @@
+{
+  "categories": [
+    {
+      "slug": "daily-routines",
+      "title": {
+        "en": "Daily routines",
+        "id": "Aktivitas harian"
+      },
+      "description": {
+        "en": "Waking up, sleeping, entering and leaving the home, eating, dressing — the sunnahs of a Muslim's day.",
+        "id": "Bangun, tidur, keluar-masuk rumah, makan, berpakaian — sunnah-sunnah keseharian seorang Muslim."
+      }
+    },
+    {
+      "slug": "hardship-and-anxiety",
+      "title": {
+        "en": "Hardship & anxiety",
+        "id": "Kesulitan & kecemasan"
+      },
+      "description": {
+        "en": "When you are worried, grieving, in debt, or facing a difficult situation.",
+        "id": "Ketika Anda cemas, berduka, terlilit hutang, atau menghadapi situasi sulit."
+      }
+    },
+    {
+      "slug": "forgiveness-and-repentance",
+      "title": {
+        "en": "Forgiveness & repentance",
+        "id": "Ampunan & tobat"
+      },
+      "description": {
+        "en": "Turning to Allah for forgiveness — the door is always open.",
+        "id": "Kembali kepada Allah memohon ampunan — pintunya selalu terbuka."
+      }
+    },
+    {
+      "slug": "family-and-parents",
+      "title": {
+        "en": "Family & parents",
+        "id": "Keluarga & orang tua"
+      },
+      "description": {
+        "en": "For your parents, spouse, and children.",
+        "id": "Untuk orang tua, pasangan, dan anak-anak Anda."
+      }
+    },
+    {
+      "slug": "protection",
+      "title": {
+        "en": "Protection",
+        "id": "Perlindungan"
+      },
+      "description": {
+        "en": "Seeking refuge in Allah from every harm — spiritual and physical.",
+        "id": "Berlindung kepada Allah dari setiap keburukan — ruhani maupun jasmani."
+      }
+    },
+    {
+      "slug": "quranic-supplications",
+      "title": {
+        "en": "Quranic supplications",
+        "id": "Doa dari Al-Qur'an"
+      },
+      "description": {
+        "en": "Duas taught by Allah in the Quran itself — the highest of prayers.",
+        "id": "Doa-doa yang diajarkan Allah dalam Al-Qur'an — doa yang paling utama."
+      }
+    }
+  ],
+  "duas": [
+    {
+      "slug": "waking-up",
+      "category": "daily-routines",
+      "title": {
+        "en": "Upon waking up",
+        "id": "Saat bangun tidur"
+      },
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+      "transliteration": "Al-ḥamdu lillāhil-ladhī aḥyānā baʿda mā amātanā wa ilayhin-nushūr",
+      "translation": {
+        "en": "All praise is for Allah who gave us life after having caused us to die, and to Him is the resurrection.",
+        "id": "Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami dibangkitkan."
+      },
+      "when": {
+        "en": "Immediately after waking, before getting out of bed.",
+        "id": "Segera setelah bangun, sebelum turun dari tempat tidur."
+      },
+      "source": "Sahih al-Bukhari 6312",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "before-sleep",
+      "category": "daily-routines",
+      "title": {
+        "en": "Before sleep",
+        "id": "Sebelum tidur"
+      },
+      "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "transliteration": "Bismika Allāhumma amūtu wa aḥyā",
+      "translation": {
+        "en": "In Your name, O Allah, I die and I live.",
+        "id": "Dengan nama-Mu ya Allah, aku mati dan aku hidup."
+      },
+      "when": {
+        "en": "Right before falling asleep.",
+        "id": "Tepat sebelum tertidur."
+      },
+      "source": "Sahih al-Bukhari 6324",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "entering-home",
+      "category": "daily-routines",
+      "title": {
+        "en": "Entering the home",
+        "id": "Saat masuk rumah"
+      },
+      "arabic": "بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",
+      "transliteration": "Bismillāhi walajnā, wa bismillāhi kharajnā, wa ʿalallāhi rabbinā tawakkalnā",
+      "translation": {
+        "en": "In the name of Allah we enter, in the name of Allah we leave, and upon Allah our Lord we place our trust.",
+        "id": "Dengan nama Allah kami masuk, dengan nama Allah kami keluar, dan kepada Allah Tuhan kami, kami bertawakal."
+      },
+      "when": {
+        "en": "As you step into your home, before greeting the family.",
+        "id": "Saat memasuki rumah, sebelum memberi salam kepada keluarga."
+      },
+      "source": "Sunan Abu Dawud 5096",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "leaving-home",
+      "category": "daily-routines",
+      "title": {
+        "en": "Leaving the home",
+        "id": "Saat keluar rumah"
+      },
+      "arabic": "بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+      "transliteration": "Bismillāhi, tawakkaltu ʿalallāhi, wa lā ḥawla wa lā quwwata illā billāh",
+      "translation": {
+        "en": "In the name of Allah, I place my trust in Allah, and there is no might nor power except with Allah.",
+        "id": "Dengan nama Allah, aku bertawakal kepada Allah, dan tiada daya dan kekuatan kecuali dengan Allah."
+      },
+      "when": {
+        "en": "Whenever you leave your home.",
+        "id": "Setiap kali keluar rumah."
+      },
+      "source": "Sunan Abu Dawud 5095",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "before-eating",
+      "category": "daily-routines",
+      "title": {
+        "en": "Before eating",
+        "id": "Sebelum makan"
+      },
+      "arabic": "بِسْمِ اللَّهِ",
+      "transliteration": "Bismillāh",
+      "translation": {
+        "en": "In the name of Allah.",
+        "id": "Dengan nama Allah."
+      },
+      "when": {
+        "en": "Before any meal or drink. If forgotten at the start: 'Bismillāhi awwalahu wa ākhirah.'",
+        "id": "Sebelum makan atau minum. Jika lupa: 'Bismillāhi awwalahu wa ākhirah.'"
+      },
+      "source": "Sahih al-Bukhari 5376, Sunan at-Tirmidhi 1858",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "after-eating",
+      "category": "daily-routines",
+      "title": {
+        "en": "After eating",
+        "id": "Setelah makan"
+      },
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+      "transliteration": "Al-ḥamdu lillāhil-ladhī aṭʿamanī hādhā wa razaqanīhi min ghayri ḥawlin minnī wa lā quwwah",
+      "translation": {
+        "en": "All praise is for Allah, who fed me this and provided it for me, without any might or power on my part.",
+        "id": "Segala puji bagi Allah yang telah memberi makanan ini dan merezekikannya kepadaku tanpa daya dan kekuatan dariku."
+      },
+      "when": {
+        "en": "After finishing any meal.",
+        "id": "Setelah selesai makan."
+      },
+      "source": "Sunan Abu Dawud 4023, Sunan at-Tirmidhi 3458",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "anxiety-and-grief",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "For anxiety & grief",
+        "id": "Ketika cemas dan berduka"
+      },
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+      "transliteration": "Allāhumma innī aʿūdhu bika minal-hammi wal-ḥazan, wal-ʿajzi wal-kasal, wal-bukhli wal-jubn, wa ḍalaʿid-dayni wa ghalabatir-rijāl",
+      "translation": {
+        "en": "O Allah, I seek refuge in You from worry and grief, from helplessness and laziness, from stinginess and cowardice, from the burden of debt and being overpowered by men.",
+        "id": "Ya Allah, aku berlindung kepada-Mu dari kegundahan dan kesedihan, dari kelemahan dan kemalasan, dari kikir dan pengecut, dari lilitan hutang dan dominasi orang."
+      },
+      "when": {
+        "en": "When you feel anxious, sad, or overwhelmed.",
+        "id": "Saat merasa cemas, sedih, atau kewalahan."
+      },
+      "source": "Sahih al-Bukhari 6369",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "in-distress",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "In distress",
+        "id": "Saat kesulitan"
+      },
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",
+      "transliteration": "Lā ilāha illallāhul-ʿaẓīmul-ḥalīm, lā ilāha illallāhu rabbul-ʿarshil-ʿaẓīm, lā ilāha illallāhu rabbus-samāwāti wa rabbul-arḍi wa rabbul-ʿarshil-karīm",
+      "translation": {
+        "en": "There is no god but Allah, the Great, the Forbearing. There is no god but Allah, Lord of the mighty Throne. There is no god but Allah, Lord of the heavens and of the earth and of the noble Throne.",
+        "id": "Tiada Tuhan selain Allah, Yang Mahaagung dan Maha Penyantun. Tiada Tuhan selain Allah, Tuhan pemilik 'Arsy yang agung. Tiada Tuhan selain Allah, Tuhan langit, Tuhan bumi, dan Tuhan 'Arsy yang mulia."
+      },
+      "when": {
+        "en": "In moments of serious distress or hardship.",
+        "id": "Di saat kesulitan atau kegundahan yang berat."
+      },
+      "source": "Sahih al-Bukhari 6346, Sahih Muslim 2730",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "istighfar",
+      "category": "forgiveness-and-repentance",
+      "title": {
+        "en": "The master of seeking forgiveness",
+        "id": "Sayyidul Istighfar"
+      },
+      "arabic": "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+      "transliteration": "Allāhumma anta rabbī, lā ilāha illā ant, khalaqtanī wa anā ʿabduk, wa anā ʿalā ʿahdika wa waʿdika mastaṭaʿt, aʿūdhu bika min sharri mā ṣanaʿt, abū'u laka bi-niʿmatika ʿalayya, wa abū'u bi-dhanbī, faghfir lī, fa innahu lā yaghfirudh-dhunūba illā ant",
+      "translation": {
+        "en": "O Allah, You are my Lord, there is no god but You. You created me and I am Your servant, and I keep Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me — for none forgives sins but You.",
+        "id": "Ya Allah, Engkau Tuhanku, tiada Tuhan selain Engkau. Engkau ciptakan aku, aku hamba-Mu, dan aku memegang janji-Mu semampu-Mu. Aku berlindung kepada-Mu dari keburukan yang kuperbuat. Aku mengakui nikmat-Mu atasku dan aku mengakui dosaku. Ampunilah aku, sungguh tiada yang mengampuni dosa selain Engkau."
+      },
+      "when": {
+        "en": "Morning and evening. Whoever says it with certainty in the morning and dies that day enters Paradise; likewise for the evening.",
+        "id": "Pagi dan petang. Barangsiapa membacanya dengan yakin di pagi hari lalu wafat di hari itu, ia masuk surga; demikian pula di petang hari."
+      },
+      "source": "Sahih al-Bukhari 6306",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "seeking-forgiveness",
+      "category": "forgiveness-and-repentance",
+      "title": {
+        "en": "Short istighfar",
+        "id": "Istighfar singkat"
+      },
+      "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+      "transliteration": "Astaghfirullāha wa atūbu ilayh",
+      "translation": {
+        "en": "I seek forgiveness from Allah and turn to Him in repentance.",
+        "id": "Aku memohon ampunan kepada Allah dan bertobat kepada-Nya."
+      },
+      "when": {
+        "en": "Any time. The Prophet ﷺ said it more than seventy times a day.",
+        "id": "Kapan saja. Nabi ﷺ mengucapkannya lebih dari 70 kali sehari."
+      },
+      "source": "Sahih al-Bukhari 6307",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "for-parents",
+      "category": "family-and-parents",
+      "title": {
+        "en": "For one's parents",
+        "id": "Untuk kedua orang tua"
+      },
+      "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+      "transliteration": "Rabbir-ḥamhumā kamā rabbayānī ṣaghīrā",
+      "translation": {
+        "en": "My Lord, have mercy upon them as they brought me up when I was small.",
+        "id": "Ya Tuhanku, sayangilah keduanya sebagaimana mereka menyayangiku waktu kecil."
+      },
+      "when": {
+        "en": "Frequently — a Quranic dua for one's parents, whether living or deceased.",
+        "id": "Sering-seringlah membacanya — doa Al-Qur'an untuk kedua orang tua, baik yang masih hidup maupun yang telah wafat."
+      },
+      "source": "Quran 17:24",
+      "reference": "17:24"
+    },
+    {
+      "slug": "for-family",
+      "category": "family-and-parents",
+      "title": {
+        "en": "For a righteous family",
+        "id": "Untuk keluarga yang salih"
+      },
+      "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+      "transliteration": "Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata aʿyunin waj-ʿalnā lil-muttaqīna imāmā",
+      "translation": {
+        "en": "Our Lord, grant us from among our spouses and offspring the comfort of our eyes, and make us a leader for the righteous.",
+        "id": "Ya Tuhan kami, karuniakanlah kepada kami pasangan dan keturunan sebagai penyejuk mata, dan jadikanlah kami imam bagi orang-orang bertakwa."
+      },
+      "when": {
+        "en": "For spouse, children, and future generations.",
+        "id": "Untuk pasangan, anak-anak, dan generasi mendatang."
+      },
+      "source": "Quran 25:74",
+      "reference": "25:74"
+    },
+    {
+      "slug": "morning-protection",
+      "category": "protection",
+      "title": {
+        "en": "Morning & evening protection",
+        "id": "Perlindungan pagi & petang"
+      },
+      "arabic": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+      "transliteration": "Bismillāhil-ladhī lā yaḍurru maʿasmihi shay'un fil-arḍi wa lā fis-samā'i wa huwas-samīʿul-ʿalīm",
+      "translation": {
+        "en": "In the name of Allah, with whose name nothing on earth or in the heavens can cause harm — He is the All-Hearing, the All-Knowing.",
+        "id": "Dengan nama Allah, yang dengan nama-Nya tidak ada sesuatu pun yang membahayakan, baik di bumi maupun di langit — Dialah Yang Maha Mendengar, Maha Mengetahui."
+      },
+      "when": {
+        "en": "Three times in the morning and three times in the evening. Nothing will harm you.",
+        "id": "Tiga kali di pagi hari dan tiga kali di petang hari. Tidak ada yang akan mencelakakanmu."
+      },
+      "source": "Sunan Abu Dawud 5088, Sunan at-Tirmidhi 3388",
+      "grading": "Sunan at-Tirmidhi"
+    },
+    {
+      "slug": "against-evil-eye",
+      "category": "protection",
+      "title": {
+        "en": "Against the evil eye and every harm",
+        "id": "Perlindungan dari 'ain dan segala keburukan"
+      },
+      "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+      "transliteration": "Aʿūdhu bi-kalimātillāhit-tāmmāti min sharri mā khalaq",
+      "translation": {
+        "en": "I seek refuge in Allah's perfect words from the evil of what He has created.",
+        "id": "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari keburukan makhluk-Nya."
+      },
+      "when": {
+        "en": "When stopping at any place, or entering somewhere unfamiliar — three times.",
+        "id": "Ketika berhenti di suatu tempat, atau memasuki tempat baru — tiga kali."
+      },
+      "source": "Sahih Muslim 2708",
+      "grading": "Sahih Muslim"
+    },
+    {
+      "slug": "good-in-both-worlds",
+      "category": "quranic-supplications",
+      "title": {
+        "en": "Good in this world and the next",
+        "id": "Kebaikan dunia dan akhirat"
+      },
+      "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+      "transliteration": "Rabbanā ātinā fid-dunyā ḥasanatan wa fil-ākhirati ḥasanatan wa qinā ʿadhāban-nār",
+      "translation": {
+        "en": "Our Lord, give us in this world good and in the Hereafter good, and protect us from the punishment of the Fire.",
+        "id": "Ya Tuhan kami, berikanlah kami kebaikan di dunia dan kebaikan di akhirat, dan lindungilah kami dari azab neraka."
+      },
+      "when": {
+        "en": "One of the most frequent duas of the Prophet ﷺ — recite often, especially in tawaf.",
+        "id": "Salah satu doa yang paling sering dibaca Nabi ﷺ — bacalah sering, terutama saat tawaf."
+      },
+      "source": "Quran 2:201; Sahih al-Bukhari 6389",
+      "reference": "2:201"
+    },
+    {
+      "slug": "musa-dua",
+      "category": "quranic-supplications",
+      "title": {
+        "en": "The dua of Musa (Moses) — for ease",
+        "id": "Doa Nabi Musa untuk kemudahan"
+      },
+      "arabic": "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي",
+      "transliteration": "Rabbish-raḥ lī ṣadrī wa yassir lī amrī waḥlul ʿuqdatam-min lisānī yafqahū qawlī",
+      "translation": {
+        "en": "My Lord, expand for me my chest, and ease for me my task, and untie the knot from my tongue, that they may understand my speech.",
+        "id": "Ya Tuhanku, lapangkanlah dadaku, mudahkanlah urusanku, dan lepaskanlah simpul dari lidahku, agar mereka memahami perkataanku."
+      },
+      "when": {
+        "en": "Before any speaking task, difficult conversation, exam, or interview.",
+        "id": "Sebelum tugas berbicara, percakapan sulit, ujian, atau wawancara."
+      },
+      "source": "Quran 20:25-28",
+      "reference": "20:25-28"
+    },
+    {
+      "slug": "ayat-al-kursi-summary",
+      "category": "protection",
+      "title": {
+        "en": "Ayat al-Kursi (protection through the day)",
+        "id": "Ayat Kursi (perlindungan sehari)"
+      },
+      "arabic": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+      "transliteration": "Allāhu lā ilāha illā huwal-ḥayyul-qayyūm...",
+      "translation": {
+        "en": "Allah — there is no god but He, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what is behind them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+        "id": "Allah, tidak ada tuhan selain Dia, Yang Mahahidup, Yang terus-menerus mengurus makhluk-Nya; tidak mengantuk dan tidak tidur. Milik-Nya apa yang di langit dan di bumi. Siapakah yang dapat memberi syafaat di sisi-Nya kecuali dengan izin-Nya? Dia mengetahui apa yang di hadapan mereka dan apa yang di belakang mereka. Mereka tidak mengetahui sesuatu apa pun dari ilmu-Nya kecuali apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi; dan Dia tidak merasa berat memelihara keduanya, dan Dia Mahatinggi, Mahaagung."
+      },
+      "when": {
+        "en": "Whoever recites it after every obligatory prayer, nothing prevents them from entering Paradise except death.",
+        "id": "Barangsiapa membacanya setelah setiap salat wajib, tidak ada yang menghalanginya masuk surga selain kematian."
+      },
+      "source": "Quran 2:255; Sunan an-Nasa'i 9928",
+      "reference": "2:255"
+    },
+    {
+      "slug": "after-drinking",
+      "category": "daily-routines",
+      "title": {
+        "en": "After drinking water",
+        "id": "Setelah minum air"
+      },
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي جَعَلَهُ عَذْبًا فُرَاتًا بِرَحْمَتِهِ وَلَمْ يَجْعَلْهُ مِلْحًا أُجَاجًا",
+      "transliteration": "Al-ḥamdu lillāhil-ladhī jaʿalahu ʿadhban furātan bi-raḥmatihi wa lam yajʿalhu milḥan ujājā",
+      "translation": {
+        "en": "All praise is for Allah, who by His mercy made it sweet and pleasant, and did not make it salty and bitter.",
+        "id": "Segala puji bagi Allah yang dengan rahmat-Nya menjadikannya tawar dan menyegarkan, dan tidak menjadikannya asin dan pahit."
+      },
+      "when": {
+        "en": "After drinking water — remembering Allah's mercy in every sip.",
+        "id": "Setelah minum air — mengingat rahmat Allah dalam setiap tegukan."
+      },
+      "source": "Reported in works of adhkar based on Quran 25:53, 56:68-70",
+      "grading": "Pending scholar review"
+    },
+    {
+      "slug": "when-clothing",
+      "category": "daily-routines",
+      "title": {
+        "en": "When putting on clothes",
+        "id": "Saat memakai pakaian"
+      },
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا الثَّوْبَ وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+      "transliteration": "Al-ḥamdu lillāhil-ladhī kasānī hādhath-thawba wa razaqanīhi min ghayri ḥawlin minnī wa lā quwwah",
+      "translation": {
+        "en": "All praise is for Allah, who has clothed me with this garment and provided it for me, without any might or power on my part.",
+        "id": "Segala puji bagi Allah yang memakaikan pakaian ini kepadaku dan memberikannya kepadaku tanpa daya dan kekuatan dariku."
+      },
+      "when": {
+        "en": "When putting on new or everyday clothing.",
+        "id": "Saat memakai pakaian baru atau sehari-hari."
+      },
+      "source": "Sunan Abu Dawud 4023, Sunan at-Tirmidhi 3458",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "entering-toilet",
+      "category": "daily-routines",
+      "title": {
+        "en": "Before entering the toilet",
+        "id": "Sebelum masuk toilet"
+      },
+      "arabic": "بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+      "transliteration": "Bismillāh, Allāhumma innī aʿūdhu bika minal-khubuthi wal-khabā'ith",
+      "translation": {
+        "en": "In the name of Allah. O Allah, I seek refuge in You from male and female evil beings.",
+        "id": "Dengan nama Allah. Ya Allah, aku berlindung kepada-Mu dari setan laki-laki dan perempuan."
+      },
+      "when": {
+        "en": "Before stepping into the bathroom or toilet — enter with the left foot.",
+        "id": "Sebelum memasuki toilet atau kamar mandi — masuk dengan kaki kiri."
+      },
+      "source": "Sahih al-Bukhari 142, Sahih Muslim 375",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "leaving-toilet",
+      "category": "daily-routines",
+      "title": {
+        "en": "After leaving the toilet",
+        "id": "Setelah keluar dari toilet"
+      },
+      "arabic": "غُفْرَانَكَ",
+      "transliteration": "Ghufrānak",
+      "translation": {
+        "en": "I seek Your forgiveness.",
+        "id": "Aku memohon ampunan-Mu."
+      },
+      "when": {
+        "en": "Upon leaving the bathroom — exit with the right foot first.",
+        "id": "Saat keluar dari kamar mandi — keluar dengan kaki kanan terlebih dahulu."
+      },
+      "source": "Sunan Abu Dawud 30, Sunan at-Tirmidhi 7",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "when-angry",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "When feeling anger",
+        "id": "Saat marah"
+      },
+      "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+      "transliteration": "Aʿūdhu billāhi minash-shayṭānir-rajīm",
+      "translation": {
+        "en": "I seek refuge in Allah from the accursed Shayṭān.",
+        "id": "Aku berlindung kepada Allah dari setan yang terkutuk."
+      },
+      "when": {
+        "en": "When you feel anger rising. Also: sit down if standing, lie down if sitting; perform wudu.",
+        "id": "Saat kemarahan mulai muncul. Juga: duduklah jika berdiri, berbaringlah jika duduk; berwudulah."
+      },
+      "source": "Sahih al-Bukhari 3282, Sahih Muslim 2610",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "for-debt-relief",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "For relief from debt",
+        "id": "Untuk pelunasan hutang"
+      },
+      "arabic": "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+      "transliteration": "Allāhummak-finī bi-ḥalālika ʿan ḥarāmik, wa aghninī bi-faḍlika ʿamman siwāk",
+      "translation": {
+        "en": "O Allah, suffice me with what You have made lawful against what You have forbidden, and enrich me by Your favour so that I have no need of anyone besides You.",
+        "id": "Ya Allah, cukupkanlah aku dengan yang halal dari-Mu, dan jauhkan dari yang haram; kayakanlah aku dengan karunia-Mu, hingga aku tidak butuh kepada selain Engkau."
+      },
+      "when": {
+        "en": "When burdened by debt or financial pressure. Recite consistently.",
+        "id": "Saat terbebani hutang atau tekanan keuangan. Bacalah dengan istiqamah."
+      },
+      "source": "Sunan at-Tirmidhi 3563",
+      "grading": "Sunan at-Tirmidhi"
+    },
+    {
+      "slug": "when-afraid",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "When afraid or facing an enemy",
+        "id": "Saat takut atau menghadapi musuh"
+      },
+      "arabic": "اللَّهُمَّ إِنَّا نَجْعَلُكَ فِي نُحُورِهِمْ، وَنَعُوذُ بِكَ مِنْ شُرُورِهِمْ",
+      "transliteration": "Allāhumma innā najʿaluka fī nuḥūrihim, wa naʿūdhu bika min shurūrihim",
+      "translation": {
+        "en": "O Allah, we place You before them, and we seek refuge in You from their evil.",
+        "id": "Ya Allah, kami menempatkan Engkau di hadapan mereka, dan kami berlindung kepada-Mu dari kejahatan mereka."
+      },
+      "when": {
+        "en": "When afraid of an enemy or facing a hostile situation.",
+        "id": "Saat takut kepada musuh atau menghadapi situasi bermusuhan."
+      },
+      "source": "Sunan Abu Dawud 1537",
+      "grading": "Sunan Abu Dawud"
+    },
+    {
+      "slug": "hasbunallah",
+      "category": "hardship-and-anxiety",
+      "title": {
+        "en": "Ḥasbunallāh — Allah suffices us",
+        "id": "Ḥasbunallāh — cukuplah Allah bagi kami"
+      },
+      "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+      "transliteration": "Ḥasbunallāhu wa niʿmal-wakīl",
+      "translation": {
+        "en": "Allah is sufficient for us, and He is the best Disposer of affairs.",
+        "id": "Cukuplah Allah bagi kami, dan Dia sebaik-baik Pelindung."
+      },
+      "when": {
+        "en": "When overwhelmed. Ibrahim (peace be upon him) said this in the fire; the Prophet ﷺ and his companions said it before Uḥud.",
+        "id": "Saat merasa kewalahan. Nabi Ibrahim mengucapkannya di dalam api; Nabi ﷺ dan para sahabatnya mengucapkannya sebelum perang Uhud."
+      },
+      "source": "Quran 3:173; Sahih al-Bukhari 4563",
+      "reference": "3:173"
+    },
+    {
+      "slug": "yunus-dua",
+      "category": "quranic-supplications",
+      "title": {
+        "en": "Dua of Yunus (Jonah) — from the depths",
+        "id": "Doa Nabi Yunus — dari kedalaman"
+      },
+      "arabic": "لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+      "transliteration": "Lā ilāha illā anta subḥānaka innī kuntu minaẓ-ẓālimīn",
+      "translation": {
+        "en": "There is no god but You. Glory be to You — I have indeed been of the wrongdoers.",
+        "id": "Tiada Tuhan selain Engkau. Mahasuci Engkau — sungguh aku termasuk orang-orang yang zalim."
+      },
+      "when": {
+        "en": "Any distress or difficulty. The Prophet ﷺ said no Muslim supplicates with this and is not answered.",
+        "id": "Kesulitan atau kesusahan apa pun. Nabi ﷺ bersabda tiada seorang Muslim berdoa dengannya kecuali dikabulkan."
+      },
+      "source": "Quran 21:87; Sunan at-Tirmidhi 3505",
+      "reference": "21:87"
+    },
+    {
+      "slug": "seeking-knowledge",
+      "category": "quranic-supplications",
+      "title": {
+        "en": "For increase in beneficial knowledge",
+        "id": "Untuk bertambahnya ilmu yang bermanfaat"
+      },
+      "arabic": "رَبِّ زِدْنِي عِلْمًا",
+      "transliteration": "Rabbi zidnī ʿilmā",
+      "translation": {
+        "en": "My Lord, increase me in knowledge.",
+        "id": "Ya Tuhanku, tambahkanlah ilmu kepadaku."
+      },
+      "when": {
+        "en": "Before studying, before a lesson, before opening a book of knowledge.",
+        "id": "Sebelum belajar, sebelum pelajaran, sebelum membuka kitab."
+      },
+      "source": "Quran 20:114",
+      "reference": "20:114"
+    },
+    {
+      "slug": "for-guidance",
+      "category": "quranic-supplications",
+      "title": {
+        "en": "For firmness and guidance",
+        "id": "Untuk keteguhan dan hidayah"
+      },
+      "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً ۚ إِنَّكَ أَنْتَ الْوَهَّابُ",
+      "transliteration": "Rabbanā lā tuzigh qulūbanā baʿda idh hadaytanā wa hab lanā min ladunka raḥmah, innaka antal-wahhāb",
+      "translation": {
+        "en": "Our Lord, let not our hearts deviate after You have guided us, and grant us from Yourself mercy. Indeed, You are the Bestower.",
+        "id": "Ya Tuhan kami, janganlah Engkau condongkan hati kami setelah Engkau memberi petunjuk kepada kami, dan karuniakanlah kepada kami rahmat dari sisi-Mu. Sungguh, Engkau Maha Pemberi."
+      },
+      "when": {
+        "en": "For firmness on the path, especially in times of fitnah (trial).",
+        "id": "Untuk keteguhan di atas jalan yang lurus, terutama saat fitnah."
+      },
+      "source": "Quran 3:8",
+      "reference": "3:8"
+    },
+    {
+      "slug": "for-parents-forgiveness",
+      "category": "family-and-parents",
+      "title": {
+        "en": "Forgiveness for oneself, parents, and believers",
+        "id": "Ampunan bagi diri, orang tua, dan orang-orang beriman"
+      },
+      "arabic": "رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ",
+      "transliteration": "Rabbanaghfir lī wa li-wālidayya wa lil-mu'minīna yawma yaqūmul-ḥisāb",
+      "translation": {
+        "en": "Our Lord, forgive me and my parents and the believers on the Day the account is established.",
+        "id": "Ya Tuhan kami, ampunilah aku, kedua orang tuaku, dan orang-orang beriman pada hari diadakannya hisab."
+      },
+      "when": {
+        "en": "In every dua for parents — including after obligatory prayers.",
+        "id": "Dalam setiap doa untuk orang tua — termasuk setelah salat wajib."
+      },
+      "source": "Quran 14:41",
+      "reference": "14:41"
+    },
+    {
+      "slug": "for-child",
+      "category": "family-and-parents",
+      "title": {
+        "en": "For righteous offspring",
+        "id": "Untuk keturunan yang salih"
+      },
+      "arabic": "رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ",
+      "transliteration": "Rabbi hab lī minaṣ-ṣāliḥīn",
+      "translation": {
+        "en": "My Lord, grant me a righteous child.",
+        "id": "Ya Tuhanku, karuniakanlah kepadaku (keturunan) yang salih."
+      },
+      "when": {
+        "en": "For those seeking children — as Ibrahim (peace be upon him) supplicated.",
+        "id": "Bagi yang mendambakan keturunan — sebagaimana Ibrahim berdoa."
+      },
+      "source": "Quran 37:100",
+      "reference": "37:100"
+    },
+    {
+      "slug": "before-travel",
+      "category": "protection",
+      "title": {
+        "en": "Before traveling (mounting a vehicle)",
+        "id": "Sebelum bepergian (menaiki kendaraan)"
+      },
+      "arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَىٰ رَبِّنَا لَمُنْقَلِبُونَ",
+      "transliteration": "Subḥānal-ladhī sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn, wa innā ilā rabbinā la-munqalibūn",
+      "translation": {
+        "en": "Glory be to Him who has subjected this to us — we could never have accomplished it ourselves — and indeed, to our Lord we will return.",
+        "id": "Mahasuci Dia yang telah menundukkan ini bagi kami, padahal kami tidak mampu — dan sungguh kepada Tuhan kami kami akan kembali."
+      },
+      "when": {
+        "en": "When boarding a car, plane, train, or any means of transport.",
+        "id": "Saat naik mobil, pesawat, kereta, atau kendaraan apa pun."
+      },
+      "source": "Sahih Muslim 1342; Quran 43:13-14",
+      "reference": "43:13-14"
+    },
+    {
+      "slug": "for-rain",
+      "category": "protection",
+      "title": {
+        "en": "When it rains",
+        "id": "Saat hujan turun"
+      },
+      "arabic": "اللَّهُمَّ صَيِّبًا نَافِعًا",
+      "transliteration": "Allāhumma ṣayyiban nāfiʿā",
+      "translation": {
+        "en": "O Allah, may it be a beneficial rain cloud.",
+        "id": "Ya Allah, jadikanlah ini hujan yang bermanfaat."
+      },
+      "when": {
+        "en": "When rain begins to fall.",
+        "id": "Ketika hujan mulai turun."
+      },
+      "source": "Sahih al-Bukhari 1032",
+      "grading": "Sahih al-Bukhari"
+    },
+    {
+      "slug": "seeking-refuge-shaytan",
+      "category": "protection",
+      "title": {
+        "en": "Seeking refuge from Shayṭān when reading Quran",
+        "id": "Berlindung dari setan saat membaca Al-Qur'an"
+      },
+      "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+      "transliteration": "Aʿūdhu billāhi minash-shayṭānir-rajīm",
+      "translation": {
+        "en": "I seek refuge in Allah from the accursed Shayṭān.",
+        "id": "Aku berlindung kepada Allah dari setan yang terkutuk."
+      },
+      "when": {
+        "en": "Before every recitation of the Quran (Quran 16:98).",
+        "id": "Sebelum setiap pembacaan Al-Qur'an (Al-Qur'an 16:98)."
+      },
+      "source": "Quran 16:98",
+      "reference": "16:98"
+    },
+    {
+      "slug": "after-obligatory-prayer",
+      "category": "daily-routines",
+      "title": {
+        "en": "After the obligatory prayer",
+        "id": "Setelah salat wajib"
+      },
+      "arabic": "أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ. اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ",
+      "transliteration": "Astaghfirullāh (×3). Allāhumma antas-salām wa minkas-salām, tabārakta yā dhal-jalāli wal-ikrām",
+      "translation": {
+        "en": "I seek Allah's forgiveness (×3). O Allah, You are Peace and from You comes peace — blessed are You, O Possessor of majesty and honour.",
+        "id": "Aku memohon ampun kepada Allah (×3). Ya Allah, Engkaulah Kesejahteraan, dan dari-Mu segala kesejahteraan; Mahamulia Engkau, wahai Yang memiliki keagungan dan kehormatan."
+      },
+      "when": {
+        "en": "Immediately after concluding the salām of every obligatory prayer.",
+        "id": "Segera setelah menutup salam di setiap salat wajib."
+      },
+      "source": "Sahih Muslim 591",
+      "grading": "Sahih Muslim"
+    },
+    {
+      "slug": "sayyid-al-istighfar-short",
+      "category": "forgiveness-and-repentance",
+      "title": {
+        "en": "Simple daily repentance",
+        "id": "Tobat harian sederhana"
+      },
+      "arabic": "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+      "transliteration": "Rabbighfir lī wa tub ʿalayya innaka antat-tawwābur-raḥīm",
+      "translation": {
+        "en": "My Lord, forgive me and turn to me in mercy — indeed, You are the Ever-Relenting, the Most Merciful.",
+        "id": "Ya Tuhanku, ampunilah aku dan terimalah tobatku — sungguh Engkau Maha Penerima tobat lagi Maha Penyayang."
+      },
+      "when": {
+        "en": "Any time, especially in sittings and at the end of gatherings.",
+        "id": "Kapan saja, terutama dalam majelis dan di akhir pertemuan."
+      },
+      "source": "Sunan Abu Dawud 1516, Sunan at-Tirmidhi 3434",
+      "grading": "Sunan Abu Dawud"
+    }
+  ]
+}

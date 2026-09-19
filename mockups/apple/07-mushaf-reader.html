@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Read the Muṣḥaf · page-fold reader</title>
+<meta name="description" content="Read the Quran as a bound book — 604-page Madinah muṣḥaf layout with page-fold animation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+
+<!-- StPageFlip: mature page-fold library, MIT licensed, no dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+<style>
+:root {
+  --systemBackground:#ffffff; --secondarySystemBackground:#f2f2f7;
+  --systemGroupedBackground:#f2f2f7; --secondarySystemGroupedBackground:#ffffff;
+  --label:#000; --secondaryLabel:rgba(60,60,67,.60); --tertiaryLabel:rgba(60,60,67,.30);
+  --separator:rgba(60,60,67,.29);
+  --fill:rgba(120,120,128,.20); --secondaryFill:rgba(120,120,128,.16); --tertiaryFill:rgba(118,118,128,.12);
+  --systemBlue:#007aff; --systemBlueHover:#0060df;
+  --glassBg:rgba(255,255,255,.72); --glassBorder:rgba(60,60,67,.18);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+  --r-lg:8px; --r-xl:12px; --r-2xl:16px; --r-3xl:24px;
+
+  /* Muṣḥaf-specific colors */
+  --parchment:#faf6ec;
+  --parchment-2:#f2ebd5;
+  --parchment-edge:#d9cca8;
+  --gold:#a8874a;
+  --gold-soft:#c9a961;
+  --ink:#2b241b;
+
+  --font-system:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;
+  --font-arabic-ui:-apple-system,'SF Arabic','Geeza Pro','Amiri',serif;
+  --font-quran:'Amiri Quran','Amiri','SF Arabic',serif;
+}
+[data-theme="dark"] {
+  --systemBackground:#000; --secondarySystemBackground:#1c1c1e;
+  --systemGroupedBackground:#000; --secondarySystemGroupedBackground:#1c1c1e;
+  --label:#fff; --secondaryLabel:rgba(235,235,245,.60); --tertiaryLabel:rgba(235,235,245,.30);
+  --separator:rgba(84,84,88,.60);
+  --fill:rgba(120,120,128,.36); --secondaryFill:rgba(120,120,128,.32); --tertiaryFill:rgba(118,118,128,.24);
+  --systemBlue:#0a84ff;
+  --glassBg:rgba(28,28,30,.72); --glassBorder:rgba(84,84,88,.60);
+
+  --parchment:#1a1712;
+  --parchment-2:#221d15;
+  --parchment-edge:#3a2f1d;
+  --ink:#e8dcc0;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { background:var(--systemGroupedBackground); color:var(--label); font-family:var(--font-system); -webkit-font-smoothing:antialiased; line-height:1.47; font-size:17px; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+/* Nav */
+.nav { position:sticky; top:0; z-index:50; height:52px; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--glassBg); backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%); border-bottom:.5px solid var(--separator); }
+.brand { font-weight:600; font-size:15px; letter-spacing:-.01em; display:flex; align-items:center; gap:8px; }
+.brand svg { width:22px; height:22px; }
+.nav-links { display:flex; gap:24px; font-size:14px; color:var(--secondaryLabel); }
+.nav-links a { transition:color .2s var(--spring); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--label); font-weight:600; }
+.icon-btn { width:32px; height:32px; border-radius:99px; display:grid; place-items:center; color:var(--secondaryLabel); transition:background .2s var(--spring); }
+.icon-btn:hover { background:var(--secondaryFill); color:var(--label); }
+
+/* Page header */
+.page-head { max-width:1120px; margin:32px auto 16px; padding:0 24px; }
+.kicker { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--systemBlue); text-transform:uppercase; margin-bottom:6px; }
+.page-title { font-size:clamp(28px, 4vw, 42px); font-weight:700; letter-spacing:-.022em; }
+.page-lede { font-size:16px; color:var(--secondaryLabel); margin-top:6px; }
+
+/* Book stage */
+.stage-wrap { max-width:1120px; margin:16px auto 0; padding:0 24px 24px; }
+.stage-frame { position:relative; background:radial-gradient(ellipse at center, rgba(0,0,0,.06), transparent 65%); padding:24px 0 48px; border-radius:var(--r-3xl); }
+[data-theme="dark"] .stage-frame { background:radial-gradient(ellipse at center, rgba(0,0,0,.5), transparent 65%); }
+#book { margin:0 auto; }
+
+/* Page styling — each rendered page */
+.mushaf-page {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,.4), transparent 40%),
+    linear-gradient(135deg, var(--parchment), var(--parchment-2));
+  color:var(--ink);
+  padding:36px 32px 28px;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(168,135,74,.15),
+    inset 0 0 40px rgba(168,135,74,.06);
+  font-family:var(--font-quran);
+}
+/* Page ornament borders (SVG) */
+.mushaf-page::before {
+  content:"";
+  position:absolute; inset:14px;
+  border:1px solid rgba(168,135,74,.35);
+  border-radius:2px;
+  pointer-events:none;
+}
+.mushaf-page::after {
+  content:"";
+  position:absolute; inset:20px;
+  border:.5px solid rgba(168,135,74,.2);
+  border-radius:1px;
+  pointer-events:none;
+}
+.mushaf-page.left { box-shadow: inset -4px 0 12px -6px rgba(0,0,0,.15), inset 0 0 0 1px rgba(168,135,74,.15), inset 0 0 40px rgba(168,135,74,.06); }
+.mushaf-page.right { box-shadow: inset 4px 0 12px -6px rgba(0,0,0,.15), inset 0 0 0 1px rgba(168,135,74,.15), inset 0 0 40px rgba(168,135,74,.06); }
+
+.page-header {
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-system);
+  font-size:11px; color:rgba(168,135,74,.7); letter-spacing:.06em; text-transform:uppercase;
+  padding:0 8px 12px; margin-bottom:8px;
+  border-bottom:.5px solid rgba(168,135,74,.25);
+}
+.page-header .surah-label { font-weight:600; color:var(--ink); }
+.page-header .juz-label { font-weight:500; }
+
+.page-body { text-align:right; direction:rtl; font-size:clamp(20px, 2.4vw, 28px); line-height:2.5; }
+.ayah { display:inline; }
+.ayah-marker {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:1.9em; height:1.9em;
+  border-radius:99px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), transparent 50%),
+    radial-gradient(circle, var(--gold-soft), var(--gold));
+  color:#fff;
+  font-family:var(--font-system);
+  font-size:.5em;
+  font-weight:600;
+  margin:0 .35em;
+  vertical-align:middle;
+  box-shadow: 0 1px 2px rgba(168,135,74,.4);
+  direction:ltr;
+}
+
+.surah-header {
+  margin:20px 0 16px;
+  padding:14px 12px;
+  text-align:center;
+  background:linear-gradient(180deg, rgba(168,135,74,.08), rgba(168,135,74,.02));
+  border-top:1px solid rgba(168,135,74,.4);
+  border-bottom:1px solid rgba(168,135,74,.4);
+  position:relative;
+}
+.surah-header .surah-name-ar {
+  font-family:var(--font-quran);
+  font-size:1.4em;
+  color:var(--gold);
+  direction:rtl;
+}
+.surah-header .surah-caption {
+  font-family:var(--font-system);
+  font-size:11px;
+  color:rgba(168,135,74,.9);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+
+.page-footer {
+  position:absolute; bottom:20px; left:0; right:0;
+  text-align:center;
+  font-family:var(--font-system);
+  font-size:11px; color:rgba(168,135,74,.65);
+  letter-spacing:.04em;
+}
+
+.bismillah {
+  text-align:center;
+  font-size:1.35em;
+  color:var(--gold);
+  margin:8px 0 20px;
+  font-family:var(--font-quran);
+}
+
+/* Controls bar (below book) */
+.controls {
+  max-width:1120px; margin:20px auto 40px; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+.controls-left, .controls-right { display:flex; gap:8px; align-items:center; }
+.ctrl-btn {
+  padding:8px 14px; border-radius:9px;
+  background:var(--secondarySystemGroupedBackground);
+  border:.5px solid var(--separator);
+  font-size:14px; font-weight:500;
+  display:inline-flex; align-items:center; gap:6px;
+  transition:all .2s var(--spring);
+}
+.ctrl-btn:hover { background:var(--secondaryFill); transform:translateY(-1px); }
+.ctrl-btn.primary { background:var(--systemBlue); color:#fff; border-color:transparent; }
+.ctrl-btn.primary:hover { background:var(--systemBlueHover); }
+.ctrl-btn svg { width:14px; height:14px; }
+
+.page-input {
+  display:flex; align-items:center; gap:6px;
+  background:var(--secondarySystemGroupedBackground);
+  border:.5px solid var(--separator);
+  border-radius:9px;
+  padding:6px 12px;
+}
+.page-input input {
+  width:60px; text-align:center;
+  border:none; outline:none; background:transparent;
+  font-family:var(--font-system); font-size:14px; font-weight:500; color:var(--label);
+}
+.page-input .total { color:var(--tertiaryLabel); font-size:13px; }
+
+/* Progress bar */
+.progress {
+  max-width:1120px; margin:0 auto 16px; padding:0 24px;
+  display:flex; align-items:center; gap:12px;
+  font-size:12px; color:var(--tertiaryLabel);
+}
+.progress-bar { flex:1; height:3px; background:var(--tertiaryFill); border-radius:99px; overflow:hidden; }
+.progress-fill { height:100%; background:var(--systemBlue); border-radius:99px; transition:width .35s var(--spring); }
+
+/* Footer */
+footer { background:var(--systemGroupedBackground); padding:40px 24px; margin-top:40px; border-top:.5px solid var(--separator); text-align:center; font-size:13px; color:var(--tertiaryLabel); }
+footer a { color:var(--systemBlue); }
+
+/* Loading state */
+.loading { text-align:center; padding:80px 20px; color:var(--secondaryLabel); }
+.loading .spinner { width:32px; height:32px; border:2px solid var(--tertiaryFill); border-top-color:var(--systemBlue); border-radius:99px; margin:0 auto 12px; animation:spin .8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* Focus mode */
+html.focus-mode .nav, html.focus-mode .page-head, html.focus-mode .controls, html.focus-mode .progress, html.focus-mode footer { opacity:0; pointer-events:none; transition:opacity .3s var(--spring); }
+</style>
+
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="apple-touch-icon" href="_favicon.svg">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="01-home.html" class="brand">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a1a3f"/><path d="M12 40 Q12 24 32 26 L32 46 Q22 44 12 40 Z M52 40 Q52 24 32 26 L32 46 Q42 44 52 40 Z" fill="#fff"/><circle cx="32" cy="18" r="6" fill="#5ac8fa"/></svg>
+    <span>Islamic Website</span>
+  </a>
+  <div class="nav-links">
+    <a href="02-quran-index.html" aria-current="page">Quran</a>
+    <a href="04-duas-index.html">Duas</a>
+    <a href="05-prayer-times.html">Prayer Times</a>
+    <a href="06-learn.html">Learn</a>
+    <a href="08-names.html">99 Names</a>
+  </div>
+  <button class="icon-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()" aria-label="Focus mode" data-role="focus-toggle" title="Focus mode (press .)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+  </button>
+  <button class="icon-btn" onclick="document.documentElement.dataset.theme=(document.documentElement.dataset.theme==='dark'?'light':'dark')" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.03-.98-.09-1.46A5.6 5.6 0 0 1 12 3z"/></svg>
+  </button>
+</nav>
+
+<div class="page-head">
+  <p class="kicker">Muṣḥaf · Page-fold reader</p>
+  <h1 class="page-title">Read the Qur'ān as a book.</h1>
+  <p class="page-lede">The 604-page Madinah muṣḥaf layout, with a real page-fold animation. Swipe or click the page corners to turn. Press <kbd style="font-family:var(--font-system);font-size:11px;background:var(--tertiaryFill);padding:2px 6px;border-radius:4px;">.</kbd> for focus mode.</p>
+</div>
+
+<div class="progress">
+  <span id="progress-label">Page 1 of 604</span>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0.16%"></div></div>
+  <span>Juz 1</span>
+</div>
+
+<div class="stage-wrap">
+  <div class="stage-frame">
+    <div id="book"><div class="loading"><div class="spinner"></div>Preparing the muṣḥaf…</div></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="controls-left">
+    <button class="ctrl-btn" onclick="pageFlip && pageFlip.flipPrev()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      Previous
+    </button>
+    <button class="ctrl-btn" onclick="pageFlip && pageFlip.flipNext()">
+      Next
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="page-input">
+      <input id="page-input" type="number" min="1" max="604" value="1">
+      <span class="total">/ 604</span>
+    </div>
+    <button class="ctrl-btn" onclick="goToPage(parseInt(document.getElementById('page-input').value)||1)">Go</button>
+  </div>
+  <div class="controls-right">
+    <button class="ctrl-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+      Focus
+    </button>
+    <button class="ctrl-btn" onclick="goToPage(1)">Start</button>
+    <button class="ctrl-btn primary" onclick="goToPage(2)">Al-Fātiḥah</button>
+  </div>
+</div>
+
+<footer>
+  This is a page-fold prototype. In production, each page is rendered from the fetched Quran corpus (all 6,236 āyāt) with correct Madinah muṣḥaf pagination.
+  <br>Text: <a href="https://tanzil.net">Tanzil</a> · Font: Amiri Quran · Page-flip: <a href="https://github.com/Nodlik/StPageFlip">StPageFlip</a>.
+</footer>
+
+<script src="_focus.js" defer></script>
+<script>
+/* Sample muṣḥaf pages — first 4 spreads.
+   In production this data comes from data/quran/surahs/*.json,
+   grouped by the `page` property (1..604) that Al-Quran Cloud provides. */
+
+const PAGES = [
+  // Page 1 - Al-Fatihah start (traditionally page 1 in Madinah muṣḥaf)
+  {
+    surah:"Al-Fātiḥah", surahAr:"الْفَاتِحَة", juz:1, page:1,
+    surahHeader: { name:"Al-Fātiḥah", nameAr:"الْفَاتِحَة", meccan:true, ayat:7 },
+    bismillah:true,
+    ayat: [
+      { n:1, text:"ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ" },
+      { n:2, text:"ٱلرَّحْمَٰنِ ٱلرَّحِيمِ" },
+      { n:3, text:"مَٰلِكِ يَوْمِ ٱلدِّينِ" },
+      { n:4, text:"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ" },
+      { n:5, text:"ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ" },
+      { n:6, text:"صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ" },
+    ]
+  },
+  // Page 2 - Al-Baqarah opening
+  {
+    surah:"Al-Baqarah", surahAr:"الْبَقَرَة", juz:1, page:2,
+    surahHeader: { name:"Al-Baqarah", nameAr:"الْبَقَرَة", meccan:false, ayat:286 },
+    bismillah:true,
+    ayat: [
+      { n:1, text:"الٓمٓ" },
+      { n:2, text:"ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ" },
+      { n:3, text:"ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ" },
+      { n:4, text:"وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْءَاخِرَةِ هُمْ يُوقِنُونَ" },
+      { n:5, text:"أُو۟لَٰٓئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ" },
+    ]
+  },
+  // Page 3
+  {
+    surah:"Al-Baqarah", surahAr:"الْبَقَرَة", juz:1, page:3,
+    ayat: [
+      { n:6, text:"إِنَّ ٱلَّذِينَ كَفَرُوا۟ سَوَآءٌ عَلَيْهِمْ ءَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ" },
+      { n:7, text:"خَتَمَ ٱللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰٓ أَبْصَٰرِهِمْ غِشَٰوَةٌ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌ" },
+      { n:8, text:"وَمِنَ ٱلنَّاسِ مَن يَقُولُ ءَامَنَّا بِٱللَّهِ وَبِٱلْيَوْمِ ٱلْءَاخِرِ وَمَا هُم بِمُؤْمِنِينَ" },
+      { n:9, text:"يُخَٰدِعُونَ ٱللَّهَ وَٱلَّذِينَ ءَامَنُوا۟ وَمَا يَخْدَعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَ" },
+      { n:10, text:"فِى قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ ٱللَّهُ مَرَضًا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌۢ بِمَا كَانُوا۟ يَكْذِبُونَ" },
+    ]
+  },
+  // Page 4 (jump into 2:255 the Throne Verse for demonstration)
+  {
+    surah:"Al-Baqarah", surahAr:"الْبَقَرَة", juz:3, page:42,
+    ayat: [
+      { n:255, text:"ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ" },
+    ]
+  }
+];
+
+function toArabicNumeral(n) {
+  const map = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(n).split('').map(d => map[+d] || d).join('');
+}
+
+function renderPage(p, side) {
+  const pg = document.createElement('div');
+  pg.className = 'mushaf-page ' + side;
+
+  const header = document.createElement('div');
+  header.className = 'page-header';
+  header.innerHTML = `
+    <span class="juz-label">Juz ${toArabicNumeral(p.juz)}</span>
+    <span class="surah-label">${p.surah}</span>
+    <span>﴿ ${toArabicNumeral(p.page)} ﴾</span>
+  `;
+  pg.appendChild(header);
+
+  const body = document.createElement('div');
+  body.className = 'page-body';
+
+  if (p.surahHeader) {
+    const sh = document.createElement('div');
+    sh.className = 'surah-header';
+    sh.innerHTML = `
+      <div class="surah-name-ar">سُورَة ${p.surahHeader.nameAr}</div>
+      <div class="surah-caption">${p.surahHeader.name} · ${p.surahHeader.meccan ? 'Meccan' : 'Medinan'} · ${p.surahHeader.ayat} āyāt</div>
+    `;
+    body.appendChild(sh);
+  }
+  if (p.bismillah) {
+    const b = document.createElement('div');
+    b.className = 'bismillah';
+    b.textContent = 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
+    body.appendChild(b);
+  }
+
+  p.ayat.forEach(a => {
+    const span = document.createElement('span');
+    span.className = 'ayah';
+    span.innerHTML = `${a.text} <span class="ayah-marker">${toArabicNumeral(a.n)}</span> `;
+    body.appendChild(span);
+  });
+
+  pg.appendChild(body);
+
+  const footer = document.createElement('div');
+  footer.className = 'page-footer';
+  footer.textContent = toArabicNumeral(p.page);
+  pg.appendChild(footer);
+
+  return pg;
+}
+
+let pageFlip = null;
+
+function initBook() {
+  const container = document.getElementById('book');
+  container.innerHTML = ''; // clear loading state
+
+  const pages = PAGES.map((p, i) => renderPage(p, i % 2 === 0 ? 'right' : 'left'));
+
+  // StPageFlip requires pages appended directly
+  pages.forEach(pg => container.appendChild(pg));
+
+  const width = Math.min(window.innerWidth - 60, 500);
+  const height = width * 1.4;
+
+  pageFlip = new St.PageFlip(container, {
+    width, height,
+    size: 'stretch',
+    minWidth: 260, maxWidth: 560,
+    minHeight: 364, maxHeight: 784,
+    drawShadow: true,
+    flippingTime: 900,
+    usePortrait: window.innerWidth < 768,
+    autoSize: true,
+    startZIndex: 5,
+    maxShadowOpacity: 0.4,
+    showCover: false,
+    mobileScrollSupport: true,
+    swipeDistance: 30,
+    clickEventForward: true,
+    useMouseEvents: true,
+  });
+
+  pageFlip.loadFromHTML(pages);
+
+  pageFlip.on('flip', e => {
+    const current = e.data + 1;
+    const total = PAGES.length;
+    document.getElementById('progress-label').textContent = `Page ${current} of ${total} (of 604 in the full muṣḥaf)`;
+    document.getElementById('progress-fill').style.width = (current / 604 * 100) + '%';
+    document.getElementById('page-input').value = current;
+  });
+}
+
+function goToPage(n) {
+  if (!pageFlip) return;
+  const idx = Math.max(0, Math.min(n - 1, PAGES.length - 1));
+  pageFlip.flip(idx);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof St === 'undefined') {
+    document.getElementById('book').innerHTML = '<div class="loading">Failed to load page-flip library. Check network.</div>';
+    return;
+  }
+  initBook();
+});
+
+window.addEventListener('resize', () => {
+  if (pageFlip) pageFlip.updateFromHtml(document.querySelectorAll('.mushaf-page'));
+});
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  if (['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName)) return;
+  if (e.key === 'ArrowLeft') pageFlip && pageFlip.flipPrev();
+  if (e.key === 'ArrowRight') pageFlip && pageFlip.flipNext();
+});
+</script>
+</body>
+</html>

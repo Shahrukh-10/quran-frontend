@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Islamic Website — Apple HIG Mockups</title>
+<link rel="icon" type="image/svg+xml" href="apple/_favicon.svg">
+<style>
+:root {
+  --bg:#f2f2f7; --card:#fff; --ink:#000; --dim:#6b6b70;
+  --accent:#007aff; --line:rgba(60,60,67,.18);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+}
+[data-theme="dark"] { --bg:#000; --card:#1c1c1e; --ink:#fff; --dim:#98989d; --line:rgba(84,84,88,.6); --accent:#0a84ff; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font:15px/1.5 -apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif; background:var(--bg); color:var(--ink); padding:40px 24px; min-height:100vh; -webkit-font-smoothing:antialiased; }
+h1 { font-size:clamp(32px,4vw,44px); font-weight:700; letter-spacing:-.025em; margin-bottom:6px; }
+.lede { color:var(--dim); margin-bottom:32px; max-width:640px; font-size:17px; }
+
+.section { max-width:1400px; margin:0 auto 48px; }
+.section-head { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); margin-bottom:14px; padding-left:4px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+
+.card { background:var(--card); border-radius:16px; overflow:hidden; transition:transform .3s var(--spring), box-shadow .3s var(--spring); border:.5px solid var(--line); text-decoration:none; color:inherit; display:block; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px -12px rgba(0,0,0,.08); }
+.card:hover { transform:translateY(-4px); box-shadow: 0 4px 8px rgba(0,0,0,.06), 0 20px 40px -16px rgba(0,0,0,.14); }
+.card-frame { height:220px; position:relative; overflow:hidden; background:#f2f2f7; border-bottom:.5px solid var(--line); }
+[data-theme="dark"] .card-frame { background:#1c1c1e; }
+.card-frame iframe { width:400%; height:400%; border:none; transform:scale(.25); transform-origin:0 0; pointer-events:none; }
+.card-body { padding:18px 20px; }
+.card-num { display:inline-block; font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; }
+.card h2 { font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:4px; }
+.card p { color:var(--dim); font-size:13px; line-height:1.45; }
+
+.toolbar { max-width:1400px; margin:0 auto 32px; display:flex; gap:8px; align-items:center; }
+.toolbar button { padding:8px 14px; border-radius:9px; background:var(--card); border:.5px solid var(--line); font-size:13px; font-weight:500; color:var(--ink); cursor:pointer; }
+.toolbar button:hover { background:rgba(0,0,0,.03); }
+[data-theme="dark"] .toolbar button:hover { background:rgba(255,255,255,.04); }
+
+.foot { max-width:1400px; margin:32px auto 0; padding-top:24px; border-top:.5px solid var(--line); text-align:center; color:var(--dim); font-size:13px; }
+</style>
+</head>
+<body data-theme="light">
+
+<div class="section">
+  <h1>Islamic Website · Apple HIG mockups</h1>
+  <p class="lede">Ten pages built in the Apple HIG-grounded direction (D). All share the same nav, footer, favicon, and enrichment layer (subtle depth, spring motion, focus mode via <kbd style="font-family:inherit;background:rgba(0,0,0,.06);padding:2px 5px;border-radius:4px;font-size:11px">.</kbd>). Default light mode, dark toggle on every page.</p>
+</div>
+
+<div class="toolbar">
+  <button onclick="document.body.dataset.theme=(document.body.dataset.theme==='dark'?'light':'dark')">Toggle theme</button>
+  <a href="apple/01-home.html" style="text-decoration:none"><button>Open homepage in full</button></a>
+</div>
+
+<div class="section">
+  <div class="section-head">Core V1 — 5 pages the Apple subagent built</div>
+  <div class="grid">
+    <a class="card" href="apple/01-home.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/01-home.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">01 · Home</span>
+        <h2>The Quran, offline.</h2>
+        <p>Hero, featured surahs rail, today widget, features grid, footer.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/02-quran-index.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/02-quran-index.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">02 · Quran index</span>
+        <h2>All 114 surahs</h2>
+        <p>iOS grouped list, sticky search, real surah metadata.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/03-ayah-reader.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/03-ayah-reader.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">03 · Ayah reader</span>
+        <h2>Ayat al-Kursi</h2>
+        <p>Feature reader + floating Liquid Glass audio bar + Focus mode.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/04-duas-index.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/04-duas-index.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">04 · Duas</span>
+        <h2>Sourced supplications</h2>
+        <p>6 categories, 3 featured duas as expandable accordions.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/05-prayer-times.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/05-prayer-times.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">05 · Prayer times</span>
+        <h2>Live countdown</h2>
+        <p>Real JS countdown, method picker, 12-city grid.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">New — 5 pages added in this loop</div>
+  <div class="grid">
+    <a class="card" href="apple/06-learn.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/06-learn.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">06 · Learn · Biographies</span>
+        <h2>The people of Islam</h2>
+        <p>32 sourced figures — Prophets, Rāshidūn, Ṣaḥābah, Imams, Ḥadīth compilers, later scholars. Live filter.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/07-mushaf-reader.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/07-mushaf-reader.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">07 · Muṣḥaf reader</span>
+        <h2>Page-fold Quran</h2>
+        <p>StPageFlip integration, parchment texture, gold ayah medallions, keyboard nav.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/08-names.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/08-names.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">08 · 99 Names</span>
+        <h2>Al-Asmāʾ al-Ḥusnā</h2>
+        <p>All 99 names — Arabic + transliteration + meaning + live search.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/09-qibla.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/09-qibla.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">09 · Qibla</span>
+        <h2>Direction to the Kaʿbah</h2>
+        <p>Compass with real bearing (118° from London), Haversine formula.</p>
+      </div>
+    </a>
+    <a class="card" href="apple/10-learn-salah.html" target="_blank">
+      <div class="card-frame"><iframe src="apple/10-learn-salah.html"></iframe></div>
+      <div class="card-body">
+        <span class="card-num">10 · Learn Ṣalāh</span>
+        <h2>How to pray, step by step</h2>
+        <p>8-step timeline for one rakʿah, each step with Arabic + English + classical source.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="foot">
+  Ten pages · One favicon · Shared enrichment (glass depth, spring motion, grain) · Focus mode wired everywhere.<br>
+  Design grounded in <a href="https://github.com/dickwu/apple-design-skill" style="color:var(--accent)">apple-design-skill</a> HIG reference docs.
+</div>
+
+</body>
+</html>

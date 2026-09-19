@@ -1,0 +1,72 @@
+[
+  {
+    "surah": 113,
+    "ayah": 1,
+    "arabic": "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ",
+    "transliteration": "Qul aʿūdhu birabbil-falaq",
+    "translations": {
+      "en.sahih": "Say, 'I seek refuge in the Lord of daybreak",
+      "id.indonesian": "Katakanlah, 'Aku berlindung kepada Tuhan yang menguasai subuh (fajar),"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6226.mp3" }
+  },
+  {
+    "surah": 113,
+    "ayah": 2,
+    "arabic": "مِن شَرِّ مَا خَلَقَ",
+    "transliteration": "Min sharri mā khalaq",
+    "translations": {
+      "en.sahih": "From the evil of that which He created",
+      "id.indonesian": "dari kejahatan (makhluk yang) Dia ciptakan,"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6227.mp3" }
+  },
+  {
+    "surah": 113,
+    "ayah": 3,
+    "arabic": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+    "transliteration": "Wa min sharri ghāsiqin idhā waqab",
+    "translations": {
+      "en.sahih": "And from the evil of darkness when it settles",
+      "id.indonesian": "dan dari kejahatan malam apabila telah gelap gulita,"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6228.mp3" }
+  },
+  {
+    "surah": 113,
+    "ayah": 4,
+    "arabic": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ",
+    "transliteration": "Wa min sharrin-naffāthāti fil-ʿuqad",
+    "translations": {
+      "en.sahih": "And from the evil of the blowers in knots",
+      "id.indonesian": "dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya),"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6229.mp3" }
+  },
+  {
+    "surah": 113,
+    "ayah": 5,
+    "arabic": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    "transliteration": "Wa min sharri ḥāsidin idhā ḥasad",
+    "translations": {
+      "en.sahih": "And from the evil of an envier when he envies.'",
+      "id.indonesian": "dan dari kejahatan orang yang dengki apabila dia dengki.'"
+    },
+    "juz": 30,
+    "page": 604,
+    "hizb": 60,
+    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6230.mp3" }
+  }
+]

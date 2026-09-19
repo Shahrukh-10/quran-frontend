@@ -1,0 +1,149 @@
+/* Word-by-word ayah renderer — companion CSS for word-by-word-ayah.tsx */
+
+.wbw-ayah {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 10px;
+  justify-content: flex-start;
+  padding: 16px 4px;
+  font-family: var(--font-amiri-quran), "Amiri", serif;
+  line-height: 1;
+  direction: rtl;
+}
+
+.wbw-word-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.wbw-word {
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: clamp(28px, 3.6vw, 40px);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  direction: rtl;
+}
+.wbw-word:hover {
+  background: hsl(var(--accent) / 0.08);
+  border-color: hsl(var(--accent) / 0.25);
+  color: hsl(var(--accent));
+}
+.wbw-word--active {
+  background: hsl(var(--accent) / 0.14);
+  border-color: hsl(var(--accent) / 0.55);
+  color: hsl(var(--accent));
+  transform: translateY(-1px);
+}
+.wbw-word--end {
+  font-size: clamp(22px, 3vw, 32px);
+  opacity: 0.55;
+  cursor: default;
+}
+.wbw-word--end:hover {
+  background: transparent;
+  border-color: transparent;
+  color: hsl(var(--muted-foreground));
+  transform: none;
+}
+
+/* Tooltip anchored above the word */
+.wbw-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  max-width: 280px;
+  padding: 12px 14px;
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--accent) / 0.35);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14), 0 0 0 4px hsl(var(--accent) / 0.08);
+  z-index: 20;
+  display: grid;
+  gap: 6px;
+  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  direction: ltr;
+  text-align: center;
+  animation: wbw-pop 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dark .wbw-tooltip {
+  background: hsl(var(--surface-elevated, var(--surface)));
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 0 4px hsl(var(--accent) / 0.14);
+}
+@keyframes wbw-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(6px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.wbw-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: hsl(var(--surface));
+}
+.dark .wbw-tooltip::after {
+  border-top-color: hsl(var(--surface-elevated, var(--surface)));
+}
+
+.wbw-tooltip__ar {
+  font-family: var(--font-amiri-quran), "Amiri", serif;
+  font-size: 24px;
+  line-height: 1.4;
+  direction: rtl;
+}
+.wbw-tooltip__translit {
+  font-size: 13px;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  letter-spacing: 0.01em;
+}
+.wbw-tooltip__trans {
+  font-size: 15px;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+.wbw-tooltip__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed hsl(var(--separator));
+}
+.wbw-tooltip__btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(var(--accent));
+  padding: 4px 10px;
+  border: 1px solid hsl(var(--accent) / 0.4);
+  border-radius: 999px;
+  background: hsl(var(--accent) / 0.06);
+  transition: background 180ms ease, transform 100ms ease;
+}
+.wbw-tooltip__btn:hover {
+  background: hsl(var(--accent) / 0.14);
+}
+.wbw-tooltip__btn:active {
+  transform: scale(0.96);
+}
+.wbw-tooltip__loc {
+  font-size: 11px;
+  color: hsl(var(--muted-foreground) / 0.7);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "quran-in-a-month",
+    "name": "Quran in a Month",
+    "totalDays": 30,
+    "tags": [
+      "complete",
+      "balanced"
+    ]
+  },
+  {
+    "id": "quran-in-ramadan",
+    "name": "Quran in Ramadan",
+    "totalDays": 30,
+    "tags": [
+      "ramadan",
+      "complete"
+    ]
+  },
+  {
+    "id": "last-tenth",
+    "name": "The Last Tenth",
+    "totalDays": 37,
+    "tags": [
+      "beginner",
+      "memorization"
+    ]
+  }
+]

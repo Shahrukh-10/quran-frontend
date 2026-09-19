@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn Ṣalāh · Step-by-step</title>
+<meta name="description" content="How to pray the five daily prayers, step by step. Sourced.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+:root {
+  --systemBackground:#fff; --secondarySystemBackground:#f2f2f7;
+  --systemGroupedBackground:#f2f2f7; --secondarySystemGroupedBackground:#fff;
+  --label:#000; --secondaryLabel:rgba(60,60,67,.60); --tertiaryLabel:rgba(60,60,67,.30);
+  --separator:rgba(60,60,67,.29);
+  --fill:rgba(120,120,128,.20); --secondaryFill:rgba(120,120,128,.16); --tertiaryFill:rgba(118,118,128,.12);
+  --systemBlue:#007aff;
+  --glassBg:rgba(255,255,255,.72);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+  --r-lg:8px; --r-2xl:16px; --r-3xl:24px;
+  --font-system:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;
+  --font-quran:'Amiri Quran','Amiri',serif;
+}
+[data-theme="dark"] { --systemBackground:#000; --secondarySystemBackground:#1c1c1e; --systemGroupedBackground:#000; --secondarySystemGroupedBackground:#1c1c1e; --label:#fff; --secondaryLabel:rgba(235,235,245,.60); --tertiaryLabel:rgba(235,235,245,.30); --separator:rgba(84,84,88,.60); --tertiaryFill:rgba(118,118,128,.24); --secondaryFill:rgba(120,120,128,.32); --systemBlue:#0a84ff; --glassBg:rgba(28,28,30,.72); }
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { background:var(--systemGroupedBackground); color:var(--label); font-family:var(--font-system); -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.47; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+.nav { position:sticky; top:0; z-index:50; height:52px; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--glassBg); backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%); border-bottom:.5px solid var(--separator); }
+.brand { font-weight:600; font-size:15px; display:flex; align-items:center; gap:8px; }
+.brand svg { width:22px; height:22px; }
+.nav-links { display:flex; gap:24px; font-size:14px; color:var(--secondaryLabel); }
+.nav-links a { transition:color .2s var(--spring); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--label); font-weight:600; }
+.icon-btn { width:32px; height:32px; border-radius:99px; display:grid; place-items:center; color:var(--secondaryLabel); transition:background .2s var(--spring); }
+.icon-btn:hover { background:var(--secondaryFill); color:var(--label); }
+
+main { padding:32px 24px 96px; max-width:960px; margin:0 auto; }
+.kicker { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--systemBlue); text-transform:uppercase; margin-bottom:8px; }
+.page-title { font-size:clamp(34px,6vw,56px); font-weight:700; letter-spacing:-.028em; line-height:1.05; }
+.page-lede { font-size:19px; color:var(--secondaryLabel); max-width:640px; line-height:1.5; margin-top:8px; margin-bottom:32px; }
+
+.timeline { position:relative; padding-left:32px; margin-top:24px; }
+.timeline::before { content:""; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg, var(--systemBlue), transparent); border-radius:99px; }
+.step { position:relative; margin-bottom:32px; background:var(--secondarySystemGroupedBackground); border-radius:var(--r-2xl); padding:24px 24px 20px; }
+.step::before { content:""; position:absolute; left:-30px; top:22px; width:18px; height:18px; border-radius:99px; background:var(--systemBackground); border:3px solid var(--systemBlue); box-shadow:0 0 0 4px rgba(0,122,255,.14); }
+.step .step-num { display:inline-block; background:rgba(0,122,255,.10); color:var(--systemBlue); font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; border-radius:99px; margin-bottom:8px; }
+.step h3 { font-size:22px; font-weight:700; letter-spacing:-.02em; margin-bottom:6px; }
+.step .subtitle { font-size:13px; color:var(--secondaryLabel); margin-bottom:14px; letter-spacing:.02em; }
+.step .body { font-size:16px; color:var(--label); line-height:1.55; }
+.step .body p+p { margin-top:10px; }
+.step .dhikr { margin-top:14px; padding:14px 16px; background:var(--tertiaryFill); border-radius:12px; border-left:3px solid var(--systemBlue); }
+.step .dhikr .ar { font-family:var(--font-quran); font-size:22px; direction:rtl; line-height:1.9; }
+.step .dhikr .translit { font-size:13px; font-style:italic; color:var(--secondaryLabel); margin-top:6px; }
+.step .dhikr .en { font-size:14px; color:var(--secondaryLabel); margin-top:4px; }
+.step .source { font-size:11px; color:var(--tertiaryLabel); margin-top:12px; letter-spacing:.04em; }
+.step .source b { color:var(--secondaryLabel); font-weight:600; }
+
+.prayer-picker { display:flex; gap:8px; overflow-x:auto; margin:16px 0 8px; padding-bottom:4px; scrollbar-width:none; }
+.prayer-picker::-webkit-scrollbar { display:none; }
+.prayer-picker button { padding:8px 16px; border-radius:99px; background:var(--secondarySystemGroupedBackground); border:.5px solid var(--separator); font-size:13px; font-weight:500; white-space:nowrap; transition:all .2s var(--spring); }
+.prayer-picker button[aria-pressed="true"] { background:var(--systemBlue); color:#fff; border-color:transparent; }
+
+footer { background:var(--systemGroupedBackground); padding:40px 24px; margin-top:60px; border-top:.5px solid var(--separator); text-align:center; font-size:13px; color:var(--tertiaryLabel); }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="01-home.html" class="brand">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a1a3f"/><path d="M12 40 Q12 24 32 26 L32 46 Q22 44 12 40 Z M52 40 Q52 24 32 26 L32 46 Q42 44 52 40 Z" fill="#fff"/><circle cx="32" cy="18" r="6" fill="#5ac8fa"/></svg>
+    <span>Islamic Website</span>
+  </a>
+  <div class="nav-links">
+    <a href="02-quran-index.html">Quran</a>
+    <a href="04-duas-index.html">Duas</a>
+    <a href="05-prayer-times.html">Prayer Times</a>
+    <a href="06-learn.html">Learn</a>
+    <a href="08-names.html">99 Names</a>
+  </div>
+  <button class="icon-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()" aria-label="Focus mode" data-role="focus-toggle" title="Focus mode (press .)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+  </button>
+  <button class="icon-btn" onclick="document.documentElement.dataset.theme=(document.documentElement.dataset.theme==='dark'?'light':'dark')" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.03-.98-.09-1.46A5.6 5.6 0 0 1 12 3z"/></svg>
+  </button>
+</nav>
+
+<main>
+  <p class="kicker">Learn Ṣalāh · One rakʿah</p>
+  <h1 class="page-title">How to pray, step by step.</h1>
+  <p class="page-lede">A single rakʿah from beginning to end, with the Arabic, transliteration, English, and the classical source for each dhikr. Applies to all five daily prayers.</p>
+
+  <div class="prayer-picker" role="tablist">
+    <button aria-pressed="true">One rakʿah</button>
+    <button aria-pressed="false">Fajr · 2 rakʿah</button>
+    <button aria-pressed="false">Ẓuhr · 4</button>
+    <button aria-pressed="false">ʿAṣr · 4</button>
+    <button aria-pressed="false">Maghrib · 3</button>
+    <button aria-pressed="false">ʿIshāʾ · 4</button>
+    <button aria-pressed="false">Wuḍūʾ</button>
+    <button aria-pressed="false">Janāzah</button>
+  </div>
+
+  <div class="timeline">
+
+    <div class="step">
+      <span class="step-num">Step 1 · Niyyah</span>
+      <h3>Intention</h3>
+      <p class="subtitle">Silently, in the heart. No verbal utterance is required.</p>
+      <div class="body"><p>Standing facing the qiblah, form the intention in the heart to pray the specific prayer (e.g. two rakʿāt of Fajr).</p></div>
+      <p class="source"><b>Source:</b> Bukhārī 1 · "Actions are only by intentions."</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 2 · Takbīrat al-Iḥrām</span>
+      <h3>Opening takbīr</h3>
+      <p class="subtitle">Raise both hands to the level of the ears or shoulders, and say:</p>
+      <div class="dhikr">
+        <p class="ar">اللَّهُ أَكْبَرُ</p>
+        <p class="translit">Allāhu akbar</p>
+        <p class="en">Allāh is the greatest.</p>
+      </div>
+      <p class="source"><b>Source:</b> Bukhārī 735 · Muslim 390</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 3 · Qiyām · Openings</span>
+      <h3>Opening supplication and recitation</h3>
+      <p class="subtitle">Fold the right hand over the left on the chest, then recite:</p>
+      <div class="dhikr">
+        <p class="ar">سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَىٰ جَدُّكَ، وَلَا إِلَٰهَ غَيْرُكَ</p>
+        <p class="translit">Subḥānaka Allāhumma wa bi-ḥamdika, wa tabāraka-smuka, wa taʿālā jadduka, wa lā ilāha ghayruk</p>
+        <p class="en">Glory be to You, O Allāh, and praise. Blessed is Your name and exalted is Your majesty. There is no god but You.</p>
+      </div>
+      <p class="body" style="margin-top:14px">Then say <em>Aʿūdhu billāhi min ash-shayṭāni-r-rajīm</em>, then <em>Bismillāhi-r-raḥmāni-r-raḥīm</em>, then recite Sūrat al-Fātiḥah, then another sūrah (any sūrah of your choosing — commonly the short mufaṣṣal sūrahs).</p>
+      <p class="source"><b>Sources:</b> Abū Dāwūd 775 (opening duʿāʾ) · Bukhārī 756 (Fātiḥah is a pillar)</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 4 · Rukūʿ</span>
+      <h3>Bowing</h3>
+      <p class="subtitle">Say <em>Allāhu akbar</em>, then bow with a straight back, hands on the knees, and say (three or more times):</p>
+      <div class="dhikr">
+        <p class="ar">سُبْحَانَ رَبِّيَ الْعَظِيمِ</p>
+        <p class="translit">Subḥāna rabbiya-l-ʿaẓīm</p>
+        <p class="en">Glory be to my Lord, the Magnificent.</p>
+      </div>
+      <p class="source"><b>Source:</b> Muslim 772 · Abū Dāwūd 869</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 5 · Iʿtidāl</span>
+      <h3>Standing back up</h3>
+      <p class="subtitle">Rise from rukūʿ saying:</p>
+      <div class="dhikr">
+        <p class="ar">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</p>
+        <p class="translit">Samiʿa-llāhu li-man ḥamidah</p>
+        <p class="en">Allāh hears the one who praises Him.</p>
+      </div>
+      <p class="body" style="margin-top:10px">Once standing, add:</p>
+      <div class="dhikr" style="margin-top:8px">
+        <p class="ar">رَبَّنَا وَلَكَ الْحَمْدُ</p>
+        <p class="translit">Rabbanā wa laka-l-ḥamd</p>
+        <p class="en">Our Lord, and to You is the praise.</p>
+      </div>
+      <p class="source"><b>Source:</b> Bukhārī 795 · Muslim 411</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 6 · Sujūd</span>
+      <h3>Prostration</h3>
+      <p class="subtitle">Say <em>Allāhu akbar</em>, then prostrate placing seven parts on the ground (forehead+nose, palms, knees, toes) and say (three or more times):</p>
+      <div class="dhikr">
+        <p class="ar">سُبْحَانَ رَبِّيَ الْأَعْلَىٰ</p>
+        <p class="translit">Subḥāna rabbiya-l-aʿlā</p>
+        <p class="en">Glory be to my Lord, the Most High.</p>
+      </div>
+      <p class="source"><b>Source:</b> Muslim 772 · An-Nasāʾī 1051</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 7 · Jalsah</span>
+      <h3>Sitting between prostrations</h3>
+      <p class="subtitle">Sit up, saying <em>Allāhu akbar</em>, and say (once or more):</p>
+      <div class="dhikr">
+        <p class="ar">رَبِّ اغْفِرْ لِي</p>
+        <p class="translit">Rabbi-ghfir lī</p>
+        <p class="en">My Lord, forgive me.</p>
+      </div>
+      <p class="body" style="margin-top:10px">Then <em>Allāhu akbar</em> and prostrate again as in step 6.</p>
+      <p class="source"><b>Source:</b> Abū Dāwūd 850 · Ibn Mājah 897</p>
+    </div>
+
+    <div class="step">
+      <span class="step-num">Step 8 · Tashahhud + Taslīm</span>
+      <h3>Testimony and closing</h3>
+      <p class="subtitle">After the final rakʿah, sit and recite the tashahhud:</p>
+      <div class="dhikr">
+        <p class="ar">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</p>
+        <p class="translit">at-Taḥiyyātu lillāh wa-ṣ-ṣalawātu wa-ṭ-ṭayyibāt … ashhadu an lā ilāha illa-llāh, wa ashhadu anna Muḥammadan ʿabduhu wa rasūluh.</p>
+        <p class="en">All greetings, prayers, and pure things are for Allāh… I bear witness that there is no god but Allāh, and I bear witness that Muḥammad is His servant and messenger.</p>
+      </div>
+      <p class="body" style="margin-top:10px">Follow with the Ibrāhīmī ṣalawāt on the Prophet ﷺ, then turn the head right saying <em>as-salāmu ʿalaykum wa raḥmatullāh</em>, and left with the same. The prayer is complete.</p>
+      <p class="source"><b>Source:</b> Bukhārī 831 · Muslim 402</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Ṣalāh follows a fixed structure. This tutorial documents one rakʿah — multi-rakʿah prayers repeat steps 3–7 with the tashahhud after every 2nd rakʿah. Differences of madhhab (hand placement, ṣadl vs qabḍ, precise wording of duʿāʾ) are all rooted in valid narrations.
+</footer>
+
+<script src="_focus.js" defer></script>
+</body>
+</html>

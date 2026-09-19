@@ -1,0 +1,302 @@
+{
+  "common": {
+    "siteName": "Islamic Website",
+    "tagline": "Gratis. Bersumber. Tanpa pelacakan.",
+    "skipToContent": "Lompat ke konten",
+    "loading": "Memuat",
+    "readMore": "Baca selengkapnya"
+  },
+  "nav": {
+    "home": "Beranda",
+    "quran": "Al-Qur'an",
+    "duas": "Doa",
+    "prayerTimes": "Jadwal salat",
+    "qibla": "Kiblat",
+    "learnSalah": "Belajar salat",
+    "names": "99 Nama Allah",
+    "calendar": "Kalender",
+    "about": "Tentang",
+    "sources": "Sumber",
+    "tools": "Alat",
+    "learn": "Belajar",
+    "mushaf": "Muṣḥaf"
+  },
+  "home": {
+    "hero": {
+      "title": "Al-Qur'an, doa, dan jadwal salat — gratis, bersumber, dan bisa offline.",
+      "subtitle": "Setiap ayat, doa, dan hadis mencantumkan sumbernya. Tanpa iklan. Tanpa pelacakan. Tanpa login.",
+      "ctaPrimary": "Baca Al-Qur'an",
+      "ctaSecondary": "Cari doa"
+    },
+    "principles": {
+      "title": "Cara kerja situs ini",
+      "sourced": {
+        "title": "Setiap kata bersumber",
+        "body": "Doa, hadis, terjemahan, dan tafsir semuanya mencantumkan sumber. Kalau tidak ada sumbernya, kami tidak menerbitkannya."
+      },
+      "privacy": {
+        "title": "Tanpa pelacakan. Selamanya.",
+        "body": "Tanpa iklan, tanpa pelacak pihak ketiga, tanpa sidik jari. Penanda dan riwayat Anda hanya tersimpan di perangkat Anda."
+      },
+      "offline": {
+        "title": "Bekerja offline",
+        "body": "Al-Qur'an, doa, dan tutorial di-cache setelah kunjungan pertama. Baca di kereta, saat haji, atau di mana pun tanpa sinyal."
+      }
+    },
+    "sections": {
+      "quran": "Baca Al-Qur'an",
+      "duas": "Doa untuk setiap momen",
+      "prayerTimes": "Jadwal salat & kiblat",
+      "learnSalah": "Belajar salat",
+      "names": "99 Nama Allah",
+      "calendar": "Kalender Hijriah",
+      "tools": "Alat"
+    }
+  },
+  "footer": {
+    "sourcesLine": "Sumber: Tanzil, Al-Quran Cloud, Sunnah.com, Aladhan. Daftar lengkap ada di halaman sumber.",
+    "editorialLine": "Konten Islam ditinjau sebelum diterbitkan. Laporkan masalah di halaman kontak.",
+    "copy": "Gratis digunakan, selamanya. Tanpa akun."
+  },
+  "about": {
+    "title": "Tentang situs ini",
+    "intro": "Ini adalah sumber daya Islam yang gratis dan nirlaba. Tanpa iklan, tanpa pelacakan, tanpa akun, tanpa paywall.",
+    "whyTitle": "Mengapa dibuat",
+    "whyBody": "Ada banyak aplikasi Islam, tetapi banyak yang menjual data, menampilkan iklan, atau mengunci fitur di balik pembayaran. Situs ini adalah upaya kecil untuk sesuatu yang berbeda: semua gratis, semua bersumber, tidak ada yang dilacak.",
+    "howTitle": "Bagaimana konten diverifikasi",
+    "howBody": "Teks Al-Qur'an dari Tanzil. Terjemahan dari penerjemah berlisensi. Hadis dari Sunnah.com dengan penilaian keaslian. Doa dari Hisnul Muslim, masing-masing dengan referensi. Apa pun tanpa sumber tidak diterbitkan.",
+    "notATitle": "Situs ini bukan apa",
+    "notABody": "Ini bukan mesin fatwa. Ini bukan pengganti ulama yang berkualifikasi. Untuk hukum agama, silakan konsultasi dengan imam setempat atau sumber tanya-jawab yang mapan — halaman sumber mencantumkan beberapa."
+  },
+  "sources": {
+    "title": "Sumber",
+    "intro": "Semua konten di situs ini dibangun dari sumber-sumber berikut. Bila ada narasi, doa, atau terjemahan khusus di halaman, sumbernya dicantumkan di halaman itu sendiri.",
+    "quranTitle": "Teks Al-Qur'an",
+    "translationsTitle": "Terjemahan",
+    "hadithTitle": "Hadis",
+    "prayerTimesTitle": "Jadwal salat",
+    "duasTitle": "Doa"
+  },
+  "quran": {
+    "list": {
+      "eyebrow": "Al-Qur'an al-Karim",
+      "title": "Baca Al-Qur'an",
+      "description": "Seluruh 114 surah dalam bahasa Arab, terjemahan, transliterasi, dan audio ayat per ayat. Gratis. Tanpa login. Bisa offline.",
+      "intro": "Setiap ayat punya halaman dan URL tetap, jadi bisa dibagikan atau disematkan. Penanda hanya tersimpan di perangkat Anda.",
+      "ayat": "ayat",
+      "meccan": "Makkiyah",
+      "medinan": "Madaniyah"
+    },
+    "surah": {
+      "surahLabel": "Surah {number}",
+      "ayat": "ayat",
+      "meccan": "Makkiyah",
+      "medinan": "Madaniyah",
+      "juz": "Juz",
+      "previous": "Surah sebelumnya",
+      "next": "Surah berikutnya",
+      "stubIntro": "Teks lengkap Surah {name} diambil saat build.",
+      "stubHow": "Jalankan",
+      "stubTail": "untuk mengambilnya dari Al-Quran Cloud, lalu commit JSON-nya. URL dan strukturnya sudah permanen.",
+      "stubSeed": "Surah yang sudah tersedia di repo: Al-Fatihah, Al-Ikhlas, Al-Falaq, An-Nas."
+    },
+    "ayah": {
+      "eyebrow": "{surah}, ayat {ayah}",
+      "backToSurah": "← Kembali ke Surah {surah}",
+      "stub": "Teks ayat ini diambil saat build. Struktur dan URL sudah permanen.",
+      "previous": "Ayat sebelumnya",
+      "next": "Ayat berikutnya"
+    }
+  },
+  "duas": {
+    "list": {
+      "eyebrow": "Doa bersumber",
+      "title": "Doa untuk setiap momen",
+      "description": "Doa singkat dari Al-Qur'an dan hadis sahih, dikelompokkan menurut situasi hidup. Setiap doa mencantumkan sumber dan derajatnya.",
+      "categoriesTitle": "Kategori",
+      "readMore": "Baca"
+    },
+    "category": {
+      "backToDuas": "← Semua doa",
+      "count": "{count} doa"
+    },
+    "dua": {
+      "backToCategory": "← Kembali ke {category}",
+      "sourceLabel": "Sumber",
+      "gradingLabel": "Derajat",
+      "whenTitle": "Kapan dibaca",
+      "referenceTitle": "Referensi"
+    }
+  },
+  "prayer": {
+    "index": {
+      "eyebrow": "Jadwal salat lokal",
+      "title": "Jadwal salat",
+      "description": "Jadwal salat dihitung di perangkat Anda. Tidak ada data yang dikirim ke server. Semua metode utama didukung.",
+      "useLocation": "Gunakan lokasi saya",
+      "orCity": "atau pilih kota",
+      "citiesTitle": "Jadwal salat per kota",
+      "unavailable": "Lokasi tidak tersedia. Pilih kota di bawah atau periksa izin browser.",
+      "notNow": "Bukan waktunya",
+      "next": "Berikutnya"
+    },
+    "prayers": {
+      "fajr": "Subuh",
+      "sunrise": "Terbit",
+      "dhuhr": "Zuhur",
+      "asr": "Asar",
+      "maghrib": "Magrib",
+      "isha": "Isya"
+    },
+    "settings": {
+      "method": "Metode perhitungan",
+      "madhab": "Mazhab (Asar)",
+      "shafi": "Syafi'i (mayoritas)",
+      "hanafi": "Hanafi"
+    }
+  },
+  "qibla": {
+    "title": "Arah kiblat",
+    "eyebrow": "Menuju Ka'bah",
+    "description": "Arah menuju Makkah dari lokasi Anda. Menggunakan kompas perangkat; kembali ke penunjukan derajat jika kompas tidak tersedia.",
+    "useLocation": "Gunakan lokasi saya",
+    "compassUnavailable": "Kompas tidak tersedia. Arah ditampilkan dalam derajat.",
+    "bearing": "Arah",
+    "distance": "Jarak ke Makkah",
+    "km": "km",
+    "instructionsTitle": "Cara pakai",
+    "instructions": "Hadapkan diri Anda ke arah panah (atau derajat yang ditampilkan). Di iOS, Anda mungkin perlu memberi izin akses gerak & orientasi.",
+    "allowMotion": "Izinkan akses kompas"
+  },
+  "learnSalah": {
+    "index": {
+      "eyebrow": "Belajar salat",
+      "title": "Cara salat",
+      "description": "Panduan langkah demi langkah untuk lima salat wajib, Jumat, Jenazah, Witir, dan Tahajjud.",
+      "topicsTitle": "Topik"
+    },
+    "topic": {
+      "backToIndex": "← Semua panduan",
+      "stepsTitle": "Langkah",
+      "duasTitle": "Doa dalam salat ini",
+      "notesTitle": "Catatan"
+    }
+  },
+  "names": {
+    "index": {
+      "eyebrow": "Asma'ul Husna",
+      "title": "99 Nama Allah",
+      "description": "Nama-nama Allah yang indah — dengan bahasa Arab, transliterasi, arti, dan refleksi singkat."
+    },
+    "name": {
+      "backToIndex": "← Semua nama",
+      "meaningTitle": "Arti",
+      "reflectionTitle": "Refleksi",
+      "quranicRef": "Dalam Al-Qur'an"
+    }
+  },
+  "calendar": {
+    "title": "Kalender Hijriah",
+    "eyebrow": "Hijriah ⇄ Masehi",
+    "description": "Konversi antara kalender Hijriah dan Masehi. Tanggal-tanggal penting Islam ditandai di bulan yang ditampilkan.",
+    "todayIs": "Hari ini",
+    "convertTitle": "Konversi tanggal",
+    "gregToHij": "Masehi → Hijriah",
+    "hijToGreg": "Hijriah → Masehi",
+    "importantTitle": "Tanggal penting",
+    "months": {
+      "muharram": "Muharram",
+      "safar": "Safar",
+      "rabiAlAwwal": "Rabi'ul Awwal",
+      "rabiAlThani": "Rabi'uts Tsani",
+      "jumadaAlAwwal": "Jumadal Awwal",
+      "jumadaAlThani": "Jumadats Tsaniyah",
+      "rajab": "Rajab",
+      "shaban": "Sya'ban",
+      "ramadan": "Ramadan",
+      "shawwal": "Syawal",
+      "dhuAlQidah": "Zulkaidah",
+      "dhuAlHijjah": "Zulhijah"
+    }
+  },
+  "tools": {
+    "index": {
+      "eyebrow": "Alat sehari-hari",
+      "title": "Alat Islami",
+      "description": "Alat-alat kecil dan fokus — tasbih digital, pemantau salat, kalkulator Zakat, dan lainnya."
+    },
+    "tasbih": {
+      "title": "Tasbih digital",
+      "description": "Ketuk untuk menghitung. Reset saat selesai. Tidak disimpan di mana pun selain perangkat Anda.",
+      "count": "Hitungan",
+      "target": "Target",
+      "reset": "Reset",
+      "presets": "Preset",
+      "custom": "Kustom"
+    },
+    "prayerTracker": {
+      "title": "Pemantau salat",
+      "description": "Cek harian yang sederhana — salat tepat waktu, telat, atau qada? Rentetan hanya tersimpan di perangkat.",
+      "onTime": "Tepat waktu",
+      "late": "Telat",
+      "clear": "Hapus",
+      "streak": "Rentetan sekarang",
+      "days": "hari"
+    },
+    "zakat": {
+      "title": "Kalkulator Zakat",
+      "description": "Uang tunai, emas, perak, aset usaha. Nisab default ke standar perak (lebih aman bagi fakir).",
+      "cash": "Uang tunai & di bank",
+      "gold": "Nilai emas (mata uang Anda)",
+      "silver": "Nilai perak (mata uang Anda)",
+      "business": "Aset usaha (stok, piutang)",
+      "debts": "Utang jangka pendek",
+      "currency": "Kode mata uang (ISO)",
+      "nisabTitle": "Nisab (standar perak)",
+      "nisabHelp": "Masukkan nilai 595g perak saat ini. Perbarui setiap beberapa minggu — harga perak berubah.",
+      "resultTitle": "Zakat yang wajib",
+      "belowNisab": "Di bawah nisab — belum wajib Zakat tahun ini, alhamdulillah.",
+      "aboveNisab": "Di atas nisab — Zakat wajib 2,5%.",
+      "disclaimer": "Kalkulator ini memberikan angka awal. Untuk aset kompleks (dana pensiun, campuran, ternak, pertanian), konsultasi ulama."
+    },
+    "adhkar": {
+      "title": "Zikir pagi & petang",
+      "description": "Zikir harian dari Hisnul Muslim. Ketuk untuk menghitung setiap bacaan.",
+      "morning": "Pagi",
+      "evening": "Petang"
+    }
+  },
+  "adhan": {
+    "title": "Pemutar azan",
+    "description": "Audio azan yang indah untuk diputar di browser saat waktu salat.",
+    "play": "Putar azan",
+    "pause": "Jeda",
+    "muezzin": "Muazin"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "theme": "Tampilan",
+    "language": "Bahasa",
+    "dyslexia": "Font ramah disleksia",
+    "lowBandwidth": "Mode hemat data",
+    "exportTitle": "Ekspor data saya",
+    "exportBody": "Unduh semua data yang tersimpan di perangkat ini sebagai file JSON.",
+    "exportButton": "Unduh JSON",
+    "deleteTitle": "Hapus data saya",
+    "deleteBody": "Hapus semua penanda, riwayat, dan preferensi dari perangkat ini. Tidak dapat dibatalkan.",
+    "deleteButton": "Hapus semua",
+    "themeSystem": "Sistem",
+    "themeLight": "Terang",
+    "themeDark": "Gelap"
+  },
+  "privacy": {
+    "title": "Privasi",
+    "intro": "Situs ini tidak mengumpulkan apa pun. Tanpa cookie pelacak, tanpa sidik jari, tanpa JS pihak ketiga selain Cloudflare Web Analytics (ramah privasi, tanpa data pribadi, agregat).",
+    "storageTitle": "Apa yang tersimpan di perangkat Anda",
+    "storageBody": "Penanda, pemantau salat, hitungan zikir, dan preferensi Anda tersimpan di localStorage browser. Tidak pernah meninggalkan perangkat Anda.",
+    "cookiesTitle": "Cookie",
+    "cookiesBody": "Tidak digunakan untuk pelacakan. Jika kami menambahkan fitur berbasis akun (V3), cookie sesi mungkin digunakan dengan persetujuan eksplisit.",
+    "rightsTitle": "Hak Anda",
+    "rightsBody": "Anda dapat mengekspor semuanya sebagai JSON atau menghapusnya dari halaman Pengaturan — satu klik untuk masing-masing."
+  }
+}

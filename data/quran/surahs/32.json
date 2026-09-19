@@ -1,0 +1,512 @@
+[
+  {
+    "surah": 32,
+    "ayah": 1,
+    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ الٓمٓ",
+    "transliteration": "Alif-Laaam-Meeem",
+    "translations": {
+      "en.sahih": "Alif, Lam, Meem.",
+      "en.pickthall": "Alif. Lam. Mim",
+      "en.yusufali": "A. L. M.",
+      "id.indonesian": "Alif Laam Miim"
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3504.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 2,
+    "arabic": "تَنزِيلُ ٱلْكِتَٰبِ لَا رَيْبَ فِيهِ مِن رَّبِّ ٱلْعَٰلَمِينَ",
+    "transliteration": "Tanzeelul Kitaabi 'laaraiba feehi mir rabbil 'aalameen",
+    "translations": {
+      "en.sahih": "[This is] the revelation of the Book about which there is no doubt from the Lord of the worlds.",
+      "en.pickthall": "The revelation of the Scripture whereof there is no doubt is from the Lord of the Worlds.",
+      "en.yusufali": "(This is) the Revelation of the Book in which there is no doubt,- from the Lord of the Worlds.",
+      "id.indonesian": "Turunnya Al-Quran yang tidak ada keraguan di dalamnya, (adalah) dari Tuhan semesta alam."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3505.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 3,
+    "arabic": "أَمْ يَقُولُونَ ٱفْتَرَىٰهُ ۚ بَلْ هُوَ ٱلْحَقُّ مِن رَّبِّكَ لِتُنذِرَ قَوْمًۭا مَّآ أَتَىٰهُم مِّن نَّذِيرٍۢ مِّن قَبْلِكَ لَعَلَّهُمْ يَهْتَدُونَ",
+    "transliteration": "Am yaqooloonaf taraahu bal huwal haqqu mir rabbika litunzira qawma maaa ataahum min nazeerim min qablika la'allahum yahtadoon",
+    "translations": {
+      "en.sahih": "Or do they say, \"He invented it\"? Rather, it is the truth from your Lord, [O Muhammad], that you may warn a people to whom no warner has come before you [so] perhaps they will be guided.",
+      "en.pickthall": "Or say they: He hath invented it? Nay, but it is the Truth from thy Lord, that thou mayst warn a folk to whom no warner came before thee, that haply they may walk aright.",
+      "en.yusufali": "Or do they say, \"He has forged it\"? Nay, it is the Truth from thy Lord, that thou mayest admonish a people to whom no warner has come before thee: in order that they may receive guidance.",
+      "id.indonesian": "Tetapi mengapa mereka (orang kafir) mengatakan: \"Dia Muhammad mengada-adakannya\". Sebenarnya Al-Quran itu adalah kebenaran dari Rabbmu, agar kamu memberi peringatan kepada kaum yang belum datang kepada mereka orang yang memberi peringatan sebelum kamu; mudah-mudahan mereka mendapat petunjuk."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3506.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 4,
+    "arabic": "ٱللَّهُ ٱلَّذِى خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَمَا بَيْنَهُمَا فِى سِتَّةِ أَيَّامٍۢ ثُمَّ ٱسْتَوَىٰ عَلَى ٱلْعَرْشِ ۖ مَا لَكُم مِّن دُونِهِۦ مِن وَلِىٍّۢ وَلَا شَفِيعٍ ۚ أَفَلَا تَتَذَكَّرُونَ",
+    "transliteration": "Allaahul lazee khalaqas samaawaati wal arda wa maa bainahumaa fee sittati ayyaam;Thummas tawaa 'alal 'arsh; maa lakum min doonihee minw-wwaliyyinw-wala shafee'; afala tatazakkaroon",
+    "translations": {
+      "en.sahih": "It is Allah who created the heavens and the earth and whatever is between them in six days; then He established Himself above the Throne. You have not besides Him any protector or any intercessor; so will you not be reminded?",
+      "en.pickthall": "Allah it is Who created the heavens and the earth, and that which is between them, in six Days. Then He mounted the Throne. Ye have not, beside Him, a protecting friend or mediator. Will ye not then remember?",
+      "en.yusufali": "It is Allah Who has created the heavens and the earth, and all between them, in six Days, and is firmly established on the Throne (of Authority): ye have none, besides Him, to protect or intercede (for you): will ye not then receive admonition?",
+      "id.indonesian": "Allah lah yang menciptakan langit dan bumi dan apa yang ada di antara keduanya dalam enam masa, kemudian Dia bersemayam di atas 'Arsy. Tidak ada bagi kamu selain dari pada-Nya seorang penolongpun dan tidak (pula) seorang pemberi syafa'at. Maka apakah kamu tidak memperhatikan?"
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3507.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 5,
+    "arabic": "يُدَبِّرُ ٱلْأَمْرَ مِنَ ٱلسَّمَآءِ إِلَى ٱلْأَرْضِ ثُمَّ يَعْرُجُ إِلَيْهِ فِى يَوْمٍۢ كَانَ مِقْدَارُهُۥٓ أَلْفَ سَنَةٍۢ مِّمَّا تَعُدُّونَ",
+    "transliteration": "Yudabbirul amra minas samaaa'i ilal ardi Thumma ya'ruju ilai Thumma ya'ruju ilaihi fee yawmin kaana miqdaaruhoooo alfa sanatim mimmaa ta'uddoon",
+    "translations": {
+      "en.sahih": "He arranges [each] matter from the heaven to the earth; then it will ascend to Him in a Day, the extent of which is a thousand years of those which you count.",
+      "en.pickthall": "He directeth the ordinance from the heaven unto the earth; then it ascendeth unto Him in a Day, whereof the measure is a thousand years of that ye reckon.",
+      "en.yusufali": "He rules (all) affairs from the heavens to the earth: in the end will (all affairs) go up to Him, on a Day, the space whereof will be (as) a thousand years of your reckoning.",
+      "id.indonesian": "Dia mengatur urusan dari langit ke bumi, kemudian (urusan) itu naik kepada-Nya dalam satu hari yang kadarnya adalah seribu tahun menurut perhitunganmu"
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3508.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 6,
+    "arabic": "ذَٰلِكَ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ٱلْعَزِيزُ ٱلرَّحِيمُ",
+    "transliteration": "Zaalika 'aalimul ghaybi wa shahaadatil 'azeezur raheem",
+    "translations": {
+      "en.sahih": "That is the Knower of the unseen and the witnessed, the Exalted in Might, the Merciful,",
+      "en.pickthall": "Such is the Knower of the Invisible and the Visible, the Mighty, the Merciful,",
+      "en.yusufali": "Such is He, the Knower of all things, hidden and open, the Exalted (in power), the Merciful;-",
+      "id.indonesian": "Yang demikian itu ialah Tuhan Yang mengetahui yang ghaib dan yang nyata, Yang Maha Perkasa lagi Maha Penyayang."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3509.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 7,
+    "arabic": "ٱلَّذِىٓ أَحْسَنَ كُلَّ شَىْءٍ خَلَقَهُۥ ۖ وَبَدَأَ خَلْقَ ٱلْإِنسَٰنِ مِن طِينٍۢ",
+    "transliteration": "Allazee ahsana kulla shai in khalaqa; wa bada a khalqal insaani min teen",
+    "translations": {
+      "en.sahih": "Who perfected everything which He created and began the creation of man from clay.",
+      "en.pickthall": "Who made all things good which He created, and He began the creation of man from clay;",
+      "en.yusufali": "He Who has made everything which He has created most good: He began the creation of man with (nothing more than) clay,",
+      "id.indonesian": "Yang membuat segala sesuatu yang Dia ciptakan sebaik-baiknya dan Yang memulai penciptaan manusia dari tanah."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3510.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 8,
+    "arabic": "ثُمَّ جَعَلَ نَسْلَهُۥ مِن سُلَٰلَةٍۢ مِّن مَّآءٍۢ مَّهِينٍۢ",
+    "transliteration": "Thumma ja'ala naslahoo min sulaalatim mim maaa'immaheen",
+    "translations": {
+      "en.sahih": "Then He made his posterity out of the extract of a liquid disdained.",
+      "en.pickthall": "Then He made his seed from a draught of despised fluid;",
+      "en.yusufali": "And made his progeny from a quintessence of the nature of a fluid despised:",
+      "id.indonesian": "Kemudian Dia menjadikan keturunannya dari saripati air yang hina."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3511.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 9,
+    "arabic": "ثُمَّ سَوَّىٰهُ وَنَفَخَ فِيهِ مِن رُّوحِهِۦ ۖ وَجَعَلَ لَكُمُ ٱلسَّمْعَ وَٱلْأَبْصَٰرَ وَٱلْأَفْـِٔدَةَ ۚ قَلِيلًۭا مَّا تَشْكُرُونَ",
+    "transliteration": "Thumma sawwaahu wa nafakha feehi mir roohihih; wa ja'ala lakumus sam'a wal-absaara wal-af'idah; taqaleelam maa tashkuroon",
+    "translations": {
+      "en.sahih": "Then He proportioned him and breathed into him from His [created] soul and made for you hearing and vision and hearts; little are you grateful.",
+      "en.pickthall": "Then He fashioned him and breathed into him of His Spirit; and appointed for you hearing and sight and hearts. Small thanks give ye!",
+      "en.yusufali": "But He fashioned him in due proportion, and breathed into him something of His spirit. And He gave you (the faculties of) hearing and sight and feeling (and understanding): little thanks do ye give!",
+      "id.indonesian": "Kemudian Dia menyempurnakan dan meniupkan ke dalamnya roh (ciptaan)-Nya dan Dia menjadikan bagi kamu pendengaran, penglihatan dan hati; (tetapi) kamu sedikit sekali bersyukur."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3512.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 10,
+    "arabic": "وَقَالُوٓا۟ أَءِذَا ضَلَلْنَا فِى ٱلْأَرْضِ أَءِنَّا لَفِى خَلْقٍۢ جَدِيدٍۭ ۚ بَلْ هُم بِلِقَآءِ رَبِّهِمْ كَٰفِرُونَ",
+    "transliteration": "Wa qaalooo 'a-izaa dalalnaa fil ardi 'a-innaa lafee khalqin jadeed; bal hum biliqaaa'i rabbihim kaafirroon",
+    "translations": {
+      "en.sahih": "And they say, \"When we are lost within the earth, will we indeed be [recreated] in a new creation?\" Rather, they are, in [the matter of] the meeting with their Lord, disbelievers.",
+      "en.pickthall": "And they say: When we are lost in the earth, how can we then be re-created? Nay but they are disbelievers in the meeting with their Lord.",
+      "en.yusufali": "And they say: \"What! when we lie, hidden and lost, in the earth, shall we indeed be in a Creation renewed? Nay, they deny the Meeting with their Lord.",
+      "id.indonesian": "Dan mereka berkata: \"Apakah bila kami telah lenyap (hancur) dalam tanah, kami benar-benar akan berada dalam ciptaan yang baru?\" Bahkan mereka ingkar akan menemui Tuhannya."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3513.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 11,
+    "arabic": "۞ قُلْ يَتَوَفَّىٰكُم مَّلَكُ ٱلْمَوْتِ ٱلَّذِى وُكِّلَ بِكُمْ ثُمَّ إِلَىٰ رَبِّكُمْ تُرْجَعُونَ",
+    "transliteration": "Qul yatawaffaakum malakul mawtil lazee wukkila bikum Thumma ilaa rabbikum turja'oon",
+    "translations": {
+      "en.sahih": "Say, \"The angel of death will take you who has been entrusted with you. Then to your Lord you will be returned.\"",
+      "en.pickthall": "Say: The angel of death, who hath charge concerning you, will gather you, and afterward unto your Lord ye will be returned.",
+      "en.yusufali": "Say: \"The Angel of Death, put in charge of you, will (duly) take your souls: then shall ye be brought back to your Lord.\"",
+      "id.indonesian": "Katakanlah: \"Malaikat maut yang diserahi untuk (mencabut nyawa)mu akan mematikanmu, kemudian hanya kepada Tuhanmulah kamu akan dikembalikan\"."
+    },
+    "juz": 21,
+    "page": 415,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3514.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 12,
+    "arabic": "وَلَوْ تَرَىٰٓ إِذِ ٱلْمُجْرِمُونَ نَاكِسُوا۟ رُءُوسِهِمْ عِندَ رَبِّهِمْ رَبَّنَآ أَبْصَرْنَا وَسَمِعْنَا فَٱرْجِعْنَا نَعْمَلْ صَٰلِحًا إِنَّا مُوقِنُونَ",
+    "transliteration": "Wa law taraaa izil mujrimoona naakisoo ru'oosihim 'inda rabbihim rabbanaaa absarnaa wa sami'naa farji'naa na'mal saalihan innaa mooqinoon",
+    "translations": {
+      "en.sahih": "If you could but see when the criminals are hanging their heads before their Lord, [saying], \"Our Lord, we have seen and heard, so return us [to the world]; we will work righteousness. Indeed, we are [now] certain.\"",
+      "en.pickthall": "Couldst thou but see when the guilty hang their heads before their Lord, (and say): Our Lord! We have now seen and heard, so send us back; we will do right, now we are sure.",
+      "en.yusufali": "If only thou couldst see when the guilty ones will bend low their heads before their Lord, (saying:) \"Our Lord! We have seen and we have heard: Now then send us back (to the world): we will work righteousness: for we do indeed (now) believe.\"",
+      "id.indonesian": "Dan, jika sekiranya kamu melihat mereka ketika orang-orang yang berdosa itu menundukkan kepalanya di hadapan Tuhannya, (mereka berkata): \"Ya Tuhan kami, kami telah melihat dan mendengar, maka kembalikanlah kami (ke dunia), kami akan mengerjakan amal saleh, sesungguhnya kami adalah orang-orang yang yakin\"."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3515.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 13,
+    "arabic": "وَلَوْ شِئْنَا لَءَاتَيْنَا كُلَّ نَفْسٍ هُدَىٰهَا وَلَٰكِنْ حَقَّ ٱلْقَوْلُ مِنِّى لَأَمْلَأَنَّ جَهَنَّمَ مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ أَجْمَعِينَ",
+    "transliteration": "Wa law shi'naa la-aatainaa kulla nafsin hudaahaa wa laakin haqqal qawlu minnee la amla'anna jahannama minal jinnati wannaasi ajma'een",
+    "translations": {
+      "en.sahih": "And if We had willed, We could have given every soul its guidance, but the word from Me will come into effect [that] \"I will surely fill Hell with jinn and people all together.",
+      "en.pickthall": "And if We had so willed, We could have given every soul its guidance, but the word from Me concerning evildoers took effect: that I will fill hell with the jinn and mankind together.",
+      "en.yusufali": "If We had so willed, We could certainly have brought every soul its true guidance: but the Word from Me will come true, \"I will fill Hell with Jinns and men all together.\"",
+      "id.indonesian": "Dan kalau Kami menghendaki niscaya Kami akan berikan kepada tiap-tiap jiwa petunjuk, akan tetapi telah tetaplah perkataan dari pada-Ku: \"Sesungguhnya akan Aku penuhi neraka jahannam itu dengan jin dan manusia bersama-sama\"."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3516.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 14,
+    "arabic": "فَذُوقُوا۟ بِمَا نَسِيتُمْ لِقَآءَ يَوْمِكُمْ هَٰذَآ إِنَّا نَسِينَٰكُمْ ۖ وَذُوقُوا۟ عَذَابَ ٱلْخُلْدِ بِمَا كُنتُمْ تَعْمَلُونَ",
+    "transliteration": "Fazooqoo bimaa naseetum liqaaa'a yawminkum haaza innaa naseenaakum wa zooqoo 'azaabal khuldi bimaa kuntum ta'maloon",
+    "translations": {
+      "en.sahih": "So taste [punishment] because you forgot the meeting of this, your Day; indeed, We have [accordingly] forgotten you. And taste the punishment of eternity for what you used to do.\"",
+      "en.pickthall": "So taste (the evil of your deeds). Forasmuch as ye forgot the meeting of this your day, lo! We forget you. Taste the doom of immortality because of what ye used to do.",
+      "en.yusufali": "\"Taste ye then - for ye forgot the Meeting of this Day of yours, and We too will forget you - taste ye the Penalty of Eternity for your (evil) deeds!\"",
+      "id.indonesian": "Maka rasailah olehmu (siksa ini) disebabkan kamu melupakan akan pertemuan dengan harimu ini. Sesungguhnya Kami telah melupakan kamu (pula) dan rasakanlah siksa yang kekal, disebabkan apa yang selalu kamu kerjakan."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3517.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 15,
+    "arabic": "إِنَّمَا يُؤْمِنُ بِـَٔايَٰتِنَا ٱلَّذِينَ إِذَا ذُكِّرُوا۟ بِهَا خَرُّوا۟ سُجَّدًۭا وَسَبَّحُوا۟ بِحَمْدِ رَبِّهِمْ وَهُمْ لَا يَسْتَكْبِرُونَ ۩",
+    "transliteration": "Innamaa yu'minu bi aayaatinal lazeena izaa zukkiroo bihaa kharroo sujjadanw wa sabbahoo bihamdi rabbihim wa hum laa yastakbiroon",
+    "translations": {
+      "en.sahih": "Only those believe in Our verses who, when they are reminded by them, fall down in prostration and exalt [Allah] with praise of their Lord, and they are not arrogant.",
+      "en.pickthall": "Only those believe in Our revelations who, when they are reminded of them, fall down prostrate and hymn the praise of their Lord, and they are not scornful,",
+      "en.yusufali": "Only those believe in Our Signs, who, when they are recited to them, fall down in prostration, and celebrate the praises of their Lord, nor are they (ever) puffed up with pride.",
+      "id.indonesian": "Sesungguhnya orang yang benar-benar percaya kepada ayat-ayat Kami adalah mereka yang apabila diperingatkan dengan ayat-ayat itu mereka segera bersujud seraya bertasbih dan memuji Rabbnya, dan lagi pula mereka tidaklah sombong."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3518.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 16,
+    "arabic": "تَتَجَافَىٰ جُنُوبُهُمْ عَنِ ٱلْمَضَاجِعِ يَدْعُونَ رَبَّهُمْ خَوْفًۭا وَطَمَعًۭا وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ",
+    "transliteration": "Tatajaafaa junoobuhum 'anil madaaji'i yad'oona rabbahum khawfanw wa tama'anw wa mimmaa razaqnaahum yunfiqoon",
+    "translations": {
+      "en.sahih": "They arise from [their] beds; they supplicate their Lord in fear and aspiration, and from what We have provided them, they spend.",
+      "en.pickthall": "Who forsake their beds to cry unto their Lord in fear and hope, and spend of that We have bestowed on them.",
+      "en.yusufali": "Their limbs do forsake their beds of sleep, the while they call on their Lord, in Fear and Hope: and they spend (in charity) out of the sustenance which We have bestowed on them.",
+      "id.indonesian": "Lambung mereka jauh dari tempat tidurnya dan mereka selalu berdoa kepada Rabbnya dengan penuh rasa takut dan harap, serta mereka menafkahkan apa apa rezeki yang Kami berikan."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3519.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 17,
+    "arabic": "فَلَا تَعْلَمُ نَفْسٌۭ مَّآ أُخْفِىَ لَهُم مِّن قُرَّةِ أَعْيُنٍۢ جَزَآءًۢ بِمَا كَانُوا۟ يَعْمَلُونَ",
+    "transliteration": "Falaa ta'lamu nafsum maaa ukhfiya lahum min qurrati a'yunin jazaaa'am bimaa kaanoo ya'maloon",
+    "translations": {
+      "en.sahih": "And no soul knows what has been hidden for them of comfort for eyes as reward for what they used to do.",
+      "en.pickthall": "No soul knoweth what is kept hid for them of joy, as a reward for what they used to do.",
+      "en.yusufali": "Now no person knows what delights of the eye are kept hidden (in reserve) for them - as a reward for their (good) deeds.",
+      "id.indonesian": "Tak seorangpun mengetahui berbagai nikmat yang menanti, yang indah dipandang sebagai balasan bagi mereka, atas apa yang mereka kerjakan."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3520.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 18,
+    "arabic": "أَفَمَن كَانَ مُؤْمِنًۭا كَمَن كَانَ فَاسِقًۭا ۚ لَّا يَسْتَوُۥنَ",
+    "transliteration": "Afaman kaana mu'minan kaman kaana faasiqaa; laa yasta woon",
+    "translations": {
+      "en.sahih": "Then is one who was a believer like one who was defiantly disobedient? They are not equal.",
+      "en.pickthall": "Is he who is a believer like unto him who is an evil-liver? They are not alike.",
+      "en.yusufali": "Is then the man who believes no better than the man who is rebellious and wicked? Not equal are they.",
+      "id.indonesian": "Apakah orang-orang beriman itu sama dengan orang-orang yang fasik? Mereka tidak sama."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3521.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 19,
+    "arabic": "أَمَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ فَلَهُمْ جَنَّٰتُ ٱلْمَأْوَىٰ نُزُلًۢا بِمَا كَانُوا۟ يَعْمَلُونَ",
+    "transliteration": "Ammal lazeena aamanoo wa 'amilus saalihaati falahum jannaatul maawa nuzulam bimaa kaanoo ya'maloon",
+    "translations": {
+      "en.sahih": "As for those who believed and did righteous deeds, for them will be the Gardens of Refuge as accommodation for what they used to do.",
+      "en.pickthall": "But as for those who believe and do good works, for them are the Gardens of Retreat - a welcome (in reward) for what they used to do.",
+      "en.yusufali": "For those who believe and do righteous deeds are Gardens as hospitable homes, for their (good) deeds.",
+      "id.indonesian": "Adapun orang-orang yang beriman dan mengerjakan amal saleh, maka bagi mereka jannah tempat kediaman, sebagai pahala terhadap apa yang mereka kerjakan."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3522.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 20,
+    "arabic": "وَأَمَّا ٱلَّذِينَ فَسَقُوا۟ فَمَأْوَىٰهُمُ ٱلنَّارُ ۖ كُلَّمَآ أَرَادُوٓا۟ أَن يَخْرُجُوا۟ مِنْهَآ أُعِيدُوا۟ فِيهَا وَقِيلَ لَهُمْ ذُوقُوا۟ عَذَابَ ٱلنَّارِ ٱلَّذِى كُنتُم بِهِۦ تُكَذِّبُونَ",
+    "transliteration": "Wa ammal lazeena fasaqoo famaawaahumn Naaru kullamaaa araadooo any yakhrujoo minhaaa u'eedoo feehaa wa qeela lahum zooqoo 'zaaaban Naaril lazee kuntum bihee tukazziboon",
+    "translations": {
+      "en.sahih": "But as for those who defiantly disobeyed, their refuge is the Fire. Every time they wish to emerge from it, they will be returned to it while it is said to them, \"Taste the punishment of the Fire which you used to deny.\"",
+      "en.pickthall": "And as for those who do evil, their retreat is the Fire. Whenever they desire to issue forth from thence, they are brought back thither. Unto them it is said: Taste the torment of the Fire which ye used to deny.",
+      "en.yusufali": "As to those who are rebellious and wicked, their abode will be the Fire: every time they wish to get away therefrom, they will be forced thereinto, and it will be said to them: \"Taste ye the Penalty of the Fire, the which ye were wont to reject as false.\"",
+      "id.indonesian": "Dan adapun orang-orang yang fasik (kafir) maka tempat mereka adalah jahannam. Setiap kali mereka hendak keluar daripadanya, mereka dikembalikan ke dalamnya dan dikatakan kepada mereka: \"Rasakanlah siksa neraka yang dahulu kamu mendustakannya\"."
+    },
+    "juz": 21,
+    "page": 416,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3523.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 21,
+    "arabic": "وَلَنُذِيقَنَّهُم مِّنَ ٱلْعَذَابِ ٱلْأَدْنَىٰ دُونَ ٱلْعَذَابِ ٱلْأَكْبَرِ لَعَلَّهُمْ يَرْجِعُونَ",
+    "transliteration": "Wa lanuzeeqan nahum minal 'azaabil ladnaa doonal 'azaabil akbari la'allahum yarji'oon",
+    "translations": {
+      "en.sahih": "And we will surely let them taste the nearer punishment short of the greater punishment that perhaps they will repent.",
+      "en.pickthall": "And verily We make them taste the lower punishment before the greater, that haply they may return.",
+      "en.yusufali": "And indeed We will make them taste of the Penalty of this (life) prior to the supreme Penalty, in order that they may (repent and) return.",
+      "id.indonesian": "Dan Sesungguhnya Kami merasakan kepada mereka sebahagian azab yang dekat (di dunia) sebelum azab yang lebih besar (di akhirat), mudah-mudahan mereka kembali (ke jalan yang benar)."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3524.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 22,
+    "arabic": "وَمَنْ أَظْلَمُ مِمَّن ذُكِّرَ بِـَٔايَٰتِ رَبِّهِۦ ثُمَّ أَعْرَضَ عَنْهَآ ۚ إِنَّا مِنَ ٱلْمُجْرِمِينَ مُنتَقِمُونَ",
+    "transliteration": "Wa man azlamu mimman zukkira bi aayaati rabbihee summa a'rada 'anhaa; innaa minal mujrimeena muntaqimmon",
+    "translations": {
+      "en.sahih": "And who is more unjust than one who is reminded of the verses of his Lord; then he turns away from them? Indeed We, from the criminals, will take retribution.",
+      "en.pickthall": "And who doth greater wrong than he who is reminded of the revelations of his Lord, then turneth from them. Lo! We shall requite the guilty.",
+      "en.yusufali": "And who does more wrong than one to whom are recited the Signs of his Lord, and who then turns away therefrom? Verily from those who transgress We shall exact (due) Retribution.",
+      "id.indonesian": "Dan siapakah yang lebih zalim daripada orang yang telah diperingatkan dengan ayat-ayat Tuhannya, kemudian ia berpaling daripadanya? Sesungguhnya Kami akan memberikan pembalasan kepada orang-orang yang berdosa."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3525.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 23,
+    "arabic": "وَلَقَدْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ فَلَا تَكُن فِى مِرْيَةٍۢ مِّن لِّقَآئِهِۦ ۖ وَجَعَلْنَٰهُ هُدًۭى لِّبَنِىٓ إِسْرَٰٓءِيلَ",
+    "transliteration": "Wa laqad aayainaa Moosal Kitaaba falaa takun fee miryatim mil liqaaa'ihee wa ja'alnaahu hudal li Baneee Israaa'eel",
+    "translations": {
+      "en.sahih": "And We certainly gave Moses the Scripture, so do not be in doubt over his meeting. And we made the Torah guidance for the Children of Israel.",
+      "en.pickthall": "We verily gave Moses the Scripture; so be not ye in doubt of his receiving it; and We appointed it a guidance for the Children of Israel.",
+      "en.yusufali": "We did indeed aforetime give the Book to Moses: be not then in doubt of its reaching (thee): and We made it a guide to the Children of Israel.",
+      "id.indonesian": "Dan Sesungguhnya Kami telah berikan kepada Musa Al-Kitab (Taurat), maka janganlah kamu (Muhammad) ragu menerima (Al-Quran itu) dan Kami jadikan Al-Kitab (Taurat) itu petunjuk bagi Bani Israil."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3526.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 24,
+    "arabic": "وَجَعَلْنَا مِنْهُمْ أَئِمَّةًۭ يَهْدُونَ بِأَمْرِنَا لَمَّا صَبَرُوا۟ ۖ وَكَانُوا۟ بِـَٔايَٰتِنَا يُوقِنُونَ",
+    "transliteration": "Wa ja'alnaa minhum a'immatany yahdoona bi amrinaa lammaa sabaroo wa kaanoo bi aayaatinaa yooqinoon",
+    "translations": {
+      "en.sahih": "And We made from among them leaders guiding by Our command when they were patient and [when] they were certain of Our signs.",
+      "en.pickthall": "And when they became steadfast and believed firmly in Our revelations, We appointed from among them leaders who guided by Our command.",
+      "en.yusufali": "And We appointed, from among them, leaders, giving guidance under Our command, so long as they persevered with patience and continued to have faith in Our Signs.",
+      "id.indonesian": "Dan Kami jadikan di antara mereka itu pemimpin-pemimpin yang memberi petunjuk dengan perintah Kami ketika mereka sabar. Dan adalah mereka meyakini ayat-ayat Kami."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3527.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 25,
+    "arabic": "إِنَّ رَبَّكَ هُوَ يَفْصِلُ بَيْنَهُمْ يَوْمَ ٱلْقِيَٰمَةِ فِيمَا كَانُوا۟ فِيهِ يَخْتَلِفُونَ",
+    "transliteration": "Inna rabbaka huwa yafsilu bainahum yawmal qiyaamati feemaa kaanoo feehi yakhtalifoon",
+    "translations": {
+      "en.sahih": "Indeed, your Lord will judge between them on the Day of Resurrection concerning that over which they used to differ.",
+      "en.pickthall": "Lo! thy Lord will judge between them on the Day of Resurrection concerning that wherein they used to differ.",
+      "en.yusufali": "Verily thy Lord will judge between them on the Day of Judgment, in the matters wherein they differ (among themselves)",
+      "id.indonesian": "Sesungguhnya Tuhanmu Dialah yang memberikan keputusan di antara mereka pada hari kiamat tentang apa yang selalu mereka perselisihkan padanya."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3528.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 26,
+    "arabic": "أَوَلَمْ يَهْدِ لَهُمْ كَمْ أَهْلَكْنَا مِن قَبْلِهِم مِّنَ ٱلْقُرُونِ يَمْشُونَ فِى مَسَٰكِنِهِمْ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَٰتٍ ۖ أَفَلَا يَسْمَعُونَ",
+    "transliteration": "Awalam yahdi lahum kam ahlaknaa min qablihim minal qurooni yamshoona fee zaalika la aayaatin afalaa yasma'oon",
+    "translations": {
+      "en.sahih": "Has it not become clear to them how many generations We destroyed before them, [as] they walk among their dwellings? Indeed in that are signs; then do they not hear?",
+      "en.pickthall": "Is it not a guidance for them (to observe) how many generations We destroyed before them, amid whose dwelling places they do walk? Lo! therein verily are portents! Will they not then heed?",
+      "en.yusufali": "Does it not teach them a lesson, how many generations We destroyed before them, in whose dwellings they (now) go to and fro? Verily in that are Signs: Do they not then listen?",
+      "id.indonesian": "Dan apakah tidak menjadi petunjuk bagi mereka, berapa banyak umat sebelum mereka yang telah Kami binasakan sedangkan mereka sendiri berjalan di tempat-tempat kediaman mereka itu. Sesungguhnya pada yang demikian itu terdapat tanda-tanda (kekuasaan Allah). Maka apakah mereka tidak mendengarkan?"
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3529.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 27,
+    "arabic": "أَوَلَمْ يَرَوْا۟ أَنَّا نَسُوقُ ٱلْمَآءَ إِلَى ٱلْأَرْضِ ٱلْجُرُزِ فَنُخْرِجُ بِهِۦ زَرْعًۭا تَأْكُلُ مِنْهُ أَنْعَٰمُهُمْ وَأَنفُسُهُمْ ۖ أَفَلَا يُبْصِرُونَ",
+    "transliteration": "Awalam yaraw annaa nasooqul maaa'a ilal lardil juruzi fanukhriju bihee zar'an taakulu minhu an'aamuhum wa anfusuhum afalaa yubsiroon",
+    "translations": {
+      "en.sahih": "Have they not seen that We drive the water [in clouds] to barren land and bring forth thereby crops from which their livestock eat and [they] themselves? Then do they not see?",
+      "en.pickthall": "Have they not seen how We lead the water to the barren land and therewith bring forth crops whereof their cattle eat, and they themselves? Will they not then see?",
+      "en.yusufali": "And do they not see that We do drive rain to parched soil (bare of herbage), and produce therewith crops, providing food for their cattle and themselves? Have they not the vision?",
+      "id.indonesian": "Dan apakah mereka tidak memperhatikan, bahwasanya Kami menghalau (awan yang mengandung) air ke bumi yang tandus, lalu Kami tumbuhkan dengan air hujan itu tanaman yang daripadanya makan hewan ternak mereka dan mereka sendiri. Maka apakah mereka tidak memperhatikan?"
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3530.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 28,
+    "arabic": "وَيَقُولُونَ مَتَىٰ هَٰذَا ٱلْفَتْحُ إِن كُنتُمْ صَٰدِقِينَ",
+    "transliteration": "Wa yaqooloona mataa haazal fat hu in kuntum saadiqeen",
+    "translations": {
+      "en.sahih": "And they say, \"When will be this conquest, if you should be truthful?\"",
+      "en.pickthall": "And they say: When cometh this victory (of yours) if ye are truthful?",
+      "en.yusufali": "They say: \"When will this decision be, if ye are telling the truth?\"",
+      "id.indonesian": "Dan mereka bertanya: \"Bilakah kemenangan itu (datang) jika kamu memang orang-orang yang benar?\""
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3531.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 29,
+    "arabic": "قُلْ يَوْمَ ٱلْفَتْحِ لَا يَنفَعُ ٱلَّذِينَ كَفَرُوٓا۟ إِيمَٰنُهُمْ وَلَا هُمْ يُنظَرُونَ",
+    "transliteration": "Qul yawmal fat hi laa yanfa'ul lazeena kafarooo eemaanuhum wa laa hum yunzaroon",
+    "translations": {
+      "en.sahih": "Say, [O Muhammad], \"On the Day of Conquest the belief of those who had disbelieved will not benefit them, nor will they be reprieved.\"",
+      "en.pickthall": "Say (unto them): On the day of the victory the faith of those who disbelieve (and who then will believe) will not avail them, neither will they be reprieved.",
+      "en.yusufali": "Say: \"On the Day of Decision, no profit will it be to Unbelievers if they (then) believe! nor will they be granted a respite.\"",
+      "id.indonesian": "Katakanlah: \"Pada hari kemenangan itu tidak berguna bagi orang-orang kafir, iman mereka dan tidak pula mereka diberi tangguh\"."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3532.mp3"
+    }
+  },
+  {
+    "surah": 32,
+    "ayah": 30,
+    "arabic": "فَأَعْرِضْ عَنْهُمْ وَٱنتَظِرْ إِنَّهُم مُّنتَظِرُونَ",
+    "transliteration": "Fa a'rid 'anhum wantazir innahum muntazirron",
+    "translations": {
+      "en.sahih": "So turn away from them and wait. Indeed, they are waiting.",
+      "en.pickthall": "So withdraw from them (O Muhammad), and await (the event). Lo! they (also) are awaiting (it).",
+      "en.yusufali": "So turn away from them, and wait: they too are waiting.",
+      "id.indonesian": "Maka berpalinglah kamu dari mereka dan tunggulah, sesungguhnya mereka (juga) menunggu."
+    },
+    "juz": 21,
+    "page": 417,
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3533.mp3"
+    }
+  }
+]

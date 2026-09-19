@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 99 Names of Allah · Al-Asmāʾ al-Ḥusnā</title>
+<meta name="description" content="The 99 Names of Allah with Arabic, transliteration, meaning, and Quranic reference. Sourced.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+:root {
+  --systemBackground:#fff; --secondarySystemBackground:#f2f2f7;
+  --systemGroupedBackground:#f2f2f7; --secondarySystemGroupedBackground:#fff;
+  --label:#000; --secondaryLabel:rgba(60,60,67,.60); --tertiaryLabel:rgba(60,60,67,.30);
+  --separator:rgba(60,60,67,.29);
+  --fill:rgba(120,120,128,.20); --secondaryFill:rgba(120,120,128,.16); --tertiaryFill:rgba(118,118,128,.12);
+  --systemBlue:#007aff; --systemBlueHover:#0060df;
+  --glassBg:rgba(255,255,255,.72); --glassBorder:rgba(60,60,67,.18);
+  --spring:cubic-bezier(0.32,0.72,0,1);
+  --r-lg:8px; --r-xl:12px; --r-2xl:16px; --r-3xl:24px;
+  --font-system:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;
+  --font-arabic-ui:-apple-system,'SF Arabic','Geeza Pro','Amiri',serif;
+  --font-quran:'Amiri Quran','Amiri','SF Arabic',serif;
+}
+[data-theme="dark"] {
+  --systemBackground:#000; --secondarySystemBackground:#1c1c1e;
+  --systemGroupedBackground:#000; --secondarySystemGroupedBackground:#1c1c1e;
+  --label:#fff; --secondaryLabel:rgba(235,235,245,.60); --tertiaryLabel:rgba(235,235,245,.30);
+  --separator:rgba(84,84,88,.60);
+  --fill:rgba(120,120,128,.36); --secondaryFill:rgba(120,120,128,.32); --tertiaryFill:rgba(118,118,128,.24);
+  --systemBlue:#0a84ff;
+  --glassBg:rgba(28,28,30,.72); --glassBorder:rgba(84,84,88,.60);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html,body { background:var(--systemGroupedBackground); color:var(--label); font-family:var(--font-system); -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.47; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+.nav { position:sticky; top:0; z-index:50; height:52px; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--glassBg); backdrop-filter:blur(30px) saturate(180%); -webkit-backdrop-filter:blur(30px) saturate(180%); border-bottom:.5px solid var(--separator); }
+.brand { font-weight:600; font-size:15px; display:flex; align-items:center; gap:8px; }
+.brand svg { width:22px; height:22px; }
+.nav-links { display:flex; gap:24px; font-size:14px; color:var(--secondaryLabel); }
+.nav-links a { transition:color .2s var(--spring); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--label); font-weight:600; }
+.icon-btn { width:32px; height:32px; border-radius:99px; display:grid; place-items:center; color:var(--secondaryLabel); transition:background .2s var(--spring); }
+.icon-btn:hover { background:var(--secondaryFill); color:var(--label); }
+
+main { padding:32px 24px 96px; max-width:1120px; margin:0 auto; }
+.kicker { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--systemBlue); text-transform:uppercase; margin-bottom:8px; }
+.page-title { font-size:clamp(34px, 6vw, 56px); font-weight:700; letter-spacing:-.028em; line-height:1.05; margin-bottom:12px; }
+.page-lede { font-size:19px; color:var(--secondaryLabel); max-width:640px; line-height:1.5; margin-bottom:32px; }
+
+.search-field { position:relative; background:var(--secondarySystemGroupedBackground); border-radius:10px; padding:10px 14px 10px 38px; display:flex; align-items:center; border:.5px solid var(--separator); margin-bottom:32px; }
+.search-field svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--tertiaryLabel); }
+.search-field input { flex:1; border:none; outline:none; background:transparent; color:var(--label); font-size:15px; font-family:var(--font-system); }
+
+.names-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px; }
+.name-card { background:var(--secondarySystemGroupedBackground); border-radius:var(--r-2xl); padding:20px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; transition:transform .35s var(--spring); position:relative; }
+.name-card:hover { transform:translateY(-3px); }
+.name-card.hidden { display:none; }
+.name-number { position:absolute; top:14px; right:14px; font-size:11px; font-weight:600; color:var(--tertiaryLabel); letter-spacing:.06em; }
+.name-ar { font-family:var(--font-quran); font-size:44px; color:var(--label); direction:rtl; line-height:1.4; margin-top:6px; }
+.name-translit { font-size:13px; color:var(--systemBlue); font-weight:600; letter-spacing:.02em; }
+.name-en { font-size:14px; color:var(--secondaryLabel); }
+
+footer { background:var(--systemGroupedBackground); padding:40px 24px; margin-top:60px; border-top:.5px solid var(--separator); text-align:center; font-size:13px; color:var(--tertiaryLabel); }
+</style>
+<link rel="icon" type="image/svg+xml" href="_favicon.svg">
+<link rel="stylesheet" href="_enrichment.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="01-home.html" class="brand">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0a1a3f"/><path d="M12 40 Q12 24 32 26 L32 46 Q22 44 12 40 Z M52 40 Q52 24 32 26 L32 46 Q42 44 52 40 Z" fill="#fff"/><circle cx="32" cy="18" r="6" fill="#5ac8fa"/></svg>
+    <span>Islamic Website</span>
+  </a>
+  <div class="nav-links">
+    <a href="02-quran-index.html">Quran</a>
+    <a href="04-duas-index.html">Duas</a>
+    <a href="05-prayer-times.html">Prayer Times</a>
+    <a href="06-learn.html">Learn</a>
+    <a href="08-names.html" aria-current="page">99 Names</a>
+  </div>
+  <button class="icon-btn" onclick="window.iwToggleFocus && window.iwToggleFocus()" aria-label="Focus mode" data-role="focus-toggle" title="Focus mode (press .)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7V3h4M17 3h4v4M21 17v4h-4M7 21H3v-4"/></svg>
+  </button>
+  <button class="icon-btn" onclick="document.documentElement.dataset.theme=(document.documentElement.dataset.theme==='dark'?'light':'dark')" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.03-.98-.09-1.46A5.6 5.6 0 0 1 12 3z"/></svg>
+  </button>
+</nav>
+
+<main>
+  <p class="kicker">Al-Asmāʾ al-Ḥusnā</p>
+  <h1 class="page-title">The 99 Names of Allāh.</h1>
+  <p class="page-lede">"To Allāh belong the most beautiful names, so call upon Him by them." (Qur'ān 7:180)</p>
+
+  <label class="search-field">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="q" type="search" placeholder="Search 99 names — try 'ar-Rahman', 'The Most Merciful'…" autocomplete="off">
+  </label>
+
+  <div class="names-grid" id="grid"></div>
+</main>
+
+<footer>Sources: <em>al-Asmāʾ al-Ḥusnā</em> as narrated in Tirmidhī 3507 (though scholars note the list of 99 is variable). Qur'ānic references cited per Ibn Kathīr and al-Baihaqī.</footer>
+
+<script src="_focus.js" defer></script>
+<script>
+const NAMES = [
+  {n:1,ar:"الرَّحْمَٰن",t:"Ar-Raḥmān",en:"The Most Merciful"},
+  {n:2,ar:"الرَّحِيم",t:"Ar-Raḥīm",en:"The Ever Merciful"},
+  {n:3,ar:"الْمَلِك",t:"Al-Malik",en:"The Sovereign"},
+  {n:4,ar:"الْقُدُّوس",t:"Al-Quddūs",en:"The Most Holy"},
+  {n:5,ar:"السَّلَام",t:"As-Salām",en:"The Source of Peace"},
+  {n:6,ar:"الْمُؤْمِن",t:"Al-Muʾmin",en:"The Grantor of Security"},
+  {n:7,ar:"الْمُهَيْمِن",t:"Al-Muhaymin",en:"The Guardian"},
+  {n:8,ar:"الْعَزِيز",t:"Al-ʿAzīz",en:"The Almighty"},
+  {n:9,ar:"الْجَبَّار",t:"Al-Jabbār",en:"The Compeller"},
+  {n:10,ar:"الْمُتَكَبِّر",t:"Al-Mutakabbir",en:"The Supreme"},
+  {n:11,ar:"الْخَالِق",t:"Al-Khāliq",en:"The Creator"},
+  {n:12,ar:"الْبَارِئ",t:"Al-Bāriʾ",en:"The Originator"},
+  {n:13,ar:"الْمُصَوِّر",t:"Al-Muṣawwir",en:"The Fashioner"},
+  {n:14,ar:"الْغَفَّار",t:"Al-Ghaffār",en:"The All-Forgiving"},
+  {n:15,ar:"الْقَهَّار",t:"Al-Qahhār",en:"The Prevailing"},
+  {n:16,ar:"الْوَهَّاب",t:"Al-Wahhāb",en:"The Bestower"},
+  {n:17,ar:"الرَّزَّاق",t:"Ar-Razzāq",en:"The Provider"},
+  {n:18,ar:"الْفَتَّاح",t:"Al-Fattāḥ",en:"The Opener"},
+  {n:19,ar:"الْعَلِيم",t:"Al-ʿAlīm",en:"The All-Knowing"},
+  {n:20,ar:"الْقَابِض",t:"Al-Qābiḍ",en:"The Withholder"},
+  {n:21,ar:"الْبَاسِط",t:"Al-Bāsiṭ",en:"The Extender"},
+  {n:22,ar:"الْخَافِض",t:"Al-Khāfiḍ",en:"The Abaser"},
+  {n:23,ar:"الرَّافِع",t:"Ar-Rāfiʿ",en:"The Exalter"},
+  {n:24,ar:"الْمُعِزّ",t:"Al-Muʿizz",en:"The Bestower of Honour"},
+  {n:25,ar:"الْمُذِلّ",t:"Al-Mudhill",en:"The Humiliator"},
+  {n:26,ar:"السَّمِيع",t:"As-Samīʿ",en:"The All-Hearing"},
+  {n:27,ar:"الْبَصِير",t:"Al-Baṣīr",en:"The All-Seeing"},
+  {n:28,ar:"الْحَكَم",t:"Al-Ḥakam",en:"The Judge"},
+  {n:29,ar:"الْعَدْل",t:"Al-ʿAdl",en:"The Utterly Just"},
+  {n:30,ar:"اللَّطِيف",t:"Al-Laṭīf",en:"The Subtly Kind"},
+  {n:31,ar:"الْخَبِير",t:"Al-Khabīr",en:"The All-Aware"},
+  {n:32,ar:"الْحَلِيم",t:"Al-Ḥalīm",en:"The Forbearing"},
+  {n:33,ar:"الْعَظِيم",t:"Al-ʿAẓīm",en:"The Magnificent"},
+  {n:34,ar:"الْغَفُور",t:"Al-Ghafūr",en:"The Oft-Forgiving"},
+  {n:35,ar:"الشَّكُور",t:"Ash-Shakūr",en:"The Grateful"},
+  {n:36,ar:"الْعَلِيّ",t:"Al-ʿAliyy",en:"The Most High"},
+  {n:37,ar:"الْكَبِير",t:"Al-Kabīr",en:"The Most Great"},
+  {n:38,ar:"الْحَفِيظ",t:"Al-Ḥafīẓ",en:"The Preserver"},
+  {n:39,ar:"الْمُقِيت",t:"Al-Muqīt",en:"The Sustainer"},
+  {n:40,ar:"الْحَسِيب",t:"Al-Ḥasīb",en:"The Reckoner"},
+  {n:41,ar:"الْجَلِيل",t:"Al-Jalīl",en:"The Majestic"},
+  {n:42,ar:"الْكَرِيم",t:"Al-Karīm",en:"The Bountiful"},
+  {n:43,ar:"الرَّقِيب",t:"Ar-Raqīb",en:"The Watchful"},
+  {n:44,ar:"الْمُجِيب",t:"Al-Mujīb",en:"The Responsive"},
+  {n:45,ar:"الْوَاسِع",t:"Al-Wāsiʿ",en:"The All-Encompassing"},
+  {n:46,ar:"الْحَكِيم",t:"Al-Ḥakīm",en:"The All-Wise"},
+  {n:47,ar:"الْوَدُود",t:"Al-Wadūd",en:"The Most Loving"},
+  {n:48,ar:"الْمَجِيد",t:"Al-Majīd",en:"The Most Glorious"},
+  {n:49,ar:"الْبَاعِث",t:"Al-Bāʿith",en:"The Resurrector"},
+  {n:50,ar:"الشَّهِيد",t:"Ash-Shahīd",en:"The Witness"},
+  {n:51,ar:"الْحَقّ",t:"Al-Ḥaqq",en:"The Absolute Truth"},
+  {n:52,ar:"الْوَكِيل",t:"Al-Wakīl",en:"The Trustee"},
+  {n:53,ar:"الْقَوِيّ",t:"Al-Qawiyy",en:"The All-Strong"},
+  {n:54,ar:"الْمَتِين",t:"Al-Matīn",en:"The Firm"},
+  {n:55,ar:"الْوَلِيّ",t:"Al-Waliyy",en:"The Protecting Friend"},
+  {n:56,ar:"الْحَمِيد",t:"Al-Ḥamīd",en:"The Praiseworthy"},
+  {n:57,ar:"الْمُحْصِي",t:"Al-Muḥṣī",en:"The Reckoner of All"},
+  {n:58,ar:"الْمُبْدِئ",t:"Al-Mubdiʾ",en:"The Originator"},
+  {n:59,ar:"الْمُعِيد",t:"Al-Muʿīd",en:"The Restorer"},
+  {n:60,ar:"الْمُحْيِي",t:"Al-Muḥyī",en:"The Giver of Life"},
+  {n:61,ar:"الْمُمِيت",t:"Al-Mumīt",en:"The Bringer of Death"},
+  {n:62,ar:"الْحَيّ",t:"Al-Ḥayy",en:"The Ever-Living"},
+  {n:63,ar:"الْقَيُّوم",t:"Al-Qayyūm",en:"The Sustainer of Existence"},
+  {n:64,ar:"الْوَاجِد",t:"Al-Wājid",en:"The Perceiver"},
+  {n:65,ar:"الْمَاجِد",t:"Al-Mājid",en:"The Illustrious"},
+  {n:66,ar:"الْوَاحِد",t:"Al-Wāḥid",en:"The One"},
+  {n:67,ar:"الْأَحَد",t:"Al-Aḥad",en:"The Unique"},
+  {n:68,ar:"الصَّمَد",t:"Aṣ-Ṣamad",en:"The Eternal Refuge"},
+  {n:69,ar:"الْقَادِر",t:"Al-Qādir",en:"The Omnipotent"},
+  {n:70,ar:"الْمُقْتَدِر",t:"Al-Muqtadir",en:"The Prevailing"},
+  {n:71,ar:"الْمُقَدِّم",t:"Al-Muqaddim",en:"The Expediter"},
+  {n:72,ar:"الْمُؤَخِّر",t:"Al-Muʾakhkhir",en:"The Delayer"},
+  {n:73,ar:"الْأَوَّل",t:"Al-Awwal",en:"The First"},
+  {n:74,ar:"الْآخِر",t:"Al-Ākhir",en:"The Last"},
+  {n:75,ar:"الظَّاهِر",t:"Aẓ-Ẓāhir",en:"The Manifest"},
+  {n:76,ar:"الْبَاطِن",t:"Al-Bāṭin",en:"The Hidden"},
+  {n:77,ar:"الْوَالِي",t:"Al-Wālī",en:"The Governor"},
+  {n:78,ar:"الْمُتَعَالِي",t:"Al-Mutaʿālī",en:"The Most Exalted"},
+  {n:79,ar:"الْبَرّ",t:"Al-Barr",en:"The Source of All Goodness"},
+  {n:80,ar:"التَّوَّاب",t:"At-Tawwāb",en:"The Ever-Relenting"},
+  {n:81,ar:"الْمُنْتَقِم",t:"Al-Muntaqim",en:"The Avenger"},
+  {n:82,ar:"الْعَفُوّ",t:"Al-ʿAfuww",en:"The Pardoner"},
+  {n:83,ar:"الرَّءُوف",t:"Ar-Raʾūf",en:"The Compassionate"},
+  {n:84,ar:"مَالِكُ الْمُلْك",t:"Mālik al-Mulk",en:"Owner of the Kingdom"},
+  {n:85,ar:"ذُو الْجَلَالِ وَالْإِكْرَام",t:"Dhū al-Jalāli wa-l-Ikrām",en:"Lord of Majesty and Bounty"},
+  {n:86,ar:"الْمُقْسِط",t:"Al-Muqsiṭ",en:"The Equitable"},
+  {n:87,ar:"الْجَامِع",t:"Al-Jāmiʿ",en:"The Gatherer"},
+  {n:88,ar:"الْغَنِيّ",t:"Al-Ghaniyy",en:"The Self-Sufficient"},
+  {n:89,ar:"الْمُغْنِي",t:"Al-Mughnī",en:"The Enricher"},
+  {n:90,ar:"الْمَانِع",t:"Al-Māniʿ",en:"The Withholder"},
+  {n:91,ar:"الضَّارّ",t:"Aḍ-Ḍārr",en:"The Distresser"},
+  {n:92,ar:"النَّافِع",t:"An-Nāfiʿ",en:"The Beneficial"},
+  {n:93,ar:"النُّور",t:"An-Nūr",en:"The Light"},
+  {n:94,ar:"الْهَادِي",t:"Al-Hādī",en:"The Guide"},
+  {n:95,ar:"الْبَدِيع",t:"Al-Badīʿ",en:"The Incomparable"},
+  {n:96,ar:"الْبَاقِي",t:"Al-Bāqī",en:"The Eternal"},
+  {n:97,ar:"الْوَارِث",t:"Al-Wārith",en:"The Inheritor"},
+  {n:98,ar:"الرَّشِيد",t:"Ar-Rashīd",en:"The Guide to the Right Path"},
+  {n:99,ar:"الصَّبُور",t:"Aṣ-Ṣabūr",en:"The Patient"},
+];
+
+const grid = document.getElementById('grid');
+NAMES.forEach(n => {
+  const c = document.createElement('a');
+  c.className = 'name-card';
+  c.href = '#';
+  c.innerHTML = `
+    <span class="name-number">${n.n}</span>
+    <div class="name-ar">${n.ar}</div>
+    <div class="name-translit">${n.t}</div>
+    <div class="name-en">${n.en}</div>
+  `;
+  grid.appendChild(c);
+});
+
+document.getElementById('q').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.name-card').forEach(card => {
+    const txt = card.textContent.toLowerCase();
+    card.classList.toggle('hidden', q && !txt.includes(q));
+  });
+});
+</script>
+</body>
+</html>

@@ -52,6 +52,30 @@ body {
      overflow-x:clip on html; iOS Safari <18 needs it on body as well. */
   overflow-x: clip;
   max-width: 100vw;
+  /* Momentum scroll on iOS. */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Global mobile-fluidity primitives.
+   - Smooth scroll for anchor jumps (respected only when reduce-motion is off)
+   - Remove iOS blue tap-flash (we keep :active styling per-component)
+   - `touch-action: manipulation` disables the 300ms double-tap-zoom delay
+   - `input font-size: 16px` prevents iOS Safari focus-zoom quirk
+*/
+html {
+  scroll-behavior: smooth;
+}
+button,
+[role="button"],
+a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+input,
+textarea,
+select {
+  touch-action: manipulation;
+  font-size: 16px;
 }
 a {
   color: inherit;
@@ -1080,4 +1104,10 @@ body {
   .theme-icon__rays {
     transition: none !important;
   }
+}
+
+/* Navigation progress bar keyframes — used by <NavProgress> and loading.tsx. */
+@keyframes nav-progress {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
 }

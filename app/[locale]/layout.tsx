@@ -1,6 +1,7 @@
 import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { NavProgress } from "@/components/layout/nav-progress";
 import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-data";
@@ -214,6 +215,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             {(messages as { common: { skipToContent: string } }).common.skipToContent}
           </a>
           <Header />
+          <NavProgress />
           <main id="main" className="flex-1">
             {children}
           </main>

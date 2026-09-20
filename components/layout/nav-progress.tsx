@@ -1,28 +1,29 @@
 "use client";
 // Top navigation progress bar that appears the instant a Link is clicked
-// and stays until the destination route's loading.tsx / page.tsx starts
-// streaming. Uses Next 15's `useLinkStatus` hook or a router-events poll.
+// and stays until the destination route commits. 2px fixed bar at
+// top: 0 with a gradient sweep; matches app accent so it feels native.
 //
-// Design: 2px fixed bar at top: 0 with a gradient sweep. Zero layout
-// impact; matches app accent color so it feels native.
+// NOTE: intentionally does NOT use useSearchParams() because that would
+// force every ayah page (/[locale]/quran/[surah]/[ayah], 6236 x 6 =
+// ~37k routes) to bail from static generation into CSR. The pathname
+// alone is enough — Next commits pathname after transition completes,
+// which is exactly when we want to hide the bar.
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export function NavProgress() {
   const pathname = usePathname();
-  const search = useSearchParams();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Show the bar briefly on every route change. In App Router this fires
-    // AFTER the transition completes (Next commits pathname on completion),
-    // which is exactly when we want to hide it. To also show it DURING the
-    // transition, we hook Link clicks via a global click handler.
+    // Show the bar briefly on every route change. In App Router this
+    // effect fires AFTER the transition completes, so use it as the
+    // "hide" signal.
     setVisible(true);
     const t = setTimeout(() => setVisible(false), 350);
     return () => clearTimeout(t);
-  }, [pathname, search]);
+  }, [pathname]);
 
   useEffect(() => {
     // Hook every same-origin Link click to show the bar immediately.
@@ -32,7 +33,6 @@ export function NavProgress() {
       if (anchor.target === "_blank" || anchor.hasAttribute("download")) return;
       const href = anchor.getAttribute("href") || "";
       if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
-      // External links: skip.
       try {
         const url = new URL(anchor.href, window.location.href);
         if (url.origin !== window.location.origin) return;

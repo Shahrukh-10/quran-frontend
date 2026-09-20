@@ -96,22 +96,32 @@ export default async function SeerahIndexPage({ params }: Props) {
                 {events.map((event) => (
                   <li
                     key={event.slug}
-                    className="relative sm:before:absolute sm:before:left-[-1.75rem] sm:before:top-5 sm:before:size-3 sm:before:rounded-full sm:before:bg-accent sm:before:border-2 sm:before:border-background"
+                    className="relative sm:before:absolute sm:before:left-[-1.75rem] sm:before:top-6 sm:before:size-3 sm:before:rounded-full sm:before:bg-accent sm:before:border-2 sm:before:border-background sm:before:z-10"
                   >
                     <Link
                       href={`/seerah/${event.slug}` as "/seerah/[event]"}
-                      className="focus-ring block rounded-2xl border border-separator bg-surface p-5 hover:bg-muted transition-colors duration-micro ease-spring"
+                      className="focus-ring group relative block overflow-hidden rounded-2xl border border-separator bg-surface p-5 transition-all duration-micro ease-spring hover:border-accent/40 hover:shadow-md hover:-translate-y-0.5"
                     >
-                      <p className="text-xs font-medium text-accent">
-                        {formatYear(event.year.ah, event.year.ce, event.year.note, yearPrefix)}
-                      </p>
-                      <h3 className="mt-1 font-semibold tracking-title text-lg">
+                      {/* Decorative left accent bar — reinforces the
+                          timeline "dot on rail" pattern. Wider (3px) and
+                          more opaque than a hairline so it's visible on
+                          both light and dark surfaces. */}
+                      <span aria-hidden className="absolute inset-y-2 left-0 w-[3px] rounded-r-full bg-gradient-to-b from-accent via-accent/80 to-accent/30" />
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+                          {formatYear(event.year.ah, event.year.ce, event.year.note, yearPrefix)}
+                        </p>
+                        <p className="text-xs text-muted-foreground">{event.location}</p>
+                      </div>
+                      <h3 className="mt-2 font-semibold tracking-title text-lg leading-snug">
                         {event.title[lang]}
                       </h3>
-                      <p className="mt-1 text-xs text-muted-foreground">{event.location}</p>
-                      <p className="mt-3 text-sm leading-relaxed line-clamp-3">
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-4">
                         {event.description[lang]}
                       </p>
+                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
+                        Read more <span aria-hidden>→</span>
+                      </span>
                     </Link>
                   </li>
                 ))}

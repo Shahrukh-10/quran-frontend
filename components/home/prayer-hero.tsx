@@ -1,5 +1,30 @@
 "use client";
 
+// ─────────────────────────────────────────────────────────────────────────────
+//  ⚠️  UNUSED — kept intentionally.
+//  ---------------------------------------------------------------------------
+//  This component was originally the homepage hero. It was removed from
+//  app/[locale]/page.tsx on 2026-09-20 (see git history) because it looked
+//  visually noisy above the fold — the homepage reverted to a static
+//  typographic hero (title + subtitle + CTAs on a Basmala watermark).
+//
+//  The component itself is still solid: it does live prayer-time computation
+//  with the same Adhan-JS methods used on /prayer-times, Geolocation +
+//  localStorage hydration for the last chosen city, method selection, Hijri
+//  date conversion, and a countdown to the next prayer.
+//
+//  Kept here so we can drop it back into any page later (e.g. a dedicated
+//  "Today" section, a widget on /prayer-times, or a compact card on
+//  /qibla). Do NOT import it into a Server Component — this file is
+//  `"use client"` and has non-trivial hydration cost. If you re-add it,
+//  wrap it in a Suspense boundary and prefer above-the-fold placement only
+//  when you have measured the layout-shift budget.
+//
+//  If you're sure it's not coming back, delete the file — it will not be
+//  missed at build time (nothing imports it currently, so tree-shaking
+//  already excludes it from the client bundle).
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Client component: needs state (city selection, method), effects (clock tick,
 // localStorage hydration), and browser APIs (Geolocation). No new CSS files —
 // styling relies on the Tailwind token palette defined in tailwind.config.ts +

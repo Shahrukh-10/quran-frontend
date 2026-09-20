@@ -3,6 +3,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { FIGURES, getFigureBySlug } from "@/lib/figures";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -21,6 +22,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+  const bc = await breadcrumbs(locale);
   const f = getFigureBySlug(slug);
   if (!f) return {};
   const description = f.body.slice(0, 155) + (f.body.length > 155 ? "…" : "");
@@ -33,11 +35,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locales.map((l) => [l, siteUrl(l === "en" ? `/learn/${slug}` : `/${l}/learn/${slug}`)]),
       ),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? `/learn/${slug}` : `/${locale}/learn/${slug}`),
+    },
   };
 }
 
 export default async function FigurePage({ params }: Props) {
   const { locale, slug } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const f = getFigureBySlug(slug);
   if (!f) notFound();
@@ -48,8 +54,8 @@ export default async function FigurePage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Learn", url: siteUrl("/learn") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("learn"), url: siteUrl("/learn") },
           { name: f.name, url },
         ]}
       />

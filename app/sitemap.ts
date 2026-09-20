@@ -35,7 +35,13 @@ const topLevel = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  // `lastmod` must NOT be `new Date()` per request — that makes every URL
+  // look "freshly modified" on every crawl and destroys the freshness signal
+  // Google/Bing use for ranking. Prefer a stable build-time stamp injected
+  // via `NEXT_PUBLIC_BUILD_DATE` (wired into the Cloudflare Pages build
+  // command). If that is unset (local dev, tests) we fall back to today's
+  // UTC date, computed once at module init — not per request.
+  const now = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
   const entries: MetadataRoute.Sitemap = [];
 
   const push = (

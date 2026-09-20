@@ -1,9 +1,15 @@
 import { AyahCard } from "@/components/quran/ayah-card";
-import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
+import {
+  ArticleSchema,
+  AyahQuotationSchema,
+  BreadcrumbSchema,
+} from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllSurahs, getSurahBySlug, loadAyah, loadSurahAyat } from "@/lib/quran";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -26,6 +32,7 @@ type Props = { params: Promise<{ locale: string; surah: string; ayah: string }> 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, surah, ayah } = await params;
+  const bc = await breadcrumbs(locale);
   const s = getSurahBySlug(surah);
   if (!s) return {};
   const ayahNum = Number.parseInt(ayah, 10);
@@ -41,18 +48,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ),
       // hreflang: emit an alternate for every supported locale so Google serves the right
       // language version. `as-needed` prefix strategy → default locale (en) has no prefix.
-      languages: Object.fromEntries(
-        locales.map((l) => [
-          l,
-          siteUrl(l === "en" ? `/quran/${surah}/${ayahNum}` : `/${l}/quran/${surah}/${ayahNum}`),
-        ]),
+      // `x-default` points to the default-locale variant.
+      languages: hreflangLanguages(`/quran/${surah}/${ayahNum}`),
+    },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/quran/${surah}/${ayahNum}` : `/${locale}/quran/${surah}/${ayahNum}`,
       ),
+      type: "article",
+      locale,
+      images: mergedOgImages(`Quran ${s.number}:${ayahNum} — ${s.name}`),
     },
   };
 }
 
 export default async function AyahPage({ params }: Props) {
   const { locale, surah, ayah } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const s = getSurahBySlug(surah);
   if (!s) notFound();
@@ -70,8 +82,8 @@ export default async function AyahPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: s.name, url: siteUrl(`/quran/${s.slug}`) },
           {
             name: `${s.number}:${ayahNum}`,
@@ -83,7 +95,14 @@ export default async function AyahPage({ params }: Props) {
         headline={`Quran ${s.number}:${ayahNum} — ${s.name}`}
         description={a?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`}
         url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
-        datePublished="2026-09-18"
+      />
+      <AyahQuotationSchema
+        arabic={a?.arabic ?? ""}
+        translation={a?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`}
+        surahName={s.name}
+        surahNumber={s.number}
+        ayahNumber={ayahNum}
+        url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
       />
 
       <header>

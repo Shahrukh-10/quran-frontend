@@ -4,6 +4,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllDuas, getCategory, getDua } from "@/lib/duas";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -22,6 +23,7 @@ type Props = { params: Promise<{ locale: string; category: string; slug: string 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, category, slug } = await params;
+  const bc = await breadcrumbs(locale);
   const d = getDua(category, slug);
   if (!d) return {};
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
@@ -33,11 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale === "en" ? `/duas/${category}/${slug}` : `/${locale}/duas/${category}/${slug}`,
       ),
     },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/duas/${category}/${slug}` : `/${locale}/duas/${category}/${slug}`,
+      ),
+    },
   };
 }
 
 export default async function DuaPage({ params }: Props) {
   const { locale, category, slug } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const cat = getCategory(category);
   const d = getDua(category, slug);
@@ -50,8 +58,8 @@ export default async function DuaPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Duas", url: siteUrl("/duas") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("duas"), url: siteUrl("/duas") },
           { name: cat.title.en, url: siteUrl(`/duas/${category}`) },
           { name: d.title.en, url: siteUrl(`/duas/${category}/${slug}`) },
         ]}

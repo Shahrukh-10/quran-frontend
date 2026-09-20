@@ -1,0 +1,360 @@
+{
+  "_note": "Seerah timeline — sourced from Ar-Raheeq al-Makhtum (Sheikh Safi-ur-Rahman al-Mubarakpuri, 1979, widely-accepted award-winning seerah), Ibn Ishaq's Sirat Rasul Allah (via Ibn Hisham's recension), and cross-referenced with Sahih hadith. All Hijri dates follow the standard scholarly consensus. Every entry that references a Quran verse or hadith cites it explicitly.",
+  "eras": [
+    {
+      "slug": "pre-prophethood",
+      "name": { "en": "Pre-prophethood", "id": "Sebelum kenabian" },
+      "description": {
+        "en": "The Prophet's ﷺ life in Makkah before revelation — birth, family, orphanhood, marriage to Khadijah, and years of contemplation.",
+        "id": "Kehidupan Nabi ﷺ di Makkah sebelum wahyu — kelahiran, keluarga, masa yatim, pernikahan dengan Khadijah, dan tahun-tahun kontemplasi."
+      }
+    },
+    {
+      "slug": "makkan-early",
+      "name": { "en": "Early Makkan period", "id": "Periode Makkiyah awal" },
+      "description": {
+        "en": "The first thirteen years of Islam in Makkah — secret preaching, public call, persecution of early Muslims, and the migration to Abyssinia.",
+        "id": "Tiga belas tahun awal Islam di Makkah — dakwah rahasia, seruan terbuka, penindasan terhadap Muslim awal, dan hijrah ke Habasyah."
+      }
+    },
+    {
+      "slug": "hijrah",
+      "name": { "en": "The Hijrah", "id": "Hijrah" },
+      "description": {
+        "en": "The migration from Makkah to Madinah in 622 CE — the pivotal event marking Year 1 of the Islamic calendar.",
+        "id": "Hijrah dari Makkah ke Madinah tahun 622 M — peristiwa penting yang menandai tahun pertama kalender Islam."
+      }
+    },
+    {
+      "slug": "madinan",
+      "name": { "en": "Madinan period", "id": "Periode Madaniyah" },
+      "description": {
+        "en": "Ten years of state-building in Madinah — the Constitution of Madinah, major battles (Badr, Uhud, Trench), treaties, and the conquest of Makkah.",
+        "id": "Sepuluh tahun pembangunan negara di Madinah — Piagam Madinah, pertempuran besar (Badar, Uhud, Khandaq), perjanjian, dan penaklukan Makkah."
+      }
+    },
+    {
+      "slug": "farewell",
+      "name": { "en": "Farewell & passing", "id": "Perpisahan & wafat" },
+      "description": {
+        "en": "The Farewell Pilgrimage, the Farewell Sermon, and the Prophet's ﷺ passing in Rabi' al-Awwal 11 AH.",
+        "id": "Haji Wada', Khutbah Wada', dan wafatnya Nabi ﷺ pada Rabi'ul Awal 11 H."
+      }
+    }
+  ],
+  "events": [
+    {
+      "slug": "birth",
+      "era": "pre-prophethood",
+      "year": { "ah": -53, "ce": "570 CE" },
+      "title": { "en": "Birth of the Prophet ﷺ", "id": "Kelahiran Nabi ﷺ" },
+      "location": "Makkah",
+      "description": {
+        "en": "Muhammad ﷺ is born to Abdullah ibn Abdul-Muttalib and Aminah bint Wahb in the Year of the Elephant — the year Abraha's Ethiopian army tried to destroy the Ka'bah and was miraculously repelled (referenced in Surah al-Fil, 105).",
+        "id": "Muhammad ﷺ dilahirkan dari Abdullah bin Abdul-Muttalib dan Aminah binti Wahb pada Tahun Gajah — tahun ketika pasukan Etiopia Abrahah berusaha menghancurkan Ka'bah dan dihalau secara ajaib (dirujuk dalam Surah al-Fil, 105)."
+      },
+      "references": [{ "type": "quran", "ref": "105:1-5" }]
+    },
+    {
+      "slug": "orphaned",
+      "era": "pre-prophethood",
+      "year": { "ah": -47, "ce": "576 CE" },
+      "title": { "en": "Orphaned at age six", "id": "Yatim piatu pada usia enam tahun" },
+      "location": "Al-Abwa (between Makkah and Madinah)",
+      "description": {
+        "en": "The Prophet's ﷺ father Abdullah had died before his birth. His mother Aminah passes away when he is six, on their return journey from visiting relatives in Yathrib. He is raised first by his grandfather Abdul-Muttalib, then by his uncle Abu Talib.",
+        "id": "Ayah Nabi ﷺ, Abdullah, telah wafat sebelum kelahirannya. Ibunya, Aminah, wafat ketika beliau berusia enam tahun, dalam perjalanan pulang dari kunjungan ke Yatsrib. Beliau kemudian diasuh oleh kakeknya, Abdul-Muttalib, lalu oleh pamannya, Abu Thalib."
+      }
+    },
+    {
+      "slug": "marriage-to-khadijah",
+      "era": "pre-prophethood",
+      "year": { "ah": -28, "ce": "595 CE" },
+      "title": { "en": "Marriage to Khadijah رضي الله عنها", "id": "Pernikahan dengan Khadijah رضي الله عنها" },
+      "location": "Makkah",
+      "description": {
+        "en": "At age 25, the Prophet ﷺ marries Khadijah bint Khuwaylid, a wealthy 40-year-old merchant widow who had hired him for a trading caravan to Syria and was impressed by his character (al-Amin — the trustworthy). Their marriage lasts 25 years until her death, and she is the mother of all his children except Ibrahim.",
+        "id": "Pada usia 25 tahun, Nabi ﷺ menikahi Khadijah binti Khuwailid, seorang janda pedagang kaya berusia 40 tahun yang mempekerjakannya untuk kafilah dagang ke Syam dan terkesan dengan akhlaknya (al-Amin — yang tepercaya). Pernikahan mereka berlangsung 25 tahun hingga wafatnya, dan Khadijah adalah ibu dari semua anaknya kecuali Ibrahim."
+      }
+    },
+    {
+      "slug": "kabah-reconstruction",
+      "era": "pre-prophethood",
+      "year": { "ah": -25, "ce": "605 CE" },
+      "title": { "en": "Rebuilding the Ka'bah", "id": "Renovasi Ka'bah" },
+      "location": "Makkah",
+      "description": {
+        "en": "When a flash flood damages the Ka'bah, the Quraysh tribes rebuild it. A dispute arises over which clan should have the honor of placing the Black Stone (Hajar al-Aswad) back in its position. The Prophet ﷺ, aged 35, arbitrates by placing the stone on a cloak and having a member of each clan lift a corner — a solution universally accepted.",
+        "id": "Ketika banjir bandang merusak Ka'bah, suku-suku Quraisy membangunnya kembali. Terjadi perselisihan tentang klan mana yang berhak menempatkan Hajar Aswad kembali ke tempatnya. Nabi ﷺ, usia 35 tahun, menengahi dengan meletakkan batu itu di atas kain lalu meminta seorang wakil dari setiap klan mengangkat sisi kain — solusi yang diterima semua pihak."
+      }
+    },
+    {
+      "slug": "first-revelation",
+      "era": "makkan-early",
+      "year": { "ah": -13, "ce": "610 CE", "note": "27 Ramadan" },
+      "title": { "en": "First revelation — Iqra!", "id": "Wahyu pertama — Iqra!" },
+      "location": "Cave of Hira, Mount Nur, Makkah",
+      "description": {
+        "en": "While in seclusion in the Cave of Hira during Ramadan at age 40, the Prophet ﷺ receives the first revelation from the angel Jibril: 'Iqra bismi Rabbika alladhi khalaq' — 'Read in the name of your Lord who created' (Surah al-'Alaq 96:1-5). He returns home shaken; Khadijah wraps him and takes him to her cousin Waraqah ibn Nawfal, a Christian scholar, who confirms this is the revelation known to Musa (Moses).",
+        "id": "Ketika berkhalwat di Gua Hira pada bulan Ramadan usia 40 tahun, Nabi ﷺ menerima wahyu pertama dari malaikat Jibril: 'Iqra bismi Rabbika alladzi khalaq' — 'Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan' (Surah al-'Alaq 96:1-5). Beliau pulang dengan tubuh gemetar; Khadijah menyelimutinya dan membawanya kepada sepupunya Waraqah bin Naufal, seorang ulama Kristen, yang mengonfirmasi bahwa ini adalah wahyu yang dikenal oleh Nabi Musa."
+      },
+      "references": [
+        { "type": "quran", "ref": "96:1-5" },
+        { "type": "hadith", "ref": "Sahih al-Bukhari 3" }
+      ]
+    },
+    {
+      "slug": "first-muslims",
+      "era": "makkan-early",
+      "year": { "ah": -13, "ce": "610 CE" },
+      "title": { "en": "The first Muslims", "id": "Muslim pertama" },
+      "location": "Makkah",
+      "description": {
+        "en": "The first to accept Islam: Khadijah (his wife), Ali ibn Abi Talib (his cousin, age 10, from among youth), Zayd ibn Harithah (his freed slave and adopted son, from among freed men), and Abu Bakr as-Siddiq (his closest friend, from among free men). Abu Bakr's acceptance draws several early converts: Uthman, Zubayr, Talhah, Sa'd ibn Abi Waqqas, and Abdur-Rahman ibn Awf.",
+        "id": "Yang pertama memeluk Islam: Khadijah (istrinya), Ali bin Abi Thalib (sepupunya, usia 10 tahun, dari kalangan pemuda), Zaid bin Haritsah (mantan budaknya dan anak angkatnya, dari kalangan bekas budak), dan Abu Bakar ash-Shiddiq (sahabat terdekatnya, dari kalangan orang merdeka). Keislaman Abu Bakar menarik beberapa mualaf awal: Utsman, Zubair, Thalhah, Sa'ad bin Abi Waqqash, dan Abdurrahman bin Auf."
+      }
+    },
+    {
+      "slug": "public-preaching",
+      "era": "makkan-early",
+      "year": { "ah": -10, "ce": "613 CE" },
+      "title": { "en": "Public call to Islam", "id": "Dakwah terbuka" },
+      "location": "Mount Safa, Makkah",
+      "description": {
+        "en": "After three years of private preaching, the Prophet ﷺ climbs Mount Safa and calls the Quraysh openly to Islam, following the revelation 'Then declare what you are commanded' (Surah al-Hijr 15:94). His uncle Abu Lahab responds with hostility, prompting the revelation of Surah al-Masad (111).",
+        "id": "Setelah tiga tahun berdakwah secara sembunyi-sembunyi, Nabi ﷺ mendaki bukit Shafa dan menyeru orang-orang Quraisy secara terbuka kepada Islam, mengikuti wahyu 'Maka sampaikanlah olehmu secara terang-terangan segala apa yang diperintahkan (kepadamu)' (Surah al-Hijr 15:94). Pamannya Abu Lahab merespons dengan permusuhan, memicu turunnya Surah al-Masad (111)."
+      },
+      "references": [
+        { "type": "quran", "ref": "15:94" },
+        { "type": "quran", "ref": "111:1-5" }
+      ]
+    },
+    {
+      "slug": "abyssinia-migration",
+      "era": "makkan-early",
+      "year": { "ah": -8, "ce": "615 CE" },
+      "title": { "en": "Migration to Abyssinia", "id": "Hijrah ke Habasyah" },
+      "location": "Aksum, Abyssinia (modern Ethiopia)",
+      "description": {
+        "en": "As Qurayshi persecution intensifies, the Prophet ﷺ instructs a group of Muslims to seek refuge with Negus (an-Najashi), the Christian king of Abyssinia. The first group has 12 men and 4 women, led by Uthman ibn Affan and his wife Ruqayyah (the Prophet's daughter). Negus refuses Qurayshi demands to hand them over after hearing Surah Maryam recited by Ja'far ibn Abi Talib.",
+        "id": "Ketika penindasan Quraisy semakin keras, Nabi ﷺ memerintahkan sekelompok muslimin untuk mencari perlindungan kepada Raja Najasyi, raja Kristen Habasyah. Rombongan pertama terdiri dari 12 pria dan 4 wanita, dipimpin oleh Utsman bin Affan dan istrinya Ruqayyah (putri Nabi). Najasyi menolak tuntutan Quraisy untuk menyerahkan mereka setelah mendengar Surah Maryam yang dibacakan Ja'far bin Abi Thalib."
+      }
+    },
+    {
+      "slug": "boycott",
+      "era": "makkan-early",
+      "year": { "ah": -7, "ce": "616 CE" },
+      "title": { "en": "The Qurayshi boycott", "id": "Pemboikotan Quraisy" },
+      "location": "Shi'b Abi Talib, Makkah",
+      "description": {
+        "en": "The Quraysh impose a total social and economic boycott on the clans of Banu Hashim and Banu al-Muttalib (the Prophet's ﷺ tribe) for refusing to hand him over. For three years the Muslims live in a mountain valley, eating tree leaves to survive. The boycott ends when Qurayshis themselves demand it be lifted after finding that the parchment on which it was written had been eaten by insects — except the words 'In Your Name, O Allah'.",
+        "id": "Quraisy memberlakukan pemboikotan sosial dan ekonomi total terhadap Bani Hasyim dan Bani al-Muththalib (suku Nabi ﷺ) karena menolak menyerahkan beliau. Selama tiga tahun kaum muslimin tinggal di lembah pegunungan, memakan daun pohon untuk bertahan hidup. Pemboikotan berakhir ketika orang-orang Quraisy sendiri menuntut agar dihentikan setelah menemukan bahwa perkamen yang berisi teks pemboikotan telah dimakan serangga — kecuali kata 'Dengan nama-Mu, ya Allah'."
+      }
+    },
+    {
+      "slug": "year-of-sorrow",
+      "era": "makkan-early",
+      "year": { "ah": -3, "ce": "619 CE" },
+      "title": { "en": "The Year of Sorrow", "id": "Tahun Kesedihan" },
+      "location": "Makkah",
+      "description": {
+        "en": "Within months of each other, the Prophet ﷺ loses his beloved wife Khadijah (age ~65) and his uncle-protector Abu Talib. Without Khadijah's emotional support and Abu Talib's tribal protection, Qurayshi persecution reaches its peak. This year is called 'Am al-Huzn — the Year of Sorrow.",
+        "id": "Dalam selang beberapa bulan, Nabi ﷺ kehilangan istri tercintanya Khadijah (usia sekitar 65 tahun) dan pamannya pelindung Abu Thalib. Tanpa dukungan emosional Khadijah dan perlindungan suku dari Abu Thalib, penindasan Quraisy mencapai puncaknya. Tahun ini disebut 'Am al-Huzn — Tahun Kesedihan."
+      }
+    },
+    {
+      "slug": "taif",
+      "era": "makkan-early",
+      "year": { "ah": -3, "ce": "619 CE" },
+      "title": { "en": "The Journey to Ta'if", "id": "Perjalanan ke Tha'if" },
+      "location": "Ta'if",
+      "description": {
+        "en": "Seeking new support, the Prophet ﷺ travels 60 miles to Ta'if to preach to the Thaqif tribe. They reject him harshly, setting street children upon him to pelt him with stones until his shoes fill with blood. His famous du'a of complete reliance on Allah — 'Ash-ku ilayka du'fa quwwati' — dates from this event. The angel of the mountains offers to crush the city; the Prophet ﷺ refuses, hoping their descendants would accept Islam.",
+        "id": "Mencari dukungan baru, Nabi ﷺ melakukan perjalanan sekitar 100 km ke Tha'if untuk berdakwah kepada suku Tsaqif. Mereka menolaknya dengan kasar, memerintahkan anak-anak jalanan untuk melempari batu hingga alas kaki beliau penuh darah. Doa terkenal beliau yang penuh tawakal — 'Asyku ilaika dhu'fa quwwati' — berasal dari peristiwa ini. Malaikat gunung menawarkan untuk menghancurkan kota; Nabi ﷺ menolak, berharap keturunan mereka akan menerima Islam."
+      },
+      "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 3231" }]
+    },
+    {
+      "slug": "isra-miraj",
+      "era": "makkan-early",
+      "year": { "ah": -1, "ce": "621 CE", "note": "27 Rajab" },
+      "title": { "en": "Al-Isra' and Al-Mi'raj", "id": "Isra' dan Mi'raj" },
+      "location": "Makkah → Jerusalem → Heavens",
+      "description": {
+        "en": "The Night Journey from the Sacred Mosque in Makkah to al-Aqsa in Jerusalem (al-Isra'), then the Ascension through the seven heavens to the Divine Presence (al-Mi'raj). The five daily prayers are prescribed. The Prophet ﷺ meets the previous prophets and leads them in prayer at al-Aqsa. Referenced in Surah al-Isra 17:1 and detailed in Sahih hadith.",
+        "id": "Perjalanan Malam dari Masjidil Haram di Makkah ke Masjidil Aqsha di Yerusalem (Isra'), lalu pendakian melalui tujuh langit ke Hadirat Ilahi (Mi'raj). Salat lima waktu diwajibkan. Nabi ﷺ bertemu para nabi terdahulu dan mengimami mereka salat di Masjidil Aqsha. Dirujuk dalam Surah al-Isra' 17:1 dan diperinci dalam hadis Sahih."
+      },
+      "references": [
+        { "type": "quran", "ref": "17:1" },
+        { "type": "hadith", "ref": "Sahih al-Bukhari 3887" }
+      ]
+    },
+    {
+      "slug": "pledge-of-aqabah",
+      "era": "makkan-early",
+      "year": { "ah": 0, "ce": "621-622 CE" },
+      "title": { "en": "The Pledges of al-'Aqabah", "id": "Bai'at al-'Aqabah" },
+      "location": "Al-'Aqabah, near Mina",
+      "description": {
+        "en": "Twelve men from Yathrib (Madinah) pledge allegiance to the Prophet ﷺ at 'Aqabah — the First Pledge, largely a moral covenant. The following year, 73 men and 2 women from Madinah return and take the Second Pledge, promising military protection. This paves the way for the Hijrah.",
+        "id": "Dua belas laki-laki dari Yatsrib (Madinah) berbaiat kepada Nabi ﷺ di 'Aqabah — Bai'at 'Aqabah Pertama, umumnya perjanjian moral. Tahun berikutnya, 73 laki-laki dan 2 perempuan dari Madinah kembali dan mengambil Bai'at Kedua, berjanji memberi perlindungan militer. Ini membuka jalan bagi Hijrah."
+      }
+    },
+    {
+      "slug": "hijrah-migration",
+      "era": "hijrah",
+      "year": { "ah": 1, "ce": "622 CE", "note": "Rabi' al-Awwal" },
+      "title": { "en": "The Hijrah to Madinah", "id": "Hijrah ke Madinah" },
+      "location": "Makkah → Madinah",
+      "description": {
+        "en": "As the Quraysh plot to assassinate him, the Prophet ﷺ leaves Makkah with Abu Bakr. Ali sleeps in the Prophet's ﷺ bed to deceive the assassins. They hide in the Cave of Thawr for three nights while Qurayshi trackers approach the cave — one saying 'if he looks down at his feet he will see us.' The Prophet ﷺ reassures Abu Bakr: 'Do not grieve; Allah is with us' (Surah at-Tawbah 9:40). They reach Quba near Madinah on 12 Rabi' al-Awwal. This event marks Year 1 of the Islamic calendar (established later by Umar ibn al-Khattab).",
+        "id": "Ketika Quraisy merencanakan pembunuhannya, Nabi ﷺ meninggalkan Makkah bersama Abu Bakar. Ali tidur di ranjang Nabi ﷺ untuk menipu para pembunuh. Mereka bersembunyi di Gua Tsur selama tiga malam sementara pelacak Quraisy mendekati gua — seorang berkata 'jika ia melihat ke bawah kakinya, ia akan melihat kita.' Nabi ﷺ menenangkan Abu Bakar: 'Janganlah engkau bersedih, sesungguhnya Allah bersama kita' (Surah at-Taubah 9:40). Mereka mencapai Quba' dekat Madinah pada 12 Rabi'ul Awwal. Peristiwa ini menandai tahun pertama kalender Islam (ditetapkan kemudian oleh Umar bin al-Khaththab)."
+      },
+      "references": [
+        { "type": "quran", "ref": "9:40" },
+        { "type": "hadith", "ref": "Sahih al-Bukhari 3905" }
+      ]
+    },
+    {
+      "slug": "mosque-of-madinah",
+      "era": "madinan",
+      "year": { "ah": 1, "ce": "622 CE" },
+      "title": { "en": "Building the Prophet's Mosque", "id": "Pembangunan Masjid Nabawi" },
+      "location": "Madinah",
+      "description": {
+        "en": "After settling in Madinah, the Prophet ﷺ purchases a plot of land from two orphans (Sahl and Suhayl) and builds Masjid an-Nabawi — the Prophet's Mosque. It becomes the center of religious, judicial, educational, and political life. His humble living quarters are built adjacent to it.",
+        "id": "Setelah menetap di Madinah, Nabi ﷺ membeli sebidang tanah dari dua anak yatim (Sahl dan Suhail) dan membangun Masjid Nabawi. Masjid itu menjadi pusat kehidupan keagamaan, peradilan, pendidikan, dan politik. Kediaman beliau yang sederhana dibangun berdampingan dengannya."
+      }
+    },
+    {
+      "slug": "constitution-of-madinah",
+      "era": "madinan",
+      "year": { "ah": 1, "ce": "622 CE" },
+      "title": { "en": "The Constitution of Madinah", "id": "Piagam Madinah" },
+      "location": "Madinah",
+      "description": {
+        "en": "The Prophet ﷺ authors the Sahifat al-Madinah — a written constitution establishing the rights and duties of Muslims and non-Muslims (including Jewish tribes) in Madinah. It is one of the earliest written constitutions in history and establishes Madinah as a pluralistic city-state.",
+        "id": "Nabi ﷺ menyusun Shahifat al-Madinah — konstitusi tertulis yang menetapkan hak dan kewajiban Muslim dan non-Muslim (termasuk suku-suku Yahudi) di Madinah. Ini adalah salah satu konstitusi tertulis paling awal dalam sejarah dan menetapkan Madinah sebagai negara-kota pluralis."
+      }
+    },
+    {
+      "slug": "qibla-change",
+      "era": "madinan",
+      "year": { "ah": 2, "ce": "624 CE", "note": "Sha'ban" },
+      "title": { "en": "Change of qiblah to the Ka'bah", "id": "Perubahan kiblat ke Ka'bah" },
+      "location": "Madinah",
+      "description": {
+        "en": "For 16 months after the Hijrah, Muslims had prayed toward al-Aqsa in Jerusalem. In the middle of a prayer at Masjid al-Qiblatayn, revelation comes to face the Ka'bah in Makkah instead. The whole congregation turns mid-prayer — hence the mosque's name 'Mosque of the Two Qiblahs.' Revealed in Surah al-Baqarah 2:144.",
+        "id": "Selama 16 bulan setelah Hijrah, kaum muslimin salat menghadap Masjidil Aqsha di Yerusalem. Di tengah salat di Masjid al-Qiblatain, turun wahyu untuk menghadap Ka'bah di Makkah. Seluruh jamaah berputar di tengah salat — karena itulah masjid itu dinamai 'Masjid Dua Kiblat.' Diturunkan dalam Surah al-Baqarah 2:144."
+      },
+      "references": [{ "type": "quran", "ref": "2:144" }]
+    },
+    {
+      "slug": "battle-of-badr",
+      "era": "madinan",
+      "year": { "ah": 2, "ce": "624 CE", "note": "17 Ramadan" },
+      "title": { "en": "Battle of Badr", "id": "Perang Badar" },
+      "location": "Badr, ~80 miles SW of Madinah",
+      "description": {
+        "en": "The first major battle. 313 Muslims (with 2 horses and 70 camels) meet a Qurayshi army of ~1000 well-equipped fighters. Despite being outnumbered 3:1, the Muslims win a decisive victory — described in the Quran as a manifest sign (Surah Al 'Imran 3:123-125). Fourteen Muslims are martyred; 70 Qurayshi leaders are killed and 70 captured.",
+        "id": "Pertempuran besar pertama. 313 muslimin (dengan 2 kuda dan 70 unta) menghadapi pasukan Quraisy sekitar 1000 pejuang bersenjata lengkap. Meski kalah jumlah 3:1, muslimin memperoleh kemenangan telak — digambarkan dalam Al-Qur'an sebagai tanda yang nyata (Surah Ali 'Imran 3:123-125). Empat belas muslim gugur syahid; 70 pemimpin Quraisy tewas dan 70 ditawan."
+      },
+      "references": [
+        { "type": "quran", "ref": "3:123-125" },
+        { "type": "quran", "ref": "8:5-19" }
+      ]
+    },
+    {
+      "slug": "battle-of-uhud",
+      "era": "madinan",
+      "year": { "ah": 3, "ce": "625 CE", "note": "7 Shawwal" },
+      "title": { "en": "Battle of Uhud", "id": "Perang Uhud" },
+      "location": "Mount Uhud, north of Madinah",
+      "description": {
+        "en": "The Quraysh return with 3,000 fighters seeking revenge for Badr. The 700 Muslims (300 hypocrites having deserted) are initially winning until the archers stationed on a hill abandon their post to collect spoils — against the Prophet's ﷺ explicit orders. Khalid ibn al-Walid (still non-Muslim at this point) leads a counter-charge. 70 Muslims are martyred including Hamza (the Prophet's ﷺ uncle). The Prophet ﷺ is wounded. Revealed in Surah Al 'Imran 3:139-152.",
+        "id": "Quraisy kembali dengan 3.000 pejuang untuk membalas Badar. 700 muslimin (300 munafik yang membelot) awalnya menang hingga para pemanah yang ditempatkan di bukit meninggalkan posnya untuk mengumpulkan rampasan — bertentangan dengan perintah tegas Nabi ﷺ. Khalid bin al-Walid (saat itu masih non-Muslim) memimpin serangan balik. 70 muslim gugur syahid termasuk Hamzah (paman Nabi ﷺ). Nabi ﷺ terluka. Diturunkan dalam Surah Ali 'Imran 3:139-152."
+      },
+      "references": [{ "type": "quran", "ref": "3:139-152" }]
+    },
+    {
+      "slug": "battle-of-trench",
+      "era": "madinan",
+      "year": { "ah": 5, "ce": "627 CE", "note": "Shawwal" },
+      "title": { "en": "Battle of the Trench (al-Khandaq)", "id": "Perang Khandaq" },
+      "location": "Madinah",
+      "description": {
+        "en": "A coalition of 10,000 fighters (Quraysh + Ghatafan + Jewish tribes) besieges Madinah. On Salman al-Farsi's suggestion, the Muslims dig a trench along the exposed northern side — a novel tactic in Arabian warfare. After ~30 days of siege, a fierce cold wind and rain forces the coalition to disperse without a major battle. Revealed in Surah al-Ahzab 33.",
+        "id": "Koalisi 10.000 pejuang (Quraisy + Ghathafan + suku-suku Yahudi) mengepung Madinah. Atas usul Salman al-Farisi, kaum muslimin menggali parit di sisi utara yang terbuka — taktik baru dalam peperangan Arab. Setelah sekitar 30 hari pengepungan, angin dingin yang ganas dan hujan memaksa koalisi bubar tanpa pertempuran besar. Diturunkan dalam Surah al-Ahzab 33."
+      },
+      "references": [{ "type": "quran", "ref": "33:9-27" }]
+    },
+    {
+      "slug": "treaty-of-hudaybiyyah",
+      "era": "madinan",
+      "year": { "ah": 6, "ce": "628 CE", "note": "Dhul-Qi'dah" },
+      "title": { "en": "Treaty of Hudaybiyyah", "id": "Perjanjian Hudaibiyah" },
+      "location": "Hudaybiyyah, near Makkah",
+      "description": {
+        "en": "The Prophet ﷺ leads 1,400 companions toward Makkah to perform 'umrah, unarmed. The Quraysh block them. A 10-year peace treaty is signed at Hudaybiyyah despite terms that appear unfavorable to Muslims (they must turn back and can perform umrah only next year). The Quran calls it 'a manifest victory' (Surah al-Fath 48:1) — it proves so, as peace opens the floodgates for da'wah and mass conversions.",
+        "id": "Nabi ﷺ memimpin 1.400 sahabat menuju Makkah untuk umrah, tanpa senjata. Quraisy menghadang. Perjanjian damai 10 tahun ditandatangani di Hudaibiyah meski dengan syarat-syarat yang tampak tidak menguntungkan muslimin (mereka harus kembali dan hanya boleh umrah tahun berikutnya). Al-Qur'an menyebutnya 'kemenangan yang nyata' (Surah al-Fath 48:1) — terbukti demikian, karena kedamaian membuka pintu bagi dakwah dan pengislaman massal."
+      },
+      "references": [{ "type": "quran", "ref": "48:1-3" }]
+    },
+    {
+      "slug": "letters-to-kings",
+      "era": "madinan",
+      "year": { "ah": 6, "ce": "628 CE" },
+      "title": { "en": "Letters to world rulers", "id": "Surat-surat kepada para raja dunia" },
+      "location": "Madinah",
+      "description": {
+        "en": "The Prophet ﷺ dispatches letters inviting the rulers of neighboring empires to Islam — Heraclius (Byzantine), Chosroes II (Sasanian Persia), Muqawqis (Egypt), Negus (Abyssinia), and several Arab kings. Heraclius investigates carefully; Chosroes tears the letter and dies within a year (as the Prophet ﷺ had said 'may Allah tear his kingdom'); Muqawqis sends the Prophet ﷺ Maryam the Copt as a gift, who becomes mother of Ibrahim.",
+        "id": "Nabi ﷺ mengirim surat mengundang para penguasa kekaisaran tetangga kepada Islam — Heraklius (Bizantium), Kisra II (Persia Sasanid), Muqauqis (Mesir), Najasyi (Habasyah), dan beberapa raja Arab. Heraklius menyelidiki dengan cermat; Kisra merobek surat itu dan wafat dalam setahun (seperti sabda Nabi ﷺ 'semoga Allah merobek kerajaannya'); Muqauqis mengirim Nabi ﷺ Maria al-Qibtiyah sebagai hadiah, yang menjadi ibu Ibrahim."
+      }
+    },
+    {
+      "slug": "conquest-of-makkah",
+      "era": "madinan",
+      "year": { "ah": 8, "ce": "630 CE", "note": "20 Ramadan" },
+      "title": { "en": "The Conquest of Makkah (Fath Makkah)", "id": "Penaklukan Makkah (Fathu Makkah)" },
+      "location": "Makkah",
+      "description": {
+        "en": "After the Quraysh violate Hudaybiyyah, the Prophet ﷺ enters Makkah with 10,000 companions. The city surrenders almost without bloodshed. He circumambulates the Ka'bah, breaks its 360 idols reciting 'Truth has come and falsehood has vanished' (Surah al-Isra 17:81), and grants a general amnesty to the Quraysh with the words: 'Go, for you are free.'",
+        "id": "Setelah Quraisy melanggar Hudaibiyah, Nabi ﷺ memasuki Makkah bersama 10.000 sahabat. Kota itu menyerah hampir tanpa pertumpahan darah. Beliau melakukan tawaf di Ka'bah, menghancurkan 360 berhalanya sambil membaca 'Yang benar telah datang dan yang batil telah lenyap' (Surah al-Isra' 17:81), dan memberikan amnesti umum kepada Quraisy dengan kata-kata: 'Pergilah, kalian bebas.'"
+      },
+      "references": [
+        { "type": "quran", "ref": "17:81" },
+        { "type": "quran", "ref": "48:27-29" }
+      ]
+    },
+    {
+      "slug": "farewell-hajj",
+      "era": "farewell",
+      "year": { "ah": 10, "ce": "632 CE", "note": "Dhul-Hijjah" },
+      "title": { "en": "The Farewell Pilgrimage", "id": "Haji Wada'" },
+      "location": "Makkah, Arafat, Mina",
+      "description": {
+        "en": "The Prophet's ﷺ only Hajj, performed with ~124,000 companions. On the plain of Arafat he delivers the Farewell Sermon — the foundational address of Islamic ethics and law. It affirms: sanctity of life/property/honor, abolition of tribal blood feuds and usury, rights of women, brotherhood beyond race, and finality of his message. The Quran declares: 'This day I have perfected your religion for you' (Surah al-Ma'idah 5:3).",
+        "id": "Haji satu-satunya Nabi ﷺ, ditunaikan bersama sekitar 124.000 sahabat. Di padang Arafah beliau menyampaikan Khutbah Wada' — pidato fundamental etika dan hukum Islam. Khutbah itu menegaskan: kesucian jiwa/harta/kehormatan, penghapusan perseteruan darah antar suku dan riba, hak-hak perempuan, persaudaraan melampaui ras, dan keakhiran risalahnya. Al-Qur'an menyatakan: 'Pada hari ini telah Ku-sempurnakan untukmu agamamu' (Surah al-Ma'idah 5:3)."
+      },
+      "references": [
+        { "type": "quran", "ref": "5:3" },
+        { "type": "hadith", "ref": "Sahih Muslim 1218" }
+      ]
+    },
+    {
+      "slug": "passing",
+      "era": "farewell",
+      "year": { "ah": 11, "ce": "632 CE", "note": "12 Rabi' al-Awwal" },
+      "title": { "en": "The Prophet's ﷺ passing", "id": "Wafatnya Nabi ﷺ" },
+      "location": "Madinah",
+      "description": {
+        "en": "Three months after the Farewell Hajj, the Prophet ﷺ falls ill with a high fever. His final days are spent in the room of his wife A'ishah رضي الله عنها. He passes away with his head on her lap, at age 63. His last words: 'With the highest companions (of paradise).' Abu Bakr addresses the shocked community: 'Whoever worshipped Muhammad, Muhammad is dead. Whoever worshipped Allah, Allah is Living and never dies' — quoting Surah Al 'Imran 3:144. He is buried where he died, in A'ishah's room, which is now part of Masjid an-Nabawi.",
+        "id": "Tiga bulan setelah Haji Wada', Nabi ﷺ jatuh sakit dengan demam tinggi. Hari-hari terakhirnya dihabiskan di kamar istrinya Aisyah رضي الله عنها. Beliau wafat dengan kepala di pangkuannya, pada usia 63 tahun. Kata-kata terakhirnya: 'Bersama para sahabat yang tertinggi (di surga).' Abu Bakar berbicara kepada umat yang terguncang: 'Barangsiapa menyembah Muhammad, Muhammad telah wafat. Barangsiapa menyembah Allah, Allah Maha Hidup dan tidak pernah mati' — mengutip Surah Ali 'Imran 3:144. Beliau dimakamkan di tempat beliau wafat, di kamar Aisyah, yang sekarang menjadi bagian dari Masjid Nabawi."
+      },
+      "references": [
+        { "type": "quran", "ref": "3:144" },
+        { "type": "hadith", "ref": "Sahih al-Bukhari 4463" }
+      ]
+    }
+  ]
+}

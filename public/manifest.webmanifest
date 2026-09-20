@@ -1,15 +1,73 @@
 {
   "name": "Islamic Website",
   "short_name": "Islamic",
-  "description": "Free, sourced, offline-first Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials.",
-  "start_url": "/",
+  "id": "/",
+  "description": "Free, sourced, offline-first Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials, Hadith, Seerah, Hajj guide, Ramadan hub, memorization tool.",
+  "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
   "background_color": "#FBFBFD",
   "theme_color": "#0B7A3E",
   "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
   "categories": ["books", "education", "lifestyle"],
+  "prefer_related_applications": false,
   "icons": [
-    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Read Quran",
+      "short_name": "Quran",
+      "description": "Open the Quran reader",
+      "url": "/quran?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Prayer times",
+      "short_name": "Prayer",
+      "description": "See today's prayer times",
+      "url": "/prayer-times?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Qibla",
+      "short_name": "Qibla",
+      "description": "Find the direction of the Kaaba",
+      "url": "/qibla?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Duas",
+      "short_name": "Duas",
+      "description": "Browse the du'a collection",
+      "url": "/duas?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "share_target": {
+    "action": "/search",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "q",
+      "text": "q",
+      "url": "url"
+    }
+  },
+  "screenshots": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home screen"
+    }
   ]
 }

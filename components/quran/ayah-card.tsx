@@ -3,10 +3,12 @@
 // Client component: needs localStorage (bookmark, settings) and <audio> control.
 // Reads settings from lib/storage.ts and rerenders on the `iw:storage` custom event.
 
+import { Link } from "@/i18n/routing";
 import type { Ayah } from "@/lib/quran";
 import { type ReciterId, TRANSLATIONS, type TranslationId, audioUrl } from "@/lib/quran";
 import { getStore, isAyahBookmarked, setLastRead, toggleAyahBookmark } from "@/lib/storage";
 import { BookmarkIcon, PauseIcon, PlayIcon, ShareIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 // Event names shared with SurahHeaderBar. Ayah cards listen for
@@ -26,6 +28,7 @@ type Props = {
 };
 
 export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Props) {
+  const t = useTranslations("quran.ayahActions");
   const [bookmarked, setBookmarked] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [surahAudioActive, setSurahAudioActive] = useState(false);
@@ -227,6 +230,18 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
           Juz {ayah.juz} · Page {ayah.page}
         </span>
         <span>{TRANSLATIONS.find((t) => t.id === translationId)?.name ?? "Translation"}</span>
+        <Link
+          href={`/study/${ayah.surah}-${ayah.ayah}?tab=tafsir` as "/study/[verseKey]"}
+          className="ml-auto text-accent hover:underline focus-ring"
+        >
+          {t("readTafsir")}
+        </Link>
+        <Link
+          href={`/quran/word-by-word/${surahSlug}#ayah-${ayah.ayah}` as "/quran/word-by-word/[surah]"}
+          className="text-accent hover:underline focus-ring"
+        >
+          {t("wordByWord")}
+        </Link>
       </footer>
     </article>
   );

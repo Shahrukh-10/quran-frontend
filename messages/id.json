@@ -19,7 +19,23 @@
     "sources": "Sumber",
     "tools": "Alat",
     "learn": "Belajar",
-    "mushaf": "Muṣḥaf"
+    "mushaf": "Muṣḥaf",
+    "hadith": "Hadis",
+    "seerah": "Sirah",
+    "reverts": "Mualaf",
+    "ramadan": "Ramadhan",
+    "hajj": "Haji & Umrah",
+    "memorize": "Menghafal",
+    "iqamah": "Iqamah",
+    "account": "Akun",
+    "install": "Instal aplikasi",
+    "adhan": "Adzan",
+    "groups": {
+      "read": "Baca",
+      "practice": "Praktik",
+      "learn": "Pelajari",
+      "you": "Anda"
+    }
   },
   "home": {
     "hero": {
@@ -51,6 +67,36 @@
       "names": "99 Nama Allah",
       "calendar": "Kalender Hijriah",
       "tools": "Alat"
+    },
+    "featuredSurahs": {
+      "title": "Surah pilihan",
+      "caption": "Sering dibaca. Ketuk kartu untuk membuka.",
+      "allLink": "Semua 114"
+    },
+    "todayCard": {
+      "title": "Hari ini · {city}",
+      "caption": "{method} · Contoh waktu untuk ilustrasi.",
+      "changeCity": "Ganti kota",
+      "nextPrayer": "Salat berikutnya",
+      "inHours": "sekitar {hours} jam · data contoh"
+    },
+    "features": {
+      "title": "Semua yang Anda perlukan",
+      "caption": "Delapan alat untuk ibadah harian."
+    },
+    "how": {
+      "title": "Cara kerja situs ini",
+      "caption": "Tiga prinsip di balik setiap halaman.",
+      "step1Title": "Bersumber, bukan dibuat-buat",
+      "step1Body": "Setiap ayat, doa, hadis, dan terjemahan mencantumkan sumber. Tidak ada yang dibuat oleh AI.",
+      "step2Title": "Offline dulu",
+      "step2Body": "Teks Al-Qur'an, semua doa, dan jadwal salat termuat sekali dan berfungsi tanpa jaringan.",
+      "step3Title": "Tanpa pelacakan, tanpa akun",
+      "step3Body": "Penanda tersimpan di browser Anda. Tanpa iklan, tanpa analitik, tanpa dinding login."
+    },
+    "sunnahOfDay": {
+      "eyebrow": "Sunnah hari ini",
+      "sourceLabel": "Sumber"
     }
   },
   "footer": {
@@ -106,6 +152,40 @@
       "stub": "Teks ayat ini diambil saat build. Struktur dan URL sudah permanen.",
       "previous": "Ayat sebelumnya",
       "next": "Ayat berikutnya"
+    },
+    "wordByWord": {
+      "eyebrow": "Kajian kata per kata · Surah {number}",
+      "info": "{count} ayat · {revelation}",
+      "meccan": "Makkiyah",
+      "medinan": "Madaniyah",
+      "tapHint": "Ketuk kata Arab untuk arti & audio",
+      "backToVerses": "← Kembali ke tampilan ayat penuh",
+      "openLink": "Baca kata per kata →",
+      "scriptGroupLabel": "Skrip Arab",
+      "scriptUthmani": "Utsmani",
+      "scriptIndopak": "Indopak",
+      "dataLive": "langsung",
+      "dataCached": "tersimpan",
+      "dataLabel": "Sumber",
+      "stubTitle": "Data kata per kata belum diunduh.",
+      "stubHow": "Jalankan",
+      "stubTail": "untuk mengambil semua 114 surah (~5 menit, sekali saja)."
+    },
+    "ayahActions": {
+      "readTafsir": "Baca tafsir",
+      "wordByWord": "Kata per kata"
+    },
+    "study": {
+      "eyebrow": "Mode belajar",
+      "tabTranslations": "Terjemahan",
+      "tabTafsir": "Tafsir",
+      "tabNotes": "Catatan",
+      "tabRelated": "Terkait",
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "studyTabsAriaLabel": "Tab belajar",
+      "ayahContextAriaLabel": "Tautan konteks ayat",
+      "ayahNavAriaLabel": "Navigasi ayat"
     }
   },
   "duas": {
@@ -114,7 +194,23 @@
       "title": "Doa untuk setiap momen",
       "description": "Doa singkat dari Al-Qur'an dan hadis sahih, dikelompokkan menurut situasi hidup. Setiap doa mencantumkan sumber dan derajatnya.",
       "categoriesTitle": "Kategori",
-      "readMore": "Baca"
+      "readMore": "Baca",
+      "searchPlaceholder": "Cari doa berdasarkan topik, kata, atau situasi",
+      "searchAriaLabel": "Cari doa",
+      "categoriesHeading": "Kategori",
+      "categoriesCaption": "Telusuri berdasarkan situasi atau kebutuhan.",
+      "duasCount": "{count} doa",
+      "featuredHeading": "Doa pilihan",
+      "featuredCaption": "Tiga doa yang paling sering diajarkan.",
+      "sourceLabel": "Sumber",
+      "faq": {
+        "q1": "Apa itu doa dalam Islam?",
+        "a1": "Duʿāʾ (دُعَاء) adalah permohonan atau seruan pribadi kepada Allah — berbeda dari ṣalāh (salat lima waktu). Doa boleh dibaca dalam bahasa apa pun dan kapan saja, meskipun Nabi Muḥammad ﷺ mengajarkan doa-doa khusus untuk situasi tertentu.",
+        "q2": "Dari mana sumber doa-doa di situs ini?",
+        "a2": "Setiap doa di situs ini berasal dari sumber klasik — Ṣaḥīḥayn (Bukhārī dan Muslim), empat Sunan (Abū Dāwūd, at-Tirmidhī, an-Nasāʾī, Ibn Mājah), atau langsung dari Al-Qur'an. Nomor hadis lengkap dicantumkan pada setiap entri.",
+        "q3": "Apakah doa harus dibaca dalam bahasa Arab?",
+        "a3": "Tidak. Doa boleh dibaca dalam bahasa apa pun. Teks Arab disediakan bagi yang sedang belajar atau menghafal lafal dari Nabi ﷺ; transliterasi membantu pelafalan; terjemahan mempertahankan makna."
+      }
     },
     "category": {
       "backToDuas": "← Semua doa",
@@ -125,7 +221,9 @@
       "sourceLabel": "Sumber",
       "gradingLabel": "Derajat",
       "whenTitle": "Kapan dibaca",
-      "referenceTitle": "Referensi"
+      "referenceTitle": "Referensi",
+      "faqWhen": "Kapan doa \"{title}\" dibaca?",
+      "faqSource": "Apa sumber doa \"{title}\"?"
     }
   },
   "prayer": {
@@ -138,7 +236,13 @@
       "citiesTitle": "Jadwal salat per kota",
       "unavailable": "Lokasi tidak tersedia. Pilih kota di bawah atau periksa izin browser.",
       "notNow": "Bukan waktunya",
-      "next": "Berikutnya"
+      "next": "Berikutnya",
+      "eyebrow2": "London, GMT",
+      "sampleTimes": "Contoh waktu",
+      "muslimWorldLeague": "Muslim World League",
+      "calcMethodHeading": "Metode perhitungan",
+      "popularCitiesHeading": "Kota populer",
+      "popularCitiesCaption": "Ketuk kota untuk melihat jadwal lengkap."
     },
     "prayers": {
       "fajr": "Subuh",
@@ -271,7 +375,8 @@
     "description": "Audio azan yang indah untuk diputar di browser saat waktu salat.",
     "play": "Putar azan",
     "pause": "Jeda",
-    "muezzin": "Muazin"
+    "muezzin": "Muazin",
+    "callToPrayer": "Panggilan salat"
   },
   "settings": {
     "title": "Pengaturan",
@@ -287,7 +392,9 @@
     "deleteButton": "Hapus semua",
     "themeSystem": "Sistem",
     "themeLight": "Terang",
-    "themeDark": "Gelap"
+    "themeDark": "Gelap",
+    "eyebrow": "Preferensi",
+    "lede": "Kelola tampilan, bahasa, aksesibilitas, dan data di perangkat Anda. Semuanya tetap di browser Anda — tidak ada yang dikirim ke mana pun."
   },
   "privacy": {
     "title": "Privasi",
@@ -298,5 +405,368 @@
     "cookiesBody": "Tidak digunakan untuk pelacakan. Jika kami menambahkan fitur berbasis akun (V3), cookie sesi mungkin digunakan dengan persetujuan eksplisit.",
     "rightsTitle": "Hak Anda",
     "rightsBody": "Anda dapat mengekspor semuanya sebagai JSON atau menghapusnya dari halaman Pengaturan — satu klik untuk masing-masing."
+  },
+  "notFound": {
+    "title": "Halaman tidak ditemukan",
+    "code": "404",
+    "description": "Halaman yang Anda cari tidak ada. Mungkin sudah dipindahkan, atau belum ada — situs ini dibangun secara bertahap, fitur demi fitur.",
+    "returnHome": "Kembali ke beranda",
+    "browseQuran": "Jelajahi Al-Qur'an",
+    "seePrayerTimes": "Lihat jadwal salat",
+    "helpfulLinks": "Tautan bermanfaat"
+  },
+  "breadcrumb": {
+    "home": "Beranda",
+    "quran": "Al-Qur'an",
+    "duas": "Doa",
+    "prayerTimes": "Jadwal salat",
+    "qibla": "Kiblat",
+    "learnSalah": "Belajar salat",
+    "learn": "Belajar",
+    "namesOfAllah": "99 Nama Allah",
+    "calendar": "Kalender Hijriah",
+    "tools": "Alat",
+    "settings": "Pengaturan",
+    "search": "Cari",
+    "about": "Tentang",
+    "privacy": "Privasi",
+    "sources": "Sumber",
+    "mushaf": "Muṣḥaf",
+    "readPdf": "Baca (PDF)",
+    "wordByWord": "Kata per kata",
+    "browse": "Jelajah",
+    "study": "Mode belajar",
+    "learningPlans": "Rencana belajar",
+    "adhan": "Pemutar azan",
+    "offline": "Offline",
+    "hadith": "Hadis",
+    "seerah": "Sirah",
+    "reverts": "Mualaf",
+    "ramadan": "Ramadhan",
+    "hajj": "Haji & Umrah",
+    "memorize": "Menghafal",
+    "iqamah": "Iqamah",
+    "account": "Akun",
+    "install": "Instal"
+  },
+  "hadith": {
+    "index": {
+      "eyebrow": "Kutubus Sittah",
+      "title": "Perpustakaan hadis",
+      "description": "Kutubus Sittah — enam kitab kanonik hadis Sunni. Setiap hadis mencantumkan nomor koleksinya, dan yang terkenal diberi derajat.",
+      "collectionsHeading": "Koleksi",
+      "hadiths": "hadis",
+      "dataSourceNotice": "Teks bersumber dari kumpulan hadis publik Fawaz Ahmed. Semua derajat mengikuti klasifikasi asli penyusun."
+    },
+    "book": {
+      "hadith": "Hadis",
+      "collection": "Koleksi",
+      "backToIndex": "← Semua koleksi",
+      "totalHadith": "Total {count} hadis",
+      "featuredHeading": "Hadis pilihan",
+      "featuredCaption": "{count} hadis terkenal dari koleksi ini.",
+      "noSeedHeading": "Belum ada yang ditampilkan",
+      "noSeedCaption": "Jalankan skrip fetch untuk memuat seluruh korpus.",
+      "fetchMoreTitle": "Korpus lengkap:",
+      "fetchMoreBody": "Hanya hadis pilihan yang tersedia di repo. Untuk memuat semua, jalankan",
+      "fetchMoreTail": "lalu rebuild."
+    },
+    "detail": {
+      "hadith": "Hadis",
+      "backToBook": "← {name}",
+      "hadithLabel": "Hadis #{number}",
+      "source": "Sumber",
+      "grade": "Derajat",
+      "compiler": "Penyusun",
+      "notLoadedTitle": "Hadis ini belum tersedia di repo.",
+      "notLoadedBody": "Jalankan",
+      "notLoadedTail": "untuk mengunduh korpus lengkap."
+    }
+  },
+  "seerah": {
+    "index": {
+      "eyebrow": "Kehidupan Nabi ﷺ",
+      "title": "Sirah Nabawiyyah",
+      "description": "Kehidupan Nabi Muhammad ﷺ, diceritakan secara kronologis. Dari Tahun Gajah hingga Khutbah Wada' — 63 tahun yang mengubah dunia.",
+      "era": "Era",
+      "beforeHijrah": "SH",
+      "afterHijrah": "H",
+      "dataSourceNotice": "Bersumber dari Ar-Rahiq al-Makhtum (Mubarakpuri) dan Sirah Ibn Hisyam, dirujuk silang dengan hadis Sahih."
+    },
+    "event": {
+      "seerah": "Sirah",
+      "backToTimeline": "← Kembali ke lini masa",
+      "location": "Lokasi",
+      "beforeHijrah": "SH",
+      "afterHijrah": "H",
+      "referencesHeading": "Referensi",
+      "quran": "Al-Qur'an",
+      "hadith": "Hadis",
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "navAriaLabel": "Navigasi lini masa sirah"
+    }
+  },
+  "reverts": {
+    "index": {
+      "eyebrow": "Selamat datang di Islam",
+      "title": "Pusat panduan mualaf",
+      "description": "Jika Anda baru bersyahadat, atau sedang mempertimbangkannya, halaman ini untuk Anda. Jawaban lugas, bersumber, tanpa terburu-buru.",
+      "welcomeNote": "Kata 'revert' (kembali) disukai banyak muslim baru — dari hadis bahwa setiap anak dilahirkan dalam fitrah, keadaan iman alamiah. Apapun kata yang Anda pilih, Anda disambut.",
+      "dataSourceNotice": "Semua konten berlandaskan Al-Qur'an dan hadis Sahih. Di mana ulama berbeda pendapat, kami arahkan Anda kepada imam setempat."
+    },
+    "article": {
+      "reverts": "Mualaf",
+      "backToHub": "← Kembali ke pusat panduan",
+      "keepReadingHeading": "Baca lanjutan",
+      "referencesHeading": "Referensi",
+      "quran": "Al-Qur'an",
+      "hadith": "Hadis",
+      "previous": "Artikel sebelumnya",
+      "next": "Artikel berikutnya",
+      "navAriaLabel": "Navigasi pusat panduan mualaf"
+    }
+  },
+  "ramadan": {
+    "index": {
+      "eyebrow": "Ramadhan {year} H",
+      "title": "Pusat Ramadhan",
+      "description": "Bulan puasa, salat malam, dan Al-Qur'an. Semua yang Anda butuhkan untuk mempersiapkan, menjalani, dan menyempurnakan Ramadhan dengan niat.",
+      "statusInside": "Ramadhan telah tiba.",
+      "statusDayOf": "Hari ke-{day} dari {total}",
+      "statusUntil": "Ramadhan dimulai dalam {days} hari.",
+      "statusStartsOn": "Mulai {date} · 1 Ramadhan {year} H",
+      "trackerHeading": "Pelacak puasa",
+      "trackerCaption": "Ketuk hari untuk menandainya selesai. Semua tersimpan di perangkat Anda — tidak ada yang dikirim ke mana pun.",
+      "dataSourceNotice": "Semua hukum bersumber dari Al-Qur'an dan hadis Sahih. Di mana ulama berbeda pendapat, kami arahkan Anda kepada imam setempat."
+    },
+    "tracker": {
+      "day": "Hari",
+      "fasted": "berpuasa",
+      "notFasted": "belum ditandai",
+      "complete": "selesai",
+      "upcoming": "akan datang",
+      "ariaLabel": "Pelacak puasa Ramadhan 30 hari",
+      "resetLabel": "Reset semua",
+      "resetConfirm": "Reset semua hari Ramadhan ini menjadi tidak ditandai? Tindakan ini tidak bisa dibatalkan."
+    },
+    "article": {
+      "ramadan": "Ramadhan",
+      "backToHub": "← Kembali ke pusat panduan",
+      "referencesHeading": "Referensi",
+      "quran": "Al-Qur'an",
+      "hadith": "Hadis",
+      "previous": "Artikel sebelumnya",
+      "next": "Artikel berikutnya",
+      "navAriaLabel": "Navigasi pusat panduan Ramadhan"
+    }
+  },
+  "hajj": {
+    "index": {
+      "eyebrow": "Rukun ke-5",
+      "title": "Panduan Haji & Umrah",
+      "description": "Panduan langkah demi langkah untuk Umrah (sepanjang tahun) dan Haji (sekali seumur hidup). Ritual, waktu, aturan ihram, pertanyaan umum.",
+      "disclaimer": "Ini adalah panduan belajar, bukan pengganti mutawwif berkualifikasi selama pelaksanaan Haji. Hukum-hukum mengikuti pendapat mayoritas Sunni; jika empat mazhab berbeda substansial, kami menyebutkannya dan mengarahkan Anda pada imam setempat.",
+      "dataSourceNotice": "Hukum bersumber dari Al-Qur'an, hadis Sahih, dan fiqih standar empat mazhab Sunni. Dirujuk silang dengan pedoman resmi Kementerian Haji Arab Saudi."
+    },
+    "article": {
+      "hajj": "Haji & Umrah",
+      "backToHub": "← Kembali ke panduan",
+      "referencesHeading": "Referensi",
+      "quran": "Al-Qur'an",
+      "hadith": "Hadis",
+      "previous": "Langkah sebelumnya",
+      "next": "Langkah berikutnya",
+      "navAriaLabel": "Navigasi panduan Haji"
+    }
+  },
+  "memorize": {
+    "index": {
+      "eyebrow": "Repetisi terjadwal",
+      "title": "Menghafal Al-Qur'an",
+      "description": "Pilih ayat juz demi juz, dan biarkan repetisi terjadwal mengatur ulangan Anda. Semua tersimpan di perangkat Anda.",
+      "privacyNotice": "Progres hafalan Anda hanya di browser. Tidak ada yang dikirim ke mana pun."
+    },
+    "dashboard": {
+      "statNew": "Baru",
+      "statLearning": "Belajar",
+      "statReviewing": "Mengulang",
+      "statMature": "Matang",
+      "dueTodayLabel": "Hari ini",
+      "dueTodayCount": "{count} kartu jatuh tempo",
+      "dueTodayHint": "Ulangan singkat menjaga hafalan tetap segar.",
+      "noCardsYet": "Belum ada kartu.",
+      "addFirstHint": "Pilih juz di bawah dan ketuk ayat untuk menambahkannya.",
+      "allCaughtUp": "Semua terjadwal.",
+      "returnTomorrow": "Kembali besok — deck Anda sesuai jadwal.",
+      "reviewNow": "Mulai ulangan hari ini"
+    },
+    "juzPicker": {
+      "heading": "Per juz",
+      "caption": "Ketuk sebuah juz untuk melihat ayatnya dan menambahkan yang sedang Anda hafal.",
+      "juzLabel": "Juz",
+      "addedCount": "{count} ditambahkan"
+    },
+    "juz": {
+      "memorize": "Menghafal",
+      "pageTitle": "Juz {juz} — pilih ayat",
+      "pageDescription": "Setiap ayat di juz {juz}. Ketuk Tambah untuk menjadwalkannya dalam ulangan terjadwal.",
+      "juzLabel": "Juz {juz}",
+      "juzOf": "Juz {juz} dari 30",
+      "backToDashboard": "← Dasbor menghafal",
+      "coversSurahs": "Mencakup surah",
+      "verseCount": "{count} ayat"
+    },
+    "ayahAdder": {
+      "progress": "{added} dari {total} ditambahkan",
+      "backToDashboard": "← Kembali",
+      "add": "Tambah",
+      "remove": "Hapus",
+      "addAriaLabel": "Tambahkan ayat {verseKey} ke hafalan",
+      "removeAriaLabel": "Hapus ayat {verseKey} dari hafalan"
+    },
+    "review": {
+      "memorize": "Menghafal",
+      "eyebrow": "Ulangan hari ini",
+      "pageTitle": "Sesi ulangan",
+      "pageDescription": "Ingat teks Arab dari terjemahannya. Nilai jujur — jadwal akan menyesuaikan.",
+      "backToDashboard": "← Dasbor",
+      "loading": "Memuat deck Anda…",
+      "loadingVerse": "Memuat ayat…",
+      "verseUnavailable": "Ayat {verseKey} belum tersedia. Jalankan pnpm fetch:quran.",
+      "noDue": "Tidak ada yang jatuh tempo hari ini.",
+      "noDueHint": "Tambahkan ayat lain atau kembali besok.",
+      "sessionComplete": "Sesi selesai.",
+      "completedCount": "Anda telah mengulangi {count} kartu — bagus sekali.",
+      "progress": "{current} dari {total}",
+      "showAnswer": "Tampilkan jawaban",
+      "again": "Ulang",
+      "hard": "Sulit",
+      "good": "Baik",
+      "easy": "Mudah"
+    }
+  },
+  "iqamah": {
+    "index": {
+      "eyebrow": "Diverifikasi komunitas",
+      "title": "Waktu iqamah masjid",
+      "description": "Waktu salat berjamaah di masjid-masjid seluruh dunia, dikirim dan diverifikasi oleh komunitas.",
+      "crowdsourcedNote": "Daftar ini bersumber dari komunitas. Setiap entri ditinjau sebelum tampil; waktu bisa berubah — selalu cek dengan masjid setempat.",
+      "submitButton": "Kirim masjid baru",
+      "countHint": "{count} masjid",
+      "emptyTitle": "Belum ada masjid.",
+      "emptyBody": "Jadilah yang pertama menambahkan — kiriman dimoderasi sebelum tayang."
+    },
+    "detail": {
+      "iqamah": "Iqamah",
+      "backToList": "← Semua masjid",
+      "timezoneLabel": "Zona waktu",
+      "iqamahHeading": "Waktu iqamah",
+      "notesHeading": "Catatan",
+      "lastUpdated": "Diperbarui",
+      "suggestUpdate": "Sarankan pembaruan"
+    },
+    "submit": {
+      "iqamah": "Iqamah",
+      "eyebrow": "Kirim",
+      "backToList": "← Semua masjid",
+      "pageTitle": "Kirim masjid",
+      "pageDescription": "Bagikan waktu iqamah masjid di komunitas Anda. Kiriman ditinjau oleh moderator sebelum tampil publik.",
+      "moderationNotice": "Nama dan email pengirim hanya untuk moderasi dan tidak pernah ditampilkan ke publik.",
+      "name": "Nama masjid",
+      "city": "Kota",
+      "country": "Kode negara",
+      "countryHelp": "Kode ISO dua huruf (misalnya GB, US, ID, PK, SA).",
+      "timezone": "Zona waktu",
+      "timezoneHelp": "Identifier IANA — berguna untuk fitur mendatang seperti menyesuaikan waktu ke jam lokal Anda.",
+      "address": "Alamat",
+      "iqamahLegend": "Waktu iqamah",
+      "iqamahHelp": "Waktu jam dinding di masjid. Kosongkan jika tidak tahu.",
+      "notes": "Catatan (opsional)",
+      "submitterLegend": "Tentang Anda (opsional)",
+      "submitterHelp": "Bersifat pribadi — hanya digunakan moderator untuk menindaklanjuti bila perlu.",
+      "submitterName": "Nama Anda",
+      "submitterEmail": "Email Anda",
+      "submit": "Kirim untuk ditinjau",
+      "submitting": "Mengirim…",
+      "successTitle": "Terima kasih.",
+      "successBody": "Kiriman Anda ({slug}) masuk antrian moderasi. Akan tampil publik setelah disetujui.",
+      "submitAnother": "Kirim lagi",
+      "errorGeneric": "Pengiriman gagal. Coba lagi sebentar.",
+      "errorNetwork": "Tidak dapat menghubungi server. Cek koneksi dan coba lagi."
+    }
+  },
+  "account": {
+    "eyebrow": "Opsional",
+    "pageTitle": "Akun",
+    "pageDescription": "Masuk untuk menyinkronkan penanda, catatan, deck hafalan, dan pengaturan Anda antar perangkat. Tanpa email. Tanpa pelacakan.",
+    "signUp": "Buat akun",
+    "signIn": "Masuk",
+    "createAccount": "Buat akun",
+    "signedInAs": "Masuk sebagai",
+    "sessionExpires": "Sesi berakhir",
+    "syncActive": "Sinkronisasi aktif",
+    "syncActiveBody": "Penanda, catatan, deck hafalan, dan pengaturan Anda tersinkron otomatis ke perangkat mana pun yang masuk dengan username ini. Perubahan direplikasi dalam beberapa detik.",
+    "logout": "Keluar",
+    "username": "Nama pengguna",
+    "usernameHelp": "3-64 karakter. Huruf, angka, garis bawah, tanda hubung.",
+    "passphrase": "Frasa sandi",
+    "passphraseHelpSignUp": "Minimal 12 karakter. Tulis di tempat aman — tidak ada reset.",
+    "passphraseHelpSignIn": "Frasa sandi yang Anda buat saat membuat akun.",
+    "noRecoveryTitle": "Tidak ada reset kata sandi.",
+    "noRecoveryBody": "Kami tidak mengumpulkan email, jadi tidak bisa mengirim link reset. Jika Anda lupa frasa sandi, akun hilang. Simpan di pengelola kata sandi.",
+    "submitting": "Sedang bekerja…",
+    "faqTitle": "Tentang akun",
+    "faqDataQ": "Apa yang disinkronkan?",
+    "faqDataA": "Penanda Al-Qur'an, catatan pribadi, deck hafalan, log puasa, streak salat, hitungan dzikir, dan pengaturan — semua yang di bawah iw.v1 di browser Anda.",
+    "faqEmailQ": "Kenapa tanpa email?",
+    "faqEmailA": "Karena kami tidak ingin. Tanpa email berarti tanpa spam, tanpa daftar pemasaran, tanpa kebocoran data. Trade-off-nya Anda tidak bisa reset frasa sandi yang lupa.",
+    "faqDeleteQ": "Bagaimana menghapus akun?",
+    "faqDeleteA": "Masuk, buka Pengaturan, gunakan \"Hapus data saya\". Itu menghapus perangkat dan salinan server. Butuh endpoint hapus-akun proper? Silakan minta.",
+    "errorUsernameTaken": "Nama pengguna itu sudah dipakai. Coba yang lain.",
+    "errorInvalidCredentials": "Nama pengguna atau frasa sandi salah.",
+    "errorUsernameRequired": "Nama pengguna wajib.",
+    "errorPassphraseRequired": "Frasa sandi wajib.",
+    "errorPassphraseShort": "Frasa sandi minimal 12 karakter.",
+    "errorUsernameShape": "Nama pengguna hanya boleh huruf, angka, garis bawah, tanda hubung (3-64 karakter)."
+  },
+  "install": {
+    "prompt": {
+      "title": "Instal sebagai aplikasi?",
+      "body": "Tambahkan Islamic Website ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
+      "bodyIos": "Tambahkan Islamic Website ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
+      "iosStep1": "Ketuk tombol Bagikan di Safari.",
+      "iosStep2": "Gulir ke 'Tambah ke Layar Utama'.",
+      "iosStep3": "Ketuk 'Tambah' untuk konfirmasi.",
+      "installButton": "Instal",
+      "dismiss": "Nanti saja",
+      "close": "Tutup"
+    },
+    "page": {
+      "eyebrow": "Layar utama · Offline · Layar penuh",
+      "title": "Instal sebagai aplikasi",
+      "description": "Situs ini bekerja sebagai Progressive Web App — instal ke perangkat Anda dan dapatkan pengalaman yang sama dengan aplikasi native, tanpa peninjauan App Store, pelacakan, atau unduhan 50 MB.",
+      "featureOfflineTitle": "Bekerja offline",
+      "featureOfflineBody": "Teks Al-Qur'an, koleksi doa, jadwal salat dan tutorial salat tersimpan — bisa dipakai di pesawat atau area sinyal lemah.",
+      "featureHomeTitle": "Ikon layar utama",
+      "featureHomeBody": "Terbuka di jendela sendiri tanpa chrome browser. Terasa seperti aplikasi native, dijalankan dari tempat yang sama.",
+      "featureFastTitle": "Cepat",
+      "featureFastBody": "Kunjungan berikutnya termuat instan. Tanpa siklus update App Store — perbaikan tayang saat kami push.",
+      "iosHeading": "iPhone / iPad (Safari)",
+      "iosStep1": "Buka halaman ini di Safari (Chrome iOS tidak bisa menginstal PWA — batasan Apple).",
+      "iosStep2": "Ketuk tombol Bagikan (kotak dengan panah ke atas).",
+      "iosStep3": "Gulir ke bawah dan ketuk 'Tambah ke Layar Utama'.",
+      "iosStep4": "Ketuk 'Tambah' di kanan atas. Ikon Islamic Website muncul di layar utama.",
+      "androidHeading": "Android (Chrome, Edge, Samsung Internet)",
+      "androidStep1": "Buka menu (tiga titik, kanan atas).",
+      "androidStep2": "Ketuk 'Instal aplikasi' atau 'Tambah ke layar utama'.",
+      "androidStep3": "Konfirmasi. Ikon aplikasi muncul di app drawer.",
+      "desktopHeading": "Desktop (Chrome, Edge, Brave)",
+      "desktopBody": "Cari ikon instal di bilah alamat (layar kecil dengan panah ke bawah). Klik, lalu 'Instal'. Situs terbuka di jendela sendiri dan mendapat entri menu Start / Dock.",
+      "nativeQuestion": "Apakah ada aplikasi iOS/Android di App Store?",
+      "nativeAnswer": "Tidak — dan itu disengaja. Aplikasi native berarti siklus peninjauan toko, update paksa, dan unduhan 50 MB untuk sesuatu yang pada dasarnya situs teks-dan-audio. PWA memberikan semua yang aplikasi native berikan (offline, ikon layar utama, layar penuh, notifikasi) tanpa biayanya. Jika Anda sudah 'Tambah ke Layar Utama', Anda sudah punya aplikasinya.",
+      "backHome": "Kembali ke beranda",
+      "openQuran": "Buka Al-Qur'an"
+    }
   }
 }

@@ -2,6 +2,7 @@ import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
+import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-data";
 import { locales, rtlLocales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
@@ -48,23 +49,54 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     referrer: "no-referrer-when-downgrade",
     keywords: ["Quran", "Islam", "duas", "prayer times", "qibla", "salah", "hadith", "Muslim"],
     alternates: {
+      // Trailing-slash policy — site-wide: NO trailing slash on any canonical.
+      // - Content paths (`/quran`, `/duas`, `/prayer-times`, `/quran/al-fatihah`)
+      //   already ship without a trailing slash.
+      // - The site root emits `http://<host>` (no trailing slash) because
+      //   Next.js's metadata resolver deliberately collapses `pathname === "/"`
+      //   to `result.origin` (node_modules/next/dist/lib/metadata/resolvers/
+      //   resolve-url.js L109). We accept that behavior so root canonicals
+      //   match the rest of the site — one consistent form, no duplicate-URL
+      //   ambiguity.
+      // - `metadataBase` in this file matches (`http://<host>/` — the URL
+      //   constructor normalizes but pathname `/` is invisible).
       canonical: siteUrl(locale === routing.defaultLocale ? "/" : `/${locale}`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === routing.defaultLocale ? "/" : `/${l}`)]),
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, siteUrl(l === routing.defaultLocale ? "/" : `/${l}`)]),
+        ),
+        // x-default → same as the default-locale root. Emits both an HTML
+        // `<link rel="alternate" hreflang="x-default">` tag AND is echoed in
+        // the response `Link:` header by next-intl middleware.
+        "x-default": siteUrl("/"),
+      },
     },
     openGraph: {
+      // No `title:` here — let Next.js inherit each page's `title` for og:title
+      // (via the templated <title>). If we set a static openGraph.title,
+      // every social share on every page shows the same string.
+      // og:url defaults to the locale root; pages that override
+      // `alternates.canonical` also override `openGraph.url` (see the
+      // codemod at /tmp/codemod-og-url.py that keeps them in sync).
+      url: siteUrl(locale === routing.defaultLocale ? "/" : `/${locale}`),
       type: "website",
       siteName,
-      title: siteName,
       description: t("subtitle"),
       locale,
-      url: siteUrl(locale === routing.defaultLocale ? "/" : `/${locale}`),
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: siteName,
+        },
+      ],
     },
     twitter: {
+      // Same reason as openGraph: let the per-page title cascade.
       card: "summary_large_image",
-      title: siteName,
       description: t("subtitle"),
+      images: ["/opengraph-image"],
     },
     robots: {
       index: true,
@@ -73,9 +105,31 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     },
     other: {
       "ai-content-declaration": "human-authored, AI-formatted; religious content scholar-reviewed",
+      // iOS PWA hints — Safari doesn't read the standard manifest for these.
+      "apple-mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-status-bar-style": "black-translucent",
+      "apple-mobile-web-app-title": "Islamic",
+      // Format-detection off so verse numbers don't get auto-linked as phone numbers.
+      "format-detection": "telephone=no",
+    },
+    appleWebApp: {
+      capable: true,
+      title: "Islamic",
+      statusBarStyle: "black-translucent",
     },
     manifest: "/manifest.webmanifest",
-    icons: [{ rel: "icon", url: "/icon.svg", type: "image/svg+xml" }],
+    icons: {
+      // Modern browsers pick the SVG; older browsers and email clients pick favicon.ico.
+      // iOS home screen uses apple-touch-icon (180×180 opaque PNG per Apple guidelines).
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" },
+        { url: "/icons/icon-512.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: ["/favicon.ico"],
+    },
   };
 }
 
@@ -112,7 +166,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               // Row 1 — Names of Allah (subset)
               ["ٱلرَّحْمَٰن", "ٱلرَّحِيم", "ٱلْمَلِك", "ٱلْقُدُّوس", "ٱلسَّلَام", "ٱلْمُؤْمِن", "ٱلْمُهَيْمِن", "ٱلْعَزِيز"],
               // Row 2 — larger, core creed words
-              ["ٱللَّه", "لَا إِلَٰهَ إِلَّا ٱللَّه", "مُحَمَّد رَسُولُ ٱللَّه", "ٱلْحَمْدُ لِلَّٰه"],
+              ["ٱللَّه", "ٱلْحَمْدُ لِلَّٰه"],
               // Row 3 — small worship vocabulary
               ["صَلَاة", "زَكَاة", "صَوْم", "حَجّ", "شَهَادَة", "تَقْوَىٰ", "إِيمَان", "إِحْسَان", "تَوْبَة"],
               // Row 4 — display size, majestic names
@@ -167,6 +221,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <OrganizationSchema />
           <WebSiteSchema />
           <ServiceWorkerRegister />
+          <InstallPrompt />
         </NextIntlClientProvider>
       </body>
     </html>

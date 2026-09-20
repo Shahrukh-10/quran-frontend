@@ -4,6 +4,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { CITIES, getCity } from "@/lib/cities";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -22,6 +23,7 @@ type Props = { params: Promise<{ locale: string; city: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, city } = await params;
+  const bc = await breadcrumbs(locale);
   const c = getCity(city);
   if (!c) return {};
   return {
@@ -32,11 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale === "en" ? `/prayer-times/${city}` : `/${locale}/prayer-times/${city}`,
       ),
     },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/prayer-times/${city}` : `/${locale}/prayer-times/${city}`,
+      ),
+    },
   };
 }
 
 export default async function CityPrayerTimesPage({ params }: Props) {
   const { locale, city } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const c = getCity(city);
   if (!c) notFound();
@@ -45,8 +53,8 @@ export default async function CityPrayerTimesPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Prayer times", url: siteUrl("/prayer-times") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("prayerTimes"), url: siteUrl("/prayer-times") },
           { name: c.name, url: siteUrl(`/prayer-times/${c.slug}`) },
         ]}
       />

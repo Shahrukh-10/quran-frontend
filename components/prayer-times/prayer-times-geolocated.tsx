@@ -11,11 +11,11 @@ import {
   nextPrayer,
 } from "@/lib/prayer-times";
 import { getStore, updateSettings } from "@/lib/storage";
-import { Loader2Icon, MapPinIcon } from "lucide-react";
+import { AlertCircleIcon, Loader2Icon, MapPinIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-type Status = "idle" | "locating" | "ready" | "denied" | "unsupported";
+type Status = "idle" | "locating" | "ready" | "denied" | "unsupported" | "insecure";
 
 export function PrayerTimesGeolocated() {
   const t = useTranslations("prayer.index");
@@ -25,6 +25,7 @@ export function PrayerTimesGeolocated() {
   const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
   const [settings, setSettings] = useState(() => getStore().settings);
   const [now, setNow] = useState(() => new Date());
+  const [errorHint, setErrorHint] = useState<string | null>(null);
 
   useEffect(() => {
     setSettings(getStore().settings);
@@ -42,15 +43,47 @@ export function PrayerTimesGeolocated() {
       setStatus("unsupported");
       return;
     }
+    // Geolocation is only granted in a "secure context" — HTTPS or localhost.
+    // On plain-HTTP LAN (e.g. http://192.168.x.x) mobile browsers silently
+    // reject with no permission prompt. Detect and message the user clearly
+    // so they can either open the site over HTTPS or pick a city below.
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setStatus("insecure");
+      return;
+    }
     setStatus("locating");
+    setErrorHint(null);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         setCoords({ lat: pos.coords.latitude, lon: pos.coords.longitude });
         setStatus("ready");
       },
-      () => setStatus("denied"),
-      { maximumAge: 60_000, timeout: 10_000 },
+      (err) => {
+        setStatus("denied");
+        // Provide a specific hint so the user knows how to recover.
+        if (err.code === err.PERMISSION_DENIED) {
+          setErrorHint(
+            "You blocked location access. Open Settings → Privacy → Location for this site to allow, or pick a city below.",
+          );
+        } else if (err.code === err.POSITION_UNAVAILABLE) {
+          setErrorHint(
+            "Your device couldn't get a position right now. Move near a window, or pick a city below.",
+          );
+        } else if (err.code === err.TIMEOUT) {
+          setErrorHint("Location request timed out. Try again or pick a city below.");
+        } else {
+          setErrorHint("Location unavailable. Pick a city below.");
+        }
+      },
+      { maximumAge: 60_000, timeout: 10_000, enableHighAccuracy: false },
     );
+  }, []);
+
+  const scrollToCities = useCallback(() => {
+    const el = document.querySelector(".cities");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }, []);
 
   const times = useMemo<ComputedTimes | null>(() => {
@@ -86,8 +119,27 @@ export function PrayerTimesGeolocated() {
           {t("useLocation")}…
         </p>
       )}
-      {(status === "denied" || status === "unsupported") && (
-        <p className="text-sm text-muted-foreground">{t("unavailable")}</p>
+      {(status === "denied" || status === "unsupported" || status === "insecure") && (
+        <div className="flex flex-col gap-3">
+          <div className="flex items-start gap-2 rounded-lg border border-separator bg-background/50 p-3 text-sm">
+            <AlertCircleIcon size={18} className="mt-0.5 shrink-0 text-muted-foreground" />
+            <p className="text-muted-foreground">
+              {status === "insecure"
+                ? "Location works only over HTTPS. Pick a city below to see prayer times right now."
+                : status === "unsupported"
+                  ? "Your browser doesn't support location. Pick a city below."
+                  : (errorHint ?? t("unavailable"))}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={scrollToCities}
+            className="focus-ring inline-flex items-center gap-2 rounded-lg bg-accent text-[hsl(var(--accent-foreground))] px-4 h-11 font-medium transition-colors duration-micro ease-spring hover:opacity-90 self-start"
+          >
+            <MapPinIcon size={16} />
+            Pick a city
+          </button>
+        </div>
       )}
       {status === "ready" && times && (
         <div>

@@ -8,6 +8,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { Link } from "@/i18n/routing";
 import { searchQuran } from "@/lib/quran-search";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -28,11 +29,15 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     alternates: {
       canonical: siteUrl(q ? `/search?q=${encodeURIComponent(q)}` : "/search"),
     },
+    openGraph: {
+      url: siteUrl(q ? `/search?q=${encodeURIComponent(q)}` : "/search"),
+    },
   };
 }
 
 export default async function SearchPage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const { q = "", lang = "any" } = await searchParams;
   setRequestLocale(locale);
 
@@ -48,8 +53,8 @@ export default async function SearchPage({ params, searchParams }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Search", url: siteUrl("/search") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("search"), url: siteUrl("/search") },
         ]}
       />
 

@@ -2,6 +2,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -13,11 +14,15 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "tools.index" });
   return {
     title: t("title"),
     description: t("description"),
     alternates: { canonical: siteUrl(locale === "en" ? "/tools" : `/${locale}/tools`) },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/tools" : `/${locale}/tools`),
+    },
   };
 }
 
@@ -86,6 +91,7 @@ const ICONS: Record<string, React.ReactNode> = {
 
 export default async function ToolsIndex({ params }: PageProps) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "tools.index" });
   const tasbih = await getTranslations({ locale, namespace: "tools.tasbih" });
@@ -104,8 +110,8 @@ export default async function ToolsIndex({ params }: PageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Tools", url: siteUrl("/tools") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("tools"), url: siteUrl("/tools") },
         ]}
       />
       <section className="section section--hero">

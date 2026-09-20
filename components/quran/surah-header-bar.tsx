@@ -242,9 +242,9 @@ export function SurahHeaderBar({ surah, surahSlug: _surahSlug, ayahCount }: Prop
           <legend className="sr-only">Language mode</legend>
           {(
             [
-              { id: "arabic-and-translation", label: "Arabic + English", short: "Both" },
-              { id: "arabic-only", label: "Arabic only", short: "العربية" },
-              { id: "translation-only", label: "English only", short: "English" },
+              { id: "arabic-and-translation", label: "Arabic + English", short: "Both", shortLang: undefined },
+              { id: "arabic-only", label: "Arabic only", short: "العربية", shortLang: "ar" },
+              { id: "translation-only", label: "English only", short: "English", shortLang: undefined },
             ] as const
           ).map((opt) => {
             const active = languageMode === opt.id;
@@ -263,7 +263,13 @@ export function SurahHeaderBar({ surah, surahSlug: _surahSlug, ayahCount }: Prop
                 }`}
               >
                 <span className="hidden sm:inline">{opt.label}</span>
-                <span className="sm:hidden">{opt.short}</span>
+                {opt.shortLang ? (
+                  <span className="sm:hidden" lang={opt.shortLang} dir="rtl">
+                    {opt.short}
+                  </span>
+                ) : (
+                  <span className="sm:hidden">{opt.short}</span>
+                )}
               </button>
             );
           })}

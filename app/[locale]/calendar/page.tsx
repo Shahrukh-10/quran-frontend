@@ -2,6 +2,7 @@ import { CalendarView } from "@/components/calendar/calendar-view";
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -13,16 +14,21 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "calendar" });
   return {
     title: t("title"),
     description: t("description"),
     alternates: { canonical: siteUrl(locale === "en" ? "/calendar" : `/${locale}/calendar`) },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/calendar" : `/${locale}/calendar`),
+    },
   };
 }
 
 export default async function CalendarPage({ params }: PageProps) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "calendar" });
 
@@ -30,7 +36,7 @@ export default async function CalendarPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: "Islamic calendar", url: siteUrl("/calendar") },
         ]}
       />

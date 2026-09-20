@@ -32,6 +32,13 @@
 /* ---------- Body baseline ---------- */
 html {
   -webkit-text-size-adjust: 100%;
+  /* Prevent any element from forcing horizontal scroll on mobile.
+     `clip` (unlike `hidden`) keeps position:sticky and IntersectionObserver
+     working correctly, and hides overflow without creating a scroll container. */
+  overflow-x: clip;
+  /* Hard cap on width so escaped fixed-layer decorations (`.site-bg`)
+     cannot register in scrollWidth. */
+  max-width: 100vw;
 }
 body {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
@@ -41,6 +48,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  /* Safety net for older WebKit: clip on body too. Chrome/Edge/FF all honour
+     overflow-x:clip on html; iOS Safari <18 needs it on body as well. */
+  overflow-x: clip;
+  max-width: 100vw;
 }
 a {
   color: inherit;
@@ -129,13 +140,19 @@ a {
   letter-spacing: -0.03em;
   margin: 8px 0 12px;
   color: hsl(var(--foreground));
+  /* Never let a long single word push the layout wider than the viewport
+     on narrow phones — clamp preserves size but wraps within the container. */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .page-lede {
   font-size: 19px;
   line-height: 1.5;
   color: hsl(var(--muted-foreground));
-  max-width: 620px;
+  max-width: min(620px, 100%);
   margin: 0 0 32px;
+  overflow-wrap: break-word;
 }
 
 /* ---------- Buttons ---------- */
@@ -204,9 +221,10 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 56px;
-  display: flex;
-  align-items: center;
+  /* Block so the drawer (sibling of __inner) sits below the sticky row
+     rather than collapsing into a tiny flex column. Row height is enforced
+     on `.hig-nav__inner` instead. */
+  display: block;
   padding: 0 max(16px, env(safe-area-inset-left));
   background: linear-gradient(180deg, hsl(var(--background) / 0.82), hsl(var(--background) / 0.62));
   -webkit-backdrop-filter: saturate(180%) blur(30px);
@@ -218,8 +236,13 @@ a {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  height: 56px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  /* minmax(0, 1fr) forces the middle track to always take the leftover
+     space even when its content is display:none on mobile. Without the
+     min-0, an empty `1fr` collapses to `auto` (content-sized = 0) and the
+     right column stretches, floating the icons toward the centre. */
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
 }
@@ -232,6 +255,10 @@ a {
   align-items: center;
   gap: 10px;
   padding: 6px 4px;
+  /* Pin to the first grid column so auto-flow can't shuffle the row
+     when `.hig-nav__links` is display:none on mobile. */
+  grid-column: 1;
+  justify-self: start;
 }
 .hig-nav__brand-mark {
   width: 26px;
@@ -277,6 +304,11 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
+  /* Pin to the third grid column and align to the end so the icons are
+     flush with the right edge, even when the middle column (nav links)
+     is display:none on mobile. */
+  grid-column: 3;
+  justify-self: end;
 }
 
 .hig-nav__menu-btn {
@@ -315,41 +347,98 @@ a {
     display: none;
   }
   .hig-nav__inner {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 }
 
-/* Mobile drawer */
+/* Mobile drawer — grouped by category so first-time visitors can see the
+   whole feature set at a glance. Each group has a small uppercase kicker,
+   then a 2-column grid of tap-targets that fits comfortably in one screen.
+   Rendered as a fixed panel below the sticky top row so the whole drawer
+   is scrollable independently of the page underneath, on iOS Safari too. */
 .hig-nav__drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 56px;
+  z-index: 99;
+  /* True glassmorphism: strong blur, low alpha, subtle border. In light
+     mode we sit over the page's saturated content; in dark mode the
+     complementary dark-mode override below lifts the readability. */
+  background: hsl(var(--background) / 0.55);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
   border-top: 0.5px solid hsl(var(--separator));
-  background: linear-gradient(180deg, hsl(var(--background) / 0.9), hsl(var(--background) / 0.85));
-  -webkit-backdrop-filter: saturate(180%) blur(30px);
-  backdrop-filter: saturate(180%) blur(30px);
+  border-bottom: 0.5px solid hsl(var(--separator));
+  box-shadow: 0 12px 32px -12px hsl(0 0% 0% / 0.18);
+  /* Fill the viewport below the top row and be independently scrollable.
+     dvh handles iOS Safari's collapsing chrome so the drawer never gets
+     hidden behind the on-screen URL bar. */
+  max-height: calc(100dvh - 56px);
+  height: calc(100dvh - 56px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 20px 20px calc(24px + env(safe-area-inset-bottom));
+}
+.dark .hig-nav__drawer {
+  /* Slightly higher alpha in dark mode so the pattern behind doesn't
+     confuse the label contrast. */
+  background: hsl(var(--background) / 0.7);
+}
+.hig-nav__drawer-group {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.hig-nav__drawer-group + .hig-nav__drawer-group {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 0.5px solid hsl(var(--separator));
+}
+.hig-nav__drawer-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin: 0 0 10px;
+  padding: 0 4px;
+  text-align: center;
 }
 .hig-nav__drawer ul {
   list-style: none;
   margin: 0;
-  padding: 8px 20px 12px;
+  padding: 0;
+  width: 100%;
   display: grid;
-  gap: 2px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 .hig-nav__drawer a {
   display: block;
-  padding: 12px 12px;
+  width: 100%;
+  padding: 14px 14px;
   font-size: 15px;
   font-weight: 500;
   color: hsl(var(--foreground));
-  border-radius: 8px;
-  transition: background .18s var(--spring);
+  border-radius: 12px;
+  transition: background .18s var(--spring), color .18s var(--spring), transform .18s var(--spring);
+  text-align: center;
+  /* Frosted tile look — layered on top of the glass panel */
+  background: hsl(var(--muted) / 0.4);
+  border: 0.5px solid hsl(var(--separator) / 0.6);
 }
 .hig-nav__drawer a:hover {
-  background: hsl(var(--muted) / 0.6);
+  background: hsl(var(--muted) / 0.7);
+}
+.hig-nav__drawer a:active {
+  transform: scale(0.98);
 }
 .hig-nav__drawer a.is-active {
-  color: hsl(var(--accent));
-  background: hsl(var(--muted) / 0.4);
+  color: hsl(var(--accent-foreground));
+  background: hsl(var(--accent) / 0.9);
+  border-color: hsl(var(--accent) / 0.6);
 }
 
 /* ---------- Footer ---------- */
@@ -778,6 +867,11 @@ body {
      Scale up so the rotated rectangle still covers the viewport corners. */
   transform: rotate(-18deg) scale(1.6);
   transform-origin: center center;
+  /* Perf: isolate the marquee onto its own compositor layer so the 8
+     continuous animations don't invalidate paint of the scrolled content
+     above it. */
+  contain: strict;
+  will-change: transform;
 }
 .site-bg__row {
   /* Each row is a horizontal marquee. Track holds two identical

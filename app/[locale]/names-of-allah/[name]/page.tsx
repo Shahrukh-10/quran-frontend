@@ -4,6 +4,7 @@ import { Link } from "@/i18n/routing";
 import { getAllNames, getName } from "@/lib/names";
 import { getSurahByNumber } from "@/lib/quran";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -22,6 +23,7 @@ type Props = { params: Promise<{ locale: string; name: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, name } = await params;
+  const bc = await breadcrumbs(locale);
   const n = getName(name);
   if (!n) return {};
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
@@ -33,11 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale === "en" ? `/names-of-allah/${name}` : `/${locale}/names-of-allah/${name}`,
       ),
     },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/names-of-allah/${name}` : `/${locale}/names-of-allah/${name}`,
+      ),
+    },
   };
 }
 
 export default async function NamePage({ params }: Props) {
   const { locale, name } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const n = getName(name);
   if (!n) notFound();
@@ -51,7 +59,7 @@ export default async function NamePage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: "99 Names of Allah", url: siteUrl("/names-of-allah") },
           { name: n.transliteration, url: siteUrl(`/names-of-allah/${n.slug}`) },
         ]}

@@ -6,6 +6,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getPlanById } from "@/lib/plans";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -17,12 +18,16 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Read Quran (PDF) · All 30 Juz",
     description:
       "Read the Holy Quran online in Indian/Pakistani (Indopak) script, one Juz at a time. 30 PDFs, offline-ready.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/quran/read" : `/${locale}/quran/read`),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/quran/read" : `/${locale}/quran/read`),
     },
   };
 }
@@ -40,6 +45,7 @@ function splitTitle(title: string): { english: string; arabic: string } {
 
 export default async function QuranReadPage({ params }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
 
   const plan = await getPlanById("quran-in-a-month");
@@ -49,8 +55,8 @@ export default async function QuranReadPage({ params }: Props) {
     <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: "Read (PDF)", url: siteUrl("/quran/read") },
         ]}
       />

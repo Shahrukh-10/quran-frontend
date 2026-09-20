@@ -1,10 +1,16 @@
 import { AyahCard } from "@/components/quran/ayah-card";
 import { SurahHeaderBar } from "@/components/quran/surah-header-bar";
 import { SurahReaderControls } from "@/components/quran/surah-reader-controls";
-import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
+import {
+  ArticleSchema,
+  BreadcrumbSchema,
+  QuranChapterSchema,
+} from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllSurahs, getSurahBySlug, isSeeded, loadSurahAyat } from "@/lib/quran";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -32,6 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read Surah ${s.name} (${s.englishTranslation}) — ${s.ayahCount} ayat, ${s.revelation}. Arabic, translation, transliteration, and verse audio.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/${surah}` : `/${locale}/quran/${surah}`),
+      languages: hreflangLanguages(`/quran/${surah}`),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? `/quran/${surah}` : `/${locale}/quran/${surah}`),
+      type: "article",
+      locale,
+      images: mergedOgImages(`Surah ${s.name} (${s.englishTranslation})`),
     },
   };
 }
@@ -43,6 +56,7 @@ export default async function SurahPage({ params }: Props) {
   if (!s) notFound();
 
   const t = await getTranslations({ locale, namespace: "quran.surah" });
+  const bc = await breadcrumbs(locale);
   const ayat = await loadSurahAyat(s.number);
   const isFullyAvailable = Boolean(ayat && ayat.length > 0);
 
@@ -53,8 +67,8 @@ export default async function SurahPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: s.name, url: siteUrl(`/quran/${s.slug}`) },
         ]}
       />
@@ -62,7 +76,13 @@ export default async function SurahPage({ params }: Props) {
         headline={`Surah ${s.name} (${s.englishTranslation})`}
         description={`The full text of Surah ${s.name}, ${s.ayahCount} ayat, revealed in ${s.revelation === "meccan" ? "Makkah" : "Madinah"}.`}
         url={siteUrl(`/quran/${s.slug}`)}
-        datePublished="2026-09-18"
+      />
+      <QuranChapterSchema
+        surahName={s.name}
+        surahNumber={s.number}
+        ayahCount={s.ayahCount}
+        revelation={s.revelation}
+        url={siteUrl(`/quran/${s.slug}`)}
       />
 
       <header className="text-center">

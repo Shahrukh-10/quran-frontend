@@ -6,6 +6,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { Link } from "@/i18n/routing";
 import { summarizeHizb, summarizeJuz, summarizeManzil } from "@/lib/quran-index";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -13,6 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Browse the Quran by Juz, Hizb, Manzil, Ruku, or Page",
     description:
@@ -20,11 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: siteUrl(locale === "en" ? "/quran/browse" : `/${locale}/quran/browse`),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/quran/browse" : `/${locale}/quran/browse`),
+    },
   };
 }
 
 export default async function BrowsePage({ params }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
 
   const [juzs, hizbs, manzils] = await Promise.all([
@@ -37,9 +43,9 @@ export default async function BrowsePage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
-          { name: "Browse", url: siteUrl("/quran/browse") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
+          { name: bc("browse"), url: siteUrl("/quran/browse") },
         ]}
       />
 

@@ -15,12 +15,66 @@ const LINKS = [
   { href: "/quran", k: "quran" },
   { href: "/mushaf", k: "mushaf" },
   { href: "/duas", k: "duas" },
+  { href: "/hadith", k: "hadith" },
+  { href: "/seerah", k: "seerah" },
+  { href: "/reverts", k: "reverts" },
+  { href: "/ramadan", k: "ramadan" },
+  { href: "/hajj", k: "hajj" },
+  { href: "/memorize", k: "memorize" },
+  { href: "/iqamah", k: "iqamah" },
+  { href: "/account", k: "account" },
   { href: "/prayer-times", k: "prayerTimes" },
   { href: "/qibla", k: "qibla" },
   { href: "/learn-salah", k: "learnSalah" },
   { href: "/learn", k: "learn" },
   { href: "/names-of-allah", k: "names" },
   { href: "/tools", k: "tools" },
+] as const;
+
+// Grouped structure for the mobile drawer — same links, organised so a
+// first-time visitor can see at a glance what the site offers.
+// Categories match the mental model: read scripture, practice daily,
+// learn deeper, self-track. Titles come from the i18n `nav.groups.*` keys.
+const LINK_GROUPS = [
+  {
+    k: "read",
+    items: [
+      { href: "/quran", k: "quran" },
+      { href: "/mushaf", k: "mushaf" },
+      { href: "/hadith", k: "hadith" },
+      { href: "/duas", k: "duas" },
+    ],
+  },
+  {
+    k: "practice",
+    items: [
+      { href: "/prayer-times", k: "prayerTimes" },
+      { href: "/qibla", k: "qibla" },
+      { href: "/iqamah", k: "iqamah" },
+      { href: "/adhan", k: "adhan" },
+      { href: "/calendar", k: "calendar" },
+    ],
+  },
+  {
+    k: "learn",
+    items: [
+      { href: "/learn-salah", k: "learnSalah" },
+      { href: "/learn", k: "learn" },
+      { href: "/names-of-allah", k: "names" },
+      { href: "/seerah", k: "seerah" },
+      { href: "/hajj", k: "hajj" },
+      { href: "/ramadan", k: "ramadan" },
+      { href: "/reverts", k: "reverts" },
+    ],
+  },
+  {
+    k: "you",
+    items: [
+      { href: "/memorize", k: "memorize" },
+      { href: "/tools", k: "tools" },
+      { href: "/account", k: "account" },
+    ],
+  },
 ] as const;
 
 const STORAGE_KEY = "iw.v1";
@@ -110,6 +164,24 @@ export function Header() {
   useEffect(() => {
     setTheme(readTheme());
   }, []);
+
+  // When the mobile drawer is open, lock the page underneath from scrolling.
+  // The drawer itself remains internally scrollable (overflow-y: auto).
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  // Close the drawer whenever the route changes (link tap fires navigation
+  // via next-intl <Link>; without this hook, the drawer would stay open
+  // over the new page).
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   // Apply theme with a View-Transitions radial reveal from the button.
   // Falls back to a plain toggle on browsers without the API (Firefox).
@@ -220,19 +292,24 @@ export function Header() {
 
       {open && (
         <div id="mobile-menu" className="hig-nav__drawer">
-          <ul>
-            {LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className={`focus-ring${isActive(l.href) ? " is-active" : ""}`}
-                >
-                  {t(l.k)}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {LINK_GROUPS.map((group) => (
+            <section key={group.k} className="hig-nav__drawer-group">
+              <h3 className="hig-nav__drawer-title">{t(`groups.${group.k}`)}</h3>
+              <ul>
+                {group.items.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className={`focus-ring${isActive(l.href) ? " is-active" : ""}`}
+                    >
+                      {t(l.k)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
       )}
     </header>

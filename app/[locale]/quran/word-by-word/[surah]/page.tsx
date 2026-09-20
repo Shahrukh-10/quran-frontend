@@ -13,6 +13,7 @@ import { Link } from "@/i18n/routing";
 import { getAllSurahs, getSurahBySlug } from "@/lib/quran";
 import { versesByChapter } from "@/lib/quran-api";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -33,6 +34,7 @@ type Props = { params: Promise<{ locale: string; surah: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, surah } = await params;
+  const bc = await breadcrumbs(locale);
   const s = getSurahBySlug(surah);
   if (!s) return {};
   return {
@@ -40,6 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Study Surah ${s.name} word by word — Arabic, transliteration, English meaning, and per-word audio pronunciation for every one of the ${s.ayahCount} ayahs.`,
     alternates: {
       canonical: siteUrl(
+        locale === "en" ? `/quran/word-by-word/${surah}` : `/${locale}/quran/word-by-word/${surah}`,
+      ),
+    },
+    openGraph: {
+      url: siteUrl(
         locale === "en" ? `/quran/word-by-word/${surah}` : `/${locale}/quran/word-by-word/${surah}`,
       ),
     },
@@ -59,6 +66,7 @@ async function loadVersesLocal(
 
 export default async function WordByWordSurahPage({ params }: Props) {
   const { locale, surah } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const s = getSurahBySlug(surah);
   if (!s) notFound();
@@ -96,9 +104,9 @@ export default async function WordByWordSurahPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
-          { name: "Word by word", url: siteUrl("/quran/word-by-word") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
+          { name: bc("wordByWord"), url: siteUrl("/quran/word-by-word") },
           { name: s.name, url: siteUrl(`/quran/word-by-word/${s.slug}`) },
         ]}
       />

@@ -10,7 +10,7 @@
     --surface-elevated: 240 4.8% 95.9%;
     --foreground: 240 6% 12%; /* #1D1D1F */
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 4% 46%; /* #6E6E73 */
+    --muted-foreground: 240 4% 40%; /* #5F5F66 — bumped from 46% for WCAG AA (≥4.5:1 on --background) */
     --separator: 240 6% 84%; /* #D2D2D7 */
     --accent: 146 82% 26%; /* #0B7A3E */
     --accent-muted: 138 21% 92%; /* #E8F0EA */
@@ -248,4 +248,23 @@ html.focus-mode [data-role="audio-bar"] {
 }
 html.focus-mode main {
   padding-top: 40px;
+}
+
+/* Theme switch — View Transitions API radial reveal.
+ * The click point becomes the origin of a growing clip-path circle that
+ * unmasks the incoming theme. Both layers (old + new) render simultaneously
+ * for the duration of the transition, so the new theme "sweeps over" the old.
+ * Falls back to instant switch on browsers without the API (Firefox <128, Safari <18)
+ * and respects prefers-reduced-motion. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+/* NEW layer on top, always — that's the one JS animates via document.animate(). */
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
 }

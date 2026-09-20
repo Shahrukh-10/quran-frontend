@@ -1,8 +1,32 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import surahsMeta from "./data/quran/surahs.json";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
+
+// Build once at config-eval time: numeric surah id → slug.
+// This lets us send permanent redirects for /quran/1 → /quran/al-fatihah,
+// /quran/2:255 style deep links, and locale-prefixed variants, so external links
+// (Google, other Quran sites, shared URLs) resolve instead of 404-ing.
+const NUMERIC_SURAH_REDIRECTS = (surahsMeta as Array<{ number: number; slug: string }>).flatMap(
+  ({ number, slug }) => [
+    { source: `/quran/${number}`, destination: `/quran/${slug}`, permanent: true },
+    { source: `/quran/${number}/:ayah`, destination: `/quran/${slug}/:ayah`, permanent: true },
+    { source: `/quran/word-by-word/${number}`, destination: `/quran/word-by-word/${slug}`, permanent: true },
+    { source: `/:locale(id|ar|ur|tr|fr)/quran/${number}`, destination: `/:locale/quran/${slug}`, permanent: true },
+    {
+      source: `/:locale(id|ar|ur|tr|fr)/quran/${number}/:ayah`,
+      destination: `/:locale/quran/${slug}/:ayah`,
+      permanent: true,
+    },
+    {
+      source: `/:locale(id|ar|ur|tr|fr)/quran/word-by-word/${number}`,
+      destination: `/:locale/quran/word-by-word/${slug}`,
+      permanent: true,
+    },
+  ],
+);
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -26,6 +50,9 @@ const nextConfig: NextConfig = {
     // Enable once every linked route exists. Right now we link to /quran, /duas, /prayer-times,
     // /qibla, /learn-salah as placeholders on the homepage — those pages ship in Weeks 3–5.
     // typedRoutes: true,
+  },
+  async redirects() {
+    return NUMERIC_SURAH_REDIRECTS;
   },
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || "http://localhost:8080";

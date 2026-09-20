@@ -1,0 +1,130 @@
+{
+  "_note": "Ramadan hub content. All Islamic rulings are conservative and non-sectarian; where scholars differ, we point to the local imam. Duas are from the Prophet ﷺ, cited by hadith number.",
+  "sections": [
+    {
+      "slug": "the-month",
+      "title": { "en": "The month of Ramadan", "id": "Bulan Ramadhan" },
+      "articles": [
+        {
+          "slug": "what-is-ramadan",
+          "title": { "en": "What is Ramadan?", "id": "Apa itu Ramadhan?" },
+          "body": {
+            "en": "Ramadan is the ninth month of the Islamic (Hijri) calendar. During this month, all adult Muslims who are physically able fast from dawn (Fajr) until sunset (Maghrib) — no food, no drink, no marital relations, and a deliberate effort to guard the tongue, eyes, and heart.\n\nRamadan is the month in which the Quran was first revealed (Surah al-Baqarah 2:185). It contains Laylat al-Qadr — the Night of Decree — which the Quran describes as 'better than a thousand months' (Surah al-Qadr 97:3). The night falls in the last ten days of Ramadan, most likely on an odd-numbered night (21, 23, 25, 27, or 29).\n\nFasting is one of the five pillars of Islam. The Prophet ﷺ said: 'Whoever fasts Ramadan out of faith and seeking reward, his previous sins are forgiven' (Sahih al-Bukhari 38).",
+            "id": "Ramadhan adalah bulan kesembilan dalam kalender Hijriah. Selama bulan ini, semua Muslim dewasa yang mampu berpuasa dari fajar (Subuh) hingga matahari terbenam (Maghrib) — tidak makan, tidak minum, tidak berhubungan suami-istri, dan berusaha menjaga lisan, mata, dan hati.\n\nRamadhan adalah bulan diturunkannya Al-Qur'an pertama kali (Surah al-Baqarah 2:185). Di dalamnya terdapat Lailatul Qadar — Malam Kemuliaan — yang Al-Qur'an gambarkan sebagai 'lebih baik daripada seribu bulan' (Surah al-Qadr 97:3). Malam itu jatuh pada sepuluh hari terakhir Ramadhan, kemungkinan besar pada malam ganjil (21, 23, 25, 27, atau 29).\n\nPuasa adalah salah satu dari lima rukun Islam. Nabi ﷺ bersabda: 'Barangsiapa berpuasa Ramadhan karena iman dan mengharap pahala, diampuni dosa-dosanya yang telah lalu' (Sahih al-Bukhari 38)."
+          },
+          "references": [
+            { "type": "quran", "ref": "2:185" },
+            { "type": "quran", "ref": "97:1-5" },
+            { "type": "hadith", "ref": "Sahih al-Bukhari 38" }
+          ]
+        },
+        {
+          "slug": "who-must-fast",
+          "title": { "en": "Who must fast?", "id": "Siapa yang wajib berpuasa?" },
+          "body": {
+            "en": "Fasting is obligatory upon every adult (post-puberty) Muslim who is:\n\n1. Sane (of sound mind)\n2. Resident (not on a journey, though travelers may still fast if they wish)\n3. Physically able (not seriously ill)\n4. Not menstruating or in post-natal bleeding\n\nExemptions and their make-up requirements:\n\n- **Menstruating or post-natal**: Do not fast; make up the missed days later.\n- **Traveler**: May break the fast; make up missed days later.\n- **Sick, expected to recover**: May break the fast; make up missed days later.\n- **Chronically ill or elderly, unable to recover**: Feed a poor person for each day missed (fidyah); no make-up needed.\n- **Pregnant or nursing mother** (if fasting harms her or the child): May break the fast. Scholarly opinions differ between make-up only, fidyah only, or both — ask your local imam.\n- **Pre-puberty children**: Not obligated, but encouraged to try (starting with shorter days).",
+            "id": "Puasa wajib bagi setiap Muslim dewasa (baligh) yang:\n\n1. Berakal sehat\n2. Muqim (tidak sedang bepergian, meski musafir tetap boleh berpuasa jika mau)\n3. Mampu secara fisik (tidak sakit berat)\n4. Tidak sedang haid atau nifas\n\nKeringanan dan kewajiban qadha:\n\n- **Haid atau nifas**: Tidak berpuasa; qadha hari yang ditinggalkan.\n- **Musafir**: Boleh berbuka; qadha hari yang ditinggalkan.\n- **Sakit yang diharapkan sembuh**: Boleh berbuka; qadha hari yang ditinggalkan.\n- **Sakit kronis atau lansia yang tidak bisa sembuh**: Membayar fidyah (memberi makan fakir) untuk setiap hari yang ditinggalkan; tidak perlu qadha.\n- **Ibu hamil atau menyusui** (jika puasa membahayakan dirinya atau bayinya): Boleh berbuka. Pendapat ulama berbeda antara qadha saja, fidyah saja, atau keduanya — tanyakan pada imam setempat Anda.\n- **Anak sebelum baligh**: Tidak wajib, tetapi dianjurkan mencoba (mulai dari hari yang lebih pendek)."
+          },
+          "references": [{ "type": "quran", "ref": "2:184-185" }]
+        },
+        {
+          "slug": "what-breaks-the-fast",
+          "title": { "en": "What breaks the fast?", "id": "Apa yang membatalkan puasa?" },
+          "body": {
+            "en": "The fast is broken by:\n\n1. **Eating or drinking** intentionally (accidentally eating or drinking is forgiven — Sahih al-Bukhari 1933).\n2. **Marital relations** during fasting hours.\n3. **Deliberately vomiting**.\n4. **Menstruation or post-natal bleeding** starting during the day.\n\nCommon things that do **not** break the fast (majority position):\n\n- Rinsing the mouth for wudu (as long as water isn't swallowed).\n- Tasting food briefly (though it should not be swallowed).\n- Swallowing your own saliva.\n- Bathing, swimming, brushing teeth.\n- Injections and IV fluids for medical reasons (majority position; some scholars differ).\n- Blood tests and blood donation (majority).\n- Involuntary nose-bleed or unintentional cut.\n\nIf you accidentally eat or drink out of forgetfulness, continue your fast — the Prophet ﷺ said: 'Whoever forgets he is fasting and eats or drinks should complete his fast, for Allah has fed him and given him drink' (Sahih al-Bukhari 1933).",
+            "id": "Puasa batal karena:\n\n1. **Makan atau minum** dengan sengaja (jika tidak sengaja atau lupa, dimaafkan — Sahih al-Bukhari 1933).\n2. **Hubungan suami-istri** selama jam puasa.\n3. **Muntah dengan sengaja**.\n4. **Haid atau nifas** yang mulai di siang hari.\n\nHal-hal yang tidak membatalkan puasa (pendapat mayoritas):\n\n- Berkumur untuk wudhu (asalkan air tidak tertelan).\n- Mencicipi makanan sebentar (tanpa ditelan).\n- Menelan ludah sendiri.\n- Mandi, berenang, menyikat gigi.\n- Suntikan dan cairan infus untuk keperluan medis (pendapat mayoritas; sebagian ulama berbeda).\n- Tes darah dan donor darah (mayoritas).\n- Mimisan tidak sengaja atau luka tidak sengaja.\n\nJika Anda tidak sengaja makan atau minum karena lupa, lanjutkan puasa Anda — Nabi ﷺ bersabda: 'Barangsiapa lupa sedang berpuasa lalu ia makan atau minum, hendaklah ia sempurnakan puasanya, karena Allah yang telah memberinya makan dan minum' (Sahih al-Bukhari 1933)."
+          },
+          "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 1933" }]
+        }
+      ]
+    },
+    {
+      "slug": "daily-practice",
+      "title": { "en": "Daily practice", "id": "Amalan harian" },
+      "articles": [
+        {
+          "slug": "suhoor",
+          "title": { "en": "Suhoor — the pre-dawn meal", "id": "Sahur — makan sebelum fajar" },
+          "body": {
+            "en": "Suhoor is the meal eaten before Fajr. The Prophet ﷺ strongly encouraged it: 'Take suhoor, for in suhoor there is blessing' (Sahih al-Bukhari 1923).\n\nStart eating well before Fajr adhan — don't push it to the last second. The fast begins at the exact moment of Fajr, when the true dawn appears. If you're still chewing or drinking when the muadhdhin begins Fajr adhan, spit out and rinse.\n\nA balanced suhoor is important: complex carbohydrates (oats, whole grain bread) for slow-release energy; protein (eggs, yogurt, cheese) for sustained fullness; plenty of water; and dates (the Prophet's ﷺ favorite pre-fast food, per Abu Dawud 2345).",
+            "id": "Sahur adalah makan sebelum Subuh. Nabi ﷺ sangat menganjurkannya: 'Bersahurlah, karena dalam sahur ada keberkahan' (Sahih al-Bukhari 1923).\n\nMulailah makan cukup awal sebelum azan Subuh — jangan ditunda hingga detik terakhir. Puasa dimulai tepat pada saat fajar sadiq muncul. Jika Anda masih mengunyah atau minum saat muadzin memulai azan Subuh, keluarkan dan berkumurlah.\n\nSahur yang seimbang penting: karbohidrat kompleks (oat, roti gandum) untuk energi tahan lama; protein (telur, yogurt, keju) untuk rasa kenyang; banyak air; dan kurma (makanan pra-puasa favorit Nabi ﷺ, riwayat Abu Dawud 2345)."
+          },
+          "references": [
+            { "type": "hadith", "ref": "Sahih al-Bukhari 1923" },
+            { "type": "hadith", "ref": "Sunan Abu Dawud 2345" }
+          ]
+        },
+        {
+          "slug": "iftar",
+          "title": { "en": "Iftar — breaking the fast", "id": "Berbuka puasa" },
+          "body": {
+            "en": "Break the fast the moment Maghrib begins — don't delay. The Prophet ﷺ said: 'The people will remain upon good as long as they hasten in breaking the fast' (Sahih al-Bukhari 1957).\n\nThe Prophet's ﷺ own iftar: 'The Messenger of Allah ﷺ used to break his fast with fresh dates before praying; if there were no fresh dates then with dried dates; and if there were none then he would take a few sips of water' (Sunan Abu Dawud 2356).\n\nThe dua for breaking the fast: 'Dhahaba adh-dhama'u wabtallati al-'uruq wa thabata al-ajru insha' Allah' — 'The thirst is gone, the veins are moistened, and the reward is confirmed if Allah wills' (Sunan Abu Dawud 2357).\n\nDua at the moment of breaking is one of the times when Allah does not turn away a supplicant (Sunan Ibn Majah 1753). Take a moment before the meal to ask Him for what you need.",
+            "id": "Berbukalah begitu Maghrib tiba — jangan ditunda. Nabi ﷺ bersabda: 'Manusia akan tetap dalam kebaikan selama mereka menyegerakan berbuka' (Sahih al-Bukhari 1957).\n\nBerbuka Nabi ﷺ sendiri: 'Rasulullah ﷺ berbuka dengan kurma basah (ruthab) sebelum salat; jika tidak ada maka dengan kurma kering (tamar); dan jika tidak ada maka beliau meneguk beberapa teguk air' (Sunan Abu Dawud 2356).\n\nDoa berbuka: 'Dzahaba azh-zhama'u wabtallati al-'uruq wa tsabata al-ajru insya Allah' — 'Telah hilang dahaga, telah basah urat-urat, dan telah tetap pahala insya Allah' (Sunan Abu Dawud 2357).\n\nDoa saat berbuka adalah salah satu waktu Allah tidak menolak seorang hamba (Sunan Ibn Majah 1753). Luangkan sejenak sebelum makan untuk memohon kepada-Nya apa yang Anda butuhkan."
+          },
+          "references": [
+            { "type": "hadith", "ref": "Sahih al-Bukhari 1957" },
+            { "type": "hadith", "ref": "Sunan Abu Dawud 2356" },
+            { "type": "hadith", "ref": "Sunan Abu Dawud 2357" },
+            { "type": "hadith", "ref": "Sunan Ibn Majah 1753" }
+          ]
+        },
+        {
+          "slug": "taraweeh",
+          "title": { "en": "Taraweeh — the night prayers", "id": "Tarawih — salat malam Ramadhan" },
+          "body": {
+            "en": "Taraweeh is the special night prayer performed only in Ramadan, in congregation at the mosque. The Prophet ﷺ said: 'Whoever prays through Ramadan in faith and hoping for reward, his previous sins are forgiven' (Sahih al-Bukhari 37).\n\nMost mosques offer taraweeh in 8 or 20 rak'ahs. There is scholarly latitude on the number — the important thing is the practice itself, not the count.\n\nDon't feel obligated to catch every rak'ah of every night; whatever you can pray in congregation is a gain. Even the last ten days — where most mosques step up to more devotion and where Laylat al-Qadr falls — reward the effort out of proportion to the physical difficulty.",
+            "id": "Tarawih adalah salat malam khusus yang hanya dilakukan di Ramadhan, berjamaah di masjid. Nabi ﷺ bersabda: 'Barangsiapa mendirikan salat di bulan Ramadhan karena iman dan mengharap pahala, diampuni dosa-dosanya yang telah lalu' (Sahih al-Bukhari 37).\n\nKebanyakan masjid menyelenggarakan tarawih dengan 8 atau 20 rakaat. Ada keleluasaan ilmiah dalam jumlahnya — yang penting adalah amalannya sendiri, bukan hitungannya.\n\nJangan merasa terbebani harus mengejar setiap rakaat setiap malam; berapa pun yang bisa Anda salat berjamaah adalah keuntungan. Bahkan sepuluh malam terakhir — di mana kebanyakan masjid menambah ibadah dan di mana Lailatul Qadar jatuh — pahala melampaui kesulitan fisiknya."
+          },
+          "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 37" }]
+        }
+      ]
+    },
+    {
+      "slug": "last-ten-nights",
+      "title": { "en": "The last ten nights", "id": "Sepuluh malam terakhir" },
+      "articles": [
+        {
+          "slug": "laylat-al-qadr",
+          "title": { "en": "Laylat al-Qadr — the Night of Decree", "id": "Lailatul Qadar — Malam Kemuliaan" },
+          "body": {
+            "en": "Surah al-Qadr describes this single night as 'better than a thousand months' (97:3) — meaning worship on this night is worth more than worship of ~83 years.\n\nThe exact date is hidden — but the Prophet ﷺ said: 'Seek it in the last ten nights of Ramadan, in the odd nights' (Sahih al-Bukhari 2017). Traditionally the 27th is most likely, but scholars insist we should seek it across all odd nights (21, 23, 25, 27, 29) so that our worship spans the whole last third.\n\nThe dua taught by the Prophet ﷺ for the night, when A'ishah رضي الله عنها asked what to say if she found it: 'Allahumma innaka 'afuwwun tuhibbu al-'afwa fa'fu 'anni' — 'O Allah, You are Pardoning, You love pardon, so pardon me' (Sunan at-Tirmidhi 3513).\n\nI'tikaf — spiritual retreat in the mosque for the last ten days — is a Sunnah the Prophet ﷺ observed his entire Prophetic life (Sahih al-Bukhari 2026). If you cannot manage the full ten days, even one night of dedicated worship earns extraordinary reward.",
+            "id": "Surah al-Qadr menggambarkan malam tunggal ini sebagai 'lebih baik daripada seribu bulan' (97:3) — artinya ibadah pada malam ini bernilai lebih dari ibadah sekitar 83 tahun.\n\nTanggal pastinya disembunyikan — tetapi Nabi ﷺ bersabda: 'Carilah pada sepuluh malam terakhir Ramadhan, pada malam ganjil' (Sahih al-Bukhari 2017). Secara tradisional tanggal 27 paling mungkin, tetapi ulama menekankan agar dicari pada semua malam ganjil (21, 23, 25, 27, 29) sehingga ibadah kita mencakup seluruh sepertiga akhir.\n\nDoa yang diajarkan Nabi ﷺ untuk malam itu, ketika 'Aisyah رضي الله عنها bertanya apa yang harus diucapkan jika ia menemukan malam itu: 'Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni' — 'Ya Allah, Engkau Maha Pemaaf, Engkau menyukai memaafkan, maka maafkanlah aku' (Sunan at-Tirmidhi 3513).\n\nI'tikaf — khalwat spiritual di masjid selama sepuluh hari terakhir — adalah Sunnah yang Nabi ﷺ amalkan sepanjang hidup kenabiannya (Sahih al-Bukhari 2026). Jika Anda tidak bisa menjalani sepuluh hari penuh, bahkan satu malam ibadah yang khusyuk mendatangkan pahala luar biasa."
+          },
+          "references": [
+            { "type": "quran", "ref": "97:1-5" },
+            { "type": "hadith", "ref": "Sahih al-Bukhari 2017" },
+            { "type": "hadith", "ref": "Sahih al-Bukhari 2026" },
+            { "type": "hadith", "ref": "Sunan at-Tirmidhi 3513" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ending-ramadan",
+      "title": { "en": "Ending Ramadan", "id": "Mengakhiri Ramadhan" },
+      "articles": [
+        {
+          "slug": "zakat-al-fitr",
+          "title": { "en": "Zakat al-Fitr", "id": "Zakat Fitrah" },
+          "body": {
+            "en": "Zakat al-Fitr is a special charity due at the end of Ramadan, before the Eid prayer. Unlike annual Zakat, it is owed by every Muslim who has more food than they need for that day — including children and dependents. The head of the household usually pays for everyone.\n\nThe amount is one sa' (~2.5 kg / 5.5 lbs) of a staple food — dates, barley, wheat, raisins, or the local equivalent. Most mosques now accept the cash equivalent (typically 5-15 USD per person, depending on local food prices).\n\nThe purpose: 'The Messenger of Allah ﷺ enjoined Zakat al-Fitr as a purification of the fasting person from empty and vulgar speech, and as food for the poor. Whoever pays it before the Eid prayer, it is accepted Zakat; whoever pays it after, it is just an ordinary charity' (Sunan Abu Dawud 1609).\n\nPay early — mosques usually collect from the 20th of Ramadan onward, so the poor receive it in time to celebrate Eid.",
+            "id": "Zakat Fitrah adalah zakat khusus yang wajib di akhir Ramadhan, sebelum salat Ied. Berbeda dengan zakat tahunan, zakat ini wajib bagi setiap Muslim yang memiliki makanan lebih dari kebutuhannya hari itu — termasuk anak-anak dan tanggungan. Kepala keluarga biasanya membayarkan untuk semua.\n\nJumlahnya satu sha' (~2,5 kg) makanan pokok — kurma, gandum, jelai, kismis, atau setaraf lokal. Kebanyakan masjid sekarang menerima uang tunai setara (biasanya Rp 45.000 - Rp 100.000 per orang, tergantung harga bahan pokok setempat).\n\nTujuannya: 'Rasulullah ﷺ mewajibkan Zakat Fitrah sebagai penyucian bagi orang yang berpuasa dari kata-kata sia-sia dan kotor, dan sebagai makanan bagi orang miskin. Barangsiapa membayarnya sebelum salat Ied, itu diterima sebagai zakat; barangsiapa membayarnya setelah, itu hanya sedekah biasa' (Sunan Abu Dawud 1609).\n\nBayarlah lebih awal — masjid biasanya mulai menerima dari 20 Ramadhan agar orang miskin menerimanya tepat waktu untuk merayakan Ied."
+          },
+          "references": [{ "type": "hadith", "ref": "Sunan Abu Dawud 1609" }]
+        },
+        {
+          "slug": "eid-al-fitr",
+          "title": { "en": "Eid al-Fitr", "id": "Ied al-Fitri" },
+          "body": {
+            "en": "Eid al-Fitr — the 'Festival of Breaking the Fast' — is the celebration on the 1st of Shawwal, the day after Ramadan ends. It is a day of gratitude, community, and joy.\n\nThe Sunnah morning routine:\n\n1. Wake early and pray Fajr.\n2. Perform ghusl.\n3. Wear your best clothes.\n4. Eat an odd number of dates before leaving for the Eid prayer (Sunnah — Sahih al-Bukhari 953).\n5. Walk to the Eid prayer if you can, saying the takbir: 'Allahu akbar, Allahu akbar, la ilaha illa Allah, wa Allahu akbar, Allahu akbar wa lillahi al-hamd.'\n6. Return home by a different route (Sunnah — Sahih al-Bukhari 986).\n\nAfter the Eid prayer: visit family, exchange greetings ('Eid mubarak' or 'Taqabbal Allahu minna wa minkum' — 'May Allah accept from us and from you'), give gifts to children, and enjoy the day.",
+            "id": "Ied al-Fitri — 'Hari Raya Berbuka Puasa' — adalah perayaan pada 1 Syawal, sehari setelah Ramadhan berakhir. Ini adalah hari syukur, kebersamaan, dan kegembiraan.\n\nRutinitas pagi sesuai Sunnah:\n\n1. Bangun pagi dan salat Subuh.\n2. Mandi wajib.\n3. Kenakan pakaian terbaik.\n4. Makan kurma dalam jumlah ganjil sebelum berangkat ke salat Ied (Sunnah — Sahih al-Bukhari 953).\n5. Berjalan ke tempat salat Ied jika mampu, mengucapkan takbir: 'Allāhu akbar, Allāhu akbar, lā ilāha illā Allāh, wa Allāhu akbar, Allāhu akbar wa lillāhil-hamd.'\n6. Pulang dengan rute yang berbeda (Sunnah — Sahih al-Bukhari 986).\n\nSetelah salat Ied: mengunjungi keluarga, saling menyapa ('Ied mubarak' atau 'Taqabbal Allāhu minnā wa minkum' — 'Semoga Allah menerima dari kita dan dari kalian'), memberi hadiah kepada anak-anak, dan menikmati hari itu."
+          },
+          "references": [
+            { "type": "hadith", "ref": "Sahih al-Bukhari 953" },
+            { "type": "hadith", "ref": "Sahih al-Bukhari 986" }
+          ]
+        }
+      ]
+    }
+  ]
+}

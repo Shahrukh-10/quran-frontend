@@ -19,6 +19,55 @@ function applyTheme(theme: Theme) {
   root.classList.toggle("dark", dark);
 }
 
+/**
+ * Toggle theme with a View Transitions API radial reveal from the click point.
+ * Graceful-degrades to instant toggle on Firefox/Safari where the API isn't yet
+ * available. `reducedMotion` bypasses the animation for accessibility.
+ */
+function applyThemeAnimated(theme: Theme, event?: React.MouseEvent) {
+  if (typeof document === "undefined") return;
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const startViewTransition = (document as Document & {
+    startViewTransition?: (cb: () => void) => { ready: Promise<void> };
+  }).startViewTransition;
+  if (!startViewTransition || reducedMotion) {
+    applyTheme(theme);
+    return;
+  }
+  // Compute the click origin — if no event, fall back to top-right corner.
+  const x = event?.clientX ?? window.innerWidth - 32;
+  const y = event?.clientY ?? 32;
+  const endRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  );
+  const transition = startViewTransition(() => {
+    applyTheme(theme);
+  });
+  transition.ready
+    .then(() => {
+      // Animate the NEW layer (which shows the incoming theme) as a growing
+      // circle from the click point. The OLD layer stays as a static backdrop
+      // underneath, so the new theme visibly sweeps over the old.
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0 at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 380,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    })
+    .catch(() => {
+      // View transitions fell through — theme has already applied via callback.
+    });
+}
+
 export function SettingsPanel() {
   const t = useTranslations("settings");
   const activeLocale = useLocale();
@@ -34,6 +83,10 @@ export function SettingsPanel() {
   const LOCALE_LABELS: Record<string, string> = {
     en: "English",
     id: "Bahasa Indonesia",
+    ar: "العربية",
+    ur: "اردو",
+    tr: "Türkçe",
+    fr: "Français",
   };
 
   useEffect(() => {
@@ -81,7 +134,10 @@ export function SettingsPanel() {
               <button
                 key={v}
                 type="button"
-                onClick={() => updateSettings({ theme: v })}
+                onClick={(e) => {
+                  updateSettings({ theme: v });
+                  applyThemeAnimated(v, e);
+                }}
                 aria-pressed={isSelected}
                 suppressHydrationWarning
                 className={`focus-ring inline-flex h-11 flex-1 items-center justify-center rounded-lg border text-sm transition-colors duration-micro ease-spring ${

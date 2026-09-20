@@ -3,6 +3,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { getAllMushafPages } from "@/lib/mushaf";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -14,6 +15,7 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Read the Muṣḥaf — page-fold Qur'ān",
     description:
@@ -24,11 +26,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         locales.map((l) => [l, siteUrl(l === "en" ? "/mushaf" : `/${l}/mushaf`)]),
       ),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/mushaf" : `/${locale}/mushaf`),
+    },
   };
 }
 
 export default async function MushafPage({ params }: PageProps) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   // Full 604-page Madinah muṣḥaf, built once at server-start / build time.
   const pages = getAllMushafPages();
@@ -37,8 +43,8 @@ export default async function MushafPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: "Muṣḥaf reader", url: siteUrl("/mushaf") },
         ]}
       />

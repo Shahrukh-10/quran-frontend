@@ -4,6 +4,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllPlans, getPlanById } from "@/lib/plans";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -22,6 +23,7 @@ type Props = { params: Promise<{ locale: string; id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, id } = await params;
+  const bc = await breadcrumbs(locale);
   const plan = await getPlanById(id);
   if (!plan) return {};
   return {
@@ -30,11 +32,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: siteUrl(locale === "en" ? `/plans/${id}` : `/${locale}/plans/${id}`),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? `/plans/${id}` : `/${locale}/plans/${id}`),
+    },
   };
 }
 
 export default async function PlanDetailPage({ params }: Props) {
   const { locale, id } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const plan = await getPlanById(id);
   if (!plan) notFound();
@@ -43,7 +49,7 @@ export default async function PlanDetailPage({ params }: Props) {
     <div className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: "Learning Plans", url: siteUrl("/plans") },
           { name: plan.name, url: siteUrl(`/plans/${plan.id}`) },
         ]}

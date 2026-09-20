@@ -1,6 +1,7 @@
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -12,16 +13,21 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "privacy" });
   return {
     title: t("title"),
     description: t("intro"),
     alternates: { canonical: siteUrl(locale === "en" ? "/privacy" : `/${locale}/privacy`) },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/privacy" : `/${locale}/privacy`),
+    },
   };
 }
 
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "privacy" });
 
@@ -29,7 +35,7 @@ export default async function PrivacyPage({ params }: Props) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: t("title"), url: siteUrl("/privacy") },
         ]}
       />

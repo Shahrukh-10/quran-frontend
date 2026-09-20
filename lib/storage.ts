@@ -5,7 +5,7 @@
 
 const ROOT_KEY = "iw.v1";
 
-type Store = {
+export type Store = {
   bookmarks: Array<{ surah: number; ayah: number; addedAt: number }>;
   lastRead: { surah: number; ayah: number; at: number } | null;
   duaBookmarks: string[]; // slugs
@@ -64,6 +64,9 @@ type Store = {
   }>;
   // Slice C — up to 5 pinned ayat, newest at front.
   pinnedAyat: string[];
+  // V2 memorization tool — SM-2 spaced-repetition cards keyed by "s:a".
+  // See lib/memorize.ts for the algorithm; this store just persists the data.
+  memorization: Record<string, import("./memorize").MemoCard>;
 };
 
 const defaultStore: Store = {
@@ -97,6 +100,7 @@ const defaultStore: Store = {
   },
   learningPlans: [],
   pinnedAyat: [],
+  memorization: {},
 };
 
 function isBrowser(): boolean {
@@ -119,7 +123,7 @@ function readAll(): Store {
   }
 }
 
-function writeAll(next: Store): void {
+export function writeAll(next: Store): void {
   if (!isBrowser()) return;
   try {
     window.localStorage.setItem(ROOT_KEY, JSON.stringify(next));
@@ -487,4 +491,49 @@ export function unpinAyah(verseKey: string): boolean {
 
 export function getPinnedAyat(): string[] {
   return readAll().pinnedAyat;
+}
+
+// ---------- Memorization (V2) ----------
+
+import { createCard, rateCard, type MemoCard, type Rating } from "./memorize";
+
+/** Add an ayah to the memorization deck. No-op if already present. Returns the (possibly existing) card. */
+export function addMemoCard(verseKey: string): MemoCard {
+  const s = readAll();
+  const existing = s.memorization[verseKey];
+  if (existing) return existing;
+  const card = createCard(verseKey);
+  s.memorization[verseKey] = card;
+  writeAll(s);
+  return card;
+}
+
+/** Remove an ayah from the memorization deck. */
+export function removeMemoCard(verseKey: string): boolean {
+  const s = readAll();
+  if (!(verseKey in s.memorization)) return false;
+  delete s.memorization[verseKey];
+  writeAll(s);
+  return true;
+}
+
+/** Apply a rating and persist the updated card. Returns the new card. */
+export function reviewMemoCard(verseKey: string, rating: Rating): MemoCard | null {
+  const s = readAll();
+  const card = s.memorization[verseKey];
+  if (!card) return null;
+  const next = rateCard(card, rating);
+  s.memorization[verseKey] = next;
+  writeAll(s);
+  return next;
+}
+
+/** Snapshot of all cards. Returns a stable array. */
+export function getAllMemoCards(): MemoCard[] {
+  return Object.values(readAll().memorization);
+}
+
+/** True if the given ayah is in the deck. */
+export function isMemorizing(verseKey: string): boolean {
+  return verseKey in readAll().memorization;
 }

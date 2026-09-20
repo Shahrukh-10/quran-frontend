@@ -1,0 +1,395 @@
+{
+  "_note": "60-day rotation of Sunnah practices from the Prophet's ﷺ sunnah. Each entry is sourced from Sahih hadith (Bukhari, Muslim, or one of the Sunan collections). Category tags let us surface variety. Selection is deterministic by day-of-year mod 60 so the whole ummah sees the same Sunnah on the same day.",
+  "sunnahs": [
+    {
+      "slug": "morning-adhkar-100-tasbih",
+      "category": "dhikr",
+      "title": { "en": "Say SubhanAllah 100 times in the morning", "id": "Ucapkan SubhanAllah 100 kali di pagi hari" },
+      "arabic": "سُبْحَانَ اللَّهِ",
+      "transliteration": "Subhan Allah",
+      "translation": { "en": "Glory be to Allah", "id": "Maha Suci Allah" },
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever says SubhanAllah 100 times in the morning and 100 times in the evening is like one who performed Hajj 100 times.' Small tongue, mountain of reward.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa mengucapkan SubhanAllah 100 kali di pagi hari dan 100 kali di sore hari, ia seperti orang yang berhaji 100 kali.' Lisan yang ringan, pahala segunung."
+      },
+      "source": "Sunan an-Nasa'i 10629"
+    },
+    {
+      "slug": "smile",
+      "category": "character",
+      "title": { "en": "Smile at your brother", "id": "Tersenyum kepada saudaramu" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Your smile in your brother's face is charity.' The simplest of Sunnahs — you can do this every time you meet someone today.",
+        "id": "Nabi ﷺ bersabda: 'Senyummu di hadapan saudaramu adalah sedekah.' Sunnah paling sederhana — Anda bisa melakukan ini setiap kali bertemu seseorang hari ini."
+      },
+      "source": "Sunan at-Tirmidhi 1956"
+    },
+    {
+      "slug": "istighfar-100",
+      "category": "dhikr",
+      "title": { "en": "Istighfar 100 times a day", "id": "Istighfar 100 kali sehari" },
+      "arabic": "أَسْتَغْفِرُ اللَّهَ",
+      "transliteration": "Astaghfirullah",
+      "translation": { "en": "I seek forgiveness from Allah", "id": "Aku memohon ampun kepada Allah" },
+      "body": {
+        "en": "Abu Hurayrah رضي الله عنه said the Prophet ﷺ said: 'By Allah, I ask forgiveness of Allah and turn to Him in repentance more than seventy times a day.' If the sinless Prophet ﷺ did this, we need it more.",
+        "id": "Abu Hurairah رضي الله عنه mengabarkan bahwa Nabi ﷺ bersabda: 'Demi Allah, sesungguhnya aku memohon ampun kepada Allah dan bertobat kepada-Nya lebih dari tujuh puluh kali dalam sehari.' Jika Nabi ﷺ yang ma'shum saja demikian, kita lebih membutuhkannya."
+      },
+      "source": "Sahih al-Bukhari 6307"
+    },
+    {
+      "slug": "miswak",
+      "category": "hygiene",
+      "title": { "en": "Use the miswak", "id": "Gunakan siwak" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Were it not that I would burden my ummah, I would have ordered them to use the miswak before every prayer.' Even a regular toothbrush before Salah counts if a miswak isn't handy.",
+        "id": "Nabi ﷺ bersabda: 'Seandainya aku tidak khawatir memberatkan umatku, niscaya aku perintahkan mereka bersiwak setiap akan salat.' Bahkan sikat gigi biasa sebelum salat juga baik jika siwak tidak tersedia."
+      },
+      "source": "Sahih al-Bukhari 887"
+    },
+    {
+      "slug": "salawat",
+      "category": "dhikr",
+      "title": { "en": "Send salawat on the Prophet ﷺ", "id": "Bersalawat kepada Nabi ﷺ" },
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ",
+      "transliteration": "Allahumma salli 'ala Muhammad",
+      "translation": { "en": "O Allah, send salutations upon Muhammad", "id": "Ya Allah, limpahkan shalawat atas Muhammad" },
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever sends salawat upon me once, Allah sends salutations upon him ten times.' The most cost-effective sunnah in existence.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa bersalawat kepadaku satu kali, Allah bersalawat kepadanya sepuluh kali.' Sunnah dengan pahala berlipat yang paling efisien."
+      },
+      "source": "Sahih Muslim 408"
+    },
+    {
+      "slug": "sleep-right-side",
+      "category": "sleep",
+      "title": { "en": "Sleep on your right side", "id": "Tidur miring ke kanan" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "Al-Bara' ibn 'Azib رضي الله عنه said: 'When the Prophet ﷺ went to bed, he would lie on his right side.' A tiny Sunnah, but every night is a rehearsal for the janazah — right side is how you'll be placed in the grave.",
+        "id": "Al-Bara' bin 'Azib رضي الله عنه mengabarkan: 'Ketika Nabi ﷺ hendak tidur, beliau berbaring miring ke sebelah kanan.' Sunnah kecil, tapi setiap malam adalah gladi resik untuk janazah — miring kanan adalah cara Anda akan dibaringkan di liang kubur."
+      },
+      "source": "Sahih al-Bukhari 6314"
+    },
+    {
+      "slug": "bismillah-eating",
+      "category": "food",
+      "title": { "en": "Say Bismillah before eating", "id": "Ucapkan Bismillah sebelum makan" },
+      "arabic": "بِسْمِ اللَّهِ",
+      "transliteration": "Bismillah",
+      "translation": { "en": "In the name of Allah", "id": "Dengan nama Allah" },
+      "body": {
+        "en": "'Umar ibn Abi Salamah رضي الله عنه, a boy under the Prophet's ﷺ care, was reaching around the plate. The Prophet ﷺ said: 'O boy, say Bismillah, eat with your right hand, and eat from what is next to you.' Three Sunnahs in one sentence.",
+        "id": "'Umar bin Abu Salamah رضي الله عنه, seorang anak dalam asuhan Nabi ﷺ, tangannya berkeliaran di piring. Nabi ﷺ bersabda: 'Wahai anak, ucapkanlah Bismillah, makanlah dengan tangan kananmu, dan makanlah dari yang ada di depanmu.' Tiga Sunnah dalam satu kalimat."
+      },
+      "source": "Sahih al-Bukhari 5376"
+    },
+    {
+      "slug": "duha-prayer",
+      "category": "salah",
+      "title": { "en": "Pray Duha (mid-morning prayer)", "id": "Salat Duha (salat pertengahan pagi)" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "Abu Hurayrah رضي الله عنه said: 'My beloved friend (the Prophet ﷺ) instructed me with three things: to fast three days of every month, pray two rak'ahs of Duha, and pray witr before I sleep.' Duha is 2-8 rak'ahs any time from sunrise+15min until Dhuhr.",
+        "id": "Abu Hurairah رضي الله عنه mengabarkan: 'Kekasihku (Nabi ﷺ) berwasiat kepadaku tiga hal: puasa tiga hari setiap bulan, salat dua rakaat Duha, dan salat Witir sebelum tidur.' Duha berjumlah 2-8 rakaat kapan saja dari sekitar 15 menit setelah matahari terbit hingga menjelang Zhuhur."
+      },
+      "source": "Sahih al-Bukhari 1178"
+    },
+    {
+      "slug": "greeting-salam",
+      "category": "character",
+      "title": { "en": "Spread salaam widely", "id": "Sebarkan salam" },
+      "arabic": "السَّلَامُ عَلَيْكُمْ",
+      "transliteration": "As-salamu 'alaykum",
+      "translation": { "en": "Peace be upon you", "id": "Semoga keselamatan atasmu" },
+      "body": {
+        "en": "The Prophet ﷺ was asked: 'What deed is best in Islam?' He answered: 'Feed people, and give salaam to those you know and those you don't.' Try greeting even the barista, the delivery driver, the neighbor you've never spoken to.",
+        "id": "Nabi ﷺ ditanya: 'Amal apa yang paling baik dalam Islam?' Beliau menjawab: 'Memberi makan orang, dan mengucapkan salam kepada orang yang engkau kenal dan yang belum engkau kenal.' Cobalah menyapa bahkan barista, pengantar, tetangga yang belum pernah diajak bicara."
+      },
+      "source": "Sahih al-Bukhari 12"
+    },
+    {
+      "slug": "sunnah-witr",
+      "category": "salah",
+      "title": { "en": "Never miss Witr", "id": "Jangan pernah lewatkan Witir" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Witr is a right upon every Muslim. Whoever wishes to pray five may do so; whoever wishes to pray three, and whoever wishes to pray one, may do so.' Even one rak'ah before sleep counts.",
+        "id": "Nabi ﷺ bersabda: 'Witir adalah hak atas setiap muslim. Barangsiapa ingin salat Witir lima rakaat, silakan; tiga rakaat, silakan; satu rakaat, silakan.' Bahkan satu rakaat sebelum tidur sudah cukup."
+      },
+      "source": "Sunan Abu Dawud 1422"
+    },
+    {
+      "slug": "sunnah-fast-mondays",
+      "category": "fasting",
+      "title": { "en": "Fast on Mondays (and Thursdays)", "id": "Puasa Senin (dan Kamis)" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Deeds are presented (to Allah) on Mondays and Thursdays, and I love that my deeds be presented while I am fasting.' Also, Monday is his ﷺ birthday. A weekly reminder of gratitude.",
+        "id": "Nabi ﷺ bersabda: 'Amal-amal ditampakkan (kepada Allah) pada hari Senin dan Kamis, dan aku suka amalku ditampakkan sedang aku berpuasa.' Selain itu, Senin adalah hari kelahiran beliau ﷺ. Pengingat syukur mingguan."
+      },
+      "source": "Sunan at-Tirmidhi 747"
+    },
+    {
+      "slug": "kindness-parents",
+      "category": "character",
+      "title": { "en": "Be gentle with your parents", "id": "Berlemah lembut kepada orang tua" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "A man asked the Prophet ﷺ: 'Who among people is most deserving of my good companionship?' He answered: 'Your mother.' The man asked: 'Then who?' He said: 'Your mother.' Again: 'Then who?' 'Your mother.' Only on the fourth ask did he say: 'Then your father.' Call or visit them today.",
+        "id": "Seorang laki-laki bertanya kepada Nabi ﷺ: 'Siapa yang paling berhak aku pergauli dengan baik?' Beliau menjawab: 'Ibumu.' Laki-laki itu bertanya: 'Kemudian siapa?' Beliau menjawab: 'Ibumu.' Lagi: 'Kemudian siapa?' 'Ibumu.' Baru pada tanya keempat beliau menjawab: 'Kemudian ayahmu.' Telepon atau kunjungi mereka hari ini."
+      },
+      "source": "Sahih al-Bukhari 5971"
+    },
+    {
+      "slug": "duty-neighbor",
+      "category": "character",
+      "title": { "en": "Honor your neighbor", "id": "Muliakan tetanggamu" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Jibril kept advising me to be good to my neighbor, so much so that I thought he was going to make him inherit from me.' Send food, greet them, don't complain about their kids' noise.",
+        "id": "Nabi ﷺ bersabda: 'Jibril terus menerus memberi wasiat kepadaku tentang tetangga, sampai aku mengira beliau akan mewariskan hak waris kepadanya.' Kirim makanan, sapa mereka, jangan mengeluh tentang kebisingan anak-anak mereka."
+      },
+      "source": "Sahih al-Bukhari 6014"
+    },
+    {
+      "slug": "dua-entering-house",
+      "category": "dhikr",
+      "title": { "en": "Say salaam when entering your home", "id": "Ucapkan salam saat masuk rumah" },
+      "arabic": "السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ",
+      "transliteration": "As-salamu 'alayna wa 'ala 'ibad Allah as-salihin",
+      "translation": { "en": "Peace be upon us and upon the righteous servants of Allah", "id": "Semoga keselamatan atas kami dan atas hamba-hamba Allah yang saleh" },
+      "body": {
+        "en": "The Prophet ﷺ said: 'When one of you enters his house, let him greet his family with salaam — it will be a blessing upon them.' Even if you live alone, the Prophet ﷺ instructed us to greet the household still, as above.",
+        "id": "Nabi ﷺ bersabda: 'Jika salah seorang dari kalian masuk rumah, hendaklah ia mengucapkan salam kepada keluarganya — hal itu menjadi keberkahan atas mereka.' Bahkan jika Anda tinggal sendiri, Nabi ﷺ tetap memerintahkan kita mengucapkan salam kepada rumah tangga, sebagaimana di atas."
+      },
+      "source": "Sunan at-Tirmidhi 2698"
+    },
+    {
+      "slug": "gentle-with-animals",
+      "category": "character",
+      "title": { "en": "Be merciful to animals", "id": "Kasihanilah hewan" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ told of a prostitute whose sins were forgiven because she saw a thirsty dog dying at a well, took off her shoe, tied it to her scarf, drew water, and gave it to the dog. Kindness to a single animal moved Allah to forgive her.",
+        "id": "Nabi ﷺ menceritakan tentang seorang pelacur yang dosanya diampuni karena melihat seekor anjing kehausan sekarat di sumur, ia melepas sepatunya, mengikatkan pada kerudungnya, menimba air, dan memberikannya kepada anjing itu. Kebaikan terhadap satu hewan menggerakkan Allah untuk mengampuninya."
+      },
+      "source": "Sahih al-Bukhari 3321"
+    },
+    {
+      "slug": "give-charity",
+      "category": "charity",
+      "title": { "en": "Give sadaqah — even half a date", "id": "Bersedekah — walau setengah kurma" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Protect yourself from the Hellfire even with half a date given in charity.' No sum is too small. Round up your grocery bill. Buy a stranger's coffee. Feed a stray cat.",
+        "id": "Nabi ﷺ bersabda: 'Lindungilah dirimu dari neraka meskipun dengan setengah kurma yang disedekahkan.' Tidak ada jumlah yang terlalu kecil. Bulatkan ke atas tagihan belanja. Belikan kopi untuk orang asing. Beri makan kucing liar."
+      },
+      "source": "Sahih al-Bukhari 1417"
+    },
+    {
+      "slug": "surah-mulk-nightly",
+      "category": "quran",
+      "title": { "en": "Read Surah al-Mulk before sleep", "id": "Baca Surah al-Mulk sebelum tidur" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'There is a surah in the Quran, thirty verses, that will intercede for its reader until he is forgiven — it is Surah Tabarak (al-Mulk).' 30 short verses, 5-6 minutes. Read it as your last act of the day.",
+        "id": "Nabi ﷺ bersabda: 'Ada satu surah dalam Al-Qur'an, tiga puluh ayat, yang memberi syafaat kepada pembacanya hingga ia diampuni — yaitu Surah Tabarak (al-Mulk).' 30 ayat pendek, 5-6 menit. Bacalah sebagai amalan terakhir hari ini."
+      },
+      "source": "Sunan Abu Dawud 1400"
+    },
+    {
+      "slug": "ayat-al-kursi-post-salah",
+      "category": "dhikr",
+      "title": { "en": "Recite Ayat al-Kursi after every fard salah", "id": "Baca Ayatul Kursi setelah setiap salat fardu" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever recites Ayat al-Kursi immediately after every obligatory prayer, nothing keeps him from entering Paradise except death.' Five times a day, one verse — Surah al-Baqarah 2:255.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa membaca Ayatul Kursi setelah setiap salat wajib, tidak ada yang menghalanginya masuk surga selain kematian.' Lima kali sehari, satu ayat — Surah al-Baqarah 2:255."
+      },
+      "source": "Sunan an-Nasa'i 9928"
+    },
+    {
+      "slug": "visit-sick",
+      "category": "character",
+      "title": { "en": "Visit the sick", "id": "Jenguk orang sakit" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'When a Muslim visits his sick brother, he continues to be in the harvest of Paradise until he returns.' Even a text message asking after a sick person's health earns this reward.",
+        "id": "Nabi ﷺ bersabda: 'Ketika seorang muslim menjenguk saudaranya yang sakit, ia selalu berada di kebun surga hingga ia pulang.' Bahkan sekadar pesan singkat menanyakan kabar orang sakit sudah mendapat pahala ini."
+      },
+      "source": "Sahih Muslim 2568"
+    },
+    {
+      "slug": "morning-evening-adhkar",
+      "category": "dhikr",
+      "title": { "en": "Recite the morning and evening adhkar", "id": "Baca dzikir pagi dan petang" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever recites Ayat al-Kursi in the morning is protected from the jinn until evening, and whoever recites it in the evening is protected until morning.' The full set of morning/evening adhkar (Ayat al-Kursi + short surahs + specific du'a) takes about 10 minutes and is a spiritual shield for the day.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa membaca Ayatul Kursi di pagi hari, ia terlindungi dari jin hingga sore hari, dan barangsiapa membacanya di sore hari, ia terlindungi hingga pagi.' Rangkaian dzikir pagi/petang lengkap (Ayatul Kursi + surah pendek + doa khusus) memakan waktu sekitar 10 menit dan menjadi tameng spiritual sepanjang hari."
+      },
+      "source": "Al-Adhkar an-Nawawi (compiled from multiple Sahih hadith)"
+    },
+    {
+      "slug": "honesty-in-speech",
+      "category": "character",
+      "title": { "en": "Speak the truth even against yourself", "id": "Bicaralah jujur meski merugikan dirimu" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Truthfulness leads to righteousness, and righteousness leads to Paradise. A person keeps telling the truth until he is recorded with Allah as a truthful one.' Every lie shortens the distance to Hell; every truth spoken lengthens it.",
+        "id": "Nabi ﷺ bersabda: 'Kejujuran mengarah pada kebajikan, dan kebajikan mengarah pada surga. Seseorang terus berkata jujur hingga ia tercatat di sisi Allah sebagai orang yang jujur.' Setiap dusta memendekkan jarak ke neraka; setiap kejujuran memperpanjangnya."
+      },
+      "source": "Sahih al-Bukhari 6094"
+    },
+    {
+      "slug": "dua-leaving-home",
+      "category": "dhikr",
+      "title": { "en": "Say the du'a when leaving home", "id": "Ucapkan doa saat keluar rumah" },
+      "arabic": "بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+      "transliteration": "Bismillah, tawakkaltu 'ala Allah, wa la hawla wa la quwwata illa billah",
+      "translation": { "en": "In the name of Allah, I place my trust in Allah, and there is no power nor might except with Allah", "id": "Dengan nama Allah, aku bertawakal kepada Allah, dan tidak ada daya dan upaya kecuali dengan izin Allah" },
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever says this when leaving his house, it will be said: You have been guided, sufficed, and protected; and Shaytan will move away from him.' Six seconds of protection every time you step out the door.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa mengucapkannya ketika keluar rumah, dikatakan padanya: Engkau telah diberi petunjuk, dicukupi, dan dilindungi; dan setan menjauh darinya.' Enam detik perlindungan setiap kali Anda melangkah keluar pintu."
+      },
+      "source": "Sunan Abu Dawud 5095"
+    },
+    {
+      "slug": "wudu-perfectly",
+      "category": "hygiene",
+      "title": { "en": "Perform wudu completely and slowly", "id": "Berwudhu dengan sempurna dan pelan" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever performs wudu perfectly, his sins fall from his body — even from under his fingernails.' Rushed wudu is valid but misses the reward. Take an extra minute; wash three times.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa berwudhu dengan sempurna, dosa-dosanya berguguran dari tubuhnya — bahkan dari bawah kukunya.' Wudhu tergesa-gesa sah tetapi kehilangan pahala. Sisihkan tambahan satu menit; basuh tiga kali."
+      },
+      "source": "Sahih Muslim 245"
+    },
+    {
+      "slug": "no-anger",
+      "category": "character",
+      "title": { "en": "Do not get angry", "id": "Jangan marah" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "A man asked the Prophet ﷺ: 'Advise me.' He said: 'Do not get angry.' The man asked again several times. Each time the Prophet ﷺ said: 'Do not get angry.' If someone provokes you today, say a'udhu billah, take wudu, or sit down if standing — Sunnahs to defuse anger.",
+        "id": "Seorang laki-laki bertanya kepada Nabi ﷺ: 'Berilah aku nasihat.' Beliau bersabda: 'Jangan marah.' Laki-laki itu bertanya lagi berkali-kali. Setiap kali Nabi ﷺ menjawab: 'Jangan marah.' Jika seseorang memancingmu hari ini, ucapkan a'udzu billah, berwudhu, atau duduk jika sedang berdiri — Sunnah untuk meredakan amarah."
+      },
+      "source": "Sahih al-Bukhari 6116"
+    },
+    {
+      "slug": "hasten-to-good",
+      "category": "character",
+      "title": { "en": "Hasten to do good", "id": "Segeralah berbuat baik" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Hasten to do good deeds before trials come like patches of a dark night, where a man wakes up a believer and by evening becomes a disbeliever.' Whatever good thought you have today — call, apologize, give, forgive — do it now.",
+        "id": "Nabi ﷺ bersabda: 'Bersegeralah melakukan amal saleh sebelum datangnya fitnah seperti potongan malam yang gelap, di mana seseorang di pagi hari beriman lalu di sore hari menjadi kafir.' Apa pun niat baik yang Anda punya hari ini — telepon, minta maaf, beri, maafkan — lakukan sekarang."
+      },
+      "source": "Sahih Muslim 118"
+    },
+    {
+      "slug": "learn-one-verse",
+      "category": "quran",
+      "title": { "en": "Learn one verse of the Quran today", "id": "Hafal satu ayat Al-Qur'an hari ini" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'The best among you are those who learn the Quran and teach it.' Even one verse today. Then teach it to someone — a child, a spouse, a friend — before the day ends.",
+        "id": "Nabi ﷺ bersabda: 'Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya.' Bahkan satu ayat hari ini. Lalu ajarkan kepada seseorang — anak, pasangan, teman — sebelum hari berakhir."
+      },
+      "source": "Sahih al-Bukhari 5027"
+    },
+    {
+      "slug": "sunnah-eating-together",
+      "category": "food",
+      "title": { "en": "Eat together — do not eat alone", "id": "Makan bersama — jangan sendirian" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Eat together and do not eat separately, for the blessing is in the company.' Modern life pulls us to eat alone at desks. Sunnah is to gather — even a WhatsApp video call while eating counts if that's what's possible.",
+        "id": "Nabi ﷺ bersabda: 'Makanlah bersama-sama dan jangan berpisah, karena keberkahan itu bersama jamaah.' Kehidupan modern menarik kita makan sendiri di meja kerja. Sunnah adalah berkumpul — bahkan video call WhatsApp sambil makan pun cukup jika hanya itu yang bisa dilakukan."
+      },
+      "source": "Sunan Ibn Majah 3287"
+    },
+    {
+      "slug": "friday-ghusl",
+      "category": "hygiene",
+      "title": { "en": "Take ghusl on Friday", "id": "Mandi wajib di hari Jumat" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'Ghusl on Friday is obligatory on every adult.' (The obligation here is strong Sunnah — you're not sinful if you skip, but the community is described as if it were fard for the ihtimam it requires.) Fresh clothes, perfume for men, walking to the mosque are the full Sunnah of Jumu'ah day.",
+        "id": "Nabi ﷺ bersabda: 'Mandi pada hari Jumat wajib atas setiap orang yang telah baligh.' (Wajib di sini bermakna Sunnah muakkadah yang sangat ditekankan — tidak berdosa jika ditinggalkan, tetapi umat digambarkan seolah-olah fardhu karena pentingnya perhatian pada hal ini.) Pakaian bersih, parfum bagi laki-laki, berjalan ke masjid adalah Sunnah lengkap hari Jumat."
+      },
+      "source": "Sahih al-Bukhari 858"
+    },
+    {
+      "slug": "dhikr-after-salah",
+      "category": "dhikr",
+      "title": { "en": "33× SubhanAllah, 33× Alhamdulillah, 34× Allahu akbar after salah", "id": "33× SubhanAllah, 33× Alhamdulillah, 34× Allahu akbar setelah salat" },
+      "arabic": "سُبْحَانَ اللَّهِ · الْحَمْدُ لِلَّهِ · اللَّهُ أَكْبَرُ",
+      "transliteration": "SubhanAllah · Alhamdulillah · Allahu akbar",
+      "translation": { "en": "Glory to Allah · Praise be to Allah · Allah is greatest", "id": "Maha Suci Allah · Segala puji bagi Allah · Allah Maha Besar" },
+      "body": {
+        "en": "The Prophet ﷺ said: 'Whoever recites SubhanAllah 33 times, Alhamdulillah 33 times, and Allahu akbar 34 times after each obligatory prayer — his sins are forgiven even if they were like the foam of the sea.' Two minutes, five times a day.",
+        "id": "Nabi ﷺ bersabda: 'Barangsiapa membaca SubhanAllah 33 kali, Alhamdulillah 33 kali, dan Allahu akbar 34 kali setelah setiap salat wajib — dosa-dosanya diampuni meski sebanyak buih di lautan.' Dua menit, lima kali sehari."
+      },
+      "source": "Sahih Muslim 597"
+    },
+    {
+      "slug": "family-time",
+      "category": "character",
+      "title": { "en": "The best of you is best to his family", "id": "Sebaik-baik kalian adalah yang terbaik bagi keluarganya" },
+      "arabic": null,
+      "transliteration": null,
+      "translation": null,
+      "body": {
+        "en": "The Prophet ﷺ said: 'The best of you is the one who is best to his family, and I am the best of you to my family.' If you have a family — spouse, children, siblings, parents — put your phone away and be present with them for one hour today.",
+        "id": "Nabi ﷺ bersabda: 'Sebaik-baik kalian adalah yang paling baik kepada keluarganya, dan aku adalah yang paling baik kepada keluargaku.' Jika Anda memiliki keluarga — pasangan, anak, saudara, orang tua — letakkan ponsel Anda dan berilah waktu penuh untuk mereka selama satu jam hari ini."
+      },
+      "source": "Sunan at-Tirmidhi 3895"
+    }
+  ]
+}

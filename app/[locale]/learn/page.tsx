@@ -3,6 +3,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { CATEGORY_META, FIGURES, type FigureCategory } from "@/lib/figures";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -14,6 +15,7 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Learn — Biographies of the Prophets, Ṣaḥābah, and Scholars",
     description:
@@ -24,6 +26,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         locales.map((l) => [l, siteUrl(l === "en" ? "/learn" : `/${l}/learn`)]),
       ),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/learn" : `/${locale}/learn`),
+    },
   };
 }
 
@@ -31,6 +36,7 @@ const ORDER: FigureCategory[] = ["prophets", "rashidun", "sahabah", "imams", "ha
 
 export default async function LearnPage({ params }: PageProps) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
 
   const byCat: Record<FigureCategory, typeof FIGURES> = {
@@ -47,8 +53,8 @@ export default async function LearnPage({ params }: PageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Learn", url: siteUrl("/learn") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("learn"), url: siteUrl("/learn") },
         ]}
       />
       <section className="section section--hero">

@@ -3,6 +3,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllPlans } from "@/lib/plans";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -16,6 +17,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Learning Plans",
     description:
@@ -26,6 +28,9 @@ export async function generateMetadata({
         locales.map((l) => [l, siteUrl(l === "en" ? "/plans" : `/${l}/plans`)]),
       ),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/plans" : `/${locale}/plans`),
+    },
   };
 }
 
@@ -35,6 +40,7 @@ export default async function PlansIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const plans = getAllPlans();
 
@@ -42,7 +48,7 @@ export default async function PlansIndexPage({
     <div className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: "Learning Plans", url: siteUrl("/plans") },
         ]}
       />

@@ -2,7 +2,9 @@ import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllCategories, getAllDuas } from "@/lib/duas";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import "./_duas-hig.css";
@@ -17,15 +19,20 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   return {
     title: "Duas — sourced supplications for daily life",
     description:
       "Thirty-five authentic duas from Ṣaḥīḥ al-Bukhārī, Muslim, and the Sunan collections — organized by moment, each with its full citation.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/duas" : `/${locale}/duas`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/duas" : `/${l}/duas`)]),
-      ),
+      languages: hreflangLanguages("/duas"),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/duas" : `/${locale}/duas`),
+      type: "article",
+      locale,
+      images: mergedOgImages("Duas — sourced supplications for daily life"),
     },
   };
 }
@@ -39,6 +46,7 @@ export default async function DuasIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
   const cats = getAllCategories();
@@ -54,8 +62,8 @@ export default async function DuasIndexPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Duas", url: siteUrl("/duas") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("duas"), url: siteUrl("/duas") },
         ]}
       />
       <FaqSchema

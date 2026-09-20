@@ -2,6 +2,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { TasbihCounter } from "@/components/tools/tasbih-counter";
 import { locales } from "@/i18n/config";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -13,6 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "tools.tasbih" });
   return {
     title: t("title"),
@@ -20,11 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: siteUrl(locale === "en" ? "/tools/tasbih" : `/${locale}/tools/tasbih`),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/tools/tasbih" : `/${locale}/tools/tasbih`),
+    },
   };
 }
 
 export default async function TasbihPage({ params }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "tools.tasbih" });
 
@@ -32,8 +38,8 @@ export default async function TasbihPage({ params }: Props) {
     <div className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Tools", url: siteUrl("/tools") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("tools"), url: siteUrl("/tools") },
           { name: t("title"), url: siteUrl("/tools/tasbih") },
         ]}
       />

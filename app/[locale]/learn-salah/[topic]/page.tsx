@@ -3,6 +3,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllSalahTutorials, getSalahTutorial } from "@/lib/salah";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -21,6 +22,7 @@ type Props = { params: Promise<{ locale: string; topic: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, topic } = await params;
+  const bc = await breadcrumbs(locale);
   const tut = getSalahTutorial(topic);
   if (!tut) return {};
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
@@ -32,11 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale === "en" ? `/learn-salah/${topic}` : `/${locale}/learn-salah/${topic}`,
       ),
     },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/learn-salah/${topic}` : `/${locale}/learn-salah/${topic}`,
+      ),
+    },
   };
 }
 
 export default async function TopicPage({ params }: Props) {
   const { locale, topic } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const tut = getSalahTutorial(topic);
   if (!tut) notFound();
@@ -47,8 +55,8 @@ export default async function TopicPage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Learn Salah", url: siteUrl("/learn-salah") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("learnSalah"), url: siteUrl("/learn-salah") },
           { name: tut.title.en, url: siteUrl(`/learn-salah/${topic}`) },
         ]}
       />

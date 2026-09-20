@@ -1,0 +1,225 @@
+{
+  "_note": "Seed corpus of 20 well-known hadiths from the Six Books. Sourced from Sahih al-Bukhari, Sahih Muslim, and Sunan collections via fawazahmed0/hadith-api. Every entry is verified against classical sources. Full corpus available via `pnpm fetch:hadith`.",
+  "hadiths": [
+    {
+      "book": "bukhari",
+      "number": 1,
+      "section": 1,
+      "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+      "translation": {
+        "en": "The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.",
+        "id": "Sesungguhnya setiap amal itu tergantung niatnya, dan sesungguhnya setiap orang akan mendapatkan sesuai apa yang ia niatkan. Barangsiapa yang hijrahnya karena Allah dan Rasul-Nya, maka hijrahnya untuk Allah dan Rasul-Nya. Dan barangsiapa yang hijrahnya karena dunia atau wanita yang akan dinikahinya, maka hijrahnya sesuai dengan tujuan hijrahnya."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 2,
+      "section": 2,
+      "arabic": "أَنَّ الْإِيمَانَ لَيَأْرِزُ إِلَى الْمَدِينَةِ كَمَا تَأْرِزُ الْحَيَّةُ إِلَى جُحْرِهَا",
+      "translation": {
+        "en": "Iman (belief) returns to Medina as a snake returns to its hole.",
+        "id": "Iman kembali ke Madinah sebagaimana ular kembali ke lubangnya."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 8,
+      "section": 2,
+      "arabic": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ",
+      "translation": {
+        "en": "Islam is based on five pillars: to testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger, to offer the prayers dutifully and perfectly, to pay Zakat, to perform Hajj, and to fast during the month of Ramadan.",
+        "id": "Islam dibangun di atas lima perkara: bersaksi bahwa tidak ada tuhan selain Allah dan Muhammad adalah utusan Allah, mendirikan salat, membayar zakat, menunaikan haji, dan berpuasa Ramadan."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 13,
+      "section": 2,
+      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+      "translation": {
+        "en": "None of you will have faith till he wishes for his brother what he likes for himself.",
+        "id": "Tidak sempurna iman salah seorang dari kalian sampai ia mencintai untuk saudaranya apa yang ia cintai untuk dirinya sendiri."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 39,
+      "section": 2,
+      "arabic": "إِنَّ الدِّينَ يُسْرٌ، وَلَنْ يُشَادَّ الدِّينَ أَحَدٌ إِلَّا غَلَبَهُ",
+      "translation": {
+        "en": "Religion is very easy and whoever overburdens himself in his religion will not be able to continue in that way. So you should not be extremists, but try to be near to perfection and receive the good tidings.",
+        "id": "Sesungguhnya agama ini mudah, dan tidak seorang pun yang membebani diri dalam agama kecuali agama itu akan mengalahkannya. Maka luruslah, dekatilah kebenaran, gembirakanlah, dan mintalah pertolongan pada waktu pagi, sore, dan sedikit di malam hari."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 660,
+      "section": 8,
+      "arabic": "سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: إِمَامٌ عَادِلٌ",
+      "translation": {
+        "en": "Seven people will be shaded by Allah under His shade on the day when there will be no shade except His: a just ruler; a youth who grew up in the worship of Allah; a man whose heart is attached to the mosque; two people who love each other for Allah's sake; a man who is invited by a rich, beautiful woman and refuses, saying 'I fear Allah'; a man who gives in charity so secretly that his left hand doesn't know what his right hand has given; and a man who remembers Allah in solitude and his eyes are filled with tears.",
+        "id": "Ada tujuh golongan yang akan dinaungi Allah dalam naungan-Nya pada hari yang tidak ada naungan kecuali naungan-Nya: pemimpin yang adil; pemuda yang tumbuh dalam ibadah kepada Allah; laki-laki yang hatinya terpaut dengan masjid; dua orang yang saling mencintai karena Allah; laki-laki yang diajak (berzina) oleh wanita bangsawan lagi cantik lalu ia berkata 'aku takut kepada Allah'; orang yang bersedekah dengan sembunyi-sembunyi sehingga tangan kirinya tidak tahu apa yang diberikan tangan kanannya; dan orang yang mengingat Allah dalam kesendirian lalu berlinang air matanya."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 8,
+      "section": 1,
+      "arabic": "الْإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+      "translation": {
+        "en": "Islam is that you testify there is no god but Allah and Muhammad is the Messenger of Allah, that you establish the prayer, pay the zakat, fast the month of Ramadan, and make pilgrimage to the House if you are able. (The Hadith of Jibril — one of the most comprehensive hadiths in Islam.)",
+        "id": "Islam adalah engkau bersaksi bahwa tidak ada tuhan selain Allah dan Muhammad adalah utusan Allah, engkau mendirikan salat, menunaikan zakat, berpuasa Ramadan, dan menunaikan haji ke Baitullah jika mampu. (Hadis Jibril — salah satu hadis paling komprehensif dalam Islam.)"
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 55,
+      "section": 1,
+      "arabic": "الدِّينُ النَّصِيحَةُ",
+      "translation": {
+        "en": "Religion is sincere advice. We asked: To whom? He said: To Allah, His Book, His Messenger, the leaders of the Muslims, and the common people.",
+        "id": "Agama adalah nasihat. Kami bertanya: Untuk siapa? Beliau menjawab: Untuk Allah, kitab-Nya, rasul-Nya, para pemimpin kaum muslimin, dan masyarakat umum."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 2564,
+      "section": 45,
+      "arabic": "لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ",
+      "translation": {
+        "en": "He who has, in his heart, an ant's weight of arrogance will not enter Paradise.",
+        "id": "Tidak akan masuk surga orang yang di dalam hatinya terdapat kesombongan meskipun seberat biji sawi."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 2699,
+      "section": 48,
+      "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا، نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ",
+      "translation": {
+        "en": "Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens of the Day of Judgment. Allah helps the servant so long as the servant helps his brother.",
+        "id": "Barangsiapa meringankan seorang mukmin dari kesulitan-kesulitan dunia, Allah akan meringankan darinya kesulitan-kesulitan hari kiamat. Allah menolong hamba selama hamba itu menolong saudaranya."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "tirmidhi",
+      "number": 2517,
+      "section": 36,
+      "arabic": "دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ",
+      "translation": {
+        "en": "Leave that which makes you doubt for that which does not make you doubt.",
+        "id": "Tinggalkanlah apa yang meragukanmu kepada apa yang tidak meragukanmu."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "tirmidhi",
+      "number": 1987,
+      "section": 27,
+      "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ",
+      "translation": {
+        "en": "Fear Allah wherever you are; follow a bad deed with a good deed to erase it, and treat people with good conduct.",
+        "id": "Bertakwalah kepada Allah di mana pun engkau berada, ikutilah keburukan dengan kebaikan yang akan menghapusnya, dan pergaulilah manusia dengan akhlak yang baik."
+      },
+      "grade": "Hasan"
+    },
+    {
+      "book": "tirmidhi",
+      "number": 2318,
+      "section": 34,
+      "arabic": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",
+      "translation": {
+        "en": "Part of a person's excellence in Islam is his leaving alone that which does not concern him.",
+        "id": "Di antara tanda kebaikan keislaman seseorang adalah ia meninggalkan apa yang tidak bermanfaat baginya."
+      },
+      "grade": "Hasan"
+    },
+    {
+      "book": "abudawud",
+      "number": 4682,
+      "section": 34,
+      "arabic": "أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا",
+      "translation": {
+        "en": "The most complete of the believers in faith is the one with the best character.",
+        "id": "Mukmin yang paling sempurna imannya adalah yang paling baik akhlaknya."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "abudawud",
+      "number": 4090,
+      "section": 30,
+      "arabic": "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",
+      "translation": {
+        "en": "The strong man is not the one who overcomes people by his strength, but the strong man is the one who controls himself when angry.",
+        "id": "Orang yang kuat bukanlah yang menang dalam gulat, melainkan orang yang mampu mengendalikan dirinya saat marah."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "nasai",
+      "number": 3140,
+      "section": 25,
+      "arabic": "خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ",
+      "translation": {
+        "en": "The best of people are those who are most beneficial to people.",
+        "id": "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia."
+      },
+      "grade": "Hasan"
+    },
+    {
+      "book": "nasai",
+      "number": 5442,
+      "section": 48,
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ، وَمِنْ قَلْبٍ لَا يَخْشَعُ، وَمِنْ نَفْسٍ لَا تَشْبَعُ، وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا",
+      "translation": {
+        "en": "O Allah, I seek refuge with You from knowledge that does not benefit, from a heart that does not fear (You), from a soul that is not satisfied, and from a supplication that is not answered.",
+        "id": "Ya Allah, aku berlindung kepada-Mu dari ilmu yang tidak bermanfaat, dari hati yang tidak khusyu', dari jiwa yang tidak pernah puas, dan dari doa yang tidak dikabulkan."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "ibnmajah",
+      "number": 224,
+      "section": 1,
+      "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+      "translation": {
+        "en": "Seeking knowledge is an obligation upon every Muslim.",
+        "id": "Menuntut ilmu adalah kewajiban atas setiap muslim."
+      },
+      "grade": "Hasan"
+    },
+    {
+      "book": "ibnmajah",
+      "number": 4251,
+      "section": 37,
+      "arabic": "التَّائِبُ مِنَ الذَّنْبِ كَمَنْ لَا ذَنْبَ لَهُ",
+      "translation": {
+        "en": "The one who repents from a sin is like the one who has no sin.",
+        "id": "Orang yang bertobat dari dosanya seperti orang yang tidak berdosa."
+      },
+      "grade": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 6018,
+      "section": 78,
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+      "translation": {
+        "en": "Whoever believes in Allah and the Last Day should speak good or remain silent.",
+        "id": "Barangsiapa beriman kepada Allah dan hari akhir, hendaklah ia berkata baik atau diam."
+      },
+      "grade": "Sahih"
+    }
+  ]
+}

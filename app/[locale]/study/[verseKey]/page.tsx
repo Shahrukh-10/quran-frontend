@@ -10,6 +10,7 @@ import { Link } from "@/i18n/routing";
 import { getSurahByNumber, loadAyah } from "@/lib/quran";
 import { getAyahRef, getAyahRefByKey } from "@/lib/quran-index";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -101,6 +102,7 @@ async function loadTafsir(surah: number, verseKey: string): Promise<string | nul
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, verseKey } = await params;
+  const bc = await breadcrumbs(locale);
   const parsed = parseVerseKey(verseKey);
   if (!parsed) return {};
   const surah = getSurahByNumber(parsed.surah);
@@ -122,6 +124,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locales.map((l) => [l, siteUrl(l === "en" ? path : `/${l}${path}`)]),
       ),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? path : `/${locale}${path}`),
+    },
   };
 }
 
@@ -135,6 +140,7 @@ type SearchProps = {
 
 export default async function StudyAyahPage({ params, searchParams }: SearchProps) {
   const { locale, verseKey } = await params;
+  const bc = await breadcrumbs(locale);
   const { tab: rawTab } = await searchParams;
   setRequestLocale(locale);
 
@@ -190,8 +196,8 @@ export default async function StudyAyahPage({ params, searchParams }: SearchProp
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-10 md:py-14">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: surah.name, url: siteUrl(`/quran/${surah.slug}`) },
           { name: "Study Mode", url: siteUrl(basePath) },
         ]}

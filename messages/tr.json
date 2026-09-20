@@ -1,0 +1,789 @@
+{
+  "common": {
+    "siteName": "İslami Web Sitesi",
+    "tagline": "Ücretsiz. Kaynaklı. Sıfır takip.",
+    "skipToContent": "İçeriğe geç",
+    "loading": "Yükleniyor",
+    "readMore": "Devamını oku"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "quran": "Kur'an",
+    "duas": "Dualar",
+    "prayerTimes": "Namaz vakitleri",
+    "qibla": "Kıble",
+    "learnSalah": "Namazı öğren",
+    "names": "99 İsim",
+    "calendar": "Takvim",
+    "about": "Hakkında",
+    "sources": "Kaynaklar",
+    "tools": "Araçlar",
+    "learn": "Öğren",
+    "mushaf": "Mushaf",
+    "hadith": "Hadis",
+    "seerah": "Siyer",
+    "reverts": "Yeni Müslümanlar",
+    "ramadan": "Ramazan",
+    "hajj": "Hac ve Umre",
+    "memorize": "Ezberle",
+    "iqamah": "İkamet",
+    "account": "Hesap",
+    "install": "Uygulamayı yükle",
+    "adhan": "Ezan",
+    "groups": {
+      "read": "Oku",
+      "practice": "Uygulama",
+      "learn": "Öğren",
+      "you": "Siz"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Kur'an, dualar ve namaz vakitleri — ücretsiz, kaynaklı ve önce çevrimdışı.",
+      "subtitle": "Her ayet, dua ve hadis kaynağını gösterir. Reklam yok. Takip yok. Giriş gerekmez.",
+      "ctaPrimary": "Kur'an-ı Kerim'i oku",
+      "ctaSecondary": "Dua bul"
+    },
+    "principles": {
+      "title": "Bu site nasıl çalışır",
+      "sourced": {
+        "title": "Her söz kaynaklıdır",
+        "body": "Dualar, hadisler, tercümeler ve tefsir alıntıları hepsi nereden geldiğini belirtir. Kaynağını gösteremezsek, yayınlamayız."
+      },
+      "privacy": {
+        "title": "Takip yok. Asla.",
+        "body": "Reklam yok, üçüncü taraf izleyicileri yok, parmak izi çıkarma yok. Yer imleriniz ve ilerlemeniz yalnızca cihazınızda kalır."
+      },
+      "offline": {
+        "title": "Çevrimdışı çalışır",
+        "body": "Kur'an, dualar ve rehberler ilk ziyaretten sonra önbelleğe alınır. Trende, hacda veya sinyal olmayan her yerde okuyun."
+      }
+    },
+    "sections": {
+      "quran": "Kur'an-ı Kerim'i oku",
+      "duas": "Her an için dualar",
+      "prayerTimes": "Namaz vakitleri ve Kıble",
+      "learnSalah": "Namaz kılmayı öğren",
+      "names": "Allah'ın 99 İsmi",
+      "calendar": "Hicri takvim",
+      "tools": "Araçlar"
+    },
+    "featuredSurahs": {
+      "title": "Öne çıkan sureler",
+      "caption": "Sıkça okunanlar. Okuyucuyu açmak için herhangi bir karta dokunun.",
+      "allLink": "114 surenin tamamı"
+    },
+    "todayCard": {
+      "title": "Bugün · {city}",
+      "caption": "{method} · Örnek vakitler, gösterim amaçlıdır.",
+      "changeCity": "Şehri değiştir",
+      "nextPrayer": "Sonraki namaz",
+      "inHours": "yaklaşık {hours} saat sonra · örnek veri"
+    },
+    "features": {
+      "title": "İhtiyacınız olan her şey",
+      "caption": "Günlük ibadet için hazırlanmış sekiz araç."
+    },
+    "how": {
+      "title": "Bu site nasıl çalışır",
+      "caption": "Her sayfanın arkasındaki üç ilke.",
+      "step1Title": "Kaynaklı, üretilmiş değil",
+      "step1Body": "Her ayet, dua, hadis ve tercüme bir kaynağa dayanır. Hiçbir şey yapay zeka tarafından uydurulmaz.",
+      "step2Title": "Önce çevrimdışı",
+      "step2Body": "Kur'an metni, tüm dualar ve namaz vakti çizelgeleri bir kez yüklenir ve internet olmadan da çalışır.",
+      "step3Title": "Takip yok, hesap yok",
+      "step3Body": "Yer imleri tarayıcınızda saklanır. Reklam yok, analitik yok, giriş zorunluluğu yok."
+    },
+    "sunnahOfDay": {
+      "eyebrow": "Günün sünneti",
+      "sourceLabel": "Kaynak"
+    }
+  },
+  "footer": {
+    "sourcesLine": "Kaynaklar: Tanzil, Al-Quran Cloud, Sunnah.com, Aladhan. Tam liste kaynaklar sayfasındadır.",
+    "editorialLine": "İslami içerikler yayımlanmadan önce incelenir. Sorunları iletişim sayfasından bildirin.",
+    "copy": "Sonsuza dek ücretsiz. Hesap gerekmez."
+  },
+  "about": {
+    "title": "Bu site hakkında",
+    "intro": "Bu, ücretsiz ve ticari olmayan bir İslami kaynaktır. Reklam yok, takip yok, hesap zorunluluğu yok, ücretli duvar yok.",
+    "whyTitle": "Neden var",
+    "whyBody": "Pek çok İslami uygulama var, ancak çoğu veri satıyor, reklam gösteriyor veya özellikleri ücretli duvarların arkasına saklıyor. Bu site farklı bir şey deneme girişimidir: her şey ücretsiz, her şey kaynaklı, hiçbir şey takip edilmiyor.",
+    "howTitle": "İçerik nasıl doğrulanıyor",
+    "howBody": "Kur'an metni Tanzil'den gelir. Tercümeler, yayınlanmış ve lisanslı çevirmenlerden alınır. Hadisler, sıhhat derecelendirmesiyle birlikte Sunnah.com'dan gelir. Dualar, her biri kaynak referansıyla birlikte Hisnu'l-Müslim'den (Müslümanın Kalesi) alınır. Kaynağı olmayan hiçbir şey yayımlanmaz.",
+    "notATitle": "Bu site ne değildir",
+    "notABody": "Bir fetva motoru değildir. Ehil bir alimin yerini tutmaz. Dini hükümler için lütfen yerel bir imama veya köklü bir soru-cevap kaynağına danışın — kaynaklar sayfasında birkaç bağlantı bulunur."
+  },
+  "sources": {
+    "title": "Kaynaklar",
+    "intro": "Bu sitedeki her şey aşağıdaki kaynaklardan derlenmiştir. Bir sayfa belirli bir rivayet, dua veya tercüme içerdiğinde, kaynak sayfanın kendisinde belirtilir.",
+    "quranTitle": "Kur'an metni",
+    "translationsTitle": "Tercümeler",
+    "hadithTitle": "Hadis",
+    "prayerTimesTitle": "Namaz vakitleri",
+    "duasTitle": "Dualar"
+  },
+  "quran": {
+    "list": {
+      "eyebrow": "The Noble Quran",
+      "title": "Read the Quran",
+      "description": "All 114 surahs of the Quran with Arabic, translations, transliteration, and verse-by-verse audio. Free. No login. Works offline.",
+      "intro": "Every ayah is its own page with a permanent URL, so any verse can be linked, cited, or shared. Bookmarks live on your device only.",
+      "ayat": "ayat",
+      "meccan": "Meccan",
+      "medinan": "Medinan"
+    },
+    "surah": {
+      "surahLabel": "Surah {number}",
+      "ayat": "ayat",
+      "meccan": "Meccan",
+      "medinan": "Medinan",
+      "juz": "Juz",
+      "previous": "Previous surah",
+      "next": "Next surah",
+      "stubIntro": "The full text of Surah {name} is fetched at build time.",
+      "stubHow": "Run",
+      "stubTail": "to pull it from Al-Quran Cloud, then commit the JSON. The URL and structure are already permanent.",
+      "stubSeed": "Currently seeded surahs (shipped in-repo): Al-Fatihah, Al-Ikhlas, Al-Falaq, An-Nas."
+    },
+    "ayah": {
+      "eyebrow": "{surah}, ayah {ayah}",
+      "backToSurah": "← Back to Surah {surah}",
+      "stub": "The full text for this ayah is fetched at build time. Structure and URL are permanent.",
+      "previous": "Previous ayah",
+      "next": "Next ayah"
+    },
+    "wordByWord": {
+      "eyebrow": "Word-by-word study · Surah {number}",
+      "info": "{count} ayat · {revelation}",
+      "meccan": "Meccan",
+      "medinan": "Medinan",
+      "tapHint": "Tap any Arabic word for meaning & audio",
+      "backToVerses": "← Back to full-verse view",
+      "openLink": "Read word by word →",
+      "scriptGroupLabel": "Arabic script",
+      "scriptUthmani": "Uthmani",
+      "scriptIndopak": "Indopak",
+      "dataLive": "live",
+      "dataCached": "cached",
+      "dataLabel": "Data",
+      "stubTitle": "Word-by-word data isn't downloaded yet.",
+      "stubHow": "Run",
+      "stubTail": "to fetch all 114 surahs (~5 minutes, one-time)."
+    },
+    "ayahActions": {
+      "readTafsir": "Read tafsir",
+      "wordByWord": "Word by word"
+    },
+    "study": {
+      "eyebrow": "Study Mode",
+      "tabTranslations": "Translations",
+      "tabTafsir": "Tafsir",
+      "tabNotes": "Notes",
+      "tabRelated": "Related",
+      "previous": "Previous",
+      "next": "Next",
+      "studyTabsAriaLabel": "Study tabs",
+      "ayahContextAriaLabel": "Ayah context links",
+      "ayahNavAriaLabel": "Ayah navigation"
+    }
+  },
+  "duas": {
+    "list": {
+      "eyebrow": "Kaynaklı dualar",
+      "title": "Her an için dualar",
+      "description": "Kur'an-ı Kerîm ve sahih hadislerden alınmış, hayatın her durumuna göre düzenlenmiş kısa dualar. Her duanın kaynağı ve derecesi belirtilmiştir.",
+      "categoriesTitle": "Kategoriler",
+      "readMore": "Oku",
+      "searchPlaceholder": "Konuya, kelimeye veya ana göre dua ara",
+      "searchAriaLabel": "Dua ara",
+      "categoriesHeading": "Kategoriler",
+      "categoriesCaption": "Ana veya ihtiyaca göre göz atın.",
+      "duasCount": "{count} dua",
+      "featuredHeading": "Öne çıkan dualar",
+      "featuredCaption": "En sık öğretilen üç duadan biri.",
+      "sourceLabel": "Kaynak",
+      "faq": {
+        "q1": "İslam'da dua nedir?",
+        "a1": "Duʿāʾ (دُعَاء), Allah'a yapılan kişisel bir yakarış veya niyazdır — namazdan (günde beş vakit kılınan resmî ibadetten) farklıdır. Dualar her dilde ve her zaman okunabilir; ancak Hz. Muhammed (s.a.v.) belirli anlar için pek çok özel dua öğretmiştir.",
+        "q2": "Bu sitedeki dualar nereden alınmıştır?",
+        "a2": "Bu sitedeki her dua klasik bir kaynaktan alınmıştır — Sahihayn (Sahih-i Buhârî ve Sahih-i Müslim), dört Sünen (Ebu Davud, Tirmizî, Nesâî, İbn Mâce) veya doğrudan Kur'an-ı Kerîm'in kendisinden. Her kayıtta ilgili hadisin numarası belirtilmiştir.",
+        "q3": "Duayı Arapça okumak zorunda mıyım?",
+        "a3": "Hayır. Dualar herhangi bir dilde okunabilir. Arapça metin, Peygamberî lafızları öğrenmek veya ezberlemek isteyenler için verilmiştir; transliterasyon telaffuza yardımcı olur; çeviri ise anlamı korur."
+      }
+    },
+    "category": {
+      "backToDuas": "← All duas",
+      "count": "{count} duas"
+    },
+    "dua": {
+      "backToCategory": "← Back to {category}",
+      "sourceLabel": "Source",
+      "gradingLabel": "Grading",
+      "whenTitle": "When to recite",
+      "referenceTitle": "Reference",
+      "faqWhen": "When is \"{title}\" recited?",
+      "faqSource": "What is the source of \"{title}\"?"
+    }
+  },
+  "prayer": {
+    "index": {
+      "eyebrow": "Local salah times",
+      "title": "Prayer times",
+      "description": "Prayer times computed on your device. Nothing sent to any server. All major calculation methods supported.",
+      "useLocation": "Use my location",
+      "orCity": "or pick a city",
+      "citiesTitle": "Prayer times by city",
+      "unavailable": "Location unavailable. Pick a city below or check browser settings.",
+      "notNow": "Not this time",
+      "next": "Next",
+      "eyebrow2": "London, GMT",
+      "sampleTimes": "Sample times",
+      "muslimWorldLeague": "Muslim World League",
+      "calcMethodHeading": "Calculation method",
+      "popularCitiesHeading": "Popular cities",
+      "popularCitiesCaption": "Tap any city to see its full schedule."
+    },
+    "prayers": {
+      "fajr": "Fajr",
+      "sunrise": "Sunrise",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
+    },
+    "settings": {
+      "method": "Calculation method",
+      "madhab": "Asr madhab",
+      "shafi": "Shafi (majority)",
+      "hanafi": "Hanafi"
+    }
+  },
+  "qibla": {
+    "title": "Qibla direction",
+    "eyebrow": "Direction to the Kaaba",
+    "description": "The direction to Makkah from your location. Uses your device compass; falls back to a text bearing if the compass is unavailable.",
+    "useLocation": "Use my location",
+    "compassUnavailable": "Compass unavailable. Bearing shown as degrees.",
+    "bearing": "Bearing",
+    "distance": "Distance to Makkah",
+    "km": "km",
+    "instructionsTitle": "How to use",
+    "instructions": "Face the direction of the arrow (or the degrees shown). On iOS, you may need to grant motion & orientation permission when prompted.",
+    "allowMotion": "Allow compass access"
+  },
+  "learnSalah": {
+    "index": {
+      "eyebrow": "Learn to pray",
+      "title": "How to pray Salah",
+      "description": "Step-by-step tutorials for each of the five daily prayers, Jumu'ah, Janazah, Witr, and Tahajjud. For new Muslims and children.",
+      "topicsTitle": "Topics"
+    },
+    "topic": {
+      "backToIndex": "← All tutorials",
+      "stepsTitle": "Steps",
+      "duasTitle": "Duas said in this prayer",
+      "notesTitle": "Notes"
+    }
+  },
+  "names": {
+    "index": {
+      "eyebrow": "Asma ul Husna",
+      "title": "The 99 Names of Allah",
+      "description": "The beautiful names of Allah — with Arabic, transliteration, translation, and a short reflection for each."
+    },
+    "name": {
+      "backToIndex": "← All names",
+      "meaningTitle": "Meaning",
+      "reflectionTitle": "Reflection",
+      "quranicRef": "In the Quran"
+    }
+  },
+  "calendar": {
+    "title": "Islamic calendar",
+    "eyebrow": "Hijri ⇄ Gregorian",
+    "description": "Convert between the Islamic (Hijri) and Gregorian calendars. Important Islamic dates flagged when they fall on the shown month.",
+    "todayIs": "Today is",
+    "convertTitle": "Convert a date",
+    "gregToHij": "Gregorian → Hijri",
+    "hijToGreg": "Hijri → Gregorian",
+    "importantTitle": "Important dates",
+    "months": {
+      "muharram": "Muharram",
+      "safar": "Safar",
+      "rabiAlAwwal": "Rabi' al-Awwal",
+      "rabiAlThani": "Rabi' al-Thani",
+      "jumadaAlAwwal": "Jumada al-Awwal",
+      "jumadaAlThani": "Jumada al-Thani",
+      "rajab": "Rajab",
+      "shaban": "Sha'ban",
+      "ramadan": "Ramadan",
+      "shawwal": "Shawwal",
+      "dhuAlQidah": "Dhul-Qi'dah",
+      "dhuAlHijjah": "Dhul-Hijjah"
+    }
+  },
+  "tools": {
+    "index": {
+      "eyebrow": "Everyday tools",
+      "title": "Islamic tools",
+      "description": "Small, focused tools — tasbih counter, prayer tracker, Zakat calculator, and more."
+    },
+    "tasbih": {
+      "title": "Tasbih counter",
+      "description": "Tap to count. Reset when you're done. Nothing is saved anywhere except your device.",
+      "count": "Count",
+      "target": "Target",
+      "reset": "Reset",
+      "presets": "Presets",
+      "custom": "Custom"
+    },
+    "prayerTracker": {
+      "title": "Prayer tracker",
+      "description": "A discreet daily check-in — did you pray on time, late, or make it up? Streaks stay on-device.",
+      "onTime": "On time",
+      "late": "Late",
+      "clear": "Clear",
+      "streak": "Current streak",
+      "days": "days"
+    },
+    "zakat": {
+      "title": "Zakat calculator",
+      "description": "Cash, gold, silver, business assets. Nisab defaults to the silver standard (safer for the poor).",
+      "cash": "Cash on hand & in bank",
+      "gold": "Gold value (in your currency)",
+      "silver": "Silver value (in your currency)",
+      "business": "Business assets (stock, receivables)",
+      "debts": "Short-term debts owed",
+      "currency": "Currency code (ISO)",
+      "nisabTitle": "Nisab (silver standard)",
+      "nisabHelp": "Enter the current local value of 595g of silver. Update every few weeks — silver price moves.",
+      "resultTitle": "Zakat due",
+      "belowNisab": "Below nisab — no Zakat due this year, alhamdulillah.",
+      "aboveNisab": "Above nisab — Zakat due at 2.5%.",
+      "disclaimer": "This calculator gives a starting figure. For complex holdings (retirement accounts, mixed assets, livestock, agriculture) consult a scholar."
+    },
+    "adhkar": {
+      "title": "Morning & evening adhkar",
+      "description": "The daily adhkar from Hisnul Muslim. Tap to count each recitation.",
+      "morning": "Morning",
+      "evening": "Evening"
+    }
+  },
+  "adhan": {
+    "title": "Adhan player",
+    "description": "Beautiful adhan audio to play in your browser at prayer time. Muezzin choices below.",
+    "play": "Play adhan",
+    "pause": "Pause",
+    "muezzin": "Muezzin",
+    "callToPrayer": "Call to prayer"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "theme": "Görünüm",
+    "language": "Dil",
+    "dyslexia": "Disleksi dostu yazı tipi",
+    "lowBandwidth": "Düşük bant genişliği modu",
+    "exportTitle": "Verilerimi dışa aktar",
+    "exportBody": "Bu cihazda saklanan her şeyi JSON dosyası olarak indir.",
+    "exportButton": "JSON indir",
+    "deleteTitle": "Verilerimi sil",
+    "deleteBody": "Bu cihazdaki tüm yer imlerini, takip geçmişini ve tercihleri kaldır. Bu işlem geri alınamaz.",
+    "deleteButton": "Her şeyi sil",
+    "themeSystem": "Sistem",
+    "themeLight": "Açık",
+    "themeDark": "Koyu",
+    "eyebrow": "Tercihler",
+    "lede": "Görünümü, dili, erişilebilirliği ve cihazınızdaki verileri yönetin. Her şey tarayıcınızda kalır — hiçbir şey hiçbir yere gönderilmez."
+  },
+  "privacy": {
+    "title": "Gizlilik",
+    "intro": "Bu site hiçbir şey toplamaz. Takip için çerez yok, parmak izi çıkarma yok, Cloudflare Web Analytics (gizlilik dostu, kişisel veri içermez, toplu) dışında üçüncü taraf JS yok.",
+    "storageTitle": "Cihazınızda ne saklanır",
+    "storageBody": "Yer imleriniz, namaz takipçiniz, zikir sayılarınız ve tercihleriniz tarayıcınızın localStorage'ında saklanır. Cihazınızdan asla ayrılmaz.",
+    "cookiesTitle": "Çerezler",
+    "cookiesBody": "Takip için hiçbiri kullanılmaz. Eğer ileride hesap tabanlı özellikler eklenirse (V3), açık onayla bir oturum çerezi kullanılabilir.",
+    "rightsTitle": "Haklarınız",
+    "rightsBody": "Her şeyi JSON olarak dışa aktarabilir veya silebilirsiniz — Ayarlar sayfasından tek tıkla."
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "code": "404",
+    "description": "Aradığınız sayfa mevcut değil. Taşınmış olabilir ya da henüz mevcut olmayabilir — bu site tek tek özellikler eklenerek inşa ediliyor.",
+    "returnHome": "Ana sayfaya dön",
+    "browseQuran": "Kur'an'a gözat",
+    "seePrayerTimes": "Namaz vakitlerini gör",
+    "helpfulLinks": "Yararlı bağlantılar"
+  },
+  "breadcrumb": {
+    "home": "Ana Sayfa",
+    "quran": "Kur'an",
+    "duas": "Dualar",
+    "prayerTimes": "Namaz vakitleri",
+    "qibla": "Kıble",
+    "learnSalah": "Namazı öğren",
+    "learn": "Öğren",
+    "namesOfAllah": "Allah'ın 99 İsmi",
+    "calendar": "Hicri takvim",
+    "tools": "Araçlar",
+    "settings": "Ayarlar",
+    "search": "Ara",
+    "about": "Hakkında",
+    "privacy": "Gizlilik",
+    "sources": "Kaynaklar",
+    "mushaf": "Mushaf okuyucu",
+    "readPdf": "Oku (PDF)",
+    "wordByWord": "Kelime kelime",
+    "browse": "Gözat",
+    "study": "Çalışma Modu",
+    "learningPlans": "Öğrenme Planları",
+    "adhan": "Ezan çalar",
+    "offline": "Çevrimdışı",
+    "hadith": "Hadis",
+    "seerah": "Siyer",
+    "reverts": "Yeni Müslümanlar",
+    "ramadan": "Ramazan",
+    "hajj": "Hac ve Umre",
+    "memorize": "Ezberle",
+    "iqamah": "İkamet",
+    "account": "Hesap",
+    "install": "Yükle"
+  },
+  "hadith": {
+    "index": {
+      "eyebrow": "The Six Books",
+      "title": "Hadith library",
+      "description": "The Kutub as-Sittah — six canonical Sunni collections of Prophetic narrations. Every hadith cites its collection number, and famous ones are graded.",
+      "collectionsHeading": "Collections",
+      "hadiths": "hadith",
+      "dataSourceNotice": "Text sourced from Fawaz Ahmed's public hadith dataset. All grading follows the compiler's original classification."
+    },
+    "book": {
+      "hadith": "Hadith",
+      "collection": "Collection",
+      "backToIndex": "← All collections",
+      "totalHadith": "{count} hadith in total",
+      "featuredHeading": "Featured hadiths",
+      "featuredCaption": "{count} well-known hadiths from this collection.",
+      "noSeedHeading": "Nothing featured yet",
+      "noSeedCaption": "Run the fetch script to load the full corpus.",
+      "fetchMoreTitle": "Full corpus:",
+      "fetchMoreBody": "Only featured hadiths are bundled in-repo. To load all",
+      "fetchMoreTail": "and rebuild."
+    },
+    "detail": {
+      "hadith": "Hadith",
+      "backToBook": "← {name}",
+      "hadithLabel": "Hadith #{number}",
+      "source": "Source",
+      "grade": "Grade",
+      "compiler": "Compiler",
+      "notLoadedTitle": "This hadith is not bundled in-repo yet.",
+      "notLoadedBody": "Run",
+      "notLoadedTail": "to download the full corpus."
+    }
+  },
+  "seerah": {
+    "index": {
+      "eyebrow": "Life of the Prophet ﷺ",
+      "title": "The Seerah",
+      "description": "The life of the Prophet Muhammad ﷺ, told chronologically. From the Year of the Elephant to the Farewell Sermon — 63 years that changed the world.",
+      "era": "Era",
+      "beforeHijrah": "BH",
+      "afterHijrah": "AH",
+      "dataSourceNotice": "Sourced from Ar-Raheeq al-Makhtum (Mubarakpuri) and Ibn Hisham's Sirat Rasul Allah, cross-referenced with Sahih hadith."
+    },
+    "event": {
+      "seerah": "Seerah",
+      "backToTimeline": "← Back to the timeline",
+      "location": "Location",
+      "beforeHijrah": "BH",
+      "afterHijrah": "AH",
+      "referencesHeading": "References",
+      "quran": "Quran",
+      "hadith": "Hadith",
+      "previous": "Earlier",
+      "next": "Later",
+      "navAriaLabel": "Seerah timeline navigation"
+    }
+  },
+  "reverts": {
+    "index": {
+      "eyebrow": "Welcome to Islam",
+      "title": "New Muslim hub",
+      "description": "If you've just taken shahada, or you're thinking about it, this is for you. Straight answers, sourced content, no rush.",
+      "welcomeNote": "The word 'revert' is preferred by many new Muslims — from the hadith that every child is born upon fitrah, the natural state of belief. Whichever word you prefer, you are welcome.",
+      "dataSourceNotice": "All content grounded in the Quran and Sahih hadith. Where scholars differ, we point you to your local imam."
+    },
+    "article": {
+      "reverts": "New Muslims",
+      "backToHub": "← Back to the hub",
+      "keepReadingHeading": "Keep reading",
+      "referencesHeading": "References",
+      "quran": "Quran",
+      "hadith": "Hadith",
+      "previous": "Earlier article",
+      "next": "Next article",
+      "navAriaLabel": "Reverts hub navigation"
+    }
+  },
+  "ramadan": {
+    "index": {
+      "eyebrow": "Ramadan {year} AH",
+      "title": "Ramadan hub",
+      "description": "The month of fasting, night prayer, and the Quran. Everything you need to prepare, practice, and complete Ramadan with intention.",
+      "statusInside": "Ramadan is here.",
+      "statusDayOf": "Day {day} of {total}",
+      "statusUntil": "Ramadan begins in {days} days.",
+      "statusStartsOn": "Starts {date} · 1 Ramadan {year} AH",
+      "trackerHeading": "Fasting tracker",
+      "trackerCaption": "Tap a day to mark it complete. Everything stays on your device — nothing is sent anywhere.",
+      "dataSourceNotice": "All rulings sourced from Quran and Sahih hadith. Where scholars differ, we direct you to your local imam."
+    },
+    "tracker": {
+      "day": "Day",
+      "fasted": "fasted",
+      "notFasted": "not marked",
+      "complete": "complete",
+      "upcoming": "upcoming",
+      "ariaLabel": "Ramadan 30-day fasting tracker",
+      "resetLabel": "Reset all",
+      "resetConfirm": "Reset every day of this Ramadan to unmarked? This cannot be undone."
+    },
+    "article": {
+      "ramadan": "Ramadan",
+      "backToHub": "← Back to the hub",
+      "referencesHeading": "References",
+      "quran": "Quran",
+      "hadith": "Hadith",
+      "previous": "Earlier article",
+      "next": "Next article",
+      "navAriaLabel": "Ramadan hub navigation"
+    }
+  },
+  "hajj": {
+    "index": {
+      "eyebrow": "The 5th pillar",
+      "title": "Hajj & Umrah guide",
+      "description": "Step-by-step guides to Umrah (year-round) and Hajj (once in a lifetime). Rituals, timings, ihram rules, common questions.",
+      "disclaimer": "This is a study guide, not a substitute for a qualified mutawwif (guide) during the actual pilgrimage. Rulings are the majority Sunni position; where the four schools differ substantively, we note it and direct you to your local imam.",
+      "dataSourceNotice": "Rulings sourced from Quran, Sahih hadith, and the standard fiqh of the four Sunni schools. Cross-referenced with published Saudi Ministry of Hajj guidance."
+    },
+    "article": {
+      "hajj": "Hajj & Umrah",
+      "backToHub": "← Back to the guide",
+      "referencesHeading": "References",
+      "quran": "Quran",
+      "hadith": "Hadith",
+      "previous": "Previous step",
+      "next": "Next step",
+      "navAriaLabel": "Hajj guide navigation"
+    }
+  },
+  "memorize": {
+    "index": {
+      "eyebrow": "Spaced repetition",
+      "title": "Memorize the Quran",
+      "description": "Pick verses juz by juz, and let spaced repetition schedule your reviews. Everything stays on your device.",
+      "privacyNotice": "Your memorization progress lives in your browser only. Nothing is sent anywhere."
+    },
+    "dashboard": {
+      "statNew": "New",
+      "statLearning": "Learning",
+      "statReviewing": "Reviewing",
+      "statMature": "Mature",
+      "dueTodayLabel": "Today",
+      "dueTodayCount": "{count} card(s) due",
+      "dueTodayHint": "A short review keeps them fresh in memory.",
+      "noCardsYet": "No cards yet.",
+      "addFirstHint": "Pick a juz below and tap ayat to add them.",
+      "allCaughtUp": "All caught up.",
+      "returnTomorrow": "Come back tomorrow — your deck is on schedule.",
+      "reviewNow": "Start today's review"
+    },
+    "juzPicker": {
+      "heading": "By juz",
+      "caption": "Tap a juz to see its ayat and add the ones you're memorizing.",
+      "juzLabel": "Juz",
+      "addedCount": "{count} added"
+    },
+    "juz": {
+      "memorize": "Memorize",
+      "pageTitle": "Juz {juz} — pick ayat",
+      "pageDescription": "Every ayah in juz {juz}. Tap Add to schedule it for spaced-repetition review.",
+      "juzLabel": "Juz {juz}",
+      "juzOf": "Juz {juz} of 30",
+      "backToDashboard": "← Memorize dashboard",
+      "coversSurahs": "Covers surahs",
+      "verseCount": "{count} ayat"
+    },
+    "ayahAdder": {
+      "progress": "{added} of {total} added",
+      "backToDashboard": "← Back",
+      "add": "Add",
+      "remove": "Remove",
+      "addAriaLabel": "Add ayah {verseKey} to memorization",
+      "removeAriaLabel": "Remove ayah {verseKey} from memorization"
+    },
+    "review": {
+      "memorize": "Memorize",
+      "eyebrow": "Today's review",
+      "pageTitle": "Review session",
+      "pageDescription": "Recall the Arabic from the translation. Rate honestly — the schedule adapts.",
+      "backToDashboard": "← Dashboard",
+      "loading": "Loading your deck…",
+      "loadingVerse": "Loading verse…",
+      "verseUnavailable": "Verse {verseKey} is not available yet. Run pnpm fetch:quran.",
+      "noDue": "Nothing due today.",
+      "noDueHint": "Add more ayat or come back tomorrow.",
+      "sessionComplete": "Session complete.",
+      "completedCount": "You reviewed {count} card(s) — well done.",
+      "progress": "{current} of {total}",
+      "showAnswer": "Show answer",
+      "again": "Again",
+      "hard": "Hard",
+      "good": "Good",
+      "easy": "Easy"
+    }
+  },
+  "iqamah": {
+    "index": {
+      "eyebrow": "Community-verified",
+      "title": "Live iqamah times",
+      "description": "Congregational prayer times at masjids around the world, submitted and verified by the community.",
+      "crowdsourcedNote": "This is a crowdsourced list. Every entry is reviewed before it appears; times drift, so double-check with your local masjid.",
+      "submitButton": "Submit a masjid",
+      "countHint": "{count} masjid(s)",
+      "emptyTitle": "No masjids yet.",
+      "emptyBody": "Be the first to add one — submissions are moderated before they go live."
+    },
+    "detail": {
+      "iqamah": "Iqamah",
+      "backToList": "← All masjids",
+      "timezoneLabel": "Timezone",
+      "iqamahHeading": "Iqamah times",
+      "notesHeading": "Notes",
+      "lastUpdated": "Last updated",
+      "suggestUpdate": "Suggest an update"
+    },
+    "submit": {
+      "iqamah": "Iqamah",
+      "eyebrow": "Submit",
+      "backToList": "← All masjids",
+      "pageTitle": "Submit a masjid",
+      "pageDescription": "Share iqamah times for a masjid in your community. Submissions are reviewed by a moderator before they appear publicly.",
+      "moderationNotice": "Your submitter name and email are used only for moderation and are never displayed publicly.",
+      "name": "Masjid name",
+      "city": "City",
+      "country": "Country code",
+      "countryHelp": "Two-letter ISO code (e.g. GB, US, ID, PK, SA).",
+      "timezone": "Timezone",
+      "timezoneHelp": "IANA identifier — helpful for future features like adjusting times to your local clock.",
+      "address": "Address",
+      "iqamahLegend": "Iqamah times",
+      "iqamahHelp": "Wall-clock time at the masjid. Leave blank if you don't know.",
+      "notes": "Notes (optional)",
+      "submitterLegend": "About you (optional)",
+      "submitterHelp": "Kept private — used only by the moderator to follow up if needed.",
+      "submitterName": "Your name",
+      "submitterEmail": "Your email",
+      "submit": "Submit for review",
+      "submitting": "Submitting…",
+      "successTitle": "Thank you.",
+      "successBody": "Your submission ({slug}) is in the moderation queue. It will appear publicly once approved.",
+      "submitAnother": "Submit another",
+      "errorGeneric": "Submission failed. Try again in a moment.",
+      "errorNetwork": "Couldn't reach the server. Check your connection and try again."
+    }
+  },
+  "account": {
+    "eyebrow": "İsteğe bağlı",
+    "pageTitle": "Hesap",
+    "pageDescription": "Yer imlerinizi, notlarınızı, ezber destenizi ve ayarlarınızı cihazlar arasında senkronize etmek için giriş yapın. E-posta gerekmez. Takip yok.",
+    "signUp": "Hesap oluştur",
+    "signIn": "Giriş yap",
+    "createAccount": "Hesap oluştur",
+    "signedInAs": "Giriş yapan",
+    "sessionExpires": "Oturum sona eriyor",
+    "syncActive": "Senkronizasyon etkin",
+    "syncActiveBody": "Yer imleriniz, notlarınız, ezber desteniz ve ayarlarınız bu kullanıcı adıyla giriş yaptığınız her cihaza otomatik olarak senkronize edilir. Değişiklikler birkaç saniye içinde yansır.",
+    "logout": "Çıkış yap",
+    "username": "Kullanıcı adı",
+    "usernameHelp": "3-64 karakter. Harf, rakam, alt çizgi, tire.",
+    "passphrase": "Parola cümlesi",
+    "passphraseHelpSignUp": "En az 12 karakter. Bir yere yazın — sıfırlama yoktur.",
+    "passphraseHelpSignIn": "Hesabı oluştururken belirlediğiniz parola cümlesi.",
+    "noRecoveryTitle": "Parola sıfırlama yoktur.",
+    "noRecoveryBody": "E-posta toplamadığımız için size sıfırlama bağlantısı gönderemeyiz. Parola cümlenizi unutursanız, hesap kaybolur. Parola cümlenizi bir şifre yöneticisine kaydedin.",
+    "submitting": "İşleniyor…",
+    "faqTitle": "Hesaplar hakkında",
+    "faqDataQ": "Neler senkronize edilir?",
+    "faqDataA": "Kur'an yer imleriniz, kişisel notlarınız, ezber desteniz, oruç kaydınız, namaz seriniz, zikir sayılarınız ve ayarlarınız — tarayıcınızdaki iw.v1 altındaki her şey.",
+    "faqEmailQ": "Neden e-posta yok?",
+    "faqEmailA": "Çünkü istemiyoruz. E-posta olmaması demek spam olmaması, pazarlama listeleri olmaması, veri sızıntıları olmaması demektir. Bunun karşılığı, unutulan bir parola cümlesini sıfırlayamamanızdır.",
+    "faqDeleteQ": "Hesabımı nasıl silerim?",
+    "faqDeleteA": "Giriş yapın, Ayarlar'a gidin ve \"Verilerimi sil\" seçeneğini kullanın. Bu, hem cihazınızdaki hem de sunucudaki kopyayı siler. Uygun bir hesap silme uç noktası isteyen olursa bildirsin — ekleriz.",
+    "errorUsernameTaken": "Bu kullanıcı adı zaten alınmış. Başka birini deneyin.",
+    "errorInvalidCredentials": "Kullanıcı adı veya parola cümlesi yanlış.",
+    "errorUsernameRequired": "Kullanıcı adı gereklidir.",
+    "errorPassphraseRequired": "Parola cümlesi gereklidir.",
+    "errorPassphraseShort": "Parola cümlesi en az 12 karakter olmalıdır.",
+    "errorUsernameShape": "Kullanıcı adı yalnızca harf, rakam, alt çizgi ve tire içerebilir (3-64 karakter)."
+  },
+  "_meta": {
+    "partialTranslation": true,
+    "translatedNamespaces": [
+      "common",
+      "nav",
+      "breadcrumb",
+      "home",
+      "footer",
+      "about",
+      "sources",
+      "settings",
+      "privacy",
+      "notFound",
+      "account"
+    ],
+    "note": "Site shell is translated. Feature-specific content (Quran translations, hadith, seerah events, etc.) remains in English until a native reviewer completes them."
+  },
+  "install": {
+    "prompt": {
+      "title": "Install as an app?",
+      "body": "Add Islamic Website to your home screen — works offline, launches fullscreen, no browser bar.",
+      "bodyIos": "Add Islamic Website to your home screen — works offline, launches fullscreen, no browser bar.",
+      "iosStep1": "Tap the Share button in Safari.",
+      "iosStep2": "Scroll to 'Add to Home Screen'.",
+      "iosStep3": "Tap 'Add' to confirm.",
+      "installButton": "Install",
+      "dismiss": "Not now",
+      "close": "Close"
+    },
+    "page": {
+      "eyebrow": "Home screen · Offline · Fullscreen",
+      "title": "Install as an app",
+      "description": "This site works as a Progressive Web App — install it to your device and you get the same experience as a native app, without the App Store review, tracking, or 50 MB download.",
+      "featureOfflineTitle": "Works offline",
+      "featureOfflineBody": "Quran text, du'a collection, prayer time schedule and Salah tutorials are cached — usable on a flight or in a low-signal area.",
+      "featureHomeTitle": "Home screen icon",
+      "featureHomeBody": "Launches in its own window with no browser chrome. Feels like a native app, tapped from the same place.",
+      "featureFastTitle": "Fast",
+      "featureFastBody": "Second visits load instantly. No app-store update cycle — improvements ship the moment we push them.",
+      "iosHeading": "iPhone / iPad (Safari)",
+      "iosStep1": "Open this page in Safari (Chrome for iOS can't install PWAs — Apple limitation).",
+      "iosStep2": "Tap the Share button (the square with an arrow pointing up).",
+      "iosStep3": "Scroll down and tap 'Add to Home Screen'.",
+      "iosStep4": "Tap 'Add' in the top-right. The Islamic Website icon appears on your home screen.",
+      "androidHeading": "Android (Chrome, Edge, Samsung Internet)",
+      "androidStep1": "Open the menu (three dots, top right).",
+      "androidStep2": "Tap 'Install app' or 'Add to Home screen'.",
+      "androidStep3": "Confirm. The app icon appears in your app drawer.",
+      "desktopHeading": "Desktop (Chrome, Edge, Brave)",
+      "desktopBody": "Look for the install icon in the address bar (a small screen with a down-arrow). Click it, then 'Install'. The site opens in its own window and gets a Start menu / Dock entry.",
+      "nativeQuestion": "Is there an iOS/Android app in the App Store?",
+      "nativeAnswer": "No — and by design. A native app means store review cycles, forced updates, and 50 MB downloads for what is fundamentally a text-and-audio website. The PWA gives you everything a native app would (offline, home screen icon, fullscreen, notifications) without any of the cost. If you already installed via 'Add to Home Screen', you already have the app.",
+      "backHome": "Back home",
+      "openQuran": "Open Quran"
+    }
+  }
+}

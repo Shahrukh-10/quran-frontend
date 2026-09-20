@@ -408,9 +408,23 @@ svg {
   }
 }
 
-/* Section wrapper */
+/* Section wrapper
+   ---------------
+   Performance strategy for the homepage:
+   • content-visibility: auto — the browser SKIPS layout + paint for any
+     section that is not near the viewport, so fast scrolling never blocks
+     on laying out the features grid, surah rail, or how-it-works below.
+   • contain-intrinsic-size — reserves layout space for the still-hidden
+     section so the scrollbar doesn't jump when the browser suddenly
+     renders it as the user scrolls in. The `auto` keyword tells the
+     browser to remember the last-rendered size for even better fidelity;
+     600px is the fallback for the first paint.
+   Do NOT remove these two lines without an equivalent perf strategy —
+   they are the reason /(homepage) scrolls smoothly on low-end devices. */
 .section {
   padding: 56px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 .section__head {
   display: flex;
@@ -547,7 +561,7 @@ svg {
   color: hsl(var(--muted-foreground));
 }
 .prayer-card__tile[aria-current="true"] .prayer-card__tile-name {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.92); /* was 0.75, bumped for WCAG AA on --accent bg */
 }
 .prayer-card__tile-time {
   font-size: 13px;

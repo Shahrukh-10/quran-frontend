@@ -1,6 +1,9 @@
 "use client";
-// A simple adhan player. Uses public CDNs known to host adhan audio (Islamic Network).
-// User taps to play — no autoplay ever (docs/DESIGN.md).
+// A simple adhan player. NOTE: current audio URLs are Quran recitation
+// samples (Surah 1 & 2), NOT actual adhan (call to prayer) recordings.
+// Free public adhan MP3 CDNs are unreliable; before shipping to production,
+// commit curated adhan MP3s under `public/audio/adhan/*.mp3` and swap the
+// URLs below to `/audio/adhan/<file>.mp3`. Labels are honest until then.
 
 import { PauseIcon, PlayIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -8,18 +11,13 @@ import { useCallback, useRef, useState } from "react";
 
 const MUEZZINS = [
   {
-    id: "makkah",
-    name: "Makkah — Ali Mullah",
-    url: "https://cdn.islamic.network/quran/audio/128/ar.abdurrahmaansudais/1.mp3",
-  },
-  {
-    id: "madinah",
-    name: "Madinah — Essam Bukhari",
+    id: "alafasy-1",
+    name: "Sheikh Mishary Al-Afasy — Al-Fātiḥah (sample)",
     url: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3",
   },
   {
-    id: "alafasy",
-    name: "Alafasy",
+    id: "alafasy-2",
+    name: "Sheikh Mishary Al-Afasy — Al-Baqarah opening (sample)",
     url: "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2.mp3",
   },
 ] as const;

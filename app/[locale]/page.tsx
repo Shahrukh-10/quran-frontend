@@ -1,4 +1,3 @@
-import { PrayerHero } from "@/components/home/prayer-hero";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import type { Metadata } from "next";
@@ -252,15 +251,25 @@ const FEATURES = [
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "home.hero" });
 
   return (
     <>
-      {/* Hero — HOME-1+2: live prayer widget (client). Replaces the old static
-          hero. The rest of the homepage (featured surahs, sample prayer card,
-          features grid, how-it-works) is unchanged. */}
+      {/* Hero — restored static hero (title/subtitle/CTAs on a soft Basmala
+          watermark). The prayer widget lives on /prayer-times, not the home page. */}
       <section className="hero">
         <div className="container hero__inner">
-          <PrayerHero />
+          <div className="hero__eyebrow">Sourced · Offline-first · Ad-free</div>
+          <h1 className="hero__title">{t("title")}</h1>
+          <p className="hero__subtitle">{t("subtitle")}</p>
+          <div className="hero__ctas">
+            <Link className="btn btn--primary" href="/quran">
+              {t("ctaPrimary")}
+            </Link>
+            <Link className="btn btn--secondary" href="/duas">
+              {t("ctaSecondary")}
+            </Link>
+          </div>
         </div>
       </section>
 

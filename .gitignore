@@ -35,3 +35,8 @@ pnpm-debug.log*
 # Cache
 .turbo/
 .cache/
+
+# Hadith corpus — fetched by `pnpm fetch:hadith`, not committed.
+# The seed.json is kept in-repo for out-of-the-box content.
+/data/hadith/*/
+!/data/hadith/seed.json

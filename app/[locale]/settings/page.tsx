@@ -2,6 +2,7 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { SettingsPanel } from "@/components/settings/settings-panel";
 import { locales } from "@/i18n/config";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -13,16 +14,21 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "settings" });
   return {
     title: t("title"),
     description: "Manage appearance, language, accessibility, and your on-device data.",
     alternates: { canonical: siteUrl(locale === "en" ? "/settings" : `/${locale}/settings`) },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/settings" : `/${locale}/settings`),
+    },
   };
 }
 
 export default async function SettingsPage({ params }: Props) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "settings" });
 
@@ -30,7 +36,7 @@ export default async function SettingsPage({ params }: Props) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
+          { name: bc("home"), url: siteUrl("/") },
           { name: t("title"), url: siteUrl("/settings") },
         ]}
       />

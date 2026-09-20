@@ -7,6 +7,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getPlanById } from "@/lib/plans";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -29,6 +30,7 @@ function splitTitle(title: string): { english: string; arabic: string } {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, n } = await params;
+  const bc = await breadcrumbs(locale);
   const num = Number.parseInt(n, 10);
   if (!Number.isInteger(num) || num < 1 || num > 30) return {};
   return {
@@ -39,11 +41,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale === "en" ? `/quran/read/juz/${num}` : `/${locale}/quran/read/juz/${num}`,
       ),
     },
+    openGraph: {
+      url: siteUrl(
+        locale === "en" ? `/quran/read/juz/${num}` : `/${locale}/quran/read/juz/${num}`,
+      ),
+    },
   };
 }
 
 export default async function JuzReadPage({ params }: Props) {
   const { locale, n } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const num = Number.parseInt(n, 10);
   if (!Number.isInteger(num) || num < 1 || num > 30) notFound();
@@ -59,8 +67,8 @@ export default async function JuzReadPage({ params }: Props) {
     <article className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: "Read (PDF)", url: siteUrl("/quran/read") },
           { name: `Juz ${num}`, url: siteUrl(`/quran/read/juz/${num}`) },
         ]}

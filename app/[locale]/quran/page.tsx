@@ -3,7 +3,9 @@ import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { type Surah, getAllSurahs } from "@/lib/quran";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import "./_quran-hig.css";
@@ -18,11 +20,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "quran.list" });
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: siteUrl(locale === "en" ? "/quran" : `/${locale}/quran`) },
+    alternates: {
+      canonical: siteUrl(locale === "en" ? "/quran" : `/${locale}/quran`),
+      languages: hreflangLanguages("/quran"),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/quran" : `/${locale}/quran`),
+      type: "article",
+      locale,
+      images: mergedOgImages(t("title")),
+    },
   };
 }
 
@@ -89,6 +101,7 @@ export default async function QuranIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const surahs = getAllSurahs();
   const groups = groupSurahs(surahs);
@@ -97,8 +110,8 @@ export default async function QuranIndexPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
         ]}
       />
 

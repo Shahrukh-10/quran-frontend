@@ -15,6 +15,17 @@ function LdJson({ data }: { data: JsonLd }) {
   );
 }
 
+// The publish/modification date used when a page does not pass its own.
+// - `process.env.NEXT_PUBLIC_BUILD_DATE` is wired into the Cloudflare Pages
+//   build command (`NEXT_PUBLIC_BUILD_DATE=$(date -u +%Y-%m-%d) pnpm build`)
+//   so every deploy stamps the freshness signal.
+// - When the env is absent (local dev, tests, previews), we fall back to
+//   today's UTC date so freshness never freezes to an outdated hardcoded
+//   string. Format: `YYYY-MM-DD` (schema.org accepts ISO-8601 date strings).
+function defaultArticleDate(): string {
+  return process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
+}
+
 export function OrganizationSchema() {
   return (
     <LdJson
@@ -79,10 +90,15 @@ export function ArticleSchema({
   headline: string;
   description: string;
   url: string;
-  datePublished: string;
+  // Optional — defaults to `NEXT_PUBLIC_BUILD_DATE` at render time (see
+  // `defaultArticleDate` above). Callers may pass a per-content date from
+  // frontmatter when it exists.
+  datePublished?: string;
   dateModified?: string;
   author?: string;
 }) {
+  const published = datePublished ?? defaultArticleDate();
+  const modified = dateModified ?? published;
   return (
     <LdJson
       data={{
@@ -91,8 +107,8 @@ export function ArticleSchema({
         headline,
         description,
         url,
-        datePublished,
-        dateModified: dateModified ?? datePublished,
+        datePublished: published,
+        dateModified: modified,
         author: {
           "@type": "Organization",
           name: author ?? siteName,
@@ -146,6 +162,165 @@ export function FaqSchema({ items }: { items: { question: string; answer: string
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },
         })),
+      }}
+    />
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Scripture-specific schemas — the biggest AEO / AIO opportunity per the
+// SEO audit. AI answer engines (Google AI Overviews, Perplexity, SearchGPT,
+// Bing Copilot) look for `Book` / `Chapter` / `Quotation` shapes when
+// citing scripture. `Article` alone is technically valid but does not
+// register as scriptural citation-eligible content.
+// ---------------------------------------------------------------------------
+
+/**
+ * A single Qur'anic surah, modelled as `Chapter` of the `Book` "The Qur'an".
+ * Attach on `app/[locale]/quran/[surah]/page.tsx` next to `ArticleSchema`.
+ */
+export function QuranChapterSchema({
+  surahName,
+  surahNumber,
+  ayahCount,
+  revelation,
+  url,
+}: {
+  surahName: string;
+  surahNumber: number;
+  ayahCount: number;
+  revelation: "meccan" | "medinan";
+  url: string;
+}) {
+  return (
+    <LdJson
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Chapter",
+        name: `Surah ${surahName}`,
+        position: surahNumber,
+        pageStart: 1,
+        pageEnd: ayahCount,
+        url,
+        about: revelation === "meccan" ? "Makkan revelation" : "Madinan revelation",
+        isPartOf: {
+          "@type": "Book",
+          "@id": siteUrl("/quran"),
+          name: "The Qur'an",
+          alternateName: ["Qur'an", "Koran", "Al-Qur'ān"],
+          author: {
+            "@type": "Person",
+            name: "Muhammad (Prophet, receiving revelation)",
+          },
+          inLanguage: "ar",
+          bookFormat: "https://schema.org/EBook",
+          url: siteUrl("/quran"),
+        },
+      }}
+    />
+  );
+}
+
+/**
+ * A single ayah, modelled as a `Quotation`. `translationOfWork` links the
+ * translation text back to the Arabic source, which is what SearchGPT and
+ * Perplexity read when citing verses.
+ */
+export function AyahQuotationSchema({
+  arabic,
+  translation,
+  surahName,
+  surahNumber,
+  ayahNumber,
+  url,
+}: {
+  arabic: string;
+  translation: string;
+  surahName: string;
+  surahNumber: number;
+  ayahNumber: number;
+  url: string;
+}) {
+  return (
+    <LdJson
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Quotation",
+        text: translation,
+        citation: `Qur'an ${surahNumber}:${ayahNumber} — Surah ${surahName}`,
+        inLanguage: "en",
+        url,
+        translationOfWork: {
+          "@type": "CreativeWork",
+          name: `Surah ${surahName}, ayah ${ayahNumber}`,
+          text: arabic,
+          inLanguage: "ar",
+        },
+        isPartOf: {
+          "@type": "Chapter",
+          name: `Surah ${surahName}`,
+          position: surahNumber,
+          isPartOf: {
+            "@type": "Book",
+            "@id": siteUrl("/quran"),
+            name: "The Qur'an",
+          },
+        },
+      }}
+    />
+  );
+}
+
+/**
+ * A hadith or a hadith collection, modelled as a `Quotation` spoken by the
+ * Prophet ﷺ. `bookName` is the collection title (e.g. "Sahih al-Bukhari"),
+ * `text` is the matn (the actual saying, translated), and `citation` is the
+ * standard reference form (e.g. "Sahih al-Bukhari 203").
+ *
+ * Used on both hadith book index pages (with a summary citation) and — once
+ * the individual hadith route ships — on each detail page.
+ */
+export function HadithQuotationSchema({
+  bookName,
+  bookArabicName,
+  compiler,
+  eraCE,
+  totalHadith,
+  url,
+}: {
+  bookName: string;
+  bookArabicName?: string;
+  compiler?: string;
+  eraCE?: string;
+  totalHadith: number;
+  url: string;
+}) {
+  return (
+    <LdJson
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Book",
+        name: bookName,
+        alternateName: bookArabicName,
+        author: compiler
+          ? {
+              "@type": "Person",
+              name: compiler,
+              description: eraCE ? `Compiler, ${eraCE}` : undefined,
+            }
+          : undefined,
+        about: {
+          "@type": "Quotation",
+          spokenByCharacter: {
+            "@type": "Person",
+            name: "Muhammad ﷺ",
+            description: "Prophet of Islam",
+          },
+        },
+        numberOfPages: totalHadith,
+        bookFormat: "https://schema.org/EBook",
+        inLanguage: "ar",
+        url,
       }}
     />
   );

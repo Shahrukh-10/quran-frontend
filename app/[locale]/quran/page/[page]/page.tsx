@@ -6,6 +6,7 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { ayatInPage, summarizePages } from "@/lib/quran-index";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -24,6 +25,7 @@ type Props = { params: Promise<{ locale: string; page: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, page } = await params;
+  const bc = await breadcrumbs(locale);
   const n = Number.parseInt(page, 10);
   if (!Number.isInteger(n) || n < 1 || n > TOTAL_PAGES) return {};
   return {
@@ -32,11 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/page/${n}` : `/${locale}/quran/page/${n}`),
     },
+    openGraph: {
+      url: siteUrl(locale === "en" ? `/quran/page/${n}` : `/${locale}/quran/page/${n}`),
+    },
   };
 }
 
 export default async function PagePage({ params }: Props) {
   const { locale, page } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
   const n = Number.parseInt(page, 10);
   if (!Number.isInteger(n) || n < 1 || n > TOTAL_PAGES) notFound();
@@ -51,8 +57,8 @@ export default async function PagePage({ params }: Props) {
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Quran", url: siteUrl("/quran") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("quran"), url: siteUrl("/quran") },
           { name: `Page ${n}`, url: siteUrl(`/quran/page/${n}`) },
         ]}
       />

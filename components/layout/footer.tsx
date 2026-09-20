@@ -125,6 +125,9 @@ export function Footer() {
               <li>
                 <Link href="/privacy">{priv("title")}</Link>
               </li>
+              <li>
+                <Link href="/install">{nav("install")}</Link>
+              </li>
             </ul>
           </div>
         </div>

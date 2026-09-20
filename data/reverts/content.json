@@ -1,0 +1,175 @@
+{
+  "_note": "Reverts hub content. 'Revert' is the term many new Muslims prefer (based on the hadith that every child is born on fitrah). All Islamic content is sourced from the Quran, Sahih hadith, or classical scholarship. Guidance on practical matters is deliberately conservative and non-sectarian — it points readers to their local mosque and imam rather than picking a school of thought.",
+  "sections": [
+    {
+      "slug": "first-steps",
+      "title": { "en": "First steps", "id": "Langkah pertama" },
+      "description": {
+        "en": "The core act — the shahada — and what to do in the first days.",
+        "id": "Inti keimanan — syahadat — dan apa yang harus dilakukan di hari-hari awal."
+      },
+      "articles": [
+        {
+          "slug": "the-shahada",
+          "title": { "en": "The shahada — declaring your faith", "id": "Syahadat — mengikrarkan iman" },
+          "body": {
+            "en": "The declaration of faith (shahada) is what makes a person a Muslim. It has two parts: 'Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasul Allah' — 'I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.'\n\nSay it once, sincerely, understanding what it means, and you are Muslim from that moment. No ceremony is required. You don't need to convert in front of anyone — Islam has no priesthood — but most masjids will happily witness your shahada if you'd like the moment marked. Some communities give you a certificate; that's a formality, not a spiritual requirement.\n\nIf you already believe those two statements to be true, you are already Muslim. Islam considers you as having returned (reverted) to the natural state of belief (fitrah) that every human is born with.",
+            "id": "Syahadat adalah yang menjadikan seseorang Muslim. Terdiri dari dua bagian: 'Asyhadu an lā ilāha illā Allāh, wa asyhadu anna Muhammadar-rasūlullāh' — 'Aku bersaksi bahwa tidak ada tuhan selain Allah, dan aku bersaksi bahwa Muhammad adalah utusan Allah.'\n\nUcapkan sekali, dengan tulus, memahami maknanya, dan sejak saat itu Anda adalah Muslim. Tidak diperlukan upacara. Anda tidak perlu masuk Islam di depan siapa pun — Islam tidak memiliki kependetaan — tetapi kebanyakan masjid akan dengan senang hati menjadi saksi jika Anda ingin momen itu dicatat. Beberapa komunitas memberikan sertifikat; itu formalitas, bukan syarat spiritual.\n\nJika Anda sudah meyakini kedua pernyataan itu benar, Anda sudah Muslim. Islam memandang Anda telah kembali (reverted) ke fitrah — keadaan iman alamiah yang dimiliki setiap manusia sejak lahir."
+          },
+          "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 8" }],
+          "linksTo": []
+        },
+        {
+          "slug": "your-first-week",
+          "title": { "en": "Your first week", "id": "Minggu pertama Anda" },
+          "body": {
+            "en": "There's no rush. Islam is a marathon, not a sprint — the Prophet ﷺ said 'the deeds most beloved to Allah are those done consistently, even if small' (Sahih al-Bukhari 6464).\n\nThe traditional order in which the Prophet ﷺ taught new Muslims:\n\n1. Learn to make ghusl (the full-body ritual purification). Many scholars recommend a fresh ghusl after taking shahada as a symbolic new beginning.\n2. Learn wudu (the smaller ablution before prayer).\n3. Start the five daily prayers as soon as you can. Even if you only know the opening (al-Fatihah) at first, that's enough to begin.\n4. Learn what breaks a fast. Don't take on Ramadan yet if you're just starting — build up.\n\nDon't try to become a scholar in a week. Focus on the daily prayers and a few short surahs. Everything else will follow.",
+            "id": "Tidak perlu terburu-buru. Islam adalah perjalanan panjang, bukan sprint — Nabi ﷺ bersabda 'amalan yang paling dicintai Allah adalah yang dikerjakan secara konsisten, meskipun sedikit' (Sahih al-Bukhari 6464).\n\nUrutan tradisional yang diajarkan Nabi ﷺ kepada muslim baru:\n\n1. Belajar mandi wajib (thaharah menyeluruh). Banyak ulama menganjurkan mandi baru setelah bersyahadat sebagai awal simbolis.\n2. Belajar wudhu (bersuci kecil sebelum salat).\n3. Mulai salat lima waktu sesegera mungkin. Meski awalnya baru hafal al-Fatihah, itu sudah cukup untuk memulai.\n4. Pelajari apa yang membatalkan puasa. Jangan langsung berpuasa Ramadhan jika baru mulai — bertahap saja.\n\nJangan berusaha menjadi ulama dalam seminggu. Fokus pada salat harian dan beberapa surah pendek. Yang lain akan menyusul."
+          },
+          "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 6464" }],
+          "linksTo": [
+            { "label": { "en": "How to pray Salah", "id": "Cara salat" }, "href": "/learn-salah" },
+            { "label": { "en": "Read Surah al-Fatihah", "id": "Baca Al-Fatihah" }, "href": "/quran/al-fatihah" }
+          ]
+        },
+        {
+          "slug": "past-sins",
+          "title": { "en": "What happens to my past sins?", "id": "Bagaimana dengan dosa-dosa masa lalu?" },
+          "body": {
+            "en": "This is one of the most beautiful mercies in Islam. The Prophet ﷺ said: 'Islam wipes out what came before it' (Sahih Muslim 121).\n\nEvery sin from before your shahada — every wrong thing you ever did — is forgiven the moment you become Muslim. Not just concealed. Not just deferred. Erased.\n\nIn Surah al-Furqan (25:70), Allah says of those who repent, believe, and do good deeds: 'For them Allah will replace their evil deeds with good deeds. And Allah is ever Forgiving, Merciful.'\n\nYou do not need to confess your past to anyone. You do not need to make up for things nobody else knows about. If you owe someone something concrete — money, an apology, a stolen item to return — the Islamic principle is that rights owed to people (huquq al-'ibad) need to be settled with those people. But things between you and Allah alone are simply forgiven.",
+            "id": "Ini adalah salah satu rahmat terindah dalam Islam. Nabi ﷺ bersabda: 'Islam menghapus apa yang sebelumnya' (Sahih Muslim 121).\n\nSetiap dosa sebelum syahadat Anda — setiap perbuatan salah yang pernah Anda lakukan — diampuni saat Anda menjadi Muslim. Bukan sekadar disembunyikan. Bukan sekadar ditangguhkan. Dihapus.\n\nDalam Surah al-Furqan (25:70), Allah berfirman tentang mereka yang bertobat, beriman, dan beramal saleh: 'Bagi mereka Allah akan mengganti kejahatan mereka dengan kebaikan. Dan Allah Maha Pengampun, Maha Penyayang.'\n\nAnda tidak perlu mengakui masa lalu kepada siapa pun. Anda tidak perlu menebus hal-hal yang tidak diketahui orang lain. Jika Anda berhutang sesuatu yang konkret kepada seseorang — uang, permintaan maaf, barang curian yang harus dikembalikan — prinsip Islam adalah hak-hak antar manusia (huquq al-'ibad) harus diselesaikan dengan orang tersebut. Namun perkara antara Anda dan Allah semata — sudah diampuni."
+          },
+          "references": [
+            { "type": "quran", "ref": "25:70" },
+            { "type": "hadith", "ref": "Sahih Muslim 121" }
+          ],
+          "linksTo": []
+        }
+      ]
+    },
+    {
+      "slug": "learning-the-basics",
+      "title": { "en": "Learning the basics", "id": "Mempelajari dasar-dasar" },
+      "description": {
+        "en": "The five pillars, the six articles of faith, and how to pray.",
+        "id": "Lima rukun Islam, enam rukun iman, dan cara salat."
+      },
+      "articles": [
+        {
+          "slug": "five-pillars",
+          "title": { "en": "The five pillars of Islam", "id": "Lima rukun Islam" },
+          "body": {
+            "en": "Islam is built on five pillars (arkan al-Islam) — the framework that shapes a Muslim's practice:\n\n1. **Shahada** — the declaration of faith you just made.\n2. **Salah** — the five daily prayers. These are the first act of worship you learn after shahada.\n3. **Zakah** — the annual purifying almsgiving of 2.5% on wealth held over a year, if you meet the threshold (nisab). New Muslims don't owe Zakah retroactively for wealth held before shahada.\n4. **Sawm** — fasting during the month of Ramadan (from Fajr to Maghrib). If you become Muslim mid-Ramadan, you fast from that day forward, not retroactively.\n5. **Hajj** — pilgrimage to Makkah, once in a lifetime, if you are physically and financially able.\n\nThe Prophet ﷺ described these in the famous 'Hadith of Jibril' (Sahih Muslim 8), where the angel Gabriel questioned him about the pillars of Islam, iman (faith), and ihsan (excellence).",
+            "id": "Islam dibangun di atas lima rukun (arkanul Islam) — kerangka yang membentuk praktik seorang Muslim:\n\n1. **Syahadat** — kesaksian iman yang baru Anda ucapkan.\n2. **Salat** — salat lima waktu. Ini adalah ibadah pertama yang Anda pelajari setelah syahadat.\n3. **Zakat** — sedekah wajib tahunan sebesar 2,5% dari harta yang dimiliki selama satu tahun, jika mencapai ambang batas (nisab). Muslim baru tidak berhutang zakat surut untuk harta yang dimiliki sebelum syahadat.\n4. **Puasa** — puasa selama bulan Ramadhan (dari Subuh hingga Maghrib). Jika Anda masuk Islam di tengah Ramadhan, Anda berpuasa mulai hari itu, tidak surut.\n5. **Haji** — pergi ke Makkah sekali seumur hidup, jika mampu secara fisik dan finansial.\n\nNabi ﷺ menjelaskan hal ini dalam 'Hadis Jibril' yang terkenal (Sahih Muslim 8), di mana malaikat Jibril bertanya kepada beliau tentang rukun Islam, iman, dan ihsan."
+          },
+          "references": [
+            { "type": "hadith", "ref": "Sahih Muslim 8" },
+            { "type": "hadith", "ref": "Sahih al-Bukhari 8" }
+          ],
+          "linksTo": [
+            { "label": { "en": "How to pray Salah", "id": "Cara salat" }, "href": "/learn-salah" },
+            { "label": { "en": "Zakat calculator", "id": "Kalkulator zakat" }, "href": "/tools/zakat" }
+          ]
+        },
+        {
+          "slug": "six-articles-of-faith",
+          "title": { "en": "The six articles of faith", "id": "Enam rukun iman" },
+          "body": {
+            "en": "The six articles of faith (arkan al-iman) are what a Muslim believes:\n\n1. Belief in **Allah** — one God, without partners.\n2. Belief in the **angels** — created beings who serve Allah (Jibril, Mika'il, and others).\n3. Belief in the **revealed scriptures** — the Torah given to Musa, the Zabur to Dawud, the Injil to 'Isa, and the Quran to Muhammad ﷺ. The Quran is the final and preserved scripture.\n4. Belief in the **prophets and messengers** — from Adam to Muhammad ﷺ. The Quran names 25, but there were many more. Muslims respect all prophets equally.\n5. Belief in the **Day of Judgment** (yawm al-qiyamah) — resurrection, accountability, and final justice.\n6. Belief in **qadar** — divine decree. Allah's knowledge encompasses everything; nothing happens outside His will.\n\nThe first four are directly stated in the Quran (Surah al-Baqarah 2:285). The Prophet ﷺ added the Day of Judgment and qadar in the Hadith of Jibril.",
+            "id": "Enam rukun iman (arkanul iman) adalah apa yang diyakini seorang Muslim:\n\n1. Iman kepada **Allah** — satu Tuhan, tanpa sekutu.\n2. Iman kepada **malaikat** — makhluk yang melayani Allah (Jibril, Mika'il, dan lainnya).\n3. Iman kepada **kitab-kitab yang diwahyukan** — Taurat kepada Musa, Zabur kepada Dawud, Injil kepada 'Isa, dan Al-Qur'an kepada Muhammad ﷺ. Al-Qur'an adalah kitab terakhir dan terjaga.\n4. Iman kepada **para nabi dan rasul** — dari Adam hingga Muhammad ﷺ. Al-Qur'an menyebut 25 nama, tetapi jumlah mereka lebih banyak. Muslim menghormati semua nabi secara setara.\n5. Iman kepada **Hari Kiamat** (yaumul qiyamah) — kebangkitan, pertanggungjawaban, dan keadilan akhir.\n6. Iman kepada **qadar** — takdir ilahi. Ilmu Allah meliputi segalanya; tidak ada yang terjadi di luar kehendak-Nya.\n\nEmpat yang pertama tercantum langsung dalam Al-Qur'an (Surah al-Baqarah 2:285). Nabi ﷺ menambahkan Hari Kiamat dan qadar dalam Hadis Jibril."
+          },
+          "references": [
+            { "type": "quran", "ref": "2:285" },
+            { "type": "hadith", "ref": "Sahih Muslim 8" }
+          ],
+          "linksTo": [
+            { "label": { "en": "99 Names of Allah", "id": "99 Nama Allah" }, "href": "/names-of-allah" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "common-questions",
+      "title": { "en": "Common questions", "id": "Pertanyaan umum" },
+      "description": {
+        "en": "Straight answers to what new Muslims most often ask.",
+        "id": "Jawaban langsung untuk pertanyaan yang paling sering ditanyakan Muslim baru."
+      },
+      "articles": [
+        {
+          "slug": "arabic-name",
+          "title": { "en": "Do I need an Arabic name?", "id": "Perlukah saya nama Arab?" },
+          "body": {
+            "en": "**No.** Your name is your name. There is no requirement to change it when you become Muslim.\n\nEven the Prophet ﷺ did not require converts to change their names, only asking that they change names with meanings that contradicted Islam (e.g. someone named 'Servant of the idol' would be renamed 'Servant of Allah'). Non-Arab names — including Anglo, African, Asian, and European names — are perfectly acceptable.\n\nMany reverts choose to add an Arabic name (e.g. Muhammad, Yusuf, Fatima, Maryam) alongside their given name because they like it or because it helps at the mosque. That's a personal choice, not an obligation.",
+            "id": "**Tidak.** Nama Anda adalah nama Anda. Tidak ada kewajiban untuk mengubahnya saat masuk Islam.\n\nBahkan Nabi ﷺ tidak mewajibkan para mualaf mengubah nama mereka, hanya meminta mengubah nama yang maknanya bertentangan dengan Islam (misalnya seseorang bernama 'Hamba berhala' akan diganti menjadi 'Hamba Allah'). Nama non-Arab — termasuk nama Barat, Afrika, Asia, dan Eropa — sepenuhnya dapat diterima.\n\nBanyak mualaf memilih menambahkan nama Arab (misalnya Muhammad, Yusuf, Fatima, Maryam) di samping nama asli mereka karena menyukainya atau karena memudahkan di masjid. Itu pilihan pribadi, bukan kewajiban."
+          },
+          "references": [],
+          "linksTo": []
+        },
+        {
+          "slug": "non-muslim-family",
+          "title": {
+            "en": "My family isn't Muslim — what do I do?",
+            "id": "Keluarga saya bukan Muslim — apa yang harus saya lakukan?"
+          },
+          "body": {
+            "en": "The Quran is unambiguous on this. Surah Luqman 31:15 says: 'And if they endeavor to make you associate with Me that of which you have no knowledge, do not obey them. But accompany them in this world with kindness (ma'ruf).'\n\nTranslation: even if your parents are unbelievers or actively opposed to Islam, you owe them **respect, kindness, and care**. You continue to visit them, help them financially if they need it, care for them in old age, and speak to them well. Your obligations to your parents do not end because your faith changed.\n\nThe one line you don't cross: you cannot obey them in disobedience to Allah. If they demand you drink alcohol or abandon your prayers, you politely refuse and continue in Islam. Everything else — meals together, holidays, family gatherings — you show up for.",
+            "id": "Al-Qur'an sangat jelas dalam hal ini. Surah Luqman 31:15 berbunyi: 'Dan jika keduanya memaksamu untuk mempersekutukan-Ku dengan sesuatu yang tidak ada pengetahuanmu tentang itu, maka janganlah kamu mengikuti keduanya. Dan pergaulilah keduanya di dunia dengan baik.'\n\nArtinya: meskipun orang tua Anda bukan Muslim atau menentang Islam, Anda tetap berkewajiban **menghormati, berbuat baik, dan merawat mereka**. Anda tetap mengunjungi mereka, membantu keuangan jika mereka membutuhkan, merawat di masa tua, dan berbicara dengan baik. Kewajiban Anda kepada orang tua tidak berakhir karena iman Anda berubah.\n\nSatu batas yang tidak boleh dilanggar: Anda tidak boleh menaati mereka dalam maksiat kepada Allah. Jika mereka menuntut Anda minum alkohol atau meninggalkan salat, tolak dengan sopan dan tetap dalam Islam. Selain itu — makan bersama, hari raya, kumpul keluarga — hadirilah."
+          },
+          "references": [{ "type": "quran", "ref": "31:15" }],
+          "linksTo": []
+        },
+        {
+          "slug": "pork-and-alcohol",
+          "title": { "en": "Pork, alcohol, and everyday food", "id": "Babi, alkohol, dan makanan sehari-hari" },
+          "body": {
+            "en": "Two things are strictly and permanently forbidden (haram) in food:\n\n1. **Pork** and its derivatives (Surah al-Baqarah 2:173).\n2. **Intoxicants** — alcohol, whether beverage or cooked into food that retains alcohol (Surah al-Ma'idah 5:90).\n\nMeat should ideally be halal (slaughtered in the name of Allah with a specific method). In non-Muslim countries the majority position is that meat from People of the Book (Christians, Jews) — supermarket meat that isn't pork — is permissible (Surah al-Ma'idah 5:5), though many Muslims prefer explicitly-labeled halal meat for peace of mind. This is a scholarly discussion; ask your local imam.\n\nCheck labels for pork gelatin (in sweets, marshmallows), rennet (in some cheeses), and cooking wine (in sauces). When eating out, ask before ordering.",
+            "id": "Dua hal yang secara tegas dan permanen haram dalam makanan:\n\n1. **Babi** dan turunannya (Surah al-Baqarah 2:173).\n2. **Yang memabukkan** — alkohol, baik sebagai minuman atau dimasak dalam makanan yang masih mengandung alkohol (Surah al-Ma'idah 5:90).\n\nDaging idealnya harus halal (disembelih dengan menyebut nama Allah dengan cara tertentu). Di negara non-Muslim, mayoritas ulama membolehkan daging dari Ahli Kitab (Kristen, Yahudi) — daging supermarket yang bukan babi — (Surah al-Ma'idah 5:5), meskipun banyak Muslim lebih suka daging yang berlabel halal untuk ketenangan hati. Ini pembahasan ilmiah; tanyakan pada imam setempat Anda.\n\nPeriksa label untuk gelatin babi (di permen, marshmallow), rennet (di beberapa keju), dan wine masak (di saus). Saat makan di luar, tanyakan sebelum memesan."
+          },
+          "references": [
+            { "type": "quran", "ref": "2:173" },
+            { "type": "quran", "ref": "5:5" },
+            { "type": "quran", "ref": "5:90" }
+          ],
+          "linksTo": []
+        }
+      ]
+    },
+    {
+      "slug": "community-and-support",
+      "title": { "en": "Community & support", "id": "Komunitas & dukungan" },
+      "description": {
+        "en": "You are not alone. Find a masjid, connect with other reverts, take your time.",
+        "id": "Anda tidak sendirian. Cari masjid, hubungi mualaf lain, jalani dengan santai."
+      },
+      "articles": [
+        {
+          "slug": "finding-a-masjid",
+          "title": { "en": "Finding a masjid", "id": "Menemukan masjid" },
+          "body": {
+            "en": "Every city with any significant Muslim population has at least one masjid, and most are open to visitors. Introduce yourself to the imam — they will almost always welcome you personally, often set up an informal tutor, and connect you with the community.\n\nDon't be intimidated by not knowing what to do. Every Muslim was a beginner once. If you accidentally do something wrong at the mosque — sitting the wrong way, walking in front of someone praying — nobody minds. You'll be gently corrected and welcomed.\n\nFriday prayer (Jumu'ah, around midday every Friday) is the weekly congregational prayer. It's the easiest single event to attend to meet the community. You don't need to arrive early or know any special protocol; just find the mosque, wash for wudu, and sit in the main hall.",
+            "id": "Setiap kota dengan populasi Muslim yang cukup memiliki setidaknya satu masjid, dan sebagian besar terbuka untuk pengunjung. Perkenalkan diri kepada imam — mereka hampir selalu menyambut Anda secara pribadi, sering menyediakan pengajar informal, dan menghubungkan Anda dengan komunitas.\n\nJangan takut jika belum tahu apa-apa. Setiap Muslim pernah menjadi pemula. Jika Anda tidak sengaja melakukan kesalahan di masjid — duduk dengan cara yang salah, berjalan di depan orang yang sedang salat — tidak ada yang keberatan. Anda akan dibetulkan dengan lembut dan disambut.\n\nSalat Jumat (sekitar tengah hari setiap Jumat) adalah salat berjamaah mingguan. Ini adalah acara tunggal termudah untuk bertemu komunitas. Anda tidak perlu datang lebih awal atau mengetahui protokol khusus; cukup temukan masjid, berwudhu, dan duduk di ruang utama."
+          },
+          "references": [],
+          "linksTo": [
+            { "label": { "en": "Prayer times for your city", "id": "Jadwal salat di kota Anda" }, "href": "/prayer-times" },
+            { "label": { "en": "Learn to pray Salah", "id": "Belajar salat" }, "href": "/learn-salah" }
+          ]
+        },
+        {
+          "slug": "take-your-time",
+          "title": { "en": "Take your time", "id": "Jangan terburu-buru" },
+          "body": {
+            "en": "Islam has fourteen centuries of scholarship, four major schools of jurisprudence, thousands of hadith collections, and a language most reverts don't speak. It is normal to feel overwhelmed.\n\nOne piece of advice that has helped many reverts: **learn less, practice more**. It is better to pray five times a day imperfectly than to read scholarly books all day and pray once a week. The Prophet ﷺ said: 'Take on only what you can bear' (Sahih al-Bukhari 43).\n\nStart with the daily prayers. Add a short dua at each transition of the day. Learn one new surah a month. Read one small chapter of the seerah a week. In a year you will know more than you can imagine now. In ten years you will have grown into your faith. There is no rush.",
+            "id": "Islam memiliki empat belas abad keilmuan, empat mazhab utama fiqh, ribuan kumpulan hadis, dan bahasa yang tidak dipahami sebagian besar mualaf. Wajar merasa kewalahan.\n\nSatu nasihat yang telah membantu banyak mualaf: **belajar sedikit, praktikkan lebih banyak**. Lebih baik salat lima kali sehari dengan tidak sempurna daripada membaca kitab ulama sepanjang hari dan hanya salat sekali seminggu. Nabi ﷺ bersabda: 'Ambillah sekadar apa yang mampu kalian lakukan' (Sahih al-Bukhari 43).\n\nMulailah dengan salat harian. Tambahkan satu doa pendek di setiap transisi hari. Pelajari satu surah baru per bulan. Baca satu bab pendek sirah per minggu. Dalam setahun Anda akan tahu lebih dari yang bisa Anda bayangkan sekarang. Dalam sepuluh tahun Anda akan tumbuh dalam iman. Tidak perlu terburu-buru."
+          },
+          "references": [{ "type": "hadith", "ref": "Sahih al-Bukhari 43" }],
+          "linksTo": [
+            { "label": { "en": "The Seerah timeline", "id": "Lini masa sirah" }, "href": "/seerah" },
+            { "label": { "en": "35 sourced duas", "id": "35 doa bersumber" }, "href": "/duas" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -68,6 +68,28 @@ main {
   padding: 32px 24px 96px;
   max-width: 960px;
   margin: 0 auto;
+  /* Prevent `main` from growing past the viewport on narrow phones — the
+     Tailwind wrapper class `max-w-dashboard` on this element can otherwise
+     let long titles/kickers/prayer-picker rows push the layout wider than
+     the phone width, breaking mobile clip-containment. */
+  box-sizing: border-box;
+  width: 100%;
+}
+.page-title,
+.page-lede,
+.kicker {
+  /* Force text containers to wrap at viewport width rather than pushing the
+     ancestor grid wider. Without this, `.page-title clamp(34px…)` renders a
+     long word that refuses to break when parent is content-sized. */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.prayer-picker {
+  /* Horizontal-scrollable tab row — must NOT grow parent width. */
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 .kicker {
   font-size: 13px;

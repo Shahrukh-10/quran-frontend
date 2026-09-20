@@ -3,7 +3,9 @@ import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { CITIES } from "@/lib/cities";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import "./_prayer-hig.css";
@@ -16,12 +18,20 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   const t = await getTranslations({ locale, namespace: "prayer.index" });
   return {
     title: t("title"),
     description: t("description"),
     alternates: {
       canonical: siteUrl(locale === "en" ? "/prayer-times" : `/${locale}/prayer-times`),
+      languages: hreflangLanguages("/prayer-times"),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/prayer-times" : `/${locale}/prayer-times`),
+      type: "article",
+      locale,
+      images: mergedOgImages(t("title")),
     },
   };
 }
@@ -101,6 +111,7 @@ const SAMPLE_TIMES = [
 
 export default async function PrayerTimesIndex({ params }: PageProps) {
   const { locale } = await params;
+  const bc = await breadcrumbs(locale);
   setRequestLocale(locale);
 
   // Only show cities that also exist in our CITIES list (so links go to real pages).
@@ -110,8 +121,8 @@ export default async function PrayerTimesIndex({ params }: PageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: siteUrl("/") },
-          { name: "Prayer times", url: siteUrl("/prayer-times") },
+          { name: bc("home"), url: siteUrl("/") },
+          { name: bc("prayerTimes"), url: siteUrl("/prayer-times") },
         ]}
       />
       <FaqSchema
@@ -209,10 +220,10 @@ export default async function PrayerTimesIndex({ params }: PageProps) {
             {POPULAR.map((c) => {
               const href = knownSlugs.has(c.slug) ? `/prayer-times/${c.slug}` : "/prayer-times";
               return (
-                <li key={c.slug} className="city">
+                <li key={c.slug}>
                   <Link
                     href={href}
-                    style={{ display: "contents" }}
+                    className="city city--link"
                     aria-label={`Prayer times for ${c.name}`}
                   >
                     <div>

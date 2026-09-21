@@ -3,10 +3,17 @@
 
 import { HIJRI_MONTHS, ISLAMIC_EVENTS, gregorianToHijri, hijriToGregorian } from "@/lib/hijri";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function CalendarView({ locale }: { locale: "en" | "id" }) {
   const t = useTranslations("calendar");
+
+  // This is prerendered statically, so `new Date()` on the server is the BUILD
+  // date, not the visitor's. Rendering it directly causes a hydration mismatch
+  // (React #418). Gate all "today"-derived output behind `mounted` so SSR and
+  // first client paint are identical, then fill in the real date on mount.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const today = new Date();
   const hToday = gregorianToHijri(today);
@@ -41,10 +48,10 @@ export function CalendarView({ locale }: { locale: "en" | "id" }) {
       <section className="rounded-2xl border border-separator bg-surface p-6">
         <p className="text-xs uppercase tracking-widest text-muted-foreground">{t("todayIs")}</p>
         <p className="mt-2 text-2xl font-bold tracking-title">
-          {hToday.hd} {HIJRI_MONTHS[hToday.hm - 1]} {hToday.hy} AH
+          {mounted ? `${hToday.hd} ${HIJRI_MONTHS[hToday.hm - 1]} ${hToday.hy} AH` : "—"}
         </p>
         <p className="mt-1 text-sm text-muted-foreground">
-          {new Intl.DateTimeFormat(locale, { dateStyle: "full" }).format(today)}
+          {mounted ? new Intl.DateTimeFormat(locale, { dateStyle: "full" }).format(today) : " "}
         </p>
       </section>
 
@@ -57,11 +64,11 @@ export function CalendarView({ locale }: { locale: "en" | "id" }) {
             <p className="text-sm font-semibold">{t("gregToHij")}</p>
             <input
               type="date"
-              value={gDate}
+              value={mounted ? gDate : ""}
               onChange={(e) => setGDate(e.target.value)}
               className="focus-ring mt-2 h-11 w-full rounded-lg border border-separator bg-background px-3 text-sm"
             />
-            {gAsHijri && (
+            {mounted && gAsHijri && (
               <p className="mt-3 text-lg">
                 = {gAsHijri.hd} {HIJRI_MONTHS[gAsHijri.hm - 1]} {gAsHijri.hy} AH
               </p>
@@ -74,13 +81,13 @@ export function CalendarView({ locale }: { locale: "en" | "id" }) {
                 type="number"
                 inputMode="numeric"
                 aria-label="Hijri year"
-                value={hy}
+                value={mounted ? hy : ""}
                 onChange={(e) => setHy(Number.parseInt(e.target.value, 10) || hToday.hy)}
                 className="focus-ring h-11 rounded-lg border border-separator bg-background px-3 text-sm"
               />
               <select
                 aria-label="Hijri month"
-                value={hm}
+                value={mounted ? hm : 1}
                 onChange={(e) => setHm(Number.parseInt(e.target.value, 10))}
                 className="focus-ring h-11 rounded-lg border border-separator bg-background px-2 text-sm"
               >
@@ -94,14 +101,14 @@ export function CalendarView({ locale }: { locale: "en" | "id" }) {
                 type="number"
                 inputMode="numeric"
                 aria-label="Hijri day"
-                value={hd}
+                value={mounted ? hd : ""}
                 min={1}
                 max={30}
                 onChange={(e) => setHd(Number.parseInt(e.target.value, 10) || 1)}
                 className="focus-ring h-11 rounded-lg border border-separator bg-background px-3 text-sm"
               />
             </div>
-            {hAsGreg && (
+            {mounted && hAsGreg && (
               <p className="mt-3 text-lg">
                 ={" "}
                 {new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(
@@ -113,7 +120,7 @@ export function CalendarView({ locale }: { locale: "en" | "id" }) {
         </div>
       </section>
 
-      {eventsThisMonth.length > 0 && (
+      {mounted && eventsThisMonth.length > 0 && (
         <section className="rounded-2xl border border-separator bg-surface p-6">
           <h2 className="text-xs uppercase tracking-widest text-muted-foreground">
             {t("importantTitle")} — {HIJRI_MONTHS[hToday.hm - 1]}

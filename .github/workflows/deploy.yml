@@ -68,8 +68,16 @@ jobs:
 
             # Install deps + build
             pnpm install --prod=false --frozen-lockfile 2>&1 | tail -5
-            # Stop service first — otherwise `rm -rf .next` fails on files
-            # held open by the running next-server process
+
+            # Build strategy: stop the service so we can wipe .next cleanly,
+            # then build. This causes a ~15-20 min outage window on each
+            # deploy (due to the ~50k static pages). Cloudflare's edge cache
+            # serves stale content to end-users during this window.
+            #
+            # A true zero-downtime approach would require next.config.ts
+            # `distDir` overrides + symlink swap, which is more invasive
+            # than we want right now. Revisit if outage window becomes an
+            # issue.
             systemctl stop qurandaily-frontend || true
             rm -rf .next
             node node_modules/next/dist/bin/next build 2>&1 | tail -20

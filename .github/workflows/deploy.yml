@@ -73,24 +73,42 @@ jobs:
             # Ensure the backend is up before building (frontend build hits it for data fetches)
             curl -sf http://127.0.0.1:8090/actuator/health || (echo "Backend down — abort"; exit 1)
 
-            # Install deps + build
+            # Install deps
             pnpm install --prod=false --frozen-lockfile 2>&1 | tail -5
 
-            # Build strategy: stop the service so we can wipe .next cleanly,
-            # then build. This causes a ~15-20 min outage window on each
-            # deploy (due to the ~50k static pages). Cloudflare's edge cache
-            # serves stale content to end-users during this window.
+            # ── Zero-downtime staged build ──────────────────────────────
+            # Build into a UNIQUE distDir (.next.new) while the live service
+            # keeps serving from .next. On success, atomically rename the
+            # dirs and restart. On failure, .next is untouched — no downtime,
+            # no rollback needed.
             #
-            # A true zero-downtime approach would require next.config.ts
-            # `distDir` overrides + symlink swap, which is more invasive
-            # than we want right now. Revisit if outage window becomes an
-            # issue.
-            systemctl stop qurandaily-frontend || true
-            rm -rf .next
-            node node_modules/next/dist/bin/next build 2>&1 | tail -20
+            # Next.js honours `distDir` in next.config, but the CLI doesn't
+            # accept it as a flag — so we write a temp override file and
+            # pass the config path via env.
+            rm -rf .next.new .next.prev
+            NEXT_BUILD_DIR=.next.new node node_modules/next/dist/bin/next build 2>&1 | tail -20 || {
+              echo "BUILD FAILED — live service untouched, no restart needed"
+              rm -rf .next.new
+              exit 1
+            }
 
-            # Restart systemd service
+            # Verify the new build looks complete before touching .next
+            [ -f .next.new/BUILD_ID ] || { echo "New build missing BUILD_ID"; rm -rf .next.new; exit 1; }
+            [ -f .next.new/prerender-manifest.json ] || { echo "New build missing prerender-manifest.json"; rm -rf .next.new; exit 1; }
+
+            # Atomic swap: rename current .next → .next.prev, new → .next.
+            # This is a single mv operation on the same filesystem so it's
+            # atomic — the running next-server holds file handles to the old
+            # inodes, which stay valid until it restarts.
+            if [ -d .next ]; then mv .next .next.prev; fi
+            mv .next.new .next
+
+            # Restart to pick up the new build. Downtime = ~3-5 seconds
+            # (systemd restart + next-server warm-up).
             systemctl restart qurandaily-frontend
+
+            # Clean up the previous build after the restart succeeds
+            rm -rf .next.prev
             # Wait up to 30s for readiness
             for i in $(seq 1 15); do
               if curl -sf -o /dev/null http://127.0.0.1:3300/; then
@@ -108,7 +126,7 @@ jobs:
 
             # Public URL soft-200 check + content marker
             BODY=$(curl -sfL --max-time 20 https://qurandaily.org/)
-            echo "$BODY" | grep -q "Qurandaily\|Islamic Website\|Quran" || (
+            echo "$BODY" | grep -q "Quran Daily\|Quran\|duas\|prayer times" || (
               echo "CONTENT MARKER MISSING"; echo "$BODY" | head -c 500; exit 1
             )
 

@@ -31,6 +31,10 @@ const NUMERIC_SURAH_REDIRECTS = (surahsMeta as Array<{ number: number; slug: str
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Optional build-dir override — used by the CI deploy workflow to
+  // stage a fresh build in `.next.new` (leaving the live `.next` untouched)
+  // and atomically swap on success. Falls back to `.next` when unset.
+  ...(process.env.NEXT_BUILD_DIR ? { distDir: process.env.NEXT_BUILD_DIR } : {}),
   // Pin the workspace root to THIS project. There's a stray
   // ~/Documents/personalProject/package-lock.json from another workspace
   // and without this pin Next 15 picks that outer lockfile as the root,

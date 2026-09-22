@@ -10,6 +10,7 @@
 // default voice; if speechSynthesis is missing entirely, the button hides.
 
 import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Props = {
   arabic: string;
@@ -80,6 +81,9 @@ export function HadithAudioButton({
     const s = window.speechSynthesis;
     // Kill any existing utterance across the app so buttons don't stack.
     s.cancel();
+
+    // GA4 event — track hadith audio playback for engagement analytics
+    trackEvent("read_hadith", { source: "audio_button", arabic_length: arabic.length });
 
     const u = new SpeechSynthesisUtterance(arabic);
     u.lang = "ar-SA";

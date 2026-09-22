@@ -13,6 +13,11 @@ import { hreflangLanguages } from "@/lib/seo";
 // Building 34,259 × 6 locales at ship time is unnecessary; the backend is fast
 // and the CDN handles the rest.
 export const revalidate = 604800;
+export const dynamicParams = true;
+// Force static generation for on-demand paths — this makes Next.js emit
+// s-maxage headers Cloudflare will cache, instead of no-store which
+// forced every hit through the origin.
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   // Return empty — every /hadith/[book]/[number] page renders on demand

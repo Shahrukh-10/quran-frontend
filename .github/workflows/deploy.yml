@@ -68,6 +68,9 @@ jobs:
 
             # Install deps + build
             pnpm install --prod=false --frozen-lockfile 2>&1 | tail -5
+            # Stop service first — otherwise `rm -rf .next` fails on files
+            # held open by the running next-server process
+            systemctl stop qurandaily-frontend || true
             rm -rf .next
             node node_modules/next/dist/bin/next build 2>&1 | tail -20
 

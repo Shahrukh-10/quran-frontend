@@ -12,18 +12,17 @@ import { hreflangLanguages } from "@/lib/seo";
 // Weekly ISR — one hadith per URL, generated on demand and cached at the edge.
 // Building 34,259 × 6 locales at ship time is unnecessary; the backend is fast
 // and the CDN handles the rest.
+//
+// IMPORTANT: DO NOT add generateStaticParams() with an empty [] here. Next
+// 15 treats "empty generateStaticParams + dynamicParams=true" as "fully
+// dynamic route" and emits Cache-Control: no-store — bypassing Cloudflare
+// entirely. Without generateStaticParams the route defaults to ISR with
+// the revalidate below, which emits s-maxage headers Cloudflare caches.
+// Verified on /quran/al-fatihah/1 (which uses ISR without empty
+// generateStaticParams) vs the previous /hadith/*/N (which shipped
+// no-store).
 export const revalidate = 604800;
 export const dynamicParams = true;
-// Force static generation for on-demand paths — this makes Next.js emit
-// s-maxage headers Cloudflare will cache, instead of no-store which
-// forced every hit through the origin.
-export const dynamic = "force-static";
-
-export function generateStaticParams() {
-  // Return empty — every /hadith/[book]/[number] page renders on demand
-  // (ISR). We keep the route file so the manifest points at real URLs.
-  return [];
-}
 
 type Props = { params: Promise<{ locale: string; book: string; number: string }> };
 

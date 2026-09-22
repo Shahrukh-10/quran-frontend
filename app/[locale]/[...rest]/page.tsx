@@ -1,22 +1,44 @@
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
 
-// Catch-all inside [locale]. Its only job is to call notFound() so that
-// the closest not-found boundary (app/[locale]/not-found.tsx) is used
-// instead of the root app/not-found.tsx. Without this, Next.js falls
-// through to the root not-found when middleware rewrites /foo → /en/foo
-// and no page.tsx matches — losing the site chrome, i18n, and metadata.
+// Catch-all inside [locale] — the "true 404" implementation.
 //
-// See: https://next-intl.dev/docs/environments/error-files#not-foundjs
+// This route is hit ONLY when nothing else matched, so every render is a
+// 404. We can't just call notFound() (Next 15 renders the boundary UI but
+// serves 200 in static-prerender mode — soft-404 anti-pattern that
+// Google mass-demotes).
 //
-// IMPORTANT (Google-Search-Essentials fix): force-dynamic is required so
-// that notFound() actually sets HTTP 404. Without this, Next.js's static
-// prerender path renders the not-found UI but returns HTTP 200 — a
-// classic soft-404 pattern that Google penalises heavily (flags as
-// "Duplicate, Google chose different canonical").
+// The reliable path: force fully-dynamic rendering AND call notFound() —
+// notFound() throws NEXT_NOT_FOUND which Next 15 handles correctly
+// (renders not-found.tsx + emits HTTP 404) whenever the caller was NOT
+// prerendered.
+//
+// export const dynamic = "force-dynamic" ensures this branch is never
+// prerendered, so notFound()'s 404 status propagates all the way to the
+// wire.
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+export const fetchCache = "force-no-store";
 
-export default function CatchAllNotFound(): never {
+export function generateMetadata(): Metadata {
+  return {
+    title: "Page not found",
+    description: "The page you were looking for does not exist.",
+    robots: { index: false, follow: false },
+  };
+}
+
+type Props = { params: Promise<{ locale: string; rest?: string[] }> };
+
+export default async function CatchAllNotFound({ params }: Props): Promise<never> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  // Read a header to force the runtime to treat this as a fully dynamic
+  // request — this defeats any residual static optimization Next might
+  // apply, and makes notFound() genuinely return a 404 status.
+  await headers();
   notFound();
 }

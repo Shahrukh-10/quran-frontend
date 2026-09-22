@@ -110,7 +110,13 @@ export default async function AyahPage({ params }: Props) {
           {t("eyebrow", { surah: s.name, ayah: ayahNum })}
         </p>
         <h1 className="mt-2 text-[clamp(1.5rem,3vw,2rem)] font-bold tracking-title">
-          Surah {s.name} · Ayah {ayahNum}
+          {/* SEO: H1 includes the ayah snippet so it carries the natural-language
+              query ('...in the name of Allah...') that users actually search for,
+              not just the surah:ayah reference. The reference is preserved as the
+              suffix for canonical citation. */}
+          {a?.translations["en.sahih"]
+            ? `"${a.translations["en.sahih"].slice(0, 80)}${a.translations["en.sahih"].length > 80 ? "…" : ""}" — ${s.name} ${s.number}:${ayahNum}`
+            : `Surah ${s.name} · Ayah ${ayahNum}`}
         </h1>
         <Link
           href={`/quran/${s.slug}`}

@@ -28,9 +28,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const d = getDua(category, slug);
   if (!d) return {};
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  // Compose description: translation snippet + hadith/Quran source citation.
+  // Google shows the meta description in SERP snippets, so including the
+  // source ('Sahih Muslim 2144', 'Quran 2:201', etc.) turns each SERP row
+  // into a natural pull-quote with attribution — matches the site's USP.
+  const translationSnippet = d.translation[lang];
+  const citation = d.reference ? `${d.source} · ${d.reference}` : d.source;
+  const composed = `${translationSnippet} — ${citation}`;
   return {
     title: d.title[lang],
-    description: d.translation[lang].slice(0, 155),
+    description: composed.length > 160 ? `${composed.slice(0, 157)}…` : composed,
     alternates: {
       canonical: siteUrl(
         locale === "en" ? `/duas/${category}/${slug}` : `/${locale}/duas/${category}/${slug}`,

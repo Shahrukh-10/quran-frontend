@@ -9,7 +9,7 @@ test.describe("routing smoke", () => {
     const res = await page.goto("/");
     expect(res?.status()).toBe(200);
     // Homepage title is the hero.title translation, template appends site name.
-    await expect(page).toHaveTitle(/Islamic Website|Quran|duas|prayer times/i);
+    await expect(page).toHaveTitle(/Quran Daily|Quran|duas|prayer times/i);
     // FIXME: homepage currently ships without an <h1> — main hero uses a large
     // <p> instead. That's a real WCAG best-practice miss (should be h1) but
     // is out of scope for this smoke test. When the homepage gains an h1 we

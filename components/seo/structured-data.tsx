@@ -34,8 +34,15 @@ export function OrganizationSchema() {
         "@type": "Organization",
         name: siteName,
         url: siteUrl("/"),
+        logo: siteUrl("/icons/icon-512.png"),
+        // Google E-E-A-T signals: sameAs links to social/identity profiles.
+        // Add real profiles as they come online; empty array is fine but no
+        // less useful than omitting the key.
+        sameAs: [
+          "https://github.com/Shahrukh-10/quran-frontend",
+        ],
         description:
-          "Free, sourced, offline-first Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials.",
+          "Free, sourced, offline-first Quran, hadith, duas, prayer times, Qibla, and Salah tutorials. Every ayah and hadith cites its source.",
       }}
     />
   );
@@ -48,12 +55,25 @@ export function WebSiteSchema() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: siteName,
+        alternateName: ["Quran Daily", "QuranDaily"],
         url: siteUrl("/"),
+        inLanguage: ["en", "id", "ar", "fr", "tr", "ur"],
+        publisher: {
+          "@type": "Organization",
+          name: siteName,
+          logo: siteUrl("/icons/icon-512.png"),
+        },
+        // Sitelinks searchbox: MUST point at a URL that actually returns
+        // search results. `/search` is disallowed in robots.txt precisely
+        // because it's a UI/state page, not a canonical results page.
+        // Point to `/quran` (the reader index) with a query param — the
+        // reader accepts `?q=` as a filter, so results are real.
+        // See https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
         potentialAction: {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${siteUrl("/search")}?q={search_term_string}`,
+            urlTemplate: `${siteUrl("/quran")}?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },

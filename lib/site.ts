@@ -16,4 +16,4 @@ export function siteUrl(path = "/"): string {
   return `${cleanBase}${normalized}`;
 }
 
-export const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Islamic Website";
+export const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Quran Daily";

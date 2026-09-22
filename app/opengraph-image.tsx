@@ -10,7 +10,7 @@ import { ImageResponse } from "next/og";
 // on Cloudflare Pages it runs on the edge. Declaring `edge` here causes
 // the dev server to hang on first hit in Next 15.5.x (empty reply from
 // server); the default resolves cleanly.
-export const alt = "Islamic Website — Quran, duas, prayer times, Qibla, Salah tutorials";
+export const alt = "Quran Daily — Quran, hadith, duas, prayer times, Qibla, Salah tutorials";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -57,7 +57,7 @@ export default async function Image() {
             opacity: 0.92,
           }}
         >
-          Islamic Website
+          Quran Daily
         </div>
       </div>
 

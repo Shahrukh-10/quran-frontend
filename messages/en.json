@@ -1,6 +1,6 @@
 {
   "common": {
-    "siteName": "Islamic Website",
+    "siteName": "Quran Daily",
     "tagline": "Free. Sourced. Zero tracking.",
     "skipToContent": "Skip to content",
     "loading": "Loading",
@@ -733,8 +733,8 @@
   "install": {
     "prompt": {
       "title": "Install as an app?",
-      "body": "Add Islamic Website to your home screen — works offline, launches fullscreen, no browser bar.",
-      "bodyIos": "Add Islamic Website to your home screen — works offline, launches fullscreen, no browser bar.",
+      "body": "Add Quran Daily to your home screen — works offline, launches fullscreen, no browser bar.",
+      "bodyIos": "Add Quran Daily to your home screen — works offline, launches fullscreen, no browser bar.",
       "iosStep1": "Tap the Share button in Safari.",
       "iosStep2": "Scroll to 'Add to Home Screen'.",
       "iosStep3": "Tap 'Add' to confirm.",
@@ -756,7 +756,7 @@
       "iosStep1": "Open this page in Safari (Chrome for iOS can't install PWAs — Apple limitation).",
       "iosStep2": "Tap the Share button (the square with an arrow pointing up).",
       "iosStep3": "Scroll down and tap 'Add to Home Screen'.",
-      "iosStep4": "Tap 'Add' in the top-right. The Islamic Website icon appears on your home screen.",
+      "iosStep4": "Tap 'Add' in the top-right. The Quran Daily icon appears on your home screen.",
       "androidHeading": "Android (Chrome, Edge, Samsung Internet)",
       "androidStep1": "Open the menu (three dots, top right).",
       "androidStep2": "Tap 'Install app' or 'Add to Home screen'.",

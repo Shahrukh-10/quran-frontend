@@ -95,7 +95,7 @@ export default async function Image({ params }: Props) {
           fontFamily: "Inter",
         }}
       >
-        Islamic Website
+        Quran Daily
       </div>,
       { width: 1200, height: 630, fonts: fontConfig },
     );
@@ -146,7 +146,7 @@ export default async function Image({ params }: Props) {
           >
             IW
           </div>
-          <div style={{ fontSize: 24, fontWeight: 600, opacity: 0.9 }}>Islamic Website</div>
+          <div style={{ fontSize: 24, fontWeight: 600, opacity: 0.9 }}>Quran Daily</div>
         </div>
         <div
           style={{

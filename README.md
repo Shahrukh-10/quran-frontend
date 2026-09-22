@@ -1,4 +1,4 @@
-# Islamic Website
+# Quran Daily
 
 Free, global Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials, and more. Built on Next.js 15, deployed to Cloudflare Pages.
 

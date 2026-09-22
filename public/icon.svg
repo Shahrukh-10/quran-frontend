@@ -1,64 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Islamic Website favicon
-     Motif: open Quran with a stylized crescent + star, geometric restraint.
-     Dark navy backdrop for trust + Apple system blue accent.
-     Works at 16px (main shapes readable), 32px (full detail).
-     Cited: app-icons.md - readable at smallest size, no fine text, high contrast. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a1a3f"/>
-      <stop offset="1" stop-color="#0b2a5b"/>
-    </linearGradient>
-    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#e6f0ff"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5ac8fa"/>
-      <stop offset="1" stop-color="#007aff"/>
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-  </defs>
+<!--
+Quran Daily favicon — SVG source of truth
+- Concept: an open book (mushaf) with a crescent above, symbolising daily Quran reading.
+- Colour: emerald primary (matches theme_color #0B7A3E), gold accent for the crescent.
+- Grid: 512×512 canvas, safe-area 64px inset for maskable variants.
+- No purple/violet/fuchsia/indigo per user preference.
+- License: this file is CC0 — free to reuse.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Quran Daily">
+  <title>Quran Daily</title>
 
-  <!-- Rounded square background (matches Apple app-icon corner radius ≈ 22.5% of side) -->
-  <rect x="0" y="0" width="64" height="64" rx="14" ry="14" fill="url(#bg)"/>
+  <!-- Background: deep-emerald square with generous corner radius so it looks
+       right both as a favicon and as a rounded app tile. -->
+  <rect width="512" height="512" rx="96" fill="#0B7A3E"/>
 
-  <!-- Subtle inner highlight (Apple app icons have a top-to-bottom sheen) -->
-  <rect x="0" y="0" width="64" height="32" rx="14" ry="14" fill="url(#accent)" opacity=".12"/>
-
-  <!-- Open Quran shape: two page-panels forming a slight V, centered -->
-  <g transform="translate(32 34)">
-    <!-- Left page -->
-    <path d="M -20 6 Q -20 -14 0 -12 L 0 10 Q -12 8 -20 6 Z"
-          fill="url(#page)" stroke="rgba(0,0,0,.05)" stroke-width=".5"/>
-    <!-- Right page -->
-    <path d="M 20 6 Q 20 -14 0 -12 L 0 10 Q 12 8 20 6 Z"
-          fill="url(#page)" stroke="rgba(0,0,0,.05)" stroke-width=".5"/>
-    <!-- Spine shadow between pages -->
-    <line x1="0" y1="-12" x2="0" y2="10" stroke="rgba(0,0,0,.12)" stroke-width=".7"/>
-    <!-- Faint text rules on left page (evokes ayat lines, not readable text) -->
-    <g stroke="rgba(0,122,255,.35)" stroke-width=".5" stroke-linecap="round">
-      <line x1="-16" y1="-6" x2="-3" y2="-5"/>
-      <line x1="-16" y1="-2" x2="-3" y2="-1"/>
-      <line x1="-16" y1="2" x2="-3" y2="3"/>
-    </g>
-    <g stroke="rgba(0,122,255,.35)" stroke-width=".5" stroke-linecap="round">
-      <line x1="3" y1="-5" x2="16" y2="-6"/>
-      <line x1="3" y1="-1" x2="16" y2="-2"/>
-      <line x1="3" y1="3" x2="16" y2="2"/>
-    </g>
+  <!-- Subtle geometric watermark — 8-point star, Islamic geometric tradition. -->
+  <g fill="#0A6635" opacity="0.7">
+    <path d="M256 42
+             L286 116 L364 116 L302 162 L326 236
+             L256 190 L186 236 L210 162 L148 116 L226 116 Z"/>
   </g>
 
-  <!-- Crescent + star above the book, glowing -->
-  <g transform="translate(32 16)" filter="url(#glow)">
-    <!-- Crescent: outer circle minus inner offset circle -->
-    <path d="M -6 0 A 6 6 0 1 1 6 0 A 4.6 4.6 0 1 0 -6 0 Z"
-          fill="url(#accent)"/>
-    <!-- Five-point star inside the crescent's opening -->
-    <path d="M 2.5 -1 L 3.3 1.4 L 5.8 1.4 L 3.75 2.9 L 4.55 5.3 L 2.5 3.8 L 0.45 5.3 L 1.25 2.9 L -0.8 1.4 L 1.7 1.4 Z"
-          fill="#ffffff" opacity=".95"/>
+  <!-- Crescent — gold — top-right, standalone symbol -->
+  <path d="M 386 120
+           a 46 46 0 1 1 -20 88
+           a 34 34 0 1 0 20 -88 Z"
+        fill="#F5C542"/>
+
+  <!-- Open book (mushaf): two facing pages, gently tilted -->
+  <g transform="translate(56 236)">
+    <!-- Left page -->
+    <path d="M0 30
+             Q 20 10 200 20
+             L 200 200
+             Q 20 190 0 210 Z"
+          fill="#FFFCF2" stroke="#F5C542" stroke-width="4"/>
+    <!-- Right page -->
+    <path d="M200 20
+             Q 380 10 400 30
+             L 400 210
+             Q 380 190 200 200 Z"
+          fill="#FFFFFF" stroke="#F5C542" stroke-width="4"/>
+    <!-- Spine shadow -->
+    <line x1="200" y1="20" x2="200" y2="200" stroke="#0B7A3E" stroke-width="3" opacity="0.35"/>
+    <!-- Text lines on left page (Arabic-direction rhythm, decorative) -->
+    <g fill="#0B7A3E" opacity="0.55">
+      <rect x="30"  y="60"  width="140" height="7" rx="3"/>
+      <rect x="50"  y="86"  width="120" height="7" rx="3"/>
+      <rect x="30"  y="112" width="140" height="7" rx="3"/>
+      <rect x="60"  y="138" width="110" height="7" rx="3"/>
+      <rect x="30"  y="164" width="140" height="7" rx="3"/>
+    </g>
+    <!-- Text lines on right page -->
+    <g fill="#0B7A3E" opacity="0.55">
+      <rect x="230" y="60"  width="140" height="7" rx="3"/>
+      <rect x="230" y="86"  width="120" height="7" rx="3"/>
+      <rect x="230" y="112" width="140" height="7" rx="3"/>
+      <rect x="230" y="138" width="110" height="7" rx="3"/>
+      <rect x="230" y="164" width="140" height="7" rx="3"/>
+    </g>
   </g>
 </svg>

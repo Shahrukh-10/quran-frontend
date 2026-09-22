@@ -1,6 +1,6 @@
 {
   "common": {
-    "siteName": "Islamic Website",
+    "siteName": "Quran Daily",
     "tagline": "Gratis. Bersumber. Tanpa pelacakan.",
     "skipToContent": "Lompat ke konten",
     "loading": "Memuat",
@@ -733,8 +733,8 @@
   "install": {
     "prompt": {
       "title": "Instal sebagai aplikasi?",
-      "body": "Tambahkan Islamic Website ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
-      "bodyIos": "Tambahkan Islamic Website ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
+      "body": "Tambahkan Quran Daily ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
+      "bodyIos": "Tambahkan Quran Daily ke layar utama Anda — bekerja offline, layar penuh, tanpa bilah browser.",
       "iosStep1": "Ketuk tombol Bagikan di Safari.",
       "iosStep2": "Gulir ke 'Tambah ke Layar Utama'.",
       "iosStep3": "Ketuk 'Tambah' untuk konfirmasi.",
@@ -756,7 +756,7 @@
       "iosStep1": "Buka halaman ini di Safari (Chrome iOS tidak bisa menginstal PWA — batasan Apple).",
       "iosStep2": "Ketuk tombol Bagikan (kotak dengan panah ke atas).",
       "iosStep3": "Gulir ke bawah dan ketuk 'Tambah ke Layar Utama'.",
-      "iosStep4": "Ketuk 'Tambah' di kanan atas. Ikon Islamic Website muncul di layar utama.",
+      "iosStep4": "Ketuk 'Tambah' di kanan atas. Ikon Quran Daily muncul di layar utama.",
       "androidHeading": "Android (Chrome, Edge, Samsung Internet)",
       "androidStep1": "Buka menu (tiga titik, kanan atas).",
       "androidStep2": "Ketuk 'Instal aplikasi' atau 'Tambah ke layar utama'.",

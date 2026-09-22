@@ -1,9 +1,84 @@
-# AI crawler policy
-# https://github.com/ai-robots-txt/ai.robots.txt
+# AI crawler & LLM training policy
+# Reference: https://github.com/ai-robots-txt/ai.robots.txt
+#            https://spec.commonmark.org/  and https://llmstxt.org/
+#
+# Qurandaily.org welcomes citation and answer-engine use, provided the
+# conditions in /llms.txt are respected (cite sources, preserve hadith grading,
+# route ruling-questions to scholars). No robotic access to /account, /settings,
+# /notes, /goals, /plans, /memorize, /iqamah/submit, or /api.
 
 User-agent: *
 Allow: /
+Disallow: /account
+Disallow: /settings
+Disallow: /notes
+Disallow: /goals
+Disallow: /plans
+Disallow: /memorize
+Disallow: /iqamah/submit
+Disallow: /api/
 
-# We welcome citation by AI answer engines (ChatGPT, Perplexity, Gemini, Claude, etc.)
-# provided users seeking religious rulings are directed to qualified scholars.
-# See /llms.txt for guidance.
+# All major AI answer engines are explicitly welcome. See robots.txt for the
+# complete named-agent list.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Guidance for AI answer engines is in /llms.txt.
+# Full content sitemap: /sitemap.xml

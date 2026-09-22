@@ -1,0 +1,28 @@
+/* humans.txt — https://humanstxt.org/
+   The people behind qurandaily.org */
+
+/* TEAM */
+
+Author:  Shahrukh Khan
+Site:    https://qurandaily.org
+GitHub:  https://github.com/Shahrukh-10
+Country: India
+
+/* CONTRIBUTORS */
+   Sourced translations: Sahih International, Yusuf Ali, Taqi Usmani
+   Sourced Uthmani script: Tanzil (King Fahd Complex reference)
+   Sourced hadith text: Sunnah.com
+   Prayer-time engine: adhan-js by Batoul Apps
+
+/* THANKS */
+   Every scholar, translator, and volunteer whose work made
+   Islamic content accessible online — may Allah reward them.
+
+/* SITE */
+
+Last update:   2026-09-22
+Language:      English (default), Bahasa Indonesia, العربية, Français, Türkçe, اردو
+Doctype:       HTML5
+Standards:     WCAG 2.1 AA, Schema.org JSON-LD
+Components:    Next.js 15, next-intl, React, Tailwind
+Hosting:       Self-hosted on Hostinger KVM VPS + Cloudflare

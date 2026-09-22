@@ -1,0 +1,104 @@
+name: Deploy frontend to Qurandaily VPS
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.gitignore'
+      - 'README.md'
+      - '**/*.md'
+      - 'CLAUDE.md'
+      - 'docs/**'
+  workflow_dispatch: {}
+
+concurrency:
+  group: qurandaily-frontend-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      # We build on the VPS (co-locates source with backend for lower latency and matches production node).
+      # This avoids uploading a 500MB .next/ over the network.
+      - name: rsync source to VPS
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: >-
+            -az --delete
+            --exclude 'node_modules'
+            --exclude '.next'
+            --exclude '.git'
+            --exclude 'test-results'
+            --exclude 'tsconfig.tsbuildinfo'
+            --exclude 'playwright-report'
+            --exclude 'certificates'
+            --exclude 'mockups'
+          path: ./
+          remote_path: /opt/qurandaily-frontend/current/
+          remote_host: ${{ secrets.QURANDAILY_DEPLOY_HOST }}
+          remote_user: root
+          remote_key: ${{ secrets.QURANDAILY_DEPLOY_SSH_KEY }}
+
+      - name: Install, build, restart
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.QURANDAILY_DEPLOY_HOST }}
+          username: root
+          key: ${{ secrets.QURANDAILY_DEPLOY_SSH_KEY }}
+          command_timeout: 25m
+          script: |
+            set -e
+            cd /opt/qurandaily-frontend/current
+            # Env for the build (systemd env file kicks in only at start time)
+            export NEXT_PUBLIC_SITE_URL=https://qurandaily.org
+            export NEXT_PUBLIC_SITE_NAME=Qurandaily
+            export NEXT_PUBLIC_BUILD_DATE=$(date -u +%Y-%m-%d)
+            export BACKEND_URL=http://127.0.0.1:8090
+            export NODE_OPTIONS="--max-old-space-size=4096"
+
+            # Ensure pnpm is available
+            which pnpm >/dev/null 2>&1 || npm install -g pnpm@9
+
+            # Ensure the backend is up before building (frontend build hits it for data fetches)
+            curl -sf http://127.0.0.1:8090/actuator/health || (echo "Backend down — abort"; exit 1)
+
+            # Install deps + build
+            pnpm install --prod=false --frozen-lockfile 2>&1 | tail -5
+            rm -rf .next
+            node node_modules/next/dist/bin/next build 2>&1 | tail -20
+
+            # Restart systemd service
+            systemctl restart qurandaily-frontend
+            # Wait up to 30s for readiness
+            for i in $(seq 1 15); do
+              if curl -sf -o /dev/null http://127.0.0.1:3300/; then
+                echo "Frontend up after ${i}x2s wait"
+                break
+              fi
+              sleep 2
+            done
+            curl -sf -o /dev/null http://127.0.0.1:3300/ || (
+              echo "LOCAL FRONTEND CHECK FAILED"
+              systemctl status qurandaily-frontend --no-pager
+              tail -50 /opt/qurandaily-frontend/logs/app.log
+              exit 1
+            )
+
+            # Public URL soft-200 check + content marker
+            BODY=$(curl -sfL --max-time 20 https://qurandaily.org/)
+            echo "$BODY" | grep -q "Qurandaily\|Islamic Website\|Quran" || (
+              echo "CONTENT MARKER MISSING"; echo "$BODY" | head -c 500; exit 1
+            )
+
+            # CF cache purge (hostname-scoped)
+            if [ -n "${{ secrets.QURANDAILY_CF_TOKEN }}" ] && [ -n "${{ secrets.QURANDAILY_CF_ZONE_ID }}" ]; then
+              curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.QURANDAILY_CF_ZONE_ID }}/purge_cache" \
+                -H "Authorization: Bearer ${{ secrets.QURANDAILY_CF_TOKEN }}" \
+                -H "Content-Type: application/json" \
+                -d '{"hosts":["qurandaily.org","www.qurandaily.org"]}' | head -c 200; echo
+            fi
+            echo "Frontend deploy complete."

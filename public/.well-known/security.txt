@@ -1,0 +1,6 @@
+Contact: https://github.com/Shahrukh-10/quran-frontend/security/advisories
+Contact: mailto:security@qurandaily.org
+Preferred-Languages: en, ar
+Canonical: https://qurandaily.org/.well-known/security.txt
+Policy: https://qurandaily.org/privacy
+Expires: 2027-09-22T00:00:00.000Z

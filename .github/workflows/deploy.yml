@@ -59,6 +59,13 @@ jobs:
             export NEXT_PUBLIC_BUILD_DATE=$(date -u +%Y-%m-%d)
             export BACKEND_URL=http://127.0.0.1:8090
             export NODE_OPTIONS="--max-old-space-size=4096"
+            # Analytics + Search Console (injected as NEXT_PUBLIC_* so they
+            # get baked into the client bundles at build time, not read at
+            # runtime). Both are safe to be public — the GA ID is by design
+            # visible, and the GSC verification token only certifies the
+            # domain (it doesn't grant access).
+            export NEXT_PUBLIC_GA_ID="G-HXWM89S71H"
+            export NEXT_PUBLIC_GSC_VERIFICATION="La99utPuyp_z6aWGOH_AyuINtASxQThKMV3S9O-0Z0s"
 
             # Ensure pnpm is available
             which pnpm >/dev/null 2>&1 || npm install -g pnpm@9

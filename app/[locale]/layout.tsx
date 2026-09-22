@@ -8,6 +8,7 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-d
 import { locales, rtlLocales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { siteName, siteUrl } from "@/lib/site";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -104,18 +105,24 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       follow: true,
       googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
     },
+    // Optional supplementary verification tags (belt-and-suspenders alongside
+    // DNS-TXT verification which is the primary method). Values are injected
+    // via env at build time so the token strings don't sit in the repo.
+    verification: {
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+    },
     other: {
       "ai-content-declaration": "human-authored, AI-formatted; religious content scholar-reviewed",
       // iOS PWA hints — Safari doesn't read the standard manifest for these.
       "apple-mobile-web-app-capable": "yes",
       "apple-mobile-web-app-status-bar-style": "black-translucent",
-      "apple-mobile-web-app-title": "Islamic",
+      "apple-mobile-web-app-title": "Quran Daily",
       // Format-detection off so verse numbers don't get auto-linked as phone numbers.
       "format-detection": "telephone=no",
     },
     appleWebApp: {
       capable: true,
-      title: "Islamic",
+      title: "Quran Daily",
       statusBarStyle: "black-translucent",
     },
     manifest: "/manifest.webmanifest",
@@ -225,6 +232,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <ServiceWorkerRegister />
           <InstallPrompt />
         </NextIntlClientProvider>
+        {/* Google Analytics 4 — Quran Daily property, G-HXWM89S71H.
+            Loaded via @next/third-parties which lazy-loads gtag.js with
+            optimal timing (afterInteractive) so LCP/INP aren't impacted.
+            The GA ID can also be overridden per-environment via
+            NEXT_PUBLIC_GA_ID env var. */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

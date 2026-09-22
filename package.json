@@ -27,6 +27,7 @@
     "fetch:hadith": "tsx scripts/fetch-hadith.ts"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.6",
     "adhan": "^4.4.3",
     "gray-matter": "^4.0.3",
     "hijri-converter": "^1.1.1",

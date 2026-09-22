@@ -13,16 +13,28 @@ import { hreflangLanguages } from "@/lib/seo";
 // Building 34,259 × 6 locales at ship time is unnecessary; the backend is fast
 // and the CDN handles the rest.
 //
-// IMPORTANT: DO NOT add generateStaticParams() with an empty [] here. Next
-// 15 treats "empty generateStaticParams + dynamicParams=true" as "fully
-// dynamic route" and emits Cache-Control: no-store — bypassing Cloudflare
-// entirely. Without generateStaticParams the route defaults to ISR with
-// the revalidate below, which emits s-maxage headers Cloudflare caches.
-// Verified on /quran/al-fatihah/1 (which uses ISR without empty
-// generateStaticParams) vs the previous /hadith/*/N (which shipped
-// no-store).
+// IMPORTANT: this route must have a non-empty generateStaticParams to be
+// classified as ISR (not fully-dynamic). If empty or absent, Next 15
+// treats it as dynamic and emits Cache-Control: no-store, bypassing
+// Cloudflare entirely for 34k pages.
+//
+// We prerender the FIRST hadith in each book × each locale (48 pages)
+// so the route is classified as ISR. dynamicParams=true then serves
+// the remaining ~34k on-demand at request time, cached per revalidate.
 export const revalidate = 604800;
 export const dynamicParams = true;
+
+export function generateStaticParams() {
+  const params: Array<{ locale: string; book: string; number: string }> = [];
+  const books = ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah"];
+  const localeList = ["en", "id", "ar", "ur", "tr", "fr"];
+  for (const locale of localeList) {
+    for (const book of books) {
+      params.push({ locale, book, number: "1" });
+    }
+  }
+  return params;
+}
 
 type Props = { params: Promise<{ locale: string; book: string; number: string }> };
 

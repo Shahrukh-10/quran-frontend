@@ -113,6 +113,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "IslamicFinderBot", allow: "/", disallow },
     ],
     sitemap: siteUrl("/sitemap.xml"),
-    host: siteUrl("/").replace(/\/$/, ""),
+    // Note: `host` was previously set here but only Yandex honours it —
+    // Google/Bing ignore it as a non-standard directive. Removed for
+    // cleanliness (all bots infer host from the request URL anyway).
   };
 }

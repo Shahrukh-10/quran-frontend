@@ -6,6 +6,7 @@ import { getAllSections } from "@/lib/reverts";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -21,9 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     alternates: {
       canonical: siteUrl(locale === "en" ? "/reverts" : `/${locale}/reverts`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/reverts" : `/${l}/reverts`)]),
-      ),
+      languages: hreflangLanguages('/reverts'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/reverts" : `/${locale}/reverts`),

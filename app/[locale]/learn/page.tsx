@@ -6,6 +6,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -22,9 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "Sourced biographies of the Prophets (peace be upon them), the Ṣaḥābah, the Rāshidūn caliphs, the Imams of the four Sunnī schools, and the classical scholars — every fact cites Bukhārī, Muslim, Ibn Hishām, adh-Dhahabī, or Ibn Kathīr.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/learn" : `/${locale}/learn`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/learn" : `/${l}/learn`)]),
-      ),
+      languages: hreflangLanguages('/learn'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/learn" : `/${locale}/learn`),

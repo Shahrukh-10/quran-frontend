@@ -11,6 +11,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; juz: string }> = [];
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read Juz ${n} of the Quran with Arabic, translation, transliteration, and verse audio.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/juz/${n}` : `/${locale}/quran/juz/${n}`),
+      languages: hreflangLanguages(`/quran/juz/${n}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/quran/juz/${n}` : `/${locale}/quran/juz/${n}`),

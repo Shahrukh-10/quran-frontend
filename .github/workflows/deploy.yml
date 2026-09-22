@@ -137,4 +137,13 @@ jobs:
                 -H "Content-Type: application/json" \
                 -d '{"hosts":["qurandaily.org","www.qurandaily.org"]}' | head -c 200; echo
             fi
+
+            # IndexNow ping — notify Bing + Yandex about the new deploy so
+            # they crawl the top-priority pages immediately. Best-effort:
+            # never fails the deploy on network issues. Google doesn't
+            # participate in IndexNow (Google uses sitemap.xml re-crawl).
+            if [ -n "${{ secrets.QURANDAILY_INDEXNOW_KEY }}" ]; then
+              export INDEXNOW_KEY="${{ secrets.QURANDAILY_INDEXNOW_KEY }}"
+              node scripts/indexnow-ping.mjs || true
+            fi
             echo "Frontend deploy complete."

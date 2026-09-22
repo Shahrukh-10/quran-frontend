@@ -7,6 +7,7 @@ import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 // Only pre-generate slug pages we currently know about. Everything else
 // falls back to SSR on demand — safe because the API returns 404 for
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Iqamah times at ${m.name} in ${m.city}, ${m.country}.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/iqamah/${slug}` : `/${locale}/iqamah/${slug}`),
+      languages: hreflangLanguages(`/iqamah/${slug}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/iqamah/${slug}` : `/${locale}/iqamah/${slug}`),

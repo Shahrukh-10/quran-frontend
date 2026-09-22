@@ -11,6 +11,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 const TOTAL_RUKUS = 558;
 
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read Ruku ${n} of the Quran, a traditional pausing section used during Salah.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/ruku/${n}` : `/${locale}/quran/ruku/${n}`),
+      languages: hreflangLanguages(`/quran/ruku/${n}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/quran/ruku/${n}` : `/${locale}/quran/ruku/${n}`),

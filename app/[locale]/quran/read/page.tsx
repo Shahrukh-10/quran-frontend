@@ -9,6 +9,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Read the Holy Quran online in Indian/Pakistani (Indopak) script, one Juz at a time. 30 PDFs, offline-ready.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/quran/read" : `/${locale}/quran/read`),
+      languages: hreflangLanguages('/quran/read'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/quran/read" : `/${locale}/quran/read`),

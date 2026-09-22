@@ -5,6 +5,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -19,7 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: siteUrl(locale === "en" ? "/tools/zakat" : `/${locale}/tools/zakat`) },
+    alternates: { canonical: siteUrl(locale === "en" ? "/tools/zakat" : `/${locale}/tools/zakat`),
+      languages: hreflangLanguages('/tools/zakat'), },
     openGraph: {
       url: siteUrl(locale === "en" ? "/tools/zakat" : `/${locale}/tools/zakat`),
     },

@@ -8,6 +8,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; id: string }> = [];
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: plan.description,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/plans/${id}` : `/${locale}/plans/${id}`),
+      languages: hreflangLanguages(`/plans/${id}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/plans/${id}` : `/${locale}/plans/${id}`),

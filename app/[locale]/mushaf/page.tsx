@@ -6,6 +6,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -22,9 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "Read the full Qur'ān as a bound book. The 604-page Madinah muṣḥaf layout with a real page-fold animation, offline-first, resumes where you left off.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/mushaf" : `/${locale}/mushaf`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/mushaf" : `/${l}/mushaf`)]),
-      ),
+      languages: hreflangLanguages('/mushaf'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/mushaf" : `/${locale}/mushaf`),

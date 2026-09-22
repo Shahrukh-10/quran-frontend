@@ -7,6 +7,7 @@ import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 // Weekly ISR — one hadith per URL, generated on demand and cached at the edge.
 // Building 34,259 × 6 locales at ship time is unnecessary; the backend is fast
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: siteUrl(
         locale === "en" ? `/hadith/${book}/${number}` : `/${locale}/hadith/${book}/${number}`,
       ),
+      languages: hreflangLanguages(`/hadith/${book}/${number}`),
     },
     openGraph: {
       url: siteUrl(

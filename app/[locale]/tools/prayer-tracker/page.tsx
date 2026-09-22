@@ -5,6 +5,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: siteUrl(
         locale === "en" ? "/tools/prayer-tracker" : `/${locale}/tools/prayer-tracker`,
       ),
+      languages: hreflangLanguages("/tools/prayer-tracker"),
     },
     openGraph: {
       url: siteUrl(

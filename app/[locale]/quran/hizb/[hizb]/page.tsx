@@ -10,6 +10,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; hizb: string }> = [];
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read Hizb ${n} of the Quran — half of Juz ${Math.ceil(n / 2)}.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/hizb/${n}` : `/${locale}/quran/hizb/${n}`),
+      languages: hreflangLanguages(`/quran/hizb/${n}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/quran/hizb/${n}` : `/${locale}/quran/hizb/${n}`),

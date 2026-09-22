@@ -11,6 +11,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; manzil: string }> = [];
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read Manzil ${n} of the Quran. The manzils divide the Quran into 7 portions for weekly recitation.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/manzil/${n}` : `/${locale}/quran/manzil/${n}`),
+      languages: hreflangLanguages(`/quran/manzil/${n}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/quran/manzil/${n}` : `/${locale}/quran/manzil/${n}`),

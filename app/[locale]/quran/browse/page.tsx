@@ -9,6 +9,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Every canonical division of the Quran — 30 Juz, 60 Hizb, 7 Manzil, 558 Ruku, and 604 pages of the Madinah muṣḥaf. Jump straight in.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/quran/browse" : `/${locale}/quran/browse`),
+      languages: hreflangLanguages('/quran/browse'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/quran/browse" : `/${locale}/quran/browse`),

@@ -6,6 +6,7 @@ import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -24,9 +25,7 @@ export async function generateMetadata({
       "Guided reading schedules — read the Quran in a month, in Ramadan, or study the last tenth.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/plans" : `/${locale}/plans`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/plans" : `/${l}/plans`)]),
-      ),
+      languages: hreflangLanguages('/plans'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/plans" : `/${locale}/plans`),

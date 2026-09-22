@@ -6,6 +6,7 @@ import { getAllEras, getEventsByEra } from "@/lib/seerah";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -21,9 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     alternates: {
       canonical: siteUrl(locale === "en" ? "/seerah" : `/${locale}/seerah`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? "/seerah" : `/${l}/seerah`)]),
-      ),
+      languages: hreflangLanguages('/seerah'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/seerah" : `/${locale}/seerah`),

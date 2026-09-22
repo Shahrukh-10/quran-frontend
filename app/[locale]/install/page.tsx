@@ -5,6 +5,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     alternates: {
       canonical: siteUrl(locale === "en" ? "/install" : `/${locale}/install`),
+      languages: hreflangLanguages('/install'),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/install" : `/${locale}/install`),

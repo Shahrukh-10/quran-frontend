@@ -12,6 +12,7 @@ import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; event: string }> = [];
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `${desc.slice(0, 155)}${desc.length > 155 ? "…" : ""}`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/seerah/${event}` : `/${locale}/seerah/${event}`),
+      languages: hreflangLanguages(`/seerah/${event}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/seerah/${event}` : `/${locale}/seerah/${event}`),

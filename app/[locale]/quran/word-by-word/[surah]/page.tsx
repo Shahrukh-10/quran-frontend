@@ -17,6 +17,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const surahs = getAllSurahs();
@@ -44,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: siteUrl(
         locale === "en" ? `/quran/word-by-word/${surah}` : `/${locale}/quran/word-by-word/${surah}`,
       ),
+      languages: hreflangLanguages(`/quran/word-by-word/${surah}`),
     },
     openGraph: {
       url: siteUrl(

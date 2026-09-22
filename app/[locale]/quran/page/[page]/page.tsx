@@ -10,6 +10,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { hreflangLanguages } from "@/lib/seo";
 
 const TOTAL_PAGES = 604;
 
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Read page ${n} of the Madinah muṣḥaf, with Arabic, translation, and audio for every ayah on this page.`,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/page/${n}` : `/${locale}/quran/page/${n}`),
+      languages: hreflangLanguages(`/quran/page/${n}`),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? `/quran/page/${n}` : `/${locale}/quran/page/${n}`),

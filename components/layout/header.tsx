@@ -291,26 +291,41 @@ export function Header() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="hig-nav__drawer">
-          {LINK_GROUPS.map((group) => (
-            <section key={group.k} className="hig-nav__drawer-group">
-              <h3 className="hig-nav__drawer-title">{t(`groups.${group.k}`)}</h3>
-              <ul>
-                {group.items.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      onClick={() => setOpen(false)}
-                      className={`focus-ring${isActive(l.href) ? " is-active" : ""}`}
-                    >
-                      {t(l.k)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
+        <>
+          {/* Backdrop scrim behind the drawer. Tap anywhere on it to close.
+              Solves the reported bug where the homepage content bled
+              through the drawer's low-opacity glass — the drawer alone
+              was `background: hsl(var(--background) / 0.55)` which is
+              45% see-through and let the ticker/cards behind it show up
+              as visual noise. This dark blurred scrim covers the rest
+              of the viewport so the drawer reads as a proper takeover. */}
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="hig-nav__scrim"
+            onClick={() => setOpen(false)}
+          />
+          <div id="mobile-menu" className="hig-nav__drawer">
+            {LINK_GROUPS.map((group) => (
+              <section key={group.k} className="hig-nav__drawer-group">
+                <h3 className="hig-nav__drawer-title">{t(`groups.${group.k}`)}</h3>
+                <ul>
+                  {group.items.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        onClick={() => setOpen(false)}
+                        className={`focus-ring${isActive(l.href) ? " is-active" : ""}`}
+                      >
+                        {t(l.k)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </>
       )}
     </header>
   );

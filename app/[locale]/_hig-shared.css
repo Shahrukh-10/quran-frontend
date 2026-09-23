@@ -386,18 +386,16 @@ a {
   right: 0;
   top: 56px;
   z-index: 99;
-  /* True glassmorphism: strong blur, low alpha, subtle border. In light
-     mode we sit over the page's saturated content; in dark mode the
-     complementary dark-mode override below lifts the readability. */
-  background: hsl(var(--background) / 0.55);
-  -webkit-backdrop-filter: saturate(180%) blur(24px);
-  backdrop-filter: saturate(180%) blur(24px);
+  /* True glassmorphism: strong blur, opaque enough that the homepage
+     ticker/cards behind DON'T bleed through. Was 0.55 alpha (bug
+     report: "homepage also seen in toggle") — now 0.90 with a paired
+     scrim below covering the rest of the viewport. */
+  background: hsl(var(--background) / 0.92);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
   border-top: 0.5px solid hsl(var(--separator));
   border-bottom: 0.5px solid hsl(var(--separator));
-  box-shadow: 0 12px 32px -12px hsl(0 0% 0% / 0.18);
-  /* Fill the viewport below the top row and be independently scrollable.
-     dvh handles iOS Safari's collapsing chrome so the drawer never gets
-     hidden behind the on-screen URL bar. */
+  box-shadow: 0 24px 48px -16px hsl(0 0% 0% / 0.35);
   max-height: calc(100dvh - 56px);
   height: calc(100dvh - 56px);
   overflow-y: auto;
@@ -406,9 +404,35 @@ a {
   padding: 20px 20px calc(24px + env(safe-area-inset-bottom));
 }
 .dark .hig-nav__drawer {
-  /* Slightly higher alpha in dark mode so the pattern behind doesn't
-     confuse the label contrast. */
-  background: hsl(var(--background) / 0.7);
+  /* Dark mode: still 0.92 opacity of the dark background so the
+     drawer reads as a distinct glass surface, not a see-through pane. */
+  background: hsl(var(--background) / 0.94);
+}
+
+/* Backdrop scrim — sits behind the drawer, above every page element.
+   Blurred + dimmed so the site content behind is felt but not read.
+   Full click-target: tapping it closes the drawer. */
+.hig-nav__scrim {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 56px;
+  bottom: 0;
+  z-index: 98;              /* one below the drawer (99) */
+  background: hsl(0 0% 0% / 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  animation: hig-scrim-in 180ms ease-out;
+}
+.dark .hig-nav__scrim {
+  background: hsl(0 0% 0% / 0.55);
+}
+@keyframes hig-scrim-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .hig-nav__drawer-group {
   width: 100%;

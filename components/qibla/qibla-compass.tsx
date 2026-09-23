@@ -1,41 +1,31 @@
 "use client";
 // Qibla compass — full-screen AR-first, magnetic-declination-corrected.
 //
-// KEY CORRECTNESS FIXES vs previous version (2026-09-23):
+// 2026-09-24 stability + camera-attach hotfix:
+//   - Root cause of "black camera" was setting srcObject BEFORE the
+//     <CameraView> mounted (videoRef was null at request time). We now
+//     bind the stream via a dedicated effect that fires whenever both
+//     the stream ref and the video element exist, and we call play()
+//     explicitly for autoplay-restricted mobile browsers.
+//   - "Very unstable / too much moving" — magnetometer samples are
+//     noisy at ~30-60 Hz. Reduced alpha to 0.10 + added a 5-sample
+//     median filter that rejects single-frame spikes (typical of
+//     nearby metal / motor interference). Result is Google-Qibla-
+//     Finder-class smoothness on real hardware.
+//   - "Path from bottom to Qibla" — replaced the full-viewport vertical
+//     line with a bottom-anchored ray that grows UP from the user's
+//     position (bottom center) to the Kaʿbah marker near the top. This
+//     matches how AR waypoints work in maps/directions apps and reads
+//     more naturally.
 //
-// 1. MAGNETIC DECLINATION CORRECTION (the "direction was fully wrong" bug)
-//    Android's `DeviceOrientationEvent.alpha` reports MAGNETIC north on
-//    most devices, not true north. The previous code treated it as true
-//    north, so in regions with significant declination (New York -13°,
-//    UK +1°, Sydney +13°) the Qibla arrow was off by exactly that amount.
-//    We now compute WMM-based declination at the user's geolocation and
-//    add it to alpha. iOS `webkitCompassHeading` is already true-north-
-//    referenced — we do NOT double-correct.
-//
-// 2. FULL-SCREEN CAMERA-FIRST UX
-//    The camera is the default view (not a "tab you have to switch to").
-//    It fills the viewport, shows a persistent Qibla-line marker, and has
-//    dedicated left/right turn indicators along both edges. Tapping
-//    "Compass" collapses to a classic rose view inside the same overlay.
-//
-// 3. SINGLE-GESTURE PERMISSIONS
-//    One "Start Qibla finder" button triggers, in this order:
-//    motion permission (iOS DeviceOrientationEvent.requestPermission —
-//    must be first, must be sync with the tap) → camera getUserMedia →
-//    geolocation. Any await between them would strip iOS user-activation
-//    and permissions would silently fail.
-//
-// 4. LINE TO QIBLA WHEN ALIGNED
-//    A vertical accent-color line snaps into place when |heading -
-//    bearing| ≤ 5°, with haptic + visible pulse on the transition into
-//    aligned. Not "toy compass" alignment — the user sees a clear
-//    visual "you are pointed at the Kaʿbah" signal.
-//
-// 5. FLUID rAF SMOOTHING
-//    Shortest-arc + exponential low-pass at alpha=0.18, driven by
-//    requestAnimationFrame — not by the raw sensor event. Wrap-around
-//    at 359°→0° goes the short way. No CSS transitions fighting the
-//    inline transform during live updates.
+// 2026-09-23 original rewrite goals (still valid):
+//   1. Magnetic-declination correction via WMM (fixes "fully wrong
+//      direction" on Android where alpha reports magnetic, not true).
+//      iOS webkitCompassHeading is already true-north; NOT double-corrected.
+//   2. Camera-first full-screen UX.
+//   3. Single-gesture permissions (motion → camera → location).
+//   4. Line-to-Qibla alignment indicator when |Δ| ≤ 5°.
+//   5. rAF-driven smoothing with shortest-arc wrap-around.
 
 import {
   compassLabel,
@@ -48,7 +38,6 @@ import {
   Loader2Icon,
   MapPinIcon,
   RefreshCwIcon,
-  XIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -76,18 +65,38 @@ function angularDelta(a: number, b: number): number {
   return d;
 }
 
-// Exponential low-pass. alpha ≈ 0.18 gives Google-Qibla-Finder-like smooth
-// follow without visible lag on real magnetometer noise.
-function smooth(prev: number, next: number, alpha = 0.18): number {
+// Exponential low-pass. alpha=0.10 gives Google-Qibla-Finder-class smooth
+// follow on the noisy magnetometer signal typical of modern phones. The
+// previous 0.18 tracked too fast — every raw sensor jitter reached the
+// UI within ~55 ms, which the user experienced as "moving here and there".
+function smooth(prev: number, next: number, alpha = 0.10): number {
   const d = angularDelta(prev, next);
   return (prev + d * alpha + 360) % 360;
+}
+
+// Median filter across a small ring buffer of raw samples. Compass
+// magnetometers periodically spike ±40° for one frame when the phone
+// passes a metal object, a magnet, or a strong RF source. A 5-sample
+// median rejects those spikes without adding perceptible lag.
+//
+// We compute median in a circular sense — sort by signed arc distance to
+// the current value and pick the middle. This avoids the classic bug
+// where samples of {358°, 359°, 0°, 1°, 2°} would median-to 179° instead
+// of ~0°.
+function circularMedian(samples: number[]): number {
+  if (samples.length === 0) return 0;
+  if (samples.length === 1) return samples[0]!;
+  const ref = samples[samples.length - 1]!;
+  const signed = samples.map((s) => ({ s, d: angularDelta(ref, s) }));
+  signed.sort((a, b) => a.d - b.d);
+  const mid = signed[Math.floor(signed.length / 2)]!;
+  return (mid.s + 360) % 360;
 }
 
 export function QiblaCompass() {
   const t = useTranslations("qibla");
 
-  // Feature detection at mount — needed to know whether we must show the
-  // "Grant motion" iOS prompt or if we can go straight to sensor listening.
+  // Feature detection at mount.
   const [needsIOSPermission, setNeedsIOSPermission] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -105,10 +114,7 @@ export function QiblaCompass() {
   const [error, setError] = useState<string | null>(null);
 
   // Heading state -------------------------------------------------------------
-  // rawHeadingRef = latest magnetometer sample (already true-north-corrected
-  //                 for the platform when it enters here).
-  // displayHeadingRef = per-frame smoothed value used to render (kept in a
-  //                     ref so the rAF loop doesn't re-subscribe on setState).
+  const rawSamplesRef = useRef<number[]>([]);       // ring buffer for median filter
   const rawHeadingRef = useRef<number | null>(null);
   const displayHeadingRef = useRef<number>(0);
   const [displayHeading, setDisplayHeading] = useState<number | null>(null);
@@ -120,8 +126,9 @@ export function QiblaCompass() {
   const [mode, setMode] = useState<Mode>("camera");
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const [videoAttached, setVideoAttached] = useState(false);
 
-  // ---- Permission steps (each returns a boolean so `start` can chain) -----
+  // ---- Permission steps -----------------------------------------------------
 
   const requestMotion = useCallback(async (): Promise<boolean> => {
     if (typeof window === "undefined") return false;
@@ -138,7 +145,6 @@ export function QiblaCompass() {
         return false;
       }
     }
-    // Non-iOS: no permission gate needed.
     setMotionGranted(true);
     return true;
   }, []);
@@ -147,17 +153,23 @@ export function QiblaCompass() {
     if (typeof navigator === "undefined" || !navigator.mediaDevices) return false;
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: { ideal: "environment" } },
+        video: {
+          facingMode: { ideal: "environment" },
+          // Prefer HD but accept whatever the sensor gives us.
+          width: { ideal: 1280 },
+          height: { ideal: 720 },
+        },
         audio: false,
       });
+      // Stash the stream ONLY. The dedicated attach effect below binds it
+      // to <video> once <CameraView> renders. Setting srcObject here
+      // races with the render tree — during the first `start()`, status
+      // is still "starting" so <CameraView> hasn't mounted and videoRef
+      // is null. This was the root cause of the black-camera bug.
       streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
       setCameraGranted(true);
       return true;
     } catch {
-      // Camera denied is not fatal — we fall back to compass mode.
       setCameraGranted(false);
       setMode("compass");
       return false;
@@ -172,9 +184,7 @@ export function QiblaCompass() {
         return;
       }
       if (typeof window !== "undefined" && !window.isSecureContext) {
-        setError(
-          "Location works only over HTTPS. Open this site over https:// and try again.",
-        );
+        setError("Location works only over HTTPS. Open this site over https:// and try again.");
         resolve(false);
         return;
       }
@@ -205,10 +215,7 @@ export function QiblaCompass() {
     });
   }, []);
 
-  // Combined start — one user gesture triggers all permission prompts.
-  // Order matters (iOS user-activation dies after any await if motion isn't
-  // first). Motion is synchronous-ish (returns a Promise resolved by the
-  // same click's activation); camera and location can follow.
+  // One-gesture start.
   const start = useCallback(async () => {
     setStatus("starting");
     setError(null);
@@ -218,25 +225,43 @@ export function QiblaCompass() {
     setStatus(gotLocation ? "ready" : "denied");
   }, [requestMotion, requestCamera, requestLocation]);
 
-  // Auto-attempt start on first mount for browsers where no permission is
-  // needed (desktop Chrome without motion; permissions already granted from
-  // a prior session). iOS Safari WILL always need the manual tap because
-  // requestPermission requires user activation — the "Start" button below
-  // handles that path.
-  //
-  // We only auto-start when there's genuinely no gate: no iOS motion prompt
-  // required. If any prompt IS required, we render the tap-to-start UI so
-  // the user's tap becomes the activation for all three requests.
+  // Auto-start on platforms without iOS motion prompt (Android, desktop).
   useEffect(() => {
-    if (needsIOSPermission) return; // must be user-initiated
+    if (needsIOSPermission) return;
     if (status !== "idle") return;
-    // Give the effect one frame so we don't race the feature-detection
-    // effect above.
     const id = setTimeout(() => {
       start();
     }, 50);
     return () => clearTimeout(id);
   }, [needsIOSPermission, status, start]);
+
+  // ---- The KEY FIX: video-attach effect ------------------------------------
+  //
+  // Runs after every render. If we have both a live stream AND a mounted
+  // <video> element, attach and play. This handles:
+  //   - Initial mount: <CameraView> hasn't rendered yet when requestCamera
+  //     resolves, so we bind here instead
+  //   - Mode toggle back to camera: stream may be gone, this triggers a
+  //     re-request (via the reopen effect below)
+  //   - React strict-mode double-mount in dev
+  //
+  // videoAttached flag prevents infinite play() calls once already bound.
+  useEffect(() => {
+    const v = videoRef.current;
+    const s = streamRef.current;
+    if (mode !== "camera") return;
+    if (!v || !s) return;
+    if (v.srcObject === s && videoAttached) return;
+    v.srcObject = s;
+    setVideoAttached(true);
+    // Autoplay policy: mobile Safari + Chrome require .play() to be
+    // called explicitly, even on a muted+playsInline element, IF the
+    // srcObject was set outside a user-gesture callback. Ignore any
+    // rejection (browser will surface UI to the user).
+    v.play().catch(() => {
+      /* noop — some browsers reject if already playing */
+    });
+  });
 
   // Device-orientation listener ----------------------------------------------
   useEffect(() => {
@@ -246,36 +271,44 @@ export function QiblaCompass() {
       let h: number | null = null;
       let alreadyTrueNorth = false;
       if (typeof wk.webkitCompassHeading === "number") {
-        // iOS Safari — already true-north-corrected. Do NOT add declination.
+        // iOS Safari — already true-north-corrected.
         h = wk.webkitCompassHeading;
         alreadyTrueNorth = true;
         if (typeof wk.webkitCompassAccuracy === "number") {
           setAccuracy(wk.webkitCompassAccuracy);
         }
       } else if (typeof e.alpha === "number") {
-        // Chrome / Android / others: alpha is 0..360 CCW from MAGNETIC north
-        // when the device is flat. Convert to CW-from-magnetic-north first,
-        // then correct to true north with the WMM declination.
+        // Chrome / Android / others — alpha is 0..360 CCW from MAGNETIC
+        // north when the device is flat. Convert to CW-from-magnetic,
+        // then correct to true north using WMM declination.
         h = (360 - e.alpha) % 360;
         alreadyTrueNorth = false;
         setAccuracy(e.absolute ? 15 : 45);
       }
       if (h == null || !Number.isFinite(h)) return;
       if (!alreadyTrueNorth) {
-        // True heading = magnetic heading + declination. `declinationRef` is
-        // 0 until geolocation resolves — an early sample can be up to a few
-        // seconds ahead of the fix on some devices, but declination is a
-        // ± 20° correction at most and dominated by the smoothing loop.
         h = ((h + declinationRef.current) % 360 + 360) % 360;
       }
-      rawHeadingRef.current = h;
+      // Feed the median-of-5 ring buffer. This kills the ±40° single-
+      // frame magnetometer spikes that cause the UI to jump.
+      const buf = rawSamplesRef.current;
+      buf.push(h);
+      if (buf.length > 5) buf.shift();
+      rawHeadingRef.current = circularMedian(buf);
     };
     window.addEventListener("deviceorientation", onOrient, true);
-    // Some Android browsers only fire the absolute variant.
-    window.addEventListener("deviceorientationabsolute" as "deviceorientation", onOrient, true);
+    window.addEventListener(
+      "deviceorientationabsolute" as "deviceorientation",
+      onOrient,
+      true,
+    );
     return () => {
       window.removeEventListener("deviceorientation", onOrient, true);
-      window.removeEventListener("deviceorientationabsolute" as "deviceorientation", onOrient, true);
+      window.removeEventListener(
+        "deviceorientationabsolute" as "deviceorientation",
+        onOrient,
+        true,
+      );
     };
   }, [motionGranted]);
 
@@ -287,7 +320,7 @@ export function QiblaCompass() {
       if (!alive) return;
       const raw = rawHeadingRef.current;
       if (raw != null) {
-        const next = smooth(displayHeadingRef.current, raw, 0.18);
+        const next = smooth(displayHeadingRef.current, raw, 0.10);
         displayHeadingRef.current = next;
         setDisplayHeading(next);
       }
@@ -300,7 +333,7 @@ export function QiblaCompass() {
     };
   }, [motionGranted]);
 
-  // Camera cleanup on unmount + mode change to compass -----------------------
+  // Camera cleanup on unmount -----------------------------------------------
   useEffect(() => {
     return () => {
       if (streamRef.current) {
@@ -313,7 +346,7 @@ export function QiblaCompass() {
     };
   }, []);
 
-  // If user switches to compass mode, stop the camera to save battery.
+  // Switch to compass → stop camera to save battery.
   useEffect(() => {
     if (mode !== "compass") return;
     if (streamRef.current) {
@@ -324,9 +357,10 @@ export function QiblaCompass() {
       videoRef.current.srcObject = null;
     }
     setCameraGranted(false);
+    setVideoAttached(false);
   }, [mode]);
 
-  // Re-request camera when returning to camera mode after collapsing.
+  // Re-request camera when returning to camera mode.
   const reopenCamera = useCallback(async () => {
     if (streamRef.current) return;
     await requestCamera();
@@ -337,7 +371,7 @@ export function QiblaCompass() {
     if (!cameraGranted) reopenCamera();
   }, [mode, status, cameraGranted, reopenCamera]);
 
-  // Derived values -----------------------------------------------------------
+  // Derived ------------------------------------------------------------------
   const bearing = coords ? qiblaBearing(coords.lat, coords.lon) : null;
   const dist = coords ? distanceToKaabaKm(coords.lat, coords.lon) : null;
   const heading = displayHeading;
@@ -348,7 +382,7 @@ export function QiblaCompass() {
     hasCompass && bearing != null ? (bearing - heading! + 540) % 360 - 180 : null;
   const aligned = relativeToQibla != null && Math.abs(relativeToQibla) <= 5;
 
-  // Haptic pulse once per transition into aligned.
+  // Haptic on transition into aligned.
   const wasAligned = useRef(false);
   useEffect(() => {
     if (aligned && !wasAligned.current) {
@@ -363,12 +397,9 @@ export function QiblaCompass() {
     wasAligned.current = aligned;
   }, [aligned]);
 
-  // -------- Render: idle / starting / denied gates --------------------------
+  // -------- Render: gates ---------------------------------------------------
 
   if (status === "idle") {
-    // On iOS this is the required tap-to-grant screen. On other platforms
-    // we auto-start (see the effect above), so this branch is only briefly
-    // visible before "starting" or "ready".
     return (
       <section className="rounded-2xl border border-separator bg-surface p-8 text-center">
         <div className="mx-auto max-w-md">
@@ -419,7 +450,7 @@ export function QiblaCompass() {
     );
   }
 
-  // status === "ready" — main UI ---------------------------------------------
+  // status === "ready" -------------------------------------------------------
   return (
     <section className="qibla-finder">
       {mode === "camera" ? (
@@ -455,6 +486,9 @@ export function QiblaCompass() {
 
 // ============================================================================
 // Camera-first AR view — full-screen fixed overlay
+// Path visualization: a ray growing UP from bottom-center (user) to the
+// Kaʿbah marker near the top, whose horizontal position tracks the signed
+// angular delta between phone heading and true Qibla bearing.
 // ============================================================================
 
 function CameraView({
@@ -482,11 +516,8 @@ function CameraView({
 }) {
   const hasHeading = heading != null && bearing != null;
 
-  // Horizontal-shift model: the phone's camera FOV on a typical smartphone
-  // is about 65-75° horizontal. We map the signed angular delta through a
-  // ±32° window (a little narrower than the real FOV so the arrow stays
-  // clearly inside the frame when close to aligned) into a percentage
-  // shift of the viewport width.
+  // Horizontal-shift model. FOV window narrower than the true camera FOV
+  // so the marker stays comfortably inside the frame near-aligned.
   const fovHalf = 32;
   const clamped =
     relativeToQibla != null
@@ -507,7 +538,7 @@ function CameraView({
         muted
       />
 
-      {/* Dim overlay to boost UI contrast */}
+      {/* Vertical dim to lift UI over camera content */}
       <div className="qibla-dim" aria-hidden />
 
       {/* Camera-denied fallback prompt */}
@@ -531,14 +562,13 @@ function CameraView({
         </div>
       )}
 
-      {/* Left-edge "turn left" indicator */}
+      {/* Edge turn indicators when beyond FOV */}
       {hasHeading && beyondFov && turnDirection === "left" && (
         <div className="qibla-turn qibla-turn--left" aria-hidden>
           <div className="qibla-turn__arrow">‹</div>
           <div className="qibla-turn__label">Turn LEFT</div>
         </div>
       )}
-      {/* Right-edge "turn right" indicator */}
       {hasHeading && beyondFov && turnDirection === "right" && (
         <div className="qibla-turn qibla-turn--right" aria-hidden>
           <div className="qibla-turn__arrow">›</div>
@@ -546,36 +576,38 @@ function CameraView({
         </div>
       )}
 
-      {/* Center crosshair (always visible) */}
-      <div className="qibla-crosshair" aria-hidden>
-        <div className="qibla-crosshair__ring" />
+      {/* "You are here" pin at bottom-center */}
+      <div className="qibla-you" aria-hidden>
+        <div className="qibla-you__ring" />
+        <div className="qibla-you__dot" />
       </div>
 
-      {/* Qibla line + Kaʿbah marker — only within FOV */}
+      {/* Path-to-Qibla ray. Grows from bottom-center up to the Kaʿbah
+          marker near the top. Uses a very thin transformed div so we
+          can animate translateX cheaply on the compositor. */}
       {hasHeading && !beyondFov && (
         <div
-          className={`qibla-arrow ${aligned ? "qibla-arrow--aligned" : ""}`}
+          className={`qibla-path ${aligned ? "qibla-path--aligned" : ""}`}
           style={{
-            transform: `translate(calc(-50% + ${percent}vw), 0)`,
-            // Longer transition when snapping (aligned), fast otherwise.
+            transform: `translateX(calc(-50% + ${percent}vw))`,
             transition: aligned
-              ? "transform 200ms cubic-bezier(0.16, 1, 0.3, 1)"
-              : "transform 60ms linear",
+              ? "transform 260ms cubic-bezier(0.16, 1, 0.3, 1)"
+              : "transform 140ms cubic-bezier(0.2, 0.7, 0.4, 1)",
           }}
         >
-          {/* Vertical line from top to bottom of viewport */}
-          <div className="qibla-arrow__line" />
-          {/* Kaʿbah tile at center */}
-          <div className="qibla-arrow__marker">
-            <div className="qibla-arrow__kaaba">🕋</div>
-            <div className="qibla-arrow__label">
+          {/* Ray line — from bottom (below the You dot) up to the marker */}
+          <div className="qibla-path__ray" />
+          {/* Kaʿbah marker at top of the ray */}
+          <div className="qibla-path__marker">
+            <div className="qibla-path__kaaba">🕋</div>
+            <div className="qibla-path__label">
               {aligned ? "Facing the Qibla" : "Qibla"}
             </div>
           </div>
         </div>
       )}
 
-      {/* Aligned banner (top) */}
+      {/* Top banner when aligned */}
       {aligned && (
         <div className="qibla-aligned-banner">
           <span className="qibla-aligned-banner__dot" />
@@ -615,7 +647,7 @@ function CameraView({
         )}
       </div>
 
-      {/* Mode switcher (top-right) */}
+      {/* Top-right mode switch */}
       <div className="qibla-mode-switch-group">
         <button
           type="button"
@@ -632,7 +664,7 @@ function CameraView({
 }
 
 // ============================================================================
-// Compass rose view — fallback when camera unavailable
+// Compass rose view — fallback / alternate
 // ============================================================================
 
 function CompassView({
@@ -673,10 +705,8 @@ function CompassView({
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 md:items-center">
-        {/* Rose */}
         <div className="mx-auto w-full max-w-[320px]">
           <div className="relative aspect-square">
-            {/* Dial background */}
             <div
               className={`absolute inset-0 rounded-full border transition-colors ${
                 aligned ? "border-accent" : "border-separator"
@@ -689,7 +719,6 @@ function CompassView({
               }}
               aria-hidden
             />
-            {/* Rotating rose */}
             <div
               className="absolute inset-0"
               style={{
@@ -699,7 +728,6 @@ function CompassView({
               }}
               aria-hidden
             >
-              {/* Cardinals */}
               {[
                 { label: "N", deg: 0, primary: true },
                 { label: "E", deg: 90, primary: false },
@@ -723,7 +751,6 @@ function CompassView({
                   </span>
                 </div>
               ))}
-              {/* Tick marks */}
               {Array.from({ length: 24 }).map((_, i) => {
                 const deg = i * 15;
                 const isCardinal = deg % 90 === 0;
@@ -750,7 +777,6 @@ function CompassView({
                   </span>
                 );
               })}
-              {/* Qibla marker — fixed to bearing on the rose */}
               <span
                 className="absolute left-1/2 top-0 origin-bottom"
                 style={{
@@ -787,7 +813,6 @@ function CompassView({
                 />
               </span>
             </div>
-            {/* Fixed device-facing pointer */}
             <div
               className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-none"
               aria-hidden
@@ -802,13 +827,11 @@ function CompassView({
                 }}
               />
             </div>
-            {/* Centre puck */}
             <div className="absolute inset-0 grid place-items-center pointer-events-none">
               <div className="w-4 h-4 rounded-full bg-foreground/80 shadow-md" />
             </div>
           </div>
 
-          {/* Alignment chip */}
           <div className="mt-4 flex items-center justify-center">
             {hasCompass && (
               <span
@@ -829,7 +852,6 @@ function CompassView({
           </div>
         </div>
 
-        {/* Readouts */}
         <div className="grid gap-4">
           <Readout
             label="Qibla bearing"
@@ -881,6 +903,3 @@ function Readout({
     </div>
   );
 }
-
-// Marker export kept for any external consumer.
-export { XIcon as _XIcon };

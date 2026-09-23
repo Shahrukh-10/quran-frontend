@@ -388,69 +388,73 @@ footer {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Central crosshair — always visible, indicates the "you are here" pointer */
-.qibla-crosshair {
+/* ─── Path-to-Qibla ray ─────────────────────────────────────
+   A directional ray that grows UP from the user's position at
+   the bottom-center of the screen (the "you are here" dot) to
+   the Kaʿbah marker floating near the top. As the phone turns
+   left/right, the ENTIRE ray translates horizontally, so it
+   always reads as "walk this way to face the Qibla." When the
+   phone is aligned to the Qibla the ray snaps to true vertical
+   and turns accent color.
+   ─────────────────────────────────────────────────────────── */
+.qibla-path {
   position: absolute;
-  top: 50%;
+  /* Anchor to bottom-center, above the readout card. */
   left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.qibla-crosshair__ring {
-  width: 56px;
-  height: 56px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-}
-
-/* Vertical Qibla line + Kaʿbah marker at top of it */
-.qibla-arrow {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 4px;
+  bottom: calc(max(env(safe-area-inset-bottom, 0px), 16px) + 100px);
+  /* Ray extends up to just below the top banner area. */
+  height: calc(100dvh - max(env(safe-area-inset-bottom, 0px), 16px) - 100px - max(env(safe-area-inset-top, 0px), 60px));
+  width: 6px;
   pointer-events: none;
   z-index: 3;
+  /* transform-origin at the bottom so translation from the
+     "you are here" pin feels anchored. */
+  transform-origin: 50% 100%;
 }
-.qibla-arrow__line {
+.qibla-path__ray {
   position: absolute;
-  inset: 0;
+  inset: 0 0 0 0;
+  border-radius: 6px;
   background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.85) 42%,
-    rgba(255, 255, 255, 0.2) 42%,
-    rgba(255, 255, 255, 0.2) 58%,
-    rgba(255, 255, 255, 0.85) 58%,
-    rgba(255, 255, 255, 0.85) 100%
+    to top,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.80) 40%,
+    rgba(255, 255, 255, 0.50) 100%
   );
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35), 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.4),
+    0 0 3px rgba(0, 0, 0, 0.5);
 }
-.qibla-arrow--aligned .qibla-arrow__line {
+.qibla-path--aligned .qibla-path__ray {
   background: linear-gradient(
-    to bottom,
+    to top,
     hsl(var(--accent)) 0%,
-    hsl(var(--accent)) 42%,
-    hsl(var(--accent) / 0.35) 42%,
-    hsl(var(--accent) / 0.35) 58%,
-    hsl(var(--accent)) 58%,
-    hsl(var(--accent)) 100%
+    hsl(var(--accent) / 0.85) 60%,
+    hsl(var(--accent) / 0.55) 100%
   );
-  box-shadow: 0 0 16px hsl(var(--accent) / 0.55), 0 0 3px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 0 18px hsl(var(--accent) / 0.6),
+    0 0 4px rgba(0, 0, 0, 0.5);
+  /* Subtle pulse to celebrate the aligned state — 2s cycle so it
+     doesn't feel busy. */
+  animation: qibla-path-pulse 2s ease-in-out infinite;
 }
-.qibla-arrow__marker {
+@keyframes qibla-path-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+/* Kaʿbah marker at top of the ray */
+.qibla-path__marker {
   position: absolute;
-  top: 12%;
+  top: -8px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
 }
-.qibla-arrow__kaaba {
+.qibla-path__kaaba {
   width: 68px;
   height: 68px;
   border-radius: 18px;
@@ -462,12 +466,14 @@ footer {
   color: #000;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.7);
 }
-.qibla-arrow--aligned .qibla-arrow__kaaba {
+.qibla-path--aligned .qibla-path__kaaba {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
-  box-shadow: 0 12px 32px hsl(var(--accent) / 0.5), 0 0 0 3px rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 12px 32px hsl(var(--accent) / 0.55),
+    0 0 0 3px rgba(255, 255, 255, 0.85);
 }
-.qibla-arrow__label {
+.qibla-path__label {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -478,10 +484,46 @@ footer {
   border-radius: 999px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  white-space: nowrap;
 }
-.qibla-arrow--aligned .qibla-arrow__label {
+.qibla-path--aligned .qibla-path__label {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
+}
+
+/* "You are here" pin at the bottom of the ray */
+.qibla-you {
+  position: absolute;
+  left: 50%;
+  bottom: calc(max(env(safe-area-inset-bottom, 0px), 16px) + 92px);
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+}
+.qibla-you__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  animation: qibla-you-ring 2.4s ease-out infinite;
+}
+.qibla-you__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.35), 0 0 12px rgba(255, 255, 255, 0.6);
+}
+@keyframes qibla-you-ring {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
 }
 
 /* Left/right turn indicators when Qibla is beyond the FOV */

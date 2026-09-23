@@ -897,6 +897,23 @@ body {
   contain: strict;
   will-change: transform;
 }
+
+/* Perf (2026-09 Lighthouse mobile audit — LCP 6.3 s):
+   Hide the animated calligraphy field on mobile (<=768 px) and honor
+   `prefers-reduced-motion`. The field is decorative (`aria-hidden`), and
+   on mobile the 8 continuous marquee animations across ~64 large spans
+   used continuous GPU compositing + main-thread animation frames that
+   held down FCP and delayed LCP. Desktop keeps the field for atmosphere. */
+@media (max-width: 768px) {
+  .site-bg {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-bg__row {
+    animation: none !important;
+  }
+}
 .site-bg__row {
   /* Each row is a horizontal marquee. Track holds two identical
      halves so translating by -50% loops seamlessly. */

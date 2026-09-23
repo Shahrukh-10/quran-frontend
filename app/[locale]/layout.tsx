@@ -1,4 +1,3 @@
-import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { NavProgress } from "@/components/layout/nav-progress";
@@ -8,11 +7,12 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-d
 import { locales, rtlLocales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { siteName, siteUrl } from "@/lib/site";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import "@/app/globals.css";
 import "./_hig-shared.css";
@@ -232,13 +232,29 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <ServiceWorkerRegister />
           <InstallPrompt />
         </NextIntlClientProvider>
-        {/* Google Analytics 4 — Quran Daily property, G-HXWM89S71H.
-            Loaded via @next/third-parties which lazy-loads gtag.js with
-            optimal timing (afterInteractive) so LCP/INP aren't impacted.
-            The GA ID can also be overridden per-environment via
-            NEXT_PUBLIC_GA_ID env var. */}
+        {/* Google Analytics 4 — Quran Daily property (G-HXWM89S71H).
+            Loaded with `strategy="lazyOnload"` so gtag.js is fetched AFTER the
+            window `load` event, keeping it out of the LCP network contention
+            window. `@next/third-parties`'s <GoogleAnalytics> component was
+            replaced here because it hard-codes `afterInteractive`, which
+            Lighthouse (2026-09) showed was still competing with the initial
+            paint on mobile (gtag.js is a ~175 KB script, 74 KB unused).
+            NEXT_PUBLIC_GA_ID env var still gates the tag; empty in staging. */}
         {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="lazyOnload"
+            />
+            <Script id="ga4-init" strategy="lazyOnload">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { send_page_view: true });
+              `}
+            </Script>
+          </>
         )}
       </body>
     </html>

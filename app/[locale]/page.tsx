@@ -263,10 +263,16 @@ export default async function HomePage({ params }: PageProps) {
           <h1 className="hero__title">{t("title")}</h1>
           <p className="hero__subtitle">{t("subtitle")}</p>
           <div className="hero__ctas">
-            <Link className="btn btn--primary" href="/quran">
+            {/* prefetch={false}: mobile Lighthouse showed the RSC payload for
+                `/quran` (~28 KB) and `/duas` (~21 KB) being prefetched during
+                the LCP window, competing for bandwidth with the hero paint.
+                The tap-to-navigate latency is fine on repeat visits (Next.js
+                still uses BFCache + SW cache) and the user just landed on the
+                page — most won't click either link before LCP. */}
+            <Link className="btn btn--primary" href="/quran" prefetch={false}>
               {t("ctaPrimary")}
             </Link>
-            <Link className="btn btn--secondary" href="/duas">
+            <Link className="btn btn--secondary" href="/duas" prefetch={false}>
               {t("ctaSecondary")}
             </Link>
           </div>
@@ -301,7 +307,17 @@ export default async function HomePage({ params }: PageProps) {
         <div className="container">
           <div className="rail" role="list">
             {FEATURED_SURAHS.map((s) => (
-              <Link key={s.n} className="surah-card" href={`/quran/${s.slug}`} role="listitem">
+              // prefetch={false}: the six featured cards were RSC-prefetching
+              // heavy surah pages during the LCP window (Al-Baqarah alone is
+              // a ~177 KB RSC payload). Users tap at most one; there's no
+              // point pre-downloading all six on mobile.
+              <Link
+                key={s.n}
+                className="surah-card"
+                href={`/quran/${s.slug}`}
+                role="listitem"
+                prefetch={false}
+              >
                 <span className="surah-card__num">Surah {String(s.n).padStart(3, "0")}</span>
                 <span className="surah-card__arabic" lang="ar" dir="rtl">
                   {s.ar}

@@ -1,5 +1,4 @@
-Contact: https://github.com/Shahrukh-10/quran-frontend/security/advisories
-Contact: mailto:security@qurandaily.org
+Contact: mailto:promptspaceofficial@gmail.com
 Preferred-Languages: en, ar
 Canonical: https://qurandaily.org/.well-known/security.txt
 Policy: https://qurandaily.org/privacy

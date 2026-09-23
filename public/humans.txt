@@ -3,9 +3,8 @@
 
 /* TEAM */
 
-Author:  Shahrukh Khan
+Author:  Quran Daily
 Site:    https://qurandaily.org
-GitHub:  https://github.com/Shahrukh-10
 Country: India
 
 /* CONTRIBUTORS */

@@ -38,9 +38,7 @@ export function OrganizationSchema() {
         // Google E-E-A-T signals: sameAs links to social/identity profiles.
         // Add real profiles as they come online; empty array is fine but no
         // less useful than omitting the key.
-        sameAs: [
-          "https://github.com/Shahrukh-10/quran-frontend",
-        ],
+        sameAs: [],
         description:
           "Free, sourced, offline-first Quran, hadith, duas, prayer times, Qibla, and Salah tutorials. Every ayah and hadith cites its source.",
       }}

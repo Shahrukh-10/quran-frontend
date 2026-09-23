@@ -79,6 +79,25 @@ export function PrayerTimesGeolocated() {
     );
   }, []);
 
+  // Auto-request location on first mount. Browsers that have already
+  // granted permission for this origin resolve immediately with no prompt;
+  // first-time visitors see the browser's native permission dialog. If
+  // location has been denied for this origin the promise rejects and the
+  // component falls back to the "denied" state with a city picker — same
+  // UX as pre-2026-09 code, just skipping the extra "Use my location"
+  // button click for anyone who ever wants to grant permission.
+  //
+  // Secure-context guard is inside `request()` so plain-HTTP LAN dev shows
+  // the "insecure" hint without the browser attempting a doomed prompt.
+  useEffect(() => {
+    if (status !== "idle") return;
+    request();
+    // Only fire the auto-request once at mount — subsequent changes to
+    // `request` (stable via useCallback with []) or `status` should not
+    // re-trigger.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const scrollToCities = useCallback(() => {
     const el = document.querySelector(".cities");
     if (el) {

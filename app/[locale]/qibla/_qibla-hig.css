@@ -317,3 +317,333 @@ footer {
   font-size: 13px;
   color: hsl(var(--muted-foreground) / 0.5);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Full-screen AR-first Qibla finder (2026-09 rewrite)
+
+   Camera fills the viewport, Qibla line + left/right turn
+   indicators overlay on top. When the phone is turned so the
+   camera points at the Qibla, the vertical Qibla-line snaps to
+   the center (aligned state). Prayer-time-critical UI — must
+   feel instant and read clearly against arbitrary camera content.
+   ───────────────────────────────────────────────────────────── */
+
+.qibla-finder {
+  /* Break out of the .max-w-dashboard content column and render as
+     a fixed overlay filling the whole viewport including behind
+     iOS Safari's bottom bar via svh/dvh units. */
+  position: relative;
+}
+
+.qibla-fullscreen {
+  position: fixed;
+  inset: 0;
+  /* z=90 sits above the sticky nav (z-40 / z-50 depending on which nav
+     the layout is using) and below any modal or toast the app might
+     show, so a full-viewport takeover feels correct without breaking
+     accessibility tooling. */
+  z-index: 90;
+  overflow: hidden;
+  background: #000;
+  /* dvh handles iOS URL bar collapse; fallback to vh for older */
+  height: 100dvh;
+  min-height: 100vh;
+}
+
+.qibla-video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: translateZ(0);   /* Force compositor layer */
+  background: #000;
+}
+
+.qibla-dim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0) 20%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.qibla-camera-blocked {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Central crosshair — always visible, indicates the "you are here" pointer */
+.qibla-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.qibla-crosshair__ring {
+  width: 56px;
+  height: 56px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+/* Vertical Qibla line + Kaʿbah marker at top of it */
+.qibla-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 4px;
+  pointer-events: none;
+  z-index: 3;
+}
+.qibla-arrow__line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.85) 42%,
+    rgba(255, 255, 255, 0.2) 42%,
+    rgba(255, 255, 255, 0.2) 58%,
+    rgba(255, 255, 255, 0.85) 58%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35), 0 0 2px rgba(0, 0, 0, 0.6);
+}
+.qibla-arrow--aligned .qibla-arrow__line {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--accent)) 0%,
+    hsl(var(--accent)) 42%,
+    hsl(var(--accent) / 0.35) 42%,
+    hsl(var(--accent) / 0.35) 58%,
+    hsl(var(--accent)) 58%,
+    hsl(var(--accent)) 100%
+  );
+  box-shadow: 0 0 16px hsl(var(--accent) / 0.55), 0 0 3px rgba(0, 0, 0, 0.6);
+}
+.qibla-arrow__marker {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.qibla-arrow__kaaba {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.7);
+}
+.qibla-arrow--aligned .qibla-arrow__kaaba {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  box-shadow: 0 12px 32px hsl(var(--accent) / 0.5), 0 0 0 3px rgba(255, 255, 255, 0.85);
+}
+.qibla-arrow__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: white;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.qibla-arrow--aligned .qibla-arrow__label {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+/* Left/right turn indicators when Qibla is beyond the FOV */
+.qibla-turn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 12px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  color: white;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+.qibla-turn--left {
+  left: 12px;
+}
+.qibla-turn--right {
+  right: 12px;
+}
+.qibla-turn__arrow {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 700;
+  color: white;
+}
+.qibla-turn__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Aligned banner at top */
+.qibla-aligned-banner {
+  position: absolute;
+  top: max(env(safe-area-inset-top, 0px), 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 28px hsl(var(--accent) / 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: qibla-pulse-in 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.qibla-aligned-banner__dot {
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 999px;
+  animation: qibla-pulse 1200ms ease-in-out infinite;
+}
+@keyframes qibla-pulse-in {
+  from { transform: translate(-50%, -8px); opacity: 0; }
+  to   { transform: translateX(-50%); opacity: 1; }
+}
+@keyframes qibla-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* Bottom readouts card */
+.qibla-readout {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  z-index: 5;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.qibla-readout__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 16px;
+}
+@media (min-width: 480px) {
+  .qibla-readout__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.qibla-readout__label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+.qibla-readout__value {
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.qibla-readout__hint {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Top-right mode-switch pill */
+.qibla-mode-switch-group {
+  position: absolute;
+  top: max(env(safe-area-inset-top, 0px), 12px);
+  right: max(env(safe-area-inset-right, 0px), 12px);
+  z-index: 5;
+  display: inline-flex;
+  gap: 8px;
+}
+.qibla-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: background 200ms var(--spring, ease-out);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.qibla-mode-switch:hover,
+.qibla-mode-switch:focus-visible {
+  background: rgba(0, 0, 0, 0.8);
+  outline: none;
+}
+
+/* Respect prefers-reduced-motion — kill the pulse + snap animations */
+@media (prefers-reduced-motion: reduce) {
+  .qibla-aligned-banner,
+  .qibla-aligned-banner__dot,
+  .qibla-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}

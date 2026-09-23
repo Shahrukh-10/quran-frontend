@@ -59,7 +59,7 @@ Quran and hadith text are historical religious texts and not subject to modern c
 
 ## Contact
 
-- Site issues: file at the [GitHub repo](https://github.com/Shahrukh-10/quran-frontend) or open an issue at [/about](/about).
+- Site issues: please email us via the /about page.
 - Content questions or errata: please open an issue with the ayah/hadith reference and a quote of the source you're comparing against.
 
 _This site is a sadaqah jariyah project. If you find it useful, please make dua for its authors and for the correction of any errors._

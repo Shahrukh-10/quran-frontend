@@ -922,17 +922,13 @@ body {
   will-change: transform;
 }
 
-/* Perf (2026-09 Lighthouse mobile audit — LCP 6.3 s):
-   Hide the animated calligraphy field on mobile (<=768 px) and honor
-   `prefers-reduced-motion`. The field is decorative (`aria-hidden`), and
-   on mobile the 8 continuous marquee animations across ~64 large spans
-   used continuous GPU compositing + main-thread animation frames that
-   held down FCP and delayed LCP. Desktop keeps the field for atmosphere. */
-@media (max-width: 768px) {
-  .site-bg {
-    display: none;
-  }
-}
+/* Restored on mobile per user request (2026-09-24): the diagonal Arabic-
+   calligraphy drift is an excellent atmosphere feature and must appear on
+   every viewport. `prefers-reduced-motion` still pauses animation, and the
+   field remains `aria-hidden` so screen readers ignore it. Mobile perf is
+   mitigated by keeping `contain: strict` + `will-change: transform` on
+   `.site-bg` so the 8 marquees composite on their own layer without
+   invalidating paint of the scrolled content above them. */
 @media (prefers-reduced-motion: reduce) {
   .site-bg__row {
     animation: none !important;

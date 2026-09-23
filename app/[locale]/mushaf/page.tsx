@@ -1,5 +1,5 @@
 import { MushafReader } from "@/components/quran/mushaf-reader";
-import { BreadcrumbSchema } from "@/components/seo/structured-data";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { getAllMushafPages } from "@/lib/mushaf";
 import { siteUrl } from "@/lib/site";
@@ -40,6 +40,44 @@ export default async function MushafPage({ params }: PageProps) {
 
   return (
     <>
+      {/* GEO/AEO — FAQPage schema for AI answer engines (ChatGPT,
+          Perplexity, Claude, Google AI Overviews). Seeds citation-eligible
+          Q&A that mirrors the highest-intent search queries for this hub.
+          English-only for now — JSON-LD is crawler-facing. */}
+      <FaqSchema
+        items={[
+          {
+            question: 'What is a Muṣḥaf?',
+            answer:
+              'A Muṣḥaf (مصحف) is a physical or digital copy of the Quran in its standardized written form — literally "the collected pages." It refers specifically to the compiled Quranic text arranged in its canonical order, as opposed to individual ayat or partial recitations.',
+          },
+          {
+            question: 'How is the Mushaf on Quran Daily arranged?',
+            answer:
+              'The digital Mushaf mirrors the standard Madinah Mushaf 604-page layout used in most printed copies worldwide. Each page contains 15 lines of the standard Uthmani script, and navigation supports page-by-page reading (/quran/page/[1-604]) in addition to surah-by-surah and juz-by-juz.',
+          },
+          {
+            question: 'What script is used?',
+            answer:
+              'The Uthmani script (rasm ʿUthmānī), which is the classical script established under Caliph ʿUthmān ibn ʿAffān (RA) in the 7th century CE. Modern printings apply diacritical marks (tashkīl) invented by later scholars for pronunciation clarity, while preserving the original consonantal skeleton.',
+          },
+          {
+            question: 'Can I search inside the Mushaf by Arabic word?',
+            answer:
+              'Yes — the search bar accepts Arabic words in any diacritic form; the search is diacritic-insensitive and returns every ayah containing the word or root. Root-based search covers all conjugated derivatives, useful for tafsir study.',
+          },
+          {
+            question: 'Which recitation methodology does the audio use?',
+            answer:
+              'The default audio is the Ḥafṣ ʿan ʿĀṣim reading, which is by far the most widespread recitation methodology worldwide (used in Egypt, the Gulf, and most non-Maghreb Muslim countries). Warsh ʿan Nāfiʿ (common in North and West Africa) is not currently included but may be added in future.',
+          },
+          {
+            question: 'Does the Mushaf work offline?',
+            answer:
+              'Yes — the entire 6,236-ayah corpus is cached on your device after your first visit via the Progressive Web App service worker. You can read the full Quran with no network connection. Audio recitation requires network the first time and is then cached per-ayah as you listen.',
+          },
+        ]}
+      />
       <BreadcrumbSchema
         items={[
           { name: bc("home"), url: siteUrl("/") },

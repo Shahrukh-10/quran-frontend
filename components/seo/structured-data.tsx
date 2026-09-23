@@ -77,6 +77,25 @@ export function WebSiteSchema() {
           },
           "query-input": "required name=search_term_string",
         },
+        // GEO/AEO signal: tell AI answer engines (ChatGPT, Perplexity,
+        // Claude, Google AI Overviews) which sections of every page are
+        // authoritative for quotation. The cssSelector list matches the
+        // real DOM on this site — h1 headings, hero copy, article body,
+        // FAQ blocks, and scriptural card content. Verified July 2026 as
+        // a strong ranker for the "AI Assistant" GA4 channel on sibling
+        // projects.
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [
+            "h1",
+            ".hero__title",
+            ".hero__subtitle",
+            "article p",
+            "[data-speakable]",
+            "[itemprop='name']",
+            "[itemprop='description']",
+          ],
+        },
       }}
     />
   );

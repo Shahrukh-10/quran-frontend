@@ -1,4 +1,4 @@
-import { BreadcrumbSchema } from "@/components/seo/structured-data";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { breadcrumbs } from "@/lib/breadcrumbs";
@@ -40,6 +40,40 @@ export default async function HadithIndexPage({ params }: Props) {
 
   return (
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <FaqSchema
+        items={[
+          {
+            question: 'What are the six canonical hadith books?',
+            answer:
+              'The Kutub as-Sittah (Six Books) are: Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim, Sunan Abū Dāwūd, Jāmiʿ at-Tirmidhī, Sunan an-Nasāʾī, and Sunan Ibn Mājah. Together they contain roughly 40,000 unique narrations (with overlap and repetitions counted, over 60,000 traditions) covering theology, law, ethics, and Prophetic biography.',
+          },
+          {
+            question: 'Where do the hadith texts and translations come from?',
+            answer:
+              'Hadith Arabic text and English translation are sourced from Sunnah.com — a scholarly project curated by the AlMaghrib Institute and volunteer researchers. Where authenticity grading (ṣaḥīḥ, ḥasan, ḍaʿīf) has been recorded by classical scholars, we preserve it verbatim.',
+          },
+          {
+            question: 'What is hadith grading and why does it matter?',
+            answer:
+              'A hadith\'s authenticity grade is a classical Muslim assessment of how reliably its chain of narrators traces back to the Prophet ﷺ. ṣaḥīḥ = authentic, ḥasan = good, ḍaʿīf = weak. Only ṣaḥīḥ and ḥasan hadith are typically used to derive rulings; ḍaʿīf may be quoted for exhortation but not for law.',
+          },
+          {
+            question: 'How many hadith are on Quran Daily?',
+            answer:
+              'The site indexes over 34,000 hadith narrations across all six canonical books. Each hadith has its own permalink at /hadith/[book]/[number] with the Arabic text, English translation, book, chapter, hadith number, and authenticity grade where known.',
+          },
+          {
+            question: 'Can I listen to a hadith being read aloud?',
+            answer:
+              'Every hadith detail page includes a Listen button that speaks the Arabic text using your browser\'s built-in text-to-speech (SpeechSynthesis API). This is text-to-speech playback, not classical Qari recitation — for full-book audio recordings by a qualified reciter, consult Sunnah.com\'s audio archive.',
+          },
+          {
+            question: 'Are Shia hadith collections included?',
+            answer:
+              'Not currently. Quran Daily indexes the six canonical Sunni collections (Kutub as-Sittah). The four main Shia collections (al-Kāfī, Man lā yaḥḍuruhu al-Faqīh, Tahdhīb al-Aḥkām, al-Istibṣār) are outside our current corpus but may be added in future with clear denominational labeling.',
+          },
+        ]}
+      />
       <BreadcrumbSchema
         items={[
           { name: bc("home"), url: siteUrl("/") },

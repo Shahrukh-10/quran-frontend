@@ -1,5 +1,5 @@
 import { QiblaCompass } from "@/components/qibla/qibla-compass";
-import { BreadcrumbSchema } from "@/components/seo/structured-data";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
@@ -41,6 +41,40 @@ export default async function QiblaPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-dashboard px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <FaqSchema
+        items={[
+          {
+            question: 'What is Qibla and why does direction matter?',
+            answer:
+              'Qibla (قِبْلَة) is the direction Muslims face during ṣalāh (the five daily prayers) — specifically toward the Kaaba in Mecca. Facing the Qibla is a condition for the validity of prayer according to all four Sunni schools of jurisprudence.',
+          },
+          {
+            question: 'How does Quran Daily calculate Qibla direction?',
+            answer:
+              'The Qibla page uses the great-circle bearing formula on the WGS-84 ellipsoid, from your device\'s geolocation (latitude/longitude) to the Kaaba (21.4225°N, 39.8262°E). This gives the shortest true-north-referenced bearing across the surface of the Earth — the same math used by nautical navigation.',
+          },
+          {
+            question: 'Does the compass work in the browser?',
+            answer:
+              'Yes on most modern smartphones. The compass uses the DeviceOrientationEvent Web API — on iOS Safari you\'ll be prompted to grant motion permission; on Android Chrome permission is implicit. On desktop browsers without a magnetometer, the arrow shows the true bearing but does not rotate with the device.',
+          },
+          {
+            question: 'Why does the arrow drift or lag slightly?',
+            answer:
+              'Smartphone magnetometers are affected by nearby metal, magnets, and phone cases with magnetic clasps. The compass smooths readings using a shortest-arc filter over multiple frames; the residual drift you see is real magnetic-field noise, not a software bug. Calibrate by moving the phone in a figure-8 pattern.',
+          },
+          {
+            question: 'Can I use the AR camera mode?',
+            answer:
+              'Yes on browsers with getUserMedia + WebXR support. Tap the AR button on the Qibla page and grant camera access to overlay a Qibla marker on the live camera feed. Works best in landscape mode with the phone held level.',
+          },
+          {
+            question: 'Does the Qibla direction ever change?',
+            answer:
+              'The physical direction from a fixed location to the Kaaba does not change. Historical sources describe how the Qibla was initially toward Jerusalem (Bayt al-Maqdis) during the early Meccan period and was changed to Mecca in the second year of Hijrah (Surah al-Baqarah, ayah 144).',
+          },
+        ]}
+      />
       <BreadcrumbSchema
         items={[
           { name: bc("home"), url: siteUrl("/") },

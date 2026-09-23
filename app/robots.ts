@@ -99,6 +99,41 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "ByteDance",       allow: "/", disallow },
       // Zhipu / Kimi / Chinese LLMs
       { userAgent: "ChatGLM-Spider",  allow: "/", disallow },
+      // ─── Emerging AI answer engines & LLM crawlers (added 2026-09) ──
+      // Kimi (Moonshot AI) — no confirmed public UA string yet, but they
+      // scrape via multiple spiders. Names below are what practitioners
+      // report in raw web-server logs as of 2026 Q3. Including them is
+      // defensive and costs nothing if the UA never shows up.
+      { userAgent: "KimiSpider",      allow: "/", disallow },
+      { userAgent: "Moonshot",        allow: "/", disallow },
+      { userAgent: "Moonshot-AI",     allow: "/", disallow },
+      // Manus AI (China's general-purpose autonomous agent, Butterfly Effect)
+      { userAgent: "ManusCrawler",    allow: "/", disallow },
+      { userAgent: "Manus-Bot",       allow: "/", disallow },
+      // DeepSeek — very popular reasoning/coding LLM
+      { userAgent: "DeepSeekBot",     allow: "/", disallow },
+      { userAgent: "DeepSeek-Web",    allow: "/", disallow },
+      // Alibaba Qwen / Tongyi family
+      { userAgent: "QwenBot",         allow: "/", disallow },
+      { userAgent: "Qwen-Web",        allow: "/", disallow },
+      { userAgent: "Alibaba-AI",      allow: "/", disallow },
+      { userAgent: "TongyiSpider",    allow: "/", disallow },
+      // ByteDance Doubao (separate from Bytespider)
+      { userAgent: "Doubao-Spider",   allow: "/", disallow },
+      // xAI (Elon's Grok) — currently rides on general Twitterbot but a
+      // dedicated crawler is expected. Welcoming both names.
+      { userAgent: "xAI-Bot",         allow: "/", disallow },
+      { userAgent: "GrokBot",         allow: "/", disallow },
+      // Yi / 01.AI (Kai-Fu Lee's model)
+      { userAgent: "Yi-Spider",       allow: "/", disallow },
+      { userAgent: "01AI-Bot",        allow: "/", disallow },
+      // Baichuan
+      { userAgent: "Baichuan-Spider", allow: "/", disallow },
+      // Sensetime / Tencent Hunyuan
+      { userAgent: "HunyuanBot",      allow: "/", disallow },
+      { userAgent: "SensetimeBot",    allow: "/", disallow },
+      // Naver HyperCLOVA (Korean)
+      { userAgent: "HyperCLOVABot",   allow: "/", disallow },
       // Timpi / Kagi / DDG-derived
       { userAgent: "Kagibot",         allow: "/", disallow },
       { userAgent: "Timpibot",        allow: "/", disallow },

@@ -80,5 +80,80 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+# ─── Emerging AI answer engines & LLM crawlers (added 2026-09) ──
+# Kimi (Moonshot AI)
+User-agent: KimiSpider
+Allow: /
+
+User-agent: Moonshot
+Allow: /
+
+User-agent: Moonshot-AI
+Allow: /
+
+# Manus AI (Butterfly Effect autonomous-agent)
+User-agent: ManusCrawler
+Allow: /
+
+User-agent: Manus-Bot
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: DeepSeek-Web
+Allow: /
+
+# Alibaba Qwen / Tongyi
+User-agent: QwenBot
+Allow: /
+
+User-agent: Qwen-Web
+Allow: /
+
+User-agent: Alibaba-AI
+Allow: /
+
+User-agent: TongyiSpider
+Allow: /
+
+# ByteDance Doubao
+User-agent: Doubao-Spider
+Allow: /
+
+# xAI Grok
+User-agent: xAI-Bot
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+# Yi / 01.AI
+User-agent: Yi-Spider
+Allow: /
+
+User-agent: 01AI-Bot
+Allow: /
+
+# Baichuan
+User-agent: Baichuan-Spider
+Allow: /
+
+# Tencent Hunyuan / Sensetime
+User-agent: HunyuanBot
+Allow: /
+
+User-agent: SensetimeBot
+Allow: /
+
+# Naver HyperCLOVA
+User-agent: HyperCLOVABot
+Allow: /
+
+# Zhipu ChatGLM
+User-agent: ChatGLM-Spider
+Allow: /
+
 # Guidance for AI answer engines is in /llms.txt.
 # Full content sitemap: /sitemap.xml

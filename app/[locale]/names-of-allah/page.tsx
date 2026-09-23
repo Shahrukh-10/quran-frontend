@@ -1,4 +1,4 @@
-import { BreadcrumbSchema } from "@/components/seo/structured-data";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllNames } from "@/lib/names";
@@ -44,6 +44,40 @@ export default async function NamesIndexPage({ params }: PageProps) {
 
   return (
     <div className="container" style={{ paddingTop: 64, paddingBottom: 96 }}>
+      <FaqSchema
+        items={[
+          {
+            question: 'What are the 99 Names of Allah?',
+            answer:
+              'The 99 Names of Allah (Asmāʾ al-Ḥusnā, الأسماء الحسنى) are the beautiful names by which Muslims refer to God, drawn from the Quran and authentic hadith. The Prophet ﷺ said: "To Allah belong the most beautiful names, so call upon Him by them" (Sahih al-Bukhari 7392, Sahih Muslim 2677).',
+          },
+          {
+            question: 'Is the number 99 literal or symbolic?',
+            answer:
+              'Scholarly consensus is that the number 99 represents a comprehensive but not exhaustive list — some hadith describe 100 names, and multiple classical lists exist (al-Walīd bin Muslim, al-Tirmidhī, Ibn Mājah). The version on this site follows the widely accepted at-Tirmidhī enumeration.',
+          },
+          {
+            question: 'How do I pronounce each name correctly?',
+            answer:
+              'Every name page includes the Arabic text, precise scholarly transliteration (using diacritical marks — ā ī ū for long vowels; ḥ ṣ ḍ for emphatic consonants), and an English gloss. Audio pronunciation is provided via the browser\'s SpeechSynthesis API where an Arabic voice is available.',
+          },
+          {
+            question: 'Can I use the Names in dua?',
+            answer:
+              'Yes — invoking Allah by His names is explicitly encouraged in the Quran (7:180). Traditional practice is to choose names that fit your situation: al-Ghafūr (the Oft-Forgiving) when seeking forgiveness, al-Razzāq (the Provider) when seeking sustenance, al-Shāfī (the Healer) when seeking healing.',
+          },
+          {
+            question: 'What is the difference between an Attribute (ṣifah) and a Name (ism)?',
+            answer:
+              'A Name (ism) refers to Allah\'s essence — al-Raḥmān, al-Malik. An Attribute (ṣifah) describes an aspect of His action or being — mercy, sovereignty. Every Name implies an Attribute, but not every Attribute is expressed as a proper Name. Classical theology treats them together.',
+          },
+          {
+            question: 'Are the Names authored by humans or from revelation?',
+            answer:
+              'The names themselves are all from the Quran and authentic hadith — no human invention. Different classical scholars produced slightly different enumerations to reach 99, since the Quran and Sunnah mention more than 99 names collectively. The consensus is that all authentic names of Allah are equally to be revered.',
+          },
+        ]}
+      />
       <BreadcrumbSchema
         items={[
           { name: bc("home"), url: siteUrl("/") },

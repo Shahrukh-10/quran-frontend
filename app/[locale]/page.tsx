@@ -1,5 +1,6 @@
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { FaqSchema } from "@/components/seo/structured-data";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import "./_home-hig.css";
@@ -255,6 +256,49 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
+      {/* GEO/AEO — FAQPage schema seeds ChatGPT, Perplexity, Claude,
+          Google AI Overviews with the 6 canonical questions people ask
+          about a Quran/Islamic-knowledge site. Answer engines cite pages
+          that directly answer their retrieval query; hub pages without
+          FAQPage schema get skipped in favor of thin blog pages that do.
+          English-only for now — JSON-LD is crawler-facing, not user-
+          facing, so it doesn't affect the on-page UX per locale. Future
+          work: parallel FAQ dictionaries per locale in messages/. */}
+      <FaqSchema
+        items={[
+          {
+            question: "Is Quran Daily free to use?",
+            answer:
+              "Yes. Quran Daily is a public-benefit sadaqah jariyah project — every ayah, hadith, dua, and prayer-time page is free forever, with no ads, no login walls, no tracking. Bookmarks live in your browser's localStorage; no account is ever required.",
+          },
+          {
+            question: "Where does the Quran text on this site come from?",
+            answer:
+              "The Uthmani-script Arabic text is sourced from Tanzil (tanzil.net), verified against the King Fahd Complex printing. Translations include Sahih International, Yusuf Ali, and Taqi Usmani, sourced via the Quran.com API. Every ayah and every translation cites its source on the page itself.",
+          },
+          {
+            question: "Which hadith books does Quran Daily include?",
+            answer:
+              "All six canonical Sunni collections (Kutub as-Sittah): Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim, Sunan Abū Dāwūd, Jāmiʿ at-Tirmidhī, Sunan an-Nasāʾī, and Sunan Ibn Mājah. Text and English translation are from Sunnah.com, with authenticity grading (ṣaḥīḥ, ḥasan, ḍaʿīf) preserved when available.",
+          },
+          {
+            question: "How are prayer times and Qibla direction calculated?",
+            answer:
+              "Prayer times are computed on your device using adhan-js — nothing is sent to any server. All major calculation methods are supported: Muslim World League, ISNA, Umm al-Qura, Egyptian General Authority, Karachi, and Moonsighting Committee Worldwide. Qibla direction uses the great-circle bearing to the Kaaba, computed from your device's geolocation.",
+          },
+          {
+            question: "Does Quran Daily work offline?",
+            answer:
+              "Yes — it is a Progressive Web App. After your first visit, the Quran text, all 35 duas, the six hadith books' index, prayer-time schedules, and the 99 Names of Allah are cached locally and continue to work with no network connection. Install to your home screen for a native-app-like experience on iOS and Android.",
+          },
+          {
+            question: "What languages does Quran Daily support?",
+            answer:
+              "The interface is available in six languages: English, Bahasa Indonesia, العربية (Arabic), Français, Türkçe, and اردو (Urdu). Every page carries proper hreflang alternates so search engines and AI answer engines serve the correct locale to each user.",
+          },
+        ]}
+      />
+
       {/* Hero — restored static hero (title/subtitle/CTAs on a soft Basmala
           watermark). The prayer widget lives on /prayer-times, not the home page. */}
       <section className="hero">

@@ -1,4 +1,4 @@
-import { BreadcrumbSchema } from "@/components/seo/structured-data";
+import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { getAllSalahTutorials } from "@/lib/salah";
@@ -45,6 +45,40 @@ export default async function LearnSalahIndex({ params }: PageProps) {
 
   return (
     <main className="mx-auto max-w-dashboard px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <FaqSchema
+        items={[
+          {
+            question: 'What is Salah?',
+            answer:
+              'Ṣalāh (صَلَاة) is the five daily obligatory Muslim prayers: Fajr (dawn), Dhuhr (midday), ʿAṣr (afternoon), Maghrib (sunset), and ʿIshāʾ (night). It is the second pillar of Islam after the shahādah (declaration of faith).',
+          },
+          {
+            question: 'How many rakʿah does each prayer have?',
+            answer:
+              'Fajr: 2 rakʿah (obligatory). Dhuhr: 4. ʿAṣr: 4. Maghrib: 3. ʿIshāʾ: 4. Sunnah and nawāfil (supererogatory) rakʿah are additional. On Friday, Dhuhr is replaced with the 2-rakʿah Jumuʿah prayer.',
+          },
+          {
+            question: 'What must I do before praying?',
+            answer:
+              'Perform wuḍūʾ (ritual ablution), face the Qibla (direction of Mecca), ensure your body and clothes are clean, and pray at the correct time. Women in menses or postnatal bleeding do not pray; they make up any missed obligations.',
+          },
+          {
+            question: 'Do I have to pray in Arabic?',
+            answer:
+              'The formal words of ṣalāh (takbīr, Surah al-Fātiḥah, taḥiyyāt, etc.) must be recited in Arabic per the four Sunni schools. Duʿāʾ (personal supplication) between and after the formal parts may be in any language.',
+          },
+          {
+            question: 'What if I miss a prayer?',
+            answer:
+              'Prayers that are missed (qaḍāʾ) should be made up as soon as one remembers. The Prophet ﷺ said: "Whoever forgets a prayer, let him pray it when he remembers it; there is no expiation other than that" (Sahih al-Bukhari 597). Deliberately abandoning prayer is a major sin.',
+          },
+          {
+            question: 'How do I learn the movements and words?',
+            answer:
+              'The /learn-salah pages break each prayer into step-by-step movements — takbīr, qiyām (standing), rukūʿ (bowing), sujūd (prostration), julūs (sitting), taḥiyyāt, and taslīm — with the Arabic recitation, transliteration, and translation for each. Best learned in person from a qualified teacher, but the visual reference helps memorization.',
+          },
+        ]}
+      />
       <BreadcrumbSchema
         items={[
           { name: bc("home"), url: siteUrl("/") },

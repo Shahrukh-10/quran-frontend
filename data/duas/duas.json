@@ -689,6 +689,48 @@
       "reference": "43:13-14"
     },
     {
+      "slug": "dua-for-safar",
+      "category": "protection",
+      "title": {
+        "en": "Dua for Safar (travel) — full journey supplication",
+        "id": "Doa Safar (perjalanan) — doa lengkap"
+      },
+      "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَىٰ، وَمِنَ الْعَمَلِ مَا تَرْضَىٰ. اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ. اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ، وَكَآبَةِ الْمَنْظَرِ، وَسُوءِ الْمُنْقَلَبِ فِي الْمَالِ وَالْأَهْلِ",
+      "transliteration": "Allāhumma innā nas'aluka fī safarinā hādhā al-birra wat-taqwā, wa minal-ʿamali mā tarḍā. Allāhumma hawwin ʿalaynā safaranā hādhā waṭwi ʿannā buʿdah. Allāhumma antaṣ-ṣāḥibu fis-safar, wal-khalīfatu fil-ahl. Allāhumma innī aʿūdhu bika min waʿthā'is-safar, wa ka'ābatil-manẓar, wa sū'il-munqalabi fil-māli wal-ahl",
+      "translation": {
+        "en": "O Allah, we ask You on this journey of ours for righteousness, God-consciousness, and deeds pleasing to You. O Allah, make this journey easy for us and fold up the distance. O Allah, You are the Companion on the journey and the Guardian over the family. O Allah, I seek refuge in You from the hardship of travel, from a sorrowful sight, and from an evil turn of events in wealth and family.",
+        "id": "Ya Allah, kami memohon kepada-Mu dalam perjalanan kami ini kebajikan, ketakwaan, dan amal yang Engkau ridhai. Ya Allah, mudahkanlah perjalanan kami ini dan dekatkanlah jaraknya bagi kami. Ya Allah, Engkaulah teman dalam perjalanan dan pengganti (penjaga) atas keluarga. Ya Allah, aku berlindung kepada-Mu dari beratnya perjalanan, dari pemandangan yang menyedihkan, dan dari kepulangan yang buruk pada harta dan keluarga."
+      },
+      "when": {
+        "en": "Recite after settling onto your mount (car/plane/train) at the start of a journey — the Prophet ﷺ would say Allahu Akbar three times, then this dua.",
+        "id": "Dibaca setelah duduk di kendaraan (mobil/pesawat/kereta) di awal perjalanan — Nabi ﷺ mengucapkan Allahu Akbar tiga kali, lalu doa ini."
+      },
+      "source": "Sahih Muslim 1342",
+      "grading": "Sahih Muslim",
+      "reference": "1342"
+    },
+    {
+      "slug": "returning-from-travel",
+      "category": "protection",
+      "title": {
+        "en": "Returning from a journey",
+        "id": "Kembali dari perjalanan"
+      },
+      "arabic": "آيِبُونَ، تَائِبُونَ، عَابِدُونَ، لِرَبِّنَا حَامِدُونَ",
+      "transliteration": "Āyibūna, tā'ibūna, ʿābidūna, li-rabbinā ḥāmidūn",
+      "translation": {
+        "en": "We return, repentant, worshipping our Lord and offering Him praise.",
+        "id": "Kami kembali, bertaubat, beribadah, dan memuji Tuhan kami."
+      },
+      "when": {
+        "en": "Recite on the return journey home, added to the travel dua above. Reported from the Prophet ﷺ on his return from expeditions and Hajj.",
+        "id": "Dibaca dalam perjalanan pulang, ditambahkan pada doa safar di atas. Diriwayatkan dari Nabi ﷺ saat kembali dari peperangan dan haji."
+      },
+      "source": "Sahih Muslim 1342",
+      "grading": "Sahih Muslim",
+      "reference": "1342"
+    },
+    {
       "slug": "for-rain",
       "category": "protection",
       "title": {

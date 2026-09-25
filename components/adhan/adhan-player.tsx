@@ -8,6 +8,7 @@
 import { PauseIcon, PlayIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useRef, useState } from "react";
+import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 
 const MUEZZINS = [
   {
@@ -33,6 +34,17 @@ export function AdhanPlayer() {
 
   const current = MUEZZINS.find((m) => m.id === selected) ?? DEFAULT_MUEZZIN;
 
+  // Register with the global audio lock — if anything else in the app
+  // starts playing, pause the adhan too. See lib/audio-lock.ts.
+  useAudioLock(
+    useCallback(() => {
+      if (audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause();
+      }
+      setPlaying(false);
+    }, []),
+  );
+
   const toggle = useCallback(async () => {
     let el = audioRef.current;
     if (!el) {
@@ -46,6 +58,8 @@ export function AdhanPlayer() {
       el.src = current.url;
     }
     if (el.paused) {
+      // Stop anything else in the app before starting adhan playback.
+      stopAllAudio();
       try {
         await el.play();
         setPlaying(true);

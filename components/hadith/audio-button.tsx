@@ -9,8 +9,9 @@
 // it's synthesized. If the browser has no Arabic voice, we fall back to the
 // default voice; if speechSynthesis is missing entirely, the button hides.
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 
 type Props = {
   arabic: string;
@@ -72,12 +73,20 @@ export function HadithAudioButton({
   if (!supported) return null;
 
   const stop = () => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     setPlaying(false);
     utteranceRef.current = null;
   };
 
+  // Register with the global audio lock — if any Quran audio (surah header,
+  // ayah card, word-by-word) or the adhan player starts, cancel our TTS.
+  useAudioLock(useCallback(stop, []));
+
   const play = () => {
+    // Universal precondition: stop everything else in the app first.
+    stopAllAudio();
+
     const s = window.speechSynthesis;
     // Kill any existing utterance across the app so buttons don't stack.
     s.cancel();

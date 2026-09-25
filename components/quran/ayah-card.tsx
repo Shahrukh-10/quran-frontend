@@ -4,6 +4,7 @@
 // Reads settings from lib/storage.ts and rerenders on the `iw:storage` custom event.
 
 import { Link } from "@/i18n/routing";
+import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 import type { Ayah } from "@/lib/quran";
 import { type ReciterId, TRANSLATIONS, type TranslationId, audioUrl } from "@/lib/quran";
 import { getStore, isAyahBookmarked, setLastRead, toggleAyahBookmark } from "@/lib/storage";
@@ -76,30 +77,60 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
 
   const src = ayah.audio[reciter] ?? audioUrl(reciter, ayah.surah, ayah.ayah);
 
+  // Register with the global audio lock — if any other audio component in
+  // the app starts playing, THIS ayah's audio must stop. This prevents the
+  // "two voices at once" bug where a per-ayah tap raced with the surah
+  // header bar's sequencing.
+  useAudioLock(
+    useCallback(() => {
+      if (audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause();
+      }
+      setPlaying(false);
+    }, []),
+  );
+
   const handlePlay = useCallback(async () => {
+    // Universal precondition: whatever ELSE is playing, stop it. This
+    // enforces one-voice-at-a-time across every audio component in the app
+    // (surah header bar, word-by-word, hadith TTS, adhan player, other ayah
+    // cards). See lib/audio-lock.ts.
+    stopAllAudio();
+
     // If a surah-level sequence is running through some ayah, hand off to
-    // the header-bar controller so we don't double-play. It will decide
-    // whether we're toggling off (same ayah) or jumping to this one.
+    // the header-bar controller so it can either toggle-off (same ayah) or
+    // jump to this one. The dispatched event goes to the header bar; we do
+    // NOT fall through to local playback afterwards.
     if (surahAudioActive) {
       window.dispatchEvent(
         new CustomEvent(EV_PLAY_AYAH, { detail: { surah: ayah.surah, ayah: ayah.ayah } }),
       );
       return;
     }
-    // Also emit if the user starts playback from a specific ayah while no
-    // sequence is active — this lets the SurahHeaderBar catch it and
-    // continue reading from here through the end of the surah.
+
+    // On a surah page the SurahHeaderBar is mounted and should be the
+    // canonical player (it handles sequencing + auto-scroll). Ask it to
+    // start from this ayah. If nobody catches the event within one frame
+    // (e.g. we're on the standalone /quran/[surah]/[ayah] page where the
+    // header bar isn't mounted), fall back to local single-ayah playback.
+    let handled = false;
+    const claim = () => {
+      handled = true;
+    };
+    // The header bar (when mounted) fires EV_PLAYING_CHANGE from inside its
+    // own play handler; we use that as the "handoff acknowledged" signal.
+    window.addEventListener(EV_PLAYING_CHANGE, claim as EventListener, { once: true });
     window.dispatchEvent(
       new CustomEvent(EV_PLAY_AYAH, { detail: { surah: ayah.surah, ayah: ayah.ayah } }),
     );
-    // The header-bar controller (if mounted) will now handle audio. If it's
-    // not on this page (e.g. standalone ayah view), fall back to local
-    // single-ayah playback exactly as before.
-    if (!standalone) {
-      // Wait a frame so the header bar can claim the request.
-      await new Promise((r) => requestAnimationFrame(() => r(null)));
-      if (surahAudioActive) return; // header bar took over
-    }
+    // Wait two rAFs so any listener has time to synchronously kick off its
+    // own <audio>.play() and fire the broadcast. Two rAFs ≈ 32 ms, imperceptible.
+    await new Promise((r) => requestAnimationFrame(() => r(null)));
+    await new Promise((r) => requestAnimationFrame(() => r(null)));
+    window.removeEventListener(EV_PLAYING_CHANGE, claim as EventListener);
+    if (handled) return;
+
+    // Nobody claimed → play locally.
     let el = audioRef.current;
     if (!el) {
       el = new Audio(src);
@@ -123,7 +154,7 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
       el.pause();
       setPlaying(false);
     }
-  }, [src, ayah.surah, ayah.ayah, surahAudioActive, standalone]);
+  }, [src, ayah.surah, ayah.ayah, surahAudioActive]);
 
   const handleBookmark = useCallback(() => {
     const on = toggleAyahBookmark(ayah.surah, ayah.ayah);

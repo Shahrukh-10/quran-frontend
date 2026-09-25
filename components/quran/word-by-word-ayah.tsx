@@ -8,6 +8,7 @@
 // `pnpm sync:quran-com --only=verses`, or lazy-loaded from the API on demand.
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 
 type Word = {
   id: number;
@@ -58,6 +59,8 @@ export function WordByWordAyah({ verseKey, words, script = "uthmani", className 
 
   const playWord = useCallback((audioUrl: string | null) => {
     if (!audioUrl) return;
+    // Stop anything else in the app before starting our word audio.
+    stopAllAudio();
     const full = audioUrl.startsWith("http")
       ? audioUrl
       : `https://audio.qurancdn.com/${audioUrl.replace(/^\/+/, "")}`;
@@ -71,6 +74,16 @@ export function WordByWordAyah({ verseKey, words, script = "uthmani", className 
       /* autoplay blocked, ignore */
     });
   }, []);
+
+  // Global stop signal — when the surah header bar or an ayah card starts
+  // playing, cut our word audio so we don't overlap.
+  useAudioLock(
+    useCallback(() => {
+      if (audioRef.current && !audioRef.current.paused) {
+        audioRef.current.pause();
+      }
+    }, []),
+  );
 
   // Filter out verse-end markers if you don't want the ۝ shown as a word.
   // We keep them because Q.com's markers are numbered and look intentional.

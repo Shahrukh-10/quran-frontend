@@ -11,6 +11,7 @@
 // 'use client' because we need localStorage, <audio>, and event handling.
 
 import { RECITERS, type ReciterId, TRANSLATIONS, type TranslationId, audioUrl } from "@/lib/quran";
+import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 import { getStore, setLastRead, updateSettings } from "@/lib/storage";
 import { BookOpenIcon, LanguagesIcon, PauseIcon, PlayIcon, Volume2Icon } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -65,6 +66,10 @@ export function SurahHeaderBar({ surah, surahSlug: _surahSlug, ayahCount }: Prop
   // reset its src cleanly between ayat to avoid stale-buffer glitches.
   const playFrom = useCallback(
     (startAyah: number) => {
+      // Universal audio lock — stop anything else in the app that might be
+      // playing (a per-ayah card that was tapped, hadith TTS, adhan, etc.).
+      // See lib/audio-lock.ts.
+      stopAllAudio();
       stopRequestedRef.current = false;
 
       const step = (ayah: number) => {
@@ -116,6 +121,12 @@ export function SurahHeaderBar({ surah, surahSlug: _surahSlug, ayahCount }: Prop
     setPlaying(false);
     broadcastPlaying(null);
   }, [broadcastPlaying]);
+
+  // Register with the global audio lock — if any other audio component in
+  // the app starts playing (per-ayah card that broke out of the surah
+  // sequence, hadith TTS on a different tab, adhan player), stop the surah
+  // sequence too.
+  useAudioLock(stop);
 
   const togglePlay = useCallback(() => {
     if (playing) {

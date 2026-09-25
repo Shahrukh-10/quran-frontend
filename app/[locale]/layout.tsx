@@ -1,3 +1,4 @@
+import { CalligraphyBg } from "@/components/layout/calligraphy-bg";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { NavProgress } from "@/components/layout/nav-progress";
@@ -167,54 +168,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           }}
         />
         <NextIntlClientProvider messages={messages}>
-          {/* Site-wide Arabic-typography field — 8 rows of small Names/words
-              drifting right→left at varied slow speeds. aria-hidden. */}
-          <div className="site-bg" aria-hidden>
-            {[
-              // Row 1 — Names of Allah (subset)
-              ["ٱلرَّحْمَٰن", "ٱلرَّحِيم", "ٱلْمَلِك", "ٱلْقُدُّوس", "ٱلسَّلَام", "ٱلْمُؤْمِن", "ٱلْمُهَيْمِن", "ٱلْعَزِيز"],
-              // Row 2 — larger, core creed words
-              ["ٱللَّه", "ٱلْحَمْدُ لِلَّٰه"],
-              // Row 3 — small worship vocabulary
-              ["صَلَاة", "زَكَاة", "صَوْم", "حَجّ", "شَهَادَة", "تَقْوَىٰ", "إِيمَان", "إِحْسَان", "تَوْبَة"],
-              // Row 4 — display size, majestic names
-              ["ٱلْجَبَّار", "ٱلْمُتَكَبِّر", "ٱلْخَالِق", "ٱلْبَارِئ", "ٱلْمُصَوِّر", "ٱلْغَفَّار"],
-              // Row 5 — Basmala + praises
-              [
-                "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم",
-                "سُبْحَانَ ٱللَّه",
-                "ٱلْحَمْدُ لِلَّٰه",
-                "ٱللَّهُ أَكْبَر",
-                "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّه",
-              ],
-              // Row 6 — small, gentle names
-              [
-                "ٱلْوَدُود",
-                "ٱلرَّءُوف",
-                "ٱللَّطِيف",
-                "ٱلْحَلِيم",
-                "ٱلْكَرِيم",
-                "ٱلْغَفُور",
-                "ٱلشَّكُور",
-                "ٱلْحَيّ",
-                "ٱلْقَيُّوم",
-              ],
-              // Row 7 — Quranic terms, larger
-              ["ٱلْقُرْآن", "ٱلْفُرْقَان", "ٱلذِّكْر", "ٱلْكِتَاب", "ٱلْهُدَىٰ", "ٱلنُّور", "ٱلْحَقّ"],
-              // Row 8 — beloved names of Allah
-              ["ٱلسَّمِيع", "ٱلْبَصِير", "ٱلْعَلِيم", "ٱلْحَكِيم", "ٱلْوَاسِع", "ٱلْمَجِيد", "ٱلْوَكِيل", "ٱلْمَتِين"],
-            ].map((words, rowIdx) => (
-              // Each row = its words rendered twice back-to-back so
-              // translating the row by -50% produces a seamless loop.
-              <div key={rowIdx} className={`site-bg__row site-bg__row--${rowIdx + 1}`}>
-                {[...words, ...words].map((w, i) => (
-                  <span key={i} lang="ar" dir="rtl">
-                    {w}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
+          {/* Decorative Arabic-typography background — deferred to client-only
+              mount so 40k SSR pages don't ship 500 chars of identical decoration
+              in the initial HTML (Googlebot/AI-crawler classifier was seeing all
+              deep pages as near-duplicate because of this). Users still see the
+              exact same visual after first frame. See components/layout/calligraphy-bg.tsx. */}
+          <CalligraphyBg />
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-[hsl(var(--accent-foreground))]"

@@ -34,7 +34,7 @@ export async function SunnahOfTheDay({ locale }: Props) {
 
       {s.arabic && (
         <p
-          className="mt-3 font-quran text-2xl sm:text-3xl leading-[1.9] text-right"
+          className="mt-3 font-quran text-4xl sm:text-4xl leading-[1.9] text-right"
           lang="ar"
           dir="rtl"
         >

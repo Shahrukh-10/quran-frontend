@@ -134,7 +134,7 @@ export function ReviewSession() {
         ) : (
           <>
             <div
-              className="font-quran text-3xl sm:text-4xl leading-[2.0] text-right transition-[filter]"
+              className="font-quran text-4xl sm:text-4xl leading-[2.0] text-right transition-[filter]"
               style={{
                 filter: revealed ? "none" : "blur(14px)",
                 userSelect: revealed ? "auto" : "none",

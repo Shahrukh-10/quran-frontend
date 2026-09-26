@@ -2,7 +2,7 @@
   {
     "surah": 96,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ",
+    "arabic": " ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ",
     "transliteration": "Iqra bismi rab bikal lazee khalaq",
     "translations": {
       "en.sahih": "Recite in the name of your Lord who created -",
@@ -19,7 +19,7 @@
   {
     "surah": 96,
     "ayah": 2,
-    "arabic": "خَلَقَ ٱلْإِنسَٰنَ مِنْ عَلَقٍ",
+    "arabic": "خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ",
     "transliteration": "Khalaqal insaana min 'alaq",
     "translations": {
       "en.sahih": "Created man from a clinging substance.",
@@ -70,7 +70,7 @@
   {
     "surah": 96,
     "ayah": 5,
-    "arabic": "عَلَّمَ ٱلْإِنسَٰنَ مَا لَمْ يَعْلَمْ",
+    "arabic": "عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ",
     "transliteration": "'Al lamal insaana ma lam y'alam",
     "translations": {
       "en.sahih": "Taught man that which he knew not.",
@@ -87,7 +87,7 @@
   {
     "surah": 96,
     "ayah": 6,
-    "arabic": "كَلَّآ إِنَّ ٱلْإِنسَٰنَ لَيَطْغَىٰٓ",
+    "arabic": "كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ",
     "transliteration": "Kallaa innal insaana layatghaa",
     "translations": {
       "en.sahih": "No! [But] indeed, man transgresses",
@@ -257,7 +257,7 @@
   {
     "surah": 96,
     "ayah": 16,
-    "arabic": "نَاصِيَةٍۢ كَٰذِبَةٍ خَاطِئَةٍۢ",
+    "arabic": "نَاصِيَةٍ كَـٰذِبَةٍ خَاطِئَةٍ",
     "transliteration": "Nasiyatin kazi batin khaatiyah",
     "translations": {
       "en.sahih": "A lying, sinning forelock.",

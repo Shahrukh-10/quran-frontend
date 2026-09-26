@@ -210,7 +210,7 @@ export default async function HadithDetailPage({ params }: Props) {
           <p
             lang="ar"
             dir="rtl"
-            className="font-quran text-3xl leading-[2.2] text-right"
+            className="font-quran text-4xl leading-[2.2] text-right"
           >
             {h.arabic}
           </p>

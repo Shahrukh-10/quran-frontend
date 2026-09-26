@@ -2,7 +2,7 @@
   {
     "surah": 79,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلنَّٰزِعَٰتِ غَرْقًۭا",
+    "arabic": " وَٱلنَّـٰزِعَـٰتِ غَرْقًا",
     "transliteration": "Wan naazi 'aati gharqa",
     "translations": {
       "en.sahih": "By those [angels] who extract with violence",
@@ -19,7 +19,7 @@
   {
     "surah": 79,
     "ayah": 2,
-    "arabic": "وَٱلنَّٰشِطَٰتِ نَشْطًۭا",
+    "arabic": "وَٱلنَّـٰشِطَـٰتِ نَشْطًا",
     "transliteration": "Wan naa shi taati nashta",
     "translations": {
       "en.sahih": "And [by] those who remove with ease",
@@ -36,7 +36,7 @@
   {
     "surah": 79,
     "ayah": 3,
-    "arabic": "وَٱلسَّٰبِحَٰتِ سَبْحًۭا",
+    "arabic": "وَٱلسَّـٰبِحَـٰتِ سَبْحًا",
     "transliteration": "Wass saabi-haati sabha",
     "translations": {
       "en.sahih": "And [by] those who glide [as if] swimming",
@@ -53,7 +53,7 @@
   {
     "surah": 79,
     "ayah": 4,
-    "arabic": "فَٱلسَّٰبِقَٰتِ سَبْقًۭا",
+    "arabic": "فَٱلسَّـٰبِقَـٰتِ سَبْقًا",
     "transliteration": "Fass saabi qaati sabqa",
     "translations": {
       "en.sahih": "And those who race each other in a race",
@@ -70,7 +70,7 @@
   {
     "surah": 79,
     "ayah": 5,
-    "arabic": "فَٱلْمُدَبِّرَٰتِ أَمْرًۭا",
+    "arabic": "فَٱلْمُدَبِّرَٰتِ أَمْرًا",
     "transliteration": "Fal mu dab-bi raati amra",
     "translations": {
       "en.sahih": "And those who arrange [each] matter,",
@@ -121,7 +121,7 @@
   {
     "surah": 79,
     "ayah": 8,
-    "arabic": "قُلُوبٌۭ يَوْمَئِذٍۢ وَاجِفَةٌ",
+    "arabic": "قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ",
     "transliteration": "Quloobuny-yau maaiziw-waaji-fa",
     "translations": {
       "en.sahih": "Hearts, that Day, will tremble,",
@@ -138,7 +138,7 @@
   {
     "surah": 79,
     "ayah": 9,
-    "arabic": "أَبْصَٰرُهَا خَٰشِعَةٌۭ",
+    "arabic": "أَبْصَـٰرُهَا خَـٰشِعَةٌ",
     "transliteration": "Absaa ruhaa khashi'ah",
     "translations": {
       "en.sahih": "Their eyes humbled.",
@@ -172,7 +172,7 @@
   {
     "surah": 79,
     "ayah": 11,
-    "arabic": "أَءِذَا كُنَّا عِظَٰمًۭا نَّخِرَةًۭ",
+    "arabic": "أَءِذَا كُنَّا عِظَـٰمًا نَّخِرَةً",
     "transliteration": "Aizaa kunna 'izaa man-nakhirah",
     "translations": {
       "en.sahih": "Even if we should be decayed bones?",
@@ -189,7 +189,7 @@
   {
     "surah": 79,
     "ayah": 12,
-    "arabic": "قَالُوا۟ تِلْكَ إِذًۭا كَرَّةٌ خَاسِرَةٌۭ",
+    "arabic": "قَالُوا۟ تِلْكَ إِذًا كَرَّةٌ خَاسِرَةٌ",
     "transliteration": "Qaalu tilka izan karratun khaasirah.",
     "translations": {
       "en.sahih": "They say, \"That, then, would be a losing return.\"",
@@ -206,7 +206,7 @@
   {
     "surah": 79,
     "ayah": 13,
-    "arabic": "فَإِنَّمَا هِىَ زَجْرَةٌۭ وَٰحِدَةٌۭ",
+    "arabic": "فَإِنَّمَا هِىَ زَجْرَةٌ وَٰحِدَةٌ",
     "transliteration": "Fa inna ma hiya zajratuw-waahida",
     "translations": {
       "en.sahih": "Indeed, it will be but one shout,",
@@ -325,7 +325,7 @@
   {
     "surah": 79,
     "ayah": 20,
-    "arabic": "فَأَرَىٰهُ ٱلْءَايَةَ ٱلْكُبْرَىٰ",
+    "arabic": "فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ",
     "transliteration": "Fa araahul-aayatal kubra.",
     "translations": {
       "en.sahih": "And he showed him the greatest sign,",
@@ -410,7 +410,7 @@
   {
     "surah": 79,
     "ayah": 25,
-    "arabic": "فَأَخَذَهُ ٱللَّهُ نَكَالَ ٱلْءَاخِرَةِ وَٱلْأُولَىٰٓ",
+    "arabic": "فَأَخَذَهُ ٱللَّهُ نَكَالَ ٱلْـَٔاخِرَةِ وَٱلْأُولَىٰٓ",
     "transliteration": "Fa-akha zahul laahu nakalal aakhirati wal-oola.",
     "translations": {
       "en.sahih": "So Allah seized him in exemplary punishment for the last and the first [transgression].",
@@ -427,7 +427,7 @@
   {
     "surah": 79,
     "ayah": 26,
-    "arabic": "إِنَّ فِى ذَٰلِكَ لَعِبْرَةًۭ لِّمَن يَخْشَىٰٓ",
+    "arabic": "إِنَّ فِى ذَٰلِكَ لَعِبْرَةً لِّمَن يَخْشَىٰٓ",
     "transliteration": "Inna fee zaalika la'ibratal limaiy-yaksha",
     "translations": {
       "en.sahih": "Indeed in that is a warning for whoever would fear [Allah].",
@@ -546,7 +546,7 @@
   {
     "surah": 79,
     "ayah": 33,
-    "arabic": "مَتَٰعًۭا لَّكُمْ وَلِأَنْعَٰمِكُمْ",
+    "arabic": "مَتَـٰعًا لَّكُمْ وَلِأَنْعَـٰمِكُمْ",
     "transliteration": "Mataa'al lakum wali an 'aamikum.",
     "translations": {
       "en.sahih": "As provision for you and your grazing livestock.",
@@ -580,7 +580,7 @@
   {
     "surah": 79,
     "ayah": 35,
-    "arabic": "يَوْمَ يَتَذَكَّرُ ٱلْإِنسَٰنُ مَا سَعَىٰ",
+    "arabic": "يَوْمَ يَتَذَكَّرُ ٱلْإِنسَـٰنُ مَا سَعَىٰ",
     "transliteration": "Yauma Yata zakkarul insaanu ma sa'aa.",
     "translations": {
       "en.sahih": "The Day when man will remember that for which he strove,",

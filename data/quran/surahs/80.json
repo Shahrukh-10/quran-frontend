@@ -2,7 +2,7 @@
   {
     "surah": 80,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ عَبَسَ وَتَوَلَّىٰٓ",
+    "arabic": " عَبَسَ وَتَوَلَّىٰٓ",
     "transliteration": "'Abasa wa tawallaa.",
     "translations": {
       "en.sahih": "The Prophet frowned and turned away",
@@ -172,7 +172,7 @@
   {
     "surah": 80,
     "ayah": 11,
-    "arabic": "كَلَّآ إِنَّهَا تَذْكِرَةٌۭ",
+    "arabic": "كَلَّآ إِنَّهَا تَذْكِرَةٌ",
     "transliteration": "Kalla innaha tazkirah",
     "translations": {
       "en.sahih": "No! Indeed, these verses are a reminder;",
@@ -206,7 +206,7 @@
   {
     "surah": 80,
     "ayah": 13,
-    "arabic": "فِى صُحُفٍۢ مُّكَرَّمَةٍۢ",
+    "arabic": "فِى صُحُفٍ مُّكَرَّمَةٍ",
     "transliteration": "Fi suhufim mukar rama,",
     "translations": {
       "en.sahih": "[It is recorded] in honored sheets,",
@@ -223,7 +223,7 @@
   {
     "surah": 80,
     "ayah": 14,
-    "arabic": "مَّرْفُوعَةٍۢ مُّطَهَّرَةٍۭ",
+    "arabic": "مَّرْفُوعَةٍ مُّطَهَّرَةٍۭ",
     "transliteration": "Marfoo'atim mutah hara,",
     "translations": {
       "en.sahih": "Exalted and purified,",
@@ -240,7 +240,7 @@
   {
     "surah": 80,
     "ayah": 15,
-    "arabic": "بِأَيْدِى سَفَرَةٍۢ",
+    "arabic": "بِأَيْدِى سَفَرَةٍ",
     "transliteration": "Bi'aidee safara",
     "translations": {
       "en.sahih": "[Carried] by the hands of messenger-angels,",
@@ -257,7 +257,7 @@
   {
     "surah": 80,
     "ayah": 16,
-    "arabic": "كِرَامٍۭ بَرَرَةٍۢ",
+    "arabic": "كِرَامٍۭ بَرَرَةٍ",
     "transliteration": "Kiraamim bararah.",
     "translations": {
       "en.sahih": "Noble and dutiful.",
@@ -274,7 +274,7 @@
   {
     "surah": 80,
     "ayah": 17,
-    "arabic": "قُتِلَ ٱلْإِنسَٰنُ مَآ أَكْفَرَهُۥ",
+    "arabic": "قُتِلَ ٱلْإِنسَـٰنُ مَآ أَكْفَرَهُۥ",
     "transliteration": "Qutilal-insanu maa akfarah.",
     "translations": {
       "en.sahih": "Cursed is man; how disbelieving is he.",
@@ -393,7 +393,7 @@
   {
     "surah": 80,
     "ayah": 24,
-    "arabic": "فَلْيَنظُرِ ٱلْإِنسَٰنُ إِلَىٰ طَعَامِهِۦٓ",
+    "arabic": "فَلْيَنظُرِ ٱلْإِنسَـٰنُ إِلَىٰ طَعَامِهِۦٓ",
     "transliteration": "Falyanzuril insanu ilaa ta-amih",
     "translations": {
       "en.sahih": "Then let mankind look at his food -",
@@ -410,7 +410,7 @@
   {
     "surah": 80,
     "ayah": 25,
-    "arabic": "أَنَّا صَبَبْنَا ٱلْمَآءَ صَبًّۭا",
+    "arabic": "أَنَّا صَبَبْنَا ٱلْمَآءَ صَبًّا",
     "transliteration": "Anna sabab nalmaa-a sabba.",
     "translations": {
       "en.sahih": "How We poured down water in torrents,",
@@ -427,7 +427,7 @@
   {
     "surah": 80,
     "ayah": 26,
-    "arabic": "ثُمَّ شَقَقْنَا ٱلْأَرْضَ شَقًّۭا",
+    "arabic": "ثُمَّ شَقَقْنَا ٱلْأَرْضَ شَقًّا",
     "transliteration": "Thumma sha qaqnal-arda shaqqa.",
     "translations": {
       "en.sahih": "Then We broke open the earth, splitting [it with sprouts],",
@@ -444,7 +444,7 @@
   {
     "surah": 80,
     "ayah": 27,
-    "arabic": "فَأَنۢبَتْنَا فِيهَا حَبًّۭا",
+    "arabic": "فَأَنۢبَتْنَا فِيهَا حَبًّا",
     "transliteration": "Fa ambatna feeha habba",
     "translations": {
       "en.sahih": "And caused to grow within it grain",
@@ -461,7 +461,7 @@
   {
     "surah": 80,
     "ayah": 28,
-    "arabic": "وَعِنَبًۭا وَقَضْبًۭا",
+    "arabic": "وَعِنَبًا وَقَضْبًا",
     "transliteration": "Wa 'inabaw-wa qadba",
     "translations": {
       "en.sahih": "And grapes and herbage",
@@ -478,7 +478,7 @@
   {
     "surah": 80,
     "ayah": 29,
-    "arabic": "وَزَيْتُونًۭا وَنَخْلًۭا",
+    "arabic": "وَزَيْتُونًا وَنَخْلًا",
     "transliteration": "Wa zaitoonaw wanakh la'",
     "translations": {
       "en.sahih": "And olive and palm trees",
@@ -495,7 +495,7 @@
   {
     "surah": 80,
     "ayah": 30,
-    "arabic": "وَحَدَآئِقَ غُلْبًۭا",
+    "arabic": "وَحَدَآئِقَ غُلْبًا",
     "transliteration": "Wa hadaa-iqa ghulba",
     "translations": {
       "en.sahih": "And gardens of dense shrubbery",
@@ -512,7 +512,7 @@
   {
     "surah": 80,
     "ayah": 31,
-    "arabic": "وَفَٰكِهَةًۭ وَأَبًّۭا",
+    "arabic": "وَفَـٰكِهَةً وَأَبًّا",
     "transliteration": "Wa faki hataw-wa abba.",
     "translations": {
       "en.sahih": "And fruit and grass -",
@@ -529,7 +529,7 @@
   {
     "surah": 80,
     "ayah": 32,
-    "arabic": "مَّتَٰعًۭا لَّكُمْ وَلِأَنْعَٰمِكُمْ",
+    "arabic": "مَّتَـٰعًا لَّكُمْ وَلِأَنْعَـٰمِكُمْ",
     "transliteration": "Mata'al-lakum wa li-an'amikum.",
     "translations": {
       "en.sahih": "[As] enjoyment for you and your grazing livestock.",
@@ -597,7 +597,7 @@
   {
     "surah": 80,
     "ayah": 36,
-    "arabic": "وَصَٰحِبَتِهِۦ وَبَنِيهِ",
+    "arabic": "وَصَـٰحِبَتِهِۦ وَبَنِيهِ",
     "transliteration": "Wa sahi batihee wa baneeh.",
     "translations": {
       "en.sahih": "And his wife and his children,",
@@ -614,7 +614,7 @@
   {
     "surah": 80,
     "ayah": 37,
-    "arabic": "لِكُلِّ ٱمْرِئٍۢ مِّنْهُمْ يَوْمَئِذٍۢ شَأْنٌۭ يُغْنِيهِ",
+    "arabic": "لِكُلِّ ٱمْرِئٍ مِّنْهُمْ يَوْمَئِذٍ شَأْنٌ يُغْنِيهِ",
     "transliteration": "Likul limri-im-minuhm yaumaa-izin shaa nuy-yughneeh",
     "translations": {
       "en.sahih": "For every man, that Day, will be a matter adequate for him.",
@@ -631,7 +631,7 @@
   {
     "surah": 80,
     "ayah": 38,
-    "arabic": "وُجُوهٌۭ يَوْمَئِذٍۢ مُّسْفِرَةٌۭ",
+    "arabic": "وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ",
     "transliteration": "Wujoo huny-yauma-izim-musfira;",
     "translations": {
       "en.sahih": "[Some] faces, that Day, will be bright -",
@@ -648,7 +648,7 @@
   {
     "surah": 80,
     "ayah": 39,
-    "arabic": "ضَاحِكَةٌۭ مُّسْتَبْشِرَةٌۭ",
+    "arabic": "ضَاحِكَةٌ مُّسْتَبْشِرَةٌ",
     "transliteration": "Dahi katum mustab shirah",
     "translations": {
       "en.sahih": "Laughing, rejoicing at good news.",
@@ -665,7 +665,7 @@
   {
     "surah": 80,
     "ayah": 40,
-    "arabic": "وَوُجُوهٌۭ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌۭ",
+    "arabic": "وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ",
     "transliteration": "Wa wujoohuy yauma-izin 'alaiha ghabar a",
     "translations": {
       "en.sahih": "And [other] faces, that Day, will have upon them dust.",
@@ -699,7 +699,7 @@
   {
     "surah": 80,
     "ayah": 42,
-    "arabic": "أُو۟لَٰٓئِكَ هُمُ ٱلْكَفَرَةُ ٱلْفَجَرَةُ",
+    "arabic": "أُو۟لَـٰٓئِكَ هُمُ ٱلْكَفَرَةُ ٱلْفَجَرَةُ",
     "transliteration": "Ulaa-ika humul-kafa ratul-fajarah.",
     "translations": {
       "en.sahih": "Those are the disbelievers, the wicked ones.",

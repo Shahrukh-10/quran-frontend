@@ -2,7 +2,7 @@
   "name": "islamic-website",
   "version": "0.0.1",
   "private": true,
-  "description": "Free, global Islamic resource — Quran, duas, prayer times, Qibla, Salah tutorials.",
+  "description": "Free, global Islamic resource \u2014 Quran, duas, prayer times, Qibla, Salah tutorials.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -24,7 +24,9 @@
     "fetch:cities": "tsx scripts/fetch-cities.ts",
     "a11y": "playwright test tests/e2e/a11y.spec.ts",
     "ci:local": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e",
-    "fetch:hadith": "tsx scripts/fetch-hadith.ts"
+    "fetch:hadith": "tsx scripts/fetch-hadith.ts",
+    "build:search-index": "tsx scripts/build-search-index.ts",
+    "prebuild": "pnpm build:search-index"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.6",
@@ -33,6 +35,7 @@
     "gray-matter": "^4.0.3",
     "hijri-converter": "^1.1.1",
     "lucide-react": "^0.462.0",
+    "minisearch": "^7.2.0",
     "next": "^15.5.0",
     "next-intl": "^3.26.0",
     "next-mdx-remote": "^5.0.0",

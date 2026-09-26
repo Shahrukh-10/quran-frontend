@@ -2,7 +2,7 @@
   {
     "surah": 90,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ لَآ أُقْسِمُ بِهَٰذَا ٱلْبَلَدِ",
+    "arabic": " لَآ أُقْسِمُ بِهَـٰذَا ٱلْبَلَدِ",
     "transliteration": "Laaa uqsimu bihaazal balad",
     "translations": {
       "en.sahih": "I swear by this city, Makkah -",
@@ -19,7 +19,7 @@
   {
     "surah": 90,
     "ayah": 2,
-    "arabic": "وَأَنتَ حِلٌّۢ بِهَٰذَا ٱلْبَلَدِ",
+    "arabic": "وَأَنتَ حِلٌّۢ بِهَـٰذَا ٱلْبَلَدِ",
     "transliteration": "Wa anta hillum bihaazal balad",
     "translations": {
       "en.sahih": "And you, [O Muhammad], are free of restriction in this city -",
@@ -36,7 +36,7 @@
   {
     "surah": 90,
     "ayah": 3,
-    "arabic": "وَوَالِدٍۢ وَمَا وَلَدَ",
+    "arabic": "وَوَالِدٍ وَمَا وَلَدَ",
     "transliteration": "Wa waalidinw wa maa walad",
     "translations": {
       "en.sahih": "And [by] the father and that which was born [of him],",
@@ -53,7 +53,7 @@
   {
     "surah": 90,
     "ayah": 4,
-    "arabic": "لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِى كَبَدٍ",
+    "arabic": "لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِى كَبَدٍ",
     "transliteration": "Laqad khalaqnal insaana fee kabad",
     "translations": {
       "en.sahih": "We have certainly created man into hardship.",
@@ -70,7 +70,7 @@
   {
     "surah": 90,
     "ayah": 5,
-    "arabic": "أَيَحْسَبُ أَن لَّن يَقْدِرَ عَلَيْهِ أَحَدٌۭ",
+    "arabic": "أَيَحْسَبُ أَن لَّن يَقْدِرَ عَلَيْهِ أَحَدٌ",
     "transliteration": "Ayahsabu al-lai yaqdira 'alaihi ahad",
     "translations": {
       "en.sahih": "Does he think that never will anyone overcome him?",
@@ -87,7 +87,7 @@
   {
     "surah": 90,
     "ayah": 6,
-    "arabic": "يَقُولُ أَهْلَكْتُ مَالًۭا لُّبَدًا",
+    "arabic": "يَقُولُ أَهْلَكْتُ مَالًا لُّبَدًا",
     "transliteration": "Yaqoolu ahlaktu maalal lubadaa",
     "translations": {
       "en.sahih": "He says, \"I have spent wealth in abundance.\"",
@@ -138,7 +138,7 @@
   {
     "surah": 90,
     "ayah": 9,
-    "arabic": "وَلِسَانًۭا وَشَفَتَيْنِ",
+    "arabic": "وَلِسَانًا وَشَفَتَيْنِ",
     "transliteration": "Wa lisaananw wa shafatayn",
     "translations": {
       "en.sahih": "And a tongue and two lips?",
@@ -155,7 +155,7 @@
   {
     "surah": 90,
     "ayah": 10,
-    "arabic": "وَهَدَيْنَٰهُ ٱلنَّجْدَيْنِ",
+    "arabic": "وَهَدَيْنَـٰهُ ٱلنَّجْدَيْنِ",
     "transliteration": "Wa hadaynaahun najdayn",
     "translations": {
       "en.sahih": "And have shown him the two ways?",
@@ -223,7 +223,7 @@
   {
     "surah": 90,
     "ayah": 14,
-    "arabic": "أَوْ إِطْعَٰمٌۭ فِى يَوْمٍۢ ذِى مَسْغَبَةٍۢ",
+    "arabic": "أَوْ إِطْعَـٰمٌ فِى يَوْمٍ ذِى مَسْغَبَةٍ",
     "transliteration": "Aw it'aamun fee yawmin zee masghabah",
     "translations": {
       "en.sahih": "Or feeding on a day of severe hunger",
@@ -240,7 +240,7 @@
   {
     "surah": 90,
     "ayah": 15,
-    "arabic": "يَتِيمًۭا ذَا مَقْرَبَةٍ",
+    "arabic": "يَتِيمًا ذَا مَقْرَبَةٍ",
     "transliteration": "Yateeman zaa maqrabah",
     "translations": {
       "en.sahih": "An orphan of near relationship",
@@ -257,7 +257,7 @@
   {
     "surah": 90,
     "ayah": 16,
-    "arabic": "أَوْ مِسْكِينًۭا ذَا مَتْرَبَةٍۢ",
+    "arabic": "أَوْ مِسْكِينًا ذَا مَتْرَبَةٍ",
     "transliteration": "Aw miskeenan zaa matrabah",
     "translations": {
       "en.sahih": "Or a needy person in misery",
@@ -291,7 +291,7 @@
   {
     "surah": 90,
     "ayah": 18,
-    "arabic": "أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْمَيْمَنَةِ",
+    "arabic": "أُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلْمَيْمَنَةِ",
     "transliteration": "Ulaaa'ika As-haabul maimanah",
     "translations": {
       "en.sahih": "Those are the companions of the right.",
@@ -308,7 +308,7 @@
   {
     "surah": 90,
     "ayah": 19,
-    "arabic": "وَٱلَّذِينَ كَفَرُوا۟ بِـَٔايَٰتِنَا هُمْ أَصْحَٰبُ ٱلْمَشْـَٔمَةِ",
+    "arabic": "وَٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِنَا هُمْ أَصْحَـٰبُ ٱلْمَشْـَٔمَةِ",
     "transliteration": "Wallazeena kafaroo bi aayaatinaa hum as-haabul Mash'amah",
     "translations": {
       "en.sahih": "But they who disbelieved in Our signs - those are the companions of the left.",
@@ -325,7 +325,7 @@
   {
     "surah": 90,
     "ayah": 20,
-    "arabic": "عَلَيْهِمْ نَارٌۭ مُّؤْصَدَةٌۢ",
+    "arabic": "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌۢ",
     "transliteration": "Alaihim naarum mu'sadah",
     "translations": {
       "en.sahih": "Over them will be fire closed in.",

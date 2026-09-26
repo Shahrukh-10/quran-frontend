@@ -119,7 +119,7 @@ export default async function WordByWordSurahPage({ params }: Props) {
         </p>
         <h1 className="mt-3 text-[clamp(2rem,4vw,3rem)] font-bold tracking-display">{s.name}</h1>
         <p className="mt-1 text-muted-foreground">{s.englishTranslation}</p>
-        <p className="mt-6 font-quran text-4xl text-foreground" lang="ar" dir="rtl">
+        <p className="mt-6 font-quran text-5xl md:text-6xl text-foreground" lang="ar" dir="rtl">
           {s.arabicName}
         </p>
         <p className="mt-4 text-sm text-muted-foreground">
@@ -141,7 +141,12 @@ export default async function WordByWordSurahPage({ params }: Props) {
       </header>
 
       {s.number !== 1 && s.number !== 9 && (
-        <p className="mt-10 text-center font-quran text-3xl text-foreground/85" lang="ar" dir="rtl">
+        <p
+          className="mt-10 text-center font-quran text-4xl md:text-5xl text-foreground/85"
+          lang="ar"
+          dir="rtl"
+          style={{ lineHeight: 2 }}
+        >
           بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
         </p>
       )}

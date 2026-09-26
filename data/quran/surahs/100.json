@@ -2,7 +2,7 @@
   {
     "surah": 100,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلْعَٰدِيَٰتِ ضَبْحًۭا",
+    "arabic": " وَٱلْعَـٰدِيَـٰتِ ضَبْحًا",
     "transliteration": "Wal'aadi yaati dabha",
     "translations": {
       "en.sahih": "By the racers, panting,",
@@ -19,7 +19,7 @@
   {
     "surah": 100,
     "ayah": 2,
-    "arabic": "فَٱلْمُورِيَٰتِ قَدْحًۭا",
+    "arabic": "فَٱلْمُورِيَـٰتِ قَدْحًا",
     "transliteration": "Fal moori yaati qadha",
     "translations": {
       "en.sahih": "And the producers of sparks [when] striking",
@@ -36,7 +36,7 @@
   {
     "surah": 100,
     "ayah": 3,
-    "arabic": "فَٱلْمُغِيرَٰتِ صُبْحًۭا",
+    "arabic": "فَٱلْمُغِيرَٰتِ صُبْحًا",
     "transliteration": "Fal mugheeraati subha",
     "translations": {
       "en.sahih": "And the chargers at dawn,",
@@ -53,7 +53,7 @@
   {
     "surah": 100,
     "ayah": 4,
-    "arabic": "فَأَثَرْنَ بِهِۦ نَقْعًۭا",
+    "arabic": "فَأَثَرْنَ بِهِۦ نَقْعًا",
     "transliteration": "Fa atharna bihee naq'a",
     "translations": {
       "en.sahih": "Stirring up thereby [clouds of] dust,",
@@ -87,7 +87,7 @@
   {
     "surah": 100,
     "ayah": 6,
-    "arabic": "إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌۭ",
+    "arabic": "إِنَّ ٱلْإِنسَـٰنَ لِرَبِّهِۦ لَكَنُودٌ",
     "transliteration": "Innal-insana lirabbihee lakanood",
     "translations": {
       "en.sahih": "Indeed mankind, to his Lord, is ungrateful.",
@@ -104,7 +104,7 @@
   {
     "surah": 100,
     "ayah": 7,
-    "arabic": "وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌۭ",
+    "arabic": "وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ",
     "transliteration": "Wa innahu 'alaa zaalika la shaheed",
     "translations": {
       "en.sahih": "And indeed, he is to that a witness.",
@@ -172,7 +172,7 @@
   {
     "surah": 100,
     "ayah": 11,
-    "arabic": "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍۢ لَّخَبِيرٌۢ",
+    "arabic": "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌۢ",
     "transliteration": "Inna rabbahum bihim yauma 'izil la khabeer",
     "translations": {
       "en.sahih": "Indeed, their Lord with them, that Day, is [fully] Acquainted.",

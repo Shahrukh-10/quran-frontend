@@ -2,19 +2,13 @@ import { DuaBookmarkButton } from "@/components/duas/dua-bookmark-button";
 import { ArticleSchema, BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
-import {
-  getAllDuas,
-  getCategory,
-  getDua,
-  getDuasInCategory,
-  getAllCategories,
-} from "@/lib/duas";
-import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
+import { getAllCategories, getAllDuas, getCategory, getDua, getDuasInCategory } from "@/lib/duas";
+import { hreflangLanguages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; category: string; slug: string }> = [];
@@ -49,7 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Islamic prayer",
       d.source,
       d.reference || "",
-    ].filter(Boolean).join(", "),
+    ]
+      .filter(Boolean)
+      .join(", "),
     alternates: {
       canonical: siteUrl(
         locale === "en" ? `/duas/${category}/${slug}` : `/${locale}/duas/${category}/${slug}`,
@@ -121,9 +117,7 @@ export default async function DuaPage({ params }: Props) {
         url={siteUrl(`/duas/${category}/${slug}`)}
         datePublished="2026-09-18"
       />
-      <FaqSchema
-        items={faqItems.map((f) => ({ question: f.q, answer: f.a }))}
-      />
+      <FaqSchema items={faqItems.map((f) => ({ question: f.q, answer: f.a }))} />
 
       {/* Visible breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
@@ -164,15 +158,14 @@ export default async function DuaPage({ params }: Props) {
       <p
         lang="ar"
         dir="rtl"
-        className="mt-8 font-quran text-3xl md:text-4xl leading-[2.4] text-right"
+        className="mt-8 font-quran text-4xl md:text-5xl text-right"
+        style={{ lineHeight: 2.2, wordSpacing: "0.08em" }}
       >
         {d.arabic}
       </p>
 
       <p className="mt-6 italic text-muted-foreground leading-relaxed">
-        <span className="block text-xs uppercase tracking-widest not-italic">
-          Transliteration
-        </span>
+        <span className="block text-xs uppercase tracking-widest not-italic">Transliteration</span>
         <span className="mt-1 block text-lg">{d.transliteration}</span>
       </p>
 
@@ -244,14 +237,10 @@ export default async function DuaPage({ params }: Props) {
             {relatedDuas.map((rd) => (
               <Link
                 key={rd.slug}
-                href={
-                  `/duas/${category}/${rd.slug}` as "/duas/[category]/[slug]"
-                }
+                href={`/duas/${category}/${rd.slug}` as "/duas/[category]/[slug]"}
                 className="focus-ring rounded-xl border border-separator bg-surface p-4 hover:bg-muted transition-colors"
               >
-                <span className="block text-sm font-semibold">
-                  {rd.title[lang]}
-                </span>
+                <span className="block text-sm font-semibold">{rd.title[lang]}</span>
                 <span className="mt-1 block text-xs text-muted-foreground line-clamp-2">
                   {rd.translation[lang].slice(0, 100)}
                   {rd.translation[lang].length > 100 ? "…" : ""}
@@ -287,16 +276,9 @@ export default async function DuaPage({ params }: Props) {
         </h2>
         <div className="mt-4 space-y-4">
           {faqItems.map((f) => (
-            <details
-              key={f.q}
-              className="rounded-2xl border border-separator bg-surface p-5"
-            >
-              <summary className="cursor-pointer text-base font-semibold">
-                {f.q}
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {f.a}
-              </p>
+            <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
+              <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
             </details>
           ))}
         </div>

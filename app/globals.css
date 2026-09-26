@@ -66,13 +66,44 @@
     }
   }
 
-  /* Quran text — never squeezed */
+  /* Quran text — never squeezed.
+     KFGQPC Uthmanic Hafs is the mushaf font; when it's active we must:
+     - use generous line-height (harakat / superscript alifs need vertical room)
+     - avoid CSS `text-align: justify` on Arabic (browsers pad word-spaces
+       unevenly, which is the "gapping" complaint users report)
+     - keep `font-feature-settings` on so the private-use Uthmani ligatures
+       in text_uthmani are shaped correctly
+     - disable any letter-spacing (destroys Arabic cursive joining) */
+  .quran-text,
+  .font-quran {
+    font-family: var(--font-amiri-quran), "KFGQPC Uthmanic Hafs", "KFGQPC HAFS Uthmanic Script",
+      "Amiri Quran", "Amiri", serif;
+    font-feature-settings: "kern", "liga", "calt", "rlig";
+    font-variant-ligatures: common-ligatures contextual;
+    letter-spacing: 0;
+    word-spacing: 0.2em;
+    /* Default generous mushaf line-height — Tailwind's `leading-*` on the
+       same element will override thanks to higher specificity/order. */
+    line-height: 2.2;
+    text-align: start; /* start = right in RTL — no justify */
+    text-align-last: start;
+    direction: rtl;
+    /* Chrome/Safari can render KFGQPC crisply with these */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
   .quran-text {
-    font-family: var(--font-amiri-quran), "Amiri", serif;
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     line-height: 2.5;
-    direction: rtl;
     text-align: right;
+  }
+
+  /* Small guard: any element carrying dir="rtl" and lang="ar" inside prose
+     should never inherit CSS justify from a parent article/prose class. */
+  [lang="ar"][dir="rtl"] {
+    text-align: start;
+    text-align-last: start;
   }
 }
 

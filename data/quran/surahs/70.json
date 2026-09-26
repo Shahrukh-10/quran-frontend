@@ -2,7 +2,7 @@
   {
     "surah": 70,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ سَأَلَ سَآئِلٌۢ بِعَذَابٍۢ وَاقِعٍۢ",
+    "arabic": " سَأَلَ سَآئِلٌۢ بِعَذَابٍ وَاقِعٍ",
     "transliteration": "Sa ala saaa'ilum bi'azaa binw-waaqi'",
     "translations": {
       "en.sahih": "A supplicant asked for a punishment bound to happen",
@@ -19,7 +19,7 @@
   {
     "surah": 70,
     "ayah": 2,
-    "arabic": "لِّلْكَٰفِرِينَ لَيْسَ لَهُۥ دَافِعٌۭ",
+    "arabic": "لِّلْكَـٰفِرِينَ لَيْسَ لَهُۥ دَافِعٌ",
     "transliteration": "Lilkaafireen laisa lahoo daafi'",
     "translations": {
       "en.sahih": "To the disbelievers; of it there is no preventer.",
@@ -53,7 +53,7 @@
   {
     "surah": 70,
     "ayah": 4,
-    "arabic": "تَعْرُجُ ٱلْمَلَٰٓئِكَةُ وَٱلرُّوحُ إِلَيْهِ فِى يَوْمٍۢ كَانَ مِقْدَارُهُۥ خَمْسِينَ أَلْفَ سَنَةٍۢ",
+    "arabic": "تَعْرُجُ ٱلْمَلَـٰٓئِكَةُ وَٱلرُّوحُ إِلَيْهِ فِى يَوْمٍ كَانَ مِقْدَارُهُۥ خَمْسِينَ أَلْفَ سَنَةٍ",
     "transliteration": "Ta'rujul malaaa'ikatu war Roohu ilaihi fee yawmin kaana miqdaaruhoo khamseena alfa sanah",
     "translations": {
       "en.sahih": "The angels and the Spirit will ascend to Him during a Day the extent of which is fifty thousand years.",
@@ -70,7 +70,7 @@
   {
     "surah": 70,
     "ayah": 5,
-    "arabic": "فَٱصْبِرْ صَبْرًۭا جَمِيلًا",
+    "arabic": "فَٱصْبِرْ صَبْرًا جَمِيلًا",
     "transliteration": "Fasbir ssabran jameelaa",
     "translations": {
       "en.sahih": "So be patient with gracious patience.",
@@ -87,7 +87,7 @@
   {
     "surah": 70,
     "ayah": 6,
-    "arabic": "إِنَّهُمْ يَرَوْنَهُۥ بَعِيدًۭا",
+    "arabic": "إِنَّهُمْ يَرَوْنَهُۥ بَعِيدًا",
     "transliteration": "Inaahum yarawnahoo ba'eedaa",
     "translations": {
       "en.sahih": "Indeed, they see it [as] distant,",
@@ -104,7 +104,7 @@
   {
     "surah": 70,
     "ayah": 7,
-    "arabic": "وَنَرَىٰهُ قَرِيبًۭا",
+    "arabic": "وَنَرَىٰهُ قَرِيبًا",
     "transliteration": "Wa naraahu qareebaa",
     "translations": {
       "en.sahih": "But We see it [as] near.",
@@ -155,7 +155,7 @@
   {
     "surah": 70,
     "ayah": 10,
-    "arabic": "وَلَا يَسْـَٔلُ حَمِيمٌ حَمِيمًۭا",
+    "arabic": "وَلَا يَسْـَٔلُ حَمِيمٌ حَمِيمًا",
     "transliteration": "Wa laa yas'alu hameemun hameemaa",
     "translations": {
       "en.sahih": "And no friend will ask [anything of] a friend,",
@@ -189,7 +189,7 @@
   {
     "surah": 70,
     "ayah": 12,
-    "arabic": "وَصَٰحِبَتِهِۦ وَأَخِيهِ",
+    "arabic": "وَصَـٰحِبَتِهِۦ وَأَخِيهِ",
     "transliteration": "Wa saahibatihee wa akheeh",
     "translations": {
       "en.sahih": "And his wife and his brother",
@@ -223,7 +223,7 @@
   {
     "surah": 70,
     "ayah": 14,
-    "arabic": "وَمَن فِى ٱلْأَرْضِ جَمِيعًۭا ثُمَّ يُنجِيهِ",
+    "arabic": "وَمَن فِى ٱلْأَرْضِ جَمِيعًا ثُمَّ يُنجِيهِ",
     "transliteration": "Wa man fil ardi jamee'an summa yunjeeh",
     "translations": {
       "en.sahih": "And whoever is on earth entirely [so] then it could save him.",
@@ -257,7 +257,7 @@
   {
     "surah": 70,
     "ayah": 16,
-    "arabic": "نَزَّاعَةًۭ لِّلشَّوَىٰ",
+    "arabic": "نَزَّاعَةً لِّلشَّوَىٰ",
     "transliteration": "Nazzaa'atal lishshawaa",
     "translations": {
       "en.sahih": "A remover of exteriors.",
@@ -308,7 +308,7 @@
   {
     "surah": 70,
     "ayah": 19,
-    "arabic": "۞ إِنَّ ٱلْإِنسَٰنَ خُلِقَ هَلُوعًا",
+    "arabic": "۞ إِنَّ ٱلْإِنسَـٰنَ خُلِقَ هَلُوعًا",
     "transliteration": "Innal insaana khuliqa haloo'aa",
     "translations": {
       "en.sahih": "Indeed, mankind was created anxious:",
@@ -325,7 +325,7 @@
   {
     "surah": 70,
     "ayah": 20,
-    "arabic": "إِذَا مَسَّهُ ٱلشَّرُّ جَزُوعًۭا",
+    "arabic": "إِذَا مَسَّهُ ٱلشَّرُّ جَزُوعًا",
     "transliteration": "Izaa massahush sharru jazoo'aa",
     "translations": {
       "en.sahih": "When evil touches him, impatient,",
@@ -393,7 +393,7 @@
   {
     "surah": 70,
     "ayah": 24,
-    "arabic": "وَٱلَّذِينَ فِىٓ أَمْوَٰلِهِمْ حَقٌّۭ مَّعْلُومٌۭ",
+    "arabic": "وَٱلَّذِينَ فِىٓ أَمْوَٰلِهِمْ حَقٌّ مَّعْلُومٌ",
     "transliteration": "Wallazeena feee amwaalihim haqqum ma'loom",
     "translations": {
       "en.sahih": "And those within whose wealth is a known right",
@@ -461,7 +461,7 @@
   {
     "surah": 70,
     "ayah": 28,
-    "arabic": "إِنَّ عَذَابَ رَبِّهِمْ غَيْرُ مَأْمُونٍۢ",
+    "arabic": "إِنَّ عَذَابَ رَبِّهِمْ غَيْرُ مَأْمُونٍ",
     "transliteration": "Inna 'azaaba Rabbihim ghairu maamoon",
     "translations": {
       "en.sahih": "Indeed, the punishment of their Lord is not that from which one is safe -",
@@ -478,7 +478,7 @@
   {
     "surah": 70,
     "ayah": 29,
-    "arabic": "وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَٰفِظُونَ",
+    "arabic": "وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَـٰفِظُونَ",
     "transliteration": "Wallazeena hum lifuroo jihim haafizoon",
     "translations": {
       "en.sahih": "And those who guard their private parts",
@@ -495,7 +495,7 @@
   {
     "surah": 70,
     "ayah": 30,
-    "arabic": "إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ",
+    "arabic": "إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَـٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ",
     "transliteration": "Illaa 'alaaa azwaajihim aw maa malakat aymaanuhum fainnahum ghairu maloomeen",
     "translations": {
       "en.sahih": "Except from their wives or those their right hands possess, for indeed, they are not to be blamed -",
@@ -512,7 +512,7 @@
   {
     "surah": 70,
     "ayah": 31,
-    "arabic": "فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَٰٓئِكَ هُمُ ٱلْعَادُونَ",
+    "arabic": "فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْعَادُونَ",
     "transliteration": "Famanib taghaa waraaa'a zaalika fa ulaaa'ika humul 'aadoon",
     "translations": {
       "en.sahih": "But whoever seeks beyond that, then they are the transgressors -",
@@ -529,7 +529,7 @@
   {
     "surah": 70,
     "ayah": 32,
-    "arabic": "وَٱلَّذِينَ هُمْ لِأَمَٰنَٰتِهِمْ وَعَهْدِهِمْ رَٰعُونَ",
+    "arabic": "وَٱلَّذِينَ هُمْ لِأَمَـٰنَـٰتِهِمْ وَعَهْدِهِمْ رَٰعُونَ",
     "transliteration": "Wallazeena hum li amaa naatihim wa 'ahdihim raa'oon",
     "translations": {
       "en.sahih": "And those who are to their trusts and promises attentive",
@@ -546,7 +546,7 @@
   {
     "surah": 70,
     "ayah": 33,
-    "arabic": "وَٱلَّذِينَ هُم بِشَهَٰدَٰتِهِمْ قَآئِمُونَ",
+    "arabic": "وَٱلَّذِينَ هُم بِشَهَـٰدَٰتِهِمْ قَآئِمُونَ",
     "transliteration": "Wallazeena hum bishahaadaatihim qaaa'imoon",
     "translations": {
       "en.sahih": "And those who are in their testimonies upright",
@@ -580,7 +580,7 @@
   {
     "surah": 70,
     "ayah": 35,
-    "arabic": "أُو۟لَٰٓئِكَ فِى جَنَّٰتٍۢ مُّكْرَمُونَ",
+    "arabic": "أُو۟لَـٰٓئِكَ فِى جَنَّـٰتٍ مُّكْرَمُونَ",
     "transliteration": "Ulaaa'ika fee jannaatim mukramoon",
     "translations": {
       "en.sahih": "They will be in gardens, honored.",
@@ -631,7 +631,7 @@
   {
     "surah": 70,
     "ayah": 38,
-    "arabic": "أَيَطْمَعُ كُلُّ ٱمْرِئٍۢ مِّنْهُمْ أَن يُدْخَلَ جَنَّةَ نَعِيمٍۢ",
+    "arabic": "أَيَطْمَعُ كُلُّ ٱمْرِئٍ مِّنْهُمْ أَن يُدْخَلَ جَنَّةَ نَعِيمٍ",
     "transliteration": "Ayatma'u kullum ri'im minhum anyyudkhala jannata Na'eem",
     "translations": {
       "en.sahih": "Does every person among them aspire to enter a garden of pleasure?",
@@ -648,7 +648,7 @@
   {
     "surah": 70,
     "ayah": 39,
-    "arabic": "كَلَّآ ۖ إِنَّا خَلَقْنَٰهُم مِّمَّا يَعْلَمُونَ",
+    "arabic": "كَلَّآ ۖ إِنَّا خَلَقْنَـٰهُم مِّمَّا يَعْلَمُونَ",
     "transliteration": "Kallaaa innaa khalaq nahum mimmaa ya'lamoon",
     "translations": {
       "en.sahih": "No! Indeed, We have created them from that which they know.",
@@ -665,7 +665,7 @@
   {
     "surah": 70,
     "ayah": 40,
-    "arabic": "فَلَآ أُقْسِمُ بِرَبِّ ٱلْمَشَٰرِقِ وَٱلْمَغَٰرِبِ إِنَّا لَقَٰدِرُونَ",
+    "arabic": "فَلَآ أُقْسِمُ بِرَبِّ ٱلْمَشَـٰرِقِ وَٱلْمَغَـٰرِبِ إِنَّا لَقَـٰدِرُونَ",
     "transliteration": "Falaaa uqsimu bi Rabbil mashaariqi wal maghaaribi innaa laqaadiroon",
     "translations": {
       "en.sahih": "So I swear by the Lord of [all] risings and settings that indeed We are able",
@@ -682,7 +682,7 @@
   {
     "surah": 70,
     "ayah": 41,
-    "arabic": "عَلَىٰٓ أَن نُّبَدِّلَ خَيْرًۭا مِّنْهُمْ وَمَا نَحْنُ بِمَسْبُوقِينَ",
+    "arabic": "عَلَىٰٓ أَن نُّبَدِّلَ خَيْرًا مِّنْهُمْ وَمَا نَحْنُ بِمَسْبُوقِينَ",
     "transliteration": "'Alaaa an nubaddila khairam minhum wa maa Nahnu bimasbooqeen",
     "translations": {
       "en.sahih": "To replace them with better than them; and We are not to be outdone.",
@@ -699,7 +699,7 @@
   {
     "surah": 70,
     "ayah": 42,
-    "arabic": "فَذَرْهُمْ يَخُوضُوا۟ وَيَلْعَبُوا۟ حَتَّىٰ يُلَٰقُوا۟ يَوْمَهُمُ ٱلَّذِى يُوعَدُونَ",
+    "arabic": "فَذَرْهُمْ يَخُوضُوا۟ وَيَلْعَبُوا۟ حَتَّىٰ يُلَـٰقُوا۟ يَوْمَهُمُ ٱلَّذِى يُوعَدُونَ",
     "transliteration": "Fazarhum yakhoodoo wa yal'aboo hattaa yulaaqoo yaw mahumul lazee yoo'adoon",
     "translations": {
       "en.sahih": "So leave them to converse vainly and amuse themselves until they meet their Day which they are promised -",
@@ -716,7 +716,7 @@
   {
     "surah": 70,
     "ayah": 43,
-    "arabic": "يَوْمَ يَخْرُجُونَ مِنَ ٱلْأَجْدَاثِ سِرَاعًۭا كَأَنَّهُمْ إِلَىٰ نُصُبٍۢ يُوفِضُونَ",
+    "arabic": "يَوْمَ يَخْرُجُونَ مِنَ ٱلْأَجْدَاثِ سِرَاعًا كَأَنَّهُمْ إِلَىٰ نُصُبٍ يُوفِضُونَ",
     "transliteration": "Yawma yakhrujoona minal ajdaasi siraa'an ka anna hum ilaa nusubiny yoofidoon",
     "translations": {
       "en.sahih": "The Day they will emerge from the graves rapidly as if they were, toward an erected idol, hastening.",
@@ -733,7 +733,7 @@
   {
     "surah": 70,
     "ayah": 44,
-    "arabic": "خَٰشِعَةً أَبْصَٰرُهُمْ تَرْهَقُهُمْ ذِلَّةٌۭ ۚ ذَٰلِكَ ٱلْيَوْمُ ٱلَّذِى كَانُوا۟ يُوعَدُونَ",
+    "arabic": "خَـٰشِعَةً أَبْصَـٰرُهُمْ تَرْهَقُهُمْ ذِلَّةٌ ۚ ذَٰلِكَ ٱلْيَوْمُ ٱلَّذِى كَانُوا۟ يُوعَدُونَ",
     "transliteration": "Khaashi'atan absaaruhum tarhaquhum zillah; zaalikal yawmul lazee kaanoo yoo'adoon",
     "translations": {
       "en.sahih": "Their eyes humbled, humiliation will cover them. That is the Day which they had been promised.",

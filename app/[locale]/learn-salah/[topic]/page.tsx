@@ -129,7 +129,7 @@ export default async function TopicPage({ params }: Props) {
                 key={`${d.arabic.slice(0, 24)}-${i}`}
                 className="rounded-2xl border border-separator bg-surface p-5"
               >
-                <p lang="ar" dir="rtl" className="font-quran text-2xl leading-[2.2] text-right">
+                <p lang="ar" dir="rtl" className="font-quran text-4xl leading-[2.2] text-right">
                   {d.arabic}
                 </p>
                 <p className="mt-3 italic text-muted-foreground text-sm">{d.transliteration}</p>

@@ -8,6 +8,7 @@
 // The API route is separately cacheable so each fetch is served from the edge.
 
 import { PinButton } from "@/components/quran/pin-button";
+import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import type { Ayah } from "@/lib/quran";
 import { getPinnedAyat, unpinAyah } from "@/lib/storage";
 import { XIcon } from "lucide-react";
@@ -64,7 +65,9 @@ export default function ComparePage() {
     for (const key of pinned) {
       const parsed = parseKey(key);
       if (!parsed) {
-        setCache((c) => (c[key] ? c : { ...c, [key]: { status: "error", message: "Bad verse key" } }));
+        setCache((c) =>
+          c[key] ? c : { ...c, [key]: { status: "error", message: "Bad verse key" } },
+        );
         continue;
       }
       const ctrl = new AbortController();
@@ -130,11 +133,7 @@ export default function ComparePage() {
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Compare</h1>
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
             Side-by-side view of your pinned ayat.
-            {!empty && (
-              <span className="ml-1 text-neutral-500">
-                {pinned.length} of 5 pinned.
-              </span>
-            )}
+            {!empty && <span className="ml-1 text-neutral-500">{pinned.length} of 5 pinned.</span>}
           </p>
         </div>
       </header>
@@ -142,8 +141,7 @@ export default function ComparePage() {
       {empty ? (
         <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            Nothing pinned. Pin up to 5 ayat from any page to compare them
-            side-by-side.
+            Nothing pinned. Pin up to 5 ayat from any page to compare them side-by-side.
           </p>
         </div>
       ) : (
@@ -190,7 +188,7 @@ export default function ComparePage() {
                         lang="ar"
                         className="font-quran text-right text-2xl leading-loose text-neutral-900 dark:text-neutral-50"
                       >
-                        {entry.ayah.arabic}
+                        {cleanArabicForDisplay(entry.ayah.arabic)}
                       </p>
                       <dl className="flex flex-col gap-3 text-sm">
                         {TRANSLATIONS.map((t) => {

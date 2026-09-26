@@ -15,7 +15,19 @@ const config: Config = {
           "sans-serif",
         ],
         arabic: ["var(--font-noto-arabic)", "Amiri", "serif"],
-        quran: ["var(--font-amiri-quran)", "Amiri", "serif"],
+        // font-quran → KFGQPC Uthmanic Hafs (the official mushaf font).
+        // Fallback chain kept in case the woff2 fails to load: Amiri Quran →
+        // system Arabic → serif. NEVER put the KFGQPC name AFTER the CSS var,
+        // because when the var loads the browser stays on that face.
+        quran: [
+          "var(--font-amiri-quran)",
+          "KFGQPC Uthmanic Hafs",
+          "KFGQPC HAFS Uthmanic Script",
+          "Amiri Quran",
+          "Amiri",
+          "Scheherazade New",
+          "serif",
+        ],
       },
       colors: {
         // Light-mode surfaces + text. Dark-mode handled via CSS vars in globals.css.

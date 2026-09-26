@@ -2,7 +2,7 @@
   {
     "surah": 56,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ إِذَا وَقَعَتِ ٱلْوَاقِعَةُ",
+    "arabic": " إِذَا وَقَعَتِ ٱلْوَاقِعَةُ",
     "transliteration": "Izaa waqa'atil waaqi'ah",
     "translations": {
       "en.sahih": "When the Occurrence occurs,",
@@ -36,7 +36,7 @@
   {
     "surah": 56,
     "ayah": 3,
-    "arabic": "خَافِضَةٌۭ رَّافِعَةٌ",
+    "arabic": "خَافِضَةٌ رَّافِعَةٌ",
     "transliteration": "Khafidatur raafi'ah",
     "translations": {
       "en.sahih": "It will bring down [some] and raise up [others].",
@@ -53,7 +53,7 @@
   {
     "surah": 56,
     "ayah": 4,
-    "arabic": "إِذَا رُجَّتِ ٱلْأَرْضُ رَجًّۭا",
+    "arabic": "إِذَا رُجَّتِ ٱلْأَرْضُ رَجًّا",
     "transliteration": "Izaa rujjatil ardu rajjaa",
     "translations": {
       "en.sahih": "When the earth is shaken with convulsion",
@@ -70,7 +70,7 @@
   {
     "surah": 56,
     "ayah": 5,
-    "arabic": "وَبُسَّتِ ٱلْجِبَالُ بَسًّۭا",
+    "arabic": "وَبُسَّتِ ٱلْجِبَالُ بَسًّا",
     "transliteration": "Wa bussatil jibaalu bassaa",
     "translations": {
       "en.sahih": "And the mountains are broken down, crumbling",
@@ -87,7 +87,7 @@
   {
     "surah": 56,
     "ayah": 6,
-    "arabic": "فَكَانَتْ هَبَآءًۭ مُّنۢبَثًّۭا",
+    "arabic": "فَكَانَتْ هَبَآءً مُّنۢبَثًّا",
     "transliteration": "Fakaanat habaaa'am mumbassaa",
     "translations": {
       "en.sahih": "And become dust dispersing.",
@@ -104,7 +104,7 @@
   {
     "surah": 56,
     "ayah": 7,
-    "arabic": "وَكُنتُمْ أَزْوَٰجًۭا ثَلَٰثَةًۭ",
+    "arabic": "وَكُنتُمْ أَزْوَٰجًا ثَلَـٰثَةً",
     "transliteration": "Wa kuntum azwaajan salaasah",
     "translations": {
       "en.sahih": "And you become [of] three kinds:",
@@ -121,7 +121,7 @@
   {
     "surah": 56,
     "ayah": 8,
-    "arabic": "فَأَصْحَٰبُ ٱلْمَيْمَنَةِ مَآ أَصْحَٰبُ ٱلْمَيْمَنَةِ",
+    "arabic": "فَأَصْحَـٰبُ ٱلْمَيْمَنَةِ مَآ أَصْحَـٰبُ ٱلْمَيْمَنَةِ",
     "transliteration": "Fa as haabul maimanati maaa as haabul maimanah",
     "translations": {
       "en.sahih": "Then the companions of the right - what are the companions of the right?",
@@ -138,7 +138,7 @@
   {
     "surah": 56,
     "ayah": 9,
-    "arabic": "وَأَصْحَٰبُ ٱلْمَشْـَٔمَةِ مَآ أَصْحَٰبُ ٱلْمَشْـَٔمَةِ",
+    "arabic": "وَأَصْحَـٰبُ ٱلْمَشْـَٔمَةِ مَآ أَصْحَـٰبُ ٱلْمَشْـَٔمَةِ",
     "transliteration": "Wa as haabul mash'amati maaa as haabul mash'amah",
     "translations": {
       "en.sahih": "And the companions of the left - what are the companions of the left?",
@@ -155,7 +155,7 @@
   {
     "surah": 56,
     "ayah": 10,
-    "arabic": "وَٱلسَّٰبِقُونَ ٱلسَّٰبِقُونَ",
+    "arabic": "وَٱلسَّـٰبِقُونَ ٱلسَّـٰبِقُونَ",
     "transliteration": "Wassaabiqoonas saabiqoon",
     "translations": {
       "en.sahih": "And the forerunners, the forerunners -",
@@ -172,7 +172,7 @@
   {
     "surah": 56,
     "ayah": 11,
-    "arabic": "أُو۟لَٰٓئِكَ ٱلْمُقَرَّبُونَ",
+    "arabic": "أُو۟لَـٰٓئِكَ ٱلْمُقَرَّبُونَ",
     "transliteration": "Ulaaa'ikal muqarraboon",
     "translations": {
       "en.sahih": "Those are the ones brought near [to Allah]",
@@ -189,7 +189,7 @@
   {
     "surah": 56,
     "ayah": 12,
-    "arabic": "فِى جَنَّٰتِ ٱلنَّعِيمِ",
+    "arabic": "فِى جَنَّـٰتِ ٱلنَّعِيمِ",
     "transliteration": "Fee Jannaatin Na'eem",
     "translations": {
       "en.sahih": "In the Gardens of Pleasure,",
@@ -206,7 +206,7 @@
   {
     "surah": 56,
     "ayah": 13,
-    "arabic": "ثُلَّةٌۭ مِّنَ ٱلْأَوَّلِينَ",
+    "arabic": "ثُلَّةٌ مِّنَ ٱلْأَوَّلِينَ",
     "transliteration": "Sullatum minal awwaleen",
     "translations": {
       "en.sahih": "A [large] company of the former peoples",
@@ -223,7 +223,7 @@
   {
     "surah": 56,
     "ayah": 14,
-    "arabic": "وَقَلِيلٌۭ مِّنَ ٱلْءَاخِرِينَ",
+    "arabic": "وَقَلِيلٌ مِّنَ ٱلْـَٔاخِرِينَ",
     "transliteration": "Wa qaleelum minal aa khireen",
     "translations": {
       "en.sahih": "And a few of the later peoples,",
@@ -240,7 +240,7 @@
   {
     "surah": 56,
     "ayah": 15,
-    "arabic": "عَلَىٰ سُرُرٍۢ مَّوْضُونَةٍۢ",
+    "arabic": "عَلَىٰ سُرُرٍ مَّوْضُونَةٍ",
     "transliteration": "'Alaa sururim mawdoonah",
     "translations": {
       "en.sahih": "On thrones woven [with ornament],",
@@ -257,7 +257,7 @@
   {
     "surah": 56,
     "ayah": 16,
-    "arabic": "مُّتَّكِـِٔينَ عَلَيْهَا مُتَقَٰبِلِينَ",
+    "arabic": "مُّتَّكِـِٔينَ عَلَيْهَا مُتَقَـٰبِلِينَ",
     "transliteration": "Muttaki'eena 'alaihaa mutaqabileen",
     "translations": {
       "en.sahih": "Reclining on them, facing each other.",
@@ -274,7 +274,7 @@
   {
     "surah": 56,
     "ayah": 17,
-    "arabic": "يَطُوفُ عَلَيْهِمْ وِلْدَٰنٌۭ مُّخَلَّدُونَ",
+    "arabic": "يَطُوفُ عَلَيْهِمْ وِلْدَٰنٌ مُّخَلَّدُونَ",
     "transliteration": "Yatoofu 'alaihim wildaa num mukkhalladoon",
     "translations": {
       "en.sahih": "There will circulate among them young boys made eternal",
@@ -291,7 +291,7 @@
   {
     "surah": 56,
     "ayah": 18,
-    "arabic": "بِأَكْوَابٍۢ وَأَبَارِيقَ وَكَأْسٍۢ مِّن مَّعِينٍۢ",
+    "arabic": "بِأَكْوَابٍ وَأَبَارِيقَ وَكَأْسٍ مِّن مَّعِينٍ",
     "transliteration": "Bi akwaabinw wa abaareeq, wa kaasim mim ma'een",
     "translations": {
       "en.sahih": "With vessels, pitchers and a cup [of wine] from a flowing spring -",
@@ -325,7 +325,7 @@
   {
     "surah": 56,
     "ayah": 20,
-    "arabic": "وَفَٰكِهَةٍۢ مِّمَّا يَتَخَيَّرُونَ",
+    "arabic": "وَفَـٰكِهَةٍ مِّمَّا يَتَخَيَّرُونَ",
     "transliteration": "Wa faakihatim mimmaa yatakhaiyaroon",
     "translations": {
       "en.sahih": "And fruit of what they select",
@@ -342,7 +342,7 @@
   {
     "surah": 56,
     "ayah": 21,
-    "arabic": "وَلَحْمِ طَيْرٍۢ مِّمَّا يَشْتَهُونَ",
+    "arabic": "وَلَحْمِ طَيْرٍ مِّمَّا يَشْتَهُونَ",
     "transliteration": "Wa lahmi tairim mimmaa yashtahoon",
     "translations": {
       "en.sahih": "And the meat of fowl, from whatever they desire.",
@@ -359,7 +359,7 @@
   {
     "surah": 56,
     "ayah": 22,
-    "arabic": "وَحُورٌ عِينٌۭ",
+    "arabic": "وَحُورٌ عِينٌ",
     "transliteration": "Wa hoorun'een",
     "translations": {
       "en.sahih": "And [for them are] fair women with large, [beautiful] eyes,",
@@ -376,7 +376,7 @@
   {
     "surah": 56,
     "ayah": 23,
-    "arabic": "كَأَمْثَٰلِ ٱللُّؤْلُؤِ ٱلْمَكْنُونِ",
+    "arabic": "كَأَمْثَـٰلِ ٱللُّؤْلُؤِ ٱلْمَكْنُونِ",
     "transliteration": "Ka amsaalil lu'lu'il maknoon",
     "translations": {
       "en.sahih": "The likenesses of pearls well-protected,",
@@ -410,7 +410,7 @@
   {
     "surah": 56,
     "ayah": 25,
-    "arabic": "لَا يَسْمَعُونَ فِيهَا لَغْوًۭا وَلَا تَأْثِيمًا",
+    "arabic": "لَا يَسْمَعُونَ فِيهَا لَغْوًا وَلَا تَأْثِيمًا",
     "transliteration": "Laa yasma'oona feehaa laghwanw wa laa taaseemaa",
     "translations": {
       "en.sahih": "They will not hear therein ill speech or commission of sin -",
@@ -427,7 +427,7 @@
   {
     "surah": 56,
     "ayah": 26,
-    "arabic": "إِلَّا قِيلًۭا سَلَٰمًۭا سَلَٰمًۭا",
+    "arabic": "إِلَّا قِيلًا سَلَـٰمًا سَلَـٰمًا",
     "transliteration": "Illaa qeelan salaaman salaamaa",
     "translations": {
       "en.sahih": "Only a saying: \"Peace, peace.\"",
@@ -444,7 +444,7 @@
   {
     "surah": 56,
     "ayah": 27,
-    "arabic": "وَأَصْحَٰبُ ٱلْيَمِينِ مَآ أَصْحَٰبُ ٱلْيَمِينِ",
+    "arabic": "وَأَصْحَـٰبُ ٱلْيَمِينِ مَآ أَصْحَـٰبُ ٱلْيَمِينِ",
     "transliteration": "Wa as haabul yameeni maaa as haabul Yameen",
     "translations": {
       "en.sahih": "The companions of the right - what are the companions of the right?",
@@ -461,7 +461,7 @@
   {
     "surah": 56,
     "ayah": 28,
-    "arabic": "فِى سِدْرٍۢ مَّخْضُودٍۢ",
+    "arabic": "فِى سِدْرٍ مَّخْضُودٍ",
     "transliteration": "Fee sidrim makhdood",
     "translations": {
       "en.sahih": "[They will be] among lote trees with thorns removed",
@@ -478,7 +478,7 @@
   {
     "surah": 56,
     "ayah": 29,
-    "arabic": "وَطَلْحٍۢ مَّنضُودٍۢ",
+    "arabic": "وَطَلْحٍ مَّنضُودٍ",
     "transliteration": "Wa talhim mandood",
     "translations": {
       "en.sahih": "And [banana] trees layered [with fruit]",
@@ -495,7 +495,7 @@
   {
     "surah": 56,
     "ayah": 30,
-    "arabic": "وَظِلٍّۢ مَّمْدُودٍۢ",
+    "arabic": "وَظِلٍّ مَّمْدُودٍ",
     "transliteration": "Wa zillim mamdood",
     "translations": {
       "en.sahih": "And shade extended",
@@ -512,7 +512,7 @@
   {
     "surah": 56,
     "ayah": 31,
-    "arabic": "وَمَآءٍۢ مَّسْكُوبٍۢ",
+    "arabic": "وَمَآءٍ مَّسْكُوبٍ",
     "transliteration": "Wa maaa'im maskoob",
     "translations": {
       "en.sahih": "And water poured out",
@@ -529,7 +529,7 @@
   {
     "surah": 56,
     "ayah": 32,
-    "arabic": "وَفَٰكِهَةٍۢ كَثِيرَةٍۢ",
+    "arabic": "وَفَـٰكِهَةٍ كَثِيرَةٍ",
     "transliteration": "Wa faakihatin kaseerah",
     "translations": {
       "en.sahih": "And fruit, abundant [and varied],",
@@ -546,7 +546,7 @@
   {
     "surah": 56,
     "ayah": 33,
-    "arabic": "لَّا مَقْطُوعَةٍۢ وَلَا مَمْنُوعَةٍۢ",
+    "arabic": "لَّا مَقْطُوعَةٍ وَلَا مَمْنُوعَةٍ",
     "transliteration": "Laa maqtoo'atinw wa laa mamnoo'ah",
     "translations": {
       "en.sahih": "Neither limited [to season] nor forbidden,",
@@ -563,7 +563,7 @@
   {
     "surah": 56,
     "ayah": 34,
-    "arabic": "وَفُرُشٍۢ مَّرْفُوعَةٍ",
+    "arabic": "وَفُرُشٍ مَّرْفُوعَةٍ",
     "transliteration": "Wa furushim marfoo'ah",
     "translations": {
       "en.sahih": "And [upon] beds raised high.",
@@ -580,7 +580,7 @@
   {
     "surah": 56,
     "ayah": 35,
-    "arabic": "إِنَّآ أَنشَأْنَٰهُنَّ إِنشَآءًۭ",
+    "arabic": "إِنَّآ أَنشَأْنَـٰهُنَّ إِنشَآءً",
     "transliteration": "Innaaa anshaanaahunna inshaaa'aa",
     "translations": {
       "en.sahih": "Indeed, We have produced the women of Paradise in a [new] creation",
@@ -597,7 +597,7 @@
   {
     "surah": 56,
     "ayah": 36,
-    "arabic": "فَجَعَلْنَٰهُنَّ أَبْكَارًا",
+    "arabic": "فَجَعَلْنَـٰهُنَّ أَبْكَارًا",
     "transliteration": "Faja'alnaahunna abkaaraa",
     "translations": {
       "en.sahih": "And made them virgins,",
@@ -614,7 +614,7 @@
   {
     "surah": 56,
     "ayah": 37,
-    "arabic": "عُرُبًا أَتْرَابًۭا",
+    "arabic": "عُرُبًا أَتْرَابًا",
     "transliteration": "'Uruban atraabaa",
     "translations": {
       "en.sahih": "Devoted [to their husbands] and of equal age,",
@@ -631,7 +631,7 @@
   {
     "surah": 56,
     "ayah": 38,
-    "arabic": "لِّأَصْحَٰبِ ٱلْيَمِينِ",
+    "arabic": "لِّأَصْحَـٰبِ ٱلْيَمِينِ",
     "transliteration": "Li as haabil yameen",
     "translations": {
       "en.sahih": "For the companions of the right [who are]",
@@ -648,7 +648,7 @@
   {
     "surah": 56,
     "ayah": 39,
-    "arabic": "ثُلَّةٌۭ مِّنَ ٱلْأَوَّلِينَ",
+    "arabic": "ثُلَّةٌ مِّنَ ٱلْأَوَّلِينَ",
     "transliteration": "Sullatum minal awwa leen",
     "translations": {
       "en.sahih": "A company of the former peoples",
@@ -665,7 +665,7 @@
   {
     "surah": 56,
     "ayah": 40,
-    "arabic": "وَثُلَّةٌۭ مِّنَ ٱلْءَاخِرِينَ",
+    "arabic": "وَثُلَّةٌ مِّنَ ٱلْـَٔاخِرِينَ",
     "transliteration": "Wa sullatum minal aakhireen",
     "translations": {
       "en.sahih": "And a company of the later peoples.",
@@ -682,7 +682,7 @@
   {
     "surah": 56,
     "ayah": 41,
-    "arabic": "وَأَصْحَٰبُ ٱلشِّمَالِ مَآ أَصْحَٰبُ ٱلشِّمَالِ",
+    "arabic": "وَأَصْحَـٰبُ ٱلشِّمَالِ مَآ أَصْحَـٰبُ ٱلشِّمَالِ",
     "transliteration": "Wa as haabush shimaali maaa as haabush shimaal",
     "translations": {
       "en.sahih": "And the companions of the left - what are the companions of the left?",
@@ -699,7 +699,7 @@
   {
     "surah": 56,
     "ayah": 42,
-    "arabic": "فِى سَمُومٍۢ وَحَمِيمٍۢ",
+    "arabic": "فِى سَمُومٍ وَحَمِيمٍ",
     "transliteration": "Fee samoominw wa hameem",
     "translations": {
       "en.sahih": "[They will be] in scorching fire and scalding water",
@@ -716,7 +716,7 @@
   {
     "surah": 56,
     "ayah": 43,
-    "arabic": "وَظِلٍّۢ مِّن يَحْمُومٍۢ",
+    "arabic": "وَظِلٍّ مِّن يَحْمُومٍ",
     "transliteration": "Wa zillim miny yahmoom",
     "translations": {
       "en.sahih": "And a shade of black smoke,",
@@ -733,7 +733,7 @@
   {
     "surah": 56,
     "ayah": 44,
-    "arabic": "لَّا بَارِدٍۢ وَلَا كَرِيمٍ",
+    "arabic": "لَّا بَارِدٍ وَلَا كَرِيمٍ",
     "transliteration": "Laa baaridinw wa laa kareem",
     "translations": {
       "en.sahih": "Neither cool nor beneficial.",
@@ -784,7 +784,7 @@
   {
     "surah": 56,
     "ayah": 47,
-    "arabic": "وَكَانُوا۟ يَقُولُونَ أَئِذَا مِتْنَا وَكُنَّا تُرَابًۭا وَعِظَٰمًا أَءِنَّا لَمَبْعُوثُونَ",
+    "arabic": "وَكَانُوا۟ يَقُولُونَ أَئِذَا مِتْنَا وَكُنَّا تُرَابًا وَعِظَـٰمًا أَءِنَّا لَمَبْعُوثُونَ",
     "transliteration": "Wa kaanoo yaqooloona a'izaa mitnaa wa kunnaa turaabanw wa izaaman'ainnaa lamab'oosoon",
     "translations": {
       "en.sahih": "And they used to say, \"When we die and become dust and bones, are we indeed to be resurrected?",
@@ -818,7 +818,7 @@
   {
     "surah": 56,
     "ayah": 49,
-    "arabic": "قُلْ إِنَّ ٱلْأَوَّلِينَ وَٱلْءَاخِرِينَ",
+    "arabic": "قُلْ إِنَّ ٱلْأَوَّلِينَ وَٱلْـَٔاخِرِينَ",
     "transliteration": "Qul innal awwaleena wal aakhireen",
     "translations": {
       "en.sahih": "Say, [O Muhammad], \"Indeed, the former and the later peoples",
@@ -835,7 +835,7 @@
   {
     "surah": 56,
     "ayah": 50,
-    "arabic": "لَمَجْمُوعُونَ إِلَىٰ مِيقَٰتِ يَوْمٍۢ مَّعْلُومٍۢ",
+    "arabic": "لَمَجْمُوعُونَ إِلَىٰ مِيقَـٰتِ يَوْمٍ مَّعْلُومٍ",
     "transliteration": "Lamajmoo'oona ilaa meeqaati yawmim ma'loon",
     "translations": {
       "en.sahih": "Are to be gathered together for the appointment of a known Day.\"",
@@ -869,7 +869,7 @@
   {
     "surah": 56,
     "ayah": 52,
-    "arabic": "لَءَاكِلُونَ مِن شَجَرٍۢ مِّن زَقُّومٍۢ",
+    "arabic": "لَـَٔاكِلُونَ مِن شَجَرٍ مِّن زَقُّومٍ",
     "transliteration": "La aakiloona min shaja rim min zaqqoom",
     "translations": {
       "en.sahih": "Will be eating from trees of zaqqum",
@@ -903,7 +903,7 @@
   {
     "surah": 56,
     "ayah": 54,
-    "arabic": "فَشَٰرِبُونَ عَلَيْهِ مِنَ ٱلْحَمِيمِ",
+    "arabic": "فَشَـٰرِبُونَ عَلَيْهِ مِنَ ٱلْحَمِيمِ",
     "transliteration": "Fashaariboona 'alaihi minal hameem",
     "translations": {
       "en.sahih": "And drinking on top of it from scalding water",
@@ -920,7 +920,7 @@
   {
     "surah": 56,
     "ayah": 55,
-    "arabic": "فَشَٰرِبُونَ شُرْبَ ٱلْهِيمِ",
+    "arabic": "فَشَـٰرِبُونَ شُرْبَ ٱلْهِيمِ",
     "transliteration": "Fashaariboona shurbal heem",
     "translations": {
       "en.sahih": "And will drink as the drinking of thirsty camels.",
@@ -937,7 +937,7 @@
   {
     "surah": 56,
     "ayah": 56,
-    "arabic": "هَٰذَا نُزُلُهُمْ يَوْمَ ٱلدِّينِ",
+    "arabic": "هَـٰذَا نُزُلُهُمْ يَوْمَ ٱلدِّينِ",
     "transliteration": "Haazaa nuzuluhum yawmad deen",
     "translations": {
       "en.sahih": "That is their accommodation on the Day of Recompense.",
@@ -954,7 +954,7 @@
   {
     "surah": 56,
     "ayah": 57,
-    "arabic": "نَحْنُ خَلَقْنَٰكُمْ فَلَوْلَا تُصَدِّقُونَ",
+    "arabic": "نَحْنُ خَلَقْنَـٰكُمْ فَلَوْلَا تُصَدِّقُونَ",
     "transliteration": "Nahnu khalaqnaakum falaw laa tusaddiqoon",
     "translations": {
       "en.sahih": "We have created you, so why do you not believe?",
@@ -988,7 +988,7 @@
   {
     "surah": 56,
     "ayah": 59,
-    "arabic": "ءَأَنتُمْ تَخْلُقُونَهُۥٓ أَمْ نَحْنُ ٱلْخَٰلِقُونَ",
+    "arabic": "ءَأَنتُمْ تَخْلُقُونَهُۥٓ أَمْ نَحْنُ ٱلْخَـٰلِقُونَ",
     "transliteration": "'A-antum takhluqoo nahooo am nahnul khaaliqoon",
     "translations": {
       "en.sahih": "Is it you who creates it, or are We the Creator?",
@@ -1022,7 +1022,7 @@
   {
     "surah": 56,
     "ayah": 61,
-    "arabic": "عَلَىٰٓ أَن نُّبَدِّلَ أَمْثَٰلَكُمْ وَنُنشِئَكُمْ فِى مَا لَا تَعْلَمُونَ",
+    "arabic": "عَلَىٰٓ أَن نُّبَدِّلَ أَمْثَـٰلَكُمْ وَنُنشِئَكُمْ فِى مَا لَا تَعْلَمُونَ",
     "transliteration": "'Alaaa an nubaddila amsaalakum wa nunshi'akum fee maa laa ta'lamoon",
     "translations": {
       "en.sahih": "In that We will change your likenesses and produce you in that [form] which you do not know.",
@@ -1090,7 +1090,7 @@
   {
     "surah": 56,
     "ayah": 65,
-    "arabic": "لَوْ نَشَآءُ لَجَعَلْنَٰهُ حُطَٰمًۭا فَظَلْتُمْ تَفَكَّهُونَ",
+    "arabic": "لَوْ نَشَآءُ لَجَعَلْنَـٰهُ حُطَـٰمًا فَظَلْتُمْ تَفَكَّهُونَ",
     "transliteration": "Law nashaaa'u laja'al naahu hutaaman fazaltum tafakkahoon",
     "translations": {
       "en.sahih": "If We willed, We could make it [dry] debris, and you would remain in wonder,",
@@ -1175,7 +1175,7 @@
   {
     "surah": 56,
     "ayah": 70,
-    "arabic": "لَوْ نَشَآءُ جَعَلْنَٰهُ أُجَاجًۭا فَلَوْلَا تَشْكُرُونَ",
+    "arabic": "لَوْ نَشَآءُ جَعَلْنَـٰهُ أُجَاجًا فَلَوْلَا تَشْكُرُونَ",
     "transliteration": "Law nashaaa'u ja'alnaahu ujaajan falaw laa tashkuroon",
     "translations": {
       "en.sahih": "If We willed, We could make it bitter, so why are you not grateful?",
@@ -1226,7 +1226,7 @@
   {
     "surah": 56,
     "ayah": 73,
-    "arabic": "نَحْنُ جَعَلْنَٰهَا تَذْكِرَةًۭ وَمَتَٰعًۭا لِّلْمُقْوِينَ",
+    "arabic": "نَحْنُ جَعَلْنَـٰهَا تَذْكِرَةً وَمَتَـٰعًا لِّلْمُقْوِينَ",
     "transliteration": "Nahnu ja'alnaahaa tazkira tanw wa mataa'al lilmuqween",
     "translations": {
       "en.sahih": "We have made it a reminder and provision for the travelers,",
@@ -1277,7 +1277,7 @@
   {
     "surah": 56,
     "ayah": 76,
-    "arabic": "وَإِنَّهُۥ لَقَسَمٌۭ لَّوْ تَعْلَمُونَ عَظِيمٌ",
+    "arabic": "وَإِنَّهُۥ لَقَسَمٌ لَّوْ تَعْلَمُونَ عَظِيمٌ",
     "transliteration": "Wa innahoo laqasamul lawta'lamoona'azeem",
     "translations": {
       "en.sahih": "And indeed, it is an oath - if you could know - [most] great.",
@@ -1294,7 +1294,7 @@
   {
     "surah": 56,
     "ayah": 77,
-    "arabic": "إِنَّهُۥ لَقُرْءَانٌۭ كَرِيمٌۭ",
+    "arabic": "إِنَّهُۥ لَقُرْءَانٌ كَرِيمٌ",
     "transliteration": "Innahoo la quraanun kareem",
     "translations": {
       "en.sahih": "Indeed, it is a noble Qur'an",
@@ -1311,7 +1311,7 @@
   {
     "surah": 56,
     "ayah": 78,
-    "arabic": "فِى كِتَٰبٍۢ مَّكْنُونٍۢ",
+    "arabic": "فِى كِتَـٰبٍ مَّكْنُونٍ",
     "transliteration": "Fee kitaabim maknoon",
     "translations": {
       "en.sahih": "In a Register well-protected;",
@@ -1345,7 +1345,7 @@
   {
     "surah": 56,
     "ayah": 80,
-    "arabic": "تَنزِيلٌۭ مِّن رَّبِّ ٱلْعَٰلَمِينَ",
+    "arabic": "تَنزِيلٌ مِّن رَّبِّ ٱلْعَـٰلَمِينَ",
     "transliteration": "Tanzeelum mir Rabbil'aalameen",
     "translations": {
       "en.sahih": "[It is] a revelation from the Lord of the worlds.",
@@ -1362,7 +1362,7 @@
   {
     "surah": 56,
     "ayah": 81,
-    "arabic": "أَفَبِهَٰذَا ٱلْحَدِيثِ أَنتُم مُّدْهِنُونَ",
+    "arabic": "أَفَبِهَـٰذَا ٱلْحَدِيثِ أَنتُم مُّدْهِنُونَ",
     "transliteration": "Afabihaazal hadeesi antum mudhinoon",
     "translations": {
       "en.sahih": "Then is it to this statement that you are indifferent",
@@ -1413,7 +1413,7 @@
   {
     "surah": 56,
     "ayah": 84,
-    "arabic": "وَأَنتُمْ حِينَئِذٍۢ تَنظُرُونَ",
+    "arabic": "وَأَنتُمْ حِينَئِذٍ تَنظُرُونَ",
     "transliteration": "Wa antum heena'izin tanzuroon",
     "translations": {
       "en.sahih": "And you are at that time looking on -",
@@ -1430,7 +1430,7 @@
   {
     "surah": 56,
     "ayah": 85,
-    "arabic": "وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنكُمْ وَلَٰكِن لَّا تُبْصِرُونَ",
+    "arabic": "وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنكُمْ وَلَـٰكِن لَّا تُبْصِرُونَ",
     "transliteration": "Wa nahnu aqrabu ilaihi minkum wa laakil laa tubsiroon",
     "translations": {
       "en.sahih": "And Our angels are nearer to him than you, but you do not see -",
@@ -1464,7 +1464,7 @@
   {
     "surah": 56,
     "ayah": 87,
-    "arabic": "تَرْجِعُونَهَآ إِن كُنتُمْ صَٰدِقِينَ",
+    "arabic": "تَرْجِعُونَهَآ إِن كُنتُمْ صَـٰدِقِينَ",
     "transliteration": "Tarji'oonahaaa in kuntum saadiqeen",
     "translations": {
       "en.sahih": "Bring it back, if you should be truthful?",
@@ -1498,7 +1498,7 @@
   {
     "surah": 56,
     "ayah": 89,
-    "arabic": "فَرَوْحٌۭ وَرَيْحَانٌۭ وَجَنَّتُ نَعِيمٍۢ",
+    "arabic": "فَرَوْحٌ وَرَيْحَانٌ وَجَنَّتُ نَعِيمٍ",
     "transliteration": "Farawhunw wa raihaa nunw wa jannatu na'eem",
     "translations": {
       "en.sahih": "Then [for him is] rest and bounty and a garden of pleasure.",
@@ -1515,7 +1515,7 @@
   {
     "surah": 56,
     "ayah": 90,
-    "arabic": "وَأَمَّآ إِن كَانَ مِنْ أَصْحَٰبِ ٱلْيَمِينِ",
+    "arabic": "وَأَمَّآ إِن كَانَ مِنْ أَصْحَـٰبِ ٱلْيَمِينِ",
     "transliteration": "Wa ammaaa in kaana min as haabil yameen",
     "translations": {
       "en.sahih": "And if he was of the companions of the right,",
@@ -1532,7 +1532,7 @@
   {
     "surah": 56,
     "ayah": 91,
-    "arabic": "فَسَلَٰمٌۭ لَّكَ مِنْ أَصْحَٰبِ ٱلْيَمِينِ",
+    "arabic": "فَسَلَـٰمٌ لَّكَ مِنْ أَصْحَـٰبِ ٱلْيَمِينِ",
     "transliteration": "Fasalaamul laka min as haabil yameen",
     "translations": {
       "en.sahih": "Then [the angels will say], \"Peace for you; [you are] from the companions of the right.\"",
@@ -1566,7 +1566,7 @@
   {
     "surah": 56,
     "ayah": 93,
-    "arabic": "فَنُزُلٌۭ مِّنْ حَمِيمٍۢ",
+    "arabic": "فَنُزُلٌ مِّنْ حَمِيمٍ",
     "transliteration": "Fanuzulum min hameem",
     "translations": {
       "en.sahih": "Then [for him is] accommodation of scalding water",
@@ -1600,7 +1600,7 @@
   {
     "surah": 56,
     "ayah": 95,
-    "arabic": "إِنَّ هَٰذَا لَهُوَ حَقُّ ٱلْيَقِينِ",
+    "arabic": "إِنَّ هَـٰذَا لَهُوَ حَقُّ ٱلْيَقِينِ",
     "transliteration": "Inna haaza lahuwa haqqul yaqeen",
     "translations": {
       "en.sahih": "Indeed, this is the true certainty,",

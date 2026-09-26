@@ -2,7 +2,7 @@
   {
     "surah": 1,
     "ayah": 1,
-    "arabic": "﻿بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
     "transliteration": "Bismillaahir Rahmaanir Raheem",
     "translations": {
       "en.sahih": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
@@ -19,7 +19,7 @@
   {
     "surah": 1,
     "ayah": 2,
-    "arabic": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+    "arabic": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ",
     "transliteration": "Alhamdu lillaahi Rabbil 'aalameen",
     "translations": {
       "en.sahih": "[All] praise is [due] to Allah, Lord of the worlds -",
@@ -36,7 +36,7 @@
   {
     "surah": 1,
     "ayah": 3,
-    "arabic": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+    "arabic": "ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
     "transliteration": "Ar-Rahmaanir-Raheem",
     "translations": {
       "en.sahih": "The Entirely Merciful, the Especially Merciful,",
@@ -53,7 +53,7 @@
   {
     "surah": 1,
     "ayah": 4,
-    "arabic": "مَٰلِكِ يَوْمِ ٱلدِّينِ",
+    "arabic": "مَـٰلِكِ يَوْمِ ٱلدِّينِ",
     "transliteration": "Maaliki Yawmid-Deen",
     "translations": {
       "en.sahih": "Sovereign of the Day of Recompense.",

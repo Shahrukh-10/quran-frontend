@@ -46,10 +46,10 @@ test.describe("routing smoke", () => {
 
   test("word-by-word ?script=indopak swaps Arabic script", async ({ page }) => {
     await page.goto("/quran/word-by-word/al-fatihah");
-    const uthmani = await page.locator("button.wbw-word").first().innerText();
+    const uthmani = await page.locator("button.wbw-token .wbw-token__ar").first().innerText();
 
     await page.goto("/quran/word-by-word/al-fatihah?script=indopak");
-    const indopak = await page.locator("button.wbw-word").first().innerText();
+    const indopak = await page.locator("button.wbw-token .wbw-token__ar").first().innerText();
 
     // Both are visually similar bismi but different codepoints (fatha vs sukun).
     expect(uthmani).not.toBe(indopak);

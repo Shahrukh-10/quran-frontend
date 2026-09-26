@@ -47,7 +47,7 @@ export function HadithVirtualList({
                 <p
                   lang="ar"
                   dir="rtl"
-                  className="mt-3 font-quran text-2xl leading-[2] text-right"
+                  className="mt-3 font-quran text-4xl leading-[2] text-right"
                 >
                   {h.arabic}
                 </p>

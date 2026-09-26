@@ -1,6 +1,7 @@
+import { GlobalSearch } from "@/components/global-search/global-search";
+import { FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
-import { FaqSchema } from "@/components/seo/structured-data";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import "./_home-hig.css";
@@ -319,6 +320,11 @@ export default async function HomePage({ params }: PageProps) {
             <Link className="btn btn--secondary" href="/duas" prefetch={false}>
               {t("ctaSecondary")}
             </Link>
+            {/* Global search — liquid glass icon; opens a full-page palette
+                with fuzzy search across surahs, duas, hadith, 99 names, and
+                every static page. Placed to the right of the "Find a dua" CTA
+                per product spec. */}
+            <GlobalSearch label="Search" />
           </div>
         </div>
       </section>

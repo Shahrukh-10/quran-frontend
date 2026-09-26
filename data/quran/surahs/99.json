@@ -2,7 +2,7 @@
   {
     "surah": 99,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا",
+    "arabic": " إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا",
     "transliteration": "Izaa zul zilatil ardu zil zaalaha",
     "translations": {
       "en.sahih": "When the earth is shaken with its [final] earthquake",
@@ -36,7 +36,7 @@
   {
     "surah": 99,
     "ayah": 3,
-    "arabic": "وَقَالَ ٱلْإِنسَٰنُ مَا لَهَا",
+    "arabic": "وَقَالَ ٱلْإِنسَـٰنُ مَا لَهَا",
     "transliteration": "Wa qaalal insaanu ma laha",
     "translations": {
       "en.sahih": "And man says, \"What is [wrong] with it?\" -",
@@ -53,7 +53,7 @@
   {
     "surah": 99,
     "ayah": 4,
-    "arabic": "يَوْمَئِذٍۢ تُحَدِّثُ أَخْبَارَهَا",
+    "arabic": "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا",
     "transliteration": "Yawmaa izin tuhad dithu akhbaaraha",
     "translations": {
       "en.sahih": "That Day, it will report its news",
@@ -87,7 +87,7 @@
   {
     "surah": 99,
     "ayah": 6,
-    "arabic": "يَوْمَئِذٍۢ يَصْدُرُ ٱلنَّاسُ أَشْتَاتًۭا لِّيُرَوْا۟ أَعْمَٰلَهُمْ",
+    "arabic": "يَوْمَئِذٍ يَصْدُرُ ٱلنَّاسُ أَشْتَاتًا لِّيُرَوْا۟ أَعْمَـٰلَهُمْ",
     "transliteration": "Yawma iziy yas durun naasu ash tatal liyuraw a'maalahum",
     "translations": {
       "en.sahih": "That Day, the people will depart separated [into categories] to be shown [the result of] their deeds.",
@@ -104,7 +104,7 @@
   {
     "surah": 99,
     "ayah": 7,
-    "arabic": "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًۭا يَرَهُۥ",
+    "arabic": "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۥ",
     "transliteration": "Famaiy ya'mal mithqala zarratin khai raiy-yarah",
     "translations": {
       "en.sahih": "So whoever does an atom's weight of good will see it,",
@@ -121,7 +121,7 @@
   {
     "surah": 99,
     "ayah": 8,
-    "arabic": "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍۢ شَرًّۭا يَرَهُۥ",
+    "arabic": "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُۥ",
     "transliteration": "Wa maiy-y'amal mithqala zarratin sharraiy-yarah",
     "translations": {
       "en.sahih": "And whoever does an atom's weight of evil will see it.",

@@ -2,7 +2,7 @@
   {
     "surah": 82,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ إِذَا ٱلسَّمَآءُ ٱنفَطَرَتْ",
+    "arabic": " إِذَا ٱلسَّمَآءُ ٱنفَطَرَتْ",
     "transliteration": "Izas samaaa'un fatarat",
     "translations": {
       "en.sahih": "When the sky breaks apart",
@@ -70,7 +70,7 @@
   {
     "surah": 82,
     "ayah": 5,
-    "arabic": "عَلِمَتْ نَفْسٌۭ مَّا قَدَّمَتْ وَأَخَّرَتْ",
+    "arabic": "عَلِمَتْ نَفْسٌ مَّا قَدَّمَتْ وَأَخَّرَتْ",
     "transliteration": "'Alimat nafsum maa qaddamat wa akhkharat",
     "translations": {
       "en.sahih": "A soul will [then] know what it has put forth and kept back.",
@@ -87,7 +87,7 @@
   {
     "surah": 82,
     "ayah": 6,
-    "arabic": "يَٰٓأَيُّهَا ٱلْإِنسَٰنُ مَا غَرَّكَ بِرَبِّكَ ٱلْكَرِيمِ",
+    "arabic": "يَـٰٓأَيُّهَا ٱلْإِنسَـٰنُ مَا غَرَّكَ بِرَبِّكَ ٱلْكَرِيمِ",
     "transliteration": "Yaaa ayyuhal insaaanu maa gharraka bi Rabbikal kareem",
     "translations": {
       "en.sahih": "O mankind, what has deceived you concerning your Lord, the Generous,",
@@ -121,7 +121,7 @@
   {
     "surah": 82,
     "ayah": 8,
-    "arabic": "فِىٓ أَىِّ صُورَةٍۢ مَّا شَآءَ رَكَّبَكَ",
+    "arabic": "فِىٓ أَىِّ صُورَةٍ مَّا شَآءَ رَكَّبَكَ",
     "transliteration": "Feee ayye sooratim maa shaaa'a rakkabak",
     "translations": {
       "en.sahih": "In whatever form He willed has He assembled you.",
@@ -155,7 +155,7 @@
   {
     "surah": 82,
     "ayah": 10,
-    "arabic": "وَإِنَّ عَلَيْكُمْ لَحَٰفِظِينَ",
+    "arabic": "وَإِنَّ عَلَيْكُمْ لَحَـٰفِظِينَ",
     "transliteration": "Wa inna 'alaikum lahaa fizeen",
     "translations": {
       "en.sahih": "And indeed, [appointed] over you are keepers,",
@@ -172,7 +172,7 @@
   {
     "surah": 82,
     "ayah": 11,
-    "arabic": "كِرَامًۭا كَٰتِبِينَ",
+    "arabic": "كِرَامًا كَـٰتِبِينَ",
     "transliteration": "Kiraaman kaatibeen",
     "translations": {
       "en.sahih": "Noble and recording;",
@@ -206,7 +206,7 @@
   {
     "surah": 82,
     "ayah": 13,
-    "arabic": "إِنَّ ٱلْأَبْرَارَ لَفِى نَعِيمٍۢ",
+    "arabic": "إِنَّ ٱلْأَبْرَارَ لَفِى نَعِيمٍ",
     "transliteration": "Innal abraara lafee na'eem",
     "translations": {
       "en.sahih": "Indeed, the righteous will be in pleasure,",
@@ -223,7 +223,7 @@
   {
     "surah": 82,
     "ayah": 14,
-    "arabic": "وَإِنَّ ٱلْفُجَّارَ لَفِى جَحِيمٍۢ",
+    "arabic": "وَإِنَّ ٱلْفُجَّارَ لَفِى جَحِيمٍ",
     "transliteration": "Wa innal fujjaara lafee jaheem",
     "translations": {
       "en.sahih": "And indeed, the wicked will be in Hellfire.",
@@ -308,7 +308,7 @@
   {
     "surah": 82,
     "ayah": 19,
-    "arabic": "يَوْمَ لَا تَمْلِكُ نَفْسٌۭ لِّنَفْسٍۢ شَيْـًۭٔا ۖ وَٱلْأَمْرُ يَوْمَئِذٍۢ لِّلَّهِ",
+    "arabic": "يَوْمَ لَا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْـًٔا ۖ وَٱلْأَمْرُ يَوْمَئِذٍ لِّلَّهِ",
     "transliteration": "Yawma laa tamliku nafsul linafsin shai'anw walamru yawma'izil lillaah",
     "translations": {
       "en.sahih": "It is the Day when a soul will not possess for another soul [power to do] a thing; and the command, that Day, is [entirely] with Allah.",

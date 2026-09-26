@@ -2,7 +2,7 @@
   {
     "surah": 55,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ٱلرَّحْمَٰنُ",
+    "arabic": " ٱلرَّحْمَـٰنُ",
     "transliteration": "Ar Rahmaan",
     "translations": {
       "en.sahih": "The Most Merciful",
@@ -36,7 +36,7 @@
   {
     "surah": 55,
     "ayah": 3,
-    "arabic": "خَلَقَ ٱلْإِنسَٰنَ",
+    "arabic": "خَلَقَ ٱلْإِنسَـٰنَ",
     "transliteration": "Khalaqal insaan",
     "translations": {
       "en.sahih": "Created man,",
@@ -70,7 +70,7 @@
   {
     "surah": 55,
     "ayah": 5,
-    "arabic": "ٱلشَّمْسُ وَٱلْقَمَرُ بِحُسْبَانٍۢ",
+    "arabic": "ٱلشَّمْسُ وَٱلْقَمَرُ بِحُسْبَانٍ",
     "transliteration": "Ashshamsu walqamaru bihusbaan",
     "translations": {
       "en.sahih": "The sun and the moon [move] by precise calculation,",
@@ -172,7 +172,7 @@
   {
     "surah": 55,
     "ayah": 11,
-    "arabic": "فِيهَا فَٰكِهَةٌۭ وَٱلنَّخْلُ ذَاتُ ٱلْأَكْمَامِ",
+    "arabic": "فِيهَا فَـٰكِهَةٌ وَٱلنَّخْلُ ذَاتُ ٱلْأَكْمَامِ",
     "transliteration": "Feehaa faakihatunw wan nakhlu zaatul akmaam",
     "translations": {
       "en.sahih": "Therein is fruit and palm trees having sheaths [of dates]",
@@ -223,7 +223,7 @@
   {
     "surah": 55,
     "ayah": 14,
-    "arabic": "خَلَقَ ٱلْإِنسَٰنَ مِن صَلْصَٰلٍۢ كَٱلْفَخَّارِ",
+    "arabic": "خَلَقَ ٱلْإِنسَـٰنَ مِن صَلْصَـٰلٍ كَٱلْفَخَّارِ",
     "transliteration": "Khalaqal insaana min salsaalin kalfakhkhaari",
     "translations": {
       "en.sahih": "He created man from clay like [that of] pottery.",
@@ -240,7 +240,7 @@
   {
     "surah": 55,
     "ayah": 15,
-    "arabic": "وَخَلَقَ ٱلْجَآنَّ مِن مَّارِجٍۢ مِّن نَّارٍۢ",
+    "arabic": "وَخَلَقَ ٱلْجَآنَّ مِن مَّارِجٍ مِّن نَّارٍ",
     "transliteration": "Wa khalaqal jaaan mim maarijim min naar",
     "translations": {
       "en.sahih": "And He created the jinn from a smokeless flame of fire.",
@@ -325,7 +325,7 @@
   {
     "surah": 55,
     "ayah": 20,
-    "arabic": "بَيْنَهُمَا بَرْزَخٌۭ لَّا يَبْغِيَانِ",
+    "arabic": "بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
     "transliteration": "Bainahumaa barzakhul laa yabghiyaan",
     "translations": {
       "en.sahih": "Between them is a barrier [so] neither of them transgresses.",
@@ -393,7 +393,7 @@
   {
     "surah": 55,
     "ayah": 24,
-    "arabic": "وَلَهُ ٱلْجَوَارِ ٱلْمُنشَـَٔاتُ فِى ٱلْبَحْرِ كَٱلْأَعْلَٰمِ",
+    "arabic": "وَلَهُ ٱلْجَوَارِ ٱلْمُنشَـَٔاتُ فِى ٱلْبَحْرِ كَٱلْأَعْلَـٰمِ",
     "transliteration": "Wa lahul jawaaril mun sha'aatu fil bahri kal a'laam",
     "translations": {
       "en.sahih": "And to Him belong the ships [with sails] elevated in the sea like mountains.",
@@ -427,7 +427,7 @@
   {
     "surah": 55,
     "ayah": 26,
-    "arabic": "كُلُّ مَنْ عَلَيْهَا فَانٍۢ",
+    "arabic": "كُلُّ مَنْ عَلَيْهَا فَانٍ",
     "transliteration": "Kullu man 'alaihaa faan",
     "translations": {
       "en.sahih": "Everyone upon the earth will perish,",
@@ -444,7 +444,7 @@
   {
     "surah": 55,
     "ayah": 27,
-    "arabic": "وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَٰلِ وَٱلْإِكْرَامِ",
+    "arabic": "وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ",
     "transliteration": "Wa yabqaa wajhu rabbika zul jalaali wal ikraam",
     "translations": {
       "en.sahih": "And there will remain the Face of your Lord, Owner of Majesty and Honor.",
@@ -478,7 +478,7 @@
   {
     "surah": 55,
     "ayah": 29,
-    "arabic": "يَسْـَٔلُهُۥ مَن فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۚ كُلَّ يَوْمٍ هُوَ فِى شَأْنٍۢ",
+    "arabic": "يَسْـَٔلُهُۥ مَن فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ كُلَّ يَوْمٍ هُوَ فِى شَأْنٍ",
     "transliteration": "Yas'aluhoo man fissamaawaati walard; kulla ywmin huwa fee shaan",
     "translations": {
       "en.sahih": "Whoever is within the heavens and earth asks Him; every day He is bringing about a matter.",
@@ -546,7 +546,7 @@
   {
     "surah": 55,
     "ayah": 33,
-    "arabic": "يَٰمَعْشَرَ ٱلْجِنِّ وَٱلْإِنسِ إِنِ ٱسْتَطَعْتُمْ أَن تَنفُذُوا۟ مِنْ أَقْطَارِ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ فَٱنفُذُوا۟ ۚ لَا تَنفُذُونَ إِلَّا بِسُلْطَٰنٍۢ",
+    "arabic": "يَـٰمَعْشَرَ ٱلْجِنِّ وَٱلْإِنسِ إِنِ ٱسْتَطَعْتُمْ أَن تَنفُذُوا۟ مِنْ أَقْطَارِ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ فَٱنفُذُوا۟ ۚ لَا تَنفُذُونَ إِلَّا بِسُلْطَـٰنٍ",
     "transliteration": "Yaa ma'sharal jinni wal insi inis tata'tum an tanfuzoo min aqtaaris samaawaati wal ardi fanfuzoo; laa tanfuzoona illaa bisultaan",
     "translations": {
       "en.sahih": "O company of jinn and mankind, if you are able to pass beyond the regions of the heavens and the earth, then pass. You will not pass except by authority [from Allah].",
@@ -580,7 +580,7 @@
   {
     "surah": 55,
     "ayah": 35,
-    "arabic": "يُرْسَلُ عَلَيْكُمَا شُوَاظٌۭ مِّن نَّارٍۢ وَنُحَاسٌۭ فَلَا تَنتَصِرَانِ",
+    "arabic": "يُرْسَلُ عَلَيْكُمَا شُوَاظٌ مِّن نَّارٍ وَنُحَاسٌ فَلَا تَنتَصِرَانِ",
     "transliteration": "Yursalu 'alaikumaa shuwaazum min naarifiw-wa nuhaasun falaa tantasiraan",
     "translations": {
       "en.sahih": "There will be sent upon you a flame of fire and smoke, and you will not defend yourselves.",
@@ -614,7 +614,7 @@
   {
     "surah": 55,
     "ayah": 37,
-    "arabic": "فَإِذَا ٱنشَقَّتِ ٱلسَّمَآءُ فَكَانَتْ وَرْدَةًۭ كَٱلدِّهَانِ",
+    "arabic": "فَإِذَا ٱنشَقَّتِ ٱلسَّمَآءُ فَكَانَتْ وَرْدَةً كَٱلدِّهَانِ",
     "transliteration": "Fa-izan shaqqatis samaaa'u fakaanat wardatan kaddihaan",
     "translations": {
       "en.sahih": "And when the heaven is split open and becomes rose-colored like oil -",
@@ -648,7 +648,7 @@
   {
     "surah": 55,
     "ayah": 39,
-    "arabic": "فَيَوْمَئِذٍۢ لَّا يُسْـَٔلُ عَن ذَنۢبِهِۦٓ إِنسٌۭ وَلَا جَآنٌّۭ",
+    "arabic": "فَيَوْمَئِذٍ لَّا يُسْـَٔلُ عَن ذَنۢبِهِۦٓ إِنسٌ وَلَا جَآنٌّ",
     "transliteration": "Fa-yawma'izil laa yus'alu 'an zambiheee insunw wa laa jaann",
     "translations": {
       "en.sahih": "Then on that Day none will be asked about his sin among men or jinn.",
@@ -682,7 +682,7 @@
   {
     "surah": 55,
     "ayah": 41,
-    "arabic": "يُعْرَفُ ٱلْمُجْرِمُونَ بِسِيمَٰهُمْ فَيُؤْخَذُ بِٱلنَّوَٰصِى وَٱلْأَقْدَامِ",
+    "arabic": "يُعْرَفُ ٱلْمُجْرِمُونَ بِسِيمَـٰهُمْ فَيُؤْخَذُ بِٱلنَّوَٰصِى وَٱلْأَقْدَامِ",
     "transliteration": "Yu'raful mujrimoona biseemaahum fa'yu'khazu binna waasi wal aqdaam",
     "translations": {
       "en.sahih": "The criminals will be known by their marks, and they will be seized by the forelocks and the feet.",
@@ -716,7 +716,7 @@
   {
     "surah": 55,
     "ayah": 43,
-    "arabic": "هَٰذِهِۦ جَهَنَّمُ ٱلَّتِى يُكَذِّبُ بِهَا ٱلْمُجْرِمُونَ",
+    "arabic": "هَـٰذِهِۦ جَهَنَّمُ ٱلَّتِى يُكَذِّبُ بِهَا ٱلْمُجْرِمُونَ",
     "transliteration": "Haazihee jahannamul latee yukazzibu bihal mujrimoon",
     "translations": {
       "en.sahih": "This is Hell, which the criminals deny.",
@@ -733,7 +733,7 @@
   {
     "surah": 55,
     "ayah": 44,
-    "arabic": "يَطُوفُونَ بَيْنَهَا وَبَيْنَ حَمِيمٍ ءَانٍۢ",
+    "arabic": "يَطُوفُونَ بَيْنَهَا وَبَيْنَ حَمِيمٍ ءَانٍ",
     "transliteration": "Yatoofoona bainahaa wa baina hameemim aan",
     "translations": {
       "en.sahih": "They will go around between it and scalding water, heated [to the utmost degree].",
@@ -801,7 +801,7 @@
   {
     "surah": 55,
     "ayah": 48,
-    "arabic": "ذَوَاتَآ أَفْنَانٍۢ",
+    "arabic": "ذَوَاتَآ أَفْنَانٍ",
     "transliteration": "Zawaataaa afnaan",
     "translations": {
       "en.sahih": "Having [spreading] branches.",
@@ -869,7 +869,7 @@
   {
     "surah": 55,
     "ayah": 52,
-    "arabic": "فِيهِمَا مِن كُلِّ فَٰكِهَةٍۢ زَوْجَانِ",
+    "arabic": "فِيهِمَا مِن كُلِّ فَـٰكِهَةٍ زَوْجَانِ",
     "transliteration": "Feehimaa min kulli faakihatin zawjaan",
     "translations": {
       "en.sahih": "In both of them are of every fruit, two kinds.",
@@ -903,7 +903,7 @@
   {
     "surah": 55,
     "ayah": 54,
-    "arabic": "مُتَّكِـِٔينَ عَلَىٰ فُرُشٍۭ بَطَآئِنُهَا مِنْ إِسْتَبْرَقٍۢ ۚ وَجَنَى ٱلْجَنَّتَيْنِ دَانٍۢ",
+    "arabic": "مُتَّكِـِٔينَ عَلَىٰ فُرُشٍۭ بَطَآئِنُهَا مِنْ إِسْتَبْرَقٍ ۚ وَجَنَى ٱلْجَنَّتَيْنِ دَانٍ",
     "transliteration": "Muttaki'eena 'alaa furushim bataaa'inuhaa min istabraq; wajanal jannataini daan",
     "translations": {
       "en.sahih": "[They are] reclining on beds whose linings are of silk brocade, and the fruit of the two gardens is hanging low.",
@@ -937,7 +937,7 @@
   {
     "surah": 55,
     "ayah": 56,
-    "arabic": "فِيهِنَّ قَٰصِرَٰتُ ٱلطَّرْفِ لَمْ يَطْمِثْهُنَّ إِنسٌۭ قَبْلَهُمْ وَلَا جَآنٌّۭ",
+    "arabic": "فِيهِنَّ قَـٰصِرَٰتُ ٱلطَّرْفِ لَمْ يَطْمِثْهُنَّ إِنسٌ قَبْلَهُمْ وَلَا جَآنٌّ",
     "transliteration": "Feehinna qaasiratut tarfi lam yatmishunna insun qablahum wa laa jaaann",
     "translations": {
       "en.sahih": "In them are women limiting [their] glances, untouched before them by man or jinni -",
@@ -1005,7 +1005,7 @@
   {
     "surah": 55,
     "ayah": 60,
-    "arabic": "هَلْ جَزَآءُ ٱلْإِحْسَٰنِ إِلَّا ٱلْإِحْسَٰنُ",
+    "arabic": "هَلْ جَزَآءُ ٱلْإِحْسَـٰنِ إِلَّا ٱلْإِحْسَـٰنُ",
     "transliteration": "Hal jazaaa'ul ihsaani illal ihsaan",
     "translations": {
       "en.sahih": "Is the reward for good [anything] but good?",
@@ -1141,7 +1141,7 @@
   {
     "surah": 55,
     "ayah": 68,
-    "arabic": "فِيهِمَا فَٰكِهَةٌۭ وَنَخْلٌۭ وَرُمَّانٌۭ",
+    "arabic": "فِيهِمَا فَـٰكِهَةٌ وَنَخْلٌ وَرُمَّانٌ",
     "transliteration": "Feehimaa faakihatunw wa nakhlunw wa rummaan",
     "translations": {
       "en.sahih": "In both of them are fruit and palm trees and pomegranates.",
@@ -1175,7 +1175,7 @@
   {
     "surah": 55,
     "ayah": 70,
-    "arabic": "فِيهِنَّ خَيْرَٰتٌ حِسَانٌۭ",
+    "arabic": "فِيهِنَّ خَيْرَٰتٌ حِسَانٌ",
     "transliteration": "Feehinna khairaatun hisaan",
     "translations": {
       "en.sahih": "In them are good and beautiful women -",
@@ -1209,7 +1209,7 @@
   {
     "surah": 55,
     "ayah": 72,
-    "arabic": "حُورٌۭ مَّقْصُورَٰتٌۭ فِى ٱلْخِيَامِ",
+    "arabic": "حُورٌ مَّقْصُورَٰتٌ فِى ٱلْخِيَامِ",
     "transliteration": "Hoorum maqsooraatun fil khiyaam",
     "translations": {
       "en.sahih": "Fair ones reserved in pavilions -",
@@ -1243,7 +1243,7 @@
   {
     "surah": 55,
     "ayah": 74,
-    "arabic": "لَمْ يَطْمِثْهُنَّ إِنسٌۭ قَبْلَهُمْ وَلَا جَآنٌّۭ",
+    "arabic": "لَمْ يَطْمِثْهُنَّ إِنسٌ قَبْلَهُمْ وَلَا جَآنٌّ",
     "transliteration": "Lam yatmis hunna insun qablahum wa laa jaaann",
     "translations": {
       "en.sahih": "Untouched before them by man or jinni -",
@@ -1277,7 +1277,7 @@
   {
     "surah": 55,
     "ayah": 76,
-    "arabic": "مُتَّكِـِٔينَ عَلَىٰ رَفْرَفٍ خُضْرٍۢ وَعَبْقَرِىٍّ حِسَانٍۢ",
+    "arabic": "مُتَّكِـِٔينَ عَلَىٰ رَفْرَفٍ خُضْرٍ وَعَبْقَرِىٍّ حِسَانٍ",
     "transliteration": "Muttaki'eena 'alaa rafratin khudrinw wa 'abqariyyin hisaan",
     "translations": {
       "en.sahih": "Reclining on green cushions and beautiful fine carpets.",
@@ -1311,7 +1311,7 @@
   {
     "surah": 55,
     "ayah": 78,
-    "arabic": "تَبَٰرَكَ ٱسْمُ رَبِّكَ ذِى ٱلْجَلَٰلِ وَٱلْإِكْرَامِ",
+    "arabic": "تَبَـٰرَكَ ٱسْمُ رَبِّكَ ذِى ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ",
     "transliteration": "Tabaarakasmu Rabbika Zil-Jalaali wal-Ikraam",
     "translations": {
       "en.sahih": "Blessed is the name of your Lord, Owner of Majesty and Honor.",

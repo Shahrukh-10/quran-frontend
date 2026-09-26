@@ -69,14 +69,28 @@ export function isSeeded(n: number): boolean {
   return (SEEDED_SURAHS as readonly number[]).includes(n);
 }
 
-// Reciter registry (v1). URLs follow the EveryAyah / Al-Quran Cloud convention:
-// https://cdn.islamic.network/quran/audio/128/{reciter}/{globalAyah}.mp3
+// Reciter registry (v1). URLs follow the Al-Quran Cloud / islamic.network CDN
+// convention: https://cdn.islamic.network/quran/audio/{bitrate}/{reciter}/{globalAyah}.mp3
+//
+// Per-reciter bitrate: the CDN doesn't ship every reciter at 128 kbps. Abdul
+// Basit's 128 folder returns 403 while 192 works; Alafasy is 128 only; etc.
+// Verified 2026-09-26 via HEAD requests. If we ever want higher fidelity we
+// pick per-reciter here rather than a global constant.
 export const RECITERS = [
-  { id: "ar.alafasy", name: "Mishary Rashid Alafasy", short: "Alafasy" },
-  { id: "ar.abdulbasitmurattal", name: "Abdul Basit (Murattal)", short: "Abdul Basit" },
-  { id: "ar.husary", name: "Mahmoud Khalil Al-Husary", short: "Al-Husary" },
-  { id: "ar.minshawi", name: "Mohamed Siddiq Al-Minshawi", short: "Al-Minshawi" },
-  { id: "ar.sudais", name: "Abdurrahmaan As-Sudais", short: "As-Sudais" },
+  { id: "ar.alafasy", name: "Mishary Rashid Alafasy", short: "Alafasy", bitrate: 128 },
+  {
+    id: "ar.abdulbasitmurattal",
+    name: "Abdul Basit (Murattal)",
+    short: "Abdul Basit",
+    bitrate: 192,
+  },
+  { id: "ar.husary", name: "Mahmoud Khalil Al-Husary", short: "Al-Husary", bitrate: 128 },
+  { id: "ar.minshawi", name: "Mohamed Siddiq Al-Minshawi", short: "Al-Minshawi", bitrate: 128 },
+  // NOTE: ar.sudais is 403 on ALL bitrates on islamic.network as of 2026-09-26.
+  // Keeping the entry so bookmarks don't break, but the UI should mark it
+  // unavailable. TODO: switch to everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/
+  // or self-host if we want to keep offering Sudais.
+  { id: "ar.sudais", name: "Abdurrahmaan As-Sudais", short: "As-Sudais", bitrate: 192 },
 ] as const;
 
 export type ReciterId = (typeof RECITERS)[number]["id"];
@@ -92,9 +106,13 @@ export function globalAyahNumber(surah: number, ayah: number): number {
   return 0;
 }
 
+/** islamic.network audio CDN URL for a single ayah. Picks the reciter's
+ *  known-good bitrate (see RECITERS table). */
 export function audioUrl(reciter: ReciterId, surah: number, ayah: number): string {
   const g = globalAyahNumber(surah, ayah);
-  return `https://cdn.islamic.network/quran/audio/128/${reciter}/${g}.mp3`;
+  const meta = RECITERS.find((r) => r.id === reciter);
+  const bitrate = meta?.bitrate ?? 128;
+  return `https://cdn.islamic.network/quran/audio/${bitrate}/${reciter}/${g}.mp3`;
 }
 
 // Translations registry — Al-Quran Cloud edition IDs.

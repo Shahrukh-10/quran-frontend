@@ -4,6 +4,7 @@
 // Reads settings from lib/storage.ts and rerenders on the `iw:storage` custom event.
 
 import { Link } from "@/i18n/routing";
+import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
 import type { Ayah } from "@/lib/quran";
 import { type ReciterId, TRANSLATIONS, type TranslationId, audioUrl } from "@/lib/quran";
@@ -179,14 +180,18 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
     }
   }, [surahSlug, surahName, ayah, translation]);
 
+  // Mushaf-scale sizes — matches quran.com/recitequran.com scale.
+  // sm=36px, md=48px (default), lg=60px, xl=72px. Bumped up from the previous
+  // 24/30/36/48px because KFGQPC glyphs need real estate for the harakat to
+  // breathe (user feedback: "font size should be more large").
   const arabicSize =
     settings.fontSize === "sm"
-      ? "text-2xl"
+      ? "text-4xl" // 36px
       : settings.fontSize === "md"
-        ? "text-3xl"
+        ? "text-5xl" // 48px
         : settings.fontSize === "lg"
-          ? "text-4xl"
-          : "text-5xl";
+          ? "text-6xl" // 60px
+          : "text-7xl"; // 72px
   const bodyFont = settings.dyslexiaMode ? "font-mono" : "";
 
   const languageMode = settings.languageMode ?? "arabic-and-translation";
@@ -242,7 +247,7 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
 
       {showArabic && (
         <p lang="ar" dir="rtl" className={`mt-5 font-quran leading-[2.4] text-right ${arabicSize}`}>
-          {ayah.arabic}
+          {cleanArabicForDisplay(ayah.arabic)}
         </p>
       )}
 
@@ -268,7 +273,9 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
           {t("readTafsir")}
         </Link>
         <Link
-          href={`/quran/word-by-word/${surahSlug}#ayah-${ayah.ayah}` as "/quran/word-by-word/[surah]"}
+          href={
+            `/quran/word-by-word/${surahSlug}#ayah-${ayah.ayah}` as "/quran/word-by-word/[surah]"
+          }
           className="text-accent hover:underline focus-ring"
         >
           {t("wordByWord")}

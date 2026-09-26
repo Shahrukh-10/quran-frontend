@@ -77,7 +77,7 @@ export function AyahAdder({ juz, ayat }: Props) {
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-medium text-muted-foreground">{a.verseKey}</p>
                     <p
-                      className="mt-2 font-quran text-2xl leading-[1.9] text-right"
+                      className="mt-2 font-quran text-4xl leading-[1.9] text-right"
                       lang="ar"
                       dir="rtl"
                     >

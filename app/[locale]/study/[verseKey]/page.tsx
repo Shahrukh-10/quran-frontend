@@ -7,10 +7,11 @@ import { WordByWordAyah } from "@/components/quran/word-by-word-ayah";
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { cleanArabicForDisplay } from "@/lib/arabic-text";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getSurahByNumber, loadAyah } from "@/lib/quran";
 import { getAyahRef, getAyahRefByKey } from "@/lib/quran-index";
 import { siteUrl } from "@/lib/site";
-import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -242,7 +243,7 @@ export default async function StudyAyahPage({ params, searchParams }: SearchProp
           dir="rtl"
           lang="ar"
         >
-          {ayah.arabic}
+          {cleanArabicForDisplay(ayah.arabic)}
         </p>
         {ayah.transliteration ? (
           <p className="mt-3 text-sm italic text-muted-foreground">{ayah.transliteration}</p>

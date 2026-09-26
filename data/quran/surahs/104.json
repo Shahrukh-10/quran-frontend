@@ -2,7 +2,7 @@
   {
     "surah": 104,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَيْلٌۭ لِّكُلِّ هُمَزَةٍۢ لُّمَزَةٍ",
+    "arabic": " وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ",
     "transliteration": "Wai lul-li kulli hu mazatil-lumaza",
     "translations": {
       "en.sahih": "Woe to every scorner and mocker",
@@ -19,7 +19,7 @@
   {
     "surah": 104,
     "ayah": 2,
-    "arabic": "ٱلَّذِى جَمَعَ مَالًۭا وَعَدَّدَهُۥ",
+    "arabic": "ٱلَّذِى جَمَعَ مَالًا وَعَدَّدَهُۥ",
     "transliteration": "Al-lazi jama'a maalaw wa'addadah",
     "translations": {
       "en.sahih": "Who collects wealth and [continuously] counts it.",
@@ -121,7 +121,7 @@
   {
     "surah": 104,
     "ayah": 8,
-    "arabic": "إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌۭ",
+    "arabic": "إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌ",
     "transliteration": "Innaha 'alaihim moosada",
     "translations": {
       "en.sahih": "Indeed, Hellfire will be closed down upon them",
@@ -138,7 +138,7 @@
   {
     "surah": 104,
     "ayah": 9,
-    "arabic": "فِى عَمَدٍۢ مُّمَدَّدَةٍۭ",
+    "arabic": "فِى عَمَدٍ مُّمَدَّدَةٍۭ",
     "transliteration": "Fee 'amadim-mu mad dadah",
     "translations": {
       "en.sahih": "In extended columns.",

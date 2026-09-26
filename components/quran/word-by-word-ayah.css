@@ -1,4 +1,10 @@
-/* Word-by-word ayah renderer — companion CSS for word-by-word-ayah.tsx */
+/* Word-by-word ayah renderer — companion CSS for word-by-word-ayah.tsx.
+   Two layouts:
+     .wbw-ayah                    → compact / legacy (tap word to reveal tooltip)
+     .wbw-ayah.wbw-ayah--interlinear → recitequran.com-style: each word is a
+       vertical stack (Arabic on top, transliteration middle, English bottom)
+       and words wrap horizontally right-to-left in the container. Glosses
+       are ALWAYS visible — no hover required. */
 
 .wbw-ayah {
   display: flex;
@@ -6,144 +12,91 @@
   gap: 12px 10px;
   justify-content: flex-start;
   padding: 16px 4px;
-  font-family: var(--font-amiri-quran), "Amiri", serif;
+  font-family: var(--font-amiri-quran), "KFGQPC Uthmanic Hafs", "Amiri Quran", "Amiri", serif;
   line-height: 1;
   direction: rtl;
 }
 
-.wbw-word-wrap {
-  position: relative;
-  display: inline-block;
+/* --------- Interlinear (default) layout — recitequran.com style --------- */
+.wbw-ayah--interlinear {
+  gap: 16px 12px;
+  padding: 20px 6px;
+  align-items: flex-start;
 }
 
-.wbw-word {
-  padding: 8px 10px;
+.wbw-token {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 12px;
   background: transparent;
   color: hsl(var(--foreground));
-  font-family: inherit;
-  font-size: clamp(28px, 3.6vw, 40px);
   cursor: pointer;
-  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
-  direction: rtl;
-}
-.wbw-word:hover {
-  background: hsl(var(--accent) / 0.08);
-  border-color: hsl(var(--accent) / 0.25);
-  color: hsl(var(--accent));
-}
-.wbw-word--active {
-  background: hsl(var(--accent) / 0.14);
-  border-color: hsl(var(--accent) / 0.55);
-  color: hsl(var(--accent));
-  transform: translateY(-1px);
-}
-.wbw-word--end {
-  font-size: clamp(22px, 3vw, 32px);
-  opacity: 0.55;
-  cursor: default;
-}
-.wbw-word--end:hover {
-  background: transparent;
-  border-color: transparent;
-  color: hsl(var(--muted-foreground));
-  transform: none;
-}
-
-/* Tooltip anchored above the word */
-.wbw-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 200px;
-  max-width: 280px;
-  padding: 12px 14px;
-  background: hsl(var(--surface));
-  border: 1px solid hsl(var(--accent) / 0.35);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14), 0 0 0 4px hsl(var(--accent) / 0.08);
-  z-index: 20;
-  display: grid;
-  gap: 6px;
-  font-family: var(--font-inter), -apple-system, system-ui, sans-serif;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  min-width: 60px;
+  /* Each token block is LTR internally so translit/translation flow correctly.
+     The RTL parent handles right-to-left word ordering for us. */
   direction: ltr;
   text-align: center;
-  animation: wbw-pop 180ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.dark .wbw-tooltip {
-  background: hsl(var(--surface-elevated, var(--surface)));
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 0 4px hsl(var(--accent) / 0.14);
-}
-@keyframes wbw-pop {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(6px) scale(0.94);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
 }
 
-.wbw-tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: hsl(var(--surface));
+.wbw-token:hover {
+  background: hsl(var(--accent) / 0.06);
+  border-color: hsl(var(--accent) / 0.25);
 }
-.dark .wbw-tooltip::after {
-  border-top-color: hsl(var(--surface-elevated, var(--surface)));
+.wbw-token:active {
+  transform: scale(0.97);
+}
+.wbw-token--end {
+  cursor: default;
+  opacity: 0.55;
+}
+.wbw-token--end:hover {
+  background: transparent;
+  border-color: transparent;
 }
 
-.wbw-tooltip__ar {
-  font-family: var(--font-amiri-quran), "Amiri", serif;
-  font-size: 24px;
-  line-height: 1.4;
+.wbw-token__ar {
+  font-family: var(--font-amiri-quran), "KFGQPC Uthmanic Hafs", "Amiri Quran", "Amiri", serif;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1.6;
+  color: hsl(var(--foreground));
   direction: rtl;
+  /* Ligatures + Uthmani private-use codepoints */
+  font-feature-settings: "kern", "liga", "calt", "rlig";
+  letter-spacing: 0;
 }
-.wbw-tooltip__translit {
+
+.wbw-token__translit {
   font-size: 13px;
   font-style: italic;
   color: hsl(var(--muted-foreground));
   letter-spacing: 0.01em;
+  line-height: 1.3;
+  max-width: 14ch;
 }
-.wbw-tooltip__trans {
-  font-size: 15px;
+
+.wbw-token__trans {
+  font-size: 14px;
   font-weight: 500;
-  color: hsl(var(--foreground));
+  color: hsl(var(--foreground) / 0.85);
+  line-height: 1.35;
+  max-width: 16ch;
 }
-.wbw-tooltip__actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: 6px;
-  padding-top: 8px;
-  border-top: 1px dashed hsl(var(--separator));
+
+/* Compact layout (non-interlinear) — falls back to inline word row. */
+.wbw-ayah:not(.wbw-ayah--interlinear) .wbw-token {
+  flex-direction: row;
+  padding: 8px 10px;
+  min-width: 0;
 }
-.wbw-tooltip__btn {
-  font-size: 12px;
-  font-weight: 600;
-  color: hsl(var(--accent));
-  padding: 4px 10px;
-  border: 1px solid hsl(var(--accent) / 0.4);
-  border-radius: 999px;
-  background: hsl(var(--accent) / 0.06);
-  transition: background 180ms ease, transform 100ms ease;
+.wbw-ayah:not(.wbw-ayah--interlinear) .wbw-token__ar {
+  font-size: clamp(28px, 3.6vw, 40px);
 }
-.wbw-tooltip__btn:hover {
-  background: hsl(var(--accent) / 0.14);
-}
-.wbw-tooltip__btn:active {
-  transform: scale(0.96);
-}
-.wbw-tooltip__loc {
-  font-size: 11px;
-  color: hsl(var(--muted-foreground) / 0.7);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+.wbw-ayah:not(.wbw-ayah--interlinear) .wbw-token__translit,
+.wbw-ayah:not(.wbw-ayah--interlinear) .wbw-token__trans {
+  display: none;
 }

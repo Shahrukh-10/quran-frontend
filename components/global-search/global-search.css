@@ -1,0 +1,373 @@
+/* Global search — liquid-glass FAB + command palette
+
+   Style pattern (per user spec): the "glass-card" recipe —
+     background: rgba(255,255,255,0.05)
+     backdrop-filter: blur(19px)
+     border: 1px solid rgba(255,255,255,0.3)
+     layered inset shadows for a glass edge highlight
+     ::before top highlight strip + ::after left edge strip
+
+   Applied to BOTH the FAB (search trigger) and the panel so they feel
+   like the same physical "glass" object family. Dark mode dials the
+   whites down so edges don't scream. Respects prefers-reduced-motion. */
+
+/* ---- Trigger button (in the hero CTA row) ---- */
+.gs-fab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: hsl(var(--foreground));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(19px);
+  backdrop-filter: blur(19px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    background 220ms ease;
+  font: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+.gs-fab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  pointer-events: none;
+}
+.gs-fab:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.14);
+}
+.gs-fab:active {
+  transform: scale(0.97);
+}
+.gs-fab svg {
+  width: 18px;
+  height: 18px;
+  color: hsl(var(--accent));
+}
+.gs-fab__label {
+  display: inline-block;
+}
+.dark .gs-fab {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+@media (max-width: 480px) {
+  .gs-fab {
+    padding: 0 14px 0 12px;
+    height: 42px;
+  }
+}
+
+/* ---- Overlay ----
+   Minimal dim so the panel has focus; background stays sharp. The
+   "liquid glass" effect lives on the PANEL itself, not the overlay. */
+.gs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10vh 16px 16px;
+  animation: gs-fade 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes gs-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- Panel (the liquid glass card) ----
+   The panel IS the liquid-glass element (user spec: "earlier UI was good,
+   change back to that"). Semi-translucent white, backdrop-filter blur so
+   page content behind bleeds through as a soft wash, crisp white border,
+   layered inset shadows + ::before top highlight + ::after left-edge
+   highlight for the glass edge. */
+.gs-panel {
+  width: min(720px, 100%);
+  max-height: calc(100vh - 20vh - 16px);
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.22),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: gs-pop 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gs-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.gs-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
+  pointer-events: none;
+  z-index: 1;
+}
+.dark .gs-panel {
+  background: rgba(30, 30, 35, 0.55);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+.dark .gs-panel::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+.dark .gs-panel::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent, rgba(255, 255, 255, 0.08));
+}
+
+@keyframes gs-pop {
+  from {
+    opacity: 0;
+    /* Horizontal "liquid" expand — starts as a thin pill (matches the FAB
+       shape the user was clicking) and stretches out to full width. */
+    transform: translateY(-4px) scaleX(0.35) scaleY(0.7);
+    transform-origin: center top;
+  }
+  60% {
+    transform: translateY(0) scaleX(1.02) scaleY(1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+}
+
+/* ---- Input row ---- */
+.gs-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  position: relative;
+  z-index: 2;
+}
+.gs-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: hsl(var(--foreground));
+  font: inherit;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  outline: none;
+}
+.gs-input::placeholder {
+  color: hsl(var(--muted-foreground) / 0.85);
+}
+.gs-input-icon {
+  width: 20px;
+  height: 20px;
+  color: hsl(var(--muted-foreground));
+  flex-shrink: 0;
+}
+.gs-kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: hsl(var(--foreground));
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  line-height: 1;
+}
+
+/* ---- Results ---- */
+.gs-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0 8px;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 2;
+}
+.gs-empty {
+  padding: 32px 24px;
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+.gs-empty__title {
+  font-size: 15px;
+  color: hsl(var(--foreground));
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+.gs-empty__sub {
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+.gs-empty__hint {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground) / 0.85);
+  margin: 0;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gs-group {
+  padding: 6px 8px;
+}
+.gs-group__label {
+  padding: 6px 12px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.gs-group__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gs-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    transform 120ms ease;
+}
+.gs-item:hover,
+.gs-item--active {
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+.dark .gs-item:hover,
+.dark .gs-item--active {
+  background: rgba(255, 255, 255, 0.10);
+}
+.gs-item__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.gs-item__arabic {
+  font-family: var(--font-amiri-quran), "KFGQPC Uthmanic Hafs", serif;
+  font-size: 18px;
+  color: hsl(var(--foreground) / 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+  direction: rtl;
+}
+.gs-item__subtitle {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+}
+.gs-item__source {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: hsl(var(--muted-foreground) / 0.85);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---- Footer ---- */
+.gs-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 11.5px;
+  color: hsl(var(--muted-foreground));
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+  z-index: 2;
+}
+.gs-footer__hint {
+  text-align: right;
+}
+.gs-footer__link {
+  color: hsl(var(--accent));
+  text-decoration: none;
+}
+.gs-footer__link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Motion respect ---- */
+@media (prefers-reduced-motion: reduce) {
+  .gs-overlay,
+  .gs-panel {
+    animation: none;
+  }
+  .gs-fab,
+  .gs-item {
+    transition: none;
+  }
+}

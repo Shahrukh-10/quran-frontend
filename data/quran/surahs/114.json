@@ -2,7 +2,7 @@
   {
     "surah": 114,
     "ayah": 1,
-    "arabic": "قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
+    "arabic": " قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
     "transliteration": "Qul aʿūdhu birabbin-nās",
     "translations": {
       "en.sahih": "Say, 'I seek refuge in the Lord of mankind,",
@@ -11,12 +11,14 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3"
+    }
   },
   {
     "surah": 114,
     "ayah": 2,
-    "arabic": "مَلِكِ ٱلنَّاسِ",
+    "arabic": "مَلِكِ ٱلنَّاسِ",
     "transliteration": "Malikin-nās",
     "translations": {
       "en.sahih": "The Sovereign of mankind,",
@@ -25,12 +27,14 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6232.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6232.mp3"
+    }
   },
   {
     "surah": 114,
     "ayah": 3,
-    "arabic": "إِلَٰهِ ٱلنَّاسِ",
+    "arabic": "إِلَـٰهِ ٱلنَّاسِ",
     "transliteration": "Ilāhin-nās",
     "translations": {
       "en.sahih": "The God of mankind,",
@@ -39,12 +43,14 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6233.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6233.mp3"
+    }
   },
   {
     "surah": 114,
     "ayah": 4,
-    "arabic": "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ",
+    "arabic": "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ",
     "transliteration": "Min sharril-waswāsil-khannās",
     "translations": {
       "en.sahih": "From the evil of the retreating whisperer",
@@ -53,12 +59,14 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6234.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6234.mp3"
+    }
   },
   {
     "surah": 114,
     "ayah": 5,
-    "arabic": "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ",
+    "arabic": "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ",
     "transliteration": "Alladhī yuwaswisu fī ṣudūrin-nās",
     "translations": {
       "en.sahih": "Who whispers [evil] into the breasts of mankind —",
@@ -67,12 +75,14 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6235.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6235.mp3"
+    }
   },
   {
     "surah": 114,
     "ayah": 6,
-    "arabic": "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ",
+    "arabic": "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ",
     "transliteration": "Minal-jinnati wan-nās",
     "translations": {
       "en.sahih": "From among the jinn and mankind.'",
@@ -81,6 +91,8 @@
     "juz": 30,
     "page": 604,
     "hizb": 60,
-    "audio": { "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6236.mp3" }
+    "audio": {
+      "ar.alafasy": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6236.mp3"
+    }
   }
 ]

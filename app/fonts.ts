@@ -1,4 +1,5 @@
-import { Amiri, Amiri_Quran, Inter, Noto_Naskh_Arabic } from "next/font/google";
+import { Amiri, Inter, Noto_Naskh_Arabic } from "next/font/google";
+import localFont from "next/font/local";
 
 // Self-hosted via next/font — no third-party font CDN (privacy rule, docs/ARCHITECTURE.md §Privacy).
 export const inter = Inter({
@@ -23,12 +24,23 @@ export const amiri = Amiri({
   preload: false,
 });
 
-export const amiriQuran = Amiri_Quran({
-  subsets: ["arabic"],
-  weight: ["400"],
+// KFGQPC Uthmanic Hafs — the official King Fahd Complex mushaf font, used by
+// quran.com / recitequran.com / quran.foundation for authentic mushaf-quality
+// Quranic text rendering. Self-hosted from public/fonts/ (privacy rule — no
+// third-party font CDN). This is the ONLY font that pairs correctly with the
+// text_uthmani encoding used in our verse JSON (private-use codepoints for
+// Uthmani-specific ligatures + generous harakat spacing).
+//
+// Source: https://quran.com/fonts/quran/hafs/uthmanic_hafs/UthmanicHafs1Ver18.woff2
+// Original: King Fahd Complex for the Printing of the Holy Quran — freely
+// distributed for non-commercial Quranic typography.
+export const amiriQuran = localFont({
+  src: "../public/fonts/KFGQPC_Uthmanic_Hafs.woff2",
   variable: "--font-amiri-quran",
   display: "swap",
   preload: false,
+  weight: "400",
+  style: "normal",
 });
 
 export const notoArabic = Noto_Naskh_Arabic({

@@ -2,7 +2,7 @@
   {
     "surah": 74,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ يَٰٓأَيُّهَا ٱلْمُدَّثِّرُ",
+    "arabic": " يَـٰٓأَيُّهَا ٱلْمُدَّثِّرُ",
     "transliteration": "Yaaa ayyuhal muddassir",
     "translations": {
       "en.sahih": "O you who covers himself [with a garment],",
@@ -138,7 +138,7 @@
   {
     "surah": 74,
     "ayah": 9,
-    "arabic": "فَذَٰلِكَ يَوْمَئِذٍۢ يَوْمٌ عَسِيرٌ",
+    "arabic": "فَذَٰلِكَ يَوْمَئِذٍ يَوْمٌ عَسِيرٌ",
     "transliteration": "Fazaalika yawma 'iziny yawmun 'aseer",
     "translations": {
       "en.sahih": "That Day will be a difficult day",
@@ -155,7 +155,7 @@
   {
     "surah": 74,
     "ayah": 10,
-    "arabic": "عَلَى ٱلْكَٰفِرِينَ غَيْرُ يَسِيرٍۢ",
+    "arabic": "عَلَى ٱلْكَـٰفِرِينَ غَيْرُ يَسِيرٍ",
     "transliteration": "'Alal kaafireena ghayru yaseer",
     "translations": {
       "en.sahih": "For the disbelievers - not easy.",
@@ -172,7 +172,7 @@
   {
     "surah": 74,
     "ayah": 11,
-    "arabic": "ذَرْنِى وَمَنْ خَلَقْتُ وَحِيدًۭا",
+    "arabic": "ذَرْنِى وَمَنْ خَلَقْتُ وَحِيدًا",
     "transliteration": "Zamee wa man khalaqtu waheedaa",
     "translations": {
       "en.sahih": "Leave Me with the one I created alone",
@@ -189,7 +189,7 @@
   {
     "surah": 74,
     "ayah": 12,
-    "arabic": "وَجَعَلْتُ لَهُۥ مَالًۭا مَّمْدُودًۭا",
+    "arabic": "وَجَعَلْتُ لَهُۥ مَالًا مَّمْدُودًا",
     "transliteration": "Wa ja'altu lahoo maalam mamdoodaa",
     "translations": {
       "en.sahih": "And to whom I granted extensive wealth",
@@ -206,7 +206,7 @@
   {
     "surah": 74,
     "ayah": 13,
-    "arabic": "وَبَنِينَ شُهُودًۭا",
+    "arabic": "وَبَنِينَ شُهُودًا",
     "transliteration": "Wa baneena shuhoodaa",
     "translations": {
       "en.sahih": "And children present [with him]",
@@ -223,7 +223,7 @@
   {
     "surah": 74,
     "ayah": 14,
-    "arabic": "وَمَهَّدتُّ لَهُۥ تَمْهِيدًۭا",
+    "arabic": "وَمَهَّدتُّ لَهُۥ تَمْهِيدًا",
     "transliteration": "Wa mahhattu lahoo tamheeda",
     "translations": {
       "en.sahih": "And spread [everything] before him, easing [his life].",
@@ -257,7 +257,7 @@
   {
     "surah": 74,
     "ayah": 16,
-    "arabic": "كَلَّآ ۖ إِنَّهُۥ كَانَ لِءَايَٰتِنَا عَنِيدًۭا",
+    "arabic": "كَلَّآ ۖ إِنَّهُۥ كَانَ لِـَٔايَـٰتِنَا عَنِيدًا",
     "transliteration": "Kallaaa innahoo kaana li Aayaatinaa 'aneedaa",
     "translations": {
       "en.sahih": "No! Indeed, he has been toward Our verses obstinate.",
@@ -393,7 +393,7 @@
   {
     "surah": 74,
     "ayah": 24,
-    "arabic": "فَقَالَ إِنْ هَٰذَآ إِلَّا سِحْرٌۭ يُؤْثَرُ",
+    "arabic": "فَقَالَ إِنْ هَـٰذَآ إِلَّا سِحْرٌ يُؤْثَرُ",
     "transliteration": "Faqaala in haazaaa illaa sihruny yu'sar",
     "translations": {
       "en.sahih": "And said, \"This is not but magic imitated [from others].",
@@ -410,7 +410,7 @@
   {
     "surah": 74,
     "ayah": 25,
-    "arabic": "إِنْ هَٰذَآ إِلَّا قَوْلُ ٱلْبَشَرِ",
+    "arabic": "إِنْ هَـٰذَآ إِلَّا قَوْلُ ٱلْبَشَرِ",
     "transliteration": "In haazaaa illaa qawlul bashar",
     "translations": {
       "en.sahih": "This is not but the word of a human being.\"",
@@ -478,7 +478,7 @@
   {
     "surah": 74,
     "ayah": 29,
-    "arabic": "لَوَّاحَةٌۭ لِّلْبَشَرِ",
+    "arabic": "لَوَّاحَةٌ لِّلْبَشَرِ",
     "transliteration": "Lawwaahatul lilbashar",
     "translations": {
       "en.sahih": "Blackening the skins.",
@@ -512,7 +512,7 @@
   {
     "surah": 74,
     "ayah": 31,
-    "arabic": "وَمَا جَعَلْنَآ أَصْحَٰبَ ٱلنَّارِ إِلَّا مَلَٰٓئِكَةًۭ ۙ وَمَا جَعَلْنَا عِدَّتَهُمْ إِلَّا فِتْنَةًۭ لِّلَّذِينَ كَفَرُوا۟ لِيَسْتَيْقِنَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ وَيَزْدَادَ ٱلَّذِينَ ءَامَنُوٓا۟ إِيمَٰنًۭا ۙ وَلَا يَرْتَابَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ وَٱلْمُؤْمِنُونَ ۙ وَلِيَقُولَ ٱلَّذِينَ فِى قُلُوبِهِم مَّرَضٌۭ وَٱلْكَٰفِرُونَ مَاذَآ أَرَادَ ٱللَّهُ بِهَٰذَا مَثَلًۭا ۚ كَذَٰلِكَ يُضِلُّ ٱللَّهُ مَن يَشَآءُ وَيَهْدِى مَن يَشَآءُ ۚ وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ ۚ وَمَا هِىَ إِلَّا ذِكْرَىٰ لِلْبَشَرِ",
+    "arabic": "وَمَا جَعَلْنَآ أَصْحَـٰبَ ٱلنَّارِ إِلَّا مَلَـٰٓئِكَةً ۙ وَمَا جَعَلْنَا عِدَّتَهُمْ إِلَّا فِتْنَةً لِّلَّذِينَ كَفَرُوا۟ لِيَسْتَيْقِنَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ وَيَزْدَادَ ٱلَّذِينَ ءَامَنُوٓا۟ إِيمَـٰنًا ۙ وَلَا يَرْتَابَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ وَٱلْمُؤْمِنُونَ ۙ وَلِيَقُولَ ٱلَّذِينَ فِى قُلُوبِهِم مَّرَضٌ وَٱلْكَـٰفِرُونَ مَاذَآ أَرَادَ ٱللَّهُ بِهَـٰذَا مَثَلًا ۚ كَذَٰلِكَ يُضِلُّ ٱللَّهُ مَن يَشَآءُ وَيَهْدِى مَن يَشَآءُ ۚ وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ ۚ وَمَا هِىَ إِلَّا ذِكْرَىٰ لِلْبَشَرِ",
     "transliteration": "Wa maaja''alnaaa As haaban naari illaa malaaa 'ikatanw wa maa ja'alnaa 'iddatahum illaa fitnatal lillazeena kafaroo liyastayqinal lazeena ootul kitaaba wa yazdaadal lazeena aamanooo eemaananw wa laa yartaabal lazeena ootul kitaaba walmu'minoona wa liyaqoolal lazeena fee quloo bihim maradunw walkaafiroona maazaaa araadal laahu bihaazaa masalaa; kazaalika yudillul laahu many yashaaa'u wa yahdee many yashaaa'; wa maa ya'lamu junooda rabbika illaa hoo; wa maa hiya illaa zikraa lil bashar",
     "translations": {
       "en.sahih": "And We have not made the keepers of the Fire except angels. And We have not made their number except as a trial for those who disbelieve - that those who were given the Scripture will be convinced and those who have believed will increase in faith and those who were given the Scripture and the believers will not doubt and that those in whose hearts is hypocrisy and the disbelievers will say, \"What does Allah intend by this as an example?\" Thus does Allah leave astray whom He wills and guides whom He wills. And none knows the soldiers of your Lord except Him. And mention of the Fire is not but a reminder to humanity.",
@@ -597,7 +597,7 @@
   {
     "surah": 74,
     "ayah": 36,
-    "arabic": "نَذِيرًۭا لِّلْبَشَرِ",
+    "arabic": "نَذِيرًا لِّلْبَشَرِ",
     "transliteration": "Nazeeral lilbashar",
     "translations": {
       "en.sahih": "As a warning to humanity -",
@@ -648,7 +648,7 @@
   {
     "surah": 74,
     "ayah": 39,
-    "arabic": "إِلَّآ أَصْحَٰبَ ٱلْيَمِينِ",
+    "arabic": "إِلَّآ أَصْحَـٰبَ ٱلْيَمِينِ",
     "transliteration": "Illaaa as haabal yameen",
     "translations": {
       "en.sahih": "Except the companions of the right,",
@@ -665,7 +665,7 @@
   {
     "surah": 74,
     "ayah": 40,
-    "arabic": "فِى جَنَّٰتٍۢ يَتَسَآءَلُونَ",
+    "arabic": "فِى جَنَّـٰتٍ يَتَسَآءَلُونَ",
     "transliteration": "Fee jannaatiny yata saaa'aloon",
     "translations": {
       "en.sahih": "[Who will be] in gardens, questioning each other",
@@ -801,7 +801,7 @@
   {
     "surah": 74,
     "ayah": 48,
-    "arabic": "فَمَا تَنفَعُهُمْ شَفَٰعَةُ ٱلشَّٰفِعِينَ",
+    "arabic": "فَمَا تَنفَعُهُمْ شَفَـٰعَةُ ٱلشَّـٰفِعِينَ",
     "transliteration": "Famaa tanfa'uhum shafaa'atush shaafi'een",
     "translations": {
       "en.sahih": "So there will not benefit them the intercession of [any] intercessors.",
@@ -835,7 +835,7 @@
   {
     "surah": 74,
     "ayah": 50,
-    "arabic": "كَأَنَّهُمْ حُمُرٌۭ مُّسْتَنفِرَةٌۭ",
+    "arabic": "كَأَنَّهُمْ حُمُرٌ مُّسْتَنفِرَةٌ",
     "transliteration": "Ka annahum humurum mustanfirah",
     "translations": {
       "en.sahih": "As if they were alarmed donkeys",
@@ -869,7 +869,7 @@
   {
     "surah": 74,
     "ayah": 52,
-    "arabic": "بَلْ يُرِيدُ كُلُّ ٱمْرِئٍۢ مِّنْهُمْ أَن يُؤْتَىٰ صُحُفًۭا مُّنَشَّرَةًۭ",
+    "arabic": "بَلْ يُرِيدُ كُلُّ ٱمْرِئٍ مِّنْهُمْ أَن يُؤْتَىٰ صُحُفًا مُّنَشَّرَةً",
     "transliteration": "Bal yureedu kullum ri'im minhum any yu'taa suhufam munashsharah",
     "translations": {
       "en.sahih": "Rather, every person among them desires that he would be given scriptures spread about.",
@@ -886,7 +886,7 @@
   {
     "surah": 74,
     "ayah": 53,
-    "arabic": "كَلَّا ۖ بَل لَّا يَخَافُونَ ٱلْءَاخِرَةَ",
+    "arabic": "كَلَّا ۖ بَل لَّا يَخَافُونَ ٱلْـَٔاخِرَةَ",
     "transliteration": "Kallaa bal laa yakhaafoonal aakhirah",
     "translations": {
       "en.sahih": "No! But they do not fear the Hereafter.",
@@ -903,7 +903,7 @@
   {
     "surah": 74,
     "ayah": 54,
-    "arabic": "كَلَّآ إِنَّهُۥ تَذْكِرَةٌۭ",
+    "arabic": "كَلَّآ إِنَّهُۥ تَذْكِرَةٌ",
     "transliteration": "Kallaaa innahoo tazkirah",
     "translations": {
       "en.sahih": "No! Indeed, the Qur'an is a reminder",

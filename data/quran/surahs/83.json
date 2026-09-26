@@ -2,7 +2,7 @@
   {
     "surah": 83,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَيْلٌۭ لِّلْمُطَفِّفِينَ",
+    "arabic": " وَيْلٌ لِّلْمُطَفِّفِينَ",
     "transliteration": "Wailul lil mutaffifeen",
     "translations": {
       "en.sahih": "Woe to those who give less [than due],",
@@ -53,7 +53,7 @@
   {
     "surah": 83,
     "ayah": 4,
-    "arabic": "أَلَا يَظُنُّ أُو۟لَٰٓئِكَ أَنَّهُم مَّبْعُوثُونَ",
+    "arabic": "أَلَا يَظُنُّ أُو۟لَـٰٓئِكَ أَنَّهُم مَّبْعُوثُونَ",
     "transliteration": "Alaa yazunnu ulaaa'ika annahum mab'oosoon",
     "translations": {
       "en.sahih": "Do they not think that they will be resurrected",
@@ -70,7 +70,7 @@
   {
     "surah": 83,
     "ayah": 5,
-    "arabic": "لِيَوْمٍ عَظِيمٍۢ",
+    "arabic": "لِيَوْمٍ عَظِيمٍ",
     "transliteration": "Li Yawmin 'Azeem",
     "translations": {
       "en.sahih": "For a tremendous Day -",
@@ -87,7 +87,7 @@
   {
     "surah": 83,
     "ayah": 6,
-    "arabic": "يَوْمَ يَقُومُ ٱلنَّاسُ لِرَبِّ ٱلْعَٰلَمِينَ",
+    "arabic": "يَوْمَ يَقُومُ ٱلنَّاسُ لِرَبِّ ٱلْعَـٰلَمِينَ",
     "transliteration": "Yawma yaqoomun naasu li Rabbil 'aalameen",
     "translations": {
       "en.sahih": "The Day when mankind will stand before the Lord of the worlds?",
@@ -104,7 +104,7 @@
   {
     "surah": 83,
     "ayah": 7,
-    "arabic": "كَلَّآ إِنَّ كِتَٰبَ ٱلْفُجَّارِ لَفِى سِجِّينٍۢ",
+    "arabic": "كَلَّآ إِنَّ كِتَـٰبَ ٱلْفُجَّارِ لَفِى سِجِّينٍ",
     "transliteration": "Kallaaa inna kitaabal fujjaari lafee Sijjeen",
     "translations": {
       "en.sahih": "No! Indeed, the record of the wicked is in sijjeen.",
@@ -121,7 +121,7 @@
   {
     "surah": 83,
     "ayah": 8,
-    "arabic": "وَمَآ أَدْرَىٰكَ مَا سِجِّينٌۭ",
+    "arabic": "وَمَآ أَدْرَىٰكَ مَا سِجِّينٌ",
     "transliteration": "Wa maa adraaka maa Sijjeen",
     "translations": {
       "en.sahih": "And what can make you know what is sijjeen?",
@@ -138,7 +138,7 @@
   {
     "surah": 83,
     "ayah": 9,
-    "arabic": "كِتَٰبٌۭ مَّرْقُومٌۭ",
+    "arabic": "كِتَـٰبٌ مَّرْقُومٌ",
     "transliteration": "Kitaabum marqoom",
     "translations": {
       "en.sahih": "It is [their destination recorded in] a register inscribed.",
@@ -155,7 +155,7 @@
   {
     "surah": 83,
     "ayah": 10,
-    "arabic": "وَيْلٌۭ يَوْمَئِذٍۢ لِّلْمُكَذِّبِينَ",
+    "arabic": "وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ",
     "transliteration": "Wailuny yawma'izil lil mukazzibeen",
     "translations": {
       "en.sahih": "Woe, that Day, to the deniers,",
@@ -206,7 +206,7 @@
   {
     "surah": 83,
     "ayah": 13,
-    "arabic": "إِذَا تُتْلَىٰ عَلَيْهِ ءَايَٰتُنَا قَالَ أَسَٰطِيرُ ٱلْأَوَّلِينَ",
+    "arabic": "إِذَا تُتْلَىٰ عَلَيْهِ ءَايَـٰتُنَا قَالَ أَسَـٰطِيرُ ٱلْأَوَّلِينَ",
     "transliteration": "Izaa tutlaa'alaihi aayaatunaa qaala asaateerul awwaleen",
     "translations": {
       "en.sahih": "When Our verses are recited to him, he says, \"Legends of the former peoples.\"",
@@ -240,7 +240,7 @@
   {
     "surah": 83,
     "ayah": 15,
-    "arabic": "كَلَّآ إِنَّهُمْ عَن رَّبِّهِمْ يَوْمَئِذٍۢ لَّمَحْجُوبُونَ",
+    "arabic": "كَلَّآ إِنَّهُمْ عَن رَّبِّهِمْ يَوْمَئِذٍ لَّمَحْجُوبُونَ",
     "transliteration": "Kallaaa innahum 'ar Rabbihim yawma'izil lamah jooboon",
     "translations": {
       "en.sahih": "No! Indeed, from their Lord, that Day, they will be partitioned.",
@@ -274,7 +274,7 @@
   {
     "surah": 83,
     "ayah": 17,
-    "arabic": "ثُمَّ يُقَالُ هَٰذَا ٱلَّذِى كُنتُم بِهِۦ تُكَذِّبُونَ",
+    "arabic": "ثُمَّ يُقَالُ هَـٰذَا ٱلَّذِى كُنتُم بِهِۦ تُكَذِّبُونَ",
     "transliteration": "Summa yuqaalu haazal lazee kuntum bihee tukazziboon",
     "translations": {
       "en.sahih": "Then it will be said [to them], \"This is what you used to deny.\"",
@@ -291,7 +291,7 @@
   {
     "surah": 83,
     "ayah": 18,
-    "arabic": "كَلَّآ إِنَّ كِتَٰبَ ٱلْأَبْرَارِ لَفِى عِلِّيِّينَ",
+    "arabic": "كَلَّآ إِنَّ كِتَـٰبَ ٱلْأَبْرَارِ لَفِى عِلِّيِّينَ",
     "transliteration": "Kallaaa inna kitaabal abraari lafee'Illiyyeen",
     "translations": {
       "en.sahih": "No! Indeed, the record of the righteous is in 'illiyyun.",
@@ -325,7 +325,7 @@
   {
     "surah": 83,
     "ayah": 20,
-    "arabic": "كِتَٰبٌۭ مَّرْقُومٌۭ",
+    "arabic": "كِتَـٰبٌ مَّرْقُومٌ",
     "transliteration": "Kitaabum marqoom",
     "translations": {
       "en.sahih": "It is [their destination recorded in] a register inscribed",
@@ -410,7 +410,7 @@
   {
     "surah": 83,
     "ayah": 25,
-    "arabic": "يُسْقَوْنَ مِن رَّحِيقٍۢ مَّخْتُومٍ",
+    "arabic": "يُسْقَوْنَ مِن رَّحِيقٍ مَّخْتُومٍ",
     "transliteration": "Yusqawna mir raheeqim makhtoom",
     "translations": {
       "en.sahih": "They will be given to drink [pure] wine [which was] sealed.",
@@ -427,7 +427,7 @@
   {
     "surah": 83,
     "ayah": 26,
-    "arabic": "خِتَٰمُهُۥ مِسْكٌۭ ۚ وَفِى ذَٰلِكَ فَلْيَتَنَافَسِ ٱلْمُتَنَٰفِسُونَ",
+    "arabic": "خِتَـٰمُهُۥ مِسْكٌ ۚ وَفِى ذَٰلِكَ فَلْيَتَنَافَسِ ٱلْمُتَنَـٰفِسُونَ",
     "transliteration": "Khitaamuhoo misk; wa fee zaalika falyatanaafasil Mutanaafisoon",
     "translations": {
       "en.sahih": "The last of it is musk. So for this let the competitors compete.",
@@ -461,7 +461,7 @@
   {
     "surah": 83,
     "ayah": 28,
-    "arabic": "عَيْنًۭا يَشْرَبُ بِهَا ٱلْمُقَرَّبُونَ",
+    "arabic": "عَيْنًا يَشْرَبُ بِهَا ٱلْمُقَرَّبُونَ",
     "transliteration": "'Ainaiy yashrabu bihal muqarraboon",
     "translations": {
       "en.sahih": "A spring from which those near [to Allah] drink.",
@@ -529,7 +529,7 @@
   {
     "surah": 83,
     "ayah": 32,
-    "arabic": "وَإِذَا رَأَوْهُمْ قَالُوٓا۟ إِنَّ هَٰٓؤُلَآءِ لَضَآلُّونَ",
+    "arabic": "وَإِذَا رَأَوْهُمْ قَالُوٓا۟ إِنَّ هَـٰٓؤُلَآءِ لَضَآلُّونَ",
     "transliteration": "Wa izaa ra awhum qaalooo inna haaa'ulaaa'i ladaaal loon",
     "translations": {
       "en.sahih": "And when they saw them, they would say, \"Indeed, those are truly lost.\"",
@@ -546,7 +546,7 @@
   {
     "surah": 83,
     "ayah": 33,
-    "arabic": "وَمَآ أُرْسِلُوا۟ عَلَيْهِمْ حَٰفِظِينَ",
+    "arabic": "وَمَآ أُرْسِلُوا۟ عَلَيْهِمْ حَـٰفِظِينَ",
     "transliteration": "Wa maaa ursiloo 'alaihim haafizeen",
     "translations": {
       "en.sahih": "But they had not been sent as guardians over them.",

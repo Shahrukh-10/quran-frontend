@@ -134,7 +134,7 @@ export function AdhkarList({ locale }: { locale: "en" | "id" }) {
               done ? "border-accent bg-accent-muted" : "border-separator bg-surface"
             }`}
           >
-            <p lang="ar" dir="rtl" className="font-quran text-2xl leading-[2.2] text-right">
+            <p lang="ar" dir="rtl" className="font-quran text-4xl leading-[2.2] text-right">
               {a.arabic}
             </p>
             <p className="mt-3 italic text-sm text-muted-foreground">{a.transliteration}</p>

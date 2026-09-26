@@ -2,7 +2,7 @@
   {
     "surah": 91,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلشَّمْسِ وَضُحَىٰهَا",
+    "arabic": " وَٱلشَّمْسِ وَضُحَىٰهَا",
     "transliteration": "Wash shamsi wa duhaa haa",
     "translations": {
       "en.sahih": "By the sun and its brightness",
@@ -104,7 +104,7 @@
   {
     "surah": 91,
     "ayah": 7,
-    "arabic": "وَنَفْسٍۢ وَمَا سَوَّىٰهَا",
+    "arabic": "وَنَفْسٍ وَمَا سَوَّىٰهَا",
     "transliteration": "Wa nafsinw wa maa sawwaahaa",
     "translations": {
       "en.sahih": "And [by] the soul and He who proportioned it",
@@ -206,7 +206,7 @@
   {
     "surah": 91,
     "ayah": 13,
-    "arabic": "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَٰهَا",
+    "arabic": "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَـٰهَا",
     "transliteration": "Faqaala lahum Rasoolul laahi naaqatal laahi wa suqiyaahaa",
     "translations": {
       "en.sahih": "And the messenger of Allah [Salih] said to them, \"[Do not harm] the she-camel of Allah or [prevent her from] her drink.\"",
@@ -240,7 +240,7 @@
   {
     "surah": 91,
     "ayah": 15,
-    "arabic": "وَلَا يَخَافُ عُقْبَٰهَا",
+    "arabic": "وَلَا يَخَافُ عُقْبَـٰهَا",
     "transliteration": "Wa laa yakhaafu'uqbaahaa",
     "translations": {
       "en.sahih": "And He does not fear the consequence thereof.",

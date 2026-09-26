@@ -2,7 +2,7 @@
   {
     "surah": 107,
     "ayah": 1,
-    "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ",
+    "arabic": " أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ",
     "transliteration": "Ara-aital lazee yu kazzibu bid deen",
     "translations": {
       "en.sahih": "Have you seen the one who denies the Recompense?",
@@ -53,7 +53,7 @@
   {
     "surah": 107,
     "ayah": 4,
-    "arabic": "فَوَيْلٌۭ لِّلْمُصَلِّينَ",
+    "arabic": "فَوَيْلٌ لِّلْمُصَلِّينَ",
     "transliteration": "Fa wai lul-lil mu salleen",
     "translations": {
       "en.sahih": "So woe to those who pray",

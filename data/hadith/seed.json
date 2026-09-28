@@ -1,225 +1,202 @@
 {
-  "_note": "Seed corpus of 20 well-known hadiths from the Six Books. Sourced from Sahih al-Bukhari, Sahih Muslim, and Sunan collections via fawazahmed0/hadith-api. Every entry is verified against classical sources. Full corpus available via `pnpm fetch:hadith`.",
+  "_note": "Curated seed of famous hadith for the search index. Each entry's book+number is looked up by searching for its Arabic matn in fawazahmed0/hadith-api (the same corpus the /hadith/{book}/{number} pages serve). The `arabic` field is the extracted matn only; the full hadith with isnad is at the destination URL.",
   "hadiths": [
     {
       "book": "bukhari",
       "number": 1,
-      "section": 1,
-      "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+      "arabic": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
       "translation": {
-        "en": "The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.",
-        "id": "Sesungguhnya setiap amal itu tergantung niatnya, dan sesungguhnya setiap orang akan mendapatkan sesuai apa yang ia niatkan. Barangsiapa yang hijrahnya karena Allah dan Rasul-Nya, maka hijrahnya untuk Allah dan Rasul-Nya. Dan barangsiapa yang hijrahnya karena dunia atau wanita yang akan dinikahinya, maka hijrahnya sesuai dengan tujuan hijrahnya."
+        "en": "Narrated 'Umar bin Al-Khattab: I heard Allah's Messenger (ﷺ) saying, \"The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for",
+        "id": "Telah menceritakan kepada kami [Al Humaidi Abdullah bin Az Zubair] dia berkata, Telah menceritakan kepada kami [Sufyan] yang berkata, bahwa Telah menceritakan kepada kami [Yahya bin Sa'id Al Anshari] berkata, telah mengabarkan kepada kami [Muhammad bin Ibrahim At Taimi], bahwa dia pernah mendengar [Alqamah bin Waqash Al Laitsi] berkata; saya pernah mendengar [Umar bin Al Khaththab] diatas mimbar berkata; saya mendengar Rasulullah shallallahu 'alaihi wasallam bersabda: \"Semua perbuatan tergantung niatnya, dan (balasan) bagi tiap-tiap orang (tergantung) apa yang diniatkan; Barangsiapa niat hijrahnya karena dunia yang ingin digapainya atau karena seorang perempuan yang ingin dinikahinya, maka hijrahnya adalah kepada apa dia diniatkan"
       },
-      "grade": "Sahih"
-    },
-    {
-      "book": "bukhari",
-      "number": 2,
-      "section": 2,
-      "arabic": "أَنَّ الْإِيمَانَ لَيَأْرِزُ إِلَى الْمَدِينَةِ كَمَا تَأْرِزُ الْحَيَّةُ إِلَى جُحْرِهَا",
-      "translation": {
-        "en": "Iman (belief) returns to Medina as a snake returns to its hole.",
-        "id": "Iman kembali ke Madinah sebagaimana ular kembali ke lubangnya."
-      },
-      "grade": "Sahih"
+      "_note": "The intention hadith (Umar ibn al-Khattab)",
+      "grading": "Sahih"
     },
     {
       "book": "bukhari",
       "number": 8,
-      "section": 2,
-      "arabic": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ",
+      "arabic": "بُنِيَ الإِسْلاَمُ عَلَى خَمْسٍ",
       "translation": {
-        "en": "Islam is based on five pillars: to testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger, to offer the prayers dutifully and perfectly, to pay Zakat, to perform Hajj, and to fast during the month of Ramadan.",
-        "id": "Islam dibangun di atas lima perkara: bersaksi bahwa tidak ada tuhan selain Allah dan Muhammad adalah utusan Allah, mendirikan salat, membayar zakat, menunaikan haji, dan berpuasa Ramadan."
+        "en": "Narrated Ibn 'Umar: Allah's Messenger (ﷺ) said: Islam is based on (the following) five (principles): 1. To testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger (ﷺ). 2. To offer the (compulsory congregational) prayers dutifully and perfectly. 3. To pay Zakat (i.e. obligatory charity) . 4. To perform Hajj. (i.e. Pilgrimage to Mecca) 5. To observe fast during the month of Ramadan",
+        "id": "Telah menceritakan kepada kami [Abdullah bin Musa] dia berkata, telah mengabarkan kepada kami [Hanzhalah bin Abu Sufyan] dari ['Ikrimah bin Khalid] dari [Ibnu Umar] berkata: Rasulullah shallallahu 'alaihi wasallam bersabda: \"Islam dibangun diatas lima (landasan); persaksian tidak ada ilah selain Allah dan sesungguhnya Muhammad utusan Allah, mendirikan shalat, menunaikan zakat, haji dan puasa Ramadlan"
       },
-      "grade": "Sahih"
+      "_note": "Islam is built on five pillars",
+      "grading": "Sahih"
     },
     {
       "book": "bukhari",
       "number": 13,
-      "section": 2,
-      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+      "arabic": "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
       "translation": {
-        "en": "None of you will have faith till he wishes for his brother what he likes for himself.",
-        "id": "Tidak sempurna iman salah seorang dari kalian sampai ia mencintai untuk saudaranya apa yang ia cintai untuk dirinya sendiri."
+        "en": "Narrated Anas: The Prophet (ﷺ) said, \"None of you will have faith till he wishes for his (Muslim) brother what he likes for himself",
+        "id": "Telah menceritakan kepada kami [Musaddad] berkata, telah menceritakan kepada kami [Yahya] dari [Syu'bah] dari [Qotadah] dari [Anas] dari Nabi shallallahu 'alaihi wasallam Dan dari [Husain Al Mu'alim] berkata, telah menceritakan kepada kami [Qotadah] dari [Anas] dari Nabi shallallahu 'alaihi wasallam, beliau bersabda: \"Tidaklah beriman seseorang dari kalian sehingga dia mencintai untuk saudaranya sebagaimana dia mencintai untuk dirinya sendiri"
       },
-      "grade": "Sahih"
+      "_note": "None of you believes until he loves for his brother",
+      "grading": "Sahih"
     },
     {
       "book": "bukhari",
       "number": 39,
-      "section": 2,
-      "arabic": "إِنَّ الدِّينَ يُسْرٌ، وَلَنْ يُشَادَّ الدِّينَ أَحَدٌ إِلَّا غَلَبَهُ",
+      "arabic": "إِنَّ الدِّينَ يُسْرٌ",
       "translation": {
-        "en": "Religion is very easy and whoever overburdens himself in his religion will not be able to continue in that way. So you should not be extremists, but try to be near to perfection and receive the good tidings.",
-        "id": "Sesungguhnya agama ini mudah, dan tidak seorang pun yang membebani diri dalam agama kecuali agama itu akan mengalahkannya. Maka luruslah, dekatilah kebenaran, gembirakanlah, dan mintalah pertolongan pada waktu pagi, sore, dan sedikit di malam hari."
+        "en": "Narrated Abu Huraira: The Prophet (ﷺ) said, \"Religion is very easy and whoever overburdens himself in his religion will not be able to continue in that way. So you should not be extremists, but try to be near to perfection and receive the good tidings that you will be rewarded; and gain strength by worshipping in the mornings, the afternoons, and during the last hours of the nights.\" (See Fath-ul-Bari, Page 102, Vol)",
+        "id": "Telah menceritakan kepada kami [Abdus Salam bin Muthahhar] berkata, telah menceritakan kepada kami [Umar bin Ali] dari [Ma'an bin Muhammad Al Ghifari] dari [Sa'id bin Abu Sa'id Al Maqburi] dari [Abu Hurairah] bahwa Nabi shallallahu 'alaihi wasallam bersabda: \"Sesungguhnya agama itu mudah, dan tidaklah seseorang mempersulit agama kecuali dia akan dikalahkan (semakin berat dan sulit). Maka berlakulah lurus kalian, mendekatlah (kepada yang benar) dan berilah kabar gembira dan minta tolonglah dengan Al Ghadwah (berangkat di awal pagi) dan ar-ruhah (berangkat setelah zhuhur) dan sesuatu dari ad-duljah ((berangkat di waktu malam)"
       },
-      "grade": "Sahih"
+      "_note": "The religion is ease",
+      "grading": "Sahih"
     },
     {
       "book": "bukhari",
       "number": 660,
-      "section": 8,
-      "arabic": "سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: إِمَامٌ عَادِلٌ",
+      "arabic": "سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ",
       "translation": {
-        "en": "Seven people will be shaded by Allah under His shade on the day when there will be no shade except His: a just ruler; a youth who grew up in the worship of Allah; a man whose heart is attached to the mosque; two people who love each other for Allah's sake; a man who is invited by a rich, beautiful woman and refuses, saying 'I fear Allah'; a man who gives in charity so secretly that his left hand doesn't know what his right hand has given; and a man who remembers Allah in solitude and his eyes are filled with tears.",
-        "id": "Ada tujuh golongan yang akan dinaungi Allah dalam naungan-Nya pada hari yang tidak ada naungan kecuali naungan-Nya: pemimpin yang adil; pemuda yang tumbuh dalam ibadah kepada Allah; laki-laki yang hatinya terpaut dengan masjid; dua orang yang saling mencintai karena Allah; laki-laki yang diajak (berzina) oleh wanita bangsawan lagi cantik lalu ia berkata 'aku takut kepada Allah'; orang yang bersedekah dengan sembunyi-sembunyi sehingga tangan kirinya tidak tahu apa yang diberikan tangan kanannya; dan orang yang mengingat Allah dalam kesendirian lalu berlinang air matanya."
+        "en": "Narrated Abu Huraira:The Prophet (ﷺ) said, \"Allah will give shade, to seven, on the Day when there will be no shade but His. (These seven persons are) a just ruler, a youth who has been brought up in the worship of Allah (i.e. worships Allah sincerely from childhood), a man whose heart is attached to the mosques (i.e. to pray the compulsory prayers in the mosque in congregation), two persons who love each other only for Allah's sake and they meet and part in Allah's cause only, a man who refuses the call of a charming woman of noble birth for illicit intercourse with her and says: I am afraid of Allah, a man who gives charitable gifts so secretly that his left hand does not know what his right hand has given (i.e. nobody knows how much he has given in charity), and a person who remembers Allah in seclusion and his eyes are then flooded with tears",
+        "id": "Telah menceritakan kepada kami [Muhammad bin Basysyar Bundar] berkata, telah menceritakan kepada kami [Yahya] dari ['Ubaidullah] berkata, telah menceritakan kepadaku [Khubaib bin 'Abdurrahman] dari [Hafsh bin 'Ashim] dari [Abu Hurairah] dari Nabi shallallahu 'alaihi wasallam bersabda: \"Ada tujuh golongan manusia yang akan mendapat naungan Allah pada hari yang tidak ada naungan kecuali naungan-Nya; pemimpin yang adil, seorang pemuda yang menyibukkan dirinya dengan 'ibadah kepada Rabbnya, seorang laki-laki yang hatinya terpaut dengan masjid, dua orang laki-laki yang saling mencintai karena Allah; mereka tidak bertemu kecuali karena Allah dan berpisah karena Allah, seorang laki-laki yang diajak berbuat maksiat oleh seorang wanita kaya lagi cantik lalu dia berkata, 'Aku takut kepada Allah', dan seorang yang bersedekah dengan menyembunyikannya hingga tangan kirinya tidak mengetahui apa yang diinfakkan oleh tangan kanannya, serta seorang laki-laki yang berdzikir kepada Allah dengan mengasingkan diri hingga kedua matanya basah karena menangis"
       },
-      "grade": "Sahih"
+      "_note": "Seven whom Allah will shade",
+      "grading": "Sahih"
     },
     {
-      "book": "muslim",
-      "number": 8,
-      "section": 1,
-      "arabic": "الْإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+      "book": "bukhari",
+      "number": 1876,
+      "arabic": "إِنَّ الإِيمَانَ لَيَأْرِزُ إِلَى الْمَدِينَةِ",
       "translation": {
-        "en": "Islam is that you testify there is no god but Allah and Muhammad is the Messenger of Allah, that you establish the prayer, pay the zakat, fast the month of Ramadan, and make pilgrimage to the House if you are able. (The Hadith of Jibril — one of the most comprehensive hadiths in Islam.)",
-        "id": "Islam adalah engkau bersaksi bahwa tidak ada tuhan selain Allah dan Muhammad adalah utusan Allah, engkau mendirikan salat, menunaikan zakat, berpuasa Ramadan, dan menunaikan haji ke Baitullah jika mampu. (Hadis Jibril — salah satu hadis paling komprehensif dalam Islam.)"
+        "en": "Narrated Abu Huraira:Allah's Messenger (ﷺ) said, \"Verily, Belief returns and goes back to Medina as a snake returns and goes back to its hole (when in danger)",
+        "id": "Telah menceritakan kepada kami [Ibrahim bin Al Mundzir] telah menceritakan kepada kami [Anas bin 'Iyadh] berkata, telah menceritakan kepada saya ['Ubaidullah] dari [Khubaib bin 'Abdurrahman] dari [Hafsh bin 'Ashim] dari [Abu Hurairah radliallahu 'anhu] bahwa Rasulullah shallallahu 'alaihi wasallam bersabda: \"Iman akan menyebar di Madinah sebagaimana ular yang keluar (mencari makan) lalu masuk kedalam lubangnya (untuk berlindung)"
       },
-      "grade": "Sahih"
-    },
-    {
-      "book": "muslim",
-      "number": 55,
-      "section": 1,
-      "arabic": "الدِّينُ النَّصِيحَةُ",
-      "translation": {
-        "en": "Religion is sincere advice. We asked: To whom? He said: To Allah, His Book, His Messenger, the leaders of the Muslims, and the common people.",
-        "id": "Agama adalah nasihat. Kami bertanya: Untuk siapa? Beliau menjawab: Untuk Allah, kitab-Nya, rasul-Nya, para pemimpin kaum muslimin, dan masyarakat umum."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "muslim",
-      "number": 2564,
-      "section": 45,
-      "arabic": "لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ",
-      "translation": {
-        "en": "He who has, in his heart, an ant's weight of arrogance will not enter Paradise.",
-        "id": "Tidak akan masuk surga orang yang di dalam hatinya terdapat kesombongan meskipun seberat biji sawi."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "muslim",
-      "number": 2699,
-      "section": 48,
-      "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا، نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ",
-      "translation": {
-        "en": "Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens of the Day of Judgment. Allah helps the servant so long as the servant helps his brother.",
-        "id": "Barangsiapa meringankan seorang mukmin dari kesulitan-kesulitan dunia, Allah akan meringankan darinya kesulitan-kesulitan hari kiamat. Allah menolong hamba selama hamba itu menolong saudaranya."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "tirmidhi",
-      "number": 2517,
-      "section": 36,
-      "arabic": "دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ",
-      "translation": {
-        "en": "Leave that which makes you doubt for that which does not make you doubt.",
-        "id": "Tinggalkanlah apa yang meragukanmu kepada apa yang tidak meragukanmu."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "tirmidhi",
-      "number": 1987,
-      "section": 27,
-      "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ",
-      "translation": {
-        "en": "Fear Allah wherever you are; follow a bad deed with a good deed to erase it, and treat people with good conduct.",
-        "id": "Bertakwalah kepada Allah di mana pun engkau berada, ikutilah keburukan dengan kebaikan yang akan menghapusnya, dan pergaulilah manusia dengan akhlak yang baik."
-      },
-      "grade": "Hasan"
-    },
-    {
-      "book": "tirmidhi",
-      "number": 2318,
-      "section": 34,
-      "arabic": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",
-      "translation": {
-        "en": "Part of a person's excellence in Islam is his leaving alone that which does not concern him.",
-        "id": "Di antara tanda kebaikan keislaman seseorang adalah ia meninggalkan apa yang tidak bermanfaat baginya."
-      },
-      "grade": "Hasan"
-    },
-    {
-      "book": "abudawud",
-      "number": 4682,
-      "section": 34,
-      "arabic": "أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا",
-      "translation": {
-        "en": "The most complete of the believers in faith is the one with the best character.",
-        "id": "Mukmin yang paling sempurna imannya adalah yang paling baik akhlaknya."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "abudawud",
-      "number": 4090,
-      "section": 30,
-      "arabic": "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",
-      "translation": {
-        "en": "The strong man is not the one who overcomes people by his strength, but the strong man is the one who controls himself when angry.",
-        "id": "Orang yang kuat bukanlah yang menang dalam gulat, melainkan orang yang mampu mengendalikan dirinya saat marah."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "nasai",
-      "number": 3140,
-      "section": 25,
-      "arabic": "خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ",
-      "translation": {
-        "en": "The best of people are those who are most beneficial to people.",
-        "id": "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia."
-      },
-      "grade": "Hasan"
-    },
-    {
-      "book": "nasai",
-      "number": 5442,
-      "section": 48,
-      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ، وَمِنْ قَلْبٍ لَا يَخْشَعُ، وَمِنْ نَفْسٍ لَا تَشْبَعُ، وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا",
-      "translation": {
-        "en": "O Allah, I seek refuge with You from knowledge that does not benefit, from a heart that does not fear (You), from a soul that is not satisfied, and from a supplication that is not answered.",
-        "id": "Ya Allah, aku berlindung kepada-Mu dari ilmu yang tidak bermanfaat, dari hati yang tidak khusyu', dari jiwa yang tidak pernah puas, dan dari doa yang tidak dikabulkan."
-      },
-      "grade": "Sahih"
-    },
-    {
-      "book": "ibnmajah",
-      "number": 224,
-      "section": 1,
-      "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
-      "translation": {
-        "en": "Seeking knowledge is an obligation upon every Muslim.",
-        "id": "Menuntut ilmu adalah kewajiban atas setiap muslim."
-      },
-      "grade": "Hasan"
-    },
-    {
-      "book": "ibnmajah",
-      "number": 4251,
-      "section": 37,
-      "arabic": "التَّائِبُ مِنَ الذَّنْبِ كَمَنْ لَا ذَنْبَ لَهُ",
-      "translation": {
-        "en": "The one who repents from a sin is like the one who has no sin.",
-        "id": "Orang yang bertobat dari dosanya seperti orang yang tidak berdosa."
-      },
-      "grade": "Sahih"
+      "_note": "Faith returns to Madinah",
+      "grading": "Sahih"
     },
     {
       "book": "bukhari",
       "number": 6018,
-      "section": 78,
-      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
       "translation": {
-        "en": "Whoever believes in Allah and the Last Day should speak good or remain silent.",
-        "id": "Barangsiapa beriman kepada Allah dan hari akhir, hendaklah ia berkata baik atau diam."
+        "en": "Narrated Abu Huraira:Allah's Messenger (ﷺ) said, \"Anybody who believes in Allah and the Last Day should not harm his neighbor, and anybody who believes in Allah and the Last Day should entertain his guest generously and anybody who believes in Allah and the Last Day should talk what is good or keep quiet. (i.e. abstain from all kinds of evil and dirty talk)",
+        "id": "Telah menceritakan kepada kami [Qutaibah bin Sa'id] telah menceritakan kepada kami [Abu Al Ahwash] dari [Abu Hashin] dari [Abu Shalih] dari [Abu Hurairah] dia berkata; Rasulullah shallallahu 'alaihi wasallam bersabda: \"Barangsiapa berimana kepada Allah dan hari Akhir, janganlah ia mengganggu tetangganya, barangsiapa beriman kepada Allah dan hari Akhir hendaknya ia memuliakan tamunya dan barangsiapa beriman kepada Allah dan hari Akhir hendaknya ia berkata baik atau diam"
       },
-      "grade": "Sahih"
+      "_note": "Let him speak good or remain silent",
+      "grading": "Sahih"
+    },
+    {
+      "book": "bukhari",
+      "number": 6307,
+      "arabic": "وَاللَّهِ إِنِّي لأَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ فِي الْيَوْمِ أَكْثَرَ مِنْ سَبْعِينَ مَرَّةً",
+      "translation": {
+        "en": "Narrated Abu Huraira:I heard Allah's Messenger (ﷺ) saying.\" By Allah! I ask for forgiveness from Allah and turn to Him in repentance more than seventy times a day",
+        "id": "Telah menceritakan kepada kami [Abu Al Yaman] telah mengabarkan kepada kami [Syu'aib] dari [Az Zuhri] dia berkata; telah mengabarkan kepadaku [Abu Salamah bin Abdurrahman] dia berkata; [Abu Hurairah] berkata; saya mendengar Rasulullah shallallahu 'alaihi wasallam bersabda: \"Demi Allah, sesungguhnya aku beristighfar (meminta ampunan) dan bertaubat kepada Allah dalam satu hari lebih dari tujuh puluh kali"
+      },
+      "_note": "The Prophet ﷺ seeking forgiveness 70+ times a day",
+      "grading": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 152,
+      "arabic": "الإِيمَانُ بِضْعٌ وَسَبْعُونَ شُعْبَةً",
+      "translation": {
+        "en": "It is narrated on the authority of Abu Huraira that the Prophet (ﷺ) said:Iman has over seventy branches, and modesty is a branch of Iman",
+        "id": "Telah menceritakan kepada kami [Ubaidullah bin Sa'id] dan [Abd bin Humaid] keduanya berkata, telah menceritakan kepada kami [Abu Amir al-Aqadi] telah menceritakan kepada kami [Sulaiman bin Bilal] dari [Abdullah bin Dinar] dari [Abu Shalih] dari [Abu Hurairah] dari Nabi shallallahu 'alaihi wasallam, beliau bersabda: \"Iman itu ada tujuh puluh tiga sampai tujuh puluh sembilan cabang, dan malu adalah termasuk iman"
+      },
+      "_note": "Faith has seventy-odd branches",
+      "grading": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 196,
+      "arabic": "الدِّينُ النَّصِيحَةُ",
+      "translation": {
+        "en": "It is narrated on the authority of Tamim ad-Dari that the Prophet (ﷺ) said:\"The Religion is sincerity.\" We said, \"To whom?\" He said \"To Allah, to His Book, To His Messenger, and to the leaders of the Muslims and their masses",
+        "id": "Telah menceritakan kepada kami [Muhammad bin Abbad al-Makki] telah menceritakan kepada kami [Sufyan] -dia berkata, saya berkata kepada Suhail- bahwa [Amru] menceritakan kepada kami dari [al-Qa'qa'] dari [bapakmu] dia berkata, dan aku berharap agar satu perawi jatuh dariku, Amru berkata, \"Lalu al Qa'qa' berkata, \"Saya mendengarnya dari orang yang yang bapakku pernah mendengar darinya -dia adalah temannya di Syam-. Kemudian telah menceritakan kepada kami [Sufyan] dari [Suhail] dari [Atha' bin Yazid] dari [Tamim ad-Dari] bahwa nabi shallallahu 'alaihi wasallam bersabda: \"Agama itu adalah nasihat.\" Kami bertanya, \"Nasihat untuk siapa?\" Beliau menjawab, \"Untuk Allah, kitab-Nya, Rasul-Nya, dan para pemimpin kaum muslimin, serta kaum awam mereka.\" Telah menceritakan kepada kami [Muhammad bin Hatim] telah menceritakan kepada kami [Ibnu Mahdi] telah menceritakan kepada kami [Sufyan] dari [Suhail bin Abu Shalih] dari [Atha' bin Yazid al-Laitsi] dari [Tamim ad-Dari] dari Nabi shallallahu 'alaihi wasallam dengan semisalnya, Dan telah menceritakan kepada kami [Umayyah bin Bistham] telah menceritakan kepada kami [Yazid] -yaitu Ibnu Zurai'- telah menceritakan kepada kami [Rauh] -yaitu Ibnu al-Qasim- telah menceritakan kepada kami [Suhail] dari [Atha' bin Yazid] dia mendengarnya -saat 'Atha menceritakan kepada Abu Shalih- dari [Tamim ad-Dari] dari Rasulullah shallallahu 'alaihi wasallam, seperti hadits tersebut"
+      },
+      "_note": "Religion is sincere advice",
+      "grading": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 6853,
+      "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا",
+      "translation": {
+        "en": "Abu Huraira reported Allah's Messenger (ﷺ) as saying:He who alleviates the suffering of a brother out of the sufferings of the world, Allah would alleviate his suffering from the sufferings of the Day of Resurrection, and he who finds relief for one who is hard-pressed, Allah would make things easy for him in the Hereafter, and he who conceals (the faults) of a Muslim, Allah would conceal his faults in the world and in the Hereafter. Allah is at the back of a servant so long as the servant is at the back of his brother, and he who treads the path in search of knowledge, Allah would make that path easy, leading to Paradise for him and those persons who assemble in the house among the houses of Allah (mosques) and recite the Book of Allah and they learn and teach the Qur'an (among themselves) there would descend upon them tranquility and mercy would cover them and the angels would surround them and Allah mentions them in the presence of those near Him, and he who is slow-paced in doing good deeds, his (high) lineage does not make him go ahead",
+        "id": "Telah menceritakan kepada kami [Yahya bin Yahya At Tamimi] dan [Abu Bakr bin Abu Syaibah] dan [Muhammad bin Al 'Ala Al Hamdani] -dan lafadh ini milik Yahya- dia berkata; telah mengabarkan kepada kami, dan berkata yang lainnya, telah menceritakan kepada kami [Abu Mu'awiyah] dari [Al A'masy] dari [Abu Shalih] dari [Abu Hurairah] dia berkata; Rasulullah shallallahu 'alaihi wasallam telah bersabda: 'Barang siapa membebaskan seorang mukmin dari suatu kesulitan dunia, maka Allah akan membebaskannya dari suatu kesulitan pada hari kiamat. Barang siapa memberi kemudahan kepada orang yang berada dalam kesulitan, maka Allah akan memberikan kemudahan di dunia dan akhirat. Barang siapa menutupi aib seorang muslim, maka Allah akan menutup aibnya di dunia dan akhirat. Allah akan selalu menolong hamba-Nya selama hamba tersebut menolong saudaranya sesama muslim. Barang siapa menempuh jalan untuk mencari ilmu, maka Allah akan memudahkan jalan ke surga baginya. Tidaklah sekelompok orang berkumpul di suatu masjid (rumah Allah) untuk membaca Al Qur'an, melainkan mereka akan diliputi ketenangan, rahmat, dan dikelilingi para malaikat, serta Allah akan menyebut-nyebut mereka pada malaikat-malaikat yang berada di sisi-Nya. Barang siapa yang ketinggalan amalnya, maka nasabnya tidak juga meninggikannya.' Telah menceritakan kepada kami [Muhammad bin 'Abdullah bin Numair] telah menceritakan kepada kami [Bapakku] Demikian juga diriwayatkan dari jalur lainnya, dan telah menceritakannya kepada kami [Nashr bin 'Ali Al Jahdhami] telah menceritakan kepada kami [Abu Usamah] mereka berkata; telah menceritakan kepada kami [Al A'masy] -telah menceritakan kepada kami Ibnu Numair- dari [Abu Shalih]. Sebagaimana di dalam hadits Abu Usamah Telah menceritakan kepada kami Abu Shalih dari [Abu Hurairah] dia berkata; Rasulullah shallallahu 'alaihi wasallam berkata dengan lantang, -sebagaimana Hadits Abu Mu'awiyah, hanya saja di dalam Hadits Abu Usamah tidak disebutkan; memberi kemudahan kepada orang yang kesusahan"
+      },
+      "_note": "Whoever relieves a believer of hardship",
+      "grading": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 265,
+      "arabic": "لاَ يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ",
+      "translation": {
+        "en": "It Is narrated on the authority of Abdullah b. Mas'ud that the Messenger of Allah (ﷺ), observed:He who has in his heart the weight of a mustard seed of pride shall not enter Paradise. A person (amongst his hearers) said: Verily a person loves that his dress should be fine, and his shoes should be fine. He (the Holy Prophet) remarked: Verily, Allah is Graceful and He loves Grace. Pride is disdaining the truth (out of self-conceit) and contempt for the people",
+        "id": "Dan telah menceritakan kepada kami [Muhammad bin al-Mutsanna] dan [Muhammad bin Basysyar] serta [Ibrahim bin Dinar] semuanya dari [Yahya bin Hammad], [Ibnu al-Mutsanna] berkata, telah menceritakan kepada kami [Yahya bin Hammad] telah mengabarkan kepada kami [Syu'bah] dari [Aban bin Taghlib] dari [Fudlail al-Fuqaimi] dari [Ibrahim an-Nakha'i] dari [Alqamah] dari [Abdullah bin Mas'ud] dari Nabi shallallahu 'alaihi wasallam, beliau bersabda: \"Tidak akan masuk surga, orang yang di dalam hatinya terdapat seberat biji sawi dari kesombongan.\" Seorang laki-laki bertanya, \"Sesungguhnya laki-laki menyukai apabila baju dan sandalnya bagus (apakah ini termasuk kesombongan)?\" Beliau menjawab: \"Sesungguhnya Allah itu bagus menyukai yang bagus, kesombongan itu menolak kebenaran dan meremehkan manusia"
+      },
+      "_note": "None enters paradise with an atom of arrogance",
+      "grading": "Sahih"
+    },
+    {
+      "book": "muslim",
+      "number": 162,
+      "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+      "translation": {
+        "en": "It is narrated on the authority of Jabir that he heard the (Holy Prophet) say:A Muslim is he from whose hand and tongue the Muslims are safe",
+        "id": "Telah menceritakan kepada kami [Hasan al-Hulwani] dan [Abd bin Humaid] semuanya dari [Abu Ashim], [Abd] berkata, telah memberitakan kepada kami [Abu Ashim] dari [Ibnu Juraij] bahwa dia mendengar [Abu az-Zubair] dia berkata, \"Saya mendengar [Jabir] berkata, 'Saya mendengar Nabi shallallahu 'alaihi wasallam bersabda: \"Seorang muslim (yang sejati) adalah orang yang mana kaum muslimin lainnya selamat dari (bahaya) lisan dan tangannya"
+      },
+      "_note": "The Muslim is safe-hand-and-tongue",
+      "grading": "Sahih"
+    },
+    {
+      "book": "abudawud",
+      "number": 5096,
+      "arabic": "بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا",
+      "translation": {
+        "en": "Narrated AbuMalik Al-Ash'ari: The Prophet (ﷺ) said: When a man goes into his house, he should say: \"O Allah! I ask Thee for good both when entering and when going out; in the name of Allah we have entered, and in the name of Allah we have gone out, and in Allah our Lord do we trust.\" He should then greet his family",
+        "id": "Telah menceritakan kepada kami [Ibnu Auf] berkata, telah menceritakan kepada kami [Muhammad bin Isma'il] ia berkata; telah menceritakan kepadaku [Bapakku]. [Ibnu Auf] berkata; Aku pernah melihat dalam buku [Isma'il] ia berkata; telah menceritakan kepadaku [Dhamdham] dari [Syuraih] dari [Abu Malik Al Asy'ari] ia berkata, \"Rasulullah shallallahu 'alaihi wasallam bersabda: \"Jika seorang laki-laki masuk ke dalam rumahnya hendaklah ia membaca: 'ALLAHUMMA INNII AS`ALUKA KHAIRAL MAULAJ WA KHAIRAL MAKHRAJ BIMILLAH WALAJNAA WA BISMILLAHI KHARAJNAA WA 'ALAALLAHI RABBINAA TAWAKKALNAA (Ya Allah, sesungguhnya aku minta kepada-Mu kebaikan tempat masuk dan tempat keluar. Dengan menyebut nama Allah, kami masuk (rumah) dan dengan menyebut nama Allah kami keluar). ' Setelah itu hendaklah mengucapkan salam kepada keluarganya"
+      },
+      "_note": "Entering the home dua",
+      "grading": "Sahih"
+    },
+    {
+      "book": "abudawud",
+      "number": 5095,
+      "arabic": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ",
+      "translation": {
+        "en": "Narrated Anas ibn Malik: The Prophet (ﷺ) said: When a man goes out of his house and says: \"In the name of Allah, I trust in Allah; there is no might and no power but in Allah,\" the following will be said to him at that time: \"You are guided, defended and protected.\" The devils will go far from him and another devil will say: How can you deal with a man who has been guided, defended and protected?",
+        "id": "Telah menceritakan kepada kami [Ibrahim bin Al Hasan Al Khats'ami] berkata, telah menceritakan kepada kami [Hajjaj bin Muhammad] dari [Ibnu Juraij] dari [Ishaq bin Abdullah bin Abu Thalhah] dari [Anas bin Malik] bahwa Nabi shallallahu 'alaihi wasallam bersabda: \"Jika seorang laki-laki keluar dari rumahnya lalu mengucapkan: 'BISMILLAHI TAWAKKALTU 'ALAALLAHI LAA HAULA WA LAA QUWWATA ILLA BILLAH (Dengan nama Allah aku bertawakal kepada Allah, tidak ada daya dan kekuatan kecuali dengan izin Allah). ' Beliau bersabda: \"Maka pada saat itu akan dikatakan kepadanya, 'Kamu telah mendapat petunjuk, telah diberi kecukupan dan mendapat penjagaan', hingga setan-setan menjauh darinya. Lalu setan yang lainnya berkata, \"Bagaimana (engkau akan mengoda) seorang laki-laki yang telah mendapat petunjuk, kecukupan dan penjagaan"
+      },
+      "_note": "Leaving the home dua",
+      "grading": "Sahih"
+    },
+    {
+      "book": "tirmidhi",
+      "number": 1956,
+      "arabic": "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ",
+      "translation": {
+        "en": "Abu Dharr narrated that the Messenger of Allah said :\"Your smiling in the face of your brother is charity, commanding good and forbidding evil is charity, your giving directions to a man lost in the land is charity for you. Your seeing for a man with bad sight is a charity for you, your removal of a rock, a thorn or a bone from the road is charity for you. Your pouring what remains from your bucket into the bucket of your brother is charity for you",
+        "id": "Telah menceritakan kepada kami [Abbas bin Abdul Azhim Al Anbari], telah menceritakan kepada kami [An Nadlr bin Muhammad Al Jurasyi Al Yamami], telah menceritakan kepada kami [Ikrimah bin Ammar], telah menceritakan kepada kami [Abu Zuamail] dari [Malik bin Martsad] dari [bapaknya] dari [Abu Dzarr] ia berkata; Rasulullah shallallahu 'alaihi wasallam bersabda: \"Senyummu kepada saudaramu merupakan sedekah, engkau berbuat ma'ruf dan melarang dari kemungkaran juga sedekah, engkau menunjukkan jalan kepada orang yang tersesat juga sedekah, engkau menuntun orang yang berpenglihatan kabur juga sedekah, menyingkirkan batu, duri dan tulang dari jalan merupakan sedekah, dan engkau menuangkan air dari embermu ke ember saudaramu juga sedekah.\" Hadits semakna diriwayatkan dari Ibnu Mas'ud, Jabir, Hudzaifah, 'Aisyah dan Abu Hurairah. Berkata Abu 'Isa: Ini merupakan hadits hasan gharib dan Abu Zumail bernama Simak bin Walid Al Hanafi"
+      },
+      "_note": "Your smile is charity",
+      "grading": "Hasan Sahih"
+    },
+    {
+      "book": "tirmidhi",
+      "number": 2518,
+      "arabic": "دَعْ مَا يَرِيبُكَ إِلَى مَا لاَ يَرِيبُكَ",
+      "translation": {
+        "en": "Al-Hasan bin 'Ali said:\"I remember that the Messenger of Allah (s.a.w) said: 'Leave what makes you in doubt for what does not make you in doubt. The truth brings tranquility while falsehood sows doubt.'\" Another chain reports a similar narration"
+      },
+      "_note": "Leave what makes you doubt",
+      "grading": "Sahih"
+    },
+    {
+      "book": "ibnmajah",
+      "number": 224,
+      "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+      "translation": {
+        "en": "It was narrated from Anas bin Malik that the Messenger of Allah (ﷺ) said:\"Seeking knowledge is a duty upon every Muslim, and he who imparts knowledge to those who do not deserve it, is like one who puts a necklace of jewels, pearls and gold around the neck of swines",
+        "id": "Telah menceritakan kepada kami [Hisyam bin Ammar] berkata, telah menceritakan kepada kami [Hafsh bin Sulaiman] berkata, telah menceritakan kepada kami [Katsir bin Syinzhir] dari [Muhammad bin Sirin] dari [Anas bin Malik] ia berkata; Rasulullah shallallahu 'alaihi wasallam bersabda: \"Menuntut ilmu adalah kewajiban bagi setiap muslim. Dan orang yang meletakkan ilmu bukan pada pada ahlinya, seperti seorang yang mengalungkan mutiara, intan dan emas ke leher babi"
+      },
+      "_note": "Seeking knowledge is obligatory",
+      "grading": "Sahih"
     }
   ]
 }

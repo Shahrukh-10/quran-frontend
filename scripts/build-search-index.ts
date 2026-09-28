@@ -180,12 +180,30 @@ try {
     docs.push({
       id: `hadith:${h.book}/${h.number}`,
       kind: "hadith",
-      title: `${h.book === "bukhari" ? "Sahih al-Bukhari" : h.book} ${h.number}`,
+      title: `${
+        {
+          bukhari: "Sahih al-Bukhari",
+          muslim: "Sahih Muslim",
+          abudawud: "Sunan Abu Dawud",
+          tirmidhi: "Jami' at-Tirmidhi",
+          nasai: "Sunan an-Nasa'i",
+          ibnmajah: "Sunan Ibn Majah",
+        }[h.book] ?? h.book
+      } ${h.number}`,
       subtitle: h.translation.en?.slice(0, 100),
       body: `${h.translation.en} ${h.grading ?? ""}`,
       arabic: h.arabic,
       href: `/hadith/${h.book}/${h.number}`,
-      source: `${h.book} ${h.number}${h.grading ? ` (${h.grading})` : ""}`,
+      source: `${
+        {
+          bukhari: "Sahih al-Bukhari",
+          muslim: "Sahih Muslim",
+          abudawud: "Sunan Abu Dawud",
+          tirmidhi: "Jami' at-Tirmidhi",
+          nasai: "Sunan an-Nasa'i",
+          ibnmajah: "Sunan Ibn Majah",
+        }[h.book] ?? h.book
+      } ${h.number}${h.grading ? ` (${h.grading})` : ""}`,
       weight: 5,
     });
   }

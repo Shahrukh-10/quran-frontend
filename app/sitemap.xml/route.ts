@@ -19,16 +19,16 @@ const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "
 
 export function GET(): Response {
   const lastmod = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
-  const entries = SHARDS.map(
-    (shard) =>
-      `  <sitemap>\n    <loc>${siteUrl(`/sitemaps/${shard}.xml`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </sitemap>`,
-  ).join("\n");
+  const entries = SHARDS.map((shard) => {
+    const loc = siteUrl("/sitemaps/" + shard + ".xml");
+    return "  <sitemap>\n    <loc>" + loc + "</loc>\n    <lastmod>" + lastmod + "</lastmod>\n  </sitemap>";
+  }).join("\n");
 
   const xml =
-    `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     entries +
-    `\n</sitemapindex>\n`;
+    "\n</sitemapindex>\n";
 
   return new Response(xml, {
     status: 200,

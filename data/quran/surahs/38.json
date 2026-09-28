@@ -2,7 +2,7 @@
   {
     "surah": 38,
     "ayah": 1,
-    "arabic": " صٓ ۚ وَٱلْقُرْءَانِ ذِى ٱلذِّكْرِ",
+    "arabic": "ص ۚ وَالْقُرْآنِ ذِي الذِّكْرِ",
     "transliteration": "Saaad; wal-Qur-aani ziz zikr",
     "translations": {
       "en.sahih": "Sad. By the Qur'an containing reminder...",
@@ -19,7 +19,7 @@
   {
     "surah": 38,
     "ayah": 2,
-    "arabic": "بَلِ ٱلَّذِينَ كَفَرُوا۟ فِى عِزَّةٍ وَشِقَاقٍ",
+    "arabic": "بَلِ الَّذِينَ كَفَرُوا فِي عِزَّةٍ وَشِقَاقٍ",
     "transliteration": "Balil lazeena kafaroo fee 'izzatilnw wa shiqaaq",
     "translations": {
       "en.sahih": "But those who disbelieve are in pride and dissension.",
@@ -36,7 +36,7 @@
   {
     "surah": 38,
     "ayah": 3,
-    "arabic": "كَمْ أَهْلَكْنَا مِن قَبْلِهِم مِّن قَرْنٍ فَنَادَوا۟ وَّلَاتَ حِينَ مَنَاصٍ",
+    "arabic": "كَمْ أَهْلَكْنَا مِن قَبْلِهِم مِّن قَرْنٍ فَنَادَوا وَّلَاتَ حِينَ مَنَاصٍ",
     "transliteration": "Kam ahlaknaa min qablihim min qarnin fanaadaw wa laata heena manaas",
     "translations": {
       "en.sahih": "How many a generation have We destroyed before them, and they [then] called out; but it was not a time for escape.",
@@ -53,7 +53,7 @@
   {
     "surah": 38,
     "ayah": 4,
-    "arabic": "وَعَجِبُوٓا۟ أَن جَآءَهُم مُّنذِرٌ مِّنْهُمْ ۖ وَقَالَ ٱلْكَـٰفِرُونَ هَـٰذَا سَـٰحِرٌ كَذَّابٌ",
+    "arabic": "وَعَجِبُوا أَن جَاءَهُم مُّنذِرٌ مِّنْهُمْ ۖ وَقَالَ الْكَافِرُونَ هَٰذَا سَاحِرٌ كَذَّابٌ",
     "transliteration": "Wa 'ajibooo an jaaa'a hum munzirum minhum wa qaalal kaafiroona haazaa saahirun kazzaab",
     "translations": {
       "en.sahih": "And they wonder that there has come to them a warner from among themselves. And the disbelievers say, \"This is a magician and a liar.",
@@ -70,7 +70,7 @@
   {
     "surah": 38,
     "ayah": 5,
-    "arabic": "أَجَعَلَ ٱلْـَٔالِهَةَ إِلَـٰهًا وَٰحِدًا ۖ إِنَّ هَـٰذَا لَشَىْءٌ عُجَابٌ",
+    "arabic": "أَجَعَلَ الْآلِهَةَ إِلَٰهًا وَاحِدًا ۖ إِنَّ هَٰذَا لَشَيْءٌ عُجَابٌ",
     "transliteration": "Aja'alal aalihata Ilaahanw Waahidan inna haazaa lashai'un 'ujaab",
     "translations": {
       "en.sahih": "Has he made the gods [only] one God? Indeed, this is a curious thing.\"",
@@ -87,7 +87,7 @@
   {
     "surah": 38,
     "ayah": 6,
-    "arabic": "وَٱنطَلَقَ ٱلْمَلَأُ مِنْهُمْ أَنِ ٱمْشُوا۟ وَٱصْبِرُوا۟ عَلَىٰٓ ءَالِهَتِكُمْ ۖ إِنَّ هَـٰذَا لَشَىْءٌ يُرَادُ",
+    "arabic": "وَانطَلَقَ الْمَلَأُ مِنْهُمْ أَنِ امْشُوا وَاصْبِرُوا عَلَىٰ آلِهَتِكُمْ ۖ إِنَّ هَٰذَا لَشَيْءٌ يُرَادُ",
     "transliteration": "Wantalaqal mala-u minhum anim shoo wasbiroo 'alaaa aalihatikum innna haazaa lashai 'uny yuraad",
     "translations": {
       "en.sahih": "And the eminent among them went forth, [saying], \"Continue, and be patient over [the defense of] your gods. Indeed, this is a thing intended.",
@@ -104,7 +104,7 @@
   {
     "surah": 38,
     "ayah": 7,
-    "arabic": "مَا سَمِعْنَا بِهَـٰذَا فِى ٱلْمِلَّةِ ٱلْـَٔاخِرَةِ إِنْ هَـٰذَآ إِلَّا ٱخْتِلَـٰقٌ",
+    "arabic": "مَا سَمِعْنَا بِهَٰذَا فِي الْمِلَّةِ الْآخِرَةِ إِنْ هَٰذَا إِلَّا اخْتِلَاقٌ",
     "transliteration": "Maa sami'naa bihaazaa fil millatil aakhirati in haazaaa illakh tilaaq",
     "translations": {
       "en.sahih": "We have not heard of this in the latest religion. This is not but a fabrication.",
@@ -121,7 +121,7 @@
   {
     "surah": 38,
     "ayah": 8,
-    "arabic": "أَءُنزِلَ عَلَيْهِ ٱلذِّكْرُ مِنۢ بَيْنِنَا ۚ بَلْ هُمْ فِى شَكٍّ مِّن ذِكْرِى ۖ بَل لَّمَّا يَذُوقُوا۟ عَذَابِ",
+    "arabic": "أَأُنزِلَ عَلَيْهِ الذِّكْرُ مِن بَيْنِنَا ۚ بَلْ هُمْ فِي شَكٍّ مِّن ذِكْرِي ۖ بَل لَّمَّا يَذُوقُوا عَذَابِ",
     "transliteration": "'A-unzila 'alaihiz zikru mim baininaa; bal hum fee shakkim min Zikree bal lammaa yazooqoo 'azaab",
     "translations": {
       "en.sahih": "Has the message been revealed to him out of [all of] us?\" Rather, they are in doubt about My message. Rather, they have not yet tasted My punishment.",
@@ -138,7 +138,7 @@
   {
     "surah": 38,
     "ayah": 9,
-    "arabic": "أَمْ عِندَهُمْ خَزَآئِنُ رَحْمَةِ رَبِّكَ ٱلْعَزِيزِ ٱلْوَهَّابِ",
+    "arabic": "أَمْ عِندَهُمْ خَزَائِنُ رَحْمَةِ رَبِّكَ الْعَزِيزِ الْوَهَّابِ",
     "transliteration": "Am'indahum khazaaa 'inu rahmati Rabbikal 'Azeezil Wahhab",
     "translations": {
       "en.sahih": "Or do they have the depositories of the mercy of your Lord, the Exalted in Might, the Bestower?",
@@ -155,7 +155,7 @@
   {
     "surah": 38,
     "ayah": 10,
-    "arabic": "أَمْ لَهُم مُّلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ وَمَا بَيْنَهُمَا ۖ فَلْيَرْتَقُوا۟ فِى ٱلْأَسْبَـٰبِ",
+    "arabic": "أَمْ لَهُم مُّلْكُ السَّمَاوَاتِ وَالْأَرْضِ وَمَا بَيْنَهُمَا ۖ فَلْيَرْتَقُوا فِي الْأَسْبَابِ",
     "transliteration": "Am lahum mulkus samaawaati wal ardi wa maa bainahumaa falyartaqoo fil asbaab",
     "translations": {
       "en.sahih": "Or is theirs the dominion of the heavens and the earth and what is between them? Then let them ascend through [any] ways of access.",
@@ -172,7 +172,7 @@
   {
     "surah": 38,
     "ayah": 11,
-    "arabic": "جُندٌ مَّا هُنَالِكَ مَهْزُومٌ مِّنَ ٱلْأَحْزَابِ",
+    "arabic": "جُندٌ مَّا هُنَالِكَ مَهْزُومٌ مِّنَ الْأَحْزَابِ",
     "transliteration": "Jundum maa hunaalika mahzoomum minal Ahzaab",
     "translations": {
       "en.sahih": "[They are but] soldiers [who will be] defeated there among the companies [of disbelievers].",
@@ -189,7 +189,7 @@
   {
     "surah": 38,
     "ayah": 12,
-    "arabic": "كَذَّبَتْ قَبْلَهُمْ قَوْمُ نُوحٍ وَعَادٌ وَفِرْعَوْنُ ذُو ٱلْأَوْتَادِ",
+    "arabic": "كَذَّبَتْ قَبْلَهُمْ قَوْمُ نُوحٍ وَعَادٌ وَفِرْعَوْنُ ذُو الْأَوْتَادِ",
     "transliteration": "Kazzabat qablahum qawmu Lootinw-wa 'Aadunw wa Fir'awnu zul awtaad",
     "translations": {
       "en.sahih": "The people of Noah denied before them, and [the tribe of] 'Aad and Pharaoh, the owner of stakes,",
@@ -206,7 +206,7 @@
   {
     "surah": 38,
     "ayah": 13,
-    "arabic": "وَثَمُودُ وَقَوْمُ لُوطٍ وَأَصْحَـٰبُ لْـَٔيْكَةِ ۚ أُو۟لَـٰٓئِكَ ٱلْأَحْزَابُ",
+    "arabic": "وَثَمُودُ وَقَوْمُ لُوطٍ وَأَصْحَابُ الْأَيْكَةِ ۚ أُولَٰئِكَ الْأَحْزَابُ",
     "transliteration": "Wa Samoodu wa qawmu Lootinw wa Ashaabul 'Aykah; ulaaa'ikal Ahzaab",
     "translations": {
       "en.sahih": "And [the tribe of] Thamud and the people of Lot and the companions of the thicket. Those are the companies.",
@@ -223,7 +223,7 @@
   {
     "surah": 38,
     "ayah": 14,
-    "arabic": "إِن كُلٌّ إِلَّا كَذَّبَ ٱلرُّسُلَ فَحَقَّ عِقَابِ",
+    "arabic": "إِن كُلٌّ إِلَّا كَذَّبَ الرُّسُلَ فَحَقَّ عِقَابِ",
     "transliteration": "In kullun illaa kazzabar Rusula fahaqqa 'iqaab",
     "translations": {
       "en.sahih": "Each of them denied the messengers, so My penalty was justified.",
@@ -240,7 +240,7 @@
   {
     "surah": 38,
     "ayah": 15,
-    "arabic": "وَمَا يَنظُرُ هَـٰٓؤُلَآءِ إِلَّا صَيْحَةً وَٰحِدَةً مَّا لَهَا مِن فَوَاقٍ",
+    "arabic": "وَمَا يَنظُرُ هَٰؤُلَاءِ إِلَّا صَيْحَةً وَاحِدَةً مَّا لَهَا مِن فَوَاقٍ",
     "transliteration": "Wa maa yanzuru haaa ulaaa'i illaa saihatanw waahidatam maa lahaa min fawaaq",
     "translations": {
       "en.sahih": "And these [disbelievers] await not but one blast [of the Horn]; for it there will be no delay.",
@@ -257,7 +257,7 @@
   {
     "surah": 38,
     "ayah": 16,
-    "arabic": "وَقَالُوا۟ رَبَّنَا عَجِّل لَّنَا قِطَّنَا قَبْلَ يَوْمِ ٱلْحِسَابِ",
+    "arabic": "وَقَالُوا رَبَّنَا عَجِّل لَّنَا قِطَّنَا قَبْلَ يَوْمِ الْحِسَابِ",
     "transliteration": "Wa qaaloo Rabbanaa 'ajjil lanaa qittanaa qabla Yawmil Hisaab",
     "translations": {
       "en.sahih": "And they say, \"Our Lord, hasten for us our share [of the punishment] before the Day of Account\"",
@@ -274,7 +274,7 @@
   {
     "surah": 38,
     "ayah": 17,
-    "arabic": "ٱصْبِرْ عَلَىٰ مَا يَقُولُونَ وَٱذْكُرْ عَبْدَنَا دَاوُۥدَ ذَا ٱلْأَيْدِ ۖ إِنَّهُۥٓ أَوَّابٌ",
+    "arabic": "اصْبِرْ عَلَىٰ مَا يَقُولُونَ وَاذْكُرْ عَبْدَنَا دَاوُودَ ذَا الْأَيْدِ ۖ إِنَّهُ أَوَّابٌ",
     "transliteration": "Isbir 'alaa maa yaqooloona wazkur 'abdanaa Daawooda zal aidi aidi innahooo awwaab",
     "translations": {
       "en.sahih": "Be patient over what they say and remember Our servant, David, the possessor of strength; indeed, he was one who repeatedly turned back [to Allah].",
@@ -291,7 +291,7 @@
   {
     "surah": 38,
     "ayah": 18,
-    "arabic": "إِنَّا سَخَّرْنَا ٱلْجِبَالَ مَعَهُۥ يُسَبِّحْنَ بِٱلْعَشِىِّ وَٱلْإِشْرَاقِ",
+    "arabic": "إِنَّا سَخَّرْنَا الْجِبَالَ مَعَهُ يُسَبِّحْنَ بِالْعَشِيِّ وَالْإِشْرَاقِ",
     "transliteration": "Innaa sakhkharnal jibaala ma'ahoo yusabbihna bil'ashaiyi wal ishraaq",
     "translations": {
       "en.sahih": "Indeed, We subjected the mountains [to praise] with him, exalting [Allah] in the [late] afternoon and [after] sunrise.",
@@ -308,7 +308,7 @@
   {
     "surah": 38,
     "ayah": 19,
-    "arabic": "وَٱلطَّيْرَ مَحْشُورَةً ۖ كُلٌّ لَّهُۥٓ أَوَّابٌ",
+    "arabic": "وَالطَّيْرَ مَحْشُورَةً ۖ كُلٌّ لَّهُ أَوَّابٌ",
     "transliteration": "Wattayra mahshoorah; kullul lahooo awwaab",
     "translations": {
       "en.sahih": "And the birds were assembled, all with him repeating [praises].",
@@ -325,7 +325,7 @@
   {
     "surah": 38,
     "ayah": 20,
-    "arabic": "وَشَدَدْنَا مُلْكَهُۥ وَءَاتَيْنَـٰهُ ٱلْحِكْمَةَ وَفَصْلَ ٱلْخِطَابِ",
+    "arabic": "وَشَدَدْنَا مُلْكَهُ وَآتَيْنَاهُ الْحِكْمَةَ وَفَصْلَ الْخِطَابِ",
     "transliteration": "Wa shadadnaa mulkahoo wa aatainaahul Hikmata wa faslal khitaab",
     "translations": {
       "en.sahih": "And We strengthened his kingdom and gave him wisdom and discernment in speech.",
@@ -342,7 +342,7 @@
   {
     "surah": 38,
     "ayah": 21,
-    "arabic": "۞ وَهَلْ أَتَىٰكَ نَبَؤُا۟ ٱلْخَصْمِ إِذْ تَسَوَّرُوا۟ ٱلْمِحْرَابَ",
+    "arabic": "وَهَلْ أَتَاكَ نَبَأُ الْخَصْمِ إِذْ تَسَوَّرُوا الْمِحْرَابَ",
     "transliteration": "Wa hal ataaka naba'ul khasm; iz tasawwarul mihraab",
     "translations": {
       "en.sahih": "And has there come to you the news of the adversaries, when they climbed over the wall of [his] prayer chamber -",
@@ -359,7 +359,7 @@
   {
     "surah": 38,
     "ayah": 22,
-    "arabic": "إِذْ دَخَلُوا۟ عَلَىٰ دَاوُۥدَ فَفَزِعَ مِنْهُمْ ۖ قَالُوا۟ لَا تَخَفْ ۖ خَصْمَانِ بَغَىٰ بَعْضُنَا عَلَىٰ بَعْضٍ فَٱحْكُم بَيْنَنَا بِٱلْحَقِّ وَلَا تُشْطِطْ وَٱهْدِنَآ إِلَىٰ سَوَآءِ ٱلصِّرَٰطِ",
+    "arabic": "إِذْ دَخَلُوا عَلَىٰ دَاوُودَ فَفَزِعَ مِنْهُمْ ۖ قَالُوا لَا تَخَفْ ۖ خَصْمَانِ بَغَىٰ بَعْضُنَا عَلَىٰ بَعْضٍ فَاحْكُم بَيْنَنَا بِالْحَقِّ وَلَا تُشْطِطْ وَاهْدِنَا إِلَىٰ سَوَاءِ الصِّرَاطِ",
     "transliteration": "Iz dakhaloo 'alaa Daawooda fafazi'a minhum qaaloo la takhaf khasmaani baghaa ba'dunaa 'alaa ba'din fahkum bainanaaa bilhaqqi wa laa tushtit wahdinaaa ilaa Sawaaa'is Siraat",
     "translations": {
       "en.sahih": "When they entered upon David and he was alarmed by them? They said, \"Fear not. [We are] two adversaries, one of whom has wronged the other, so judge between us with truth and do not exceed [it] and guide us to the sound path.",
@@ -376,7 +376,7 @@
   {
     "surah": 38,
     "ayah": 23,
-    "arabic": "إِنَّ هَـٰذَآ أَخِى لَهُۥ تِسْعٌ وَتِسْعُونَ نَعْجَةً وَلِىَ نَعْجَةٌ وَٰحِدَةٌ فَقَالَ أَكْفِلْنِيهَا وَعَزَّنِى فِى ٱلْخِطَابِ",
+    "arabic": "إِنَّ هَٰذَا أَخِي لَهُ تِسْعٌ وَتِسْعُونَ نَعْجَةً وَلِيَ نَعْجَةٌ وَاحِدَةٌ فَقَالَ أَكْفِلْنِيهَا وَعَزَّنِي فِي الْخِطَابِ",
     "transliteration": "Inna haazaaa akhee lahoo tis'unw wa tis'oona na'jatanw wa liya na'jatunw waahidah; faqaala akfilneeha wa 'azzanee filkhitaab",
     "translations": {
       "en.sahih": "Indeed this, my brother, has ninety-nine ewes, and I have one ewe; so he said, 'Entrust her to me,' and he overpowered me in speech.\"",
@@ -393,7 +393,7 @@
   {
     "surah": 38,
     "ayah": 24,
-    "arabic": "قَالَ لَقَدْ ظَلَمَكَ بِسُؤَالِ نَعْجَتِكَ إِلَىٰ نِعَاجِهِۦ ۖ وَإِنَّ كَثِيرًا مِّنَ ٱلْخُلَطَآءِ لَيَبْغِى بَعْضُهُمْ عَلَىٰ بَعْضٍ إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَقَلِيلٌ مَّا هُمْ ۗ وَظَنَّ دَاوُۥدُ أَنَّمَا فَتَنَّـٰهُ فَٱسْتَغْفَرَ رَبَّهُۥ وَخَرَّ رَاكِعًا وَأَنَابَ ۩",
+    "arabic": "قَالَ لَقَدْ ظَلَمَكَ بِسُؤَالِ نَعْجَتِكَ إِلَىٰ نِعَاجِهِ ۖ وَإِنَّ كَثِيرًا مِّنَ الْخُلَطَاءِ لَيَبْغِي بَعْضُهُمْ عَلَىٰ بَعْضٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَقَلِيلٌ مَّا هُمْ ۗ وَظَنَّ دَاوُودُ أَنَّمَا فَتَنَّاهُ فَاسْتَغْفَرَ رَبَّهُ وَخَرَّ رَاكِعًا وَأَنَابَ",
     "transliteration": "Qaala laqad zalamaka bisu 'aali na'jatika ilaa ni'aajihee wa inna kaseeram minal khulataaa'i la-yabghee ba'duhum 'alaa ba'din illal lazeena aamanoo wa 'amilus saalihaati wa qaleehum maa hum; wa zanna Daawoodu annamaa fatannaahu fastaghrara Rabbahoo wa kharra raaki'anw wa anaab",
     "translations": {
       "en.sahih": "[David] said, \"He has certainly wronged you in demanding your ewe [in addition] to his ewes. And indeed, many associates oppress one another, except for those who believe and do righteous deeds - and few are they.\" And David became certain that We had tried him, and he asked forgiveness of his Lord and fell down bowing [in prostration] and turned in repentance [to Allah].",
@@ -410,7 +410,7 @@
   {
     "surah": 38,
     "ayah": 25,
-    "arabic": "فَغَفَرْنَا لَهُۥ ذَٰلِكَ ۖ وَإِنَّ لَهُۥ عِندَنَا لَزُلْفَىٰ وَحُسْنَ مَـَٔابٍ",
+    "arabic": "فَغَفَرْنَا لَهُ ذَٰلِكَ ۖ وَإِنَّ لَهُ عِندَنَا لَزُلْفَىٰ وَحُسْنَ مَآبٍ",
     "transliteration": "Faghafarnaa lahoo zaalik; wa inna lahoo 'indanaa lazulfaa wa husna ma aab",
     "translations": {
       "en.sahih": "So We forgave him that; and indeed, for him is nearness to Us and a good place of return.",
@@ -427,7 +427,7 @@
   {
     "surah": 38,
     "ayah": 26,
-    "arabic": "يَـٰدَاوُۥدُ إِنَّا جَعَلْنَـٰكَ خَلِيفَةً فِى ٱلْأَرْضِ فَٱحْكُم بَيْنَ ٱلنَّاسِ بِٱلْحَقِّ وَلَا تَتَّبِعِ ٱلْهَوَىٰ فَيُضِلَّكَ عَن سَبِيلِ ٱللَّهِ ۚ إِنَّ ٱلَّذِينَ يَضِلُّونَ عَن سَبِيلِ ٱللَّهِ لَهُمْ عَذَابٌ شَدِيدٌۢ بِمَا نَسُوا۟ يَوْمَ ٱلْحِسَابِ",
+    "arabic": "يَا دَاوُودُ إِنَّا جَعَلْنَاكَ خَلِيفَةً فِي الْأَرْضِ فَاحْكُم بَيْنَ النَّاسِ بِالْحَقِّ وَلَا تَتَّبِعِ الْهَوَىٰ فَيُضِلَّكَ عَن سَبِيلِ اللَّهِ ۚ إِنَّ الَّذِينَ يَضِلُّونَ عَن سَبِيلِ اللَّهِ لَهُمْ عَذَابٌ شَدِيدٌ بِمَا نَسُوا يَوْمَ الْحِسَابِ",
     "transliteration": "Yaa Daawoodu innaa ja'alnaaka khaleefatan fil ardi fahkum bainan naasi bilhaqqi wa laa tattabi'il hawaa fayudillaka 'an sabeelil laah; innal lazeena yadilloona 'an sabeelil laah; lahum 'azaabun shadeedum bimaa nasoo Yawmal Hisaab",
     "translations": {
       "en.sahih": "[We said], \"O David, indeed We have made you a successor upon the earth, so judge between the people in truth and do not follow [your own] desire, as it will lead you astray from the way of Allah.\" Indeed, those who go astray from the way of Allah will have a severe punishment for having forgotten the Day of Account.",
@@ -444,7 +444,7 @@
   {
     "surah": 38,
     "ayah": 27,
-    "arabic": "وَمَا خَلَقْنَا ٱلسَّمَآءَ وَٱلْأَرْضَ وَمَا بَيْنَهُمَا بَـٰطِلًا ۚ ذَٰلِكَ ظَنُّ ٱلَّذِينَ كَفَرُوا۟ ۚ فَوَيْلٌ لِّلَّذِينَ كَفَرُوا۟ مِنَ ٱلنَّارِ",
+    "arabic": "وَمَا خَلَقْنَا السَّمَاءَ وَالْأَرْضَ وَمَا بَيْنَهُمَا بَاطِلًا ۚ ذَٰلِكَ ظَنُّ الَّذِينَ كَفَرُوا ۚ فَوَيْلٌ لِّلَّذِينَ كَفَرُوا مِنَ النَّارِ",
     "transliteration": "Wa ma khalaqnas samaaa'a wal arda wa maa bainahumaa baatilaa; zaalika zannul lazeena kafaroo; fawi lul lillazeena kafaroo minan Naar",
     "translations": {
       "en.sahih": "And We did not create the heaven and the earth and that between them aimlessly. That is the assumption of those who disbelieve, so woe to those who disbelieve from the Fire.",
@@ -461,7 +461,7 @@
   {
     "surah": 38,
     "ayah": 28,
-    "arabic": "أَمْ نَجْعَلُ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ كَٱلْمُفْسِدِينَ فِى ٱلْأَرْضِ أَمْ نَجْعَلُ ٱلْمُتَّقِينَ كَٱلْفُجَّارِ",
+    "arabic": "أَمْ نَجْعَلُ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ كَالْمُفْسِدِينَ فِي الْأَرْضِ أَمْ نَجْعَلُ الْمُتَّقِينَ كَالْفُجَّارِ",
     "transliteration": "Am naj'alul lazeena aamanoo wa 'amilus saalihaati kalmufisdeena fil ardi am naj'alul muttaqeena kalfujjaar",
     "translations": {
       "en.sahih": "Or should we treat those who believe and do righteous deeds like corrupters in the land? Or should We treat those who fear Allah like the wicked?",
@@ -478,7 +478,7 @@
   {
     "surah": 38,
     "ayah": 29,
-    "arabic": "كِتَـٰبٌ أَنزَلْنَـٰهُ إِلَيْكَ مُبَـٰرَكٌ لِّيَدَّبَّرُوٓا۟ ءَايَـٰتِهِۦ وَلِيَتَذَكَّرَ أُو۟لُوا۟ ٱلْأَلْبَـٰبِ",
+    "arabic": "كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ",
     "transliteration": "Kitaabun anzalnaahu ilaika mubaarakul liyaddabbarooo Aayaatihee wa liyatazakkara ulul albaab",
     "translations": {
       "en.sahih": "[This is] a blessed Book which We have revealed to you, [O Muhammad], that they might reflect upon its verses and that those of understanding would be reminded.",
@@ -495,7 +495,7 @@
   {
     "surah": 38,
     "ayah": 30,
-    "arabic": "وَوَهَبْنَا لِدَاوُۥدَ سُلَيْمَـٰنَ ۚ نِعْمَ ٱلْعَبْدُ ۖ إِنَّهُۥٓ أَوَّابٌ",
+    "arabic": "وَوَهَبْنَا لِدَاوُودَ سُلَيْمَانَ ۚ نِعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ",
     "transliteration": "Wa wahabnaa li Daawooda Sulaimaan; ni'mal 'abd; innahoo awwaab",
     "translations": {
       "en.sahih": "And to David We gave Solomon. An excellent servant, indeed he was one repeatedly turning back [to Allah].",
@@ -512,7 +512,7 @@
   {
     "surah": 38,
     "ayah": 31,
-    "arabic": "إِذْ عُرِضَ عَلَيْهِ بِٱلْعَشِىِّ ٱلصَّـٰفِنَـٰتُ ٱلْجِيَادُ",
+    "arabic": "إِذْ عُرِضَ عَلَيْهِ بِالْعَشِيِّ الصَّافِنَاتُ الْجِيَادُ",
     "transliteration": "Iz 'urida 'alaihi bil'ashiy yis saafinaatul jiyaad",
     "translations": {
       "en.sahih": "[Mention] when there were exhibited before him in the afternoon the poised [standing] racehorses.",
@@ -529,7 +529,7 @@
   {
     "surah": 38,
     "ayah": 32,
-    "arabic": "فَقَالَ إِنِّىٓ أَحْبَبْتُ حُبَّ ٱلْخَيْرِ عَن ذِكْرِ رَبِّى حَتَّىٰ تَوَارَتْ بِٱلْحِجَابِ",
+    "arabic": "فَقَالَ إِنِّي أَحْبَبْتُ حُبَّ الْخَيْرِ عَن ذِكْرِ رَبِّي حَتَّىٰ تَوَارَتْ بِالْحِجَابِ",
     "transliteration": "Faqaala inneee ahbabtu hubbal khairi 'an zikri Rabbee hattaa tawaarat bilhijaab",
     "translations": {
       "en.sahih": "And he said, \"Indeed, I gave preference to the love of good [things] over the remembrance of my Lord until the sun disappeared into the curtain [of darkness].\"",
@@ -546,7 +546,7 @@
   {
     "surah": 38,
     "ayah": 33,
-    "arabic": "رُدُّوهَا عَلَىَّ ۖ فَطَفِقَ مَسْحًۢا بِٱلسُّوقِ وَٱلْأَعْنَاقِ",
+    "arabic": "رُدُّوهَا عَلَيَّ ۖ فَطَفِقَ مَسْحًا بِالسُّوقِ وَالْأَعْنَاقِ",
     "transliteration": "Ruddoohaa 'alaiya fatafiqa masham bissooqi wal a'naaq",
     "translations": {
       "en.sahih": "[He said], \"Return them to me,\" and set about striking [their] legs and necks.",
@@ -563,7 +563,7 @@
   {
     "surah": 38,
     "ayah": 34,
-    "arabic": "وَلَقَدْ فَتَنَّا سُلَيْمَـٰنَ وَأَلْقَيْنَا عَلَىٰ كُرْسِيِّهِۦ جَسَدًا ثُمَّ أَنَابَ",
+    "arabic": "وَلَقَدْ فَتَنَّا سُلَيْمَانَ وَأَلْقَيْنَا عَلَىٰ كُرْسِيِّهِ جَسَدًا ثُمَّ أَنَابَ",
     "transliteration": "Wa laqad fatannaa Sulaimaana wa alqainaa 'alaa kursiyyihee jasadan summa anaab",
     "translations": {
       "en.sahih": "And We certainly tried Solomon and placed on his throne a body; then he returned.",
@@ -580,7 +580,7 @@
   {
     "surah": 38,
     "ayah": 35,
-    "arabic": "قَالَ رَبِّ ٱغْفِرْ لِى وَهَبْ لِى مُلْكًا لَّا يَنۢبَغِى لِأَحَدٍ مِّنۢ بَعْدِىٓ ۖ إِنَّكَ أَنتَ ٱلْوَهَّابُ",
+    "arabic": "قَالَ رَبِّ اغْفِرْ لِي وَهَبْ لِي مُلْكًا لَّا يَنبَغِي لِأَحَدٍ مِّن بَعْدِي ۖ إِنَّكَ أَنتَ الْوَهَّابُ",
     "transliteration": "Qaala Rabbigh fir lee wa hab lee mulkal laa yambaghee li ahadim mim ba'de inaka Antal Wahhab",
     "translations": {
       "en.sahih": "He said, \"My Lord, forgive me and grant me a kingdom such as will not belong to anyone after me. Indeed, You are the Bestower.\"",
@@ -597,7 +597,7 @@
   {
     "surah": 38,
     "ayah": 36,
-    "arabic": "فَسَخَّرْنَا لَهُ ٱلرِّيحَ تَجْرِى بِأَمْرِهِۦ رُخَآءً حَيْثُ أَصَابَ",
+    "arabic": "فَسَخَّرْنَا لَهُ الرِّيحَ تَجْرِي بِأَمْرِهِ رُخَاءً حَيْثُ أَصَابَ",
     "transliteration": "Fasakhkharnaa lahur reeha tajree bi amrihee rukhaaa'an haisu asaab",
     "translations": {
       "en.sahih": "So We subjected to him the wind blowing by his command, gently, wherever he directed,",
@@ -614,7 +614,7 @@
   {
     "surah": 38,
     "ayah": 37,
-    "arabic": "وَٱلشَّيَـٰطِينَ كُلَّ بَنَّآءٍ وَغَوَّاصٍ",
+    "arabic": "وَالشَّيَاطِينَ كُلَّ بَنَّاءٍ وَغَوَّاصٍ",
     "transliteration": "Wash Shayaateena kulla bannaaa'inw wa ghawwaas",
     "translations": {
       "en.sahih": "And [also] the devils [of jinn] - every builder and diver",
@@ -631,7 +631,7 @@
   {
     "surah": 38,
     "ayah": 38,
-    "arabic": "وَءَاخَرِينَ مُقَرَّنِينَ فِى ٱلْأَصْفَادِ",
+    "arabic": "وَآخَرِينَ مُقَرَّنِينَ فِي الْأَصْفَادِ",
     "transliteration": "Wa aakhareena muqarraneena fil asfaad",
     "translations": {
       "en.sahih": "And others bound together in shackles.",
@@ -648,7 +648,7 @@
   {
     "surah": 38,
     "ayah": 39,
-    "arabic": "هَـٰذَا عَطَآؤُنَا فَٱمْنُنْ أَوْ أَمْسِكْ بِغَيْرِ حِسَابٍ",
+    "arabic": "هَٰذَا عَطَاؤُنَا فَامْنُنْ أَوْ أَمْسِكْ بِغَيْرِ حِسَابٍ",
     "transliteration": "Haazaa 'ataaa'unaa famnun aw amsik bighairi hisaab",
     "translations": {
       "en.sahih": "[We said], \"This is Our gift, so grant or withhold without account.\"",
@@ -665,7 +665,7 @@
   {
     "surah": 38,
     "ayah": 40,
-    "arabic": "وَإِنَّ لَهُۥ عِندَنَا لَزُلْفَىٰ وَحُسْنَ مَـَٔابٍ",
+    "arabic": "وَإِنَّ لَهُ عِندَنَا لَزُلْفَىٰ وَحُسْنَ مَآبٍ",
     "transliteration": "Wa inna lahoo 'indanaa lazulfaa wa husna ma-aab",
     "translations": {
       "en.sahih": "And indeed, for him is nearness to Us and a good place of return.",
@@ -682,7 +682,7 @@
   {
     "surah": 38,
     "ayah": 41,
-    "arabic": "وَٱذْكُرْ عَبْدَنَآ أَيُّوبَ إِذْ نَادَىٰ رَبَّهُۥٓ أَنِّى مَسَّنِىَ ٱلشَّيْطَـٰنُ بِنُصْبٍ وَعَذَابٍ",
+    "arabic": "وَاذْكُرْ عَبْدَنَا أَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الشَّيْطَانُ بِنُصْبٍ وَعَذَابٍ",
     "transliteration": "Wazkur 'abdanaaa Ayyoob; iz naada Rabbahooo annee massaniyash Shaitaanu binus binw wa 'azaab",
     "translations": {
       "en.sahih": "And remember Our servant Job, when he called to his Lord, \"Indeed, Satan has touched me with hardship and torment.\"",
@@ -699,7 +699,7 @@
   {
     "surah": 38,
     "ayah": 42,
-    "arabic": "ٱرْكُضْ بِرِجْلِكَ ۖ هَـٰذَا مُغْتَسَلٌۢ بَارِدٌ وَشَرَابٌ",
+    "arabic": "ارْكُضْ بِرِجْلِكَ ۖ هَٰذَا مُغْتَسَلٌ بَارِدٌ وَشَرَابٌ",
     "transliteration": "Urkud birijlika haaza mughtasalum baaridunw wa sharaab",
     "translations": {
       "en.sahih": "[So he was told], \"Strike [the ground] with your foot; this is a [spring for] a cool bath and drink.\"",
@@ -716,7 +716,7 @@
   {
     "surah": 38,
     "ayah": 43,
-    "arabic": "وَوَهَبْنَا لَهُۥٓ أَهْلَهُۥ وَمِثْلَهُم مَّعَهُمْ رَحْمَةً مِّنَّا وَذِكْرَىٰ لِأُو۟لِى ٱلْأَلْبَـٰبِ",
+    "arabic": "وَوَهَبْنَا لَهُ أَهْلَهُ وَمِثْلَهُم مَّعَهُمْ رَحْمَةً مِّنَّا وَذِكْرَىٰ لِأُولِي الْأَلْبَابِ",
     "transliteration": "Wa wahabnaa lahoo ahlahoo wa mislahum ma'ahum rahmatam minna wa zikraa li ulil albaab",
     "translations": {
       "en.sahih": "And We granted him his family and a like [number] with them as mercy from Us and a reminder for those of understanding.",
@@ -733,7 +733,7 @@
   {
     "surah": 38,
     "ayah": 44,
-    "arabic": "وَخُذْ بِيَدِكَ ضِغْثًا فَٱضْرِب بِّهِۦ وَلَا تَحْنَثْ ۗ إِنَّا وَجَدْنَـٰهُ صَابِرًا ۚ نِّعْمَ ٱلْعَبْدُ ۖ إِنَّهُۥٓ أَوَّابٌ",
+    "arabic": "وَخُذْ بِيَدِكَ ضِغْثًا فَاضْرِب بِّهِ وَلَا تَحْنَثْ ۗ إِنَّا وَجَدْنَاهُ صَابِرًا ۚ نِّعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ",
     "transliteration": "Wa khuz biyadika dighsan fadrib bihee wa laa tahnas, innaa wajadnaahu saabiraa; ni'mal 'abd; innahooo awwaab",
     "translations": {
       "en.sahih": "[We said], \"And take in your hand a bunch [of grass] and strike with it and do not break your oath.\" Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back [to Allah].",
@@ -750,7 +750,7 @@
   {
     "surah": 38,
     "ayah": 45,
-    "arabic": "وَٱذْكُرْ عِبَـٰدَنَآ إِبْرَٰهِيمَ وَإِسْحَـٰقَ وَيَعْقُوبَ أُو۟لِى ٱلْأَيْدِى وَٱلْأَبْصَـٰرِ",
+    "arabic": "وَاذْكُرْ عِبَادَنَا إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ أُولِي الْأَيْدِي وَالْأَبْصَارِ",
     "transliteration": "Wazkur 'ibaadanaaa Ibraaheema wa Is-haaqa wa Ya'qooba ulil-aydee walabsaar",
     "translations": {
       "en.sahih": "And remember Our servants, Abraham, Isaac and Jacob - those of strength and [religious] vision.",
@@ -767,7 +767,7 @@
   {
     "surah": 38,
     "ayah": 46,
-    "arabic": "إِنَّآ أَخْلَصْنَـٰهُم بِخَالِصَةٍ ذِكْرَى ٱلدَّارِ",
+    "arabic": "إِنَّا أَخْلَصْنَاهُم بِخَالِصَةٍ ذِكْرَى الدَّارِ",
     "transliteration": "Innaaa akhlasnaahum bi khaalisatin zikrad daar",
     "translations": {
       "en.sahih": "Indeed, We chose them for an exclusive quality: remembrance of the home [of the Hereafter].",
@@ -784,7 +784,7 @@
   {
     "surah": 38,
     "ayah": 47,
-    "arabic": "وَإِنَّهُمْ عِندَنَا لَمِنَ ٱلْمُصْطَفَيْنَ ٱلْأَخْيَارِ",
+    "arabic": "وَإِنَّهُمْ عِندَنَا لَمِنَ الْمُصْطَفَيْنَ الْأَخْيَارِ",
     "transliteration": "Wa innahum 'indanaa laminal mustafainal akhyaar",
     "translations": {
       "en.sahih": "And indeed they are, to Us, among the chosen and outstanding.",
@@ -801,7 +801,7 @@
   {
     "surah": 38,
     "ayah": 48,
-    "arabic": "وَٱذْكُرْ إِسْمَـٰعِيلَ وَٱلْيَسَعَ وَذَا ٱلْكِفْلِ ۖ وَكُلٌّ مِّنَ ٱلْأَخْيَارِ",
+    "arabic": "وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ ۖ وَكُلٌّ مِّنَ الْأَخْيَارِ",
     "transliteration": "Wazkur Ismaa'eela wal Yasa'a wa Zal-Kifli wa kullum minal akhyaar",
     "translations": {
       "en.sahih": "And remember Ishmael, Elisha and Dhul-Kifl, and all are among the outstanding.",
@@ -818,7 +818,7 @@
   {
     "surah": 38,
     "ayah": 49,
-    "arabic": "هَـٰذَا ذِكْرٌ ۚ وَإِنَّ لِلْمُتَّقِينَ لَحُسْنَ مَـَٔابٍ",
+    "arabic": "هَٰذَا ذِكْرٌ ۚ وَإِنَّ لِلْمُتَّقِينَ لَحُسْنَ مَآبٍ",
     "transliteration": "Haazaa zikr; wa inna lilmuttaqeena lahusna ma aab",
     "translations": {
       "en.sahih": "This is a reminder. And indeed, for the righteous is a good place of return",
@@ -835,7 +835,7 @@
   {
     "surah": 38,
     "ayah": 50,
-    "arabic": "جَنَّـٰتِ عَدْنٍ مُّفَتَّحَةً لَّهُمُ ٱلْأَبْوَٰبُ",
+    "arabic": "جَنَّاتِ عَدْنٍ مُّفَتَّحَةً لَّهُمُ الْأَبْوَابُ",
     "transliteration": "Jannaati 'adnim mufat tahatal lahumul abwaab",
     "translations": {
       "en.sahih": "Gardens of perpetual residence, whose doors will be opened to them.",
@@ -852,7 +852,7 @@
   {
     "surah": 38,
     "ayah": 51,
-    "arabic": "مُتَّكِـِٔينَ فِيهَا يَدْعُونَ فِيهَا بِفَـٰكِهَةٍ كَثِيرَةٍ وَشَرَابٍ",
+    "arabic": "مُتَّكِئِينَ فِيهَا يَدْعُونَ فِيهَا بِفَاكِهَةٍ كَثِيرَةٍ وَشَرَابٍ",
     "transliteration": "Muttaki'eena feehaa yad'oona feehaa bifaakihatin kaseeratinw wa sharaab",
     "translations": {
       "en.sahih": "Reclining within them, they will call therein for abundant fruit and drink.",
@@ -869,7 +869,7 @@
   {
     "surah": 38,
     "ayah": 52,
-    "arabic": "۞ وَعِندَهُمْ قَـٰصِرَٰتُ ٱلطَّرْفِ أَتْرَابٌ",
+    "arabic": "وَعِندَهُمْ قَاصِرَاتُ الطَّرْفِ أَتْرَابٌ",
     "transliteration": "Wa 'indahum qaasiraatut tarfi atraab",
     "translations": {
       "en.sahih": "And with them will be women limiting [their] glances and of equal age.",
@@ -886,7 +886,7 @@
   {
     "surah": 38,
     "ayah": 53,
-    "arabic": "هَـٰذَا مَا تُوعَدُونَ لِيَوْمِ ٱلْحِسَابِ",
+    "arabic": "هَٰذَا مَا تُوعَدُونَ لِيَوْمِ الْحِسَابِ",
     "transliteration": "Haaza maa too'odoona li Yawmil Hisaab",
     "translations": {
       "en.sahih": "This is what you, [the righteous], are promised for the Day of Account.",
@@ -903,7 +903,7 @@
   {
     "surah": 38,
     "ayah": 54,
-    "arabic": "إِنَّ هَـٰذَا لَرِزْقُنَا مَا لَهُۥ مِن نَّفَادٍ",
+    "arabic": "إِنَّ هَٰذَا لَرِزْقُنَا مَا لَهُ مِن نَّفَادٍ",
     "transliteration": "Inna haazaa larizqunaa maa lahoo min nafaad",
     "translations": {
       "en.sahih": "Indeed, this is Our provision; for it there is no depletion.",
@@ -920,7 +920,7 @@
   {
     "surah": 38,
     "ayah": 55,
-    "arabic": "هَـٰذَا ۚ وَإِنَّ لِلطَّـٰغِينَ لَشَرَّ مَـَٔابٍ",
+    "arabic": "هَٰذَا ۚ وَإِنَّ لِلطَّاغِينَ لَشَرَّ مَآبٍ",
     "transliteration": "Haazaa; wa inna littaagheena lasharra ma-aab",
     "translations": {
       "en.sahih": "This [is so]. But indeed, for the transgressors is an evil place of return -",
@@ -937,7 +937,7 @@
   {
     "surah": 38,
     "ayah": 56,
-    "arabic": "جَهَنَّمَ يَصْلَوْنَهَا فَبِئْسَ ٱلْمِهَادُ",
+    "arabic": "جَهَنَّمَ يَصْلَوْنَهَا فَبِئْسَ الْمِهَادُ",
     "transliteration": "Jahannama yaslawnahaa fai'sal mihaad",
     "translations": {
       "en.sahih": "Hell, which they will [enter to] burn, and wretched is the resting place.",
@@ -954,7 +954,7 @@
   {
     "surah": 38,
     "ayah": 57,
-    "arabic": "هَـٰذَا فَلْيَذُوقُوهُ حَمِيمٌ وَغَسَّاقٌ",
+    "arabic": "هَٰذَا فَلْيَذُوقُوهُ حَمِيمٌ وَغَسَّاقٌ",
     "transliteration": "Haazaa falyazooqoohu hameemunw wa ghassaaq",
     "translations": {
       "en.sahih": "This - so let them taste it - is scalding water and [foul] purulence.",
@@ -971,7 +971,7 @@
   {
     "surah": 38,
     "ayah": 58,
-    "arabic": "وَءَاخَرُ مِن شَكْلِهِۦٓ أَزْوَٰجٌ",
+    "arabic": "وَآخَرُ مِن شَكْلِهِ أَزْوَاجٌ",
     "transliteration": "Wa aakharu min shak liheee azwaaj",
     "translations": {
       "en.sahih": "And other [punishments] of its type [in various] kinds.",
@@ -988,7 +988,7 @@
   {
     "surah": 38,
     "ayah": 59,
-    "arabic": "هَـٰذَا فَوْجٌ مُّقْتَحِمٌ مَّعَكُمْ ۖ لَا مَرْحَبًۢا بِهِمْ ۚ إِنَّهُمْ صَالُوا۟ ٱلنَّارِ",
+    "arabic": "هَٰذَا فَوْجٌ مُّقْتَحِمٌ مَّعَكُمْ ۖ لَا مَرْحَبًا بِهِمْ ۚ إِنَّهُمْ صَالُو النَّارِ",
     "transliteration": "Haazaa fawjum muqtahimum ma'akum laa marhabam bihim; innahum saalun Naar",
     "translations": {
       "en.sahih": "[Its inhabitants will say], \"This is a company bursting in with you. No welcome for them. Indeed, they will burn in the Fire.\"",
@@ -1005,7 +1005,7 @@
   {
     "surah": 38,
     "ayah": 60,
-    "arabic": "قَالُوا۟ بَلْ أَنتُمْ لَا مَرْحَبًۢا بِكُمْ ۖ أَنتُمْ قَدَّمْتُمُوهُ لَنَا ۖ فَبِئْسَ ٱلْقَرَارُ",
+    "arabic": "قَالُوا بَلْ أَنتُمْ لَا مَرْحَبًا بِكُمْ ۖ أَنتُمْ قَدَّمْتُمُوهُ لَنَا ۖ فَبِئْسَ الْقَرَارُ",
     "transliteration": "Qaaloo bal antum laa marhabam bikum; antum qaddamtumoohu lanaa fabi'sal qaraar",
     "translations": {
       "en.sahih": "They will say, \"Nor you! No welcome for you. You, [our leaders], brought this upon us, and wretched is the settlement.\"",
@@ -1022,7 +1022,7 @@
   {
     "surah": 38,
     "ayah": 61,
-    "arabic": "قَالُوا۟ رَبَّنَا مَن قَدَّمَ لَنَا هَـٰذَا فَزِدْهُ عَذَابًا ضِعْفًا فِى ٱلنَّارِ",
+    "arabic": "قَالُوا رَبَّنَا مَن قَدَّمَ لَنَا هَٰذَا فَزِدْهُ عَذَابًا ضِعْفًا فِي النَّارِ",
     "transliteration": "Qaaloo Rabbanaa man qaddama lanaa haaza fazidhu 'azaaban di'fan fin Naar",
     "translations": {
       "en.sahih": "They will say, \"Our Lord, whoever brought this upon us - increase for him double punishment in the Fire.\"",
@@ -1039,7 +1039,7 @@
   {
     "surah": 38,
     "ayah": 62,
-    "arabic": "وَقَالُوا۟ مَا لَنَا لَا نَرَىٰ رِجَالًا كُنَّا نَعُدُّهُم مِّنَ ٱلْأَشْرَارِ",
+    "arabic": "وَقَالُوا مَا لَنَا لَا نَرَىٰ رِجَالًا كُنَّا نَعُدُّهُم مِّنَ الْأَشْرَارِ",
     "transliteration": "Wa qaaloo ma lanaa laa naraa rijaalan kunnaa na'udduhum minal ashraar",
     "translations": {
       "en.sahih": "And they will say, \"Why do we not see men whom we used to count among the worst?",
@@ -1056,7 +1056,7 @@
   {
     "surah": 38,
     "ayah": 63,
-    "arabic": "أَتَّخَذْنَـٰهُمْ سِخْرِيًّا أَمْ زَاغَتْ عَنْهُمُ ٱلْأَبْصَـٰرُ",
+    "arabic": "أَتَّخَذْنَاهُمْ سِخْرِيًّا أَمْ زَاغَتْ عَنْهُمُ الْأَبْصَارُ",
     "transliteration": "Attakhaznaahum sikh riyyan am zaaghat 'anhumul absaar",
     "translations": {
       "en.sahih": "Is it [because] we took them in ridicule, or has [our] vision turned away from them?\"",
@@ -1073,7 +1073,7 @@
   {
     "surah": 38,
     "ayah": 64,
-    "arabic": "إِنَّ ذَٰلِكَ لَحَقٌّ تَخَاصُمُ أَهْلِ ٱلنَّارِ",
+    "arabic": "إِنَّ ذَٰلِكَ لَحَقٌّ تَخَاصُمُ أَهْلِ النَّارِ",
     "transliteration": "Inna zaalika lahaqqun takhaasumu Ahlin Naar",
     "translations": {
       "en.sahih": "Indeed, that is truth - the quarreling of the people of the Fire.",
@@ -1090,7 +1090,7 @@
   {
     "surah": 38,
     "ayah": 65,
-    "arabic": "قُلْ إِنَّمَآ أَنَا۠ مُنذِرٌ ۖ وَمَا مِنْ إِلَـٰهٍ إِلَّا ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ",
+    "arabic": "قُلْ إِنَّمَا أَنَا مُنذِرٌ ۖ وَمَا مِنْ إِلَٰهٍ إِلَّا اللَّهُ الْوَاحِدُ الْقَهَّارُ",
     "transliteration": "Qul innamaaa ana munzirunw wa maa min ilaahim illal laahul Waahidul Qahhaar",
     "translations": {
       "en.sahih": "Say, [O Muhammad], \"I am only a warner, and there is not any deity except Allah, the One, the Prevailing.",
@@ -1107,7 +1107,7 @@
   {
     "surah": 38,
     "ayah": 66,
-    "arabic": "رَبُّ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ وَمَا بَيْنَهُمَا ٱلْعَزِيزُ ٱلْغَفَّـٰرُ",
+    "arabic": "رَبُّ السَّمَاوَاتِ وَالْأَرْضِ وَمَا بَيْنَهُمَا الْعَزِيزُ الْغَفَّارُ",
     "transliteration": "Rabbus samaawaati wal ardi wa maa bainahumal 'Azeezul Ghaffaar",
     "translations": {
       "en.sahih": "Lord of the heavens and the earth and whatever is between them, the Exalted in Might, the Perpetual Forgiver.\"",
@@ -1124,7 +1124,7 @@
   {
     "surah": 38,
     "ayah": 67,
-    "arabic": "قُلْ هُوَ نَبَؤٌا۟ عَظِيمٌ",
+    "arabic": "قُلْ هُوَ نَبَأٌ عَظِيمٌ",
     "transliteration": "Qul huwa naba'un 'azeem",
     "translations": {
       "en.sahih": "Say, \"It is great news",
@@ -1158,7 +1158,7 @@
   {
     "surah": 38,
     "ayah": 69,
-    "arabic": "مَا كَانَ لِىَ مِنْ عِلْمٍۭ بِٱلْمَلَإِ ٱلْأَعْلَىٰٓ إِذْ يَخْتَصِمُونَ",
+    "arabic": "مَا كَانَ لِيَ مِنْ عِلْمٍ بِالْمَلَإِ الْأَعْلَىٰ إِذْ يَخْتَصِمُونَ",
     "transliteration": "Maa kaana liya min 'ilmim bilmala il a'laaa iz yakhtasimoon",
     "translations": {
       "en.sahih": "I had no knowledge of the exalted assembly [of angels] when they were disputing [the creation of Adam].",
@@ -1175,7 +1175,7 @@
   {
     "surah": 38,
     "ayah": 70,
-    "arabic": "إِن يُوحَىٰٓ إِلَىَّ إِلَّآ أَنَّمَآ أَنَا۠ نَذِيرٌ مُّبِينٌ",
+    "arabic": "إِن يُوحَىٰ إِلَيَّ إِلَّا أَنَّمَا أَنَا نَذِيرٌ مُّبِينٌ",
     "transliteration": "Iny-yoohaaa ilaiya illaaa annnamaaa ana nazeerum mubeen",
     "translations": {
       "en.sahih": "It has not been revealed to me except that I am a clear warner.\"",
@@ -1192,7 +1192,7 @@
   {
     "surah": 38,
     "ayah": 71,
-    "arabic": "إِذْ قَالَ رَبُّكَ لِلْمَلَـٰٓئِكَةِ إِنِّى خَـٰلِقٌۢ بَشَرًا مِّن طِينٍ",
+    "arabic": "إِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي خَالِقٌ بَشَرًا مِّن طِينٍ",
     "transliteration": "Iz qaala Rabbuka lilmalaaa'ikati innee khaaliqum basharam min teen",
     "translations": {
       "en.sahih": "[So mention] when your Lord said to the angels, \"Indeed, I am going to create a human being from clay.",
@@ -1209,7 +1209,7 @@
   {
     "surah": 38,
     "ayah": 72,
-    "arabic": "فَإِذَا سَوَّيْتُهُۥ وَنَفَخْتُ فِيهِ مِن رُّوحِى فَقَعُوا۟ لَهُۥ سَـٰجِدِينَ",
+    "arabic": "فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِن رُّوحِي فَقَعُوا لَهُ سَاجِدِينَ",
     "transliteration": "Fa-iza sawwaituhoo wa nafakhtu feehi mir roohee faqa'oo lahoo saajideen",
     "translations": {
       "en.sahih": "So when I have proportioned him and breathed into him of My [created] soul, then fall down to him in prostration.\"",
@@ -1226,7 +1226,7 @@
   {
     "surah": 38,
     "ayah": 73,
-    "arabic": "فَسَجَدَ ٱلْمَلَـٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ",
+    "arabic": "فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ",
     "transliteration": "Fasajadal malaaa'ikatu kulluhum ajma'oon",
     "translations": {
       "en.sahih": "So the angels prostrated - all of them entirely.",
@@ -1243,7 +1243,7 @@
   {
     "surah": 38,
     "ayah": 74,
-    "arabic": "إِلَّآ إِبْلِيسَ ٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَـٰفِرِينَ",
+    "arabic": "إِلَّا إِبْلِيسَ اسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
     "transliteration": "Illaaa Iblees; istakbara wa kaana minal kaafireen",
     "translations": {
       "en.sahih": "Except Iblees; he was arrogant and became among the disbelievers.",
@@ -1260,7 +1260,7 @@
   {
     "surah": 38,
     "ayah": 75,
-    "arabic": "قَالَ يَـٰٓإِبْلِيسُ مَا مَنَعَكَ أَن تَسْجُدَ لِمَا خَلَقْتُ بِيَدَىَّ ۖ أَسْتَكْبَرْتَ أَمْ كُنتَ مِنَ ٱلْعَالِينَ",
+    "arabic": "قَالَ يَا إِبْلِيسُ مَا مَنَعَكَ أَن تَسْجُدَ لِمَا خَلَقْتُ بِيَدَيَّ ۖ أَسْتَكْبَرْتَ أَمْ كُنتَ مِنَ الْعَالِينَ",
     "transliteration": "Qaala yaaa Ibleesu maa man'aka an tasjuda limaa khalaqtu biyadai; astakbarta am kunta min 'aaleen",
     "translations": {
       "en.sahih": "[Allah] said, \"O Iblees, what prevented you from prostrating to that which I created with My hands? Were you arrogant [then], or were you [already] among the haughty?\"",
@@ -1277,7 +1277,7 @@
   {
     "surah": 38,
     "ayah": 76,
-    "arabic": "قَالَ أَنَا۠ خَيْرٌ مِّنْهُ ۖ خَلَقْتَنِى مِن نَّارٍ وَخَلَقْتَهُۥ مِن طِينٍ",
+    "arabic": "قَالَ أَنَا خَيْرٌ مِّنْهُ ۖ خَلَقْتَنِي مِن نَّارٍ وَخَلَقْتَهُ مِن طِينٍ",
     "transliteration": "Qaala ana khairum minah; khalaqtanee min naarinw wa khalaqtahoo min teen",
     "translations": {
       "en.sahih": "He said, \"I am better than him. You created me from fire and created him from clay.\"",
@@ -1294,7 +1294,7 @@
   {
     "surah": 38,
     "ayah": 77,
-    "arabic": "قَالَ فَٱخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ",
+    "arabic": "قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ",
     "transliteration": "Qaala fakhruj minhaa fainnaka rajeem",
     "translations": {
       "en.sahih": "[Allah] said, \"Then get out of Paradise, for indeed, you are expelled.",
@@ -1311,7 +1311,7 @@
   {
     "surah": 38,
     "ayah": 78,
-    "arabic": "وَإِنَّ عَلَيْكَ لَعْنَتِىٓ إِلَىٰ يَوْمِ ٱلدِّينِ",
+    "arabic": "وَإِنَّ عَلَيْكَ لَعْنَتِي إِلَىٰ يَوْمِ الدِّينِ",
     "transliteration": "Wa inna 'alaika la'nateee ilaa Yawmid Deen",
     "translations": {
       "en.sahih": "And indeed, upon you is My curse until the Day of Recompense.\"",
@@ -1328,7 +1328,7 @@
   {
     "surah": 38,
     "ayah": 79,
-    "arabic": "قَالَ رَبِّ فَأَنظِرْنِىٓ إِلَىٰ يَوْمِ يُبْعَثُونَ",
+    "arabic": "قَالَ رَبِّ فَأَنظِرْنِي إِلَىٰ يَوْمِ يُبْعَثُونَ",
     "transliteration": "Qaala Rabbi fa anzirneee ilaa Yawmi yub'asoon",
     "translations": {
       "en.sahih": "He said, \"My Lord, then reprieve me until the Day they are resurrected.\"",
@@ -1345,7 +1345,7 @@
   {
     "surah": 38,
     "ayah": 80,
-    "arabic": "قَالَ فَإِنَّكَ مِنَ ٱلْمُنظَرِينَ",
+    "arabic": "قَالَ فَإِنَّكَ مِنَ الْمُنظَرِينَ",
     "transliteration": "Qaala fa innaka minal munzareen",
     "translations": {
       "en.sahih": "[Allah] said, \"So indeed, you are of those reprieved",
@@ -1362,7 +1362,7 @@
   {
     "surah": 38,
     "ayah": 81,
-    "arabic": "إِلَىٰ يَوْمِ ٱلْوَقْتِ ٱلْمَعْلُومِ",
+    "arabic": "إِلَىٰ يَوْمِ الْوَقْتِ الْمَعْلُومِ",
     "transliteration": "Ilaa Yawmil waqtil ma'loom",
     "translations": {
       "en.sahih": "Until the Day of the time well-known.\"",
@@ -1396,7 +1396,7 @@
   {
     "surah": 38,
     "ayah": 83,
-    "arabic": "إِلَّا عِبَادَكَ مِنْهُمُ ٱلْمُخْلَصِينَ",
+    "arabic": "إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ",
     "transliteration": "Illaa 'ibaadaka minhumul mukhlaseen",
     "translations": {
       "en.sahih": "Except, among them, Your chosen servants.\"",
@@ -1413,7 +1413,7 @@
   {
     "surah": 38,
     "ayah": 84,
-    "arabic": "قَالَ فَٱلْحَقُّ وَٱلْحَقَّ أَقُولُ",
+    "arabic": "قَالَ فَالْحَقُّ وَالْحَقَّ أَقُولُ",
     "transliteration": "Qaala falhaqq, walhaqqa aqool",
     "translations": {
       "en.sahih": "[Allah] said, \"The truth [is My oath], and the truth I say -",
@@ -1447,7 +1447,7 @@
   {
     "surah": 38,
     "ayah": 86,
-    "arabic": "قُلْ مَآ أَسْـَٔلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَآ أَنَا۠ مِنَ ٱلْمُتَكَلِّفِينَ",
+    "arabic": "قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ",
     "transliteration": "Qul maaa as'alukum 'alaihi min ajrinw wa maaa ana minal mutakallifeen",
     "translations": {
       "en.sahih": "Say, [O Muhammad], \"I do not ask you for the Qur'an any payment, and I am not of the pretentious",
@@ -1464,7 +1464,7 @@
   {
     "surah": 38,
     "ayah": 87,
-    "arabic": "إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَـٰلَمِينَ",
+    "arabic": "إِنْ هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ",
     "transliteration": "In huwa illaa zikrul lil'aalameen",
     "translations": {
       "en.sahih": "It is but a reminder to the worlds.",
@@ -1481,7 +1481,7 @@
   {
     "surah": 38,
     "ayah": 88,
-    "arabic": "وَلَتَعْلَمُنَّ نَبَأَهُۥ بَعْدَ حِينٍۭ",
+    "arabic": "وَلَتَعْلَمُنَّ نَبَأَهُ بَعْدَ حِينٍ",
     "transliteration": "Wa lata'lamunna naba ahoo ba'da heen",
     "translations": {
       "en.sahih": "And you will surely know [the truth of] its information after a time.\"",

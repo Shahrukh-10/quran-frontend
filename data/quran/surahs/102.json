@@ -2,7 +2,7 @@
   {
     "surah": 102,
     "ayah": 1,
-    "arabic": " أَلْهَىٰكُمُ ٱلتَّكَاثُرُ",
+    "arabic": "أَلْهَاكُمُ التَّكَاثُرُ",
     "transliteration": "Al haaku mut takathur",
     "translations": {
       "en.sahih": "Competition in [worldly] increase diverts you",
@@ -19,7 +19,7 @@
   {
     "surah": 102,
     "ayah": 2,
-    "arabic": "حَتَّىٰ زُرْتُمُ ٱلْمَقَابِرَ",
+    "arabic": "حَتَّىٰ زُرْتُمُ الْمَقَابِرَ",
     "transliteration": "Hatta zurtumul-maqaabir",
     "translations": {
       "en.sahih": "Until you visit the graveyards.",
@@ -70,7 +70,7 @@
   {
     "surah": 102,
     "ayah": 5,
-    "arabic": "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ ٱلْيَقِينِ",
+    "arabic": "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ الْيَقِينِ",
     "transliteration": "Kalla law ta'lamoona 'ilmal yaqeen",
     "translations": {
       "en.sahih": "No! If you only knew with knowledge of certainty...",
@@ -87,7 +87,7 @@
   {
     "surah": 102,
     "ayah": 6,
-    "arabic": "لَتَرَوُنَّ ٱلْجَحِيمَ",
+    "arabic": "لَتَرَوُنَّ الْجَحِيمَ",
     "transliteration": "Latara-wun nal jaheem",
     "translations": {
       "en.sahih": "You will surely see the Hellfire.",
@@ -104,7 +104,7 @@
   {
     "surah": 102,
     "ayah": 7,
-    "arabic": "ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ",
+    "arabic": "ثُمَّ لَتَرَوُنَّهَا عَيْنَ الْيَقِينِ",
     "transliteration": "Thumma latara wunnaha 'ainal yaqeen",
     "translations": {
       "en.sahih": "Then you will surely see it with the eye of certainty.",
@@ -121,7 +121,7 @@
   {
     "surah": 102,
     "ayah": 8,
-    "arabic": "ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ",
+    "arabic": "ثُمَّ لَتُسْأَلُنَّ يَوْمَئِذٍ عَنِ النَّعِيمِ",
     "transliteration": "Thumma latus alunna yauma-izin 'anin na'eem",
     "translations": {
       "en.sahih": "Then you will surely be asked that Day about pleasure.",

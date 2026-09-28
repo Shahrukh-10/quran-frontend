@@ -2,7 +2,7 @@
   {
     "surah": 77,
     "ayah": 1,
-    "arabic": " وَٱلْمُرْسَلَـٰتِ عُرْفًا",
+    "arabic": "وَالْمُرْسَلَاتِ عُرْفًا",
     "transliteration": "Wal mursalaati'urfaa",
     "translations": {
       "en.sahih": "By those [winds] sent forth in gusts",
@@ -19,7 +19,7 @@
   {
     "surah": 77,
     "ayah": 2,
-    "arabic": "فَٱلْعَـٰصِفَـٰتِ عَصْفًا",
+    "arabic": "فَالْعَاصِفَاتِ عَصْفًا",
     "transliteration": "Fal'aasifaati 'asfaa",
     "translations": {
       "en.sahih": "And the winds that blow violently",
@@ -36,7 +36,7 @@
   {
     "surah": 77,
     "ayah": 3,
-    "arabic": "وَٱلنَّـٰشِرَٰتِ نَشْرًا",
+    "arabic": "وَالنَّاشِرَاتِ نَشْرًا",
     "transliteration": "Wannaashiraati nashraa",
     "translations": {
       "en.sahih": "And [by] the winds that spread [clouds]",
@@ -53,7 +53,7 @@
   {
     "surah": 77,
     "ayah": 4,
-    "arabic": "فَٱلْفَـٰرِقَـٰتِ فَرْقًا",
+    "arabic": "فَالْفَارِقَاتِ فَرْقًا",
     "transliteration": "Falfaariqaati farqaa",
     "translations": {
       "en.sahih": "And those [angels] who bring criterion",
@@ -70,7 +70,7 @@
   {
     "surah": 77,
     "ayah": 5,
-    "arabic": "فَٱلْمُلْقِيَـٰتِ ذِكْرًا",
+    "arabic": "فَالْمُلْقِيَاتِ ذِكْرًا",
     "transliteration": "Falmulqiyaati zikra",
     "translations": {
       "en.sahih": "And those [angels] who deliver a message",
@@ -104,7 +104,7 @@
   {
     "surah": 77,
     "ayah": 7,
-    "arabic": "إِنَّمَا تُوعَدُونَ لَوَٰقِعٌ",
+    "arabic": "إِنَّمَا تُوعَدُونَ لَوَاقِعٌ",
     "transliteration": "Innamaa too'adoona lawaaqi'",
     "translations": {
       "en.sahih": "Indeed, what you are promised is to occur.",
@@ -121,7 +121,7 @@
   {
     "surah": 77,
     "ayah": 8,
-    "arabic": "فَإِذَا ٱلنُّجُومُ طُمِسَتْ",
+    "arabic": "فَإِذَا النُّجُومُ طُمِسَتْ",
     "transliteration": "Fa izam nujoomu tumisat",
     "translations": {
       "en.sahih": "So when the stars are obliterated",
@@ -138,7 +138,7 @@
   {
     "surah": 77,
     "ayah": 9,
-    "arabic": "وَإِذَا ٱلسَّمَآءُ فُرِجَتْ",
+    "arabic": "وَإِذَا السَّمَاءُ فُرِجَتْ",
     "transliteration": "Wa izas samaaa'u furijat",
     "translations": {
       "en.sahih": "And when the heaven is opened",
@@ -155,7 +155,7 @@
   {
     "surah": 77,
     "ayah": 10,
-    "arabic": "وَإِذَا ٱلْجِبَالُ نُسِفَتْ",
+    "arabic": "وَإِذَا الْجِبَالُ نُسِفَتْ",
     "transliteration": "Wa izal jibaalu nusifat",
     "translations": {
       "en.sahih": "And when the mountains are blown away",
@@ -172,7 +172,7 @@
   {
     "surah": 77,
     "ayah": 11,
-    "arabic": "وَإِذَا ٱلرُّسُلُ أُقِّتَتْ",
+    "arabic": "وَإِذَا الرُّسُلُ أُقِّتَتْ",
     "transliteration": "Wa izar Rusulu uqqitat",
     "translations": {
       "en.sahih": "And when the messengers' time has come...",
@@ -189,7 +189,7 @@
   {
     "surah": 77,
     "ayah": 12,
-    "arabic": "لِأَىِّ يَوْمٍ أُجِّلَتْ",
+    "arabic": "لِأَيِّ يَوْمٍ أُجِّلَتْ",
     "transliteration": "Li ayyi yawmin ujjilat",
     "translations": {
       "en.sahih": "For what Day was it postponed?",
@@ -206,7 +206,7 @@
   {
     "surah": 77,
     "ayah": 13,
-    "arabic": "لِيَوْمِ ٱلْفَصْلِ",
+    "arabic": "لِيَوْمِ الْفَصْلِ",
     "transliteration": "Li yawmil Fasl",
     "translations": {
       "en.sahih": "For the Day of Judgement.",
@@ -223,7 +223,7 @@
   {
     "surah": 77,
     "ayah": 14,
-    "arabic": "وَمَآ أَدْرَىٰكَ مَا يَوْمُ ٱلْفَصْلِ",
+    "arabic": "وَمَا أَدْرَاكَ مَا يَوْمُ الْفَصْلِ",
     "transliteration": "Wa maaa adraaka maa yawmul fasl",
     "translations": {
       "en.sahih": "And what can make you know what is the Day of Judgement?",
@@ -257,7 +257,7 @@
   {
     "surah": 77,
     "ayah": 16,
-    "arabic": "أَلَمْ نُهْلِكِ ٱلْأَوَّلِينَ",
+    "arabic": "أَلَمْ نُهْلِكِ الْأَوَّلِينَ",
     "transliteration": "Alam nuhlikil awwaleen",
     "translations": {
       "en.sahih": "Did We not destroy the former peoples?",
@@ -274,7 +274,7 @@
   {
     "surah": 77,
     "ayah": 17,
-    "arabic": "ثُمَّ نُتْبِعُهُمُ ٱلْـَٔاخِرِينَ",
+    "arabic": "ثُمَّ نُتْبِعُهُمُ الْآخِرِينَ",
     "transliteration": "Summa nutbi'uhumul aakhireen",
     "translations": {
       "en.sahih": "Then We will follow them with the later ones.",
@@ -291,7 +291,7 @@
   {
     "surah": 77,
     "ayah": 18,
-    "arabic": "كَذَٰلِكَ نَفْعَلُ بِٱلْمُجْرِمِينَ",
+    "arabic": "كَذَٰلِكَ نَفْعَلُ بِالْمُجْرِمِينَ",
     "transliteration": "Kazzlika naf'alu bilmujrimeen",
     "translations": {
       "en.sahih": "Thus do We deal with the criminals.",
@@ -325,7 +325,7 @@
   {
     "surah": 77,
     "ayah": 20,
-    "arabic": "أَلَمْ نَخْلُقكُّم مِّن مَّآءٍ مَّهِينٍ",
+    "arabic": "أَلَمْ نَخْلُقكُّم مِّن مَّاءٍ مَّهِينٍ",
     "transliteration": "Alam nakhlukkum mimmaaa'im maheen",
     "translations": {
       "en.sahih": "Did We not create you from a liquid disdained?",
@@ -342,7 +342,7 @@
   {
     "surah": 77,
     "ayah": 21,
-    "arabic": "فَجَعَلْنَـٰهُ فِى قَرَارٍ مَّكِينٍ",
+    "arabic": "فَجَعَلْنَاهُ فِي قَرَارٍ مَّكِينٍ",
     "transliteration": "Faja'alnaahu fee qaraarim makeen",
     "translations": {
       "en.sahih": "And We placed it in a firm lodging",
@@ -376,7 +376,7 @@
   {
     "surah": 77,
     "ayah": 23,
-    "arabic": "فَقَدَرْنَا فَنِعْمَ ٱلْقَـٰدِرُونَ",
+    "arabic": "فَقَدَرْنَا فَنِعْمَ الْقَادِرُونَ",
     "transliteration": "Faqadarnaa fani'mal qaadiroon",
     "translations": {
       "en.sahih": "And We determined [it], and excellent [are We] to determine.",
@@ -410,7 +410,7 @@
   {
     "surah": 77,
     "ayah": 25,
-    "arabic": "أَلَمْ نَجْعَلِ ٱلْأَرْضَ كِفَاتًا",
+    "arabic": "أَلَمْ نَجْعَلِ الْأَرْضَ كِفَاتًا",
     "transliteration": "Alam naj'alil arda kifaataa",
     "translations": {
       "en.sahih": "Have We not made the earth a container",
@@ -427,7 +427,7 @@
   {
     "surah": 77,
     "ayah": 26,
-    "arabic": "أَحْيَآءً وَأَمْوَٰتًا",
+    "arabic": "أَحْيَاءً وَأَمْوَاتًا",
     "transliteration": "Ahyaaa'anw wa amwaataa",
     "translations": {
       "en.sahih": "Of the living and the dead?",
@@ -444,7 +444,7 @@
   {
     "surah": 77,
     "ayah": 27,
-    "arabic": "وَجَعَلْنَا فِيهَا رَوَٰسِىَ شَـٰمِخَـٰتٍ وَأَسْقَيْنَـٰكُم مَّآءً فُرَاتًا",
+    "arabic": "وَجَعَلْنَا فِيهَا رَوَاسِيَ شَامِخَاتٍ وَأَسْقَيْنَاكُم مَّاءً فُرَاتًا",
     "transliteration": "Wa ja'alnaa feehaa rawaasiya shaamikhaatinw wa asqainaakum maaa'an furaataa",
     "translations": {
       "en.sahih": "And We placed therein lofty, firmly set mountains and have given you to drink sweet water.",
@@ -478,7 +478,7 @@
   {
     "surah": 77,
     "ayah": 29,
-    "arabic": "ٱنطَلِقُوٓا۟ إِلَىٰ مَا كُنتُم بِهِۦ تُكَذِّبُونَ",
+    "arabic": "انطَلِقُوا إِلَىٰ مَا كُنتُم بِهِ تُكَذِّبُونَ",
     "transliteration": "Intaliqooo ilaa maa kuntum bihee tukazziboon",
     "translations": {
       "en.sahih": "[They will be told], \"Proceed to that which you used to deny.",
@@ -495,7 +495,7 @@
   {
     "surah": 77,
     "ayah": 30,
-    "arabic": "ٱنطَلِقُوٓا۟ إِلَىٰ ظِلٍّ ذِى ثَلَـٰثِ شُعَبٍ",
+    "arabic": "انطَلِقُوا إِلَىٰ ظِلٍّ ذِي ثَلَاثِ شُعَبٍ",
     "transliteration": "Intaliqooo ilaa zillin zee salaasi shu'ab",
     "translations": {
       "en.sahih": "Proceed to a shadow [of smoke] having three columns",
@@ -512,7 +512,7 @@
   {
     "surah": 77,
     "ayah": 31,
-    "arabic": "لَّا ظَلِيلٍ وَلَا يُغْنِى مِنَ ٱللَّهَبِ",
+    "arabic": "لَّا ظَلِيلٍ وَلَا يُغْنِي مِنَ اللَّهَبِ",
     "transliteration": "Laa zaleelinw wa laa yughnee minal lahab",
     "translations": {
       "en.sahih": "[But having] no cool shade and availing not against the flame.\"",
@@ -529,7 +529,7 @@
   {
     "surah": 77,
     "ayah": 32,
-    "arabic": "إِنَّهَا تَرْمِى بِشَرَرٍ كَٱلْقَصْرِ",
+    "arabic": "إِنَّهَا تَرْمِي بِشَرَرٍ كَالْقَصْرِ",
     "transliteration": "Innahaa tarmee bishararin kalqasr",
     "translations": {
       "en.sahih": "Indeed, it throws sparks [as huge] as a fortress,",
@@ -546,7 +546,7 @@
   {
     "surah": 77,
     "ayah": 33,
-    "arabic": "كَأَنَّهُۥ جِمَـٰلَتٌ صُفْرٌ",
+    "arabic": "كَأَنَّهُ جِمَالَتٌ صُفْرٌ",
     "transliteration": "Ka annahoo jimaalatun sufr",
     "translations": {
       "en.sahih": "As if they were yellowish [black] camels.",
@@ -580,7 +580,7 @@
   {
     "surah": 77,
     "ayah": 35,
-    "arabic": "هَـٰذَا يَوْمُ لَا يَنطِقُونَ",
+    "arabic": "هَٰذَا يَوْمُ لَا يَنطِقُونَ",
     "transliteration": "Haazaa yawmu laa uantiqoon",
     "translations": {
       "en.sahih": "This is a Day they will not speak,",
@@ -631,7 +631,7 @@
   {
     "surah": 77,
     "ayah": 38,
-    "arabic": "هَـٰذَا يَوْمُ ٱلْفَصْلِ ۖ جَمَعْنَـٰكُمْ وَٱلْأَوَّلِينَ",
+    "arabic": "هَٰذَا يَوْمُ الْفَصْلِ ۖ جَمَعْنَاكُمْ وَالْأَوَّلِينَ",
     "transliteration": "Haaza yawmul fasli jama 'naakum wal awwaleen",
     "translations": {
       "en.sahih": "This is the Day of Judgement; We will have assembled you and the former peoples.",
@@ -682,7 +682,7 @@
   {
     "surah": 77,
     "ayah": 41,
-    "arabic": "إِنَّ ٱلْمُتَّقِينَ فِى ظِلَـٰلٍ وَعُيُونٍ",
+    "arabic": "إِنَّ الْمُتَّقِينَ فِي ظِلَالٍ وَعُيُونٍ",
     "transliteration": "Innal muttaqeena fee zilaalinw wa 'uyoon",
     "translations": {
       "en.sahih": "Indeed, the righteous will be among shades and springs",
@@ -699,7 +699,7 @@
   {
     "surah": 77,
     "ayah": 42,
-    "arabic": "وَفَوَٰكِهَ مِمَّا يَشْتَهُونَ",
+    "arabic": "وَفَوَاكِهَ مِمَّا يَشْتَهُونَ",
     "transliteration": "Wa fawaakiha mimmaa yastahoon",
     "translations": {
       "en.sahih": "And fruits from whatever they desire,",
@@ -716,7 +716,7 @@
   {
     "surah": 77,
     "ayah": 43,
-    "arabic": "كُلُوا۟ وَٱشْرَبُوا۟ هَنِيٓـًٔۢا بِمَا كُنتُمْ تَعْمَلُونَ",
+    "arabic": "كُلُوا وَاشْرَبُوا هَنِيئًا بِمَا كُنتُمْ تَعْمَلُونَ",
     "transliteration": "Kuloo washraboo haneee 'am bimaa kuntum ta'maloon",
     "translations": {
       "en.sahih": "[Being told], \"Eat and drink in satisfaction for what you used to do.\"",
@@ -733,7 +733,7 @@
   {
     "surah": 77,
     "ayah": 44,
-    "arabic": "إِنَّا كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+    "arabic": "إِنَّا كَذَٰلِكَ نَجْزِي الْمُحْسِنِينَ",
     "transliteration": "Innaa kazaalika najzil muhsineen",
     "translations": {
       "en.sahih": "Indeed, We thus reward the doers of good.",
@@ -767,7 +767,7 @@
   {
     "surah": 77,
     "ayah": 46,
-    "arabic": "كُلُوا۟ وَتَمَتَّعُوا۟ قَلِيلًا إِنَّكُم مُّجْرِمُونَ",
+    "arabic": "كُلُوا وَتَمَتَّعُوا قَلِيلًا إِنَّكُم مُّجْرِمُونَ",
     "transliteration": "Kuloo wa tamatta'oo qaleelan innakum mujrimoon",
     "translations": {
       "en.sahih": "[O disbelievers], eat and enjoy yourselves a little; indeed, you are criminals.",
@@ -801,7 +801,7 @@
   {
     "surah": 77,
     "ayah": 48,
-    "arabic": "وَإِذَا قِيلَ لَهُمُ ٱرْكَعُوا۟ لَا يَرْكَعُونَ",
+    "arabic": "وَإِذَا قِيلَ لَهُمُ ارْكَعُوا لَا يَرْكَعُونَ",
     "transliteration": "Wa izaa qeela lahumur ka'oo aa yarka'oon",
     "translations": {
       "en.sahih": "And when it is said to them, \"Bow [in prayer],\" they do not bow.",
@@ -835,7 +835,7 @@
   {
     "surah": 77,
     "ayah": 50,
-    "arabic": "فَبِأَىِّ حَدِيثٍۭ بَعْدَهُۥ يُؤْمِنُونَ",
+    "arabic": "فَبِأَيِّ حَدِيثٍ بَعْدَهُ يُؤْمِنُونَ",
     "transliteration": "Fabi ayyi hadeesim ba'dahoo yu'minoon",
     "translations": {
       "en.sahih": "Then in what statement after the Qur'an will they believe?",

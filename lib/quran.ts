@@ -18,7 +18,7 @@ export type Surah = {
 export type Ayah = {
   surah: number;
   ayah: number;
-  arabic: string; // Uthmani
+  arabic: string; // Imlaei (modern standard script)
   transliteration?: string;
   translations: Record<string, string>; // key = translation id (e.g. "en.sahih")
   juz: number;

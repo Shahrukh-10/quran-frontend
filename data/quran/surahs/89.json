@@ -2,7 +2,7 @@
   {
     "surah": 89,
     "ayah": 1,
-    "arabic": " وَٱلْفَجْرِ",
+    "arabic": "وَالْفَجْرِ",
     "transliteration": "Wal-Fajr",
     "translations": {
       "en.sahih": "By the dawn",
@@ -36,7 +36,7 @@
   {
     "surah": 89,
     "ayah": 3,
-    "arabic": "وَٱلشَّفْعِ وَٱلْوَتْرِ",
+    "arabic": "وَالشَّفْعِ وَالْوَتْرِ",
     "transliteration": "Wash shaf'i wal watr",
     "translations": {
       "en.sahih": "And [by] the even [number] and the odd",
@@ -53,7 +53,7 @@
   {
     "surah": 89,
     "ayah": 4,
-    "arabic": "وَٱلَّيْلِ إِذَا يَسْرِ",
+    "arabic": "وَاللَّيْلِ إِذَا يَسْرِ",
     "transliteration": "Wallaili izaa yasr",
     "translations": {
       "en.sahih": "And [by] the night when it passes,",
@@ -70,7 +70,7 @@
   {
     "surah": 89,
     "ayah": 5,
-    "arabic": "هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ",
+    "arabic": "هَلْ فِي ذَٰلِكَ قَسَمٌ لِّذِي حِجْرٍ",
     "transliteration": "Hal fee zaalika qasamul lizee hijr",
     "translations": {
       "en.sahih": "Is there [not] in [all] that an oath [sufficient] for one of perception?",
@@ -104,7 +104,7 @@
   {
     "surah": 89,
     "ayah": 7,
-    "arabic": "إِرَمَ ذَاتِ ٱلْعِمَادِ",
+    "arabic": "إِرَمَ ذَاتِ الْعِمَادِ",
     "transliteration": "Iramaa zaatil 'imaad",
     "translations": {
       "en.sahih": "[With] Iram - who had lofty pillars,",
@@ -121,7 +121,7 @@
   {
     "surah": 89,
     "ayah": 8,
-    "arabic": "ٱلَّتِى لَمْ يُخْلَقْ مِثْلُهَا فِى ٱلْبِلَـٰدِ",
+    "arabic": "الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ",
     "transliteration": "Allatee lam yukhlaq misluhaa fil bilaad",
     "translations": {
       "en.sahih": "The likes of whom had never been created in the land?",
@@ -138,7 +138,7 @@
   {
     "surah": 89,
     "ayah": 9,
-    "arabic": "وَثَمُودَ ٱلَّذِينَ جَابُوا۟ ٱلصَّخْرَ بِٱلْوَادِ",
+    "arabic": "وَثَمُودَ الَّذِينَ جَابُوا الصَّخْرَ بِالْوَادِ",
     "transliteration": "Wa samoodal lazeena jaabus sakhra bil waad",
     "translations": {
       "en.sahih": "And [with] Thamud, who carved out the rocks in the valley?",
@@ -155,7 +155,7 @@
   {
     "surah": 89,
     "ayah": 10,
-    "arabic": "وَفِرْعَوْنَ ذِى ٱلْأَوْتَادِ",
+    "arabic": "وَفِرْعَوْنَ ذِي الْأَوْتَادِ",
     "transliteration": "Wa fir'awna zil awtaad",
     "translations": {
       "en.sahih": "And [with] Pharaoh, owner of the stakes? -",
@@ -172,7 +172,7 @@
   {
     "surah": 89,
     "ayah": 11,
-    "arabic": "ٱلَّذِينَ طَغَوْا۟ فِى ٱلْبِلَـٰدِ",
+    "arabic": "الَّذِينَ طَغَوْا فِي الْبِلَادِ",
     "transliteration": "Allazeena taghaw fil bilaad",
     "translations": {
       "en.sahih": "[All of] whom oppressed within the lands",
@@ -189,7 +189,7 @@
   {
     "surah": 89,
     "ayah": 12,
-    "arabic": "فَأَكْثَرُوا۟ فِيهَا ٱلْفَسَادَ",
+    "arabic": "فَأَكْثَرُوا فِيهَا الْفَسَادَ",
     "transliteration": "Fa aksaroo feehal fasaad",
     "translations": {
       "en.sahih": "And increased therein the corruption.",
@@ -223,7 +223,7 @@
   {
     "surah": 89,
     "ayah": 14,
-    "arabic": "إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ",
+    "arabic": "إِنَّ رَبَّكَ لَبِالْمِرْصَادِ",
     "transliteration": "Inna Rabbaka labil mirsaad",
     "translations": {
       "en.sahih": "Indeed, your Lord is in observation.",
@@ -240,7 +240,7 @@
   {
     "surah": 89,
     "ayah": 15,
-    "arabic": "فَأَمَّا ٱلْإِنسَـٰنُ إِذَا مَا ٱبْتَلَىٰهُ رَبُّهُۥ فَأَكْرَمَهُۥ وَنَعَّمَهُۥ فَيَقُولُ رَبِّىٓ أَكْرَمَنِ",
+    "arabic": "فَأَمَّا الْإِنسَانُ إِذَا مَا ابْتَلَاهُ رَبُّهُ فَأَكْرَمَهُ وَنَعَّمَهُ فَيَقُولُ رَبِّي أَكْرَمَنِ",
     "transliteration": "Fa ammal insaanu izaa mab talaahu Rabbuhoo fa akramahoo wa na' 'amahoo fa yaqoolu Rabbeee akraman",
     "translations": {
       "en.sahih": "And as for man, when his Lord tries him and [thus] is generous to him and favors him, he says, \"My Lord has honored me.\"",
@@ -257,7 +257,7 @@
   {
     "surah": 89,
     "ayah": 16,
-    "arabic": "وَأَمَّآ إِذَا مَا ٱبْتَلَىٰهُ فَقَدَرَ عَلَيْهِ رِزْقَهُۥ فَيَقُولُ رَبِّىٓ أَهَـٰنَنِ",
+    "arabic": "وَأَمَّا إِذَا مَا ابْتَلَاهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ فَيَقُولُ رَبِّي أَهَانَنِ",
     "transliteration": "Wa ammaaa izaa mabtalaahu faqadara 'alaihi rizqahoo fa yaqoolu Rabbeee ahaanan",
     "translations": {
       "en.sahih": "But when He tries him and restricts his provision, he says, \"My Lord has humiliated me.\"",
@@ -274,7 +274,7 @@
   {
     "surah": 89,
     "ayah": 17,
-    "arabic": "كَلَّا ۖ بَل لَّا تُكْرِمُونَ ٱلْيَتِيمَ",
+    "arabic": "كَلَّا ۖ بَل لَّا تُكْرِمُونَ الْيَتِيمَ",
     "transliteration": "Kalla bal laa tukrimooo nal yateem",
     "translations": {
       "en.sahih": "No! But you do not honor the orphan",
@@ -291,7 +291,7 @@
   {
     "surah": 89,
     "ayah": 18,
-    "arabic": "وَلَا تَحَـٰٓضُّونَ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ",
+    "arabic": "وَلَا تَحَاضُّونَ عَلَىٰ طَعَامِ الْمِسْكِينِ",
     "transliteration": "Wa laa tahaaaddoona 'alaata'aamil miskeen",
     "translations": {
       "en.sahih": "And you do not encourage one another to feed the poor.",
@@ -308,7 +308,7 @@
   {
     "surah": 89,
     "ayah": 19,
-    "arabic": "وَتَأْكُلُونَ ٱلتُّرَاثَ أَكْلًا لَّمًّا",
+    "arabic": "وَتَأْكُلُونَ التُّرَاثَ أَكْلًا لَّمًّا",
     "transliteration": "Wa taakuloonat turaasa aklal lammaa",
     "translations": {
       "en.sahih": "And you consume inheritance, devouring [it] altogether,",
@@ -325,7 +325,7 @@
   {
     "surah": 89,
     "ayah": 20,
-    "arabic": "وَتُحِبُّونَ ٱلْمَالَ حُبًّا جَمًّا",
+    "arabic": "وَتُحِبُّونَ الْمَالَ حُبًّا جَمًّا",
     "transliteration": "Wa tuhibboonal maala hubban jammaa",
     "translations": {
       "en.sahih": "And you love wealth with immense love.",
@@ -342,7 +342,7 @@
   {
     "surah": 89,
     "ayah": 21,
-    "arabic": "كَلَّآ إِذَا دُكَّتِ ٱلْأَرْضُ دَكًّا دَكًّا",
+    "arabic": "كَلَّا إِذَا دُكَّتِ الْأَرْضُ دَكًّا دَكًّا",
     "transliteration": "Kallaaa izaaa dukkatil ardu dakkan dakka",
     "translations": {
       "en.sahih": "No! When the earth has been leveled - pounded and crushed -",
@@ -359,7 +359,7 @@
   {
     "surah": 89,
     "ayah": 22,
-    "arabic": "وَجَآءَ رَبُّكَ وَٱلْمَلَكُ صَفًّا صَفًّا",
+    "arabic": "وَجَاءَ رَبُّكَ وَالْمَلَكُ صَفًّا صَفًّا",
     "transliteration": "Wa jaaa'a Rabbuka wal malaku saffan saffaa",
     "translations": {
       "en.sahih": "And your Lord has come and the angels, rank upon rank,",
@@ -376,7 +376,7 @@
   {
     "surah": 89,
     "ayah": 23,
-    "arabic": "وَجِا۟ىٓءَ يَوْمَئِذٍۭ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ ٱلْإِنسَـٰنُ وَأَنَّىٰ لَهُ ٱلذِّكْرَىٰ",
+    "arabic": "وَجِيءَ يَوْمَئِذٍ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ الْإِنسَانُ وَأَنَّىٰ لَهُ الذِّكْرَىٰ",
     "transliteration": "Wa jeee'a yawma'izim bi jahannnam; Yawma 'iziny yatazakkarul insaanu wa annaa lahuz zikraa",
     "translations": {
       "en.sahih": "And brought [within view], that Day, is Hell - that Day, man will remember, but what good to him will be the remembrance?",
@@ -393,7 +393,7 @@
   {
     "surah": 89,
     "ayah": 24,
-    "arabic": "يَقُولُ يَـٰلَيْتَنِى قَدَّمْتُ لِحَيَاتِى",
+    "arabic": "يَقُولُ يَا لَيْتَنِي قَدَّمْتُ لِحَيَاتِي",
     "transliteration": "Yaqoolu yaa laitanee qaddamtu lihayaatee",
     "translations": {
       "en.sahih": "He will say, \"Oh, I wish I had sent ahead [some good] for my life.\"",
@@ -410,7 +410,7 @@
   {
     "surah": 89,
     "ayah": 25,
-    "arabic": "فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُۥٓ أَحَدٌ",
+    "arabic": "فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُ أَحَدٌ",
     "transliteration": "Fa Yawma izil laa yu'azzibu 'azaabahooo ahad",
     "translations": {
       "en.sahih": "So on that Day, none will punish [as severely] as His punishment,",
@@ -427,7 +427,7 @@
   {
     "surah": 89,
     "ayah": 26,
-    "arabic": "وَلَا يُوثِقُ وَثَاقَهُۥٓ أَحَدٌ",
+    "arabic": "وَلَا يُوثِقُ وَثَاقَهُ أَحَدٌ",
     "transliteration": "Wa laa yoosiqu wasaaqa hooo ahad",
     "translations": {
       "en.sahih": "And none will bind [as severely] as His binding [of the evildoers].",
@@ -444,7 +444,7 @@
   {
     "surah": 89,
     "ayah": 27,
-    "arabic": "يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ",
+    "arabic": "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
     "transliteration": "Yaaa ayyatuhan nafsul mutma 'innah",
     "translations": {
       "en.sahih": "[To the righteous it will be said], \"O reassured soul,",
@@ -461,7 +461,7 @@
   {
     "surah": 89,
     "ayah": 28,
-    "arabic": "ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
+    "arabic": "ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
     "transliteration": "Irji'eee ilaa Rabbiki raadiyatam mardiyyah",
     "translations": {
       "en.sahih": "Return to your Lord, well-pleased and pleasing [to Him],",
@@ -478,7 +478,7 @@
   {
     "surah": 89,
     "ayah": 29,
-    "arabic": "فَٱدْخُلِى فِى عِبَـٰدِى",
+    "arabic": "فَادْخُلِي فِي عِبَادِي",
     "transliteration": "Fadkhulee fee 'ibaadee",
     "translations": {
       "en.sahih": "And enter among My [righteous] servants",
@@ -495,7 +495,7 @@
   {
     "surah": 89,
     "ayah": 30,
-    "arabic": "وَٱدْخُلِى جَنَّتِى",
+    "arabic": "وَادْخُلِي جَنَّتِي",
     "transliteration": "Wadkhulee jannatee",
     "translations": {
       "en.sahih": "And enter My Paradise.\"",

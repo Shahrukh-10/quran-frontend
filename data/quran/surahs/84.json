@@ -2,7 +2,7 @@
   {
     "surah": 84,
     "ayah": 1,
-    "arabic": " إِذَا ٱلسَّمَآءُ ٱنشَقَّتْ",
+    "arabic": "إِذَا السَّمَاءُ انشَقَّتْ",
     "transliteration": "Izas samaaa'un shaqqat",
     "translations": {
       "en.sahih": "When the sky has split [open]",
@@ -36,7 +36,7 @@
   {
     "surah": 84,
     "ayah": 3,
-    "arabic": "وَإِذَا ٱلْأَرْضُ مُدَّتْ",
+    "arabic": "وَإِذَا الْأَرْضُ مُدَّتْ",
     "transliteration": "Wa izal ardu muddat",
     "translations": {
       "en.sahih": "And when the earth has been extended",
@@ -87,7 +87,7 @@
   {
     "surah": 84,
     "ayah": 6,
-    "arabic": "يَـٰٓأَيُّهَا ٱلْإِنسَـٰنُ إِنَّكَ كَادِحٌ إِلَىٰ رَبِّكَ كَدْحًا فَمُلَـٰقِيهِ",
+    "arabic": "يَا أَيُّهَا الْإِنسَانُ إِنَّكَ كَادِحٌ إِلَىٰ رَبِّكَ كَدْحًا فَمُلَاقِيهِ",
     "transliteration": "Yaaa ayyuhal insaanu innaka kaadihun ilaa Rabbika kad han famulaaqeeh",
     "translations": {
       "en.sahih": "O mankind, indeed you are laboring toward your Lord with [great] exertion and will meet it.",
@@ -104,7 +104,7 @@
   {
     "surah": 84,
     "ayah": 7,
-    "arabic": "فَأَمَّا مَنْ أُوتِىَ كِتَـٰبَهُۥ بِيَمِينِهِۦ",
+    "arabic": "فَأَمَّا مَنْ أُوتِيَ كِتَابَهُ بِيَمِينِهِ",
     "transliteration": "Fa ammaa man ootiya kitaabahoo biyameenih",
     "translations": {
       "en.sahih": "Then as for he who is given his record in his right hand,",
@@ -138,7 +138,7 @@
   {
     "surah": 84,
     "ayah": 9,
-    "arabic": "وَيَنقَلِبُ إِلَىٰٓ أَهْلِهِۦ مَسْرُورًا",
+    "arabic": "وَيَنقَلِبُ إِلَىٰ أَهْلِهِ مَسْرُورًا",
     "transliteration": "Wa yanqalibu ilaaa ahlihee masrooraa",
     "translations": {
       "en.sahih": "And return to his people in happiness.",
@@ -155,7 +155,7 @@
   {
     "surah": 84,
     "ayah": 10,
-    "arabic": "وَأَمَّا مَنْ أُوتِىَ كِتَـٰبَهُۥ وَرَآءَ ظَهْرِهِۦ",
+    "arabic": "وَأَمَّا مَنْ أُوتِيَ كِتَابَهُ وَرَاءَ ظَهْرِهِ",
     "transliteration": "Wa ammaa man ootiya kitaabahoo waraaa'a zahrih",
     "translations": {
       "en.sahih": "But as for he who is given his record behind his back,",
@@ -172,7 +172,7 @@
   {
     "surah": 84,
     "ayah": 11,
-    "arabic": "فَسَوْفَ يَدْعُوا۟ ثُبُورًا",
+    "arabic": "فَسَوْفَ يَدْعُو ثُبُورًا",
     "transliteration": "Fasawfa yad'oo subooraa",
     "translations": {
       "en.sahih": "He will cry out for destruction",
@@ -206,7 +206,7 @@
   {
     "surah": 84,
     "ayah": 13,
-    "arabic": "إِنَّهُۥ كَانَ فِىٓ أَهْلِهِۦ مَسْرُورًا",
+    "arabic": "إِنَّهُ كَانَ فِي أَهْلِهِ مَسْرُورًا",
     "transliteration": "Innahoo kaana feee ahlihee masrooraa",
     "translations": {
       "en.sahih": "Indeed, he had [once] been among his people in happiness;",
@@ -223,7 +223,7 @@
   {
     "surah": 84,
     "ayah": 14,
-    "arabic": "إِنَّهُۥ ظَنَّ أَن لَّن يَحُورَ",
+    "arabic": "إِنَّهُ ظَنَّ أَن لَّن يَحُورَ",
     "transliteration": "Innahoo zanna al lai yahoor",
     "translations": {
       "en.sahih": "Indeed, he had thought he would never return [to Allah].",
@@ -240,7 +240,7 @@
   {
     "surah": 84,
     "ayah": 15,
-    "arabic": "بَلَىٰٓ إِنَّ رَبَّهُۥ كَانَ بِهِۦ بَصِيرًا",
+    "arabic": "بَلَىٰ إِنَّ رَبَّهُ كَانَ بِهِ بَصِيرًا",
     "transliteration": "Balaaa inna Rabbahoo kaana bihee baseeraa",
     "translations": {
       "en.sahih": "But yes! Indeed, his Lord was ever of him, Seeing.",
@@ -257,7 +257,7 @@
   {
     "surah": 84,
     "ayah": 16,
-    "arabic": "فَلَآ أُقْسِمُ بِٱلشَّفَقِ",
+    "arabic": "فَلَا أُقْسِمُ بِالشَّفَقِ",
     "transliteration": "Falaaa uqsimu bishshafaq",
     "translations": {
       "en.sahih": "So I swear by the twilight glow",
@@ -274,7 +274,7 @@
   {
     "surah": 84,
     "ayah": 17,
-    "arabic": "وَٱلَّيْلِ وَمَا وَسَقَ",
+    "arabic": "وَاللَّيْلِ وَمَا وَسَقَ",
     "transliteration": "Wallaili wa maa wasaq",
     "translations": {
       "en.sahih": "And [by] the night and what it envelops",
@@ -291,7 +291,7 @@
   {
     "surah": 84,
     "ayah": 18,
-    "arabic": "وَٱلْقَمَرِ إِذَا ٱتَّسَقَ",
+    "arabic": "وَالْقَمَرِ إِذَا اتَّسَقَ",
     "transliteration": "Walqamari izat tasaq",
     "translations": {
       "en.sahih": "And [by] the moon when it becomes full",
@@ -342,7 +342,7 @@
   {
     "surah": 84,
     "ayah": 21,
-    "arabic": "وَإِذَا قُرِئَ عَلَيْهِمُ ٱلْقُرْءَانُ لَا يَسْجُدُونَ ۩",
+    "arabic": "وَإِذَا قُرِئَ عَلَيْهِمُ الْقُرْآنُ لَا يَسْجُدُونَ",
     "transliteration": "Wa izaa quri'a 'alaihimul Quraanu laa yasjudoon",
     "translations": {
       "en.sahih": "And when the Qur'an is recited to them, they do not prostrate [to Allah]?",
@@ -359,7 +359,7 @@
   {
     "surah": 84,
     "ayah": 22,
-    "arabic": "بَلِ ٱلَّذِينَ كَفَرُوا۟ يُكَذِّبُونَ",
+    "arabic": "بَلِ الَّذِينَ كَفَرُوا يُكَذِّبُونَ",
     "transliteration": "Balil lazeena kafaroo yukazziboon",
     "translations": {
       "en.sahih": "But those who have disbelieved deny,",
@@ -376,7 +376,7 @@
   {
     "surah": 84,
     "ayah": 23,
-    "arabic": "وَٱللَّهُ أَعْلَمُ بِمَا يُوعُونَ",
+    "arabic": "وَاللَّهُ أَعْلَمُ بِمَا يُوعُونَ",
     "transliteration": "Wallaahu a'lamu bimaa yoo'oon",
     "translations": {
       "en.sahih": "And Allah is most knowing of what they keep within themselves.",
@@ -410,7 +410,7 @@
   {
     "surah": 84,
     "ayah": 25,
-    "arabic": "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ لَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍۭ",
+    "arabic": "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ لَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ",
     "transliteration": "Illal lazeena aamanoo wa 'amilus saalihaati lahum ajrun ghairu mamnoon",
     "translations": {
       "en.sahih": "Except for those who believe and do righteous deeds. For them is a reward uninterrupted.",

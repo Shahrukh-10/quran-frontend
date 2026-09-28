@@ -86,7 +86,7 @@ function renderPage(p: MushafPage, side: "left" | "right"): HTMLDivElement {
   if (p.bismillah) {
     const b = document.createElement("div");
     b.className = "bismillah";
-    b.textContent = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
+    b.textContent = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
     body.appendChild(b);
   }
 

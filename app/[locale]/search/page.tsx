@@ -82,7 +82,7 @@ export default async function SearchPage({ params, searchParams }: Props) {
             type="search"
             name="q"
             defaultValue={q}
-            placeholder="mercy · ٱلرَّحْمَـٰن · 2:255"
+            placeholder="mercy · الرَّحْمَـٰن · 2:255"
             className="focus-ring w-full rounded-lg border border-separator bg-background px-3 h-11 text-base"
           />
         </label>

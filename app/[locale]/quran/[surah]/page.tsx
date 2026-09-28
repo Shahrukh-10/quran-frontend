@@ -101,7 +101,7 @@ export default async function SurahPage({ params }: Props) {
 
       {s.number !== 1 && s.number !== 9 && (
         <p className="mt-10 text-center font-quran text-3xl text-foreground/85" lang="ar" dir="rtl">
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>
       )}
 

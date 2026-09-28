@@ -97,7 +97,7 @@ export default async function QiblaPage({ params }: PageProps) {
 
       <div className="tafsir-quote">
         <p className="verse-ar" dir="rtl" lang="ar">
-          فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ ۚ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا۟ وُجُوهَكُمْ شَطْرَهُۥ
+          فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ ۚ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا۟ وُجُوهَكُمْ شَطْرَهُۥ
         </p>
         <p className="verse-en">
           &ldquo;So turn your face toward al-Masjid al-Ḥarām, and wherever you are, turn your faces

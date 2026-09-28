@@ -67,7 +67,7 @@ export function Footer() {
             </div>
             <p className="hig-footer__tagline">{common("tagline")}</p>
             <p className="hig-footer__basmala" lang="ar" dir="rtl" aria-hidden>
-              بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+              بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
             </p>
           </div>
 

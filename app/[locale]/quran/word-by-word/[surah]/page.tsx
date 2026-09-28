@@ -147,7 +147,7 @@ export default async function WordByWordSurahPage({ params }: Props) {
           dir="rtl"
           style={{ lineHeight: 2 }}
         >
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>
       )}
 

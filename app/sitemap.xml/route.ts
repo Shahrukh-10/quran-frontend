@@ -18,8 +18,8 @@ import { siteUrl } from "@/lib/site";
 //   across 6 locales, so content-type sharding gives headroom + cleaner
 //   Search Console coverage reports.
 
-export const dynamic = "force-static";
-export const revalidate = false;
+export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Refresh sitemap index hourly
 
 const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures"] as const;
 

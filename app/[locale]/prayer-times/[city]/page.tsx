@@ -26,13 +26,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, city } = await params;
   const c = getCity(city);
   if (!c) return {};
-  const title = `Prayer Times ${c.name} — Fajr, Dhuhr, Asr, Maghrib, Isha Today`;
-  const desc = `Today's accurate prayer times for ${c.name}, ${c.country}. Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha timings computed on-device using ${c.tz} timezone. Multiple calculation methods supported: Muslim World League, ISNA, Umm al-Qura, Egyptian, Karachi. No account needed.`;
+  // Year in title is a freshness signal Google actively rewards + a CTR bump vs undated competitors.
+  // Words like "Today" and the city name lead so the whole thing fits SERP truncation on mobile.
+  // Keep title <=70 chars so long city names (Kuala Lumpur, Rio de Janeiro) don't get sliced mid-prayer-name.
+  const year = new Date().getUTCFullYear();
+  const title = `${c.name} Prayer Times Today ${year} — Fajr, Dhuhr, Asr, Maghrib, Isha`;
+  const desc = `Accurate ${c.name} prayer times today — Fajr, Sunrise, Dhuhr, Asr, Maghrib & Isha timings for ${c.country}. Updated daily, works offline, no signup. Supports MWL, ISNA, Umm al-Qura, Egyptian & Karachi calculation methods.`;
   return {
     title: title.slice(0, 70),
     description: desc.slice(0, 260),
     keywords: [
       `${c.name} prayer times`,
+      `${c.name} prayer times today`,
       `${c.name} namaz timings`,
       `${c.name} salah times`,
       `Fajr time ${c.name}`,

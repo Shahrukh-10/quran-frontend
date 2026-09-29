@@ -16,6 +16,7 @@
 import { locales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
 /**
  * The canonical Open Graph images array for a page. Pass an `alt` that
@@ -52,8 +53,49 @@ export function hreflangLanguages(path: string): Record<string, string> {
     locale === routing.defaultLocale ? normalizedPath : `/${locale}${normalizedPath}`;
   const map: Record<string, string> = {};
   for (const l of locales) {
+    // Skip untranslated locales — advertising them as hreflang alternates
+    // when their pages are noindex creates a signal contradiction Google
+    // penalises. Restore once real translations ship.
+    if (UNTRANSLATED_LOCALES.has(l)) continue;
     map[l] = siteUrl(localePath(l));
   }
   map["x-default"] = siteUrl(normalizedPath);
   return map;
+}
+
+/**
+ * Robots directive per locale.
+ *
+ * Non-English locales currently ship with English titles, descriptions, and
+ * ayah translations — only chrome/nav is translated. That creates ~30k
+ * near-duplicate pages across `/ar/ /ur/ /tr/ /fr/` which dilute domain
+ * quality signals on a young domain (Ahrefs 2026-09-29 audit).
+ *
+ * `id` (Indonesian) is exempt: `id.indonesian` ayah translation exists in
+ * `data/translations/`, so those locale pages have genuinely different body
+ * content and are safe to index.
+ *
+ * Restore full indexation for a locale once real translations ship (both
+ * metadata AND ayah/hadith/dua body text).
+ */
+const UNTRANSLATED_LOCALES = new Set(["ar", "ur", "tr", "fr"]);
+
+export function robotsForLocale(locale: string): Metadata["robots"] {
+  if (UNTRANSLATED_LOCALES.has(locale)) {
+    return {
+      index: false,
+      follow: true,
+      googleBot: { index: false, follow: true },
+    };
+  }
+  return {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  };
 }

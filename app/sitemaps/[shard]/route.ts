@@ -48,6 +48,17 @@ const HADITH_BOOKS = ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibn
 const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures"] as const;
 type Shard = (typeof SHARDS)[number];
 
+// Locales that ship English metadata + English body content (only chrome
+// translated). These are `noindex` at the layout level via `robotsForLocale`,
+// so they must NOT appear in the sitemap or hreflang alternates — advertising
+// noindex URLs wastes crawl budget and misuses hreflang.
+//
+// `id` (Indonesian) is exempt: real Indonesian ayah translation exists.
+// Restore a locale here when its metadata + body content actually ship
+// translated.
+const UNTRANSLATED_LOCALES = new Set(["ar", "ur", "tr", "fr"]);
+const INDEXABLE_LOCALES = locales.filter((l) => !UNTRANSLATED_LOCALES.has(l));
+
 function escapeXml(s: string): string {
   return s
     .replace(/&/g, "&amp;")
@@ -126,15 +137,17 @@ export async function GET(
   const urlBlocks: string[] = [];
 
   for (const p of paths) {
-    // Default-locale canonical entry with full hreflang alternates
-    const alts = locales.map((l) => ({
+    // Default-locale canonical entry with full hreflang alternates (only for
+    // locales that actually ship translated content — untranslated locales are
+    // noindex and don't appear here).
+    const alts = INDEXABLE_LOCALES.map((l) => ({
       locale: l,
       href: siteUrl(l === routing.defaultLocale ? p : `/${l}${p === "/" ? "" : p}`),
     }));
     urlBlocks.push(urlBlock(siteUrl(p), lastmod, alts));
-    // Non-default locale variants (no alt list — Google reads it from the
-    // canonical above)
-    for (const l of locales) {
+    // Non-default indexable locale variants (no alt list — Google reads it
+    // from the canonical above)
+    for (const l of INDEXABLE_LOCALES) {
       if (l === routing.defaultLocale) continue;
       urlBlocks.push(urlBlock(siteUrl(`/${l}${p === "/" ? "" : p}`), lastmod, []));
     }

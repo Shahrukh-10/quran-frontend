@@ -8,6 +8,7 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/seo/structured-d
 import { locales, rtlLocales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { siteName, siteUrl } from "@/lib/site";
+import { robotsForLocale } from "@/lib/seo";
 import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -101,11 +102,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       description: t("subtitle"),
       images: ["/opengraph-image"],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
-    },
+    robots: robotsForLocale(locale),
     // Optional supplementary verification tags (belt-and-suspenders alongside
     // DNS-TXT verification which is the primary method). Values are injected
     // via env at build time so the token strings don't sit in the repo.

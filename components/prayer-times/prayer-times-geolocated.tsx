@@ -55,8 +55,23 @@ export function PrayerTimesGeolocated() {
     setErrorHint(null);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setCoords({ lat: pos.coords.latitude, lon: pos.coords.longitude });
+        const coords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+        setCoords(coords);
         setStatus("ready");
+        // Sync the homepage widget's cached location so the "Today · <city>"
+        // card on / reflects the same fix the user just requested here.
+        try {
+          window.localStorage.setItem(
+            "iw.home.loc.v1",
+            JSON.stringify({
+              at: Date.now(),
+              loc: { coords, city: "Your location" },
+            }),
+          );
+          window.dispatchEvent(new CustomEvent("iw:storage"));
+        } catch {
+          /* ignore */
+        }
       },
       (err) => {
         setStatus("denied");

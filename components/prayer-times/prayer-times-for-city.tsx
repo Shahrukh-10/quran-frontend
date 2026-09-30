@@ -34,6 +34,25 @@ export function PrayerTimesForCity({
     };
   }, []);
 
+  // Persist the visited city as the homepage widget's location, so the home
+  // "Today · <city>" card follows the last city the user picked here.
+  // Overwrites any auto-geolocated fix — the user's explicit pick wins.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        "iw.home.loc.v1",
+        JSON.stringify({
+          at: Date.now(),
+          loc: { coords: { lat, lon }, city: cityName },
+        }),
+      );
+      // Notify the widget in the same tab
+      window.dispatchEvent(new CustomEvent("iw:storage"));
+    } catch {
+      /* private mode / quota */
+    }
+  }, [lat, lon, cityName]);
+
   const times = useMemo(
     () =>
       computePrayerTimes({

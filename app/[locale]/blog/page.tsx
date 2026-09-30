@@ -1,10 +1,10 @@
 import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
-import { Link } from "@/i18n/routing";
 import { locales } from "@/i18n/config";
-import { breadcrumbs } from "@/lib/breadcrumbs";
+import { Link } from "@/i18n/routing";
 import { getAllPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { hreflangLanguages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import "./blog.css";
@@ -33,15 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url: siteUrl(path),
       title: "Quran Daily — Blog",
-      description:
-        "Long-form articles on the Quran, Sunnah, prayer, and Islamic life.",
+      description: "Long-form articles on the Quran, Sunnah, prayer, and Islamic life.",
       siteName: "Quran Daily",
     },
     twitter: {
       card: "summary_large_image",
       title: "Quran Daily — Blog",
-      description:
-        "Long-form articles on the Quran, Sunnah, prayer, and Islamic life.",
+      description: "Long-form articles on the Quran, Sunnah, prayer, and Islamic life.",
     },
   };
 }
@@ -69,8 +67,8 @@ export default async function BlogIndex({ params }: Props) {
           Long reads on the Quran, Sunnah, and prayer.
         </h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-          Sourced. Reviewed. Free. Every article cites the Quran, hadith, or
-          classical scholarship it rests on — no hot takes, no AI-scraped filler.
+          Sourced. Reviewed. Free. Every article cites the Quran, hadith, or classical scholarship
+          it rests on — no hot takes, no AI-scraped filler.
         </p>
       </header>
 
@@ -122,10 +120,7 @@ export default async function BlogIndex({ params }: Props) {
                   <span>{post.readingMin} min read</span>
                 </div>
                 <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-title leading-tight">
-                  <Link
-                    href={`/blog/${post.slug}` as "/blog/[slug]"}
-                    className="hover:text-accent"
-                  >
+                  <Link href={`/blog/${post.slug}` as "/blog/[slug]"} className="hover:text-accent">
                     {post.title}
                   </Link>
                 </h2>

@@ -1,10 +1,10 @@
 import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
-import { Link } from "@/i18n/routing";
 import { locales } from "@/i18n/config";
-import { breadcrumbs } from "@/lib/breadcrumbs";
+import { Link } from "@/i18n/routing";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { hreflangLanguages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -71,15 +71,18 @@ export default async function BlogPostPage({ params }: Props) {
   const related = getRelatedPosts(slug, 3);
 
   // FAQPage JSON-LD (only emitted if the post declares FAQs)
-  const faqJsonLd = post.faqs && post.faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": post.faqs.map((f) => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": { "@type": "Answer", "text": f.a },
-    })),
-  } : null;
+  const faqJsonLd =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }
+      : null;
 
   return (
     <main className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-10 md:py-14">
@@ -99,14 +102,12 @@ export default async function BlogPostPage({ params }: Props) {
       {faqJsonLd && (
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD script requires innerHTML
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
 
-      <Link
-        href="/blog"
-        className="focus-ring text-sm text-accent hover:underline"
-      >
+      <Link href="/blog" className="focus-ring text-sm text-accent hover:underline">
         ← All articles
       </Link>
 
@@ -153,15 +154,13 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article
         className="blog-content prose prose-lg max-w-none"
-        // eslint-disable-next-line react/no-danger
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: authored HTML from trusted content registry
         dangerouslySetInnerHTML={{ __html: post.bodyHtml.join("\n") }}
       />
 
       {(post.relatedPaths?.length || post.externalLinks?.length) && (
         <section className="mt-14 pt-10 border-t border-separator">
-          <h2 className="text-xs uppercase tracking-widest text-muted-foreground">
-            Read next
-          </h2>
+          <h2 className="text-xs uppercase tracking-widest text-muted-foreground">Read next</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {post.relatedPaths?.map((path) => (
               <Link
@@ -180,7 +179,7 @@ export default async function BlogPostPage({ params }: Props) {
                 key={link.href}
                 href={link.href}
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer noopener"
                 className="rounded-xl border border-separator bg-surface p-4 hover:border-accent/40 focus-ring"
               >
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -195,9 +194,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-12 pt-10 border-t border-separator">
-          <h2 className="text-xl font-bold tracking-title mb-4">
-            More on the blog
-          </h2>
+          <h2 className="text-xl font-bold tracking-title mb-4">More on the blog</h2>
           <ul className="list-none p-0 space-y-3">
             {related.map((p) => (
               <li key={p.slug}>

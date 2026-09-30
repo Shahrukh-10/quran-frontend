@@ -109,9 +109,18 @@
   margin-bottom: 0.35rem;
 }
 
-.blog-content blockquote.pro-tip::before { content: "Pro tip"; color: hsl(160 84% 39%); }
-.blog-content blockquote.did-you-know::before { content: "Did you know?"; color: hsl(199 89% 48%); }
-.blog-content blockquote.warning::before { content: "Heads up"; color: hsl(38 92% 50%); }
+.blog-content blockquote.pro-tip::before {
+  content: "Pro tip";
+  color: hsl(160 84% 39%);
+}
+.blog-content blockquote.did-you-know::before {
+  content: "Did you know?";
+  color: hsl(199 89% 48%);
+}
+.blog-content blockquote.warning::before {
+  content: "Heads up";
+  color: hsl(38 92% 50%);
+}
 
 .blog-content pre,
 .blog-content code {

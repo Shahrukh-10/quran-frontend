@@ -47,23 +47,15 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "reading-quran-on-phone-adab-ethics-2026",
     title: "Reading the Quran on Your Phone: Adab & Ethics in 2026",
-    excerpt: "A sourced, honest guide to the fiqh and adab of reading the Quran on your phone in 2026 — wudu, bathrooms, notifications, and what contemporary scholars actually say.",
+    excerpt:
+      "A sourced, honest guide to the fiqh and adab of reading the Quran on your phone in 2026 — wudu, bathrooms, notifications, and what contemporary scholars actually say.",
     category: "digital-fiqh",
-    tags: [
-      "Adab",
-      "Digital Quran",
-      "Fiqh",
-      "Ethics",
-      "Ramadan"
-    ],
+    tags: ["Adab", "Digital Quran", "Fiqh", "Ethics", "Ramadan"],
     author: "Quran Daily Editorial",
     readingMin: 10,
     wordCount: 2050,
     publishedAt: "2026-09-30",
-    coverGradient: [
-      "#14532d",
-      "#22c55e"
-    ],
+    coverGradient: ["#14532d", "#22c55e"],
     bodyHtml: [
       "<p>Almost every Muslim under forty now reads the Quran the same way they read everything else — on a screen that also holds their messages, their bank, and their group chats. That single fact reshapes a thousand-year-old set of adab (etiquette) around how we handle the Book. The classical fiqh manuals never anticipated a mushaf that could sit in your pocket next to a photo album. So what should a thoughtful reader actually do?</p>",
       "<p>This piece is the first article on the Quran Daily blog, and we want to set the tone plainly: we quote scholars where we can, we say <em>we don't know</em> where we can't, and we treat the reader as an adult capable of weighing evidence. No inflated certainty, no invented hadith numbers, no scare tactics. What follows is a careful summary of where the mainstream contemporary fiqh has landed on reading the Quran through a phone — and the practical adab that makes that reading feel like worship rather than another tab.</p>",
@@ -125,70 +117,64 @@ export const BLOG_POSTS: BlogPost[] = [
       "<h3 class='faq-q'>Should I back up my bookmarks and du'a lists?</h3>",
       "<p class='faq-a'>Yes. Apps change, accounts get lost, phones die. Export your highlights and du'a collections to plain text or PDF at least once a year. Treat your spiritual notes with the same care you give family photos.</p>",
       "<h3 class='faq-q'>Which Quran app should I use?</h3>",
-      "<p class='faq-a'>We are biased — Quran Daily is what we built and what we use. But any app that offers offline access, honest translation attribution, and a distraction-free reading view is a good choice. Avoid apps with intrusive ads inside the recitation view.</p>"
+      "<p class='faq-a'>We are biased — Quran Daily is what we built and what we use. But any app that offers offline access, honest translation attribution, and a distraction-free reading view is a good choice. Avoid apps with intrusive ads inside the recitation view.</p>",
     ],
     faqs: [
       {
         q: "Do I need wudu to read Quran on my phone?",
-        a: "The majority contemporary position from AMJA, ECFR, and Dar al-Ifta al-Misriyyah is that wudu is not required, because a phone is not a mushaf. Many people still prefer to be in wudu as personal adab, which is praiseworthy but not obligatory."
+        a: "The majority contemporary position from AMJA, ECFR, and Dar al-Ifta al-Misriyyah is that wudu is not required, because a phone is not a mushaf. Many people still prefer to be in wudu as personal adab, which is praiseworthy but not obligatory.",
       },
       {
         q: "Can I take my phone into the bathroom if a Quran app is installed?",
-        a: "Yes. The Quran app being installed does not turn your phone into a mushaf. The recommended adab is to close the app or navigate away from the Arabic text before entering, out of respect."
+        a: "Yes. The Quran app being installed does not turn your phone into a mushaf. The recommended adab is to close the app or navigate away from the Arabic text before entering, out of respect.",
       },
       {
         q: "Is reading Quran from a phone as rewarding as reading from a physical mushaf?",
-        a: "Scholars generally hold that the reward is for the recitation itself, not the medium. Some encourage the physical mushaf where practical, but no mainstream contemporary scholar teaches that phone recitation earns less reward."
+        a: "Scholars generally hold that the reward is for the recitation itself, not the medium. Some encourage the physical mushaf where practical, but no mainstream contemporary scholar teaches that phone recitation earns less reward.",
       },
       {
         q: "Can I recite Quran silently from my phone while on public transport?",
-        a: "Yes. Silent recitation in a state of relative calm is well-established. Avoid places where you cannot maintain basic focus and respect, but a quiet commute is fine."
+        a: "Yes. Silent recitation in a state of relative calm is well-established. Avoid places where you cannot maintain basic focus and respect, but a quiet commute is fine.",
       },
       {
         q: "What if I get a message notification during recitation — is my recitation invalidated?",
-        a: "No, recitation is not invalidated by interruption. But it is a strong reason to use Do Not Disturb or Focus mode so that the interruption doesn't happen at all."
+        a: "No, recitation is not invalidated by interruption. But it is a strong reason to use Do Not Disturb or Focus mode so that the interruption doesn't happen at all.",
       },
       {
         q: "Can I read Quran on my phone during menstruation?",
-        a: "There is genuine scholarly disagreement here that predates phones. Some scholars, particularly in the Maliki school and among contemporary jurists like Sheikh Yusuf al-Qaradawi, permit recitation during menstruation. Others hold the more restrictive classical position. This is exactly the kind of question to bring to a scholar you trust in person."
+        a: "There is genuine scholarly disagreement here that predates phones. Some scholars, particularly in the Maliki school and among contemporary jurists like Sheikh Yusuf al-Qaradawi, permit recitation during menstruation. Others hold the more restrictive classical position. This is exactly the kind of question to bring to a scholar you trust in person.",
       },
       {
         q: "Is it okay to use AI or ChatGPT to explain a verse to me?",
-        a: "As a starting point for research, yes — treated as an index, not an authority. For fiqh rulings or definitive tafsir, always go to qualified scholars and classical works. AI can help you find sources; it cannot replace them."
+        a: "As a starting point for research, yes — treated as an index, not an authority. For fiqh rulings or definitive tafsir, always go to qualified scholars and classical works. AI can help you find sources; it cannot replace them.",
       },
       {
         q: "Should I back up my bookmarks and du'a lists?",
-        a: "Yes. Apps change, accounts get lost, phones die. Export your highlights and du'a collections to plain text or PDF at least once a year. Treat your spiritual notes with the same care you give family photos."
+        a: "Yes. Apps change, accounts get lost, phones die. Export your highlights and du'a collections to plain text or PDF at least once a year. Treat your spiritual notes with the same care you give family photos.",
       },
       {
         q: "Which Quran app should I use?",
-        a: "We are biased — Quran Daily is what we built and what we use. But any app that offers offline access, honest translation attribution, and a distraction-free reading view is a good choice. Avoid apps with intrusive ads inside the recitation view."
-      }
+        a: "We are biased — Quran Daily is what we built and what we use. But any app that offers offline access, honest translation attribution, and a distraction-free reading view is a good choice. Avoid apps with intrusive ads inside the recitation view.",
+      },
     ],
-    relatedPaths: [
-      "/quran",
-      "/hadith/bukhari",
-      "/duas"
-    ],
+    relatedPaths: ["/quran", "/hadith/bukhari", "/duas"],
     externalLinks: [
       {
         href: "https://www.promptspace.in/blog",
         label: "AI prompts for Ramadan reflection",
-        site: "PromptSpace"
+        site: "PromptSpace",
       },
       {
         href: "https://toolspace.cloud/blog",
         label: "Privacy-first browser tools",
-        site: "Toolspace"
-      }
-    ]
+        site: "Toolspace",
+      },
+    ],
   },
 ];
 
 export function getAllPosts(): BlogPost[] {
-  return [...BLOG_POSTS].sort((a, b) =>
-    b.publishedAt.localeCompare(a.publishedAt),
-  );
+  return [...BLOG_POSTS].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
@@ -200,12 +186,9 @@ export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   if (!post) return [];
   const others = BLOG_POSTS.filter((p) => p.slug !== slug);
   // Prefer posts sharing at least one tag; fall back to same category.
-  const tagMatches = others.filter((p) =>
-    p.tags.some((t) => post.tags.includes(t)),
-  );
+  const tagMatches = others.filter((p) => p.tags.some((t) => post.tags.includes(t)));
   const categoryMatches = others.filter(
     (p) => p.category === post.category && !tagMatches.includes(p),
   );
-  return [...tagMatches, ...categoryMatches, ...others]
-    .slice(0, limit);
+  return [...tagMatches, ...categoryMatches, ...others].slice(0, limit);
 }

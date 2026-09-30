@@ -21,7 +21,17 @@ import { siteUrl } from "@/lib/site";
 export const dynamic = "force-dynamic";
 export const revalidate = 3600; // Refresh sitemap index hourly
 
-const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures", "blog"] as const;
+const SHARDS = [
+  "core",
+  "quran",
+  "hadith",
+  "duas",
+  "cities",
+  "names",
+  "salah",
+  "figures",
+  "blog",
+] as const;
 
 function buildSitemapIndex(): string {
   const lastmod = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
@@ -29,14 +39,14 @@ function buildSitemapIndex(): string {
   parts.push('<?xml version="1.0" encoding="UTF-8"?>');
   parts.push('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
   for (const shard of SHARDS) {
-    const loc = siteUrl("/sitemaps/" + shard + ".xml");
+    const loc = siteUrl(`/sitemaps/${shard}.xml`);
     parts.push("  <sitemap>");
-    parts.push("    <loc>" + loc + "</loc>");
-    parts.push("    <lastmod>" + lastmod + "</lastmod>");
+    parts.push(`    <loc>${loc}</loc>`);
+    parts.push(`    <lastmod>${lastmod}</lastmod>`);
     parts.push("  </sitemap>");
   }
   parts.push("</sitemapindex>");
-  return parts.join("\n") + "\n";
+  return `${parts.join("\n")}\n`;
 }
 
 export function GET(): Response {

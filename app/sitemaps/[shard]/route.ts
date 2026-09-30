@@ -1,6 +1,8 @@
-import { getAllPosts } from "@/lib/blog";
+import { statSync } from "node:fs";
+import path from "node:path";
 import { locales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
+import { getAllPosts } from "@/lib/blog";
 import { CITIES } from "@/lib/cities";
 import { getAllCategories, getAllDuas } from "@/lib/duas";
 import { getAllFigures } from "@/lib/figures";
@@ -8,8 +10,6 @@ import { getAllNames } from "@/lib/names";
 import { getAllSurahs } from "@/lib/quran";
 import { getAllSalahTutorials } from "@/lib/salah";
 import { siteUrl } from "@/lib/site";
-import { statSync } from "node:fs";
-import path from "node:path";
 
 // Per-content-type sitemap shards — /sitemaps/<shard>.xml
 //
@@ -49,7 +49,17 @@ const TOP_LEVEL = [
 
 const HADITH_BOOKS = ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah"];
 
-const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures", "blog"] as const;
+const SHARDS = [
+  "core",
+  "quran",
+  "hadith",
+  "duas",
+  "cities",
+  "names",
+  "salah",
+  "figures",
+  "blog",
+] as const;
 type Shard = (typeof SHARDS)[number];
 
 // Locales that ship English metadata + English body content (only chrome
@@ -62,7 +72,6 @@ type Shard = (typeof SHARDS)[number];
 // translated.
 const UNTRANSLATED_LOCALES = new Set(["ar", "ur", "tr", "fr"]);
 const INDEXABLE_LOCALES = locales.filter((l) => !UNTRANSLATED_LOCALES.has(l));
-
 
 // ---------------------------------------------------------------------------
 // Per-URL <lastmod> from source-data mtimes
@@ -222,13 +231,17 @@ function buildPaths(shard: Shard): string[] {
 }
 
 function urlBlock(loc: string, lastmod: string, alts: { locale: string; href: string }[]): string {
-  const parts = [`  <url>`, `    <loc>${escapeXml(loc)}</loc>`, `    <lastmod>${lastmod}</lastmod>`];
+  const parts = [
+    "  <url>",
+    `    <loc>${escapeXml(loc)}</loc>`,
+    `    <lastmod>${lastmod}</lastmod>`,
+  ];
   for (const a of alts) {
     parts.push(
       `    <xhtml:link rel="alternate" hreflang="${a.locale}" href="${escapeXml(a.href)}"/>`,
     );
   }
-  parts.push(`  </url>`);
+  parts.push("  </url>");
   return parts.join("\n");
 }
 
@@ -262,12 +275,7 @@ export async function GET(
     }
   }
 
-  const xml =
-    `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
-    `        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
-    urlBlocks.join("\n") +
-    `\n</urlset>\n`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urlBlocks.join("\n")}\n</urlset>\n`;
 
   return new Response(xml, {
     status: 200,

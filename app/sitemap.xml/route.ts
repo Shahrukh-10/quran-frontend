@@ -21,7 +21,7 @@ import { siteUrl } from "@/lib/site";
 export const dynamic = "force-dynamic";
 export const revalidate = 3600; // Refresh sitemap index hourly
 
-const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures"] as const;
+const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures", "blog"] as const;
 
 function buildSitemapIndex(): string {
   const lastmod = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);

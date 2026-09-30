@@ -1,0 +1,184 @@
+/* Blog article typography — matches the reader's max-w-reading + line-height ~1.75 look.
+ *
+ * The detail page renders bodyHtml with dangerouslySetInnerHTML, so styles are scoped
+ * to `.blog-content` and target raw HTML tags directly (no BEM). Anchor targets
+ * (h2 id="...") are used by featured-snippet extraction and TOC links.
+ */
+
+.blog-content {
+  color: hsl(var(--foreground));
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.blog-content > * + * {
+  margin-top: 1rem;
+}
+
+.blog-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.blog-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content p {
+  color: hsl(var(--foreground));
+}
+
+.blog-content a {
+  color: hsl(var(--accent));
+  text-decoration: none;
+  border-bottom: 1px solid hsl(var(--accent) / 0.3);
+}
+
+.blog-content a:hover {
+  border-bottom-color: hsl(var(--accent));
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.5rem;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+}
+
+.blog-content li {
+  margin-top: 0.5rem;
+}
+
+.blog-content li::marker {
+  color: hsl(var(--muted-foreground));
+}
+
+.blog-content blockquote {
+  border-left: 3px solid hsl(var(--accent));
+  padding-left: 1rem;
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.blog-content blockquote.pro-tip,
+.blog-content blockquote.did-you-know,
+.blog-content blockquote.warning {
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--separator));
+  border-left-width: 3px;
+  background: hsl(var(--surface));
+  padding: 1rem 1.25rem;
+  font-style: normal;
+}
+
+.blog-content blockquote.pro-tip {
+  border-left-color: hsl(160 84% 39%);
+}
+
+.blog-content blockquote.did-you-know {
+  border-left-color: hsl(199 89% 48%);
+}
+
+.blog-content blockquote.warning {
+  border-left-color: hsl(38 92% 50%);
+}
+
+.blog-content blockquote::before {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.35rem;
+}
+
+.blog-content blockquote.pro-tip::before { content: "Pro tip"; color: hsl(160 84% 39%); }
+.blog-content blockquote.did-you-know::before { content: "Did you know?"; color: hsl(199 89% 48%); }
+.blog-content blockquote.warning::before { content: "Heads up"; color: hsl(38 92% 50%); }
+
+.blog-content pre,
+.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.blog-content code {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--separator));
+  padding: 0.125rem 0.35rem;
+  border-radius: 0.35rem;
+  font-size: 0.9em;
+}
+
+.blog-content pre {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--separator));
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.blog-content pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95em;
+}
+
+.blog-content th,
+.blog-content td {
+  border-bottom: 1px solid hsl(var(--separator));
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-content th {
+  font-weight: 600;
+  background: hsl(var(--surface));
+}
+
+.blog-content .faq-q {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.blog-content .faq-a {
+  margin-top: 0.35rem;
+}
+
+.blog-content figure {
+  margin: 1.5rem 0;
+}
+
+.blog-content figcaption {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}

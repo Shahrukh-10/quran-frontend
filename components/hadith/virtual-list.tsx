@@ -36,24 +36,31 @@ export function HadithVirtualList({
                 <span className="font-medium tracking-widest uppercase">
                   #{h.number}
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap justify-end">
                   {h.grade ? (
                     <span className="text-accent">{h.grade}</span>
                   ) : null}
-                  {h.arabic ? <HadithAudioButton arabic={h.arabic} /> : null}
+                  {h.arabic ? (
+                    <HadithAudioButton text={h.arabic} lang="ar" label="Arabic" />
+                  ) : null}
+                  {translation ? (
+                    <HadithAudioButton text={translation} lang="en" label="English" />
+                  ) : null}
                 </div>
               </header>
               {h.arabic ? (
                 <p
                   lang="ar"
                   dir="rtl"
-                  className="mt-3 font-quran text-4xl leading-[2] text-right"
+                  className="mt-4 font-quran text-3xl md:text-4xl leading-[2.1] text-right"
                 >
                   {h.arabic}
                 </p>
               ) : null}
               {translation ? (
-                <p className="mt-3 text-base leading-relaxed">{translation}</p>
+                <p className="mt-4 text-[1.05rem] md:text-lg leading-[1.75] text-foreground/90">
+                  {translation}
+                </p>
               ) : null}
             </article>
           </li>

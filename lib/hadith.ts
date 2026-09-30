@@ -6,6 +6,8 @@
 // This module exposes typed fetch helpers that hit /api/qb/hadith/* through the
 // Next.js rewrite (see next.config.ts). Server components go direct to the
 // backend via BACKEND_URL; the browser goes through /api/qb/*.
+import { cleanHadithPayload } from "./hadith-text";
+
 export type HadithBook = {
   slug: string;
   name: { en: string; id: string };
@@ -169,7 +171,12 @@ export async function loadHadith(
   book: HadithBookSlug,
   number: string | number,
 ): Promise<Hadith | undefined> {
-  return fetchJson<Hadith>(`/hadith/${book}/${encodeURIComponent(String(number))}`);
+  const data = await fetchJson<Hadith>(
+    `/hadith/${book}/${encodeURIComponent(String(number))}`,
+  );
+  // Strip U+200F/U+200E bidi controls that render as visible dots in some
+  // Arabic fonts (see lib/hadith-text.ts for the full rationale).
+  return cleanHadithPayload(data);
 }
 
 export async function loadHadithPage(
@@ -179,7 +186,8 @@ export async function loadHadithPage(
 ): Promise<HadithPage | undefined> {
   const safeSize = Math.max(1, Math.min(200, size));
   const safePage = Math.max(0, page);
-  return fetchJson<HadithPage>(
+  const data = await fetchJson<HadithPage>(
     `/hadith/${book}?page=${safePage}&size=${safeSize}`,
   );
+  return cleanHadithPayload(data);
 }

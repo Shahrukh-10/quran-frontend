@@ -1,9 +1,8 @@
 "use client";
-// Sticky Liquid-Glass header matching mockups/apple/*.html .nav pattern.
-// Structure: brand · center links · icon buttons (theme toggle + mobile).
-// Default light; toggle persists into localStorage under 'iw.v1'.
-// Theme toggle uses View Transitions API for a radial reveal from
-// the button — gracefully degrades to a smooth cross-fade otherwise.
+// Sticky Liquid-Glass header. Desktop uses grouped hover menus (5 top-level
+// items → dropdowns exposing 17 destinations), so nothing overflows and every
+// section is discoverable in one hover. Mobile keeps the drawer.
+// Default light; theme toggle uses View Transitions API for a radial reveal.
 
 import { Link } from "@/i18n/routing";
 import { MenuIcon, XIcon } from "lucide-react";
@@ -11,71 +10,59 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const LINKS = [
-  { href: "/quran", k: "quran" },
-  { href: "/mushaf", k: "mushaf" },
-  { href: "/duas", k: "duas" },
-  { href: "/hadith", k: "hadith" },
-  { href: "/seerah", k: "seerah" },
-  { href: "/reverts", k: "reverts" },
-  { href: "/ramadan", k: "ramadan" },
-  { href: "/hajj", k: "hajj" },
-  { href: "/memorize", k: "memorize" },
-  { href: "/iqamah", k: "iqamah" },
-  { href: "/account", k: "account" },
-  { href: "/prayer-times", k: "prayerTimes" },
-  { href: "/qibla", k: "qibla" },
-  { href: "/learn-salah", k: "learnSalah" },
-  { href: "/learn", k: "learn" },
-  { href: "/names-of-allah", k: "names" },
-  { href: "/tools", k: "tools" },
-] as const;
+// Desktop: 5 top-level groups. Each expands into a hover/click flyout.
+// Every destination on the site is reachable through one of these groups.
+type NavGroup = {
+  key: string; // i18n key under nav.groups.*
+  label: string; // fallback label if translation is missing
+  items: ReadonlyArray<{ href: string; k: string; description?: string }>;
+};
 
-// Grouped structure for the mobile drawer — same links, organised so a
-// first-time visitor can see at a glance what the site offers.
-// Categories match the mental model: read scripture, practice daily,
-// learn deeper, self-track. Titles come from the i18n `nav.groups.*` keys.
-const LINK_GROUPS = [
+const NAV_GROUPS: ReadonlyArray<NavGroup> = [
   {
-    k: "read",
+    key: "read",
+    label: "Read",
     items: [
-      { href: "/quran", k: "quran" },
-      { href: "/mushaf", k: "mushaf" },
-      { href: "/hadith", k: "hadith" },
-      { href: "/duas", k: "duas" },
+      { href: "/quran", k: "quran", description: "Full Mushaf, 114 surahs" },
+      { href: "/mushaf", k: "mushaf", description: "Page-by-page Madinah script" },
+      { href: "/hadith", k: "hadith", description: "The Six Books" },
+      { href: "/duas", k: "duas", description: "Authentic supplications" },
+      { href: "/names-of-allah", k: "names", description: "99 Names of Allah" },
+      { href: "/seerah", k: "seerah", description: "Life of the Prophet ﷺ" },
     ],
   },
   {
-    k: "practice",
+    key: "practice",
+    label: "Practice",
     items: [
-      { href: "/prayer-times", k: "prayerTimes" },
-      { href: "/qibla", k: "qibla" },
-      { href: "/iqamah", k: "iqamah" },
-      { href: "/adhan", k: "adhan" },
-      { href: "/calendar", k: "calendar" },
+      { href: "/prayer-times", k: "prayerTimes", description: "Times for your city" },
+      { href: "/qibla", k: "qibla", description: "Direction to Makkah" },
+      { href: "/iqamah", k: "iqamah", description: "Iqamah schedule" },
+      { href: "/adhan", k: "adhan", description: "Adhan player" },
+      { href: "/calendar", k: "calendar", description: "Hijri calendar" },
     ],
   },
   {
-    k: "learn",
+    key: "learn",
+    label: "Learn",
     items: [
-      { href: "/learn-salah", k: "learnSalah" },
-      { href: "/learn", k: "learn" },
-      { href: "/names-of-allah", k: "names" },
-      { href: "/seerah", k: "seerah" },
-      { href: "/hajj", k: "hajj" },
-      { href: "/ramadan", k: "ramadan" },
-      { href: "/reverts", k: "reverts" },
+      { href: "/learn-salah", k: "learnSalah", description: "Step-by-step guide" },
+      { href: "/learn", k: "learn", description: "Islamic knowledge library" },
+      { href: "/ramadan", k: "ramadan", description: "Ramadan long-reads" },
+      { href: "/hajj", k: "hajj", description: "Hajj & Umrah guide" },
+      { href: "/reverts", k: "reverts", description: "Convert stories" },
     ],
   },
   {
-    k: "you",
+    key: "you",
+    label: "You",
     items: [
-      { href: "/memorize", k: "memorize" },
-      { href: "/tools", k: "tools" },
-      { href: "/account", k: "account" },
+      { href: "/memorize", k: "memorize", description: "Memorize the Quran" },
+      { href: "/tools", k: "tools", description: "Tasbih, adhkar, tracker" },
+      { href: "/account", k: "account", description: "Bookmarks & progress" },
     ],
   },
-] as const;
+];
 
 const STORAGE_KEY = "iw.v1";
 
@@ -101,9 +88,6 @@ function writeTheme(theme: "light" | "dark") {
   }
 }
 
-// Morphing sun/moon icon — a single SVG whose paths animate between
-// states based on `data-theme`. Cheaper and smoother than swapping
-// two separate <svg> elements.
 function ThemeIcon({ theme }: { theme: "light" | "dark" }) {
   const dark = theme === "dark";
   return (
@@ -120,15 +104,12 @@ function ThemeIcon({ theme }: { theme: "light" | "dark" }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      {/* The core disc — sun body / moon body. Shifts + shrinks slightly. */}
       <circle
         className="theme-icon__disc"
         cx={dark ? 14 : 12}
         cy={dark ? 10 : 12}
         r={dark ? 8 : 5}
       />
-      {/* The mask that "bites" the sun into a moon crescent.
-          Grows from 0 → 7 on dark, shrinks on light. */}
       <circle
         className="theme-icon__mask"
         cx="18"
@@ -137,7 +118,6 @@ function ThemeIcon({ theme }: { theme: "light" | "dark" }) {
         fill="hsl(var(--background))"
         stroke="none"
       />
-      {/* Sun rays — 8 lines around the disc, fade out on dark. */}
       <g className="theme-icon__rays" opacity={dark ? 0 : 1}>
         <line x1="12" y1="2" x2="12" y2="4" />
         <line x1="12" y1="20" x2="12" y2="22" />
@@ -152,21 +132,41 @@ function ThemeIcon({ theme }: { theme: "light" | "dark" }) {
   );
 }
 
+// Chevron used on desktop group triggers
+function Chevron() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="12"
+      height="12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="hig-nav__chevron"
+      aria-hidden
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
 export function Header() {
   const t = useTranslations("nav");
   const common = useTranslations("common");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile drawer
+  const [openGroup, setOpenGroup] = useState<string | null>(null); // desktop dropdown
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
+  const hoverTimerRef = useRef<number | null>(null);
 
-  // Sync theme state from localStorage after mount.
   useEffect(() => {
     setTheme(readTheme());
   }, []);
 
-  // When the mobile drawer is open, lock the page underneath from scrolling.
-  // The drawer itself remains internally scrollable (overflow-y: auto).
+  // Lock body scroll when mobile drawer is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -176,15 +176,30 @@ export function Header() {
     };
   }, [open]);
 
-  // Close the drawer whenever the route changes (link tap fires navigation
-  // via next-intl <Link>; without this hook, the drawer would stay open
-  // over the new page).
+  // Close menus on route change
   useEffect(() => {
     setOpen(false);
+    setOpenGroup(null);
   }, [pathname]);
 
-  // Apply theme with a View-Transitions radial reveal from the button.
-  // Falls back to a plain toggle on browsers without the API (Firefox).
+  // Close desktop dropdown on outside click / Escape
+  useEffect(() => {
+    if (!openGroup) return;
+    const onDown = (e: MouseEvent) => {
+      const t = e.target as HTMLElement;
+      if (!t.closest(".hig-nav__group")) setOpenGroup(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenGroup(null);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openGroup]);
+
   const applyTheme = (next: "light" | "dark") => {
     const doToggle = () => {
       setTheme(next);
@@ -193,21 +208,16 @@ export function Header() {
       html.classList.toggle("dark", next === "dark");
       html.setAttribute("data-theme", next);
     };
-
-    // View Transitions API — Chromium 111+, Safari 18+.
     const doc = document as Document & {
       startViewTransition?: (cb: () => void) => { ready: Promise<void> };
     };
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     if (!doc.startViewTransition || prefersReduced) {
       doToggle();
       return;
     }
-
-    // Anchor the reveal to the toggle button's centre.
     const btn = toggleBtnRef.current;
     const rect = btn?.getBoundingClientRect();
     const cx = rect ? rect.left + rect.width / 2 : window.innerWidth - 40;
@@ -216,32 +226,51 @@ export function Header() {
       Math.max(cx, window.innerWidth - cx),
       Math.max(cy, window.innerHeight - cy),
     );
-
     const root = document.documentElement;
     root.style.setProperty("--vt-x", `${cx}px`);
     root.style.setProperty("--vt-y", `${cy}px`);
     root.style.setProperty("--vt-r", `${maxRadius}px`);
-    root.setAttribute("data-vt-direction", next); // 'dark' expands, 'light' shrinks
-
+    root.setAttribute("data-vt-direction", next);
     const transition = doc.startViewTransition(doToggle);
     transition.ready.finally(() => {
-      // Clear the marker after the animation completes so subsequent
-      // navigations don't accidentally inherit stale positioning.
       transition.ready
-        .then(() => {
-          root.removeAttribute("data-vt-direction");
-        })
-        .catch(() => {
-          root.removeAttribute("data-vt-direction");
-        });
+        .then(() => root.removeAttribute("data-vt-direction"))
+        .catch(() => root.removeAttribute("data-vt-direction"));
     });
   };
 
   const isActive = (href: string) => {
     if (!pathname) return false;
-    // pathname includes locale prefix (e.g. /en/quran); match by suffix
     const cleaned = pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?(?=\/|$)/, "") || "/";
     return cleaned === href || cleaned.startsWith(`${href}/`);
+  };
+
+  const groupIsActive = (g: NavGroup) => g.items.some((i) => isActive(i.href));
+
+  // Hover intent — open on hover after 60ms; close after 180ms so cursor
+  // travel through the gap doesn't blink the menu shut.
+  const handleGroupEnter = (key: string) => {
+    if (hoverTimerRef.current) window.clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = window.setTimeout(() => setOpenGroup(key), 60);
+  };
+  const handleGroupLeave = () => {
+    if (hoverTimerRef.current) window.clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = window.setTimeout(() => setOpenGroup(null), 180);
+  };
+
+  const tSafe = (key: string, fallback: string) => {
+    try {
+      return t(key);
+    } catch {
+      return fallback;
+    }
+  };
+  const tGroupSafe = (key: string, fallback: string) => {
+    try {
+      return t(`groups.${key}`);
+    } catch {
+      return fallback;
+    }
   };
 
   return (
@@ -255,16 +284,59 @@ export function Header() {
         </Link>
 
         <nav className="hig-nav__links" aria-label="Primary">
-          {LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`hig-nav__link focus-ring${isActive(l.href) ? " is-active" : ""}`}
-              aria-current={isActive(l.href) ? "page" : undefined}
-            >
-              {t(l.k)}
-            </Link>
-          ))}
+          {NAV_GROUPS.map((g) => {
+            const isOpen = openGroup === g.key;
+            const active = groupIsActive(g);
+            return (
+              <div
+                key={g.key}
+                className={`hig-nav__group${isOpen ? " is-open" : ""}${active ? " is-active" : ""}`}
+                onMouseEnter={() => handleGroupEnter(g.key)}
+                onMouseLeave={handleGroupLeave}
+              >
+                <button
+                  type="button"
+                  className="hig-nav__link hig-nav__group-trigger focus-ring"
+                  aria-haspopup="true"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenGroup(isOpen ? null : g.key)}
+                >
+                  {tGroupSafe(g.key, g.label)}
+                  <Chevron />
+                </button>
+                {isOpen && (
+                  <div
+                    className="hig-nav__flyout"
+                    role="menu"
+                    aria-label={tGroupSafe(g.key, g.label)}
+                    onMouseEnter={() => handleGroupEnter(g.key)}
+                    onMouseLeave={handleGroupLeave}
+                  >
+                    {g.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setOpenGroup(null)}
+                        className={`hig-nav__flyout-item focus-ring${
+                          isActive(item.href) ? " is-active" : ""
+                        }`}
+                      >
+                        <span className="hig-nav__flyout-title">
+                          {tSafe(item.k, item.k)}
+                        </span>
+                        {item.description && (
+                          <span className="hig-nav__flyout-desc">
+                            {item.description}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </nav>
 
         <div className="hig-nav__right">
@@ -292,13 +364,6 @@ export function Header() {
 
       {open && (
         <>
-          {/* Backdrop scrim behind the drawer. Tap anywhere on it to close.
-              Solves the reported bug where the homepage content bled
-              through the drawer's low-opacity glass — the drawer alone
-              was `background: hsl(var(--background) / 0.55)` which is
-              45% see-through and let the ticker/cards behind it show up
-              as visual noise. This dark blurred scrim covers the rest
-              of the viewport so the drawer reads as a proper takeover. */}
           <button
             type="button"
             aria-label="Close menu"
@@ -306,9 +371,11 @@ export function Header() {
             onClick={() => setOpen(false)}
           />
           <div id="mobile-menu" className="hig-nav__drawer">
-            {LINK_GROUPS.map((group) => (
-              <section key={group.k} className="hig-nav__drawer-group">
-                <h3 className="hig-nav__drawer-title">{t(`groups.${group.k}`)}</h3>
+            {NAV_GROUPS.map((group) => (
+              <section key={group.key} className="hig-nav__drawer-group">
+                <h3 className="hig-nav__drawer-title">
+                  {tGroupSafe(group.key, group.label)}
+                </h3>
                 <ul>
                   {group.items.map((l) => (
                     <li key={l.href}>
@@ -317,7 +384,7 @@ export function Header() {
                         onClick={() => setOpen(false)}
                         className={`focus-ring${isActive(l.href) ? " is-active" : ""}`}
                       >
-                        {t(l.k)}
+                        {tSafe(l.k, l.k)}
                       </Link>
                     </li>
                   ))}

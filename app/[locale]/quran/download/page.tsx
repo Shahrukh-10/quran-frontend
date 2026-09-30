@@ -147,18 +147,36 @@ export default async function QuranDownloadPage({ params }: Props) {
         <span className="text-foreground">Download PDF</span>
       </nav>
 
-      <header>
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">
-          Read offline · Print · Study
-        </p>
-        <h1 className="mt-2 text-[clamp(2rem,4vw,3rem)] font-bold tracking-display leading-tight">
-          Download the Quran as PDF
-        </h1>
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground max-w-prose">
-          Every file below is a mirror of an <strong>authentic, freely-distributed</strong> edition
-          — the King Fahd Complex Madinah Mushaf and the Saheeh International translation. Nothing
-          has been re-typeset by us. Read in your browser, or download for offline use.
-        </p>
+      <header className="relative overflow-hidden rounded-3xl border border-separator bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent p-8 md:p-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(circle_at_20%_20%,hsl(var(--accent)/0.35),transparent_60%)]"
+        />
+        <div className="relative">
+          <p className="text-xs uppercase tracking-widest text-accent font-semibold">
+            Read offline · Print · Study
+          </p>
+          <h1 className="mt-3 text-[clamp(2rem,4.5vw,3.25rem)] font-bold tracking-display leading-[1.05]">
+            Download the Quran <span className="text-accent">as PDF</span>
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground max-w-prose">
+            Every file below is a mirror of an <strong className="text-foreground">authentic, freely-distributed</strong> edition
+            — the King Fahd Complex Madinah Mushaf and the Saheeh International translation. Nothing
+            has been re-typeset by us. Read in your browser, or download for offline use.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-separator bg-surface/70 px-3 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              5 editions
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-separator bg-surface/70 px-3 py-1.5">
+              KFGQPC + Saheeh International
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-separator bg-surface/70 px-3 py-1.5">
+              Free · Waqf · No signup
+            </span>
+          </div>
+        </div>
       </header>
 
       {/* Trust panel — makes it explicit where PDFs come from */}
@@ -198,51 +216,85 @@ export default async function QuranDownloadPage({ params }: Props) {
       </section>
 
       {/* Editions grid */}
-      <section className="mt-10" aria-labelledby="editions-heading">
-        <h2 id="editions-heading" className="sr-only">
-          Available editions
-        </h2>
-        <div className="grid gap-5 md:grid-cols-2">
+      <section className="mt-12" aria-labelledby="editions-heading">
+        <div className="flex items-end justify-between gap-4 mb-6">
+          <div>
+            <h2 id="editions-heading" className="text-2xl md:text-3xl font-bold tracking-title">
+              Available editions
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Five authentic PDFs, sorted by quality and size.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
           {EDITIONS.map((ed) => (
             <div
               key={ed.id}
-              className={`relative rounded-2xl border p-6 transition-colors ${
-                ed.recommended ? "border-accent bg-accent-muted/30" : "border-separator bg-surface"
+              className={`group relative flex flex-col rounded-2xl border p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 ${
+                ed.recommended
+                  ? "border-accent/40 bg-gradient-to-br from-accent/[0.08] to-transparent ring-1 ring-accent/20"
+                  : "border-separator bg-surface hover:border-accent/30"
               }`}
             >
               {ed.recommended && (
-                <span className="absolute -top-2.5 right-4 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-accent-foreground">
+                <span className="absolute -top-2.5 right-5 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground shadow-sm">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3" aria-hidden="true">
+                    <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z" />
+                  </svg>
                   Recommended
                 </span>
               )}
-              <h3 className="text-lg font-bold tracking-title leading-tight">{ed.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{ed.subtitle}</p>
 
-              <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-                <div>
-                  <dt className="text-muted-foreground">Publisher</dt>
-                  <dd className="mt-0.5">{ed.publisher}</dd>
+              {/* Cover-style visual header */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/15 to-teal-500/10 border border-separator">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-7 w-7 text-accent"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
                 </div>
-                <div>
-                  <dt className="text-muted-foreground">Format</dt>
-                  <dd className="mt-0.5">{ed.format}</dd>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-bold tracking-title leading-snug">{ed.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{ed.subtitle}</p>
                 </div>
-                <div>
-                  <dt className="text-muted-foreground">Pages</dt>
-                  <dd className="mt-0.5">{ed.pages}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted-foreground">File size</dt>
-                  <dd className="mt-0.5">{ed.fileSize}</dd>
-                </div>
-              </dl>
+              </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{ed.notes}</p>
+              {/* Meta chips */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1 rounded-md bg-muted/50 px-2 py-1 text-[11px] text-muted-foreground">
+                  <span className="font-semibold text-foreground">{ed.pages}</span>
+                  pages
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-muted/50 px-2 py-1 text-[11px] text-muted-foreground">
+                  <span className="font-semibold text-foreground">{ed.fileSize}</span>
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-muted/50 px-2 py-1 text-[11px] text-muted-foreground">
+                  {ed.format}
+                </span>
+              </div>
 
-              <div className="mt-5 flex flex-wrap gap-3">
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground flex-1">
+                {ed.notes}
+              </p>
+
+              <p className="mt-4 text-[11px] uppercase tracking-widest text-muted-foreground">
+                Publisher · {ed.publisher}
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
                 <a
                   href={ed.url}
-                  className="focus-ring inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90 transition-opacity"
+                  className="focus-ring inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity shadow-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                   download
@@ -251,7 +303,7 @@ export default async function QuranDownloadPage({ params }: Props) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth={1.8}
+                    strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="h-4 w-4"
@@ -261,11 +313,11 @@ export default async function QuranDownloadPage({ params }: Props) {
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  Download PDF
+                  Download
                 </a>
                 <a
                   href={`#read-${ed.id}`}
-                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-separator bg-surface px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
+                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-separator bg-surface px-4 py-2.5 text-sm font-medium hover:bg-muted transition-colors"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -280,7 +332,7 @@ export default async function QuranDownloadPage({ params }: Props) {
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                   </svg>
-                  Read online
+                  Read here
                 </a>
               </div>
             </div>

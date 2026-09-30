@@ -299,12 +299,10 @@ a {
 .hig-nav__links {
   display: flex;
   justify-content: center;
-  gap: 2px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.hig-nav__links::-webkit-scrollbar {
-  display: none;
+  gap: 6px;
+  /* No more overflow-x auto — flyout groups keep everything visible.
+     Wrap gracefully at intermediate widths (901-1100px) if needed. */
+  flex-wrap: wrap;
 }
 .hig-nav__link {
   padding: 6px 10px;
@@ -322,6 +320,103 @@ a {
 .hig-nav__link.is-active {
   color: hsl(var(--foreground));
   background: hsl(var(--muted) / 0.7);
+}
+
+/* ---------- Grouped nav with hover flyouts (desktop) ---------- */
+.hig-nav__group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.hig-nav__group-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.hig-nav__chevron {
+  transition: transform .18s var(--spring);
+  opacity: .7;
+}
+.hig-nav__group.is-open .hig-nav__chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.hig-nav__group.is-active > .hig-nav__group-trigger {
+  color: hsl(var(--foreground));
+  background: hsl(var(--muted) / 0.7);
+}
+.hig-nav__group.is-open > .hig-nav__group-trigger {
+  color: hsl(var(--foreground));
+  background: hsl(var(--muted) / 0.6);
+}
+.hig-nav__flyout {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 280px;
+  max-width: 340px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: hsl(var(--surface) / 0.98);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  backdrop-filter: saturate(180%) blur(30px);
+  border: 1px solid hsl(var(--separator));
+  border-radius: 14px;
+  box-shadow: 0 10px 40px -12px hsl(var(--foreground) / 0.18),
+    0 4px 12px -4px hsl(var(--foreground) / 0.08);
+  z-index: 200;
+  animation: hig-nav-flyout-in .16s var(--spring);
+}
+@keyframes hig-nav-flyout-in {
+  from { opacity: 0; transform: translate(-50%, -4px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.dark .hig-nav__flyout {
+  background: hsl(var(--surface) / 0.98);
+  box-shadow: 0 10px 40px -12px rgba(0,0,0,.55),
+    0 4px 12px -4px rgba(0,0,0,.35);
+}
+.hig-nav__flyout-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 9px;
+  color: hsl(var(--foreground));
+  transition: background .14s var(--spring);
+}
+.hig-nav__flyout-item:hover,
+.hig-nav__flyout-item:focus-visible {
+  background: hsl(var(--muted) / 0.65);
+}
+.hig-nav__flyout-item.is-active {
+  background: hsl(var(--accent) / 0.10);
+}
+.hig-nav__flyout-item.is-active .hig-nav__flyout-title {
+  color: hsl(var(--accent));
+}
+.hig-nav__flyout-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.hig-nav__flyout-desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.35;
+}
+/* On mobile the flyouts collapse — the drawer handles this instead. */
+@media (max-width: 900px) {
+  .hig-nav__flyout {
+    display: none;
+  }
 }
 
 .hig-nav__right {

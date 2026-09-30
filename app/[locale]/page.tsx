@@ -1,4 +1,5 @@
 import { GlobalSearch } from "@/components/global-search/global-search";
+import { HomePrayerWidget } from "@/components/home/home-prayer-widget";
 import { FaqSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
@@ -72,16 +73,8 @@ const FEATURED_SURAHS = [
   },
 ] as const;
 
-// Fake sample data for the hero prayer widget. On /prayer-times the real
-// numbers are computed client-side; the home widget is illustrative.
-const SAMPLE_TIMES = [
-  { name: "Fajr", time: "4:55 AM" },
-  { name: "Sunrise", time: "6:10 AM" },
-  { name: "Dhuhr", time: "12:15 PM" },
-  { name: "Asr", time: "3:35 PM" },
-  { name: "Maghrib", time: "6:16 PM", active: true },
-  { name: "Isha", time: "7:26 PM" },
-] as const;
+// (Sample prayer-widget data removed — the widget is now live and geolocated.
+//  See components/home/home-prayer-widget.tsx)
 
 const FEATURES = [
   {
@@ -382,55 +375,10 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Today · Prayer widget */}
+      {/* Today · Prayer widget — real, geolocated, no fake data */}
       <section className="section">
         <div className="container">
-          <div className="section__head">
-            <div>
-              <h2>Today · New Delhi</h2>
-              <p>Karachi method · Sample times for illustration.</p>
-            </div>
-            <Link className="section__link hstack" href="/prayer-times">
-              Change city{" "}
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-          </div>
-          <div
-            className="prayer-card"
-            role="group"
-            aria-label="Sample prayer times for New Delhi today"
-          >
-            <div>
-              <div className="prayer-card__label">Next prayer</div>
-              <div className="prayer-card__next">
-                <span className="prayer-card__accent">Maghrib</span> · 6:16 PM
-              </div>
-              <div className="prayer-card__sub">in ~2h · sample data</div>
-            </div>
-            <div className="prayer-card__times">
-              {SAMPLE_TIMES.map((p) => (
-                <div
-                  key={p.name}
-                  className="prayer-card__tile"
-                  {...("active" in p && p.active ? { "aria-current": "true" } : {})}
-                >
-                  <div className="prayer-card__tile-name">{p.name}</div>
-                  <div className="prayer-card__tile-time">{p.time}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <HomePrayerWidget />
         </div>
       </section>
 

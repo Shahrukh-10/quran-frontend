@@ -179,8 +179,8 @@ export default async function HadithDetailPage({ params }: Props) {
         <span className="text-foreground">#{number}</span>
       </nav>
 
-      <header className="flex items-start justify-between gap-4">
-        <div>
+      <header className="flex flex-col sm:flex-row items-start justify-between gap-4">
+        <div className="flex-1 min-w-0">
           <p className="text-xs uppercase tracking-widest text-muted-foreground">
             {b.name[lang]} · {b.arabicName}
           </p>
@@ -195,13 +195,25 @@ export default async function HadithDetailPage({ params }: Props) {
             </p>
           )}
         </div>
-        {h.arabic ? <HadithAudioButton arabic={h.arabic} size="md" /> : null}
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
+          {h.arabic ? (
+            <HadithAudioButton text={h.arabic} lang="ar" label="Arabic" size="md" />
+          ) : null}
+          {displayText ? (
+            <HadithAudioButton
+              text={displayText}
+              lang="en"
+              label="English"
+              size="md"
+            />
+          ) : null}
+        </div>
       </header>
 
       {/* Arabic text */}
       {h.arabic ? (
         <section
-          className="mt-8"
+          className="mt-8 rounded-2xl border border-separator bg-surface/60 p-6 md:p-8"
           aria-labelledby="arabic-heading"
         >
           <h2 id="arabic-heading" className="sr-only">
@@ -210,7 +222,7 @@ export default async function HadithDetailPage({ params }: Props) {
           <p
             lang="ar"
             dir="rtl"
-            className="font-quran text-4xl leading-[2.2] text-right"
+            className="font-quran text-3xl md:text-[2.5rem] leading-[2.3] text-right"
           >
             {h.arabic}
           </p>
@@ -220,13 +232,23 @@ export default async function HadithDetailPage({ params }: Props) {
       {/* Translation */}
       {displayText && (
         <section
-          className="mt-8"
+          className="mt-6 rounded-2xl border border-separator bg-surface/60 p-6 md:p-8"
           aria-labelledby="translation-heading"
         >
-          <h2 id="translation-heading" className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            Translation
-          </h2>
-          <p className="mt-2 text-lg leading-relaxed">{displayText}</p>
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <h2
+              id="translation-heading"
+              className="text-xs font-semibold uppercase tracking-widest text-muted-foreground"
+            >
+              Translation
+            </h2>
+            <span className="text-xs text-muted-foreground">
+              {lang === "id" ? "Bahasa Indonesia" : "English"}
+            </span>
+          </div>
+          <p className="mt-4 text-lg md:text-xl leading-[1.75] text-foreground/95">
+            {displayText}
+          </p>
         </section>
       )}
 

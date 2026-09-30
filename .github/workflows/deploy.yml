@@ -53,16 +53,15 @@ jobs:
           script: |
             set -e
             cd /opt/qurandaily-frontend/current
-            # Restore the guidance RAG corpus from persistent storage. rsync
-            # --delete wipes data/guidance/ but we keep a copy at
-            # /opt/qurandaily-frontend/persistent/corpus.json. If the persistent
-            # copy is missing, log a warning — /find-guidance renders its
-            # fallback (retrieved cards only, no LLM narrative).
-            mkdir -p /opt/qurandaily-frontend/current/data/guidance
+            # The guidance RAG corpus (~89 MB) lives OUTSIDE the app dir so
+            # `next build` doesn't try to trace/bundle it (would OOM the 8 GB
+            # VPS). Runtime reads it from
+            # /opt/qurandaily-frontend/persistent/corpus.json via
+            # GUIDANCE_CORPUS_PATH env or the fallback candidates in
+            # lib/guidance-search.ts. Verify it exists so /find-guidance
+            # doesn't silently degrade to keyword-only mode.
             if [ -f /opt/qurandaily-frontend/persistent/corpus.json ]; then
-              cp /opt/qurandaily-frontend/persistent/corpus.json \
-                 /opt/qurandaily-frontend/current/data/guidance/corpus.json
-              echo "Restored guidance corpus ($(du -h /opt/qurandaily-frontend/current/data/guidance/corpus.json | cut -f1))"
+              echo "Guidance corpus present ($(du -h /opt/qurandaily-frontend/persistent/corpus.json | cut -f1))"
             else
               echo "WARN: no persistent corpus.json — /find-guidance will run in fallback mode"
             fi

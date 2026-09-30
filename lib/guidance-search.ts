@@ -41,9 +41,31 @@ let CORPUS: CorpusEntry[] | null = null;
 
 function loadCorpus(): CorpusEntry[] {
   if (CORPUS) return CORPUS;
-  const p = path.join(process.cwd(), "data/guidance/corpus.json");
-  if (!fs.existsSync(p)) {
-    console.warn("[guidance] corpus.json not found — run scripts/build-guidance-corpus.mjs");
+  // The corpus lives OUTSIDE the app's data/ directory to keep next build
+  // from tracing it (bundling a 89 MB JSON into the build trace kills the
+  // build on memory-constrained VPS). Runtime path is controlled by
+  // GUIDANCE_CORPUS_PATH; defaults to <cwd>/../persistent/corpus.json on
+  // the VM, or <cwd>/data/guidance/corpus.json in dev.
+  const override = process.env.GUIDANCE_CORPUS_PATH;
+  const candidates = [
+    override,
+    path.join(process.cwd(), "..", "persistent", "corpus.json"),
+    path.join(process.cwd(), "data/guidance/corpus.json"),
+  ].filter((p): p is string => Boolean(p));
+
+  let p: string | null = null;
+  for (const c of candidates) {
+    if (fs.existsSync(c)) {
+      p = c;
+      break;
+    }
+  }
+
+  if (!p) {
+    console.warn(
+      "[guidance] corpus.json not found in any candidate path; /find-guidance will fall back to keyword search. Checked:",
+      candidates,
+    );
     CORPUS = [];
     return CORPUS;
   }
@@ -51,7 +73,7 @@ function loadCorpus(): CorpusEntry[] {
   const parsed = JSON.parse(fs.readFileSync(p, "utf8")) as CorpusEntry[];
   CORPUS = parsed;
   console.log(
-    `[guidance] loaded ${parsed.length} entries in ${Date.now() - start}ms (${(
+    `[guidance] loaded ${parsed.length} entries from ${p} in ${Date.now() - start}ms (${(
       fs.statSync(p).size / 1024 / 1024
     ).toFixed(1)} MB)`,
   );

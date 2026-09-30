@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "آج · {city}",
-      "caption": "{method} · نمونہ اوقات برائے وضاحت۔",
+      "caption": "{method} · لائیو نمازوں کے اوقات۔",
       "changeCity": "شہر تبدیل کریں",
       "nextPrayer": "اگلی نماز",
-      "inHours": "تقریباً {hours} گھنٹے میں · نمونہ ڈیٹا"
+      "inHours": "تقریباً {hours} گھنٹے میں"
     },
     "features": {
       "title": "ہر وہ چیز جو آپ کو درکار ہے",
@@ -237,8 +237,8 @@
       "unavailable": "Location unavailable. Pick a city below or check browser settings.",
       "notNow": "Not this time",
       "next": "Next",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Sample times",
+      "eyebrow2": "آپ کا شہر",
+      "sampleTimes": "نمازوں کے اوقات",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Calculation method",
       "popularCitiesHeading": "Popular cities",

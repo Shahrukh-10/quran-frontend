@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "Aujourd'hui · {city}",
-      "caption": "{method} · Horaires d'exemple à titre indicatif.",
+      "caption": "{method} · Horaires en direct.",
       "changeCity": "Changer de ville",
       "nextPrayer": "Prochaine prière",
-      "inHours": "dans ~{hours}h · données d'exemple"
+      "inHours": "dans ~{hours}h"
     },
     "features": {
       "title": "Tout ce qu'il vous faut",
@@ -237,8 +237,8 @@
       "unavailable": "Location unavailable. Pick a city below or check browser settings.",
       "notNow": "Not this time",
       "next": "Next",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Sample times",
+      "eyebrow2": "Votre ville",
+      "sampleTimes": "Horaires de prière",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Calculation method",
       "popularCitiesHeading": "Popular cities",

@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "Today · {city}",
-      "caption": "{method} · Sample times for illustration.",
+      "caption": "{method} · Live prayer times.",
       "changeCity": "Change city",
       "nextPrayer": "Next prayer",
-      "inHours": "in ~{hours}h · sample data"
+      "inHours": "in ~{hours}h"
     },
     "features": {
       "title": "Everything you need",
@@ -237,8 +237,8 @@
       "unavailable": "Location unavailable. Pick a city below or check browser settings.",
       "notNow": "Not this time",
       "next": "Next",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Sample times",
+      "eyebrow2": "Your city",
+      "sampleTimes": "Prayer times",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Calculation method",
       "popularCitiesHeading": "Popular cities",

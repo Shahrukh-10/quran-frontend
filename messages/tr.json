@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "Bugün · {city}",
-      "caption": "{method} · Örnek vakitler, gösterim amaçlıdır.",
+      "caption": "{method} · Canlı namaz vakitleri.",
       "changeCity": "Şehri değiştir",
       "nextPrayer": "Sonraki namaz",
-      "inHours": "yaklaşık {hours} saat sonra · örnek veri"
+      "inHours": "yaklaşık {hours} saat sonra"
     },
     "features": {
       "title": "İhtiyacınız olan her şey",
@@ -237,8 +237,8 @@
       "unavailable": "Location unavailable. Pick a city below or check browser settings.",
       "notNow": "Not this time",
       "next": "Next",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Sample times",
+      "eyebrow2": "Şehriniz",
+      "sampleTimes": "Namaz vakitleri",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Calculation method",
       "popularCitiesHeading": "Popular cities",

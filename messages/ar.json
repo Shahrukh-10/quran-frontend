@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "اليوم · {city}",
-      "caption": "{method} · أوقات توضيحية.",
+      "caption": "{method} · مواقيت مباشرة.",
       "changeCity": "تغيير المدينة",
       "nextPrayer": "الصلاة القادمة",
-      "inHours": "خلال {hours} ساعة تقريباً · بيانات توضيحية"
+      "inHours": "خلال {hours} ساعة تقريباً"
     },
     "features": {
       "title": "كل ما تحتاج",
@@ -244,8 +244,8 @@
       "unavailable": "Location unavailable. Pick a city below or check browser settings.",
       "notNow": "Not this time",
       "next": "Next",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Sample times",
+      "eyebrow2": "مدينتك",
+      "sampleTimes": "مواقيت الصلاة",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Calculation method",
       "popularCitiesHeading": "Popular cities",

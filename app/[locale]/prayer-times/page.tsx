@@ -100,14 +100,8 @@ const METHODS = [
   "Jafari",
 ] as const;
 
-const SAMPLE_TIMES = [
-  { name: "Fajr", time: "5:23 AM" },
-  { name: "Sunrise", time: "6:52 AM" },
-  { name: "Dhuhr", time: "12:34 PM" },
-  { name: "Asr", time: "3:41 PM" },
-  { name: "Maghrib", time: "6:16 PM", active: true },
-  { name: "Isha", time: "7:44 PM" },
-] as const;
+// (SAMPLE_TIMES removed — the illustrative card was replaced by the
+//  <PrayerTimesGeolocated /> widget which shows real data or a picker.)
 
 export default async function PrayerTimesIndex({ params }: PageProps) {
   const { locale } = await params;
@@ -155,43 +149,10 @@ export default async function PrayerTimesIndex({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Real geolocated widget (progressive enhancement) sits above the illustrative card */}
+      {/* Real geolocated widget (progressive enhancement) */}
       <section className="section">
         <div className="container">
           <PrayerTimesGeolocated />
-        </div>
-      </section>
-
-      {/* Illustrative sample card in the mockup style */}
-      <section className="section">
-        <div className="container">
-          <div className="pt-card" role="region" aria-label="Sample prayer times for London today">
-            <div className="pt-card__meta">
-              <span>
-                <strong>London, GMT</strong>
-              </span>
-              <span className="dot" aria-hidden />
-              <span>Muslim World League</span>
-              <span className="dot" aria-hidden />
-              <span>Sample times</span>
-            </div>
-            <div className="pt-card__next">
-              <span className="pt-card__next-name">Maghrib</span> · <span>18:16</span>
-            </div>
-            <div className="pt-card__count">Sample — real countdown appears after location.</div>
-            <div className="pt-card__tiles">
-              {SAMPLE_TIMES.map((p) => (
-                <div
-                  key={p.name}
-                  className="pt-tile"
-                  {...("active" in p && p.active ? { "aria-current": "true" } : {})}
-                >
-                  <div className="pt-tile__name">{p.name}</div>
-                  <div className="pt-tile__time">{p.time}</div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

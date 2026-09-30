@@ -75,10 +75,10 @@
     },
     "todayCard": {
       "title": "Hari ini · {city}",
-      "caption": "{method} · Contoh waktu untuk ilustrasi.",
+      "caption": "{method} · Waktu salat langsung.",
       "changeCity": "Ganti kota",
       "nextPrayer": "Salat berikutnya",
-      "inHours": "sekitar {hours} jam · data contoh"
+      "inHours": "sekitar {hours} jam lagi"
     },
     "features": {
       "title": "Semua yang Anda perlukan",
@@ -237,8 +237,8 @@
       "unavailable": "Lokasi tidak tersedia. Pilih kota di bawah atau periksa izin browser.",
       "notNow": "Bukan waktunya",
       "next": "Berikutnya",
-      "eyebrow2": "London, GMT",
-      "sampleTimes": "Contoh waktu",
+      "eyebrow2": "Kota Anda",
+      "sampleTimes": "Waktu salat",
       "muslimWorldLeague": "Muslim World League",
       "calcMethodHeading": "Metode perhitungan",
       "popularCitiesHeading": "Kota populer",

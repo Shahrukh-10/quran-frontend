@@ -1,3 +1,4 @@
+import { getAllPosts } from "@/lib/blog";
 import { locales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { CITIES } from "@/lib/cities";
@@ -43,11 +44,12 @@ const TOP_LEVEL = [
   "/tools/prayer-tracker",
   "/tools/zakat",
   "/tools/adhkar",
+  "/blog",
 ];
 
 const HADITH_BOOKS = ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah"];
 
-const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures"] as const;
+const SHARDS = ["core", "quran", "hadith", "duas", "cities", "names", "salah", "figures", "blog"] as const;
 type Shard = (typeof SHARDS)[number];
 
 // Locales that ship English metadata + English body content (only chrome
@@ -118,6 +120,7 @@ const SALAH_MTIME = safeMtime("data/salah/tutorials.json");
 const FIGURES_MTIME = safeMtime("lib/figures.ts");
 const HADITH_MTIME = safeMtime("lib/hadith.ts");
 const QURAN_META_MTIME = safeMtime("data/quran/surahs.json");
+const BLOG_MTIME = safeMtime("lib/blog.ts");
 
 // Site-wide "top" lastmod = max of everything, used for top-level chrome URLs
 const SITE_TOP_MTIME = aggregateMtime([
@@ -156,6 +159,8 @@ function lastmodForPath(p: string): string {
   if (p === "/learn" || p.startsWith("/learn/")) return FIGURES_MTIME;
   // Hadith
   if (p === "/hadith" || p.startsWith("/hadith/")) return HADITH_MTIME;
+  // Blog
+  if (p === "/blog" || p.startsWith("/blog/")) return BLOG_MTIME;
   // Everything else — tools, adhan, qibla, calendar
   return SITE_TOP_MTIME;
 }
@@ -207,6 +212,10 @@ function buildPaths(shard: Shard): string[] {
       break;
     case "figures":
       for (const f of getAllFigures()) paths.push(`/learn/${f.slug}`);
+      break;
+    case "blog":
+      paths.push("/blog");
+      for (const p of getAllPosts()) paths.push(`/blog/${p.slug}`);
       break;
   }
   return paths;

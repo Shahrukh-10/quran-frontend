@@ -120,10 +120,6 @@ export default async function FindGuidancePage({ params, searchParams }: Props) 
             name="q"
             type="text"
             defaultValue={query}
-            // biome-ignore lint/a11y/noAutofocus: this IS a dedicated search
-            // page whose entire purpose is the input — autofocus is the
-            // correct UX (matches Google, DuckDuckGo, etc.)
-            autoFocus
             placeholder="e.g. I'm anxious about my exam · my parents are sick · I owe money · I need forgiveness"
             className="focus-ring w-full rounded-2xl border border-separator bg-surface px-5 py-4 pr-32 text-base sm:text-lg shadow-sm"
           />
@@ -269,7 +265,13 @@ function SolutionCard({
     <article className="rounded-xl border border-separator/70 bg-background/40 p-4 sm:p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <p className="text-xs uppercase tracking-widest text-muted-foreground">
-          {card.type === "dua" ? "Dua" : card.type === "ayah" ? "Quran" : "Page"}
+          {card.type === "dua"
+            ? "Dua"
+            : card.type === "ayah"
+              ? "Quran"
+              : card.type === "hadith"
+                ? "Hadith"
+                : "Page"}
         </p>
         {card.source && <p className="text-xs text-muted-foreground font-mono">{card.source}</p>}
       </div>

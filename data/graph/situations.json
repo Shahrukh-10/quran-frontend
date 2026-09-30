@@ -7,409 +7,1295 @@
       "al-Wābil al-Ṣayyib — Ibn al-Qayyim",
       "Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim, Sunan Abī Dāwūd, Jāmiʿ al-Tirmidhī, Sunan al-Nasāʾī, Sunan Ibn Mājah"
     ],
-    "notes": "Each `solutions[].ref` must resolve to a real page on this site. `type` is one of: dua (data/duas/duas.json slug), ayah (verse-key like '2:255'), page (a static route slug). Every dua ref carries the same source as the underlying dua entry."
+    "notes": "Each `solutions[].ref` must resolve to a real page on this site. `type` is one of: dua (data/duas/duas.json slug), ayah (verse-key like '2:255'), page (a static route slug). Every dua ref carries the same source as the underlying dua entry.",
+    "last_updated": "2026-09-30",
+    "scenarios_covered": 33
   },
   "situations": [
     {
       "id": "anxiety-grief",
       "labels": [
-        "anxiety", "anxious", "worried", "worry", "stressed", "stress", "cannot sleep",
-        "overthinking", "grief", "grieving", "sad", "sadness", "sorrow", "depressed",
-        "depression", "hopeless", "restless", "panic", "panic attack"
+        "anxiety",
+        "anxious",
+        "worried",
+        "worry",
+        "stressed",
+        "stress",
+        "cannot sleep",
+        "overthinking",
+        "grief",
+        "grieving",
+        "sad",
+        "sadness",
+        "sorrow",
+        "depressed",
+        "depression",
+        "hopeless",
+        "restless",
+        "panic",
+        "panic attack",
+        "cannot cope",
+        "overwhelmed",
+        "burnt out",
+        "burned out",
+        "mental health",
+        "cannot breathe",
+        "cannot function",
+        "existential dread",
+        "feels heavy"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/anxiety-and-grief",
-          "reason": "The Prophet ﷺ taught this dua specifically for worry and grief" },
-        { "type": "ayah", "ref": "13:28",
-          "reason": "\"Verily, in the remembrance of Allah do hearts find rest.\"" },
-        { "type": "dua", "ref": "hardship-and-anxiety/hasbunallah",
-          "reason": "\"Allah is sufficient for us and He is the best Disposer of affairs.\" — the dua of the believers when tested" },
-        { "type": "dua", "ref": "hardship-and-anxiety/in-distress",
-          "reason": "The dua the Prophet ﷺ said in times of severe distress" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/anxiety-and-grief",
+          "reason": "The Prophet ﷺ taught this dua specifically for worry and grief"
+        },
+        {
+          "type": "ayah",
+          "ref": "13:28",
+          "reason": "\"Verily, in the remembrance of Allah do hearts find rest.\""
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/hasbunallah",
+          "reason": "\"Allah is sufficient for us and He is the best Disposer of affairs.\" — the dua of the believers when tested"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/in-distress",
+          "reason": "The dua the Prophet ﷺ said in times of severe distress"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6363",
+          "reason": "The Prophet ﷺ's specific supplication for the removal of grief, worry, and heaviness of debt."
+        }
       ]
     },
     {
       "id": "fear-danger",
       "labels": [
-        "afraid", "fear", "fearful", "scared", "danger", "threatened", "enemy",
-        "attack", "attacked", "harm", "unsafe", "insecure"
+        "afraid",
+        "fear",
+        "fearful",
+        "scared",
+        "danger",
+        "threatened",
+        "enemy",
+        "attack",
+        "attacked",
+        "harm",
+        "unsafe",
+        "insecure",
+        "terrified",
+        "in danger",
+        "someone after me",
+        "stalker",
+        "harassment"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/when-afraid",
-          "reason": "The Prophet ﷺ taught this specifically for when facing an enemy or danger" },
-        { "type": "dua", "ref": "hardship-and-anxiety/hasbunallah",
-          "reason": "Recited by the Prophet Ibrāhīm ﷺ when thrown into the fire, and by the Prophet ﷺ at Uḥud" },
-        { "type": "dua", "ref": "protection/morning-protection",
-          "reason": "Recite three times morning and evening — \"nothing on earth or in the heavens will harm you\"" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/when-afraid",
+          "reason": "The Prophet ﷺ taught this specifically for when facing an enemy or danger"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/hasbunallah",
+          "reason": "Recited by the Prophet Ibrāhīm ﷺ when thrown into the fire, and by the Prophet ﷺ at Uḥud"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/morning-protection",
+          "reason": "Recite three times morning and evening — \"nothing on earth or in the heavens will harm you\""
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2708",
+          "reason": "'I seek refuge in the perfect words of Allah from the evil of what He has created' — the Prophet ﷺ's protective dua."
+        }
       ]
     },
     {
       "id": "anger",
       "labels": [
-        "angry", "anger", "furious", "rage", "mad at", "annoyed", "irritated",
-        "frustrated", "temper"
+        "angry",
+        "anger",
+        "furious",
+        "rage",
+        "mad at",
+        "annoyed",
+        "irritated",
+        "frustrated",
+        "temper"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/when-angry",
-          "reason": "The Prophet ﷺ said this brings tranquillity when anger flares" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/when-angry",
+          "reason": "The Prophet ﷺ said this brings tranquillity when anger flares"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6114",
+          "reason": "'The strong man is not the one who wrestles well, but the one who controls himself when angry.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/3282",
+          "reason": "The Prophet ﷺ taught seeking refuge from Satan when anger arises."
+        }
       ]
     },
     {
       "id": "debt-money",
       "labels": [
-        "debt", "in debt", "owe money", "cannot pay", "money problems", "financial",
-        "poverty", "poor", "broke", "cannot afford", "loans", "loan", "creditor",
-        "rizq", "provision", "sustenance", "income"
+        "debt",
+        "in debt",
+        "owe money",
+        "cannot pay",
+        "money problems",
+        "financial",
+        "poverty",
+        "poor",
+        "broke",
+        "cannot afford",
+        "loans",
+        "loan",
+        "creditor",
+        "rizq",
+        "provision",
+        "sustenance",
+        "income"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/for-debt-relief",
-          "reason": "The Prophet ﷺ taught this dua for relief from debt — \"Allah will remove even a mountain of debt\"" },
-        { "type": "dua", "ref": "hardship-and-anxiety/anxiety-and-grief",
-          "reason": "The same dua covers helplessness, laziness, stinginess, and the burden of debt" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/for-debt-relief",
+          "reason": "The Prophet ﷺ taught this dua for relief from debt — \"Allah will remove even a mountain of debt\""
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/anxiety-and-grief",
+          "reason": "The same dua covers helplessness, laziness, stinginess, and the burden of debt"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/2893",
+          "reason": "The Prophet ﷺ's dua asking Allah for sufficiency from His halal against the haram, and independence through His bounty from all others."
+        }
       ]
     },
     {
       "id": "seeking-forgiveness",
       "labels": [
-        "forgiveness", "forgive me", "sin", "sinned", "sinful", "guilt", "guilty",
-        "repent", "repentance", "tawbah", "astaghfirullah", "istighfar", "regret",
-        "did wrong", "bad deed"
+        "forgiveness",
+        "forgive me",
+        "sin",
+        "sinned",
+        "sinful",
+        "guilt",
+        "guilty",
+        "repent",
+        "repentance",
+        "tawbah",
+        "astaghfirullah",
+        "istighfar",
+        "regret",
+        "did wrong",
+        "bad deed"
       ],
       "solutions": [
-        { "type": "dua", "ref": "forgiveness-and-repentance/istighfar",
-          "reason": "The Master of Seeking Forgiveness (Sayyid al-Istighfār) — whoever says it in the day with certainty and dies that day enters Paradise (Bukhārī 6306)" },
-        { "type": "dua", "ref": "forgiveness-and-repentance/seeking-forgiveness",
-          "reason": "The Prophet ﷺ sought forgiveness more than 70 times a day (Bukhārī 6307)" },
-        { "type": "dua", "ref": "quranic-supplications/yunus-dua",
-          "reason": "The dua of Yūnus (Jonah) ﷺ — \"No Muslim supplicates with these words and is not answered\" (Tirmidhī 3505)" },
-        { "type": "dua", "ref": "forgiveness-and-repentance/sayyid-al-istighfar-short",
-          "reason": "A short daily repentance formula from the Sunnah" }
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/istighfar",
+          "reason": "The Master of Seeking Forgiveness (Sayyid al-Istighfār) — whoever says it in the day with certainty and dies that day enters Paradise (Bukhārī 6306)"
+        },
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/seeking-forgiveness",
+          "reason": "The Prophet ﷺ sought forgiveness more than 70 times a day (Bukhārī 6307)"
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/yunus-dua",
+          "reason": "The dua of Yūnus (Jonah) ﷺ — \"No Muslim supplicates with these words and is not answered\" (Tirmidhī 3505)"
+        },
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/sayyid-al-istighfar-short",
+          "reason": "A short daily repentance formula from the Sunnah"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6306",
+          "reason": "The 'Sayyid al-Istighfar' — the master supplication for forgiveness, whose reciter with certainty in the morning is promised Paradise if he dies that day."
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2749",
+          "reason": "Allah says: 'O son of Adam, so long as you call upon Me and hope in Me, I will forgive you whatever comes from you and I will not mind.'"
+        }
       ]
     },
     {
       "id": "guidance-decision",
       "labels": [
-        "guidance", "guide me", "confused", "decision", "should i", "istikhara",
-        "not sure what to do", "which way", "direction", "path", "choice",
-        "cannot decide", "hesitation"
+        "guidance",
+        "guide me",
+        "confused",
+        "decision",
+        "should i",
+        "istikhara",
+        "not sure what to do",
+        "which way",
+        "direction",
+        "path",
+        "choice",
+        "cannot decide",
+        "hesitation"
       ],
       "solutions": [
-        { "type": "dua", "ref": "quranic-supplications/for-guidance",
-          "reason": "\"Our Lord, do not turn our hearts away after You have guided us\" (Q 3:8)" },
-        { "type": "ayah", "ref": "1:6",
-          "reason": "\"Guide us to the straight path\" — recited in every prayer" }
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/for-guidance",
+          "reason": "\"Our Lord, do not turn our hearts away after You have guided us\" (Q 3:8)"
+        },
+        {
+          "type": "ayah",
+          "ref": "1:6",
+          "reason": "\"Guide us to the straight path\" — recited in every prayer"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/1162",
+          "reason": "Salat al-Istikhārah — the two-rakʿah prayer of guidance the Prophet ﷺ taught for every decision, big or small."
+        }
       ]
     },
     {
       "id": "knowledge-study",
       "labels": [
-        "knowledge", "study", "studying", "exam", "test", "learn", "learning",
-        "understand", "memorize", "memory", "hifz", "school", "university", "college"
+        "knowledge",
+        "study",
+        "studying",
+        "exam",
+        "test",
+        "learn",
+        "learning",
+        "understand",
+        "memorize",
+        "memory",
+        "hifz",
+        "school",
+        "university",
+        "college"
       ],
       "solutions": [
-        { "type": "dua", "ref": "quranic-supplications/seeking-knowledge",
-          "reason": "\"O my Lord, increase me in knowledge\" — the only knowledge Allah tells the Prophet ﷺ to ask for increase in (Q 20:114)" },
-        { "type": "dua", "ref": "quranic-supplications/musa-dua",
-          "reason": "The dua of Mūsā ﷺ before speaking to Pharaoh — for ease, expression, and clarity of speech" }
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/seeking-knowledge",
+          "reason": "\"O my Lord, increase me in knowledge\" — the only knowledge Allah tells the Prophet ﷺ to ask for increase in (Q 20:114)"
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/musa-dua",
+          "reason": "The dua of Mūsā ﷺ before speaking to Pharaoh — for ease, expression, and clarity of speech"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2699",
+          "reason": "'Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise.'"
+        }
       ]
     },
     {
       "id": "difficulty-ease",
       "labels": [
-        "difficult", "difficulty", "hard", "struggle", "struggling", "problem",
-        "challenge", "obstacle", "stuck", "tired", "exhausted", "burden",
-        "overwhelmed", "pressure"
+        "difficult",
+        "difficulty",
+        "hard",
+        "struggle",
+        "struggling",
+        "problem",
+        "challenge",
+        "obstacle",
+        "stuck",
+        "tired",
+        "exhausted",
+        "burden",
+        "overwhelmed",
+        "pressure"
       ],
       "solutions": [
-        { "type": "dua", "ref": "quranic-supplications/musa-dua",
-          "reason": "\"My Lord, expand for me my chest, ease for me my task\" — for expansion and ease" },
-        { "type": "ayah", "ref": "94:5",
-          "reason": "\"Indeed, with hardship [comes] ease.\" — mentioned twice in Sūrat al-Sharḥ" },
-        { "type": "dua", "ref": "hardship-and-anxiety/in-distress",
-          "reason": "The dua of severe distress" }
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/musa-dua",
+          "reason": "\"My Lord, expand for me my chest, ease for me my task\" — for expansion and ease"
+        },
+        {
+          "type": "ayah",
+          "ref": "94:5",
+          "reason": "\"Indeed, with hardship [comes] ease.\" — mentioned twice in Sūrat al-Sharḥ"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/in-distress",
+          "reason": "The dua of severe distress"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2999",
+          "reason": "'How wonderful is the affair of the believer — everything is good for him. If ease comes he is grateful, if hardship comes he is patient — and both are good for him.'"
+        }
       ]
     },
     {
       "id": "family-parents",
       "labels": [
-        "parents", "mother", "father", "mom", "dad", "family", "kids",
-        "children", "child", "son", "daughter", "wife", "husband", "spouse",
+        "parents",
+        "mother",
+        "father",
+        "mom",
+        "dad",
+        "family",
+        "kids",
+        "children",
+        "child",
+        "son",
+        "daughter",
+        "wife",
+        "husband",
+        "spouse",
         "marriage"
       ],
       "solutions": [
-        { "type": "dua", "ref": "family-and-parents/for-parents",
-          "reason": "\"My Lord, have mercy upon them as they raised me when I was small\" (Q 17:24)" },
-        { "type": "dua", "ref": "family-and-parents/for-family",
-          "reason": "\"Our Lord, grant us from among our spouses and offspring comfort to our eyes\" (Q 25:74)" },
-        { "type": "dua", "ref": "family-and-parents/for-child",
-          "reason": "The dua of Ibrāhīm ﷺ for a righteous child (Q 37:100)" },
-        { "type": "dua", "ref": "family-and-parents/for-parents-forgiveness",
-          "reason": "Forgiveness for oneself, parents, and all believers (Q 14:41)" }
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-parents",
+          "reason": "\"My Lord, have mercy upon them as they raised me when I was small\" (Q 17:24)"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-family",
+          "reason": "\"Our Lord, grant us from among our spouses and offspring comfort to our eyes\" (Q 25:74)"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-child",
+          "reason": "The dua of Ibrāhīm ﷺ for a righteous child (Q 37:100)"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-parents-forgiveness",
+          "reason": "Forgiveness for oneself, parents, and all believers (Q 14:41)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/5971",
+          "reason": "'The best of deeds is the prayer at its proper time, then dutifulness to parents, then jihad in the way of Allah.'"
+        }
       ]
     },
     {
       "id": "protection-evil",
       "labels": [
-        "protection", "protect me", "evil eye", "hasad", "envy", "envious",
-        "jealousy", "black magic", "sihr", "jinn", "shaytan", "waswasa",
-        "whispers", "curse"
+        "protection",
+        "protect me",
+        "evil eye",
+        "hasad",
+        "envy",
+        "envious",
+        "jealousy",
+        "black magic",
+        "sihr",
+        "jinn",
+        "shaytan",
+        "waswasa",
+        "whispers",
+        "curse"
       ],
       "solutions": [
-        { "type": "dua", "ref": "protection/against-evil-eye",
-          "reason": "The Prophetic supplication for protection against evil eye and every harm" },
-        { "type": "dua", "ref": "protection/morning-protection",
-          "reason": "Morning and evening protection — recite three times each time" },
-        { "type": "dua", "ref": "protection/ayat-al-kursi-summary",
-          "reason": "Ayat al-Kursi — whoever reads it in the morning is protected until evening (Nasā'ī 9928)" },
-        { "type": "ayah", "ref": "113:1",
-          "reason": "Sūrat al-Falaq — seeking refuge from evil, envy, and darkness" },
-        { "type": "ayah", "ref": "114:1",
-          "reason": "Sūrat al-Nās — seeking refuge from the whisperer" }
+        {
+          "type": "dua",
+          "ref": "protection/against-evil-eye",
+          "reason": "The Prophetic supplication for protection against evil eye and every harm"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/morning-protection",
+          "reason": "Morning and evening protection — recite three times each time"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/ayat-al-kursi-summary",
+          "reason": "Ayat al-Kursi — whoever reads it in the morning is protected until evening (Nasā'ī 9928)"
+        },
+        {
+          "type": "ayah",
+          "ref": "113:1",
+          "reason": "Sūrat al-Falaq — seeking refuge from evil, envy, and darkness"
+        },
+        {
+          "type": "ayah",
+          "ref": "114:1",
+          "reason": "Sūrat al-Nās — seeking refuge from the whisperer"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6314",
+          "reason": "The Prophet ﷺ taught: whoever recites Ayat al-Kursi at night, a protector from Allah stays with him and Satan does not come near him until morning."
+        }
       ]
     },
     {
       "id": "travel",
       "labels": [
-        "travel", "traveling", "trip", "journey", "flight", "flying", "safar",
-        "before travel", "safe travel", "vacation"
+        "travel",
+        "traveling",
+        "trip",
+        "journey",
+        "flight",
+        "flying",
+        "safar",
+        "before travel",
+        "safe travel",
+        "vacation",
+        "airport",
+        "long journey",
+        "solo travel",
+        "moving country",
+        "moving abroad",
+        "immigration",
+        "hijra"
       ],
       "solutions": [
-        { "type": "dua", "ref": "protection/before-travel",
-          "reason": "The Prophet's ﷺ dua when mounting a riding animal or vehicle (Muslim 1342)" },
-        { "type": "dua", "ref": "protection/dua-for-safar",
-          "reason": "The full journey supplication of the Prophet ﷺ" },
-        { "type": "dua", "ref": "protection/returning-from-travel",
-          "reason": "What to say when returning from a journey" }
+        {
+          "type": "dua",
+          "ref": "protection/before-travel",
+          "reason": "The Prophet's ﷺ dua when mounting a riding animal or vehicle (Muslim 1342)"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/dua-for-safar",
+          "reason": "The full journey supplication of the Prophet ﷺ"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/returning-from-travel",
+          "reason": "What to say when returning from a journey"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/1342",
+          "reason": "The full traveling supplication the Prophet ﷺ recited when he placed his foot in the stirrup: 'Subḥān alladhī sakhkhara lanā hādhā...'"
+        }
       ]
     },
     {
       "id": "sleep-insomnia",
       "labels": [
-        "sleep", "cannot sleep", "insomnia", "nightmare", "nightmares", "bad dream",
-        "bedtime", "before sleep", "at night"
+        "sleep",
+        "cannot sleep",
+        "insomnia",
+        "nightmare",
+        "nightmares",
+        "bad dream",
+        "bedtime",
+        "before sleep",
+        "at night"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/before-sleep",
-          "reason": "The Prophet's ﷺ dua before sleep — \"In Your Name O Allah I die and I live\"" },
-        { "type": "dua", "ref": "protection/ayat-al-kursi-summary",
-          "reason": "The Prophet ﷺ said whoever recites Ayat al-Kursi before sleep has a guardian from Allah, and Shayṭān will not come near (Bukhārī 2311)" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/before-sleep",
+          "reason": "The Prophet's ﷺ dua before sleep — \"In Your Name O Allah I die and I live\""
+        },
+        {
+          "type": "dua",
+          "ref": "protection/ayat-al-kursi-summary",
+          "reason": "The Prophet ﷺ said whoever recites Ayat al-Kursi before sleep has a guardian from Allah, and Shayṭān will not come near (Bukhārī 2311)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6320",
+          "reason": "The Prophet ﷺ's night-time dua: 'Bismika Allāhumma amūtu wa aḥyā' — 'In Your name, O Allah, I die and I live.'"
+        }
       ]
     },
     {
       "id": "morning-evening",
       "labels": [
-        "morning", "adhkar", "dhikr", "daily", "wake up", "waking", "start of day",
-        "evening", "end of day", "sunset"
+        "morning",
+        "adhkar",
+        "dhikr",
+        "daily",
+        "wake up",
+        "waking",
+        "start of day",
+        "evening",
+        "end of day",
+        "sunset"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/waking-up",
-          "reason": "The Prophet's ﷺ dua upon waking (Bukhārī 6312)" },
-        { "type": "dua", "ref": "protection/morning-protection",
-          "reason": "Morning and evening protection — three times each" },
-        { "type": "page", "ref": "/tools/adhkar",
-          "reason": "The full collection of morning and evening remembrances" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/waking-up",
+          "reason": "The Prophet's ﷺ dua upon waking (Bukhārī 6312)"
+        },
+        {
+          "type": "dua",
+          "ref": "protection/morning-protection",
+          "reason": "Morning and evening protection — three times each"
+        },
+        {
+          "type": "page",
+          "ref": "/tools/adhkar",
+          "reason": "The full collection of morning and evening remembrances"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6306",
+          "reason": "The morning + evening remembrance the Prophet ﷺ taught his companions — Sayyid al-Istighfar."
+        }
       ]
     },
     {
       "id": "gratitude-blessings",
       "labels": [
-        "gratitude", "grateful", "thankful", "alhamdulillah", "blessing", "blessed",
-        "praise", "shukr", "good news", "happy", "happiness", "joy"
+        "gratitude",
+        "grateful",
+        "thankful",
+        "alhamdulillah",
+        "blessing",
+        "blessed",
+        "praise",
+        "shukr",
+        "good news",
+        "happy",
+        "happiness",
+        "joy"
       ],
       "solutions": [
-        { "type": "ayah", "ref": "14:7",
-          "reason": "\"If you are grateful, I will surely give you more.\" (Q 14:7)" },
-        { "type": "ayah", "ref": "55:13",
-          "reason": "Sūrat al-Raḥmān — \"So which of the favors of your Lord will you deny?\" repeated 31 times to remind us of countless blessings" },
-        { "type": "dua", "ref": "quranic-supplications/for-guidance",
-          "reason": "Ask Allah for firmness on the blessing of guidance He has given" }
+        {
+          "type": "ayah",
+          "ref": "14:7",
+          "reason": "\"If you are grateful, I will surely give you more.\" (Q 14:7)"
+        },
+        {
+          "type": "ayah",
+          "ref": "55:13",
+          "reason": "Sūrat al-Raḥmān — \"So which of the favors of your Lord will you deny?\" repeated 31 times to remind us of countless blessings"
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/for-guidance",
+          "reason": "Ask Allah for firmness on the blessing of guidance He has given"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6473",
+          "reason": "The Prophet ﷺ said: 'Look at those below you (in worldly matters) and do not look at those above you, that is more likely to keep you from despising Allah's favors upon you.'"
+        }
       ]
     },
     {
       "id": "eating-drinking",
       "labels": [
-        "eating", "food", "meal", "hungry", "before eating", "after eating",
-        "drinking", "water", "thirst"
+        "eating",
+        "food",
+        "meal",
+        "hungry",
+        "before eating",
+        "after eating",
+        "drinking",
+        "water",
+        "thirst"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/before-eating",
-          "reason": "\"Bismillāh\" before eating (Bukhārī 5376)" },
-        { "type": "dua", "ref": "daily-routines/after-eating",
-          "reason": "The Prophet's ﷺ dua after eating (Abū Dāwūd 4023)" },
-        { "type": "dua", "ref": "daily-routines/after-drinking",
-          "reason": "Gratitude for water — a great mercy" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/before-eating",
+          "reason": "\"Bismillāh\" before eating (Bukhārī 5376)"
+        },
+        {
+          "type": "dua",
+          "ref": "daily-routines/after-eating",
+          "reason": "The Prophet's ﷺ dua after eating (Abū Dāwūd 4023)"
+        },
+        {
+          "type": "dua",
+          "ref": "daily-routines/after-drinking",
+          "reason": "Gratitude for water — a great mercy"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2020",
+          "reason": "'When one of you eats, let him mention the name of Allah at the beginning; if he forgets, let him say bismillāhi awwalahu wa ākhirahu.'"
+        }
       ]
     },
     {
       "id": "home-house",
       "labels": [
-        "home", "house", "entering", "leaving", "going out", "coming back"
+        "home",
+        "house",
+        "entering",
+        "leaving",
+        "going out",
+        "coming back"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/entering-home",
-          "reason": "Entering the home — protects from Shayṭān sharing the home" },
-        { "type": "dua", "ref": "daily-routines/leaving-home",
-          "reason": "\"In the Name of Allah, I place my trust in Allah\" — for divine protection when leaving" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/entering-home",
+          "reason": "Entering the home — protects from Shayṭān sharing the home"
+        },
+        {
+          "type": "dua",
+          "ref": "daily-routines/leaving-home",
+          "reason": "\"In the Name of Allah, I place my trust in Allah\" — for divine protection when leaving"
+        }
       ]
     },
     {
       "id": "clothing-toilet",
       "labels": [
-        "clothes", "clothing", "dressing", "wearing", "toilet", "bathroom",
-        "restroom", "washroom", "wudu-related"
+        "clothes",
+        "clothing",
+        "dressing",
+        "wearing",
+        "toilet",
+        "bathroom",
+        "restroom",
+        "washroom",
+        "wudu-related"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/when-clothing",
-          "reason": "What to say when putting on clothes" },
-        { "type": "dua", "ref": "daily-routines/entering-toilet",
-          "reason": "Before entering the toilet — refuge from unclean spirits" },
-        { "type": "dua", "ref": "daily-routines/leaving-toilet",
-          "reason": "After leaving — seeking forgiveness" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/when-clothing",
+          "reason": "What to say when putting on clothes"
+        },
+        {
+          "type": "dua",
+          "ref": "daily-routines/entering-toilet",
+          "reason": "Before entering the toilet — refuge from unclean spirits"
+        },
+        {
+          "type": "dua",
+          "ref": "daily-routines/leaving-toilet",
+          "reason": "After leaving — seeking forgiveness"
+        }
       ]
     },
     {
       "id": "prayer-salah",
       "labels": [
-        "prayer", "salah", "namaz", "after prayer", "how to pray", "fajr",
-        "dhuhr", "asr", "maghrib", "isha", "wudu", "ablution"
+        "prayer",
+        "salah",
+        "namaz",
+        "after prayer",
+        "how to pray",
+        "fajr",
+        "dhuhr",
+        "asr",
+        "maghrib",
+        "isha",
+        "wudu",
+        "ablution"
       ],
       "solutions": [
-        { "type": "dua", "ref": "daily-routines/after-obligatory-prayer",
-          "reason": "What the Prophet ﷺ said after every obligatory prayer (Muslim 591)" },
-        { "type": "page", "ref": "/learn-salah",
-          "reason": "Step-by-step guide to praying salah" },
-        { "type": "page", "ref": "/prayer-times",
-          "reason": "Accurate prayer times for your location" }
+        {
+          "type": "dua",
+          "ref": "daily-routines/after-obligatory-prayer",
+          "reason": "What the Prophet ﷺ said after every obligatory prayer (Muslim 591)"
+        },
+        {
+          "type": "page",
+          "ref": "/learn-salah",
+          "reason": "Step-by-step guide to praying salah"
+        },
+        {
+          "type": "page",
+          "ref": "/prayer-times",
+          "reason": "Accurate prayer times for your location"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/223",
+          "reason": "'Purification is half of faith, and al-ḥamdu lillāh fills the scale.'"
+        }
       ]
     },
     {
       "id": "rain-weather",
       "labels": [
-        "rain", "raining", "weather", "storm", "thunder", "wind"
+        "rain",
+        "raining",
+        "weather",
+        "storm",
+        "thunder",
+        "wind"
       ],
       "solutions": [
-        { "type": "dua", "ref": "protection/for-rain",
-          "reason": "\"O Allah, a beneficial rain\" — the Prophet's ﷺ dua when it rained (Bukhārī 1032)" }
+        {
+          "type": "dua",
+          "ref": "protection/for-rain",
+          "reason": "\"O Allah, a beneficial rain\" — the Prophet's ﷺ dua when it rained (Bukhārī 1032)"
+        }
       ]
     },
     {
       "id": "quran-reading",
       "labels": [
-        "reading quran", "reciting", "recitation", "before quran", "start reading",
+        "reading quran",
+        "reciting",
+        "recitation",
+        "before quran",
+        "start reading",
         "seeking refuge"
       ],
       "solutions": [
-        { "type": "dua", "ref": "protection/seeking-refuge-shaytan",
-          "reason": "Seek refuge before reciting — as commanded in Q 16:98" },
-        { "type": "page", "ref": "/quran",
-          "reason": "Open the Quran reader" }
+        {
+          "type": "dua",
+          "ref": "protection/seeking-refuge-shaytan",
+          "reason": "Seek refuge before reciting — as commanded in Q 16:98"
+        },
+        {
+          "type": "page",
+          "ref": "/quran",
+          "reason": "Open the Quran reader"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/5027",
+          "reason": "'The best of you is he who learns the Quran and teaches it.'"
+        }
       ]
     },
     {
       "id": "good-in-both-worlds",
       "labels": [
-        "dunya and akhirah", "both worlds", "good in this world", "hereafter",
-        "everything", "general dua", "comprehensive dua"
+        "dunya and akhirah",
+        "both worlds",
+        "good in this world",
+        "hereafter",
+        "everything",
+        "general dua",
+        "comprehensive dua"
       ],
       "solutions": [
-        { "type": "dua", "ref": "quranic-supplications/good-in-both-worlds",
-          "reason": "\"Our Lord, give us good in this world and good in the Hereafter\" (Q 2:201) — the dua most beloved to the Prophet ﷺ (Bukhārī 6389)" }
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/good-in-both-worlds",
+          "reason": "\"Our Lord, give us good in this world and good in the Hereafter\" (Q 2:201) — the dua most beloved to the Prophet ﷺ (Bukhārī 6389)"
+        }
       ]
     },
     {
       "id": "sickness-healing",
       "labels": [
-        "sick", "sickness", "ill", "illness", "disease", "cancer", "surgery",
-        "hospital", "pain", "hurt", "injured", "injury", "recovery", "healing",
-        "cure", "shifa", "unwell", "fever", "chronic"
+        "sick",
+        "sickness",
+        "ill",
+        "illness",
+        "disease",
+        "cancer",
+        "surgery",
+        "hospital",
+        "pain",
+        "hurt",
+        "injured",
+        "injury",
+        "recovery",
+        "healing",
+        "cure",
+        "shifa",
+        "unwell",
+        "fever",
+        "chronic",
+        "chronically ill",
+        "chronic illness",
+        "diagnosis",
+        "in pain",
+        "long covid",
+        "chronic pain",
+        "terminal"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/in-distress",
-          "reason": "The dua of severe distress — recited by the Prophet ﷺ in moments of grave concern" },
-        { "type": "ayah", "ref": "26:80",
-          "reason": "The dua of Ibrāhīm ﷺ: \"And when I am ill, it is He who cures me\" (Q 26:80)" },
-        { "type": "ayah", "ref": "21:83",
-          "reason": "The dua of Ayyūb ﷺ during his illness: \"Indeed, adversity has touched me, and You are the Most Merciful of the merciful.\" (Q 21:83) — Allah then removed his suffering" },
-        { "type": "dua", "ref": "hardship-and-anxiety/hasbunallah",
-          "reason": "\"Allah is sufficient for us and He is the best Disposer of affairs\" — when placing trust in Allah's care" },
-        { "type": "dua", "ref": "hardship-and-anxiety/anxiety-and-grief",
-          "reason": "Covers helplessness — the emotional weight of illness (yours or a loved one's)" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/in-distress",
+          "reason": "The dua of severe distress — recited by the Prophet ﷺ in moments of grave concern"
+        },
+        {
+          "type": "ayah",
+          "ref": "26:80",
+          "reason": "The dua of Ibrāhīm ﷺ: \"And when I am ill, it is He who cures me\" (Q 26:80)"
+        },
+        {
+          "type": "ayah",
+          "ref": "21:83",
+          "reason": "The dua of Ayyūb ﷺ during his illness: \"Indeed, adversity has touched me, and You are the Most Merciful of the merciful.\" (Q 21:83) — Allah then removed his suffering"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/hasbunallah",
+          "reason": "\"Allah is sufficient for us and He is the best Disposer of affairs\" — when placing trust in Allah's care"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/anxiety-and-grief",
+          "reason": "Covers helplessness — the emotional weight of illness (yours or a loved one's)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/5675",
+          "reason": "The Prophet ﷺ's ruqya for the sick: 'Adhhib al-baʾs, Rabb an-nās, ishfi anta ash-shāfī...' — Remove the harm, O Lord of mankind, heal, You are the Healer."
+        }
       ]
     },
     {
       "id": "seeking-provision-rizq",
       "labels": [
-        "job", "work", "employment", "unemployed", "salary", "income",
-        "sustenance", "provision", "rizq", "business", "interview",
-        "cannot find work", "career"
+        "job",
+        "work",
+        "employment",
+        "unemployed",
+        "salary",
+        "income",
+        "sustenance",
+        "provision",
+        "rizq",
+        "business",
+        "interview",
+        "cannot find work",
+        "career"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/for-debt-relief",
-          "reason": "The Prophetic dua for relief from financial constraint" },
-        { "type": "ayah", "ref": "65:3",
-          "reason": "\"Whoever fears Allah, He will make a way out for him, and provide for him from where he does not expect.\" (Q 65:2-3)" },
-        { "type": "dua", "ref": "forgiveness-and-repentance/istighfar",
-          "reason": "The Prophet ﷺ said: \"Whoever adheres to istighfār, Allah will grant him relief from every worry and provision from where he does not expect.\" (Abū Dāwūd 1518)" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/for-debt-relief",
+          "reason": "The Prophetic dua for relief from financial constraint"
+        },
+        {
+          "type": "ayah",
+          "ref": "65:3",
+          "reason": "\"Whoever fears Allah, He will make a way out for him, and provide for him from where he does not expect.\" (Q 65:2-3)"
+        },
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/istighfar",
+          "reason": "The Prophet ﷺ said: \"Whoever adheres to istighfār, Allah will grant him relief from every worry and provision from where he does not expect.\" (Abū Dāwūd 1518)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6402",
+          "reason": "'Whoever loves that his rizq be expanded and his lifespan lengthened, let him keep the ties of kinship.'"
+        }
       ]
     },
     {
       "id": "temptation-sin",
       "labels": [
-        "tempted", "temptation", "sinning", "cannot stop", "bad habit", "addiction",
-        "haram", "struggling with sin", "whispers", "waswasa", "desire", "lust"
+        "tempted",
+        "temptation",
+        "sinning",
+        "cannot stop",
+        "bad habit",
+        "addiction",
+        "haram",
+        "struggling with sin",
+        "whispers",
+        "waswasa",
+        "desire",
+        "lust"
       ],
       "solutions": [
-        { "type": "dua", "ref": "protection/seeking-refuge-shaytan",
-          "reason": "Seek refuge in Allah from the accursed Shayṭān" },
-        { "type": "ayah", "ref": "114:1",
-          "reason": "Sūrat al-Nās — seeking refuge from the whisperer who withdraws (Q 114)" },
-        { "type": "dua", "ref": "forgiveness-and-repentance/istighfar",
-          "reason": "Return to Allah — \"He is Oft-Forgiving\"" },
-        { "type": "dua", "ref": "quranic-supplications/for-guidance",
-          "reason": "\"Our Lord, do not let our hearts deviate after You have guided us\" (Q 3:8)" }
+        {
+          "type": "dua",
+          "ref": "protection/seeking-refuge-shaytan",
+          "reason": "Seek refuge in Allah from the accursed Shayṭān"
+        },
+        {
+          "type": "ayah",
+          "ref": "114:1",
+          "reason": "Sūrat al-Nās — seeking refuge from the whisperer who withdraws (Q 114)"
+        },
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/istighfar",
+          "reason": "Return to Allah — \"He is Oft-Forgiving\""
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/for-guidance",
+          "reason": "\"Our Lord, do not let our hearts deviate after You have guided us\" (Q 3:8)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6469",
+          "reason": "'None of you should wish for death because of a hardship — if he must, let him say: O Allah, keep me alive so long as life is better for me, and take me when death is better for me.'"
+        }
       ]
     },
     {
       "id": "loneliness-friends",
       "labels": [
-        "lonely", "alone", "no friends", "isolated", "friendless", "companionship",
-        "feel abandoned"
+        "lonely",
+        "alone",
+        "no friends",
+        "isolated",
+        "friendless",
+        "companionship",
+        "feel abandoned",
+        "no one",
+        "cut off",
+        "abandoned",
+        "never alone",
+        "feel invisible"
       ],
       "solutions": [
-        { "type": "ayah", "ref": "2:186",
-          "reason": "\"When My servants ask you concerning Me — indeed, I am near.\" (Q 2:186) — Allah is closer than any companion" },
-        { "type": "dua", "ref": "family-and-parents/for-family",
-          "reason": "Ask Allah for comforting family and offspring (Q 25:74)" },
-        { "type": "dua", "ref": "hardship-and-anxiety/anxiety-and-grief",
-          "reason": "The dua for grief covers the emotional weight of loneliness" }
+        {
+          "type": "ayah",
+          "ref": "2:186",
+          "reason": "\"When My servants ask you concerning Me — indeed, I am near.\" (Q 2:186) — Allah is closer than any companion"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-family",
+          "reason": "Ask Allah for comforting family and offspring (Q 25:74)"
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/anxiety-and-grief",
+          "reason": "The dua for grief covers the emotional weight of loneliness"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/7405",
+          "reason": "Hadith Qudsi: Allah says 'I am with My servant when he remembers Me, and I move his lips with My name.' You are not alone when you are remembering Him."
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2675",
+          "reason": "'Whoever draws near to Me by a hand span, I draw near to him by a cubit; whoever comes to Me walking, I come to him at speed.'"
+        }
       ]
     },
     {
       "id": "seeking-good-spouse",
       "labels": [
-        "spouse", "wife", "husband", "marriage", "getting married", "life partner",
-        "single", "not married", "looking for spouse", "nikah"
+        "spouse",
+        "wife",
+        "husband",
+        "marriage",
+        "getting married",
+        "life partner",
+        "single",
+        "not married",
+        "looking for spouse",
+        "nikah"
       ],
       "solutions": [
-        { "type": "dua", "ref": "family-and-parents/for-family",
-          "reason": "\"Our Lord, grant us from among our spouses and offspring comfort to our eyes\" (Q 25:74)" },
-        { "type": "ayah", "ref": "30:21",
-          "reason": "\"Among His signs is that He created for you mates from yourselves that you may find tranquillity in them; and He placed between you affection and mercy.\" (Q 30:21)" }
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-family",
+          "reason": "\"Our Lord, grant us from among our spouses and offspring comfort to our eyes\" (Q 25:74)"
+        },
+        {
+          "type": "ayah",
+          "ref": "30:21",
+          "reason": "\"Among His signs is that He created for you mates from yourselves that you may find tranquillity in them; and He placed between you affection and mercy.\" (Q 30:21)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/5090",
+          "reason": "'A woman is married for four reasons: her wealth, her lineage, her beauty, or her religion — choose the religious one, may your hands be dusted.'"
+        }
       ]
     },
     {
       "id": "loss-death",
       "labels": [
-        "died", "death", "loss", "bereaved", "funeral", "janazah", "someone died",
-        "passed away", "mourning"
+        "died",
+        "death",
+        "loss",
+        "bereaved",
+        "funeral",
+        "janazah",
+        "someone died",
+        "passed away",
+        "mourning",
+        "father died",
+        "mother died",
+        "child died",
+        "spouse died",
+        "friend passed",
+        "bereavement",
+        "condolence"
       ],
       "solutions": [
-        { "type": "dua", "ref": "hardship-and-anxiety/in-distress",
-          "reason": "The dua of severe distress — recited by the Prophet ﷺ in moments of intense grief" },
-        { "type": "ayah", "ref": "2:156",
-          "reason": "\"Innā lillāhi wa innā ilayhi rājiʿūn\" — to Allah we belong and to Him we return" },
-        { "type": "dua", "ref": "family-and-parents/for-parents-forgiveness",
-          "reason": "Ask forgiveness for the deceased and all believers (Q 14:41)" }
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/in-distress",
+          "reason": "The dua of severe distress — recited by the Prophet ﷺ in moments of intense grief"
+        },
+        {
+          "type": "ayah",
+          "ref": "2:156",
+          "reason": "\"Innā lillāhi wa innā ilayhi rājiʿūn\" — to Allah we belong and to Him we return"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-parents-forgiveness",
+          "reason": "Ask forgiveness for the deceased and all believers (Q 14:41)"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/1283",
+          "reason": "'Patience is at the first stroke of the calamity' — the Prophet ﷺ's counsel to a grieving woman at a graveside."
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/918",
+          "reason": "The Prophet ﷺ taught the dua at hardship: 'Innā lillāhi wa innā ilayhi rājiʿūn — Allāhumma ajirnī fī muṣībatī wa akhluf lī khayran minhā.'"
+        }
+      ]
+    },
+    {
+      "id": "job-work-livelihood",
+      "labels": [
+        "job",
+        "work",
+        "employed",
+        "unemployed",
+        "job hunting",
+        "interview",
+        "career",
+        "boss",
+        "workplace",
+        "quit job",
+        "layoff",
+        "fired",
+        "starting business",
+        "livelihood",
+        "career change"
+      ],
+      "solutions": [
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/for-debt-relief",
+          "reason": "The dua asking Allah for sufficiency from His halal against the haram — foundational for anyone struggling with work or livelihood."
+        },
+        {
+          "type": "ayah",
+          "ref": "65:2",
+          "reason": "'Whoever is mindful of Allah, He will make for him a way out — and provide for him from where he does not expect.'"
+        },
+        {
+          "type": "ayah",
+          "ref": "65:3",
+          "reason": "'And He will provide for him from where he does not expect. Whoever puts his trust in Allah, He is sufficient for him.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/6402",
+          "reason": "'Whoever loves that his rizq be expanded and his lifespan lengthened, let him keep the ties of kinship.'"
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/for-guidance",
+          "reason": "For clarity when weighing a job offer, a role change, or whether to leave a workplace."
+        }
+      ]
+    },
+    {
+      "id": "exam-test-study",
+      "labels": [
+        "exam",
+        "test",
+        "studying for exam",
+        "before exam",
+        "school exam",
+        "university exam",
+        "board exam",
+        "results anxiety",
+        "failed exam",
+        "presentation",
+        "job interview nerves",
+        "viva",
+        "defence",
+        "thesis"
+      ],
+      "solutions": [
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/musa-dua",
+          "reason": "The dua of Musa (as) before addressing Pharaoh: 'My Lord, expand for me my chest, ease for me my task, and loosen the knot from my tongue.' The canonical pre-exam dua."
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/seeking-knowledge",
+          "reason": "'My Lord, increase me in knowledge.' The Prophet ﷺ was commanded to say this."
+        },
+        {
+          "type": "ayah",
+          "ref": "20:114",
+          "reason": "The full verse the pre-exam dua comes from — 'Say: My Lord, increase me in knowledge.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2699",
+          "reason": "'Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise.'"
+        }
+      ]
+    },
+    {
+      "id": "new-baby-child",
+      "labels": [
+        "new baby",
+        "newborn",
+        "expecting",
+        "pregnancy",
+        "pregnant",
+        "baby name",
+        "aqiqah",
+        "raising kids",
+        "raising children",
+        "parenting",
+        "child rearing",
+        "first child"
+      ],
+      "solutions": [
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-child",
+          "reason": "The Prophet ﷺ's ruqya for children — 'I seek refuge for you in the perfect words of Allah from every devil and creeping thing and every evil, envious eye.'"
+        },
+        {
+          "type": "ayah",
+          "ref": "25:74",
+          "reason": "'Our Lord, grant us from among our spouses and offspring comfort to our eyes, and make us leaders for the righteous.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "bukhari/5971",
+          "reason": "The Prophet ﷺ was asked which deed is most beloved to Allah — he said prayer at its time, then dutifulness to parents. Teach your child this order."
+        }
+      ]
+    },
+    {
+      "id": "marriage-strife",
+      "labels": [
+        "marriage problems",
+        "fighting with spouse",
+        "husband",
+        "wife",
+        "divorce",
+        "separation",
+        "in-laws",
+        "marital conflict",
+        "marital argument",
+        "considering divorce",
+        "marriage counselling"
+      ],
+      "solutions": [
+        {
+          "type": "ayah",
+          "ref": "30:21",
+          "reason": "'And of His signs is that He created for you from yourselves mates that you may find tranquility in them, and He placed between you affection and mercy.'"
+        },
+        {
+          "type": "ayah",
+          "ref": "4:19",
+          "reason": "'Live with them in kindness. If you dislike them, perhaps you dislike a thing in which Allah has placed much good.'"
+        },
+        {
+          "type": "dua",
+          "ref": "family-and-parents/for-family",
+          "reason": "Ask Allah to make your household a source of coolness of the eyes, not friction."
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/1469",
+          "reason": "'A believer must not hate a believing woman. If he dislikes one trait in her, he will be pleased with another.'"
+        }
+      ]
+    },
+    {
+      "id": "regret-past-mistakes",
+      "labels": [
+        "regret",
+        "past mistakes",
+        "wasted years",
+        "shame",
+        "guilt",
+        "haunted by past",
+        "cannot forgive myself",
+        "past sins",
+        "reformed",
+        "coming back to deen",
+        "returning to Allah"
+      ],
+      "solutions": [
+        {
+          "type": "hadith",
+          "ref": "muslim/2749",
+          "reason": "Allah says: 'O son of Adam, so long as you call upon Me and hope in Me, I will forgive you whatever comes from you and I will not mind. O son of Adam, were your sins to reach the clouds of the sky and were you then to ask forgiveness, I would forgive you.'"
+        },
+        {
+          "type": "ayah",
+          "ref": "39:53",
+          "reason": "'Say: O My servants who have transgressed against themselves — do not despair of the mercy of Allah. Indeed, Allah forgives all sins.'"
+        },
+        {
+          "type": "dua",
+          "ref": "forgiveness-and-repentance/sayyid-al-istighfar-short",
+          "reason": "Sayyid al-Istighfar — 'I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for none forgives sins except You.'"
+        },
+        {
+          "type": "dua",
+          "ref": "quranic-supplications/yunus-dua",
+          "reason": "The dua of Yunus (as) from the belly of the whale: 'There is no god but You, glory be to You, indeed I was among the wrongdoers.' The Prophet ﷺ said no Muslim calls on Allah with these words for anything except that Allah answers him."
+        }
+      ]
+    },
+    {
+      "id": "waiting-hard-times",
+      "labels": [
+        "waiting for answer",
+        "waiting for allah",
+        "delayed dua",
+        "no response to my dua",
+        "years of waiting",
+        "istikhara wait",
+        "prolonged hardship",
+        "chronic difficulty",
+        "long trial"
+      ],
+      "solutions": [
+        {
+          "type": "ayah",
+          "ref": "2:216",
+          "reason": "'Perhaps you dislike a thing and it is good for you; perhaps you love a thing and it is bad for you — and Allah knows, while you do not know.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2735",
+          "reason": "'A servant's dua is answered so long as he does not ask for sin or for cutting ties of kinship, and so long as he does not become impatient.' The Prophet ﷺ was asked what impatience is; he said the servant saying: I have called and called and no answer has come, and giving up.'"
+        },
+        {
+          "type": "hadith",
+          "ref": "muslim/2999",
+          "reason": "'How wonderful is the affair of the believer — everything is good for him.' Whatever the outcome, it is being turned into good for you."
+        },
+        {
+          "type": "dua",
+          "ref": "hardship-and-anxiety/hasbunallah",
+          "reason": "'Allah is sufficient for us and He is the best Disposer of affairs.' The dua of Ibrahim (as) in the fire — the ultimate 'I have done my part, now You handle it.'"
+        }
       ]
     }
   ]

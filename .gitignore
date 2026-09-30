@@ -40,3 +40,7 @@ pnpm-debug.log*
 # The seed.json is kept in-repo for out-of-the-box content.
 /data/hadith/*/
 !/data/hadith/seed.json
+
+# RAG corpus — built at deploy time on the VM via scripts/build-guidance-corpus.mjs.
+# 89 MB / 6300 vectors; not committed. Fetched fresh on each deploy.
+/data/guidance/

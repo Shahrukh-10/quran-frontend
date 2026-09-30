@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:guidance-corpus": "node scripts/build-guidance-corpus.mjs",
     "start": "next start",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

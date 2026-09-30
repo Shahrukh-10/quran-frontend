@@ -3,15 +3,10 @@ import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { breadcrumbs } from "@/lib/breadcrumbs";
+import { type NarrateResult, narrateGuidance } from "@/lib/guidance-narrator";
+import { type Match, guidanceSearch } from "@/lib/guidance-search";
 import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
-import {
-  type Situation,
-  getAllSituations,
-  getSolutionCard,
-  searchSituations,
-} from "@/lib/situations";
-import { rankSituationsWithAI } from "@/lib/situations-ai";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -28,11 +23,11 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    // BETA — noindex so search engines don't surface it yet
+    // BETA — noindex until content is production-reviewed
     robots: { index: false, follow: false },
     title: "Find Guidance — Quran, Hadith & Dua for your situation (BETA)",
     description:
-      "Describe what you're going through — get authentic, sourced supplications and verses that address your situation. Every entry cites its hadith or Quran reference. This is a study aid, not a fatwā.",
+      "Ask any question in plain English. Get grounded, sourced answers from the Quran, authentic hadith, and prophetic supplications — every claim is cited.",
     alternates: {
       canonical: siteUrl(locale === "en" ? "/find-guidance" : `/${locale}/find-guidance`),
       languages: hreflangLanguages("/find-guidance"),
@@ -40,9 +35,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/** BETA gate. This page is hidden until the user passes `?beta=1`. Public
- *  users get a 404 so nothing goes live before the situations graph is
- *  reviewed by the site owner / a scholar. */
 function isBetaEnabled(searchParams: { beta?: string }): boolean {
   return searchParams.beta === "1";
 }
@@ -52,29 +44,26 @@ export default async function FindGuidancePage({ params, searchParams }: Props) 
   const sp = await searchParams;
   setRequestLocale(locale);
 
-  if (!isBetaEnabled(sp)) {
-    notFound();
-  }
+  if (!isBetaEnabled(sp)) notFound();
 
   const bc = await breadcrumbs(locale);
   const query = (sp.q ?? "").trim();
-  // Try AI ranking first (Cloudflare Workers AI, free tier) — falls back
-  // silently to keyword search if the LLM is unavailable, times out, returns
-  // garbage, or exhausts the daily neuron quota. See lib/situations-ai.ts for
-  // the strict safety model (LLM only picks IDs, never generates content).
-  let matches: Situation[] = [];
-  let rankedBy: "ai" | "keyword" | "none" = "none";
+
+  // Retrieve
+  let matches: {
+    ayah: Match[];
+    dua: Match[];
+    hadith: Match[];
+    mode: "semantic" | "keyword";
+  } | null = null;
+  let narrated: NarrateResult | null = null;
   if (query) {
-    const aiRanked = await rankSituationsWithAI(query, 5);
-    if (aiRanked && aiRanked.length > 0) {
-      matches = aiRanked;
-      rankedBy = "ai";
-    } else {
-      matches = searchSituations(query, 5);
-      if (matches.length > 0) rankedBy = "keyword";
+    matches = await guidanceSearch(query, 3);
+    const flat = [...matches.ayah, ...matches.dua, ...matches.hadith];
+    if (flat.length > 0) {
+      narrated = await narrateGuidance(query, flat);
     }
   }
-  const totalSituations = getAllSituations().length;
 
   return (
     <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -96,19 +85,18 @@ export default async function FindGuidancePage({ params, searchParams }: Props) 
       <header className="text-center">
         <p className="inline-flex items-center gap-2 rounded-full bg-accent-muted px-3 py-1 text-xs uppercase tracking-widest text-accent">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-          BETA · Under review
+          BETA · AI-assisted retrieval over Quran, hadith & duas
         </p>
         <h1 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-bold tracking-display leading-tight">
-          Find guidance from the Quran & Sunnah
+          Ask anything. Get grounded answers.
         </h1>
         <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground max-w-prose mx-auto">
-          Describe what you&apos;re going through in plain English. We&apos;ll show you authentic
-          supplications, verses, and hadiths that address your situation — every one with a full
-          citation so you can verify.
+          Describe your situation in plain English. We&apos;ll search the Quran, authentic hadith,
+          and prophetic duas — and stitch together an answer that cites every source. Nothing is
+          fabricated: every quote comes from a real, linked passage.
         </p>
       </header>
 
-      {/* Search form — GET so results survive refresh & are shareable */}
       <form action="/find-guidance" method="get" className="mt-8">
         <input type="hidden" name="beta" value="1" />
         <label htmlFor="q" className="sr-only">
@@ -120,108 +108,137 @@ export default async function FindGuidancePage({ params, searchParams }: Props) 
             name="q"
             type="text"
             defaultValue={query}
-            placeholder="e.g. I'm anxious about my exam · my parents are sick · I owe money · I need forgiveness"
+            // biome-ignore lint/a11y/noAutofocus: dedicated search page, matching Google/DuckDuckGo UX
+            autoFocus
+            placeholder="e.g. I'm traveling next week · my father is very sick · I feel completely alone"
             className="focus-ring w-full rounded-2xl border border-separator bg-surface px-5 py-4 pr-32 text-base sm:text-lg shadow-sm"
           />
           <button
             type="submit"
             className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-accent px-5 py-2 text-sm font-medium text-accent-foreground hover:opacity-90 transition-opacity"
           >
-            Find
+            Ask
           </button>
         </div>
-        <p className="mt-2 text-xs text-muted-foreground">
-          Try: <em>anxiety</em>, <em>forgiveness</em>, <em>my mother is ill</em>,{" "}
-          <em>traveling next week</em>, <em>cannot decide</em>, <em>angry</em>, <em>in debt</em>
-        </p>
       </form>
 
-      {/* Prominent disclaimer — always visible above results */}
       <aside
         role="note"
         className="mt-8 rounded-2xl border border-amber-300/50 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:border-amber-500/30 dark:bg-amber-950/40 dark:text-amber-100"
       >
         <p className="font-semibold">This is a study aid, not a fatwā.</p>
         <p className="mt-1">
-          Every dua, verse, and hadith below is authentically sourced and cited — but a mapping
-          between a personal situation and a solution is a <em>guidance suggestion</em>, not a
-          religious ruling. For your specific situation, please consult a qualified scholar (
-          <em>ʿālim / muftī</em>) or a trusted teacher.
+          The retrieved sources are authentic. The narrative connecting them is written by an AI
+          model constrained to quote only those sources — but a mapping between a situation and a
+          verse is a <em>guidance suggestion</em>, not a religious ruling. For your specific case,
+          consult a qualified scholar (<em>ʿālim / muftī</em>).
         </p>
       </aside>
 
-      {/* Results */}
-      {query && (
-        <section className="mt-10" aria-live="polite" aria-atomic="true">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 className="text-lg font-semibold">
-              {matches.length > 0 ? `Guidance for "${query}"` : `No exact matches for "${query}"`}
-            </h2>
-            {rankedBy === "ai" && (
-              <span
-                className="inline-flex items-center gap-1 rounded-full bg-accent-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-accent"
-                title="Cloudflare Workers AI selected these topics from our curated graph — every dua and verse below is still from the same hand-curated, sourced content."
-              >
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-                AI-ranked
-              </span>
+      {query && matches && (
+        <section className="mt-10" aria-live="polite">
+          {/* AI narrative */}
+          {narrated?.answer && !narrated.suspected_hallucination && (
+            <div className="rounded-2xl border border-separator bg-surface p-6 md:p-8">
+              <div className="flex flex-wrap items-baseline gap-2 mb-3">
+                <h2 className="text-lg font-semibold">Guidance for &ldquo;{query}&rdquo;</h2>
+                <span className="inline-flex items-center gap-1 rounded-full bg-accent-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-accent">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+                  {matches.mode === "semantic"
+                    ? "AI-narrated · semantic search"
+                    : "AI-narrated · keyword fallback"}
+                </span>
+              </div>
+              <div className="text-base leading-relaxed text-foreground/90 whitespace-pre-wrap">
+                {narrated.answer}
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">
+                Citations [S1] [S2] … map to the sources below. Every quote is verbatim from the
+                cited source.
+              </p>
+            </div>
+          )}
+
+          {(!narrated || narrated.suspected_hallucination) &&
+            matches.ayah.length + matches.dua.length + matches.hadith.length > 0 && (
+              <div className="rounded-2xl border border-separator bg-surface p-6">
+                <h2 className="text-lg font-semibold">
+                  Retrieved sources for &ldquo;{query}&rdquo;
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {narrated?.suspected_hallucination
+                    ? "The AI narrator produced suspect output — showing only the raw retrieved passages below."
+                    : "The AI narrator was unavailable — showing the top retrieved passages below."}
+                </p>
+              </div>
             )}
-            {rankedBy === "keyword" && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
-                Keyword match
-              </span>
-            )}
-          </div>
-          {matches.length === 0 && (
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Our situations library currently covers {totalSituations} common topics. Try a shorter
-              word or a different phrasing — e.g. <em>anxiety</em> instead of{" "}
-              <em>I&apos;m feeling extremely on edge</em>. If you can&apos;t find what you need,
-              browse{" "}
-              <Link href="/duas" className="text-accent hover:underline">
-                all 37 duas
-              </Link>{" "}
-              or the{" "}
-              <Link href="/quran" className="text-accent hover:underline">
-                Quran reader
-              </Link>{" "}
-              directly.
+
+          {matches.ayah.length + matches.dua.length + matches.hadith.length === 0 && (
+            <p className="text-sm text-muted-foreground">
+              No matches. Try shorter words or different phrasing.
             </p>
           )}
-          <div className="mt-6 space-y-8">
-            {matches.map((situation) => (
-              <SituationBlock key={situation.id} situation={situation} />
+
+          {/* Retrieved passage cards */}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[...matches.ayah, ...matches.dua, ...matches.hadith].map((m, i) => (
+              <SourceCard key={m.id} match={m} sourceIndex={i + 1} />
             ))}
           </div>
         </section>
       )}
 
-      {/* Landing state — show topic chips so users know what's covered */}
-      {!query && <TopicChips situations={getAllSituations()} />}
+      {!query && (
+        <section className="mt-12 rounded-2xl border border-separator bg-surface p-6">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Try asking</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {[
+              "I feel alone",
+              "I am traveling next week",
+              "My father has cancer",
+              "I owe a lot of money",
+              "I cannot forgive myself",
+              "I am scared of the future",
+              "How do I be a better parent?",
+              "I am angry all the time",
+            ].map((example) => (
+              <li key={example}>
+                <Link
+                  href={
+                    `/find-guidance?beta=1&q=${encodeURIComponent(example)}` as "/find-guidance"
+                  }
+                  className="block rounded-xl border border-separator bg-background/40 px-4 py-3 text-sm hover:border-accent/40 focus-ring"
+                >
+                  &ldquo;{example}&rdquo;
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
-      {/* Sources & authenticity — trust panel */}
       <section className="mt-16 rounded-2xl border border-separator bg-surface p-6">
-        <h2 className="text-lg font-bold tracking-title">How we chose what to include</h2>
+        <h2 className="text-lg font-bold tracking-title">How this works</h2>
         <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
           <li>
-            Every dua below is from the authentic Sunnah — sourced from{" "}
-            <em>Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim,</em> or one of the four Sunan collections (Abū
-            Dāwūd, al-Tirmidhī, al-Nasāʾī, Ibn Mājah).
+            Every entry in our search corpus (Quran ayahs, prophetic duas, key hadith) has been
+            pre-embedded into a semantic vector — no text is generated at query time.
           </li>
           <li>
-            Every ayah is quoted with its verse-key so you can open the full surah in the Quran
-            reader.
+            When you type a question, we embed it too and retrieve the closest passages by meaning
+            (not just keyword match).
           </li>
           <li>
-            The mapping between situations and solutions is drawn from classical <em>duʿāʾ</em>{" "}
-            compilations, primarily <em>Ḥiṣn al-Muslim</em> by Saʿīd al-Qaḥṭānī, <em>al-Adhkār</em>{" "}
-            by al-Nawawī, and <em>al-Wābil al-Ṣayyib</em> by Ibn al-Qayyim.
+            An AI narrator then writes an answer that <em>must</em> cite each claim to one of the
+            retrieved passages. Any citation the model invents is stripped by our validator.
           </li>
           <li>
-            <strong>Nothing on this page is generated by AI.</strong> The situations graph is a
-            hand-curated JSON file — you can inspect it at{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-xs">data/graph/situations.json</code>
-            .
+            If the validator sees signs of hallucination, we show only the raw retrieved passages
+            and skip the narrative entirely.
+          </li>
+          <li>
+            <strong>Nothing shown here is invented by AI:</strong> every quote is from the Quran
+            reader, the duas collection, or the hadith library on this site.
           </li>
         </ul>
       </section>
@@ -229,110 +246,36 @@ export default async function FindGuidancePage({ params, searchParams }: Props) 
   );
 }
 
-/* ---------- Situation block (one topic with N solutions) ---------- */
-
-function SituationBlock({ situation }: { situation: Situation }) {
-  const cards = situation.solutions.map((s) => getSolutionCard(s));
+function SourceCard({ match, sourceIndex }: { match: Match; sourceIndex: number }) {
+  const kindLabel = match.kind === "ayah" ? "Quran" : match.kind === "dua" ? "Dua" : "Hadith";
   return (
-    <div className="rounded-2xl border border-separator bg-surface p-6">
-      <p className="text-xs uppercase tracking-widest text-muted-foreground">Topic</p>
-      <h3 className="mt-1 text-xl font-bold tracking-title">{niceLabel(situation.labels)}</h3>
-      <ul className="mt-5 space-y-5">
-        {cards.map((c) => (
-          <li key={`${c.type}:${c.ref}`}>
-            <SolutionCard card={c} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-/** Take the labels array and produce a human title for the situation block.
- *  Uses the FIRST label with the first letter capitalised — labels are already
- *  ordered from most specific to most general in situations.json. */
-function niceLabel(labels: string[]): string {
-  const first = labels[0] ?? "";
-  return first.charAt(0).toUpperCase() + first.slice(1);
-}
-
-function SolutionCard({
-  card,
-}: {
-  card: ReturnType<typeof getSolutionCard>;
-}) {
-  return (
-    <article className="rounded-xl border border-separator/70 bg-background/40 p-4 sm:p-5">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">
-          {card.type === "dua"
-            ? "Dua"
-            : card.type === "ayah"
-              ? "Quran"
-              : card.type === "hadith"
-                ? "Hadith"
-                : "Page"}
-        </p>
-        {card.source && <p className="text-xs text-muted-foreground font-mono">{card.source}</p>}
+    <article className="rounded-2xl border border-separator/70 bg-background/40 p-5 hover:border-accent/40 transition-colors">
+      <div className="flex items-baseline justify-between gap-2 mb-2">
+        <span className="text-xs uppercase tracking-widest text-muted-foreground">
+          [S{sourceIndex}] {kindLabel}
+        </span>
+        <span className="text-[10px] text-muted-foreground/70 font-mono">
+          score {match.score.toFixed(2)}
+        </span>
       </div>
-      <h4 className="mt-1 text-base font-semibold">{card.title}</h4>
-
-      {card.arabic && (
+      <h3 className="text-base font-semibold leading-tight">
+        <Link href={match.href as "/quran"} className="hover:text-accent">
+          {match.title}
+        </Link>
+      </h3>
+      {match.arabic && (
         <p
           lang="ar"
           dir="rtl"
-          className="mt-3 font-quran text-2xl sm:text-3xl text-right leading-loose"
+          className="mt-3 font-quran text-xl text-right leading-loose line-clamp-3"
         >
-          {cleanArabicForDisplay(card.arabic)}
+          {cleanArabicForDisplay(match.arabic)}
         </p>
       )}
-
-      {card.translation && (
-        <p className="mt-3 text-sm leading-relaxed text-foreground/90">
-          &ldquo;{card.translation}&rdquo;
-        </p>
+      <p className="mt-2 text-sm leading-relaxed text-foreground/90 line-clamp-4">{match.text}</p>
+      {match.source && (
+        <p className="mt-3 text-xs text-muted-foreground font-mono">{match.source}</p>
       )}
-
-      <p className="mt-3 text-xs leading-relaxed text-muted-foreground italic">
-        Why this: {card.reason}
-      </p>
-
-      <p className="mt-3">
-        <Link
-          href={card.href as `/${string}`}
-          className="text-sm text-accent hover:underline focus-ring"
-        >
-          Read the full source →
-        </Link>
-      </p>
     </article>
-  );
-}
-
-/* ---------- Topic chips (landing state before the user searches) ---------- */
-
-function TopicChips({ situations }: { situations: ReadonlyArray<Situation> }) {
-  const chips = situations.map((s) => ({
-    id: s.id,
-    label: niceLabel(s.labels),
-    example: s.labels[0] ?? s.id,
-  }));
-  return (
-    <section className="mt-10">
-      <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-        Common topics we can help with
-      </h2>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {chips.map((c) => (
-          <a
-            key={c.id}
-            href={`/find-guidance?beta=1&q=${encodeURIComponent(c.example)}`}
-            className="focus-ring rounded-full border border-separator bg-surface px-4 py-2 text-sm hover:bg-muted transition-colors"
-          >
-            {c.label}
-          </a>
-        ))}
-      </div>
-    </section>
   );
 }

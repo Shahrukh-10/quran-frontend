@@ -50,11 +50,11 @@ function buildUserPrompt({ query, situations }: RankInput): string {
   });
   return [
     `USER SITUATION: ${query}`,
-    ``,
-    `AVAILABLE SITUATION IDs (pick from these — do not invent any):`,
+    "",
+    "AVAILABLE SITUATION IDs (pick from these — do not invent any):",
     ...cards,
-    ``,
-    `Return a JSON array of the most relevant IDs (up to 5).`,
+    "",
+    "Return a JSON array of the most relevant IDs (up to 5).",
   ].join("\n");
 }
 

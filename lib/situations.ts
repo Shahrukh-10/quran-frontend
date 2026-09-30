@@ -12,9 +12,10 @@
 
 import raw from "@/data/graph/situations.json";
 import { getDua as getDuaEntry } from "@/lib/duas";
+import { HADITH_BOOKS } from "@/lib/hadith";
 
 export type Solution = {
-  type: "dua" | "ayah" | "page";
+  type: "dua" | "ayah" | "hadith" | "page";
   ref: string;
   reason: string;
 };
@@ -52,6 +53,17 @@ function resolveAyah(ref: string): boolean {
   const surah = Number(m[1]);
   const ayah = Number(m[2]);
   return surah >= 1 && surah <= 114 && ayah >= 1;
+}
+
+/** Hadith refs are "<book-slug>/<number>", e.g. "bukhari/6288". Book slug must
+ *  be one of the six canonical Sunni collections; number can carry a decimal
+ *  suffix (Fawaz Ahmed dataset labels multi-narrator chains this way). */
+const HADITH_BOOK_SLUGS = new Set<string>(HADITH_BOOKS.map((b) => b.slug));
+function resolveHadith(ref: string): boolean {
+  const [book, num] = ref.split("/");
+  if (!book || !num) return false;
+  if (!HADITH_BOOK_SLUGS.has(book)) return false;
+  return /^\d+(?:\.\d+)?$/.test(num);
 }
 
 /** Static route refs — hard-coded whitelist of real pages we ship. */
@@ -93,6 +105,7 @@ function loadValidatedSituations(): Situation[] {
       let ok = false;
       if (s.type === "dua") ok = resolveDua(s.ref) !== null;
       else if (s.type === "ayah") ok = resolveAyah(s.ref);
+      else if (s.type === "hadith") ok = resolveHadith(s.ref);
       else if (s.type === "page") ok = resolvePage(s.ref);
       if (ok) {
         kept.push({ type: s.type as Solution["type"], ref: s.ref, reason: s.reason });
@@ -122,6 +135,10 @@ export function solutionHref(s: Solution): string {
   if (s.type === "ayah") {
     const [surah, ayah] = s.ref.split(":");
     return `/quran/${surah}/${ayah}`;
+  }
+  if (s.type === "hadith") {
+    // ref is "<book>/<number>", already the URL path
+    return `/hadith/${s.ref}`;
   }
   return s.ref;
 }
@@ -163,6 +180,20 @@ export function getSolutionCard(s: Solution): SolutionCardData {
       title: `Quran ${s.ref}`,
       href: solutionHref(s),
       source: `Quran ${s.ref}`,
+      reason: s.reason,
+      type: s.type,
+      ref: s.ref,
+    };
+  }
+  if (s.type === "hadith") {
+    // ref is "<book>/<number>"
+    const [book, num] = s.ref.split("/");
+    const bookMeta = HADITH_BOOKS.find((b) => b.slug === book);
+    const bookName = bookMeta?.name.en ?? book ?? "";
+    return {
+      title: `${bookName} #${num}`,
+      href: solutionHref(s),
+      source: `${bookName} #${num}`,
       reason: s.reason,
       type: s.type,
       ref: s.ref,

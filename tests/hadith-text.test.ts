@@ -11,8 +11,7 @@ describe("cleanHadithArabic", () => {
   it("strips U+200F right-to-left mark (the visible black dot bug)", () => {
     // Reproduced from Fawaz Ahmed's Bukhari dataset; the ‏"‏ ... ‏"‏‏.‏
     // pattern was rendering as visible marks in some browser Arabic fonts.
-    const raw =
-      "قَالَ ‏\"‏ الإِيمَانُ أَنْ تُؤْمِنَ بِاللَّهِ ‏\"‏‏.‏";
+    const raw = 'قَالَ ‏"‏ الإِيمَانُ أَنْ تُؤْمِنَ بِاللَّهِ ‏"‏‏.‏';
     const cleaned = cleanHadithArabic(raw);
     expect(cleaned).not.toContain("\u200F"); // no RLM anywhere
     expect(cleaned).not.toContain("\u200E"); // no LRM anywhere
@@ -28,8 +27,7 @@ describe("cleanHadithArabic", () => {
   });
 
   it("is idempotent — applying twice equals applying once", () => {
-    const raw =
-      "حَدَّثَنَا مُسَدَّدٌ، ‏\"‏ قَالَ ‏\"‏‏.‏ عَنْ أَبِي هُرَيْرَةَ";
+    const raw = 'حَدَّثَنَا مُسَدَّدٌ، ‏"‏ قَالَ ‏"‏‏.‏ عَنْ أَبِي هُرَيْرَةَ';
     const once = cleanHadithArabic(raw);
     const twice = cleanHadithArabic(once);
     expect(twice).toBe(once);

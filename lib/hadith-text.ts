@@ -55,6 +55,9 @@ export function cleanHadithArabic(raw: string | null | undefined): string {
     // The guillemets flank the quote *content*, not the punctuation. Move
     // any period that ended up inside the closer to just after it.
     s = s.replace(/\.»/g, "».");
+    // Strip stray whitespace immediately inside the guillemets
+    // (« content » → «content»).
+    s = s.replace(/«\s+/g, "«").replace(/\s+»/g, "»");
   }
 
   // 4. Normalize whitespace: collapse >2 spaces, trim orphans around commas,

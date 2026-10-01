@@ -12,6 +12,7 @@ import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllSurahs, getSurahBySlug, isSeeded, loadSurahAyat } from "@/lib/quran";
 import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
+import { getTafsirIntroBySlug } from "@/lib/tafsir";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -58,6 +59,7 @@ export default async function SurahPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "quran.surah" });
   const bc = await breadcrumbs(locale);
   const ayat = await loadSurahAyat(s.number);
+  const tafsirIntro = getTafsirIntroBySlug(s.slug);
   const isFullyAvailable = Boolean(ayat && ayat.length > 0);
 
   const prev = getAllSurahs().find((x) => x.number === s.number - 1);
@@ -98,6 +100,33 @@ export default async function SurahPage({ params }: Props) {
           {s.ayahCount} {t("ayat")} · {t(s.revelation)} · {t("juz")} {ayat?.[0]?.juz ?? "—"}
         </p>
       </header>
+
+      {tafsirIntro && locale === "en" && (
+        <section
+          aria-label={`About Surah ${s.name}`}
+          className="mt-10 rounded-2xl border border-separator bg-surface p-6 md:p-8"
+        >
+          <h2 className="text-lg font-semibold tracking-title text-foreground">About this surah</h2>
+          <div
+            className="tafsir-intro mt-4 space-y-4 text-[0.95rem] leading-relaxed text-foreground/90"
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: authored HTML from content/tafsir/*.json
+            dangerouslySetInnerHTML={{ __html: tafsirIntro.html }}
+          />
+          {tafsirIntro.sources?.length > 0 && (
+            <footer className="mt-5 border-t border-separator pt-4 text-xs text-muted-foreground">
+              <p className="font-medium text-foreground/80">Sources</p>
+              <ul className="mt-2 space-y-1">
+                {tafsirIntro.sources.map((srcItem) => (
+                  <li key={srcItem.label}>
+                    <cite className="not-italic font-medium">{srcItem.label}</cite>
+                    {srcItem.note ? ` — ${srcItem.note}` : null}
+                  </li>
+                ))}
+              </ul>
+            </footer>
+          )}
+        </section>
+      )}
 
       {s.number !== 1 && s.number !== 9 && (
         <p className="mt-10 text-center font-quran text-3xl text-foreground/85" lang="ar" dir="rtl">

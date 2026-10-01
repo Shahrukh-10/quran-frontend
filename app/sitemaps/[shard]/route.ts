@@ -1,4 +1,4 @@
-import { statSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 import { locales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
@@ -99,9 +99,21 @@ function safeMtime(relPath: string): string {
   }
 }
 
-// mtime of a single per-surah data file
-function surahMtime(surahNumber: number): string {
-  return safeMtime(`data/quran/surahs/${surahNumber}.json`);
+// mtime of a single per-surah data file. If an authored tafsir intro exists
+// for the surah (content/tafsir/<slug>.json), take the max of the two mtimes
+// so that newly-added editorial content moves the per-URL lastmod and
+// prompts Google to re-crawl just that surah's page.
+function surahMtime(surahNumber: number, surahSlug?: string): string {
+  const dataMtime = safeMtime(`data/quran/surahs/${surahNumber}.json`);
+  if (!surahSlug) return dataMtime;
+  const tafsirRel = `content/tafsir/${surahSlug}.json`;
+  // Only consult the tafsir file if it actually exists — otherwise safeMtime
+  // would return BUILD_DATE_FALLBACK (today), which would push lastmod for
+  // every surah to today and defeat Q3's per-URL discrimination.
+  const tafsirAbs = path.join(REPO_ROOT, tafsirRel);
+  if (!existsSync(tafsirAbs)) return dataMtime;
+  const tafsirMtime = safeMtime(tafsirRel);
+  return tafsirMtime > dataMtime ? tafsirMtime : dataMtime;
 }
 
 // aggregate mtime across a set of files → max of the individual mtimes
@@ -117,7 +129,7 @@ function aggregateMtime(relPaths: string[]): string {
 // Precomputed once per module load
 const SURAH_MTIMES: Record<number, string> = {};
 for (const s of getAllSurahs()) {
-  SURAH_MTIMES[s.number] = surahMtime(s.number);
+  SURAH_MTIMES[s.number] = surahMtime(s.number, s.slug);
 }
 const ALL_SURAHS_MTIME = aggregateMtime(
   Object.keys(SURAH_MTIMES).map((n) => `data/quran/surahs/${n}.json`),

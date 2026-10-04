@@ -10,6 +10,28 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hreflangLanguages } from "@/lib/seo";
 
+// Countries that currently (as of 2026) do NOT observe daylight-saving time.
+// Used to answer the DST FAQ truthfully per country.
+const NO_DST_COUNTRIES = new Set<string>([
+  "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait",
+  "Pakistan", "India", "Bangladesh", "Sri Lanka", "Nepal", "Maldives",
+  "Indonesia", "Malaysia", "Singapore", "Thailand", "Vietnam", "Philippines",
+  "China", "Japan", "South Korea", "Taiwan", "Hong Kong",
+  "Egypt", "Morocco", "Tunisia", "Algeria", "Libya",
+  "Nigeria", "Kenya", "Ethiopia", "Ghana", "Senegal", "Tanzania", "Uganda",
+  "South Africa",
+  "Turkey", "Russia", "Belarus", "Iceland",
+  "Argentina", "Brazil", "Peru", "Colombia", "Venezuela",
+  "Australia", "New Zealand",
+]);
+
+function dstNote(country: string, tz: string): string {
+  if (NO_DST_COUNTRIES.has(country)) {
+    return `No — ${country} does not observe daylight saving time. The ${tz} timezone stays fixed year-round, which means prayer times here are predictable from month to month. Fajr shifts earlier as summer approaches and Isha shifts later, but the clock on the wall never jumps by an hour.`;
+  }
+  return `Yes — ${country} observes daylight saving time, so clocks spring forward in March and fall back in October (dates vary by country). Prayer times shift accordingly: when DST starts, Fajr and Isha appear an hour later on your clock, but the sun hasn't actually moved. The calculator below reads your device's current timezone automatically and adjusts.`;
+}
+
 export async function generateStaticParams() {
   const params: Array<{ locale: string; city: string }> = [];
   for (const locale of locales) {
@@ -91,11 +113,11 @@ export default async function CityPrayerTimesPage({ params }: Props) {
     },
     {
       q: `Which prayer time calculation method is used in ${c.country}?`,
-      a: `${c.country === "Saudi Arabia" ? "Saudi Arabia uses the Umm al-Qura method." : c.country === "Pakistan" || c.country === "India" || c.country === "Bangladesh" ? `${c.country} traditionally uses the University of Islamic Sciences, Karachi method.` : c.country === "United States" || c.country === "Canada" ? `${c.country} typically uses the Islamic Society of North America (ISNA) method.` : c.country === "Egypt" ? "Egypt uses the Egyptian General Authority of Survey method." : c.country === "Turkey" ? "Turkey uses the Diyanet method." : `In ${c.country}, most Muslim communities follow the Muslim World League (MWL) method, though Umm al-Qura and ISNA are also common.`} You can switch methods in the settings — the live times below will recompute instantly.`,
+      a: `${c.country === "Saudi Arabia" ? "Saudi Arabia uses the Umm al-Qura method." : c.country === "Pakistan" || c.country === "India" || c.country === "Bangladesh" ? `${c.country} traditionally uses the University of Islamic Sciences, Karachi method.` : c.country === "United States" || c.country === "Canada" ? `${c.country} typically uses the Islamic Society of North America (ISNA) method.` : c.country === "Egypt" ? "Egypt uses the Egyptian General Authority of Survey method." : c.country === "Turkey" ? "Turkey uses the Diyanet method." : c.country === "United Arab Emirates" ? "The UAE uses the Umm al-Qura method with a locally-tuned 90-minute Isha interval, published by the General Authority of Islamic Affairs and Endowments." : `In ${c.country}, most Muslim communities follow the Muslim World League (MWL) method, though Umm al-Qura and ISNA are also common.`} You can switch methods in the settings — the live times below will recompute instantly.`,
     },
     {
       q: `How is Fajr time calculated for ${c.name}?`,
-      a: `Fajr begins at true dawn (subh sadiq), when the sky first shows a horizontal band of light along the eastern horizon. Different scholarly bodies use different sun-angle values (typically 15° to 20° below the horizon) to compute this. On this page for ${c.name}, the default is the Muslim World League method (18°), but you can change it below.`,
+      a: `Fajr begins at true dawn (subh sadiq), when the sky first shows a horizontal band of light along the eastern horizon. Different scholarly bodies use different sun-angle values (typically 15° to 20° below the horizon) to compute this. On this page for ${c.name}, the default is ${c.method ? `the ${c.method} method` : "the Muslim World League method (18°)"}, but you can change it below.`,
     },
     {
       q: `Is ${c.name} at a high latitude?`,
@@ -107,6 +129,14 @@ export default async function CityPrayerTimesPage({ params }: Props) {
     {
       q: `Do prayer times differ within ${c.name}?`,
       a: `Within the city of ${c.name}, prayer times differ by seconds — not enough to matter in practice. The times shown are for the city center coordinates (${c.lat.toFixed(4)}, ${c.lon.toFixed(4)}). If you're outside the metropolitan area, use the Qibla and location tools to get times for your exact location.`,
+    },
+    {
+      q: `Does ${c.country} observe daylight saving time?`,
+      a: dstNote(c.country, c.tz),
+    },
+    {
+      q: `Can I pray in hotels, malls, and offices in ${c.name}?`,
+      a: `${c.country === "United Arab Emirates" || c.country === "Saudi Arabia" || c.country === "Qatar" || c.country === "Oman" || c.country === "Bahrain" || c.country === "Kuwait" ? `Yes — every mall, airport, hotel, hospital, and most offices in ${c.country} have dedicated prayer rooms (musalla) with ablution facilities. Shopping-mall musallas are typically marked with the word "Prayer Room" and the Arabic مُصَلَّى on signage.` : c.country === "Pakistan" || c.country === "Bangladesh" || c.country === "Indonesia" || c.country === "Malaysia" ? `Yes — airports, malls, and most public buildings in ${c.country} include designated prayer rooms (musalla / surau). Larger offices typically have in-house prayer facilities.` : `In ${c.name}, dedicated prayer rooms are available in major airports, most large shopping centres, and many hotels catering to Muslim travellers. A clean, quiet corner of a hotel room or office is also acceptable when a formal musalla isn't available — the Prophet ﷺ said "the whole earth has been made a place of prayer and a means of purification" (Sahih al-Bukhari #438).`}`,
     },
   ];
 
@@ -194,6 +224,25 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           methods (MWL, ISNA, Umm al-Qura, Egyptian, Karachi) to match your
           local mosque.
         </p>
+
+        {/* Official method badge — appears only for cities with a per-city
+            override. Earns trust by naming the authority instead of a generic
+            "pick a method" message. */}
+        {c.method ? (
+          <div className="mt-5 rounded-xl border border-separator bg-surface p-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                Official method
+              </span>
+              <span className="text-sm font-semibold">{c.method}</span>
+            </div>
+            {c.methodNote ? (
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {c.methodNote}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
       </header>
 
       {/* Client component that renders live prayer times for today. */}
@@ -223,11 +272,11 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Latitude</dt>
-            <dd className="mt-1">{c.lat.toFixed(4)}° N</dd>
+            <dd className="mt-1">{c.lat.toFixed(4)}° {c.lat >= 0 ? "N" : "S"}</dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Longitude</dt>
-            <dd className="mt-1">{c.lon.toFixed(4)}° E</dd>
+            <dd className="mt-1">{c.lon.toFixed(4)}° {c.lon >= 0 ? "E" : "W"}</dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Population</dt>
@@ -238,6 +287,79 @@ export default async function CityPrayerTimesPage({ params }: Props) {
             <dd className="mt-1">{c.countryCode}</dd>
           </div>
         </dl>
+      </section>
+
+      {/* Local mosque + dress-code strip — appears only for cities with
+          landmarkMosque / dressNote metadata. Gives a trust signal + practical
+          info a visitor to the city actually needs. */}
+      {(c.landmarkMosque || c.dressNote) && (
+        <section
+          className="mt-6 grid gap-4 sm:grid-cols-2"
+          aria-label={`Praying in ${c.name}`}
+        >
+          {c.landmarkMosque ? (
+            <div className="rounded-2xl border border-separator bg-surface p-5">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Landmark mosque
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                {c.landmarkMosque}
+              </p>
+            </div>
+          ) : null}
+          {c.dressNote ? (
+            <div className="rounded-2xl border border-separator bg-surface p-5">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                What to wear
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed">
+                {c.dressNote}
+              </p>
+            </div>
+          ) : null}
+        </section>
+      )}
+
+      {/* Quick-action strip — Qibla + Learn Salah + Quran. Appears on EVERY
+          city page because every prayer-times visitor plausibly needs these
+          three things next. */}
+      <section className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="Related tools">
+        <Link
+          href="/qibla"
+          className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
+        >
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Direction
+          </p>
+          <p className="mt-1 font-semibold">Qibla for {c.name}</p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Live compass with true-north correction.
+          </p>
+        </Link>
+        <Link
+          href="/learn-salah"
+          className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
+        >
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Learn
+          </p>
+          <p className="mt-1 font-semibold">How to pray each salah</p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Step-by-step tutorials for Fajr through Isha.
+          </p>
+        </Link>
+        <Link
+          href="/calendar"
+          className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
+        >
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Date
+          </p>
+          <p className="mt-1 font-semibold">Hijri calendar today</p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Current Islamic date + upcoming observances.
+          </p>
+        </Link>
       </section>
 
       {/* Understanding the 5 prayers */}
@@ -325,10 +447,10 @@ export default async function CityPrayerTimesPage({ params }: Props) {
               className="focus-ring rounded-xl border border-separator bg-surface p-3 hover:bg-muted transition-colors"
             >
               <span className="block text-sm font-semibold">
-                {x.name}, {x.country}
+                {x.name}
               </span>
               <span className="mt-1 block text-xs text-muted-foreground">
-                Prayer times in {x.name}
+                {x.country}
               </span>
             </Link>
           ))}

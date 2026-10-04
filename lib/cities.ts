@@ -10,6 +10,15 @@ export type City = {
   lon: number;
   tz: string;
   population: number;
+  // Optional per-city overrides for the detail page:
+  // - method: official calculation method used by the national Islamic authority
+  // - methodNote: the specific nuance (e.g. UAE government timetable adjustment)
+  // - landmarkMosque: name of the single most-recognised mosque, for local trust signal
+  // - dressNote: brief practical note (modesty rules in that country)
+  method?: string;
+  methodNote?: string;
+  landmarkMosque?: string;
+  dressNote?: string;
 };
 
 export const CITIES: ReadonlyArray<City> = [
@@ -232,6 +241,13 @@ export const CITIES: ReadonlyArray<City> = [
     lon: 55.2708,
     tz: "Asia/Dubai",
     population: 3331000,
+    method: "Umm al-Qura (UAE adjustment)",
+    methodNote:
+      "The UAE General Authority of Islamic Affairs and Endowments publishes an official daily timetable using the Umm al-Qura method with a locally-tuned Isha interval (90 minutes after Maghrib, instead of the Mecca default). The times below use that adjustment by default — you can switch methods in Settings to match a different mosque.",
+    landmarkMosque:
+      "Jumeirah Mosque — the most-visited mosque in Dubai, open to non-Muslims for cultural tours through the Sheikh Mohammed Centre for Cultural Understanding.",
+    dressNote:
+      "In mosques across Dubai, modest dress is required: men should wear long trousers and a shirt covering the shoulders; women cover the hair with a scarf and wear loose clothing covering arms and ankles. Scarves are provided at major visitor-friendly mosques.",
   },
   {
     slug: "abu-dhabi",
@@ -242,6 +258,13 @@ export const CITIES: ReadonlyArray<City> = [
     lon: 54.3773,
     tz: "Asia/Dubai",
     population: 1483000,
+    method: "Umm al-Qura (UAE adjustment)",
+    methodNote:
+      "Abu Dhabi follows the same official UAE timetable as Dubai: Umm al-Qura method with the locally-tuned 90-minute Isha interval published by the General Authority of Islamic Affairs and Endowments.",
+    landmarkMosque:
+      "Sheikh Zayed Grand Mosque — the largest mosque in the UAE and the resting place of the nation's founder; open to visitors outside prayer times.",
+    dressNote:
+      "Dress code at Sheikh Zayed Grand Mosque is strictly enforced: women must wear a long robe (abaya is loaned at entry) with a headscarf covering all hair; men must wear long trousers and a long-sleeved shirt. Shorts and sleeveless clothing are not permitted anywhere inside.",
   },
   {
     slug: "doha",

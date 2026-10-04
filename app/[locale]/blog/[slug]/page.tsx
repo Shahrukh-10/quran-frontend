@@ -1,7 +1,7 @@
 import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
-import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
+import { describeInternalPath, getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
@@ -162,18 +162,24 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="mt-14 pt-10 border-t border-separator">
           <h2 className="text-xs uppercase tracking-widest text-muted-foreground">Read next</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {post.relatedPaths?.map((path) => (
-              <Link
-                key={path}
-                href={path as "/quran"}
-                className="rounded-xl border border-separator bg-surface p-4 hover:border-accent/40 focus-ring"
-              >
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Quran Daily
-                </p>
-                <p className="mt-1 font-semibold">{path}</p>
-              </Link>
-            ))}
+            {post.relatedPaths?.map((path) => {
+              const info = describeInternalPath(path);
+              return (
+                <Link
+                  key={path}
+                  href={path as "/quran"}
+                  className="rounded-xl border border-separator bg-surface p-4 hover:border-accent/40 focus-ring"
+                >
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    {info.kicker}
+                  </p>
+                  <p className="mt-1 font-semibold">{info.title}</p>
+                  {info.desc ? (
+                    <p className="mt-1 text-sm text-muted-foreground">{info.desc}</p>
+                  ) : null}
+                </Link>
+              );
+            })}
             {post.externalLinks?.map((link) => (
               <a
                 key={link.href}

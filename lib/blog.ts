@@ -192,3 +192,83 @@ export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   );
   return [...tagMatches, ...categoryMatches, ...others].slice(0, limit);
 }
+
+// Converts an internal path like "/quran" or "/hadith/bukhari" into a
+// human-readable card label for the "Read next" strip on the blog detail
+// page. Previously the UI showed the raw path ("/quran") under a hard-coded
+// "Quran Daily" kicker, which read as broken.
+export function describeInternalPath(path: string): {
+  kicker: string;
+  title: string;
+  desc?: string;
+} {
+  const normalized = path.replace(/\/$/, "") || "/";
+
+  // Exact matches first — the most-linked destinations.
+  const EXACT: Record<string, { kicker: string; title: string; desc: string }> = {
+    "/": { kicker: "Home", title: "Quran Daily", desc: "The home page — Quran, hadith, duas, prayer times." },
+    "/quran": { kicker: "Read", title: "The Quran", desc: "All 114 surahs with translations and tafsir." },
+    "/hadith": { kicker: "Read", title: "Hadith library", desc: "Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah." },
+    "/hadith/bukhari": { kicker: "Hadith", title: "Sahih al-Bukhari", desc: "All 7,500+ hadiths with English translation." },
+    "/hadith/muslim": { kicker: "Hadith", title: "Sahih Muslim", desc: "The second most-authentic hadith collection." },
+    "/hadith/abudawud": { kicker: "Hadith", title: "Sunan Abi Dawud", desc: "Primary source on fiqh and practice." },
+    "/hadith/tirmidhi": { kicker: "Hadith", title: "Jami' at-Tirmidhi", desc: "Hadith with scholarly gradings." },
+    "/duas": { kicker: "Practice", title: "Duas", desc: "Sourced supplications for every situation." },
+    "/learn-salah": { kicker: "Practice", title: "Learn Salah", desc: "Step-by-step Salah tutorials for every prayer." },
+    "/qibla": { kicker: "Tools", title: "Qibla direction", desc: "Live compass + true-north correction." },
+    "/prayer-times": { kicker: "Practice", title: "Prayer times", desc: "City-accurate prayer times with your calc method." },
+    "/calendar": { kicker: "Tools", title: "Hijri calendar", desc: "Current Hijri date and major Islamic observances." },
+    "/mushaf": { kicker: "Read", title: "Mushaf view", desc: "Page-by-page Quran in Uthmanic script." },
+    "/names-of-allah": { kicker: "Learn", title: "99 Names of Allah", desc: "Each name with meaning, usage, and reflection." },
+    "/seerah": { kicker: "Learn", title: "Seerah", desc: "The life of the Prophet ﷺ in sourced events." },
+    "/blog": { kicker: "Blog", title: "Quran Daily blog", desc: "Essays, explainers, and digital-fiqh writing." },
+  };
+  if (EXACT[normalized]) return EXACT[normalized];
+
+  // Prefix patterns — e.g. "/quran/al-fatihah", "/names-of-allah/al-rahman".
+  const segments = normalized.split("/").filter(Boolean);
+  const titleCase = (s: string) =>
+    s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  if (segments[0] === "quran" && segments[1]) {
+    const label = titleCase(segments[1]);
+    if (segments[2]) {
+      return { kicker: "Ayah", title: `${label} · verse ${segments[2]}`, desc: "Open this verse with translation and tafsir." };
+    }
+    return { kicker: "Surah", title: label, desc: "Read the full surah with translation and tafsir." };
+  }
+  if (segments[0] === "hadith" && segments[1]) {
+    const book = titleCase(segments[1]);
+    if (segments[2]) {
+      return { kicker: "Hadith", title: `${book} · #${segments[2]}`, desc: "Read the full hadith with Arabic and translation." };
+    }
+    return { kicker: "Hadith book", title: book, desc: "Browse the full collection." };
+  }
+  if (segments[0] === "duas" && segments[1]) {
+    const last = segments[segments.length - 1] ?? segments[1];
+    const slug = titleCase(last);
+    return { kicker: "Dua", title: slug, desc: "Sourced supplication with Arabic, transliteration, and translation." };
+  }
+  if (segments[0] === "learn-salah" && segments[1]) {
+    return { kicker: "Learn Salah", title: titleCase(segments[1]), desc: "Step-by-step tutorial for this prayer." };
+  }
+  if (segments[0] === "names-of-allah" && segments[1]) {
+    return { kicker: "99 Names", title: titleCase(segments[1]), desc: "Meaning, usage, and reflections on this name." };
+  }
+  if (segments[0] === "prayer-times" && segments[1]) {
+    return { kicker: "Prayer times", title: titleCase(segments[1]), desc: "Accurate daily prayer times for this city." };
+  }
+  if (segments[0] === "blog" && segments[1]) {
+    // Internal blog cross-link — try to resolve the title from the registry.
+    const target = BLOG_POSTS.find((p) => p.slug === segments[1]);
+    if (target) {
+      return { kicker: "Blog", title: target.title, desc: target.excerpt.slice(0, 120) };
+    }
+    return { kicker: "Blog", title: titleCase(segments[1]) };
+  }
+
+  // Fallback — unknown path. Keep it honest.
+  const last = segments[segments.length - 1];
+  const label = last ? titleCase(last) : "Quran Daily";
+  return { kicker: "Quran Daily", title: label };
+}

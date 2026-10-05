@@ -207,11 +207,16 @@ function buildPaths(shard: Shard): string[] {
       paths.push(...TOP_LEVEL);
       break;
     case "quran":
+      // CRAWL-BUDGET STRATEGY (2026-10-05):
+      // Previously emitted ~6,236 surah+ayah pages × 2 indexable locales ≈ 12,700 URLs.
+      // For a new domain (DR ~0) GSC was indexing 0 of 13,234 sitemap URLs — classic
+      // crawl-budget drowning. Shrunk to surah-index pages only (114 surahs × 2 locales
+      // = 228 URLs). Individual ayah pages (/quran/<slug>/<n>) still exist and work for
+      // users; they are discovered via internal links on surah index pages and will be
+      // re-added to the sitemap in batches of 1,000 once core pages rank.
+      // See skill: promptspace-20k-weekly-growth → blog-corpus-deadweight-audit.
       for (const s of getAllSurahs()) {
         paths.push(`/quran/${s.slug}`);
-        for (let n = 1; n <= s.ayahCount; n++) {
-          paths.push(`/quran/${s.slug}/${n}`);
-        }
       }
       break;
     case "hadith":

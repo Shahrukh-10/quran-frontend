@@ -54,6 +54,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const year = new Date().getUTCFullYear();
   const title = `${c.name} Prayer Times Today ${year} — Fajr, Dhuhr, Asr, Maghrib, Isha`;
   const desc = `Accurate ${c.name} prayer times today — Fajr, Sunrise, Dhuhr, Asr, Maghrib & Isha timings for ${c.country}. Updated daily, works offline, no signup. Supports MWL, ISNA, Umm al-Qura, Egyptian & Karachi calculation methods.`;
+  // 2026-10-11 SEO FIX: untranslated non-EN locales (ar/ur/tr/fr) are noindex'd
+  // via robotsForLocale, but their canonical was self-referencing — creating
+  // a signal contradiction (noindex + self-canonical). GSC Oct 2026: 20+
+  // English Dubai prayer-time queries were ranking the /ar/prayer-times/dubai
+  // page at pos 4-13 with 0% CTR because Google indexed it despite noindex.
+  // Point canonical to the EN equivalent so untranslated locales consolidate
+  // link equity onto the real indexable page.
+  const isUntranslated = ["ar", "ur", "tr", "fr"].includes(locale);
+  const canonicalPath = (locale === "en" || isUntranslated)
+    ? `/prayer-times/${city}`
+    : `/${locale}/prayer-times/${city}`;
   return {
     title: title.slice(0, 70),
     description: desc.slice(0, 260),
@@ -70,17 +81,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${c.country} prayer times`,
     ].join(", "),
     alternates: {
-      canonical: siteUrl(
-        locale === "en" ? `/prayer-times/${city}` : `/${locale}/prayer-times/${city}`,
-      ),
+      canonical: siteUrl(canonicalPath),
       languages: hreflangLanguages(`/prayer-times/${city}`),
     },
     openGraph: {
       title: title.slice(0, 90),
       description: desc.slice(0, 200),
-      url: siteUrl(
-        locale === "en" ? `/prayer-times/${city}` : `/${locale}/prayer-times/${city}`,
-      ),
+      url: siteUrl(canonicalPath),
       type: "article",
     },
   };

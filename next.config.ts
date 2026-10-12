@@ -13,8 +13,16 @@ const NUMERIC_SURAH_REDIRECTS = (surahsMeta as Array<{ number: number; slug: str
   ({ number, slug }) => [
     { source: `/quran/${number}`, destination: `/quran/${slug}`, permanent: true },
     { source: `/quran/${number}/:ayah`, destination: `/quran/${slug}/:ayah`, permanent: true },
-    { source: `/quran/word-by-word/${number}`, destination: `/quran/word-by-word/${slug}`, permanent: true },
-    { source: `/:locale(id|ar|ur|tr|fr)/quran/${number}`, destination: `/:locale/quran/${slug}`, permanent: true },
+    {
+      source: `/quran/word-by-word/${number}`,
+      destination: `/quran/word-by-word/${slug}`,
+      permanent: true,
+    },
+    {
+      source: `/:locale(id|ar|ur|tr|fr)/quran/${number}`,
+      destination: `/:locale/quran/${slug}`,
+      permanent: true,
+    },
     {
       source: `/:locale(id|ar|ur|tr|fr)/quran/${number}/:ayah`,
       destination: `/:locale/quran/${slug}/:ayah`,
@@ -27,6 +35,45 @@ const NUMERIC_SURAH_REDIRECTS = (surahsMeta as Array<{ number: number; slug: str
     },
   ],
 );
+
+// Short-slug aliases for Learn Salah tutorials.
+//
+// Why these exist: GSC data (2026-10-12 export) shows users type the short
+// form (`fajr`, `witr prayer`, `jumuah`), while our tutorial pages live under
+// the descriptive form (`/learn-salah/how-to-pray-fajr`). The slug-vs-query
+// gap drags these pages to position 50-87 on a new domain. 308 permanent
+// redirects from the short form to the canonical descriptive URL make the
+// short form a usable entry point without duplicating content.
+//
+// Canonical remains the descriptive form (set in app/[locale]/learn-salah/[topic]/page.tsx).
+// The redirect is `permanent: true` so Google folds the alias into the
+// canonical page's authority within one crawl cycle.
+const SALAH_ALIASES: Array<[string, string]> = [
+  ["fajr", "how-to-pray-fajr"],
+  ["dhuhr", "how-to-pray-dhuhr-asr-isha"],
+  ["asr", "how-to-pray-dhuhr-asr-isha"],
+  ["isha", "how-to-pray-dhuhr-asr-isha"],
+  ["maghrib", "how-to-pray-maghrib"],
+  ["witr", "how-to-pray-witr"],
+  ["jumuah", "how-to-pray-jumuah"],
+  ["jumah", "how-to-pray-jumuah"],
+  ["juma", "how-to-pray-jumuah"],
+  ["friday-prayer", "how-to-pray-jumuah"],
+  ["janazah", "how-to-pray-janazah"],
+  ["funeral-prayer", "how-to-pray-janazah"],
+  ["ablution", "wudu"],
+  ["how-to-salah", "how-to-pray"],
+  ["how-to-perform-salah", "how-to-pray"],
+  ["how-to-pray-namaz", "how-to-pray"],
+];
+const LEARN_SALAH_REDIRECTS = SALAH_ALIASES.flatMap(([alias, canonical]) => [
+  { source: `/learn-salah/${alias}`, destination: `/learn-salah/${canonical}`, permanent: true },
+  {
+    source: `/:locale(id|ar|ur|tr|fr)/learn-salah/${alias}`,
+    destination: `/:locale/learn-salah/${canonical}`,
+    permanent: true,
+  },
+]);
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -56,7 +103,7 @@ const nextConfig: NextConfig = {
     // typedRoutes: true,
   },
   async redirects() {
-    return NUMERIC_SURAH_REDIRECTS;
+    return [...NUMERIC_SURAH_REDIRECTS, ...LEARN_SALAH_REDIRECTS];
   },
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || "http://localhost:8080";

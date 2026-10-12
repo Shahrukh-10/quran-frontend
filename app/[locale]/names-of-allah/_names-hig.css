@@ -197,3 +197,80 @@ footer {
   font-size: 13px;
   color: hsl(var(--muted-foreground) / 0.5);
 }
+
+/* Featured names section — 10 most-invoked names w/ Quranic refs.
+   Shipped 2026-10-12 as part of the SEO fatten pass to lift the index
+   page from GSC pos 69 toward page 2 by adding scannable per-name
+   content and internal links back from the featured list. */
+.featured-names {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .featured-names {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 980px) {
+  .featured-names {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.featured-name-card {
+  background: hsl(var(--surface));
+  border-radius: var(--r-xl, 14px);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  transition: transform .35s var(--spring);
+  min-height: 128px;
+}
+.featured-name-card:hover {
+  transform: translateY(-2px);
+}
+.featured-name-ar {
+  font-family: var(--font-quran, inherit);
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.featured-name-translit {
+  font-weight: 600;
+  font-size: 14px;
+}
+.featured-name-en {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+.featured-name-ref {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: hsl(var(--accent));
+  letter-spacing: .02em;
+}
+
+/* How-to-use list — numbered list with bolded leading phrase. */
+.how-to-use-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 72ch;
+}
+.how-to-use-list li {
+  line-height: 1.65;
+  font-size: 15px;
+  color: hsl(var(--foreground) / 0.9);
+}
+.how-to-use-list strong {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}

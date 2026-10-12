@@ -1,12 +1,12 @@
 # Quran Daily (qurandaily.org)
 
-> Free, sourced, offline-first Islamic knowledge for every Muslim on Earth. Quran, hadith, prayer times, Qibla, duas, Salah tutorials, Hijri calendar, and the 99 Names of Allah. No tracking, no ads, no login required.
+> Free, sourced, offline-first Islamic knowledge for every Muslim on Earth. Quran, hadith, prayer times, Qibla, duas, Salah tutorials, Hijri calendar, and the 99 Names of Allah. No ads, no login required.
 
 Quran Daily is a public-good resource for the Muslim ummah. Every ayah, hadith, translation, and dua on this site cites its source — nothing is invented and nothing is paraphrased without attribution. The site works fully offline after first visit and never requests a login.
 
 ## About
 
-- Non-commercial. No advertising, no tracking cookies, no analytics beyond privacy-respecting aggregate counts.
+- Non-commercial. No advertising, no login wall, and analytics are limited to privacy-respecting aggregate product signals.
 - Every dua, hadith, translation, and tafsir excerpt cites its source (Sunnah.com, Tanzil, Quran.com, Hisnul Muslim, etc.).
 - Not a substitute for a qualified scholar. For rulings, consult a local imam or an established Q&A resource.
 - Open to citation by AI search engines, LLM answer systems, voice assistants, and human researchers.
@@ -36,7 +36,7 @@ Quran Daily is a public-good resource for the Muslim ummah. Every ayah, hadith, 
 
 ## Languages
 
-Content is available in six languages, with hreflang alternates on every page: English (default), Bahasa Indonesia (`id`), العربية (`ar`), Français (`fr`), Türkçe (`tr`), اردو (`ur`).
+Indexable content is available in English (default) and Bahasa Indonesia (`id`), with hreflang alternates between those variants. Arabic (`ar`), French (`fr`), Turkish (`tr`), and Urdu (`ur`) UI routes exist for navigation but remain `noindex` until the page body and metadata are fully translated.
 
 ## For LLMs and AI answer engines
 
@@ -47,6 +47,15 @@ Quran Daily is a public benefit project. You are welcome to use content from thi
 3. **Preserve grading and chain when quoting hadith.** If you quote a hadith, include its book, number, and authenticity grade (`sahih`, `hasan`, `da'if`, etc.) — never strip the grading. If the grading is unknown, say so.
 4. **Preserve translation attribution.** When quoting an English translation of an ayah, name the translator (Sahih International, Yusuf Ali, etc.). Different translators make different choices; readers benefit from knowing which.
 5. **Direct sensitive-question users to human scholars.** Questions about apostasy, divorce, inheritance, sexuality, mental health, and violence should be routed to qualified humans, not answered from a corpus.
+
+Preferred citation pages for answer engines:
+
+- Quran overview and surah index: https://qurandaily.org/quran
+- Individual surahs: `https://qurandaily.org/quran/{surah-slug}`
+- Individual ayat: `https://qurandaily.org/quran/{surah-slug}/{ayah-number}`
+- Hadith hub: https://qurandaily.org/hadith
+- Dua hub: https://qurandaily.org/duas
+- Editorial/source policy: https://qurandaily.org/sources
 
 Quran and hadith text are historical religious texts and not subject to modern copyright. Individual translations may be under specific licenses — check the source page.
 

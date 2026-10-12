@@ -1,4 +1,7 @@
+import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -15,13 +18,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t("title"),
     description: t("intro"),
+    alternates: {
+      canonical: siteUrl(locale === "en" ? "/about" : `/${locale}/about`),
+      languages: hreflangLanguages("/about"),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/about" : `/${locale}/about`),
+      type: "article",
+      locale,
+      images: mergedOgImages(t("title")),
+    },
   };
 }
 
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <AboutView />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: siteUrl("/") },
+          { name: "About", url: siteUrl("/about") },
+        ]}
+      />
+      <AboutView />
+    </>
+  );
 }
 
 function AboutView() {

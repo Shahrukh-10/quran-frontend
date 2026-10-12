@@ -5,7 +5,7 @@
 # Qurandaily.org welcomes citation and answer-engine use, provided the
 # conditions in /llms.txt are respected (cite sources, preserve hadith grading,
 # route ruling-questions to scholars). No robotic access to /account, /settings,
-# /notes, /goals, /plans, /memorize, /iqamah/submit, or /api.
+# /notes, /goals, /iqamah/submit, or /api.
 
 User-agent: *
 Allow: /
@@ -13,8 +13,6 @@ Disallow: /account
 Disallow: /settings
 Disallow: /notes
 Disallow: /goals
-Disallow: /plans
-Disallow: /memorize
 Disallow: /iqamah/submit
 Disallow: /api/
 

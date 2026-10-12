@@ -2,12 +2,19 @@ import { HadithAudioButton } from "@/components/hadith/audio-button";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 import { Link } from "@/i18n/routing";
 import { breadcrumbs } from "@/lib/breadcrumbs";
-import { getBook, loadHadith, HADITH_BOOKS } from "@/lib/hadith";
+import {
+  HADITH_BOOKS,
+  HADITH_CONTENT_LOCALES,
+  getBook,
+  hadithContentLocale,
+  hasNativeHadithTranslation,
+  loadHadith,
+} from "@/lib/hadith";
+import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { hreflangLanguages } from "@/lib/seo";
 
 // Weekly ISR — one hadith per URL, generated on demand and cached at the edge.
 // Building 34,259 × 6 locales at ship time is unnecessary; the backend is fast
@@ -18,8 +25,7 @@ export const dynamicParams = true;
 export function generateStaticParams() {
   const params: Array<{ locale: string; book: string; number: string }> = [];
   const books = ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah"];
-  const localeList = ["en", "id", "ar", "ur", "tr", "fr"];
-  for (const locale of localeList) {
+  for (const locale of HADITH_CONTENT_LOCALES) {
     for (const book of books) {
       params.push({ locale, book, number: "1" });
     }
@@ -38,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b = getBook(book);
   if (!b || !isValidNumber(number)) return {};
   const h = await loadHadith(b.slug, number);
-  const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  const lang = hadithContentLocale(locale);
   const trans = h?.translation?.[lang] || h?.translation?.en || "";
   const desc = trans
     ? `${trans.slice(0, 180)}${trans.length > 180 ? "…" : ""} — ${b.name[lang]} #${number}${h?.grade ? `, graded ${h.grade}` : ""}. Compiled by ${b.compiler[lang]}.`
@@ -59,7 +65,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "hadith",
       "sunnah",
       h?.grade || "",
-    ].filter(Boolean).join(", "),
+    ]
+      .filter(Boolean)
+      .join(", "),
     alternates: {
       canonical: siteUrl(
         locale === "en" ? `/hadith/${book}/${number}` : `/${locale}/hadith/${book}/${number}`,
@@ -86,12 +94,14 @@ export default async function HadithDetailPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "hadith.detail" });
   const bc = await breadcrumbs(locale);
-  const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  const lang = hadithContentLocale(locale);
+  const usesFallback = !hasNativeHadithTranslation(locale);
   const h = await loadHadith(b.slug, number);
   if (!h) notFound();
 
   const englishText = h.translation.en || h.translation[lang] || "";
   const displayText = h.translation[lang] || h.translation.en || "";
+  const displayPreview = `${displayText.slice(0, 220)}${displayText.length > 220 ? "…" : ""}`;
 
   // Related hadith numbers — one before, one after (if the numbers are integers)
   const numInt = Number.parseInt(number, 10);
@@ -191,7 +201,13 @@ export default async function HadithDetailPage({ params }: Props) {
               the actual narration text in the initial HTML, not after JS hydration. */}
           {displayText && (
             <p className="mt-3 text-base leading-relaxed text-muted-foreground italic">
-              "{displayText.slice(0, 220)}{displayText.length > 220 ? "…" : ""}"
+              "{displayPreview}"
+            </p>
+          )}
+          {usesFallback && (
+            <p className="mt-4 rounded-xl border border-separator bg-surface p-3 text-sm text-muted-foreground">
+              Verified hadith translations are currently available in English and Bahasa Indonesia.
+              This hadith is shown in English until a reviewed Urdu source is added.
             </p>
           )}
         </div>
@@ -200,12 +216,7 @@ export default async function HadithDetailPage({ params }: Props) {
             <HadithAudioButton text={h.arabic} lang="ar" label="Arabic" size="md" />
           ) : null}
           {displayText ? (
-            <HadithAudioButton
-              text={displayText}
-              lang="en"
-              label="English"
-              size="md"
-            />
+            <HadithAudioButton text={displayText} lang="en" label="English" size="md" />
           ) : null}
         </div>
       </header>
@@ -246,9 +257,7 @@ export default async function HadithDetailPage({ params }: Props) {
               {lang === "id" ? "Bahasa Indonesia" : "English"}
             </span>
           </div>
-          <p className="mt-4 text-lg md:text-xl leading-[1.75] text-foreground/95">
-            {displayText}
-          </p>
+          <p className="mt-4 text-lg md:text-xl leading-[1.75] text-foreground/95">{displayText}</p>
         </section>
       )}
 
@@ -277,7 +286,10 @@ export default async function HadithDetailPage({ params }: Props) {
           <div>
             <dt className="text-xs text-muted-foreground">Compiled by</dt>
             <dd className="mt-1">
-              {b.compiler[lang]} · <span lang="ar" dir="rtl">{b.compilerArabic}</span>
+              {b.compiler[lang]} ·{" "}
+              <span lang="ar" dir="rtl">
+                {b.compilerArabic}
+              </span>
             </dd>
           </div>
           <div>
@@ -309,9 +321,7 @@ export default async function HadithDetailPage({ params }: Props) {
         <h2 id="about-book-heading" className="text-lg font-bold tracking-title">
           About {b.name[lang]}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          {b.description[lang]}
-        </p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.description[lang]}</p>
         <p className="mt-3 text-sm">
           <Link
             href={`/hadith/${b.slug}` as "/hadith/[book]"}
@@ -337,9 +347,7 @@ export default async function HadithDetailPage({ params }: Props) {
                 <span className="block text-xs uppercase tracking-widest text-muted-foreground">
                   Previous · {b.name[lang]} #{prevNum}
                 </span>
-                <span className="mt-2 block text-sm font-semibold">
-                  Read Hadith {prevNum}
-                </span>
+                <span className="mt-2 block text-sm font-semibold">Read Hadith {prevNum}</span>
               </Link>
             )}
             {nextNum && (
@@ -350,9 +358,7 @@ export default async function HadithDetailPage({ params }: Props) {
                 <span className="block text-xs uppercase tracking-widest text-muted-foreground">
                   Next · {b.name[lang]} #{nextNum}
                 </span>
-                <span className="mt-2 block text-sm font-semibold">
-                  Read Hadith {nextNum}
-                </span>
+                <span className="mt-2 block text-sm font-semibold">Read Hadith {nextNum}</span>
               </Link>
             )}
           </div>
@@ -390,16 +396,9 @@ export default async function HadithDetailPage({ params }: Props) {
         </h2>
         <div className="mt-4 space-y-4">
           {faqs.map((f) => (
-            <details
-              key={f.q}
-              className="rounded-2xl border border-separator bg-surface p-5"
-            >
-              <summary className="cursor-pointer text-base font-semibold">
-                {f.q}
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {f.a}
-              </p>
+            <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
+              <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
             </details>
           ))}
         </div>

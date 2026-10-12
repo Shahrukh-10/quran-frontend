@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const translation =
     loaded?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`;
   const title = `Quran ${s.number}:${ayahNum} — ${s.name} · "${translation.slice(0, 55)}${translation.length > 55 ? "…" : ""}"`;
-  const desc = `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic (Imlaei script), transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
+  const desc = `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic (Uthmani script), transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
   return {
     title: title.slice(0, 70),
     description: desc.slice(0, 300),
@@ -130,7 +130,7 @@ export default async function AyahPage({ params }: Props) {
         },
         {
           q: `What is the Arabic text of Surah ${s.name} verse ${ayahNum}?`,
-          a: `The Arabic (Imlaei script): ${a.arabic}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
+          a: `The Arabic (Uthmani script): ${a.uthmani ?? a.arabic}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
         },
         {
           q: `Which juz and page is Quran ${s.number}:${ayahNum} in?`,
@@ -174,7 +174,7 @@ export default async function AyahPage({ params }: Props) {
         url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
       />
       <AyahQuotationSchema
-        arabic={a?.arabic ?? ""}
+        arabic={a?.uthmani ?? a?.arabic ?? ""}
         translation={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
         surahName={s.name}
         surahNumber={s.number}

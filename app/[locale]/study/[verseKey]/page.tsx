@@ -243,7 +243,7 @@ export default async function StudyAyahPage({ params, searchParams }: SearchProp
           dir="rtl"
           lang="ar"
         >
-          {cleanArabicForDisplay(ayah.arabic)}
+          {cleanArabicForDisplay(ayah.uthmani ?? ayah.arabic)}
         </p>
         {ayah.transliteration ? (
           <p className="mt-3 text-sm italic text-muted-foreground">{ayah.transliteration}</p>

@@ -19,6 +19,7 @@ export type Ayah = {
   surah: number;
   ayah: number;
   arabic: string; // Imlaei (modern standard script)
+  uthmani?: string; // Uthmani mushaf script from Quran.com Foundation data
   transliteration?: string;
   translations: Record<string, string>; // key = translation id (e.g. "en.sahih")
   juz: number;
@@ -28,6 +29,14 @@ export type Ayah = {
 };
 
 const surahs = surahsMeta as ReadonlyArray<Surah>;
+
+type QuranComVerse = {
+  verse_number: number;
+  text_uthmani?: string;
+  text_imlaei?: string;
+  page_number?: number;
+  juz_number?: number;
+};
 
 export function getAllSurahs(): ReadonlyArray<Surah> {
   return surahs;
@@ -50,7 +59,25 @@ export function totalAyahCount(): number {
 export async function loadSurahAyat(surahNumber: number): Promise<Ayah[] | undefined> {
   try {
     const mod = (await import(`@/data/quran/surahs/${surahNumber}.json`)) as { default: Ayah[] };
-    return mod.default;
+    const ayat = mod.default;
+    try {
+      const qcMod = (await import(`@/quran-data/verses/${surahNumber}.json`)) as {
+        default: QuranComVerse[];
+      };
+      const byAyah = new Map(qcMod.default.map((v) => [v.verse_number, v]));
+      return ayat.map((a) => {
+        const qc = byAyah.get(a.ayah);
+        return {
+          ...a,
+          uthmani: qc?.text_uthmani ?? a.uthmani,
+          arabic: qc?.text_imlaei ?? a.arabic,
+          juz: qc?.juz_number ?? a.juz,
+          page: qc?.page_number ?? a.page,
+        };
+      });
+    } catch {
+      return ayat;
+    }
   } catch {
     return undefined;
   }

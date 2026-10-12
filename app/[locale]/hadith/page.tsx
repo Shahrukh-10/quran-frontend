@@ -1,15 +1,19 @@
 import { BreadcrumbSchema, FaqSchema } from "@/components/seo/structured-data";
-import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { breadcrumbs } from "@/lib/breadcrumbs";
-import { getAllBooks } from "@/lib/hadith";
+import {
+  HADITH_CONTENT_LOCALES,
+  getAllBooks,
+  hadithContentLocale,
+  hasNativeHadithTranslation,
+} from "@/lib/hadith";
+import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { hreflangLanguages } from "@/lib/seo";
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return HADITH_CONTENT_LOCALES.map((locale) => ({ locale }));
 }
 
 type Props = { params: Promise<{ locale: string }> };
@@ -22,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     alternates: {
       canonical: siteUrl(locale === "en" ? "/hadith" : `/${locale}/hadith`),
-      languages: hreflangLanguages('/hadith'),
+      languages: hreflangLanguages("/hadith"),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? "/hadith" : `/${locale}/hadith`),
@@ -35,7 +39,8 @@ export default async function HadithIndexPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "hadith.index" });
   const bc = await breadcrumbs(locale);
-  const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  const lang = hadithContentLocale(locale);
+  const usesFallback = !hasNativeHadithTranslation(locale);
   const books = getAllBooks();
 
   return (
@@ -43,34 +48,34 @@ export default async function HadithIndexPage({ params }: Props) {
       <FaqSchema
         items={[
           {
-            question: 'What are the six canonical hadith books?',
+            question: "What are the six canonical hadith books?",
             answer:
-              'The Kutub as-Sittah (Six Books) are: Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim, Sunan Abū Dāwūd, Jāmiʿ at-Tirmidhī, Sunan an-Nasāʾī, and Sunan Ibn Mājah. Together they contain roughly 40,000 unique narrations (with overlap and repetitions counted, over 60,000 traditions) covering theology, law, ethics, and Prophetic biography.',
+              "The Kutub as-Sittah (Six Books) are: Ṣaḥīḥ al-Bukhārī, Ṣaḥīḥ Muslim, Sunan Abū Dāwūd, Jāmiʿ at-Tirmidhī, Sunan an-Nasāʾī, and Sunan Ibn Mājah. Together they contain roughly 40,000 unique narrations (with overlap and repetitions counted, over 60,000 traditions) covering theology, law, ethics, and Prophetic biography.",
           },
           {
-            question: 'Where do the hadith texts and translations come from?',
+            question: "Where do the hadith texts and translations come from?",
             answer:
-              'Hadith Arabic text and English translation are sourced from Sunnah.com — a scholarly project curated by the AlMaghrib Institute and volunteer researchers. Where authenticity grading (ṣaḥīḥ, ḥasan, ḍaʿīf) has been recorded by classical scholars, we preserve it verbatim.',
+              "Hadith Arabic text and English translation are sourced from Sunnah.com — a scholarly project curated by the AlMaghrib Institute and volunteer researchers. Where authenticity grading (ṣaḥīḥ, ḥasan, ḍaʿīf) has been recorded by classical scholars, we preserve it verbatim.",
           },
           {
-            question: 'What is hadith grading and why does it matter?',
+            question: "What is hadith grading and why does it matter?",
             answer:
-              'A hadith\'s authenticity grade is a classical Muslim assessment of how reliably its chain of narrators traces back to the Prophet ﷺ. ṣaḥīḥ = authentic, ḥasan = good, ḍaʿīf = weak. Only ṣaḥīḥ and ḥasan hadith are typically used to derive rulings; ḍaʿīf may be quoted for exhortation but not for law.',
+              "A hadith's authenticity grade is a classical Muslim assessment of how reliably its chain of narrators traces back to the Prophet ﷺ. ṣaḥīḥ = authentic, ḥasan = good, ḍaʿīf = weak. Only ṣaḥīḥ and ḥasan hadith are typically used to derive rulings; ḍaʿīf may be quoted for exhortation but not for law.",
           },
           {
-            question: 'How many hadith are on Quran Daily?',
+            question: "How many hadith are on Quran Daily?",
             answer:
-              'The site indexes over 34,000 hadith narrations across all six canonical books. Each hadith has its own permalink at /hadith/[book]/[number] with the Arabic text, English translation, book, chapter, hadith number, and authenticity grade where known.',
+              "The site indexes over 34,000 hadith narrations across all six canonical books. Each hadith has its own permalink at /hadith/[book]/[number] with the Arabic text, English translation, book, chapter, hadith number, and authenticity grade where known.",
           },
           {
-            question: 'Can I listen to a hadith being read aloud?',
+            question: "Can I listen to a hadith being read aloud?",
             answer:
-              'Every hadith detail page includes a Listen button that speaks the Arabic text using your browser\'s built-in text-to-speech (SpeechSynthesis API). This is text-to-speech playback, not classical Qari recitation — for full-book audio recordings by a qualified reciter, consult Sunnah.com\'s audio archive.',
+              "Every hadith detail page includes a Listen button that speaks the Arabic text using your browser's built-in text-to-speech (SpeechSynthesis API). This is text-to-speech playback, not classical Qari recitation — for full-book audio recordings by a qualified reciter, consult Sunnah.com's audio archive.",
           },
           {
-            question: 'Are Shia hadith collections included?',
+            question: "Are Shia hadith collections included?",
             answer:
-              'Not currently. Quran Daily indexes the six canonical Sunni collections (Kutub as-Sittah). The four main Shia collections (al-Kāfī, Man lā yaḥḍuruhu al-Faqīh, Tahdhīb al-Aḥkām, al-Istibṣār) are outside our current corpus but may be added in future with clear denominational labeling.',
+              "Not currently. Quran Daily indexes the six canonical Sunni collections (Kutub as-Sittah). The four main Shia collections (al-Kāfī, Man lā yaḥḍuruhu al-Faqīh, Tahdhīb al-Aḥkām, al-Istibṣār) are outside our current corpus but may be added in future with clear denominational labeling.",
           },
         ]}
       />
@@ -82,15 +87,19 @@ export default async function HadithIndexPage({ params }: Props) {
       />
 
       <header className="text-center">
-        <p className="text-sm text-muted-foreground uppercase tracking-widest">
-          {t("eyebrow")}
-        </p>
+        <p className="text-sm text-muted-foreground uppercase tracking-widest">{t("eyebrow")}</p>
         <h1 className="mt-3 text-[clamp(2rem,4vw,3rem)] font-bold tracking-display">
           {t("title")}
         </h1>
         <p className="mt-4 mx-auto max-w-prose text-muted-foreground leading-relaxed">
           {t("description")}
         </p>
+        {usesFallback && (
+          <p className="mt-4 mx-auto max-w-prose rounded-xl border border-separator bg-surface p-3 text-sm text-muted-foreground">
+            Verified hadith translations are currently available in English and Bahasa Indonesia.
+            This page uses English hadith content until a reviewed Urdu translation source is added.
+          </p>
+        )}
       </header>
 
       <section aria-labelledby="collections-heading" className="mt-12">

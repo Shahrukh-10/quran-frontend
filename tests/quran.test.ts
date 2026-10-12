@@ -3,6 +3,8 @@ import {
   getSurahByNumber,
   getSurahBySlug,
   globalAyahNumber,
+  loadAyah,
+  loadSurahAyat,
   totalAyahCount,
 } from "@/lib/quran";
 import { describe, expect, it } from "vitest";
@@ -27,4 +29,22 @@ describe("quran metadata", () => {
     expect(globalAyahNumber(2, 1)).toBe(8);
     expect(globalAyahNumber(114, 6)).toBe(6236);
   });
+  it("loads Uthmani mushaf text for reader rendering", async () => {
+    await expect(loadAyah(1, 1)).resolves.toMatchObject({
+      arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      uthmani: "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+    });
+  });
+  it("has Uthmani text for every loaded ayah", async () => {
+    let total = 0;
+    for (const surah of getAllSurahs()) {
+      const ayat = await loadSurahAyat(surah.number);
+      expect(ayat?.length).toBe(surah.ayahCount);
+      for (const ayah of ayat ?? []) {
+        expect(ayah.uthmani, `${surah.number}:${ayah.ayah}`).toBeTruthy();
+        total++;
+      }
+    }
+    expect(total).toBe(6236);
+  }, 60_000);
 });

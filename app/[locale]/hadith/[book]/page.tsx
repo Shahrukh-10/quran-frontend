@@ -1,15 +1,14 @@
 import { HadithVirtualList } from "@/components/hadith/virtual-list";
-import {
-  BreadcrumbSchema,
-  HadithQuotationSchema,
-} from "@/components/seo/structured-data";
-import { locales } from "@/i18n/config";
+import { BreadcrumbSchema, HadithQuotationSchema } from "@/components/seo/structured-data";
 import { Link } from "@/i18n/routing";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import {
+  HADITH_CONTENT_LOCALES,
   HADITH_PAGE_SIZE,
   getAllBooks,
   getBook,
+  hadithContentLocale,
+  hasNativeHadithTranslation,
   loadHadithPage,
 } from "@/lib/hadith";
 import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
@@ -23,7 +22,7 @@ export const revalidate = 604800;
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; book: string }> = [];
-  for (const locale of locales) {
+  for (const locale of HADITH_CONTENT_LOCALES) {
     for (const b of getAllBooks()) {
       params.push({ locale, book: b.slug });
     }
@@ -48,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, book } = await params;
   const b = getBook(book);
   if (!b) return {};
-  const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  const lang = hadithContentLocale(locale);
   return {
     title: `${b.name[lang]} · ${b.totalHadith.toLocaleString()} hadith`,
     description: b.description[lang],
@@ -73,7 +72,8 @@ export default async function HadithBookPage({ params, searchParams }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "hadith.book" });
   const bc = await breadcrumbs(locale);
-  const lang = (locale === "id" ? "id" : "en") as "en" | "id";
+  const lang = hadithContentLocale(locale);
+  const usesFallback = !hasNativeHadithTranslation(locale);
 
   const pageOne = readPageParam(sp); // 1-indexed for the URL
   const zeroIdx = pageOne - 1;
@@ -111,10 +111,7 @@ export default async function HadithBookPage({ params, searchParams }: Props) {
         url={siteUrl(`/hadith/${b.slug}`)}
       />
 
-      <Link
-        href="/hadith"
-        className="focus-ring text-sm text-accent hover:underline inline-block"
-      >
+      <Link href="/hadith" className="focus-ring text-sm text-accent hover:underline inline-block">
         {t("backToIndex")}
       </Link>
 
@@ -127,6 +124,12 @@ export default async function HadithBookPage({ params, searchParams }: Props) {
           {b.arabicName}
         </p>
         <p className="mt-3 text-muted-foreground">{b.description[lang]}</p>
+        {usesFallback && (
+          <p className="mt-4 mx-auto max-w-prose rounded-xl border border-separator bg-surface p-3 text-sm text-muted-foreground">
+            Verified hadith translations are currently available in English and Bahasa Indonesia.
+            This collection is shown in English until a reviewed Urdu hadith source is added.
+          </p>
+        )}
         <p className="mt-4 text-xs text-muted-foreground uppercase tracking-widest">
           {b.compiler[lang]} · {b.eraCE}
         </p>
@@ -140,20 +143,10 @@ export default async function HadithBookPage({ params, searchParams }: Props) {
         className="mt-10 flex flex-wrap items-center justify-between gap-3 text-sm"
       >
         <div className="flex items-center gap-2">
-          <PagerLink
-            book={b.slug}
-            locale={locale}
-            page={prevPage}
-            disabled={prevPage === null}
-          >
+          <PagerLink book={b.slug} locale={locale} page={prevPage} disabled={prevPage === null}>
             ← Prev
           </PagerLink>
-          <PagerLink
-            book={b.slug}
-            locale={locale}
-            page={nextPage}
-            disabled={nextPage === null}
-          >
+          <PagerLink book={b.slug} locale={locale} page={nextPage} disabled={nextPage === null}>
             Next →
           </PagerLink>
         </div>
@@ -191,31 +184,20 @@ export default async function HadithBookPage({ params, searchParams }: Props) {
       </nav>
 
       <section aria-label="Hadiths on this page" className="mt-6">
-        <HadithVirtualList
-          hadiths={pageData.hadiths}
-          lang={lang}
-          bookLabel={b.name[lang]}
-        />
+        <HadithVirtualList hadiths={pageData.hadiths} lang={lang} bookLabel={b.name[lang]} />
       </section>
 
-      <nav aria-label="Pagination (bottom)" className="mt-8 flex items-center justify-between text-sm">
-        <PagerLink
-          book={b.slug}
-          locale={locale}
-          page={prevPage}
-          disabled={prevPage === null}
-        >
+      <nav
+        aria-label="Pagination (bottom)"
+        className="mt-8 flex items-center justify-between text-sm"
+      >
+        <PagerLink book={b.slug} locale={locale} page={prevPage} disabled={prevPage === null}>
           ← Prev
         </PagerLink>
         <p className="text-muted-foreground">
           Page {clampedPage.toLocaleString()} / {totalPages.toLocaleString()}
         </p>
-        <PagerLink
-          book={b.slug}
-          locale={locale}
-          page={nextPage}
-          disabled={nextPage === null}
-        >
+        <PagerLink book={b.slug} locale={locale} page={nextPage} disabled={nextPage === null}>
           Next →
         </PagerLink>
       </nav>

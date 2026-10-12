@@ -109,6 +109,16 @@ export const HADITH_BOOKS: readonly HadithBook[] = [
 ] as const;
 
 export type HadithBookSlug = (typeof HADITH_BOOKS)[number]["slug"];
+export const HADITH_CONTENT_LOCALES = ["en", "id"] as const;
+export type HadithContentLocale = (typeof HADITH_CONTENT_LOCALES)[number];
+
+export function hadithContentLocale(locale: string): HadithContentLocale {
+  return locale === "id" ? "id" : "en";
+}
+
+export function hasNativeHadithTranslation(locale: string): boolean {
+  return (HADITH_CONTENT_LOCALES as readonly string[]).includes(locale);
+}
 
 export function getAllBooks(): ReadonlyArray<HadithBook> {
   return HADITH_BOOKS;
@@ -171,9 +181,7 @@ export async function loadHadith(
   book: HadithBookSlug,
   number: string | number,
 ): Promise<Hadith | undefined> {
-  const data = await fetchJson<Hadith>(
-    `/hadith/${book}/${encodeURIComponent(String(number))}`,
-  );
+  const data = await fetchJson<Hadith>(`/hadith/${book}/${encodeURIComponent(String(number))}`);
   // Strip U+200F/U+200E bidi controls that render as visible dots in some
   // Arabic fonts (see lib/hadith-text.ts for the full rationale).
   return cleanHadithPayload(data);
@@ -186,8 +194,6 @@ export async function loadHadithPage(
 ): Promise<HadithPage | undefined> {
   const safeSize = Math.max(1, Math.min(200, size));
   const safePage = Math.max(0, page);
-  const data = await fetchJson<HadithPage>(
-    `/hadith/${book}?page=${safePage}&size=${safeSize}`,
-  );
+  const data = await fetchJson<HadithPage>(`/hadith/${book}?page=${safePage}&size=${safeSize}`);
   return cleanHadithPayload(data);
 }

@@ -1,4 +1,7 @@
+import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
+import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -15,6 +18,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t("title"),
     description: t("intro"),
+    alternates: {
+      canonical: siteUrl(locale === "en" ? "/sources" : `/${locale}/sources`),
+      languages: hreflangLanguages("/sources"),
+    },
+    openGraph: {
+      url: siteUrl(locale === "en" ? "/sources" : `/${locale}/sources`),
+      type: "article",
+      locale,
+      images: mergedOgImages(t("title")),
+    },
   };
 }
 
@@ -64,7 +77,17 @@ const sources = {
 export default async function SourcesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <SourcesView />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: siteUrl("/") },
+          { name: "Sources", url: siteUrl("/sources") },
+        ]}
+      />
+      <SourcesView />
+    </>
+  );
 }
 
 function SourcesView() {

@@ -31,7 +31,8 @@ export function OrganizationSchema() {
     <LdJson
       data={{
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["Organization", "NGO"],
+        "@id": siteUrl("/#organization"),
         name: siteName,
         url: siteUrl("/"),
         logo: siteUrl("/icons/icon-512.png"),
@@ -39,6 +40,19 @@ export function OrganizationSchema() {
         // Add real profiles as they come online; empty array is fine but no
         // less useful than omitting the key.
         sameAs: [],
+        knowsAbout: [
+          "Quran",
+          "Hadith",
+          "Dua",
+          "Prayer times",
+          "Qibla direction",
+          "Salah",
+          "Hijri calendar",
+          "Names of Allah",
+          "Islamic learning",
+        ],
+        publishingPrinciples: siteUrl("/sources"),
+        ethicsPolicy: siteUrl("/about"),
         description:
           "Free, sourced, offline-first Quran, hadith, duas, prayer times, Qibla, and Salah tutorials. Every ayah and hadith cites its source.",
       }}
@@ -52,14 +66,13 @@ export function WebSiteSchema() {
       data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": siteUrl("/#website"),
         name: siteName,
         alternateName: ["Quran Daily", "QuranDaily"],
         url: siteUrl("/"),
         inLanguage: ["en", "id", "ar", "fr", "tr", "ur"],
         publisher: {
-          "@type": "Organization",
-          name: siteName,
-          logo: siteUrl("/icons/icon-512.png"),
+          "@id": siteUrl("/#organization"),
         },
         // Sitelinks searchbox: MUST point at a URL that actually returns
         // search results. `/search` is disallowed in robots.txt precisely
@@ -94,6 +107,35 @@ export function WebSiteSchema() {
             "[itemprop='description']",
           ],
         },
+      }}
+    />
+  );
+}
+
+export function SiteNavigationSchema() {
+  const items = [
+    ["Quran", "/quran"],
+    ["Hadith", "/hadith"],
+    ["Duas", "/duas"],
+    ["Prayer Times", "/prayer-times"],
+    ["Qibla", "/qibla"],
+    ["Learn Salah", "/learn-salah"],
+    ["99 Names of Allah", "/names-of-allah"],
+    ["Sources", "/sources"],
+  ] as const;
+  return (
+    <LdJson
+      data={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": siteUrl("/#primary-navigation"),
+        name: "Quran Daily primary sections",
+        itemListElement: items.map(([name, path], index) => ({
+          "@type": "SiteNavigationElement",
+          position: index + 1,
+          name,
+          url: siteUrl(path),
+        })),
       }}
     />
   );

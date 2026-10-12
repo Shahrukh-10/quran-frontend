@@ -10,7 +10,8 @@ import { ImageResponse } from "next/og";
 // on Cloudflare Pages it runs on the edge. Declaring `edge` here causes
 // the dev server to hang on first hit in Next 15.5.x (empty reply from
 // server); the default resolves cleanly.
-export const alt = "Quran Daily — Quran, hadith, duas, prayer times, Qibla, Salah tutorials";
+export const alt =
+  "Quran Daily — sourced Quran, hadith, duas, prayer times, Qibla, Salah tutorials";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -80,7 +81,7 @@ export default async function Image() {
             opacity: 0.82,
           }}
         >
-          Every ayah, dua, and hadith cites its source. No ads. No tracking. No login required.
+          Every ayah, dua, and hadith cites its source. No ads. No login required.
         </div>
       </div>
 

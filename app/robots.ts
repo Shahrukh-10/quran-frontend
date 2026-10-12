@@ -19,13 +19,10 @@ import type { MetadataRoute } from "next";
 export default function robots(): MetadataRoute.Robots {
   const disallow = [
     "/search",
-    "/compare",
     "/account",
     "/settings",
     "/notes",
     "/goals",
-    "/plans",
-    "/memorize",
     "/iqamah/submit",
     "/api/",
     "/*?page=",
@@ -43,107 +40,107 @@ export default function robots(): MetadataRoute.Robots {
       },
 
       // ─── Traditional search engines ────────────────────────────────
-      { userAgent: "Googlebot",       allow: "/", disallow },
+      { userAgent: "Googlebot", allow: "/", disallow },
       { userAgent: "Googlebot-Image", allow: "/", disallow },
-      { userAgent: "Googlebot-News",  allow: "/", disallow },
+      { userAgent: "Googlebot-News", allow: "/", disallow },
       { userAgent: "Google-InspectionTool", allow: "/", disallow },
-      { userAgent: "Bingbot",         allow: "/", disallow },
-      { userAgent: "DuckDuckBot",     allow: "/", disallow },
-      { userAgent: "YandexBot",       allow: "/", disallow },
-      { userAgent: "Baiduspider",     allow: "/", disallow },
-      { userAgent: "Yeti",            allow: "/", disallow }, // Naver
-      { userAgent: "Applebot",        allow: "/", disallow },
+      { userAgent: "Bingbot", allow: "/", disallow },
+      { userAgent: "DuckDuckBot", allow: "/", disallow },
+      { userAgent: "YandexBot", allow: "/", disallow },
+      { userAgent: "Baiduspider", allow: "/", disallow },
+      { userAgent: "Yeti", allow: "/", disallow }, // Naver
+      { userAgent: "Applebot", allow: "/", disallow },
 
       // ─── AI answer engines & LLM training crawlers ─────────────────
       // OpenAI
-      { userAgent: "GPTBot",          allow: "/", disallow },
-      { userAgent: "OAI-SearchBot",   allow: "/", disallow }, // ChatGPT Search
-      { userAgent: "ChatGPT-User",    allow: "/", disallow }, // ChatGPT Actions
+      { userAgent: "GPTBot", allow: "/", disallow },
+      { userAgent: "OAI-SearchBot", allow: "/", disallow }, // ChatGPT Search
+      { userAgent: "ChatGPT-User", allow: "/", disallow }, // ChatGPT Actions
       // Anthropic
-      { userAgent: "ClaudeBot",       allow: "/", disallow },
-      { userAgent: "Claude-Web",      allow: "/", disallow },
-      { userAgent: "anthropic-ai",    allow: "/", disallow },
+      { userAgent: "ClaudeBot", allow: "/", disallow },
+      { userAgent: "Claude-Web", allow: "/", disallow },
+      { userAgent: "anthropic-ai", allow: "/", disallow },
       { userAgent: "Claude-SearchBot", allow: "/", disallow },
       // Google Gemini / Vertex
       { userAgent: "Google-Extended", allow: "/", disallow }, // Bard / Gemini training
-      { userAgent: "GoogleOther",     allow: "/", disallow },
+      { userAgent: "GoogleOther", allow: "/", disallow },
       { userAgent: "Google-CloudVertexBot", allow: "/", disallow },
       // Perplexity
-      { userAgent: "PerplexityBot",   allow: "/", disallow },
+      { userAgent: "PerplexityBot", allow: "/", disallow },
       { userAgent: "Perplexity-User", allow: "/", disallow },
       // Meta / Facebook
       { userAgent: "Meta-ExternalAgent", allow: "/", disallow },
       { userAgent: "Meta-ExternalFetcher", allow: "/", disallow },
-      { userAgent: "FacebookBot",     allow: "/", disallow },
+      { userAgent: "FacebookBot", allow: "/", disallow },
       { userAgent: "facebookexternalhit", allow: "/", disallow }, // OG previews
       // Microsoft Copilot / Bing chat
-      { userAgent: "CCBot",           allow: "/", disallow }, // Common Crawl (feeds many LLMs)
+      { userAgent: "CCBot", allow: "/", disallow }, // Common Crawl (feeds many LLMs)
       // Amazon
-      { userAgent: "Amazonbot",       allow: "/", disallow },
+      { userAgent: "Amazonbot", allow: "/", disallow },
       // Cohere
-      { userAgent: "cohere-ai",       allow: "/", disallow },
+      { userAgent: "cohere-ai", allow: "/", disallow },
       { userAgent: "cohere-training-data-crawler", allow: "/", disallow },
       // Apple Intelligence
       { userAgent: "Applebot-Extended", allow: "/", disallow },
       // You.com
-      { userAgent: "YouBot",          allow: "/", disallow },
+      { userAgent: "YouBot", allow: "/", disallow },
       // Mistral / xAI / Diffbot / others
-      { userAgent: "MistralAI-User",  allow: "/", disallow },
-      { userAgent: "Diffbot",         allow: "/", disallow },
-      { userAgent: "AwarioRssBot",    allow: "/", disallow },
-      { userAgent: "AwarioSmartBot",  allow: "/", disallow },
-      { userAgent: "DataForSeoBot",   allow: "/", disallow },
-      { userAgent: "PetalBot",        allow: "/", disallow }, // Huawei
+      { userAgent: "MistralAI-User", allow: "/", disallow },
+      { userAgent: "Diffbot", allow: "/", disallow },
+      { userAgent: "AwarioRssBot", allow: "/", disallow },
+      { userAgent: "AwarioSmartBot", allow: "/", disallow },
+      { userAgent: "DataForSeoBot", allow: "/", disallow },
+      { userAgent: "PetalBot", allow: "/", disallow }, // Huawei
       // ByteDance (TikTok search / Doubao)
-      { userAgent: "Bytespider",      allow: "/", disallow },
-      { userAgent: "ByteDance",       allow: "/", disallow },
+      { userAgent: "Bytespider", allow: "/", disallow },
+      { userAgent: "ByteDance", allow: "/", disallow },
       // Zhipu / Kimi / Chinese LLMs
-      { userAgent: "ChatGLM-Spider",  allow: "/", disallow },
+      { userAgent: "ChatGLM-Spider", allow: "/", disallow },
       // ─── Emerging AI answer engines & LLM crawlers (added 2026-09) ──
       // Kimi (Moonshot AI) — no confirmed public UA string yet, but they
       // scrape via multiple spiders. Names below are what practitioners
       // report in raw web-server logs as of 2026 Q3. Including them is
       // defensive and costs nothing if the UA never shows up.
-      { userAgent: "KimiSpider",      allow: "/", disallow },
-      { userAgent: "Moonshot",        allow: "/", disallow },
-      { userAgent: "Moonshot-AI",     allow: "/", disallow },
+      { userAgent: "KimiSpider", allow: "/", disallow },
+      { userAgent: "Moonshot", allow: "/", disallow },
+      { userAgent: "Moonshot-AI", allow: "/", disallow },
       // Manus AI (China's general-purpose autonomous agent, Butterfly Effect)
-      { userAgent: "ManusCrawler",    allow: "/", disallow },
-      { userAgent: "Manus-Bot",       allow: "/", disallow },
+      { userAgent: "ManusCrawler", allow: "/", disallow },
+      { userAgent: "Manus-Bot", allow: "/", disallow },
       // DeepSeek — very popular reasoning/coding LLM
-      { userAgent: "DeepSeekBot",     allow: "/", disallow },
-      { userAgent: "DeepSeek-Web",    allow: "/", disallow },
+      { userAgent: "DeepSeekBot", allow: "/", disallow },
+      { userAgent: "DeepSeek-Web", allow: "/", disallow },
       // Alibaba Qwen / Tongyi family
-      { userAgent: "QwenBot",         allow: "/", disallow },
-      { userAgent: "Qwen-Web",        allow: "/", disallow },
-      { userAgent: "Alibaba-AI",      allow: "/", disallow },
-      { userAgent: "TongyiSpider",    allow: "/", disallow },
+      { userAgent: "QwenBot", allow: "/", disallow },
+      { userAgent: "Qwen-Web", allow: "/", disallow },
+      { userAgent: "Alibaba-AI", allow: "/", disallow },
+      { userAgent: "TongyiSpider", allow: "/", disallow },
       // ByteDance Doubao (separate from Bytespider)
-      { userAgent: "Doubao-Spider",   allow: "/", disallow },
+      { userAgent: "Doubao-Spider", allow: "/", disallow },
       // xAI (Elon's Grok) — currently rides on general Twitterbot but a
       // dedicated crawler is expected. Welcoming both names.
-      { userAgent: "xAI-Bot",         allow: "/", disallow },
-      { userAgent: "GrokBot",         allow: "/", disallow },
+      { userAgent: "xAI-Bot", allow: "/", disallow },
+      { userAgent: "GrokBot", allow: "/", disallow },
       // Yi / 01.AI (Kai-Fu Lee's model)
-      { userAgent: "Yi-Spider",       allow: "/", disallow },
-      { userAgent: "01AI-Bot",        allow: "/", disallow },
+      { userAgent: "Yi-Spider", allow: "/", disallow },
+      { userAgent: "01AI-Bot", allow: "/", disallow },
       // Baichuan
       { userAgent: "Baichuan-Spider", allow: "/", disallow },
       // Sensetime / Tencent Hunyuan
-      { userAgent: "HunyuanBot",      allow: "/", disallow },
-      { userAgent: "SensetimeBot",    allow: "/", disallow },
+      { userAgent: "HunyuanBot", allow: "/", disallow },
+      { userAgent: "SensetimeBot", allow: "/", disallow },
       // Naver HyperCLOVA (Korean)
-      { userAgent: "HyperCLOVABot",   allow: "/", disallow },
+      { userAgent: "HyperCLOVABot", allow: "/", disallow },
       // Timpi / Kagi / DDG-derived
-      { userAgent: "Kagibot",         allow: "/", disallow },
-      { userAgent: "Timpibot",        allow: "/", disallow },
+      { userAgent: "Kagibot", allow: "/", disallow },
+      { userAgent: "Timpibot", allow: "/", disallow },
       // Social media / share-preview
-      { userAgent: "Twitterbot",      allow: "/", disallow },
-      { userAgent: "LinkedInBot",     allow: "/", disallow },
-      { userAgent: "TelegramBot",     allow: "/", disallow },
-      { userAgent: "WhatsApp",        allow: "/", disallow },
-      { userAgent: "Slackbot",        allow: "/", disallow },
-      { userAgent: "Discordbot",      allow: "/", disallow },
+      { userAgent: "Twitterbot", allow: "/", disallow },
+      { userAgent: "LinkedInBot", allow: "/", disallow },
+      { userAgent: "TelegramBot", allow: "/", disallow },
+      { userAgent: "WhatsApp", allow: "/", disallow },
+      { userAgent: "Slackbot", allow: "/", disallow },
+      { userAgent: "Discordbot", allow: "/", disallow },
       // Islamic-content-aware indexers (help SEO in Arabic/Muslim-world search)
       { userAgent: "IslamicFinderBot", allow: "/", disallow },
     ],

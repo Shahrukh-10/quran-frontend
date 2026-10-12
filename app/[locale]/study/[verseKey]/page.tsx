@@ -11,6 +11,7 @@ import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getSurahByNumber, loadAyah } from "@/lib/quran";
 import { getAyahRef, getAyahRefByKey } from "@/lib/quran-index";
+import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
@@ -121,9 +122,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: desc,
     alternates: {
       canonical: siteUrl(locale === "en" ? path : `/${locale}${path}`),
-      languages: Object.fromEntries(
-        locales.map((l) => [l, siteUrl(l === "en" ? path : `/${l}${path}`)]),
-      ),
+      // Use shared hreflang helper so untranslated locales (ar/ur/tr/fr)
+      // that ship noindex per lib/seo.ts aren't advertised as hreflang
+      // alternates — advertising a noindex URL as an alternate is a
+      // signal-contradiction Google penalises.
+      languages: hreflangLanguages(path),
     },
     openGraph: {
       url: siteUrl(locale === "en" ? path : `/${locale}${path}`),

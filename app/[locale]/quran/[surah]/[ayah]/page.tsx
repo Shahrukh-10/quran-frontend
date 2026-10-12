@@ -6,10 +6,10 @@ import {
 } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllSurahs, getSurahBySlug, loadAyah, loadSurahAyat } from "@/lib/quran";
 import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
-import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -63,10 +63,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ayahNum = Number.parseInt(ayah, 10);
   if (!Number.isInteger(ayahNum) || ayahNum < 1 || ayahNum > s.ayahCount) return {};
   const loaded = await loadAyah(s.number, ayahNum);
-  const translation =
-    loaded?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`;
-  const title = `Quran ${s.number}:${ayahNum} — ${s.name} · "${translation.slice(0, 55)}${translation.length > 55 ? "…" : ""}"`;
-  const desc = `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic (Uthmani script), transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
+  const translation = loaded?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`;
+  // Build a title that includes a translation preview, but:
+  //   (a) strip bracketed translator insertions like `[performing]` / `[will be]`
+  //       so the SERP snippet doesn't carry noise, AND
+  //   (b) cut at a WORD boundary within a budget sized to the final 70-char
+  //       title cap — not blindly at char 55 — so we never ship a title that
+  //       Google further truncates mid-word (e.g. the old `"[p"` on 5:6).
+  const prefix = `Quran ${s.number}:${ayahNum} — ${s.name} · "`;
+  const SUFFIX = '"';
+  const TITLE_MAX = 70;
+  const previewBudget = Math.max(20, TITLE_MAX - prefix.length - SUFFIX.length - 1); // -1 for the ellipsis
+  const previewSource = translation
+    .replace(/\s*\[[^\]]*\]\s*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  let preview = previewSource;
+  if (preview.length > previewBudget) {
+    const hard = preview.slice(0, previewBudget);
+    const lastSpace = hard.lastIndexOf(" ");
+    const cut = lastSpace > Math.max(15, previewBudget * 0.5) ? hard.slice(0, lastSpace) : hard;
+    preview = `${cut.replace(/[\s,;:—–\-]+$/, "")}…`;
+  }
+  const title = `${prefix}${preview}${SUFFIX}`;
+  const desc = `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic text, transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
   return {
     title: title.slice(0, 70),
     description: desc.slice(0, 300),
@@ -190,10 +210,7 @@ export default async function AyahPage({ params }: Props) {
       )}
 
       {/* Visible breadcrumb — Google requires visible breadcrumb text on top of BreadcrumbList schema */}
-      <nav
-        aria-label="Breadcrumb"
-        className="mb-6 text-sm text-muted-foreground"
-      >
+      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-accent hover:underline">
           {bc("home")}
         </Link>
@@ -252,16 +269,12 @@ export default async function AyahPage({ params }: Props) {
           className="mt-10 rounded-2xl border border-separator bg-surface p-6"
           aria-labelledby="translations-heading"
         >
-          <h2
-            id="translations-heading"
-            className="text-lg font-bold tracking-title"
-          >
+          <h2 id="translations-heading" className="text-lg font-bold tracking-title">
             Translations of {s.name} {s.number}:{ayahNum}
           </h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            {translationsPresent.length} sourced translations of this verse.
-            Different translators make different choices — reading multiple
-            renderings deepens understanding.
+            {translationsPresent.length} sourced translations of this verse. Different translators
+            make different choices — reading multiple renderings deepens understanding.
           </p>
           {a.transliteration && (
             <div className="mt-4 rounded-xl bg-muted/30 p-4">
@@ -273,14 +286,9 @@ export default async function AyahPage({ params }: Props) {
           )}
           <dl className="mt-4 space-y-4">
             {translationsPresent.map((tr) => (
-              <div
-                key={tr.id}
-                className="border-t border-separator pt-4 first:border-0 first:pt-0"
-              >
+              <div key={tr.id} className="border-t border-separator pt-4 first:border-0 first:pt-0">
                 <dt className="text-sm font-semibold">{tr.name}</dt>
-                <dd className="mt-1 text-base leading-relaxed">
-                  {a.translations[tr.id]}
-                </dd>
+                <dd className="mt-1 text-base leading-relaxed">{a.translations[tr.id]}</dd>
                 <p className="mt-1 text-xs text-muted-foreground">{tr.note}</p>
               </div>
             ))}
@@ -293,14 +301,8 @@ export default async function AyahPage({ params }: Props) {
           isolated thin page. Each snippet includes the neighboring ayah's
           translation for meaningful content, not just "Next verse". */}
       {(prevAyah || nextAyah) && (
-        <section
-          className="mt-10"
-          aria-labelledby="context-heading"
-        >
-          <h2
-            id="context-heading"
-            className="text-lg font-bold tracking-title"
-          >
+        <section className="mt-10" aria-labelledby="context-heading">
+          <h2 id="context-heading" className="text-lg font-bold tracking-title">
             Surrounding verses in Surah {s.name}
           </h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -314,9 +316,7 @@ export default async function AyahPage({ params }: Props) {
                 </span>
                 <p className="mt-2 text-sm leading-relaxed">
                   {(prevAyah.translations["en.sahih"] ?? "").slice(0, 200)}
-                  {(prevAyah.translations["en.sahih"] ?? "").length > 200
-                    ? "…"
-                    : ""}
+                  {(prevAyah.translations["en.sahih"] ?? "").length > 200 ? "…" : ""}
                 </p>
               </Link>
             )}
@@ -330,9 +330,7 @@ export default async function AyahPage({ params }: Props) {
                 </span>
                 <p className="mt-2 text-sm leading-relaxed">
                   {(nextAyah.translations["en.sahih"] ?? "").slice(0, 200)}
-                  {(nextAyah.translations["en.sahih"] ?? "").length > 200
-                    ? "…"
-                    : ""}
+                  {(nextAyah.translations["en.sahih"] ?? "").length > 200 ? "…" : ""}
                 </p>
               </Link>
             )}
@@ -351,16 +349,9 @@ export default async function AyahPage({ params }: Props) {
           </h2>
           <div className="mt-4 space-y-4">
             {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="rounded-2xl border border-separator bg-surface p-5"
-              >
-                <summary className="cursor-pointer text-base font-semibold">
-                  {f.q}
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </p>
+              <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
+                <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
@@ -377,13 +368,11 @@ export default async function AyahPage({ params }: Props) {
           About Surah {s.name}
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          Surah {s.name} ({s.arabicName}) — <em>{s.englishTranslation}</em> — is
-          the {s.number}
-          {ord(s.number)} chapter of the Holy Quran. It contains {s.ayahCount}{" "}
-          verses (ayat) and was revealed in{" "}
-          {s.revelation === "meccan" ? "Mecca" : "Medina"}, making it a{" "}
-          {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah in the
-          traditional classification.
+          Surah {s.name} ({s.arabicName}) — <em>{s.englishTranslation}</em> — is the {s.number}
+          {ord(s.number)} chapter of the Holy Quran. It contains {s.ayahCount} verses (ayat) and was
+          revealed in {s.revelation === "meccan" ? "Mecca" : "Medina"}, making it a{" "}
+          {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah in the traditional
+          classification.
         </p>
         <p className="mt-3 text-sm">
           <Link
@@ -405,12 +394,8 @@ export default async function AyahPage({ params }: Props) {
               href={`/quran/${prevSlug}` as "/quran/[surah]/[ayah]"}
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
-              <span className="block text-xs text-muted-foreground">
-                {t("previous")}
-              </span>
-              <span className="mt-1 block font-semibold tracking-title">
-                Ayah {ayahNum - 1}
-              </span>
+              <span className="block text-xs text-muted-foreground">{t("previous")}</span>
+              <span className="mt-1 block font-semibold tracking-title">Ayah {ayahNum - 1}</span>
             </Link>
           )}
         </div>
@@ -420,12 +405,8 @@ export default async function AyahPage({ params }: Props) {
               href={`/quran/${nextSlug}` as "/quran/[surah]/[ayah]"}
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
-              <span className="block text-xs text-muted-foreground">
-                {t("next")}
-              </span>
-              <span className="mt-1 block font-semibold tracking-title">
-                Ayah {ayahNum + 1}
-              </span>
+              <span className="block text-xs text-muted-foreground">{t("next")}</span>
+              <span className="mt-1 block font-semibold tracking-title">Ayah {ayahNum + 1}</span>
             </Link>
           )}
         </div>

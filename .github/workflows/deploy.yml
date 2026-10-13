@@ -105,11 +105,24 @@ jobs:
             # accept it as a flag — so we write a temp override file and
             # pass the config path via env.
             rm -rf .next.new .next.prev
-            NEXT_BUILD_DIR=.next.new node node_modules/next/dist/bin/next build 2>&1 | tail -20 || {
-              echo "BUILD FAILED — live service untouched, no restart needed"
+            # IMPORTANT: do NOT pipe `next build` through `tail` here.
+            # `set -e` + a pipe makes bash evaluate the LAST command's exit
+            # code (tail, always 0), masking build failures. Also, piping
+            # through `tail` can detach bash from the still-running build
+            # process when tail hits its line budget on verbose builds —
+            # causing the next guard (`[ -f .next.new/BUILD_ID ]`) to run
+            # before the build has finished, producing the misleading
+            # "New build missing BUILD_ID" error. Capture the full log so
+            # we see WHICH typecheck/lint error failed when it fails.
+            if ! NEXT_BUILD_DIR=.next.new node node_modules/next/dist/bin/next build > /tmp/qd_build.log 2>&1; then
+              echo "BUILD FAILED — live service untouched. Last 60 lines of build log:"
+              tail -60 /tmp/qd_build.log
               rm -rf .next.new
               exit 1
-            }
+            fi
+            # Print the tail of the build log so successful deploys still
+            # show the "Compiled in Xs" summary + static-param counts.
+            tail -20 /tmp/qd_build.log
 
             # Verify the new build looks complete before touching .next
             [ -f .next.new/BUILD_ID ] || { echo "New build missing BUILD_ID"; rm -rf .next.new; exit 1; }

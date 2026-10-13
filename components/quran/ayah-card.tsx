@@ -247,7 +247,7 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
 
       {showArabic && (
         <p lang="ar" dir="rtl" className={`mt-5 font-quran leading-[2.4] text-right ${arabicSize}`}>
-          {cleanArabicForDisplay(ayah.uthmani ?? ayah.arabic)}
+          {cleanArabicForDisplay(ayah.arabic ?? ayah.uthmani)}
         </p>
       )}
 

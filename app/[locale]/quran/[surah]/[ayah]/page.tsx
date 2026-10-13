@@ -6,6 +6,7 @@ import {
 } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllSurahs, getSurahBySlug, loadAyah, loadSurahAyat } from "@/lib/quran";
 import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
@@ -150,7 +151,7 @@ export default async function AyahPage({ params }: Props) {
         },
         {
           q: `What is the Arabic text of Surah ${s.name} verse ${ayahNum}?`,
-          a: `The Arabic (Uthmani script): ${a.uthmani ?? a.arabic}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
+          a: `The Arabic text: ${cleanArabicForDisplay(a.arabic ?? a.uthmani ?? "")}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
         },
         {
           q: `Which juz and page is Quran ${s.number}:${ayahNum} in?`,
@@ -194,7 +195,7 @@ export default async function AyahPage({ params }: Props) {
         url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
       />
       <AyahQuotationSchema
-        arabic={a?.uthmani ?? a?.arabic ?? ""}
+        arabic={cleanArabicForDisplay(a?.arabic ?? a?.uthmani ?? "")}
         translation={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
         surahName={s.name}
         surahNumber={s.number}

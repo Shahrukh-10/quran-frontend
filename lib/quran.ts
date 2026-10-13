@@ -67,9 +67,20 @@ export async function loadSurahAyat(surahNumber: number): Promise<Ayah[] | undef
       const byAyah = new Map(qcMod.default.map((v) => [v.verse_number, v]));
       return ayat.map((a) => {
         const qc = byAyah.get(a.ayah);
+        // Strip U+0671 ARABIC LETTER ALEF WASLA (ٱ) from the Uthmani field.
+        // The site's canonical orthography is Imlaei (plain alef — ا) per
+        // the quran-frontend-dev skill: Indian / Pakistani / Bangladeshi /
+        // Turkish / North-African readers all reject the Madinah-Mushaf
+        // ٱ character. We keep the `uthmani` field as a FALLBACK for ayahs
+        // that don't yet have an Imlaei `arabic` field, but even the
+        // fallback must be ٱ-free so Google / AI crawlers can't pick up
+        // Uthmani text from the SSR RSC payload or client-component props.
+        const rawUthmani = qc?.text_uthmani ?? a.uthmani;
+        const cleanUthmani =
+          typeof rawUthmani === "string" ? rawUthmani.replace(/\u0671/g, "\u0627") : rawUthmani;
         return {
           ...a,
-          uthmani: qc?.text_uthmani ?? a.uthmani,
+          uthmani: cleanUthmani,
           arabic: qc?.text_imlaei ?? a.arabic,
           juz: qc?.juz_number ?? a.juz,
           page: qc?.page_number ?? a.page,

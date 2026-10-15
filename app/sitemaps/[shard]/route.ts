@@ -120,6 +120,20 @@ function surahMtime(surahNumber: number, surahSlug?: string): string {
   return tafsirMtime > dataMtime ? tafsirMtime : dataMtime;
 }
 
+// mtime of the shared duas data file + any per-dua authored commentary.
+// Mirrors `surahMtime` so that newly-authored dua commentary at
+// content/tafsir-duas/<slug>.json bumps lastmod only for that specific
+// /duas/<cat>/<slug> URL — not every dua page.
+function duaMtime(duaSlug?: string): string {
+  const dataMtime = safeMtime("data/duas/duas.json");
+  if (!duaSlug) return dataMtime;
+  const commentaryRel = `content/tafsir-duas/${duaSlug}.json`;
+  const commentaryAbs = path.join(REPO_ROOT, commentaryRel);
+  if (!existsSync(commentaryAbs)) return dataMtime;
+  const commentaryMtime = safeMtime(commentaryRel);
+  return commentaryMtime > dataMtime ? commentaryMtime : dataMtime;
+}
+
 // aggregate mtime across a set of files → max of the individual mtimes
 function aggregateMtime(relPaths: string[]): string {
   let best = "1970-01-01";
@@ -139,6 +153,10 @@ const ALL_SURAHS_MTIME = aggregateMtime(
   Object.keys(SURAH_MTIMES).map((n) => `data/quran/surahs/${n}.json`),
 );
 const DUAS_MTIME = safeMtime("data/duas/duas.json");
+const DUA_MTIMES: Record<string, string> = {};
+for (const d of getAllDuas()) {
+  DUA_MTIMES[d.slug] = duaMtime(d.slug);
+}
 const NAMES_MTIME = safeMtime("data/names.json");
 const CITIES_MTIME = safeMtime("lib/cities.ts");
 const SALAH_MTIME = safeMtime("data/salah/tutorials.json");
@@ -172,7 +190,12 @@ function lastmodForPath(p: string): string {
     return ALL_SURAHS_MTIME;
   }
   if (p === "/quran" || p === "/mushaf") return ALL_SURAHS_MTIME;
-  // Duas
+  // Duas — per-URL lastmod driven by content/tafsir-duas/<slug>.json mtime
+  // when authored commentary exists; falls back to the shared duas data mtime.
+  const duaMatch = p.match(/^\/duas\/[^/]+\/([^/]+)$/);
+  if (duaMatch?.[1]) {
+    return DUA_MTIMES[duaMatch[1]] ?? DUAS_MTIME;
+  }
   if (p === "/duas" || p.startsWith("/duas/")) return DUAS_MTIME;
   // Names of Allah
   if (p === "/names-of-allah" || p.startsWith("/names-of-allah/")) return NAMES_MTIME;

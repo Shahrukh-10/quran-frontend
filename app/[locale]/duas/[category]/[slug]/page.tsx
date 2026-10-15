@@ -3,6 +3,7 @@ import { ArticleSchema, BreadcrumbSchema, FaqSchema } from "@/components/seo/str
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { breadcrumbs } from "@/lib/breadcrumbs";
+import { getDuaCommentaryBySlug } from "@/lib/dua-commentary";
 import { getAllCategories, getAllDuas, getCategory, getDua, getDuasInCategory } from "@/lib/duas";
 import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
@@ -70,6 +71,7 @@ export default async function DuaPage({ params }: Props) {
   const cat = getCategory(category);
   const d = getDua(category, slug);
   if (!cat || !d) notFound();
+  const commentary = getDuaCommentaryBySlug(slug);
 
   const t = await getTranslations({ locale, namespace: "duas.dua" });
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
@@ -205,6 +207,34 @@ export default async function DuaPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      {/* About this dua — authored commentary (English only, same pattern as surah tafsir) */}
+      {commentary && locale === "en" && (
+        <section
+          aria-label={`About the dua for ${d.title.en}`}
+          className="mt-10 rounded-2xl border border-separator bg-surface p-6 md:p-8"
+        >
+          <h2 className="text-lg font-semibold tracking-title text-foreground">About this dua</h2>
+          <div
+            className="tafsir-intro mt-4 space-y-4 text-[0.95rem] leading-relaxed text-foreground/90"
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: authored HTML from content/tafsir-duas/*.json
+            dangerouslySetInnerHTML={{ __html: commentary.html }}
+          />
+          {commentary.sources?.length > 0 && (
+            <footer className="mt-5 border-t border-separator pt-4 text-xs text-muted-foreground">
+              <p className="font-medium text-foreground/80">Sources</p>
+              <ul className="mt-2 space-y-1">
+                {commentary.sources.map((srcItem) => (
+                  <li key={srcItem.label}>
+                    <cite className="not-italic font-medium">{srcItem.label}</cite>
+                    {srcItem.note ? ` — ${srcItem.note}` : null}
+                  </li>
+                ))}
+              </ul>
+            </footer>
+          )}
+        </section>
+      )}
 
       {/* About this category */}
       <section

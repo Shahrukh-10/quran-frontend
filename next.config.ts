@@ -97,6 +97,16 @@ const nextConfig: NextConfig = {
     // Domains kept empty — all imagery is local or data URLs (see docs/DESIGN.md).
     remotePatterns: [],
   },
+  // Skip Next.js internal ESLint+tsc during `next build` to prevent OOM on the
+  // 8 GB KVM2 VPS. We already run `pnpm typecheck` + `pnpm biome check` locally
+  // pre-commit, and the GHA pre-deploy checks (see CLAUDE.md) run them again
+  // before push. This disables ONLY the redundant check that `next build`
+  // runs AFTER compilation while static-prerendering 50k+ pages — that
+  // concurrency is what OOM-killed GHA run 38848729963 on 2026-10-16.
+  // Pattern: toolspace-seo-invariants §6 (same KVM2 host, 4 GB heap cap proven
+  // insufficient against combined tsc + static-param-scan RSS).
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
   experimental: {
     // Enable once every linked route exists. Right now we link to /quran, /duas, /prayer-times,
     // /qibla, /learn-salah as placeholders on the homepage — those pages ship in Weeks 3–5.

@@ -40,7 +40,7 @@
   "home": {
     "hero": {
       "title": "Baca Al-Quran Online — Terjemahan, Doa, Jadwal Sholat",
-      "subtitle": "Al-Quran gratis dengan 6 terjemahan, hadis, doa, jadwal sholat, dan arah kiblat. Setiap ayat mencantumkan sumber. Tanpa iklan. Tanpa pelacakan.",
+      "subtitle": "Al-Quran gratis dengan terjemahan bahasa Inggris dan Indonesia, hadis, doa, jadwal sholat, dan arah kiblat. Setiap ayat mencantumkan sumber. Tanpa iklan. Tanpa pelacakan.",
       "ctaPrimary": "Baca Al-Qur'an",
       "ctaSecondary": "Cari doa"
     },
@@ -131,7 +131,35 @@
       "intro": "Setiap ayat punya halaman dan URL tetap, jadi bisa dibagikan atau disematkan. Penanda hanya tersimpan di perangkat Anda.",
       "ayat": "ayat",
       "meccan": "Makkiyah",
-      "medinan": "Madaniyah"
+      "medinan": "Madaniyah",
+      "searchPlaceholder": "Cari 114 surah — berdasarkan nama, arti, atau nomor…",
+      "searchLabel": "Cari surah",
+      "groups": {
+        "tiwal": {
+          "title": "Al-Fatihah & Tujuh Surah Panjang (as-Sabʿ aṭ-Ṭiwāl)",
+          "caption": "Surah 1–7 — surah pembuka dan surah-surah terpanjang dalam mushaf."
+        },
+        "miin": {
+          "title": "Al-Miʾīn",
+          "caption": "Surah 8–29 — surah-surah agak panjang."
+        },
+        "mathani": {
+          "title": "Al-Mathānī",
+          "caption": "Surah 30–49 — surah-surah berukuran sedang yang diulang."
+        },
+        "mufassal_long": {
+          "title": "Al-Mufaṣṣal — Ṭiwāl (panjang)",
+          "caption": "Surah 50–77 — surah-surah terperinci, kelompok panjang."
+        },
+        "mufassal_med": {
+          "title": "Al-Mufaṣṣal — Awsāṭ (sedang)",
+          "caption": "Surah 78–92 — surah-surah terperinci, kelompok sedang."
+        },
+        "mufassal_short": {
+          "title": "Al-Mufaṣṣal — Qiṣār (pendek)",
+          "caption": "Surah 93–114 — surah-surah terperinci, kelompok pendek."
+        }
+      }
     },
     "surah": {
       "surahLabel": "Surah {number}",
@@ -173,7 +201,13 @@
     },
     "ayahActions": {
       "readTafsir": "Baca tafsir",
-      "wordByWord": "Kata per kata"
+      "wordByWord": "Kata per kata",
+      "playRecitation": "Putar tilawah",
+      "pauseRecitation": "Jeda tilawah",
+      "bookmark": "Tandai ayat ini",
+      "removeBookmark": "Hapus penanda",
+      "share": "Bagikan ayat ini",
+      "page": "Halaman"
     },
     "study": {
       "eyebrow": "Mode belajar",

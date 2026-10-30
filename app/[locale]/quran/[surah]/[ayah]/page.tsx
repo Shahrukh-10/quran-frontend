@@ -4,13 +4,13 @@ import {
   AyahQuotationSchema,
   BreadcrumbSchema,
 } from "@/components/seo/structured-data";
-import { locales } from "@/i18n/config";
+import { isLocale, locales, rtlLocales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllSurahs, getSurahBySlug, loadAyah, loadSurahAyat } from "@/lib/quran";
-import { hreflangLanguages, mergedOgImages } from "@/lib/seo";
-import { siteUrl } from "@/lib/site";
+import { buildAyahTitle, hreflangLanguages, mergedOgImages } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -52,8 +52,8 @@ const TRANSLATORS: Array<{ id: string; name: string; note: string }> = [
   },
   {
     id: "id.indonesian",
-    name: "Terjemahan Indonesia",
-    note: "Bahasa Indonesia translation for the largest Muslim-majority population.",
+    name: "Kementerian Agama RI",
+    note: "Bahasa Indonesia, edition id.indonesian, supplied through Al-Quran Cloud.",
   },
 ];
 
@@ -64,41 +64,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ayahNum = Number.parseInt(ayah, 10);
   if (!Number.isInteger(ayahNum) || ayahNum < 1 || ayahNum > s.ayahCount) return {};
   const loaded = await loadAyah(s.number, ayahNum);
-  const translation = loaded?.translations["en.sahih"] ?? `Ayah ${ayahNum} of Surah ${s.name}.`;
-  // Build a title that includes a translation preview, but:
-  //   (a) strip bracketed translator insertions like `[performing]` / `[will be]`
-  //       so the SERP snippet doesn't carry noise, AND
-  //   (b) cut at a WORD boundary within a budget sized to the final 70-char
-  //       title cap — not blindly at char 55 — so we never ship a title that
-  //       Google further truncates mid-word (e.g. the old `"[p"` on 5:6).
-  const prefix = `Quran ${s.number}:${ayahNum} — ${s.name} · "`;
-  const SUFFIX = '"';
-  const TITLE_MAX = 70;
-  const previewBudget = Math.max(20, TITLE_MAX - prefix.length - SUFFIX.length - 1); // -1 for the ellipsis
-  const previewSource = translation
-    .replace(/\s*\[[^\]]*\]\s*/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  let preview = previewSource;
-  if (preview.length > previewBudget) {
-    const hard = preview.slice(0, previewBudget);
-    const lastSpace = hard.lastIndexOf(" ");
-    const cut = lastSpace > Math.max(15, previewBudget * 0.5) ? hard.slice(0, lastSpace) : hard;
-    preview = `${cut.replace(/[\s,;:—–\-]+$/, "")}…`;
-  }
-  const title = `${prefix}${preview}${SUFFIX}`;
-  const desc = `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic text, transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
+  const isIndonesian = locale === "id";
+  const translation = loaded?.translations[isIndonesian ? "id.indonesian" : "en.sahih"] ?? "";
+  const title = buildAyahTitle(s.number, ayahNum, s.name, translation);
+  const desc = isIndonesian
+    ? `Surah ${s.name}, ayat ${ayahNum} dari ${s.ayahCount}. Baca teks Arab, transliterasi, dan terjemahan bahasa Indonesia. ${translation}`
+    : `${translation} — Surah ${s.name} (${s.arabicName}), verse ${ayahNum} of ${s.ayahCount}. Read Arabic text, transliteration, Saheeh International, Pickthall and Yusuf Ali translations.`;
   return {
-    title: title.slice(0, 70),
+    title: { absolute: title },
     description: desc.slice(0, 300),
     keywords: [
       `Quran ${s.number}:${ayahNum}`,
       `Surah ${s.name}`,
-      `${s.name} ayah ${ayahNum}`,
-      `${s.name} verse ${ayahNum}`,
+      `${s.name} ${isIndonesian ? "ayat" : "ayah"} ${ayahNum}`,
+      `${s.name} ${isIndonesian ? "ayat" : "verse"} ${ayahNum}`,
       `${s.arabicName} ${ayahNum}`,
-      "Quran translation",
-      "Quran Arabic",
+      isIndonesian ? "terjemahan Quran" : "Quran translation",
+      isIndonesian ? "Quran bahasa Arab" : "Quran Arabic",
       "Quran online",
       translation.split(" ").slice(0, 5).join(" "),
     ].join(", "),
@@ -109,7 +91,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: hreflangLanguages(`/quran/${surah}/${ayahNum}`),
     },
     openGraph: {
-      title: title.slice(0, 90),
+      title,
       description: translation,
       url: siteUrl(
         locale === "en" ? `/quran/${surah}/${ayahNum}` : `/${locale}/quran/${surah}/${ayahNum}`,
@@ -139,35 +121,63 @@ export default async function AyahPage({ params }: Props) {
   const prevSlug = ayahNum > 1 ? `${s.slug}/${ayahNum - 1}` : null;
   const nextSlug = ayahNum < s.ayahCount ? `${s.slug}/${ayahNum + 1}` : null;
 
-  const sahih = a?.translations["en.sahih"] ?? "";
+  const isIndonesian = locale === "id";
+  const contentLocale = isIndonesian ? "id" : "en";
+  const translationId = isIndonesian ? "id.indonesian" : "en.sahih";
+  const sahih = a?.translations[translationId] ?? "";
+  const localizedUrl = (path: string) => siteUrl(locale === "en" ? path : `/${locale}${path}`);
+  const ayahUrl = localizedUrl(`/quran/${s.slug}/${ayahNum}`);
+  const fallback = isIndonesian
+    ? `Surah ${s.name}, ayat ${ayahNum}.`
+    : `Ayah ${ayahNum} of Surah ${s.name}.`;
   const translationsPresent = TRANSLATORS.filter((tr) => a?.translations[tr.id]);
 
   // FAQ data (used both for visible content and JSON-LD FAQPage schema)
   const faqs = a
-    ? [
-        {
-          q: `What does Quran ${s.number}:${ayahNum} say?`,
-          a: `${sahih} This is verse ${ayahNum} of Surah ${s.name} (${s.arabicName}, "${s.englishTranslation}"), a ${s.revelation === "meccan" ? "Meccan" : "Medinan"} surah.`,
-        },
-        {
-          q: `What is the Arabic text of Surah ${s.name} verse ${ayahNum}?`,
-          a: `The Arabic text: ${cleanArabicForDisplay(a.arabic ?? a.uthmani ?? "")}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
-        },
-        {
-          q: `Which juz and page is Quran ${s.number}:${ayahNum} in?`,
-          a: `${s.name} ${s.number}:${ayahNum} appears in Juz ${a.juz}${a.page ? `, on Mushaf page ${a.page}` : ""}.`,
-        },
-        {
-          q: `How many verses does Surah ${s.name} have?`,
-          a: `Surah ${s.name} contains ${s.ayahCount} verses (ayat) in total. It is the ${s.number}${ord(s.number)} surah of the Quran and was revealed in ${s.revelation === "meccan" ? "Mecca" : "Medina"}.`,
-        },
-      ]
+    ? isIndonesian
+      ? [
+          {
+            q: `Apa isi Quran ${s.number}:${ayahNum}?`,
+            a: `${sahih} Ini adalah ayat ${ayahNum} dari Surah ${s.name} (${s.arabicName}).`,
+          },
+          {
+            q: `Apa teks Arab Surah ${s.name} ayat ${ayahNum}?`,
+            a: `Teks Arab: ${cleanArabicForDisplay(a.arabic ?? a.uthmani ?? "")}${a.transliteration ? ` — transliterasi: ${a.transliteration}` : ""}.`,
+          },
+          {
+            q: `Quran ${s.number}:${ayahNum} ada di juz dan halaman berapa?`,
+            a: `${s.name} ${s.number}:${ayahNum} ada di juz ${a.juz}${a.page ? `, halaman mushaf ${a.page}` : ""}.`,
+          },
+          {
+            q: `Berapa jumlah ayat Surah ${s.name}?`,
+            a: `Surah ${s.name} terdiri dari ${s.ayahCount} ayat. Surah ini adalah surah ke-${s.number} dalam Al-Quran dan diturunkan di ${s.revelation === "meccan" ? "Makkah" : "Madinah"}.`,
+          },
+        ]
+      : [
+          {
+            q: `What does Quran ${s.number}:${ayahNum} say?`,
+            a: `${sahih} This is verse ${ayahNum} of Surah ${s.name} (${s.arabicName}, "${s.englishTranslation}"), a ${s.revelation === "meccan" ? "Meccan" : "Medinan"} surah.`,
+          },
+          {
+            q: `What is the Arabic text of Surah ${s.name} verse ${ayahNum}?`,
+            a: `The Arabic text: ${cleanArabicForDisplay(a.arabic ?? a.uthmani ?? "")}${a.transliteration ? ` — transliteration: ${a.transliteration}` : ""}.`,
+          },
+          {
+            q: `Which juz and page is Quran ${s.number}:${ayahNum} in?`,
+            a: `${s.name} ${s.number}:${ayahNum} appears in Juz ${a.juz}${a.page ? `, on Mushaf page ${a.page}` : ""}.`,
+          },
+          {
+            q: `How many verses does Surah ${s.name} have?`,
+            a: `Surah ${s.name} contains ${s.ayahCount} verses (ayat) in total. It is the ${s.number}${ord(s.number)} surah of the Quran and was revealed in ${s.revelation === "meccan" ? "Mecca" : "Medina"}.`,
+          },
+        ]
     : [];
 
   const faqSchema = faqs.length
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        inLanguage: contentLocale,
         mainEntity: faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
@@ -177,31 +187,81 @@ export default async function AyahPage({ params }: Props) {
     : null;
 
   return (
-    <article className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <article
+      lang={locale}
+      dir={isLocale(locale) && rtlLocales.includes(locale) ? "rtl" : "ltr"}
+      className="mx-auto max-w-reading px-4 sm:px-6 lg:px-8 py-12 md:py-16"
+    >
       <BreadcrumbSchema
         items={[
-          { name: bc("home"), url: siteUrl("/") },
-          { name: bc("quran"), url: siteUrl("/quran") },
-          { name: s.name, url: siteUrl(`/quran/${s.slug}`) },
+          { name: bc("home"), url: localizedUrl("") },
+          { name: bc("quran"), url: localizedUrl("/quran") },
+          { name: s.name, url: localizedUrl(`/quran/${s.slug}`) },
           {
             name: `${s.number}:${ayahNum}`,
-            url: siteUrl(`/quran/${s.slug}/${ayahNum}`),
+            url: ayahUrl,
           },
         ]}
       />
-      <ArticleSchema
-        headline={`Quran ${s.number}:${ayahNum} — ${s.name}`}
-        description={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
-        url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
-      />
-      <AyahQuotationSchema
-        arabic={cleanArabicForDisplay(a?.arabic ?? a?.uthmani ?? "")}
-        translation={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
-        surahName={s.name}
-        surahNumber={s.number}
-        ayahNumber={ayahNum}
-        url={siteUrl(`/quran/${s.slug}/${ayahNum}`)}
-      />
+      {isIndonesian ? (
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD from sourced Quran data
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Article",
+                  headline: `Quran ${s.number}:${ayahNum} — ${s.name}`,
+                  description: sahih || fallback,
+                  inLanguage: "id",
+                  url: ayahUrl,
+                  mainEntityOfPage: ayahUrl,
+                  image: siteUrl("/opengraph-image"),
+                  author: { "@type": "Organization", name: siteName, url: siteUrl("/") },
+                  publisher: { "@type": "Organization", name: siteName, url: siteUrl("/") },
+                },
+                {
+                  "@type": "Quotation",
+                  text: sahih,
+                  citation: `Qur'an ${s.number}:${ayahNum} — Surah ${s.name} — Kementerian Agama RI (id.indonesian)`,
+                  inLanguage: "id",
+                  url: ayahUrl,
+                  translationOfWork: {
+                    "@type": "CreativeWork",
+                    name: `Surah ${s.name}, ayat ${ayahNum}`,
+                    text: cleanArabicForDisplay(a?.arabic ?? a?.uthmani ?? ""),
+                    inLanguage: "ar",
+                  },
+                  isPartOf: {
+                    "@type": "Chapter",
+                    name: `Surah ${s.name}`,
+                    position: s.number,
+                    isPartOf: { "@type": "Book", "@id": siteUrl("/quran"), name: "The Qur'an" },
+                  },
+                },
+              ],
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+      ) : (
+        <>
+          <ArticleSchema
+            headline={`Quran ${s.number}:${ayahNum} — ${s.name}`}
+            description={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
+            url={ayahUrl}
+          />
+          <AyahQuotationSchema
+            arabic={cleanArabicForDisplay(a?.arabic ?? a?.uthmani ?? "")}
+            translation={sahih || `Ayah ${ayahNum} of Surah ${s.name}.`}
+            surahName={s.name}
+            surahNumber={s.number}
+            ayahNumber={ayahNum}
+            url={ayahUrl}
+          />
+        </>
+      )}
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -211,7 +271,10 @@ export default async function AyahPage({ params }: Props) {
       )}
 
       {/* Visible breadcrumb — Google requires visible breadcrumb text on top of BreadcrumbList schema */}
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
+      <nav
+        aria-label={isIndonesian ? "Jejak navigasi" : "Breadcrumb"}
+        className="mb-6 text-sm text-muted-foreground"
+      >
         <Link href="/" className="hover:text-accent hover:underline">
           {bc("home")}
         </Link>
@@ -227,28 +290,51 @@ export default async function AyahPage({ params }: Props) {
           {s.name}
         </Link>
         <span className="mx-2">›</span>
-        <span className="text-foreground">
+        <bdi dir="ltr" className="text-foreground">
           {s.number}:{ayahNum}
-        </span>
+        </bdi>
       </nav>
 
       <header>
         <p className="text-xs text-muted-foreground uppercase tracking-widest">
           {t("eyebrow", { surah: s.name, ayah: ayahNum })}
         </p>
-        <h1 className="mt-2 text-[clamp(1.5rem,3vw,2rem)] font-bold tracking-title">
-          {sahih
-            ? `"${sahih.slice(0, 80)}${sahih.length > 80 ? "…" : ""}" — ${s.name} ${s.number}:${ayahNum}`
-            : `Surah ${s.name} · Ayah ${ayahNum}`}
+        <h1
+          lang={contentLocale}
+          dir="ltr"
+          className="mt-2 text-[clamp(1.5rem,3vw,2rem)] font-bold tracking-title"
+        >
+          {buildAyahTitle(s.number, ayahNum, s.name, sahih)}
         </h1>
         {/* Surah context — one sentence, server-rendered, gives Google & AI a
             durable factual snippet about the surah on every ayah page. */}
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Verse {ayahNum} of {s.ayahCount} · Surah {s.name} ({s.arabicName}) —{" "}
-          <em>{s.englishTranslation}</em>. This is the {s.number}
-          {ord(s.number)} chapter of the Holy Quran, a{" "}
-          {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah.{" "}
-          {a?.juz ? `Located in Juz ${a.juz}.` : null}
+        <p
+          lang={contentLocale}
+          dir="ltr"
+          className="mt-3 text-sm leading-relaxed text-muted-foreground"
+        >
+          {isIndonesian ? (
+            <>
+              Ayat {ayahNum} dari {s.ayahCount} · Surah {s.name} (
+              <span lang="ar" dir="rtl">
+                {s.arabicName}
+              </span>
+              ). Surah ke-{s.number} dalam Al-Quran, termasuk surah{" "}
+              {s.revelation === "meccan" ? "Makkiyah" : "Madaniyah"}.
+              {a?.juz ? ` Juz ${a.juz}.` : null}
+            </>
+          ) : (
+            <>
+              Verse {ayahNum} of {s.ayahCount} · Surah {s.name} (
+              <span lang="ar" dir="rtl">
+                {s.arabicName}
+              </span>
+              ) — <em>{s.englishTranslation}</em>. This is the {s.number}
+              {ord(s.number)} chapter of the Holy Quran, a{" "}
+              {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah.{" "}
+              {a?.juz ? `Located in Juz ${a.juz}.` : null}
+            </>
+          )}
         </p>
       </header>
 
@@ -267,30 +353,43 @@ export default async function AyahPage({ params }: Props) {
           Googlebot and AI answer engines. This is the primary AEO/GEO surface. */}
       {a && translationsPresent.length > 0 && (
         <section
+          lang={contentLocale}
+          dir="ltr"
           className="mt-10 rounded-2xl border border-separator bg-surface p-6"
           aria-labelledby="translations-heading"
         >
           <h2 id="translations-heading" className="text-lg font-bold tracking-title">
-            Translations of {s.name} {s.number}:{ayahNum}
+            {isIndonesian ? "Terjemahan" : "Translations of"} {s.name} {s.number}:{ayahNum}
           </h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            {translationsPresent.length} sourced translations of this verse. Different translators
-            make different choices — reading multiple renderings deepens understanding.
+            {isIndonesian
+              ? `${translationsPresent.length} terjemahan ayat ini.`
+              : `${translationsPresent.length} sourced translations of this verse. Different translators make different choices — reading multiple renderings deepens understanding.`}
           </p>
           {a.transliteration && (
             <div className="mt-4 rounded-xl bg-muted/30 p-4">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                Transliteration
+                {isIndonesian ? "Transliterasi" : "Transliteration"}
               </div>
-              <p className="mt-1 text-base italic">{a.transliteration}</p>
+              <p lang="ar-Latn" dir="ltr" className="mt-1 text-base italic">
+                {a.transliteration}
+              </p>
             </div>
           )}
           <dl className="mt-4 space-y-4">
             {translationsPresent.map((tr) => (
               <div key={tr.id} className="border-t border-separator pt-4 first:border-0 first:pt-0">
                 <dt className="text-sm font-semibold">{tr.name}</dt>
-                <dd className="mt-1 text-base leading-relaxed">{a.translations[tr.id]}</dd>
-                <p className="mt-1 text-xs text-muted-foreground">{tr.note}</p>
+                <dd
+                  lang={tr.id === "id.indonesian" ? "id" : "en"}
+                  dir="ltr"
+                  className="mt-1 text-base leading-relaxed"
+                >
+                  {a.translations[tr.id]}
+                </dd>
+                <p lang="en" dir="ltr" className="mt-1 text-xs text-muted-foreground">
+                  {tr.note}
+                </p>
               </div>
             ))}
           </dl>
@@ -302,9 +401,9 @@ export default async function AyahPage({ params }: Props) {
           isolated thin page. Each snippet includes the neighboring ayah's
           translation for meaningful content, not just "Next verse". */}
       {(prevAyah || nextAyah) && (
-        <section className="mt-10" aria-labelledby="context-heading">
+        <section lang={contentLocale} dir="ltr" className="mt-10" aria-labelledby="context-heading">
           <h2 id="context-heading" className="text-lg font-bold tracking-title">
-            Surrounding verses in Surah {s.name}
+            {isIndonesian ? "Ayat sekitar dalam Surah" : "Surrounding verses in Surah"} {s.name}
           </h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {prevAyah && (
@@ -313,11 +412,10 @@ export default async function AyahPage({ params }: Props) {
                 className="focus-ring block rounded-2xl border border-separator bg-surface p-5 hover:bg-muted transition-colors"
               >
                 <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                  Previous · {s.name} {s.number}:{prevAyah.ayah}
+                  {isIndonesian ? "Sebelumnya" : "Previous"} · {s.name} {s.number}:{prevAyah.ayah}
                 </span>
                 <p className="mt-2 text-sm leading-relaxed">
-                  {(prevAyah.translations["en.sahih"] ?? "").slice(0, 200)}
-                  {(prevAyah.translations["en.sahih"] ?? "").length > 200 ? "…" : ""}
+                  {prevAyah.translations[translationId] ?? ""}
                 </p>
               </Link>
             )}
@@ -327,11 +425,10 @@ export default async function AyahPage({ params }: Props) {
                 className="focus-ring block rounded-2xl border border-separator bg-surface p-5 hover:bg-muted transition-colors"
               >
                 <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                  Next · {s.name} {s.number}:{nextAyah.ayah}
+                  {isIndonesian ? "Berikutnya" : "Next"} · {s.name} {s.number}:{nextAyah.ayah}
                 </span>
                 <p className="mt-2 text-sm leading-relaxed">
-                  {(nextAyah.translations["en.sahih"] ?? "").slice(0, 200)}
-                  {(nextAyah.translations["en.sahih"] ?? "").length > 200 ? "…" : ""}
+                  {nextAyah.translations[translationId] ?? ""}
                 </p>
               </Link>
             )}
@@ -344,15 +441,36 @@ export default async function AyahPage({ params }: Props) {
           picking answer sources for factual queries like "what does Quran
           1:1 mean" or "how many verses in Surah Al-Fatihah". */}
       {faqs.length > 0 && (
-        <section className="mt-10" aria-labelledby="faq-heading">
+        <section lang={contentLocale} dir="ltr" className="mt-10" aria-labelledby="faq-heading">
           <h2 id="faq-heading" className="text-lg font-bold tracking-title">
-            Frequently asked about {s.name} {s.number}:{ayahNum}
+            {isIndonesian ? "Pertanyaan tentang" : "Frequently asked about"} {s.name} {s.number}:
+            {ayahNum}
           </h2>
           <div className="mt-4 space-y-4">
             {faqs.map((f) => (
               <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
                 <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {f === faqs[1] ? (
+                    <>
+                      {isIndonesian ? "Teks Arab: " : "The Arabic text: "}
+                      <span lang="ar" dir="rtl">
+                        {cleanArabicForDisplay(a?.arabic ?? a?.uthmani ?? "")}
+                      </span>
+                      {a?.transliteration && (
+                        <>
+                          {isIndonesian ? " — transliterasi: " : " — transliteration: "}
+                          <span lang="ar-Latn" dir="ltr">
+                            {a.transliteration}
+                          </span>
+                        </>
+                      )}
+                      .
+                    </>
+                  ) : (
+                    f.a
+                  )}
+                </p>
               </details>
             ))}
           </div>
@@ -362,31 +480,50 @@ export default async function AyahPage({ params }: Props) {
       {/* About-this-surah callout — durable factual content that will not change,
           giving every ayah page a stable topical anchor. */}
       <section
+        lang={contentLocale}
+        dir="ltr"
         className="mt-10 rounded-2xl border border-separator bg-surface p-6"
         aria-labelledby="about-surah-heading"
       >
         <h2 id="about-surah-heading" className="text-lg font-bold tracking-title">
-          About Surah {s.name}
+          {isIndonesian ? "Tentang Surah" : "About Surah"} {s.name}
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          Surah {s.name} ({s.arabicName}) — <em>{s.englishTranslation}</em> — is the {s.number}
-          {ord(s.number)} chapter of the Holy Quran. It contains {s.ayahCount} verses (ayat) and was
-          revealed in {s.revelation === "meccan" ? "Mecca" : "Medina"}, making it a{" "}
-          {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah in the traditional
-          classification.
+          {isIndonesian ? (
+            <>
+              Surah {s.name} (
+              <span lang="ar" dir="rtl">
+                {s.arabicName}
+              </span>
+              ) adalah surah ke-{s.number} dalam Al-Quran. Surah ini terdiri dari {s.ayahCount} ayat
+              dan diturunkan di {s.revelation === "meccan" ? "Makkah" : "Madinah"}.
+            </>
+          ) : (
+            <>
+              Surah {s.name} (
+              <span lang="ar" dir="rtl">
+                {s.arabicName}
+              </span>
+              ) — <em>{s.englishTranslation}</em> — is the {s.number}
+              {ord(s.number)} chapter of the Holy Quran. It contains {s.ayahCount} verses (ayat) and
+              was revealed in {s.revelation === "meccan" ? "Mecca" : "Medina"}, making it a{" "}
+              {s.revelation === "meccan" ? "Meccan" : "Medinan"} surah in the traditional
+              classification.
+            </>
+          )}
         </p>
         <p className="mt-3 text-sm">
           <Link
             href={`/quran/${s.slug}` as "/quran/[surah]"}
             className="text-accent hover:underline"
           >
-            Read the full Surah {s.name} →
+            {isIndonesian ? "Baca Surah lengkap" : "Read the full Surah"} {s.name} →
           </Link>
         </p>
       </section>
 
       <nav
-        aria-label="Ayah navigation"
+        aria-label={isIndonesian ? "Navigasi ayat" : "Ayah navigation"}
         className="mt-16 grid grid-cols-2 gap-4 border-t border-separator pt-8"
       >
         <div>
@@ -396,7 +533,13 @@ export default async function AyahPage({ params }: Props) {
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
               <span className="block text-xs text-muted-foreground">{t("previous")}</span>
-              <span className="mt-1 block font-semibold tracking-title">Ayah {ayahNum - 1}</span>
+              <span
+                lang={contentLocale}
+                dir="ltr"
+                className="mt-1 block font-semibold tracking-title"
+              >
+                {isIndonesian ? "Ayat" : "Ayah"} {ayahNum - 1}
+              </span>
             </Link>
           )}
         </div>
@@ -407,7 +550,13 @@ export default async function AyahPage({ params }: Props) {
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
               <span className="block text-xs text-muted-foreground">{t("next")}</span>
-              <span className="mt-1 block font-semibold tracking-title">Ayah {ayahNum + 1}</span>
+              <span
+                lang={contentLocale}
+                dir="ltr"
+                className="mt-1 block font-semibold tracking-title"
+              >
+                {isIndonesian ? "Ayat" : "Ayah"} {ayahNum + 1}
+              </span>
             </Link>
           )}
         </div>

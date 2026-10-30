@@ -162,3 +162,13 @@ export const TRANSLATIONS = [
 ] as const;
 
 export type TranslationId = (typeof TRANSLATIONS)[number]["id"];
+
+export function resolveAyahTranslation(translations: Ayah["translations"], preferredId: string) {
+  const preferred = TRANSLATIONS.find((edition) => edition.id === preferredId);
+  const fallback = TRANSLATIONS.find((edition) => edition.id === "en.sahih");
+  const edition = [preferred, fallback, ...TRANSLATIONS].find(
+    (candidate) => candidate && translations[candidate.id]?.trim(),
+  );
+  if (!edition) return undefined;
+  return { ...edition, text: translations[edition.id], dir: "ltr" as const };
+}

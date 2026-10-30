@@ -80,10 +80,26 @@ export type ComputedTimes = {
   isha: Date;
 };
 
+export function prayerDateInTimezone(instant: Date, timeZone: string): Date {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    calendar: "gregory",
+    numberingSystem: "latn",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(instant);
+  const year = Number(parts.find((part) => part.type === "year")?.value);
+  const month = Number(parts.find((part) => part.type === "month")?.value);
+  const day = Number(parts.find((part) => part.type === "day")?.value);
+  return new Date(year, month - 1, day, 12);
+}
+
 export function computePrayerTimes(opts: {
   lat: number;
   lon: number;
   date?: Date;
+  timeZone?: string;
   method?: MethodId;
   madhab?: "shafi" | "hanafi";
 }): ComputedTimes {
@@ -92,7 +108,9 @@ export function computePrayerTimes(opts: {
   // High-latitude rule protects users north of ~48° so Fajr / Isha are computable.
   params.highLatitudeRule = HighLatitudeRule.MiddleOfTheNight;
   const coords = new Coordinates(opts.lat, opts.lon);
-  const times = new PrayerTimes(coords, opts.date ?? new Date(), params);
+  const instant = opts.date ?? new Date();
+  const date = opts.timeZone ? prayerDateInTimezone(instant, opts.timeZone) : instant;
+  const times = new PrayerTimes(coords, date, params);
   return {
     fajr: times.fajr,
     sunrise: times.sunrise,

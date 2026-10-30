@@ -6,7 +6,7 @@
  * broken images, 500s, missing audio button on hadith #203, non-uniform
  * hadith card gaps.
  */
-import { test, expect, type Page } from "@playwright/test";
+import { type Page, expect, test } from "@playwright/test";
 
 const LOCALES = ["en", "id", "ar", "ur", "fr", "tr"] as const;
 
@@ -168,6 +168,16 @@ for (const p of PAGES) {
   });
 }
 
+test("SEO missing routes — return HTTP404", async ({ request }) => {
+  for (const prefix of ["", "/en", "/ur", "/id"]) {
+    const path = `${prefix}/seo-agent-check-missing`;
+    const response = await request.get(path);
+    expect(response.status(), `HTTP status for ${path}`).toBe(404);
+  }
+  const response = await request.get("/quran");
+  expect(response.status(), "HTTP status for /quran").toBe(200);
+});
+
 test("hadith list — audio buttons on every card + uniform gap", async ({ page }) => {
   await page.goto("/en/hadith/bukhari?page=5", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(2500);
@@ -220,5 +230,154 @@ for (const locale of LOCALES) {
       const dir = await page.evaluate(() => document.documentElement.dir || document.body.dir);
       expect(dir, `dir attr on /${locale}`).toBe("rtl");
     }
+  });
+}
+
+test("Urdu Quran hub — localized search, RTL font and truthful translation FAQ", async ({
+  page,
+}) => {
+  await page.goto("/ur/quran", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("html")).toHaveAttribute("lang", "ur");
+  await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("قرآن پڑھیں");
+  const search = page.getByRole("searchbox", { name: "سورتیں تلاش کریں" });
+  await expect(search).toHaveAttribute(
+    "placeholder",
+    "۱۱۴ سورتوں میں نام، معنی یا نمبر سے تلاش کریں…",
+  );
+  await expect(page.locator("[data-search]:visible")).toHaveCount(114);
+  await search.fill("al-fatihah");
+  await expect(page.locator("[data-search]:visible")).toHaveCount(1);
+  await search.fill("");
+  await expect(page.locator("[data-search]:visible")).toHaveCount(114);
+  const firstName = page.locator("#grouped-list .row__name").first();
+  await expect(firstName).toHaveAttribute("lang", "en");
+  await expect(firstName).toHaveAttribute("dir", "ltr");
+  await expect(firstName).toHaveCSS("direction", "ltr");
+  const title = firstName.locator("bdi");
+  const meaning = firstName.locator(".row__meaning");
+  await expect(title).toHaveText("Al-Fatihah");
+  await expect(meaning).toHaveText("The Opening");
+  await page.evaluate(() => document.fonts.ready);
+  const parentBox = await firstName.boundingBox();
+  const titleBox = await title.boundingBox();
+  const meaningBox = await meaning.boundingBox();
+  if (!parentBox || !titleBox || !meaningBox) {
+    throw new Error("First Urdu Quran row name and meaning must have layout boxes");
+  }
+  expect(parentBox.width).toBeGreaterThan(0);
+  for (const box of [titleBox, meaningBox]) {
+    expect(box.width).toBeGreaterThan(0);
+    expect(box.height).toBeGreaterThan(0);
+    expect(box.x).toBeGreaterThanOrEqual(parentBox.x - 1);
+    expect(box.x + box.width).toBeLessThanOrEqual(parentBox.x + parentBox.width + 1);
+    expect(box.y).toBeGreaterThanOrEqual(parentBox.y - 1);
+    expect(box.y + box.height).toBeLessThanOrEqual(parentBox.y + parentBox.height + 1);
+  }
+  expect(meaningBox.y).toBeGreaterThanOrEqual(titleBox.y + titleBox.height - 1);
+  for (const text of [title, meaning]) {
+    const width = await text.evaluate((node) => ({
+      content: node.scrollWidth,
+      available: node.clientWidth,
+    }));
+    expect(width.content).toBeLessThanOrEqual(width.available + 1);
+  }
+  const bodyFont = await page.locator("body").evaluate((body) => getComputedStyle(body).fontFamily);
+  expect(bodyFont).toMatch(/Noto[ _]Naskh[ _]Arabic/);
+  const schemas = await page.locator('script[type="application/ld+json"]').allTextContents();
+  type FaqSchema = {
+    "@type": string;
+    mainEntity?: Array<{ name: string; acceptedAnswer: { text: string } }>;
+  };
+  const faq = schemas
+    .map((schema) => JSON.parse(schema) as FaqSchema)
+    .find((schema) => schema["@type"] === "FAQPage");
+  const translationFaq = faq?.mainEntity?.find(
+    (entry) => entry.name === "What translations are available?",
+  );
+  expect(translationFaq?.acceptedAnswer.text).toContain("Marmaduke Pickthall");
+  expect(translationFaq?.acceptedAnswer.text).toContain("Kementerian Agama RI");
+  expect(translationFaq?.acceptedAnswer.text).toContain("interface language is separate");
+  expect(translationFaq?.acceptedAnswer.text).not.toContain("Taqi Usmani");
+});
+
+test("Urdu ayah — nearest UI language stays Urdu RTL with English LTR translation", async ({
+  page,
+}) => {
+  await page.goto("/ur/quran/al-fatihah/2", { waitUntil: "domcontentloaded" });
+  for (const label of ["پچھلی آیت", "تفسیر پڑھیں"]) {
+    const element = page.getByText(label, { exact: true });
+    await expect(element).toBeVisible();
+    expect(
+      await element.evaluate((node) => ({
+        lang: node.closest("[lang]")?.getAttribute("lang"),
+        dir: node.closest("[dir]")?.getAttribute("dir"),
+      })),
+    ).toEqual({ lang: "ur", dir: "rtl" });
+  }
+  const translation = page.locator('#ayah-2 p[lang="en"]');
+  await expect(translation).toBeVisible();
+  expect(
+    await translation.evaluate((node) => ({
+      lang: node.closest("[lang]")?.getAttribute("lang"),
+      dir: node.closest("[dir]")?.getAttribute("dir"),
+    })),
+  ).toEqual({ lang: "en", dir: "ltr" });
+  await expect(page.locator('#ayah-2 p[lang="ar"]')).toHaveAttribute("dir", "rtl");
+});
+
+for (const scenario of [
+  {
+    path: "/quran/al-fatihah/1",
+    shareLabel: "Share this ayah",
+    translation: "en.sahih",
+    lang: "en",
+    edition: "Saheeh International",
+  },
+  {
+    path: "/ur/quran/al-fatihah/1",
+    shareLabel: "یہ آیت شیئر کریں",
+    translation: "ur.unavailable",
+    lang: "en",
+    edition: "Saheeh International",
+  },
+  {
+    path: "/id/quran/al-fatihah/1",
+    shareLabel: "Bagikan ayat ini",
+    translation: "id.indonesian",
+    lang: "id",
+    edition: "Kementerian Agama RI",
+  },
+]) {
+  test(`Quran reader locale — translation language and share URL ${scenario.path}`, async ({
+    page,
+  }) => {
+    await page.addInitScript((translation) => {
+      localStorage.setItem("iw.v1", JSON.stringify({ settings: { translation } }));
+      Object.defineProperty(navigator, "share", {
+        configurable: true,
+        value: async (data: ShareData) => {
+          document.documentElement.dataset.sharedUrl = data.url;
+        },
+      });
+    }, scenario.translation);
+    await page.goto(scenario.path, { waitUntil: "domcontentloaded" });
+    const card = page.locator("#ayah-1");
+    await expect(card.locator(`p[lang="${scenario.lang}"]`)).toHaveAttribute("dir", "ltr");
+    await expect(card.locator("footer")).toContainText(scenario.edition);
+    await expect(card.locator('p[lang="ar"]')).toHaveAttribute("dir", "rtl");
+    const translationFont = await card
+      .locator(`p[lang="${scenario.lang}"]`)
+      .evaluate((paragraph) => getComputedStyle(paragraph).fontFamily);
+    expect(translationFont).toContain("Inter");
+    const scriptureFont = await card
+      .locator('p[lang="ar"]')
+      .evaluate((paragraph) => getComputedStyle(paragraph).fontFamily);
+    expect(scriptureFont).not.toMatch(/Noto[ _]Naskh[ _]Arabic/);
+    await card.getByRole("button", { name: scenario.shareLabel }).click();
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-shared-url",
+      new URL(scenario.path, page.url()).href,
+    );
   });
 }

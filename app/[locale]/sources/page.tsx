@@ -40,11 +40,29 @@ const sources = {
   translations: [
     {
       name: "Sahih International (English)",
-      url: "https://quran.com/",
-      note: "Widely-used English translation.",
+      url: "https://alquran.cloud/",
+      note: "Reader edition en.sahih, supplied through Al-Quran Cloud.",
     },
-    { name: "Pickthall (English)", url: "https://quran.com/", note: "Public domain." },
-    { name: "Yusuf Ali (English)", url: "https://quran.com/", note: "Public domain." },
+    {
+      name: "Marmaduke Pickthall (English)",
+      url: "https://alquran.cloud/",
+      note: "Reader edition en.pickthall, supplied through Al-Quran Cloud.",
+    },
+    {
+      name: "Yusuf Ali (English)",
+      url: "https://alquran.cloud/",
+      note: "Reader edition en.yusufali, supplied through Al-Quran Cloud.",
+    },
+    {
+      name: "Kementerian Agama RI (Bahasa Indonesia)",
+      url: "https://alquran.cloud/",
+      note: "Reader edition id.indonesian, supplied through Al-Quran Cloud.",
+    },
+    {
+      name: "Quran.com study resources",
+      url: "https://quran.com/",
+      note: "Additional translations and tafsir in the study view, separate from the reader editions.",
+    },
   ],
   hadith: [
     {

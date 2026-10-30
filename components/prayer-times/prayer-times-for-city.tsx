@@ -59,10 +59,11 @@ export function PrayerTimesForCity({
         lat,
         lon,
         date: now,
+        timeZone: tz,
         method: settings.calcMethod as MethodId,
         madhab: settings.madhab,
       }),
-    [lat, lon, now, settings.calcMethod, settings.madhab],
+    [lat, lon, now, tz, settings.calcMethod, settings.madhab],
   );
 
   const fmt = new Intl.DateTimeFormat("en-US", {
@@ -97,6 +98,15 @@ export function PrayerTimesForCity({
         Today · {cityName}
       </p>
       <p className="mt-1 text-sm text-muted-foreground">{dateFmt.format(now)}</p>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Calculation method:{" "}
+        {METHODS.find((method) => method.id === settings.calcMethod)?.label ?? "Other"}
+        {" · "}
+        {ss(settings.madhab)}
+      </p>
+      <p className="mt-1 text-xs text-muted-foreground">
+        Calculated times, not an official timetable. Confirm with your local mosque.
+      </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
         {(["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"] as const).map((k) => {
           const isNext = k === nextKey;

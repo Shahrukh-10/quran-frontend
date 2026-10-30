@@ -56,6 +56,28 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+html[lang="ur"] body {
+  font-family: var(--font-noto-arabic), var(--font-inter), -apple-system, BlinkMacSystemFont,
+    serif;
+  line-height: 1.8;
+}
+
+:where(html[lang="ur"]) :where([lang="en"], [lang="id"], [lang="ar-Latn"]) {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+html[lang="ur"] .row__name[lang="en"] {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+}
+
+html[lang="ur"] .row__name[lang="en"] > bdi,
+html[lang="ur"] .row__name[lang="en"] > .row__meaning {
+  display: block;
+}
+
 /* Global mobile-fluidity primitives.
    - Smooth scroll for anchor jumps (respected only when reduce-motion is off)
    - Remove iOS blue tap-flash (we keep :active styling per-component)

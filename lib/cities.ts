@@ -11,8 +11,8 @@ export type City = {
   tz: string;
   population: number;
   // Optional per-city overrides for the detail page:
-  // - method: official calculation method used by the national Islamic authority
-  // - methodNote: the specific nuance (e.g. UAE government timetable adjustment)
+  // - method: calculator default described on the detail page
+  // - methodNote: calculation caveats for the location
   // - landmarkMosque: name of the single most-recognised mosque, for local trust signal
   // - dressNote: brief practical note (modesty rules in that country)
   method?: string;
@@ -241,9 +241,9 @@ export const CITIES: ReadonlyArray<City> = [
     lon: 55.2708,
     tz: "Asia/Dubai",
     population: 3331000,
-    method: "Umm al-Qura (UAE adjustment)",
+    method: "Muslim World League (MWL)",
     methodNote:
-      "The UAE General Authority of Islamic Affairs and Endowments publishes an official daily timetable using the Umm al-Qura method with a locally-tuned Isha interval (90 minutes after Maghrib, instead of the Mecca default). The times below use that adjustment by default — you can switch methods in Settings to match a different mosque.",
+      "This calculator defaults to Muslim World League (MWL) unless you have saved a different method. The selected method and Madhab apply to the calculated times. These are not an official UAE timetable; confirm with your local mosque.",
     landmarkMosque:
       "Jumeirah Mosque — the most-visited mosque in Dubai, open to non-Muslims for cultural tours through the Sheikh Mohammed Centre for Cultural Understanding.",
     dressNote:
@@ -258,9 +258,9 @@ export const CITIES: ReadonlyArray<City> = [
     lon: 54.3773,
     tz: "Asia/Dubai",
     population: 1483000,
-    method: "Umm al-Qura (UAE adjustment)",
+    method: "Muslim World League (MWL)",
     methodNote:
-      "Abu Dhabi follows the same official UAE timetable as Dubai: Umm al-Qura method with the locally-tuned 90-minute Isha interval published by the General Authority of Islamic Affairs and Endowments.",
+      "This calculator defaults to Muslim World League (MWL) unless you have saved a different method. The selected method and Madhab apply to the calculated times. These are not an official UAE timetable; confirm with your local mosque.",
     landmarkMosque:
       "Sheikh Zayed Grand Mosque — the largest mosque in the UAE and the resting place of the nation's founder; open to visitors outside prayer times.",
     dressNote:

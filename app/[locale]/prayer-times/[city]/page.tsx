@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Keep title <=70 chars so long city names (Kuala Lumpur, Rio de Janeiro) don't get sliced mid-prayer-name.
   const year = new Date().getUTCFullYear();
   const title = `${c.name} Prayer Times Today ${year} — Fajr, Dhuhr, Asr, Maghrib, Isha`;
-  const desc = `Accurate ${c.name} prayer times today — Fajr, Sunrise, Dhuhr, Asr, Maghrib & Isha timings for ${c.country}. Updated daily, works offline, no signup. Supports MWL, ISNA, Umm al-Qura, Egyptian & Karachi calculation methods.`;
+  const desc = `Calculated ${c.name} prayer times for ${c.country}. Defaults to Muslim World League; saved method and Madhab preferences apply. Not an official timetable. Confirm with your local mosque.`;
   // 2026-10-11 SEO FIX: untranslated non-EN locales (ar/ur/tr/fr) are noindex'd
   // via robotsForLocale, but their canonical was self-referencing — creating
   // a signal contradiction (noindex + self-canonical). GSC Oct 2026: 20+
@@ -163,11 +163,11 @@ export default async function CityPrayerTimesPage({ params }: Props) {
     },
     {
       q: `Which prayer time calculation method is used in ${c.country}?`,
-      a: `${c.country === "Saudi Arabia" ? "Saudi Arabia uses the Umm al-Qura method." : c.country === "Pakistan" || c.country === "India" || c.country === "Bangladesh" ? `${c.country} traditionally uses the University of Islamic Sciences, Karachi method.` : c.country === "United States" || c.country === "Canada" ? `${c.country} typically uses the Islamic Society of North America (ISNA) method.` : c.country === "Egypt" ? "Egypt uses the Egyptian General Authority of Survey method." : c.country === "Turkey" ? "Turkey uses the Diyanet method." : c.country === "United Arab Emirates" ? "The UAE uses the Umm al-Qura method with a locally-tuned 90-minute Isha interval, published by the General Authority of Islamic Affairs and Endowments." : `In ${c.country}, most Muslim communities follow the Muslim World League (MWL) method, though Umm al-Qura and ISNA are also common.`} You can switch methods in the settings — the live times below will recompute instantly.`,
+      a: `${c.country === "Saudi Arabia" ? "Saudi Arabia uses the Umm al-Qura method." : c.country === "Pakistan" || c.country === "India" || c.country === "Bangladesh" ? `${c.country} traditionally uses the University of Islamic Sciences, Karachi method.` : c.country === "United States" || c.country === "Canada" ? `${c.country} typically uses the Islamic Society of North America (ISNA) method.` : c.country === "Egypt" ? "Egypt uses the Egyptian General Authority of Survey method." : c.country === "Turkey" ? "Turkey uses the Diyanet method." : c.country === "United Arab Emirates" ? "This calculator defaults to Muslim World League (MWL) unless you have saved a different method. Your selected method and Madhab apply. These calculated times are not an official UAE timetable; confirm with your local mosque." : `In ${c.country}, most Muslim communities follow the Muslim World League (MWL) method, though Umm al-Qura and ISNA are also common.`} You can switch methods in the settings — the live times below will recompute instantly.`,
     },
     {
       q: `How is Fajr time calculated for ${c.name}?`,
-      a: `Fajr begins at true dawn (subh sadiq), when the sky first shows a horizontal band of light along the eastern horizon. Different scholarly bodies use different sun-angle values (typically 15° to 20° below the horizon) to compute this. On this page for ${c.name}, the default is ${c.method ? `the ${c.method} method` : "the Muslim World League method (18°)"}, but you can change it below.`,
+      a: `Fajr begins at true dawn (subh sadiq), when the sky first shows a horizontal band of light along the eastern horizon. Different scholarly bodies use different sun-angle values (typically 15° to 20° below the horizon) to compute this. On this page for ${c.name}, the default is ${c.method ? `the ${c.method} method` : "the Muslim World League method (18°)"} unless you have saved a different method. Your selected method is shown with the times.`,
     },
     {
       q: `Is ${c.name} at a high latitude?`,
@@ -268,7 +268,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
       <header className="mt-8">
         {/* Server-rendered intro — 60+ words of unique content per city */}
         <p className="text-base leading-relaxed text-muted-foreground">
-          Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times for {c.name}
+          Calculated Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times for {c.name}
           {c.country ? `, ${c.country}` : ""}. Times are computed on your device using astronomical
           calculations (the{" "}
           <a
@@ -279,18 +279,16 @@ export default async function CityPrayerTimesPage({ params }: Props) {
             adhan library
           </a>
           ) based on {c.name}&apos;s coordinates ({c.lat.toFixed(4)}°, {c.lon.toFixed(4)}°) and the{" "}
-          {c.tz} timezone. Switch calculation methods (MWL, ISNA, Umm al-Qura, Egyptian, Karachi) to
-          match your local mosque.
+          {c.tz} timezone. The default method is Muslim World League (MWL); your saved method and
+          Madhab preferences take precedence. These calculated times are not an official timetable.
+          Confirm with your local mosque.
         </p>
 
-        {/* Official method badge — appears only for cities with a per-city
-            override. Earns trust by naming the authority instead of a generic
-            "pick a method" message. */}
         {c.method ? (
           <div className="mt-5 rounded-xl border border-separator bg-surface p-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
-                Official method
+                Default method
               </span>
               <span className="text-sm font-semibold">{c.method}</span>
             </div>

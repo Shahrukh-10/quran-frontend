@@ -1,5 +1,3 @@
-import { existsSync, statSync } from "node:fs";
-import path from "node:path";
 import { locales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { getAllPosts } from "@/lib/blog";
@@ -14,11 +12,11 @@ import { siteUrl } from "@/lib/site";
 // Per-content-type sitemap shards — /sitemaps/<shard>.xml
 //
 // Referenced by the sitemap index at /sitemap.xml. Each shard is a
-// standard <urlset> with <loc> + <lastmod> only (Google ignores
+// standard <urlset> with <loc> only (Google ignores
 // <changefreq> and <priority>).
 //
 // We DO emit xhtml:hreflang alternates per-URL because Google needs those
-// to link the 6 locale variants together and pick the right one per user.
+// to link the indexable locale variants together and pick the right one per user.
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -76,142 +74,6 @@ type Shard = (typeof SHARDS)[number];
 // translated.
 const UNTRANSLATED_LOCALES = new Set(["ar", "ur", "tr", "fr"]);
 const INDEXABLE_LOCALES = locales.filter((l) => !UNTRANSLATED_LOCALES.has(l));
-
-// ---------------------------------------------------------------------------
-// Per-URL <lastmod> from source-data mtimes
-// ---------------------------------------------------------------------------
-// Google mostly ignores <changefreq> and <priority>, but it DOES honour
-// <lastmod> — if every URL emits the same date, Google reads that as
-// "nothing changed" and slows re-crawl. We derive per-URL lastmod from the
-// mtime of the underlying JSON data files. Fallback to BUILD_DATE if a file
-// isn't found (defensive — shouldn't happen).
-//
-// All lookups happen at module load time so we're not hitting the FS per
-// request.
-
-const REPO_ROOT = path.resolve(process.cwd());
-const BUILD_DATE_FALLBACK =
-  process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
-
-function safeMtime(relPath: string): string {
-  try {
-    const abs = path.join(REPO_ROOT, relPath);
-    const stat = statSync(abs);
-    return stat.mtime.toISOString().slice(0, 10);
-  } catch {
-    return BUILD_DATE_FALLBACK;
-  }
-}
-
-// mtime of a single per-surah data file. If an authored tafsir intro exists
-// for the surah (content/tafsir/<slug>.json), take the max of the two mtimes
-// so that newly-added editorial content moves the per-URL lastmod and
-// prompts Google to re-crawl just that surah's page.
-function surahMtime(surahNumber: number, surahSlug?: string): string {
-  const dataMtime = safeMtime(`data/quran/surahs/${surahNumber}.json`);
-  if (!surahSlug) return dataMtime;
-  const tafsirRel = `content/tafsir/${surahSlug}.json`;
-  // Only consult the tafsir file if it actually exists — otherwise safeMtime
-  // would return BUILD_DATE_FALLBACK (today), which would push lastmod for
-  // every surah to today and defeat Q3's per-URL discrimination.
-  const tafsirAbs = path.join(REPO_ROOT, tafsirRel);
-  if (!existsSync(tafsirAbs)) return dataMtime;
-  const tafsirMtime = safeMtime(tafsirRel);
-  return tafsirMtime > dataMtime ? tafsirMtime : dataMtime;
-}
-
-// mtime of the shared duas data file + any per-dua authored commentary.
-// Mirrors `surahMtime` so that newly-authored dua commentary at
-// content/tafsir-duas/<slug>.json bumps lastmod only for that specific
-// /duas/<cat>/<slug> URL — not every dua page.
-function duaMtime(duaSlug?: string): string {
-  const dataMtime = safeMtime("data/duas/duas.json");
-  if (!duaSlug) return dataMtime;
-  const commentaryRel = `content/tafsir-duas/${duaSlug}.json`;
-  const commentaryAbs = path.join(REPO_ROOT, commentaryRel);
-  if (!existsSync(commentaryAbs)) return dataMtime;
-  const commentaryMtime = safeMtime(commentaryRel);
-  return commentaryMtime > dataMtime ? commentaryMtime : dataMtime;
-}
-
-// aggregate mtime across a set of files → max of the individual mtimes
-function aggregateMtime(relPaths: string[]): string {
-  let best = "1970-01-01";
-  for (const rel of relPaths) {
-    const m = safeMtime(rel);
-    if (m > best) best = m;
-  }
-  return best === "1970-01-01" ? BUILD_DATE_FALLBACK : best;
-}
-
-// Precomputed once per module load
-const SURAH_MTIMES: Record<number, string> = {};
-for (const s of getAllSurahs()) {
-  SURAH_MTIMES[s.number] = surahMtime(s.number, s.slug);
-}
-const ALL_SURAHS_MTIME = aggregateMtime(
-  Object.keys(SURAH_MTIMES).map((n) => `data/quran/surahs/${n}.json`),
-);
-const DUAS_MTIME = safeMtime("data/duas/duas.json");
-const DUA_MTIMES: Record<string, string> = {};
-for (const d of getAllDuas()) {
-  DUA_MTIMES[d.slug] = duaMtime(d.slug);
-}
-const NAMES_MTIME = safeMtime("data/names.json");
-const CITIES_MTIME = safeMtime("lib/cities.ts");
-const SALAH_MTIME = safeMtime("data/salah/tutorials.json");
-const FIGURES_MTIME = safeMtime("lib/figures.ts");
-const HADITH_MTIME = safeMtime("lib/hadith.ts");
-const QURAN_META_MTIME = safeMtime("data/quran/surahs.json");
-const BLOG_MTIME = safeMtime("lib/blog.ts");
-
-// Site-wide "top" lastmod = max of everything, used for top-level chrome URLs
-const SITE_TOP_MTIME = aggregateMtime([
-  "data/quran/surahs.json",
-  "data/duas/duas.json",
-  "data/names.json",
-  "data/salah/tutorials.json",
-  "lib/cities.ts",
-  "lib/figures.ts",
-  "lib/hadith.ts",
-]);
-
-// Return the lastmod for a given URL path (default-locale form, e.g. "/quran/al-fatihah/5")
-function lastmodForPath(p: string): string {
-  if (p === "/" || p === "/about" || p === "/sources" || p === "/privacy" || p === "/settings") {
-    return SITE_TOP_MTIME;
-  }
-  // Quran surah + ayah
-  const surahAyah = p.match(/^\/quran\/([^/]+)(?:\/(\d+))?$/);
-  if (surahAyah) {
-    const slug = surahAyah[1];
-    const surah = getAllSurahs().find((s) => s.slug === slug);
-    if (surah) return SURAH_MTIMES[surah.number] ?? ALL_SURAHS_MTIME;
-    return ALL_SURAHS_MTIME;
-  }
-  if (p === "/quran" || p === "/mushaf") return ALL_SURAHS_MTIME;
-  // Duas — per-URL lastmod driven by content/tafsir-duas/<slug>.json mtime
-  // when authored commentary exists; falls back to the shared duas data mtime.
-  const duaMatch = p.match(/^\/duas\/[^/]+\/([^/]+)$/);
-  if (duaMatch?.[1]) {
-    return DUA_MTIMES[duaMatch[1]] ?? DUAS_MTIME;
-  }
-  if (p === "/duas" || p.startsWith("/duas/")) return DUAS_MTIME;
-  // Names of Allah
-  if (p === "/names-of-allah" || p.startsWith("/names-of-allah/")) return NAMES_MTIME;
-  // Prayer times / cities
-  if (p === "/prayer-times" || p.startsWith("/prayer-times/")) return CITIES_MTIME;
-  // Salah tutorials
-  if (p === "/learn-salah" || p.startsWith("/learn-salah/")) return SALAH_MTIME;
-  // Figures / learn
-  if (p === "/learn" || p.startsWith("/learn/")) return FIGURES_MTIME;
-  // Hadith
-  if (p === "/hadith" || p.startsWith("/hadith/")) return HADITH_MTIME;
-  // Blog
-  if (p === "/blog" || p.startsWith("/blog/")) return BLOG_MTIME;
-  // Everything else — tools, adhan, qibla, calendar
-  return SITE_TOP_MTIME;
-}
 
 function escapeXml(s: string): string {
   return s
@@ -274,12 +136,8 @@ function buildPaths(shard: Shard): string[] {
   return paths;
 }
 
-function urlBlock(loc: string, lastmod: string, alts: { locale: string; href: string }[]): string {
-  const parts = [
-    "  <url>",
-    `    <loc>${escapeXml(loc)}</loc>`,
-    `    <lastmod>${lastmod}</lastmod>`,
-  ];
+function urlBlock(loc: string, alts: { locale: string; href: string }[]): string {
+  const parts = ["  <url>", `    <loc>${escapeXml(loc)}</loc>`];
   for (const a of alts) {
     parts.push(
       `    <xhtml:link rel="alternate" hreflang="${a.locale}" href="${escapeXml(a.href)}"/>`,
@@ -314,10 +172,10 @@ export async function GET(
       })),
       { locale: "x-default", href: siteUrl(p) },
     ];
-    urlBlocks.push(urlBlock(siteUrl(p), lastmodForPath(p), alts));
+    urlBlocks.push(urlBlock(siteUrl(p), alts));
     for (const l of INDEXABLE_LOCALES) {
       if (l === routing.defaultLocale) continue;
-      urlBlocks.push(urlBlock(siteUrl(`/${l}${p === "/" ? "" : p}`), lastmodForPath(p), alts));
+      urlBlocks.push(urlBlock(siteUrl(`/${l}${p === "/" ? "" : p}`), alts));
     }
   }
 

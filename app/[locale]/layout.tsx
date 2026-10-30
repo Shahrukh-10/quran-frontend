@@ -109,7 +109,6 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
     },
     other: {
-      "ai-content-declaration": "human-authored, AI-formatted; religious content scholar-reviewed",
       // iOS PWA hints — Safari doesn't read the standard manifest for these.
       "apple-mobile-web-app-capable": "yes",
       "apple-mobile-web-app-status-bar-style": "black-translucent",

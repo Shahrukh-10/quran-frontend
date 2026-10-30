@@ -40,7 +40,7 @@
   "home": {
     "hero": {
       "title": "قرآن کریم آن لائن پڑھیں — ترجمے، دعائیں، اوقاتِ نماز",
-      "subtitle": "مفت قرآن مع 6 ترجمے، احادیث، دعائیں، اوقاتِ نماز اور سمتِ قبلہ۔ ہر آیت اپنے مآخذ سے۔ کوئی اشتہار نہیں، کوئی ٹریکنگ نہیں، کوئی لاگ ان نہیں۔",
+      "subtitle": "مفت قرآن، انگریزی اور انڈونیشیائی تراجم، احادیث، دعائیں، اوقاتِ نماز اور سمتِ قبلہ۔ ہر آیت اپنے مآخذ سے۔ کوئی اشتہار نہیں، کوئی ٹریکنگ نہیں، کوئی لاگ ان نہیں۔",
       "ctaPrimary": "قرآن پڑھیں",
       "ctaSecondary": "دُعا تلاش کریں"
     },
@@ -125,67 +125,101 @@
   },
   "quran": {
     "list": {
-      "eyebrow": "The Noble Quran",
-      "title": "Read the Quran",
-      "description": "All 114 surahs of the Quran with Arabic, translations, transliteration, and verse-by-verse audio. Free. No login. Works offline.",
-      "intro": "Every ayah is its own page with a permanent URL, so any verse can be linked, cited, or shared. Bookmarks live on your device only.",
-      "ayat": "ayat",
-      "meccan": "Meccan",
-      "medinan": "Medinan"
+      "eyebrow": "قرآن کریم",
+      "title": "قرآن پڑھیں",
+      "description": "قرآن کی تمام ۱۱۴ سورتیں عربی متن، تراجم، نقلِ حرفی اور ہر آیت کی تلاوت کے ساتھ۔ مفت، بغیر لاگ اِن۔ آف لائن بھی دستیاب۔",
+      "intro": "ہر آیت کا اپنا صفحہ اور مستقل ربط ہے، جسے حوالہ دینے یا شیئر کرنے کے لیے استعمال کیا جا سکتا ہے۔ بُک مارکس صرف آپ کے ڈیوائس پر محفوظ رہتے ہیں۔",
+      "ayat": "آیات",
+      "meccan": "مکی",
+      "medinan": "مدنی",
+      "searchPlaceholder": "۱۱۴ سورتوں میں نام، معنی یا نمبر سے تلاش کریں…",
+      "searchLabel": "سورتیں تلاش کریں",
+      "groups": {
+        "tiwal": {
+          "title": "الفاتحہ اور سات طویل سورتیں (سبع طوال)",
+          "caption": "سورتیں ۱ تا ۷، ابتدائی سورت اور مصحف کی طویل ترین سورتیں۔"
+        },
+        "miin": {
+          "title": "المئون",
+          "caption": "سورتیں ۸ تا ۲۹، درمیانی سے زیادہ طوالت والی سورتیں۔"
+        },
+        "mathani": {
+          "title": "المثانی",
+          "caption": "سورتیں ۳۰ تا ۴۹، بار بار پڑھی جانے والی درمیانی طوالت کی سورتیں۔"
+        },
+        "mufassal_long": {
+          "title": "المفصل، طوال (طویل)",
+          "caption": "سورتیں ۵۰ تا ۷۷، مفصل سورتوں کا طویل گروہ۔"
+        },
+        "mufassal_med": {
+          "title": "المفصل، اوساط (درمیانی)",
+          "caption": "سورتیں ۷۸ تا ۹۲، مفصل سورتوں کا درمیانی گروہ۔"
+        },
+        "mufassal_short": {
+          "title": "المفصل، قصار (مختصر)",
+          "caption": "سورتیں ۹۳ تا ۱۱۴، مفصل سورتوں کا مختصر گروہ۔"
+        }
+      }
     },
     "surah": {
-      "surahLabel": "Surah {number}",
-      "ayat": "ayat",
-      "meccan": "Meccan",
-      "medinan": "Medinan",
-      "juz": "Juz",
-      "previous": "Previous surah",
-      "next": "Next surah",
-      "stubIntro": "The full text of Surah {name} is fetched at build time.",
-      "stubHow": "Run",
-      "stubTail": "to pull it from Al-Quran Cloud, then commit the JSON. The URL and structure are already permanent.",
-      "stubSeed": "Currently seeded surahs (shipped in-repo): Al-Fatihah, Al-Ikhlas, Al-Falaq, An-Nas."
+      "surahLabel": "سورۃ {number}",
+      "ayat": "آیات",
+      "meccan": "مکی",
+      "medinan": "مدنی",
+      "juz": "پارہ",
+      "previous": "پچھلی سورت",
+      "next": "اگلی سورت",
+      "stubIntro": "سورۃ {name} کا مکمل متن سائٹ بناتے وقت حاصل کیا جاتا ہے۔",
+      "stubHow": "چلائیں",
+      "stubTail": "تاکہ Al-Quran Cloud سے متن حاصل ہو، پھر JSON کو ریپوزٹری میں شامل کریں۔ ربط اور ساخت پہلے سے مستقل ہیں۔",
+      "stubSeed": "فی الحال ریپوزٹری میں شامل سورتیں: الفاتحہ، الاخلاص، الفلق، الناس۔"
     },
     "ayah": {
-      "eyebrow": "{surah}, ayah {ayah}",
-      "backToSurah": "← Back to Surah {surah}",
-      "stub": "The full text for this ayah is fetched at build time. Structure and URL are permanent.",
-      "previous": "Previous ayah",
-      "next": "Next ayah"
+      "eyebrow": "{surah}، آیت {ayah}",
+      "backToSurah": "سورۃ {surah} پر واپس جائیں ←",
+      "stub": "اس آیت کا مکمل متن سائٹ بناتے وقت حاصل کیا جاتا ہے۔ ساخت اور ربط مستقل ہیں۔",
+      "previous": "پچھلی آیت",
+      "next": "اگلی آیت"
     },
     "wordByWord": {
-      "eyebrow": "Word-by-word study · Surah {number}",
-      "info": "{count} ayat · {revelation}",
-      "meccan": "Meccan",
-      "medinan": "Medinan",
-      "tapHint": "Tap any Arabic word for meaning & audio",
-      "backToVerses": "← Back to full-verse view",
-      "openLink": "Read word by word →",
-      "scriptGroupLabel": "Arabic script",
-      "scriptUthmani": "Uthmani",
-      "scriptIndopak": "Indopak",
-      "dataLive": "live",
-      "dataCached": "cached",
-      "dataLabel": "Data",
-      "stubTitle": "Word-by-word data isn't downloaded yet.",
-      "stubHow": "Run",
-      "stubTail": "to fetch all 114 surahs (~5 minutes, one-time)."
+      "eyebrow": "لفظ بہ لفظ مطالعہ · سورۃ {number}",
+      "info": "{count} آیات · {revelation}",
+      "meccan": "مکی",
+      "medinan": "مدنی",
+      "tapHint": "معنی اور آواز کے لیے کسی بھی عربی لفظ پر ٹیپ کریں",
+      "backToVerses": "مکمل آیات کے منظر پر واپس جائیں ←",
+      "openLink": "لفظ بہ لفظ پڑھیں ←",
+      "scriptGroupLabel": "عربی رسم الخط",
+      "scriptUthmani": "عثمانی",
+      "scriptIndopak": "برصغیری",
+      "dataLive": "براہِ راست",
+      "dataCached": "محفوظ شدہ",
+      "dataLabel": "ڈیٹا",
+      "stubTitle": "لفظ بہ لفظ ڈیٹا ابھی ڈاؤن لوڈ نہیں ہوا۔",
+      "stubHow": "چلائیں",
+      "stubTail": "تاکہ تمام ۱۱۴ سورتیں حاصل ہوں (تقریباً ۵ منٹ، صرف ایک بار)۔"
     },
     "ayahActions": {
-      "readTafsir": "Read tafsir",
-      "wordByWord": "Word by word"
+      "readTafsir": "تفسیر پڑھیں",
+      "wordByWord": "لفظ بہ لفظ",
+      "playRecitation": "تلاوت چلائیں",
+      "pauseRecitation": "تلاوت روکیں",
+      "bookmark": "اس آیت کو بُک مارک کریں",
+      "removeBookmark": "بُک مارک ہٹائیں",
+      "share": "یہ آیت شیئر کریں",
+      "page": "صفحہ"
     },
     "study": {
-      "eyebrow": "Study Mode",
-      "tabTranslations": "Translations",
-      "tabTafsir": "Tafsir",
-      "tabNotes": "Notes",
-      "tabRelated": "Related",
-      "previous": "Previous",
-      "next": "Next",
-      "studyTabsAriaLabel": "Study tabs",
-      "ayahContextAriaLabel": "Ayah context links",
-      "ayahNavAriaLabel": "Ayah navigation"
+      "eyebrow": "مطالعہ موڈ",
+      "tabTranslations": "تراجم",
+      "tabTafsir": "تفسیر",
+      "tabNotes": "نوٹس",
+      "tabRelated": "متعلقہ",
+      "previous": "پچھلا",
+      "next": "اگلا",
+      "studyTabsAriaLabel": "مطالعے کے ٹیب",
+      "ayahContextAriaLabel": "آیت کے سیاق و سباق کے روابط",
+      "ayahNavAriaLabel": "آیات میں آمد و رفت"
     }
   },
   "duas": {

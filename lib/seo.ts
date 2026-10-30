@@ -18,6 +18,42 @@ import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 
+export function buildAyahTitle(
+  surahNumber: number,
+  ayahNumber: number,
+  surahName: string,
+  translation: string,
+): string {
+  const identity = `Quran ${surahNumber}:${ayahNumber} — ${surahName}`;
+  const parts: string[] = [];
+  let cursor = 0;
+  while (cursor < translation.length) {
+    const opening = translation.indexOf("[", cursor);
+    const closing = opening < 0 ? -1 : translation.indexOf("]", opening + 1);
+    if (closing < 0) break;
+    parts.push(translation.slice(cursor, opening), " ");
+    cursor = closing + 1;
+  }
+  parts.push(translation.slice(cursor));
+  const source = parts.join("").replace(/\s+/g, " ").trim();
+  const budget = 70 - identity.length - ' · ""'.length;
+  if (!source || budget < 2) return identity;
+  if (source.length <= budget) return `${identity} · "${source}"`;
+  const words = source.split(" ");
+  let preview = "";
+  for (const word of words) {
+    const candidate = preview ? `${preview} ${word}` : word;
+    if (candidate.length > budget - 1) break;
+    preview = candidate;
+  }
+  let previewEnd = preview.length;
+  while (previewEnd > 0 && /[\s,;:—–-]/.test(preview.charAt(previewEnd - 1))) {
+    previewEnd--;
+  }
+  preview = preview.slice(0, previewEnd);
+  return preview ? `${identity} · "${preview}…"` : identity;
+}
+
 /**
  * The canonical Open Graph images array for a page. Pass an `alt` that
  * describes the specific page (e.g. `"Surah Al-Fatihah"`). Callers spread
@@ -49,8 +85,9 @@ export function mergedOgImages(alt: string) {
  */
 export function hreflangLanguages(path: string): Record<string, string> {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const prefixedPath = normalizedPath === "/" ? "" : normalizedPath;
   const localePath = (locale: string) =>
-    locale === routing.defaultLocale ? normalizedPath : `/${locale}${normalizedPath}`;
+    locale === routing.defaultLocale ? normalizedPath : `/${locale}${prefixedPath}`;
   const map: Record<string, string> = {};
   for (const l of locales) {
     // Skip untranslated locales — advertising them as hreflang alternates

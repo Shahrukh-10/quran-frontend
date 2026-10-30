@@ -34,18 +34,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, surah } = await params;
   const s = getSurahBySlug(surah);
   if (!s) return {};
+  const isIndonesian = locale === "id";
+  const description = isIndonesian
+    ? `Baca Surah ${s.name}, surah ke-${s.number} dengan ${s.ayahCount} ayat, ${s.revelation === "meccan" ? "Makkiyah" : "Madaniyah"}. Teks Arab, terjemahan bahasa Indonesia, transliterasi, dan audio ayat.`
+    : `Read Surah ${s.name} (${s.englishTranslation}) — ${s.ayahCount} ayat, ${s.revelation}. Arabic, translation, transliteration, and verse audio.`;
   return {
     title: `${s.name} · Surah ${s.number}`,
-    description: `Read Surah ${s.name} (${s.englishTranslation}) — ${s.ayahCount} ayat, ${s.revelation}. Arabic, translation, transliteration, and verse audio.`,
+    description,
     alternates: {
       canonical: siteUrl(locale === "en" ? `/quran/${surah}` : `/${locale}/quran/${surah}`),
       languages: hreflangLanguages(`/quran/${surah}`),
     },
     openGraph: {
+      ...(isIndonesian ? { description } : {}),
       url: siteUrl(locale === "en" ? `/quran/${surah}` : `/${locale}/quran/${surah}`),
       type: "article",
       locale,
-      images: mergedOgImages(`Surah ${s.name} (${s.englishTranslation})`),
+      images: mergedOgImages(
+        isIndonesian ? `Surah ${s.name}` : `Surah ${s.name} (${s.englishTranslation})`,
+      ),
     },
   };
 }

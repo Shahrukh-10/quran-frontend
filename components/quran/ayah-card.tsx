@@ -3,14 +3,14 @@
 // Client component: needs localStorage (bookmark, settings) and <audio> control.
 // Reads settings from lib/storage.ts and rerenders on the `iw:storage` custom event.
 
-import { Link } from "@/i18n/routing";
+import { defaultLocale, isLocale } from "@/i18n/config";
+import { Link, getPathname } from "@/i18n/routing";
 import { cleanArabicForDisplay } from "@/lib/arabic-text";
 import { stopAllAudio, useAudioLock } from "@/lib/audio-lock";
-import type { Ayah } from "@/lib/quran";
-import { type ReciterId, TRANSLATIONS, type TranslationId, audioUrl } from "@/lib/quran";
+import { type Ayah, type ReciterId, audioUrl, resolveAyahTranslation } from "@/lib/quran";
 import { getStore, isAyahBookmarked, setLastRead, toggleAyahBookmark } from "@/lib/storage";
 import { BookmarkIcon, PauseIcon, PlayIcon, ShareIcon } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 // Event names shared with SurahHeaderBar. Ayah cards listen for
@@ -19,6 +19,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 // header-bar controller can take over sequencing.
 const EV_PLAYING_CHANGE = "iw:playing-change";
 const EV_PLAY_AYAH = "iw:play-ayah";
+const ACTION_LABEL_FALLBACKS = {
+  playRecitation: "Play recitation",
+  pauseRecitation: "Pause recitation",
+  bookmark: "Bookmark this ayah",
+  removeBookmark: "Remove bookmark",
+} as const;
 
 type PlayingDetail = { surah: number; ayah: number } | null;
 
@@ -30,7 +36,9 @@ type Props = {
 };
 
 export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Props) {
+  const locale = useLocale();
   const t = useTranslations("quran.ayahActions");
+  const surahLabels = useTranslations("quran.surah");
   const [bookmarked, setBookmarked] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [surahAudioActive, setSurahAudioActive] = useState(false);
@@ -69,12 +77,11 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
   }, [ayah.surah, ayah.ayah]);
 
   const reciter = settings.reciter as ReciterId;
-  const translationId = settings.translation as TranslationId;
-  const translation =
-    ayah.translations[translationId] ??
-    ayah.translations["en.sahih"] ??
-    Object.values(ayah.translations)[0] ??
-    "";
+  const resolvedTranslation = resolveAyahTranslation(ayah.translations, settings.translation);
+  const translation = resolvedTranslation?.text ?? "";
+  const translationLanguage = resolvedTranslation
+    ? new Intl.DisplayNames(locale, { type: "language" }).of(resolvedTranslation.lang)
+    : undefined;
 
   const src = ayah.audio[reciter] ?? audioUrl(reciter, ayah.surah, ayah.ayah);
 
@@ -163,7 +170,11 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
   }, [ayah.surah, ayah.ayah]);
 
   const handleShare = useCallback(async () => {
-    const url = `${window.location.origin}/quran/${surahSlug}/${ayah.ayah}`;
+    const pathname = getPathname({
+      locale: isLocale(locale) ? locale : defaultLocale,
+      href: `/quran/${surahSlug}/${ayah.ayah}`,
+    });
+    const url = new URL(pathname, window.location.origin).href;
     const text = `${surahName} ${ayah.surah}:${ayah.ayah} — ${translation}`;
     if (navigator.share) {
       try {
@@ -178,7 +189,7 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
         /* clipboard denied */
       }
     }
-  }, [surahSlug, surahName, ayah, translation]);
+  }, [surahSlug, surahName, ayah, translation, locale]);
 
   // Mushaf-scale sizes — matches quran.com/recitequran.com scale.
   // sm=36px, md=48px (default), lg=60px, xl=72px. Bumped up from the previous
@@ -206,6 +217,8 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
   // Translation-only mode gets a slightly larger body font for comfortable
   // long-form reading; other modes keep the default relaxed size.
   const translationSize = languageMode === "translation-only" ? "text-lg sm:text-xl" : "text-base";
+  const playbackLabel = playing || surahAudioActive ? "pauseRecitation" : "playRecitation";
+  const bookmarkLabel = bookmarked ? "removeBookmark" : "bookmark";
 
   return (
     <article
@@ -226,20 +239,20 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
         </span>
         <div className="flex items-center gap-1">
           <IconButton
-            label={playing || surahAudioActive ? "Pause recitation" : "Play recitation"}
+            label={t.has(playbackLabel) ? t(playbackLabel) : ACTION_LABEL_FALLBACKS[playbackLabel]}
             onClick={handlePlay}
             active={playing || surahAudioActive}
           >
             {playing || surahAudioActive ? <PauseIcon size={18} /> : <PlayIcon size={18} />}
           </IconButton>
           <IconButton
-            label={bookmarked ? "Remove bookmark" : "Bookmark this ayah"}
+            label={t.has(bookmarkLabel) ? t(bookmarkLabel) : ACTION_LABEL_FALLBACKS[bookmarkLabel]}
             onClick={handleBookmark}
             active={bookmarked}
           >
             <BookmarkIcon size={18} fill={bookmarked ? "currentColor" : "none"} strokeWidth={1.5} />
           </IconButton>
-          <IconButton label="Share this ayah" onClick={handleShare}>
+          <IconButton label={t.has("share") ? t("share") : "Share this ayah"} onClick={handleShare}>
             <ShareIcon size={18} />
           </IconButton>
         </div>
@@ -252,23 +265,41 @@ export function AyahCard({ ayah, surahSlug, surahName, standalone = false }: Pro
       )}
 
       {showArabic && showTransliteration && ayah.transliteration && (
-        <p className={`mt-4 italic text-muted-foreground leading-relaxed ${bodyFont}`}>
+        <p
+          lang="ar-Latn"
+          dir="ltr"
+          className={`mt-4 italic text-muted-foreground leading-relaxed ${bodyFont}`}
+        >
           {ayah.transliteration}
         </p>
       )}
 
-      {showTranslation && (
-        <p className={`mt-4 leading-relaxed ${translationSize} ${bodyFont}`}>{translation}</p>
+      {showTranslation && resolvedTranslation && (
+        <p
+          lang={resolvedTranslation.lang}
+          dir={resolvedTranslation.dir}
+          className={`mt-4 leading-relaxed ${translationSize} ${bodyFont}`}
+        >
+          {translation}
+        </p>
       )}
 
       <footer className="mt-4 pt-3 border-t border-separator text-xs text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1">
         <span>
-          Juz {ayah.juz} · Page {ayah.page}
+          {surahLabels("juz")} {ayah.juz} · {t.has("page") ? t("page") : "Page"} {ayah.page}
         </span>
-        <span>{TRANSLATIONS.find((t) => t.id === translationId)?.name ?? "Translation"}</span>
+        {resolvedTranslation && (
+          <span>
+            <bdi lang={resolvedTranslation.lang} dir={resolvedTranslation.dir}>
+              {resolvedTranslation.name}
+            </bdi>
+            {" · "}
+            {translationLanguage}
+          </span>
+        )}
         <Link
           href={`/study/${ayah.surah}-${ayah.ayah}?tab=tafsir` as "/study/[verseKey]"}
-          className="ml-auto text-accent hover:underline focus-ring"
+          className="ms-auto text-accent hover:underline focus-ring"
         >
           {t("readTafsir")}
         </Link>

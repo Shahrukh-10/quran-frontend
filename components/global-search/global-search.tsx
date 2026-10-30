@@ -297,7 +297,7 @@ export function GlobalSearch({ label = "Search" }: { label?: string }) {
                 canonical ARIA pattern for a custom command palette; a native
                 <select> element cannot host rich content like grouped icons
                 and Arabic subtitles. */}
-            <div className="gs-results" role="listbox" tabIndex={-1}>
+            <div className="gs-results" role="listbox" aria-label={label} tabIndex={-1}>
               {!query.trim() && (
                 <div className="gs-empty">
                   <p className="gs-empty__title">

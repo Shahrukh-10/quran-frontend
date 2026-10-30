@@ -34,7 +34,6 @@ const SHARDS = [
 ] as const;
 
 function buildSitemapIndex(): string {
-  const lastmod = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
   const parts: string[] = [];
   parts.push('<?xml version="1.0" encoding="UTF-8"?>');
   parts.push('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
@@ -42,7 +41,6 @@ function buildSitemapIndex(): string {
     const loc = siteUrl(`/sitemaps/${shard}.xml`);
     parts.push("  <sitemap>");
     parts.push(`    <loc>${loc}</loc>`);
-    parts.push(`    <lastmod>${lastmod}</lastmod>`);
     parts.push("  </sitemap>");
   }
   parts.push("</sitemapindex>");

@@ -10,23 +10,9 @@ function LdJson({ data }: { data: JsonLd }) {
     <script
       type="application/ld+json"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires raw JSON in a script tag
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replaceAll("<", String.raw`\u003c`) }}
     />
   );
-}
-
-// The publish/modification date used when a page does not pass its own.
-// - `process.env.NEXT_PUBLIC_BUILD_DATE` is wired into the Cloudflare Pages
-//   build command (`NEXT_PUBLIC_BUILD_DATE=$(date -u +%Y-%m-%d) pnpm build`)
-//   so every deploy stamps the freshness signal.
-// - When the env is absent (local dev, tests, previews), we fall back to
-//   today's UTC date so freshness never freezes to an outdated hardcoded
-//   string. Format: `YYYY-MM-DD` (schema.org accepts ISO-8601 date strings).
-function defaultArticleDate(): string {
-  const d = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
-  // Google prefers full ISO-8601 datetimes for freshness; normalise date-only
-  // build stamps to midnight UTC so every page emits the same granularity.
-  return d.includes("T") ? d : `${d}T00:00:00Z`;
 }
 
 export function OrganizationSchema() {
@@ -164,9 +150,6 @@ export function ArticleSchema({
   headline: string;
   description: string;
   url: string;
-  // Optional — defaults to `NEXT_PUBLIC_BUILD_DATE` at render time (see
-  // `defaultArticleDate` above). Callers may pass a per-content date from
-  // frontmatter when it exists.
   datePublished?: string;
   dateModified?: string;
   author?: string;
@@ -174,8 +157,6 @@ export function ArticleSchema({
   // (required by Google for Article rich-result eligibility).
   image?: string;
 }) {
-  const published = datePublished ?? defaultArticleDate();
-  const modified = dateModified ?? published;
   // A named byline (anything other than the org name) → model as a Person on a
   // BlogPosting, which is the E-E-A-T signal Google expects for editorial
   // content. Otherwise a plain Organization-authored Article.
@@ -188,8 +169,8 @@ export function ArticleSchema({
         headline,
         description,
         url,
-        datePublished: published,
-        dateModified: modified,
+        datePublished,
+        dateModified,
         image: image
           ? { "@type": "ImageObject", url: image }
           : { "@type": "ImageObject", url: siteUrl("/opengraph-image"), width: 1200, height: 630 },
@@ -261,8 +242,7 @@ export function QuranChapterSchema({
         "@type": "Chapter",
         name: `Surah ${surahName}`,
         position: surahNumber,
-        pageStart: 1,
-        pageEnd: ayahCount,
+        description: `Surah ${surahName}, chapter ${surahNumber} of the Quran, with ${ayahCount} verses.`,
         url,
         about: revelation === "meccan" ? "Makkan revelation" : "Madinan revelation",
         isPartOf: {

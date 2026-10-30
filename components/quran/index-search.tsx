@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function QuranIndexSearch() {
+export function QuranIndexSearch({ placeholder, label }: { placeholder: string; label: string }) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function QuranIndexSearch() {
       const q = el.value.trim().toLowerCase();
       const rows = document.querySelectorAll<HTMLLIElement>("[data-search]");
       const visibleGroups = new Set<HTMLElement>();
-      rows.forEach((row) => {
+      for (const row of rows) {
         const hay = row.dataset.search ?? "";
         const show = !q || hay.includes(q);
         row.style.display = show ? "" : "none";
@@ -22,11 +22,11 @@ export function QuranIndexSearch() {
           const g = row.closest<HTMLElement>(".group");
           if (g) visibleGroups.add(g);
         }
-      });
+      }
       // hide empty groups
-      document.querySelectorAll<HTMLElement>(".group").forEach((g) => {
+      for (const g of document.querySelectorAll<HTMLElement>(".group")) {
         g.style.display = q && !visibleGroups.has(g) ? "none" : "";
-      });
+      }
     };
     el.addEventListener("input", onInput);
     return () => el.removeEventListener("input", onInput);
@@ -50,8 +50,8 @@ export function QuranIndexSearch() {
       <input
         ref={inputRef}
         type="search"
-        placeholder="Search 114 surahs — by name, meaning, or number…"
-        aria-label="Search surahs"
+        placeholder={placeholder}
+        aria-label={label}
         autoComplete="off"
       />
     </div>

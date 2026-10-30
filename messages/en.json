@@ -40,7 +40,7 @@
   "home": {
     "hero": {
       "title": "Read the Quran Online — Translations, Duas, Prayer Times",
-      "subtitle": "Free, sourced Quran with 6 translations, hadith, duas, prayer times, and Qibla direction. Every ayah cites its source. No ads. No tracking. No login.",
+      "subtitle": "Free, sourced Quran with English and Indonesian translations, hadith, duas, prayer times, and Qibla direction. Every ayah cites its source. No ads. No tracking. No login.",
       "ctaPrimary": "Read the Quran",
       "ctaSecondary": "Find a dua"
     },
@@ -131,7 +131,35 @@
       "intro": "Every ayah is its own page with a permanent URL, so any verse can be linked, cited, or shared. Bookmarks live on your device only.",
       "ayat": "ayat",
       "meccan": "Meccan",
-      "medinan": "Medinan"
+      "medinan": "Medinan",
+      "searchPlaceholder": "Search 114 surahs — by name, meaning, or number…",
+      "searchLabel": "Search surahs",
+      "groups": {
+        "tiwal": {
+          "title": "Al-Fatihah & The Seven Long (as-Sabʿ aṭ-Ṭiwāl)",
+          "caption": "Surahs 1–7 — the opening chapter and the longest of the muṣḥaf."
+        },
+        "miin": {
+          "title": "Al-Miʾīn",
+          "caption": "Surahs 8–29 — the medium-long chapters."
+        },
+        "mathani": {
+          "title": "Al-Mathānī",
+          "caption": "Surahs 30–49 — repeated moderate-length chapters."
+        },
+        "mufassal_long": {
+          "title": "Al-Mufaṣṣal — Ṭiwāl (long)",
+          "caption": "Surahs 50–77 — the detailed chapters, longer group."
+        },
+        "mufassal_med": {
+          "title": "Al-Mufaṣṣal — Awsāṭ (medium)",
+          "caption": "Surahs 78–92 — the detailed chapters, medium group."
+        },
+        "mufassal_short": {
+          "title": "Al-Mufaṣṣal — Qiṣār (short)",
+          "caption": "Surahs 93–114 — the detailed chapters, short group."
+        }
+      }
     },
     "surah": {
       "surahLabel": "Surah {number}",
@@ -173,7 +201,13 @@
     },
     "ayahActions": {
       "readTafsir": "Read tafsir",
-      "wordByWord": "Word by word"
+      "wordByWord": "Word by word",
+      "playRecitation": "Play recitation",
+      "pauseRecitation": "Pause recitation",
+      "bookmark": "Bookmark this ayah",
+      "removeBookmark": "Remove bookmark",
+      "share": "Share this ayah",
+      "page": "Page"
     },
     "study": {
       "eyebrow": "Study Mode",

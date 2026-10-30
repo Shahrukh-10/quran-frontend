@@ -1,8 +1,7 @@
 import Link from "next/link";
 
-// Root not-found. This is only hit when a URL escapes the [locale] catch-all
-// entirely (extremely rare — normally [locale]/[...rest] catches it and
-// delegates to the localized 404). It still needs valid HTML structure or
+// Root not-found handles URLs with no filesystem route match.
+// It needs valid HTML structure or
 // Next.js falls back to a placeholder `<html id="__next_error__">` with no
 // lang attribute, which fails WCAG 3.1.1 (axe rule `html-has-lang`).
 

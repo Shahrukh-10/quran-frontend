@@ -1,13 +1,13 @@
-import { BreadcrumbSchema, HowToSchema } from "@/components/seo/structured-data";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
-import { getAllSalahTutorials, getSalahTutorial } from "@/lib/salah";
-import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
+import { getAllSalahTutorials, getSalahTutorial } from "@/lib/salah";
+import { hreflangLanguages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; topic: string }> = [];
@@ -37,9 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: hreflangLanguages(`/learn-salah/${topic}`),
     },
     openGraph: {
-      url: siteUrl(
-        locale === "en" ? `/learn-salah/${topic}` : `/${locale}/learn-salah/${topic}`,
-      ),
+      url: siteUrl(locale === "en" ? `/learn-salah/${topic}` : `/${locale}/learn-salah/${topic}`),
     },
   };
 }
@@ -62,10 +60,10 @@ export default async function TopicPage({ params }: Props) {
           { name: tut.title.en, url: siteUrl(`/learn-salah/${topic}`) },
         ]}
       />
-      <HowToSchema
-        name={tut.title.en}
+      <ArticleSchema
+        headline={tut.title.en}
         description={tut.summary.en}
-        steps={tut.steps.map((s) => ({ name: s.title.en, text: s.body.en }))}
+        url={siteUrl(`/learn-salah/${topic}`)}
       />
 
       <Link href="/learn-salah" className="focus-ring text-sm text-accent hover:underline">

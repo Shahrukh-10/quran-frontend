@@ -303,19 +303,21 @@ export async function GET(
   const urlBlocks: string[] = [];
 
   for (const p of paths) {
-    // Default-locale canonical entry with full hreflang alternates (only for
-    // locales that actually ship translated content — untranslated locales are
-    // noindex and don't appear here).
-    const alts = INDEXABLE_LOCALES.map((l) => ({
-      locale: l,
-      href: siteUrl(l === routing.defaultLocale ? p : `/${l}${p === "/" ? "" : p}`),
-    }));
+    // Full reciprocal hreflang set — EVERY url row (default + each locale
+    // variant) must list all alternates incl. a self tag and x-default, per
+    // Google's sitemap spec. (Previously the /id rows shipped `[]`, which is
+    // non-compliant — Google does not read alternates from an adjacent row.)
+    const alts = [
+      ...INDEXABLE_LOCALES.map((l) => ({
+        locale: l,
+        href: siteUrl(l === routing.defaultLocale ? p : `/${l}${p === "/" ? "" : p}`),
+      })),
+      { locale: "x-default", href: siteUrl(p) },
+    ];
     urlBlocks.push(urlBlock(siteUrl(p), lastmodForPath(p), alts));
-    // Non-default indexable locale variants (no alt list — Google reads it
-    // from the canonical above)
     for (const l of INDEXABLE_LOCALES) {
       if (l === routing.defaultLocale) continue;
-      urlBlocks.push(urlBlock(siteUrl(`/${l}${p === "/" ? "" : p}`), lastmodForPath(p), []));
+      urlBlocks.push(urlBlock(siteUrl(`/${l}${p === "/" ? "" : p}`), lastmodForPath(p), alts));
     }
   }
 

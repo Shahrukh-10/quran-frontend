@@ -98,6 +98,11 @@ export default async function BlogPostPage({ params }: Props) {
         description={post.excerpt}
         url={url}
         datePublished={`${post.publishedAt}T00:00:00Z`}
+        dateModified={
+          post.updatedAt ? `${post.updatedAt}T00:00:00Z` : `${post.publishedAt}T00:00:00Z`
+        }
+        author={post.author}
+        image={post.coverImage ? siteUrl(post.coverImage) : undefined}
       />
       {faqJsonLd && (
         <script

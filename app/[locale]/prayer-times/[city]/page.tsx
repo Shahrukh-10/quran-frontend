@@ -2,27 +2,71 @@ import { PrayerTimesForCity } from "@/components/prayer-times/prayer-times-for-c
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
-import { CITIES, getCity } from "@/lib/cities";
-import { siteUrl } from "@/lib/site";
 import { breadcrumbs } from "@/lib/breadcrumbs";
+import { CITIES, getCity } from "@/lib/cities";
+import { hreflangLanguages } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { hreflangLanguages } from "@/lib/seo";
+
+// Daily ISR. The title embeds the current year and the SSR snapshot of the
+// prayer table is computed at render time; without revalidation a 1-year CDN
+// cache (s-maxage) would serve a stale year + stale build-time times (the live
+// table is client-recomputed, but crawlers snapshot the server HTML). 24h keeps
+// both fresh while staying effectively static. See CLAUDE.md rule 2 (ISR ok).
+export const revalidate = 86400;
 
 // Countries that currently (as of 2026) do NOT observe daylight-saving time.
 // Used to answer the DST FAQ truthfully per country.
 const NO_DST_COUNTRIES = new Set<string>([
-  "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait",
-  "Pakistan", "India", "Bangladesh", "Sri Lanka", "Nepal", "Maldives",
-  "Indonesia", "Malaysia", "Singapore", "Thailand", "Vietnam", "Philippines",
-  "China", "Japan", "South Korea", "Taiwan", "Hong Kong",
-  "Egypt", "Morocco", "Tunisia", "Algeria", "Libya",
-  "Nigeria", "Kenya", "Ethiopia", "Ghana", "Senegal", "Tanzania", "Uganda",
+  "United Arab Emirates",
+  "Saudi Arabia",
+  "Qatar",
+  "Oman",
+  "Bahrain",
+  "Kuwait",
+  "Pakistan",
+  "India",
+  "Bangladesh",
+  "Sri Lanka",
+  "Nepal",
+  "Maldives",
+  "Indonesia",
+  "Malaysia",
+  "Singapore",
+  "Thailand",
+  "Vietnam",
+  "Philippines",
+  "China",
+  "Japan",
+  "South Korea",
+  "Taiwan",
+  "Hong Kong",
+  "Egypt",
+  "Morocco",
+  "Tunisia",
+  "Algeria",
+  "Libya",
+  "Nigeria",
+  "Kenya",
+  "Ethiopia",
+  "Ghana",
+  "Senegal",
+  "Tanzania",
+  "Uganda",
   "South Africa",
-  "Turkey", "Russia", "Belarus", "Iceland",
-  "Argentina", "Brazil", "Peru", "Colombia", "Venezuela",
-  "Australia", "New Zealand",
+  "Turkey",
+  "Russia",
+  "Belarus",
+  "Iceland",
+  "Argentina",
+  "Brazil",
+  "Peru",
+  "Colombia",
+  "Venezuela",
+  "Australia",
+  "New Zealand",
 ]);
 
 function dstNote(country: string, tz: string): string {
@@ -62,9 +106,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Point canonical to the EN equivalent so untranslated locales consolidate
   // link equity onto the real indexable page.
   const isUntranslated = ["ar", "ur", "tr", "fr"].includes(locale);
-  const canonicalPath = (locale === "en" || isUntranslated)
-    ? `/prayer-times/${city}`
-    : `/${locale}/prayer-times/${city}`;
+  const canonicalPath =
+    locale === "en" || isUntranslated ? `/prayer-times/${city}` : `/${locale}/prayer-times/${city}`;
   return {
     title: title.slice(0, 70),
     description: desc.slice(0, 260),
@@ -162,6 +205,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Place",
     name: c.name,
+    url: siteUrl(`/prayer-times/${c.slug}`),
     address: {
       "@type": "PostalAddress",
       addressLocality: c.name,
@@ -208,17 +252,25 @@ export default async function CityPrayerTimesPage({ params }: Props) {
       </nav>
 
       <header>
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">
-          {c.country}
-        </p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">{c.country}</p>
         <h1 className="mt-2 text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-display leading-tight">
           Prayer Times in {c.name}, {c.country}
         </h1>
+      </header>
+
+      {/* Live prayer times — placed directly under the H1 so the utility a
+          "prayer times {city}" searcher wants is above the fold; the
+          explanatory prose follows below. */}
+      <div className="mt-6">
+        <PrayerTimesForCity lat={c.lat} lon={c.lon} tz={c.tz} cityName={c.name} />
+      </div>
+
+      <header className="mt-8">
         {/* Server-rendered intro — 60+ words of unique content per city */}
-        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+        <p className="text-base leading-relaxed text-muted-foreground">
           Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times for {c.name}
-          {c.country ? `, ${c.country}` : ""}. Times are computed on your
-          device using astronomical calculations (the{" "}
+          {c.country ? `, ${c.country}` : ""}. Times are computed on your device using astronomical
+          calculations (the{" "}
           <a
             href="https://github.com/batoulapps/adhan-js"
             className="text-accent hover:underline"
@@ -226,10 +278,9 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           >
             adhan library
           </a>
-          ) based on {c.name}&apos;s coordinates ({c.lat.toFixed(4)}°,{" "}
-          {c.lon.toFixed(4)}°) and the {c.tz} timezone. Switch calculation
-          methods (MWL, ISNA, Umm al-Qura, Egyptian, Karachi) to match your
-          local mosque.
+          ) based on {c.name}&apos;s coordinates ({c.lat.toFixed(4)}°, {c.lon.toFixed(4)}°) and the{" "}
+          {c.tz} timezone. Switch calculation methods (MWL, ISNA, Umm al-Qura, Egyptian, Karachi) to
+          match your local mosque.
         </p>
 
         {/* Official method badge — appears only for cities with a per-city
@@ -244,18 +295,11 @@ export default async function CityPrayerTimesPage({ params }: Props) {
               <span className="text-sm font-semibold">{c.method}</span>
             </div>
             {c.methodNote ? (
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {c.methodNote}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.methodNote}</p>
             ) : null}
           </div>
         ) : null}
       </header>
-
-      {/* Client component that renders live prayer times for today. */}
-      <div className="mt-8">
-        <PrayerTimesForCity lat={c.lat} lon={c.lon} tz={c.tz} cityName={c.name} />
-      </div>
 
       {/* City facts panel */}
       <section
@@ -279,11 +323,15 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Latitude</dt>
-            <dd className="mt-1">{c.lat.toFixed(4)}° {c.lat >= 0 ? "N" : "S"}</dd>
+            <dd className="mt-1">
+              {c.lat.toFixed(4)}° {c.lat >= 0 ? "N" : "S"}
+            </dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Longitude</dt>
-            <dd className="mt-1">{c.lon.toFixed(4)}° {c.lon >= 0 ? "E" : "W"}</dd>
+            <dd className="mt-1">
+              {c.lon.toFixed(4)}° {c.lon >= 0 ? "E" : "W"}
+            </dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Population</dt>
@@ -300,18 +348,13 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           landmarkMosque / dressNote metadata. Gives a trust signal + practical
           info a visitor to the city actually needs. */}
       {(c.landmarkMosque || c.dressNote) && (
-        <section
-          className="mt-6 grid gap-4 sm:grid-cols-2"
-          aria-label={`Praying in ${c.name}`}
-        >
+        <section className="mt-6 grid gap-4 sm:grid-cols-2" aria-label={`Praying in ${c.name}`}>
           {c.landmarkMosque ? (
             <div className="rounded-2xl border border-separator bg-surface p-5">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Landmark mosque
               </h3>
-              <p className="mt-2 text-sm leading-relaxed">
-                {c.landmarkMosque}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed">{c.landmarkMosque}</p>
             </div>
           ) : null}
           {c.dressNote ? (
@@ -319,9 +362,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
               <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 What to wear
               </h3>
-              <p className="mt-2 text-sm leading-relaxed">
-                {c.dressNote}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed">{c.dressNote}</p>
             </div>
           ) : null}
         </section>
@@ -335,9 +376,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           href="/qibla"
           className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Direction
-          </p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Direction</p>
           <p className="mt-1 font-semibold">Qibla for {c.name}</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Live compass with true-north correction.
@@ -347,9 +386,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           href="/learn-salah"
           className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Learn
-          </p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Learn</p>
           <p className="mt-1 font-semibold">How to pray each salah</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Step-by-step tutorials for Fajr through Isha.
@@ -359,9 +396,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
           href="/calendar"
           className="focus-ring rounded-2xl border border-separator bg-surface p-4 hover:border-accent/40 transition-colors"
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Date
-          </p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Date</p>
           <p className="mt-1 font-semibold">Hijri calendar today</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Current Islamic date + upcoming observances.
@@ -402,10 +437,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
               desc: "Night prayer, after twilight has completely disappeared. Four rakats. Extends until midnight (or until Fajr in emergencies).",
             },
           ].map((p) => (
-            <div
-              key={p.name}
-              className="rounded-xl border border-separator bg-surface p-4"
-            >
+            <div key={p.name} className="rounded-xl border border-separator bg-surface p-4">
               <div className="flex items-baseline gap-3">
                 <span className="text-base font-bold">{p.name}</span>
                 <span lang="ar" dir="rtl" className="text-lg font-quran">
@@ -421,10 +453,7 @@ export default async function CityPrayerTimesPage({ params }: Props) {
       {/* Same-country cities */}
       {sameCountry.length > 0 && (
         <section className="mt-10" aria-labelledby="same-country-heading">
-          <h2
-            id="same-country-heading"
-            className="text-lg font-bold tracking-title"
-          >
+          <h2 id="same-country-heading" className="text-lg font-bold tracking-title">
             Prayer times in other {c.country} cities
           </h2>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -453,12 +482,8 @@ export default async function CityPrayerTimesPage({ params }: Props) {
               href={`/prayer-times/${x.slug}` as "/prayer-times/[city]"}
               className="focus-ring rounded-xl border border-separator bg-surface p-3 hover:bg-muted transition-colors"
             >
-              <span className="block text-sm font-semibold">
-                {x.name}
-              </span>
-              <span className="mt-1 block text-xs text-muted-foreground">
-                {x.country}
-              </span>
+              <span className="block text-sm font-semibold">{x.name}</span>
+              <span className="mt-1 block text-xs text-muted-foreground">{x.country}</span>
             </Link>
           ))}
         </div>
@@ -471,16 +496,9 @@ export default async function CityPrayerTimesPage({ params }: Props) {
         </h2>
         <div className="mt-4 space-y-4">
           {faqs.map((f) => (
-            <details
-              key={f.q}
-              className="rounded-2xl border border-separator bg-surface p-5"
-            >
-              <summary className="cursor-pointer text-base font-semibold">
-                {f.q}
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {f.a}
-              </p>
+            <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
+              <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
             </details>
           ))}
         </div>

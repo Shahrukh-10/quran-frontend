@@ -23,7 +23,10 @@ function LdJson({ data }: { data: JsonLd }) {
 //   today's UTC date so freshness never freezes to an outdated hardcoded
 //   string. Format: `YYYY-MM-DD` (schema.org accepts ISO-8601 date strings).
 function defaultArticleDate(): string {
-  return process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
+  const d = process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString().slice(0, 10);
+  // Google prefers full ISO-8601 datetimes for freshness; normalise date-only
+  // build stamps to midnight UTC so every page emits the same granularity.
+  return d.includes("T") ? d : `${d}T00:00:00Z`;
 }
 
 export function OrganizationSchema() {
@@ -74,20 +77,11 @@ export function WebSiteSchema() {
         publisher: {
           "@id": siteUrl("/#organization"),
         },
-        // Sitelinks searchbox: MUST point at a URL that actually returns
-        // search results. `/search` is disallowed in robots.txt precisely
-        // because it's a UI/state page, not a canonical results page.
-        // Point to `/quran` (the reader index) with a query param — the
-        // reader accepts `?q=` as a filter, so results are real.
-        // See https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${siteUrl("/quran")}?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
+        // No `potentialAction`/SearchAction: the Sitelinks Searchbox requires a
+        // URL that returns a server-rendered results page. `/search` is a
+        // client-only UI (disallowed in robots.txt) and `/quran?q=` filters
+        // client-side, so a SearchAction here would fail Google's eligibility
+        // test and suppress the searchbox. Re-add once an SSR search route exists.
         // GEO/AEO signal: tell AI answer engines (ChatGPT, Perplexity,
         // Claude, Google AI Overviews) which sections of every page are
         // authoritative for quotation. The cssSelector list matches the
@@ -165,6 +159,7 @@ export function ArticleSchema({
   datePublished,
   dateModified,
   author,
+  image,
 }: {
   headline: string;
   description: string;
@@ -175,56 +170,44 @@ export function ArticleSchema({
   datePublished?: string;
   dateModified?: string;
   author?: string;
+  // Absolute URL of the article's lead image. Falls back to the site OG image
+  // (required by Google for Article rich-result eligibility).
+  image?: string;
 }) {
   const published = datePublished ?? defaultArticleDate();
   const modified = dateModified ?? published;
+  // A named byline (anything other than the org name) → model as a Person on a
+  // BlogPosting, which is the E-E-A-T signal Google expects for editorial
+  // content. Otherwise a plain Organization-authored Article.
+  const isPersonAuthor = Boolean(author && author !== siteName);
   return (
     <LdJson
       data={{
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": isPersonAuthor ? "BlogPosting" : "Article",
         headline,
         description,
         url,
         datePublished: published,
         dateModified: modified,
-        author: {
-          "@type": "Organization",
-          name: author ?? siteName,
-        },
+        image: image
+          ? { "@type": "ImageObject", url: image }
+          : { "@type": "ImageObject", url: siteUrl("/opengraph-image"), width: 1200, height: 630 },
+        author: isPersonAuthor
+          ? { "@type": "Person", name: author }
+          : { "@type": "Organization", name: siteName, url: siteUrl("/") },
         publisher: {
           "@type": "Organization",
           name: siteName,
           url: siteUrl("/"),
+          logo: {
+            "@type": "ImageObject",
+            url: siteUrl("/icons/icon-512.png"),
+            width: 512,
+            height: 512,
+          },
         },
         mainEntityOfPage: url,
-      }}
-    />
-  );
-}
-
-export function HowToSchema({
-  name,
-  description,
-  steps,
-}: {
-  name: string;
-  description: string;
-  steps: { name: string; text: string }[];
-}) {
-  return (
-    <LdJson
-      data={{
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        name,
-        description,
-        step: steps.map((s, i) => ({
-          "@type": "HowToStep",
-          position: i + 1,
-          name: s.name,
-          text: s.text,
-        })),
       }}
     />
   );
@@ -287,10 +270,9 @@ export function QuranChapterSchema({
           "@id": siteUrl("/quran"),
           name: "The Qur'an",
           alternateName: ["Qur'an", "Koran", "Al-Qur'ān"],
-          author: {
-            "@type": "Person",
-            name: "Muhammad (Prophet, receiving revelation)",
-          },
+          // No `author`: the Qur'an is held to be divine revelation, so naming
+          // a human author (schema.org `Book.author` convention) is both
+          // theologically wrong and risks bad Knowledge Graph associations.
           inLanguage: "ar",
           bookFormat: "https://schema.org/EBook",
           url: siteUrl("/quran"),

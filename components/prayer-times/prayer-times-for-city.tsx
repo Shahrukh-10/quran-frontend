@@ -72,6 +72,22 @@ export function PrayerTimesForCity({
     timeZone: tz,
   });
 
+  // Date shown is client-authoritative (`now` recomputes on hydration + every
+  // 30s), so the "today" claim is always truthful even though the SSR snapshot
+  // is built at deploy time.
+  const dateFmt = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: tz,
+  });
+
+  // The next upcoming prayer (sunrise is not a prayer). Highlighted below so a
+  // user glancing mid-day sees "what's next" without reading every row.
+  const PRAYER_ORDER = ["fajr", "dhuhr", "asr", "maghrib", "isha"] as const;
+  const nextKey = PRAYER_ORDER.find((k) => times[k].getTime() > now.getTime()) ?? "fajr";
+
   return (
     <section
       aria-labelledby="times-heading"
@@ -80,13 +96,29 @@ export function PrayerTimesForCity({
       <p id="times-heading" className="text-xs uppercase tracking-widest text-muted-foreground">
         Today · {cityName}
       </p>
+      <p className="mt-1 text-sm text-muted-foreground">{dateFmt.format(now)}</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-        {(["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"] as const).map((k) => (
-          <div key={k} className="rounded-lg border border-separator bg-background p-3">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">{p(k)}</p>
-            <p className="mt-1 text-lg font-semibold tabular-nums">{fmt.format(times[k])}</p>
-          </div>
-        ))}
+        {(["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"] as const).map((k) => {
+          const isNext = k === nextKey;
+          return (
+            <div
+              key={k}
+              className={`rounded-lg border p-3 ${
+                isNext ? "border-accent bg-accent-muted" : "border-separator bg-background"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">{p(k)}</p>
+                {isNext ? (
+                  <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[hsl(var(--accent-foreground))]">
+                    Next
+                  </span>
+                ) : null}
+              </div>
+              <p className="mt-1 text-lg font-semibold tabular-nums">{fmt.format(times[k])}</p>
+            </div>
+          );
+        })}
       </div>
 
       <details className="mt-6">

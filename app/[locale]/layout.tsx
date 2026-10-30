@@ -1,9 +1,10 @@
+import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import { CalligraphyBg } from "@/components/layout/calligraphy-bg";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { NavProgress } from "@/components/layout/nav-progress";
-import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
+import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
 import {
   OrganizationSchema,
   SiteNavigationSchema,
@@ -11,9 +12,8 @@ import {
 } from "@/components/seo/structured-data";
 import { locales, rtlLocales } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
+import { hreflangLanguages, robotsForLocale } from "@/lib/seo";
 import { siteName, siteUrl } from "@/lib/site";
-import { robotsForLocale } from "@/lib/seo";
-import { amiri, amiriQuran, inter, notoArabic } from "@/app/fonts";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -69,15 +69,10 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       // - `metadataBase` in this file matches (`http://<host>/` — the URL
       //   constructor normalizes but pathname `/` is invisible).
       canonical: siteUrl(locale === routing.defaultLocale ? "/" : `/${locale}`),
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, siteUrl(l === routing.defaultLocale ? "/" : `/${l}`)]),
-        ),
-        // x-default → same as the default-locale root. Emits both an HTML
-        // `<link rel="alternate" hreflang="x-default">` tag AND is echoed in
-        // the response `Link:` header by next-intl middleware.
-        "x-default": siteUrl("/"),
-      },
+      // Use the shared helper so the locale root advertises ONLY indexable
+      // locales + x-default — never the noindex locales (ar/ur/tr/fr). The
+      // locale-agnostic path for every locale root is "/".
+      languages: hreflangLanguages("/"),
     },
     openGraph: {
       // No `title:` here — let Next.js inherit each page's `title` for og:title

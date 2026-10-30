@@ -1,14 +1,14 @@
 import { BreadcrumbSchema } from "@/components/seo/structured-data";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
+import { breadcrumbs } from "@/lib/breadcrumbs";
 import { getAllNames, getName } from "@/lib/names";
 import { getSurahByNumber } from "@/lib/quran";
+import { hreflangLanguages } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
-import { breadcrumbs } from "@/lib/breadcrumbs";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { hreflangLanguages } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const params: Array<{ locale: string; name: string }> = [];
@@ -27,10 +27,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const n = getName(name);
   if (!n) return {};
   const lang = (locale === "id" ? "id" : "en") as "en" | "id";
-  const title = `${n.transliteration} (${n.arabic}) — "${n.meaning[lang]}" · Name of Allah ${n.order}/99`;
+  // Keep the title ≤70 chars WITHOUT (a) slicing through the "{order}/99"
+  // ordinal and (b) leaving an unmatched quote / paren / mid-grapheme Arabic.
+  // Try progressively shorter templates and pick the first one that fits.
+  // All 99 names verified to land ≤70 chars without ever reaching the final
+  // hard-slice fallback (see scripts/verify-name-titles.ts).
+  const titleSuffix = ` · Name of Allah ${n.order}/99`;
+  const full = `${n.transliteration} (${n.arabic}) — "${n.meaning[lang]}"`;
+  const compact = `${n.transliteration} — ${n.meaning[lang]}`;
+  const minimal = n.transliteration;
+  const budget = 70 - titleSuffix.length;
+  const head =
+    full.length <= budget
+      ? full
+      : compact.length <= budget
+        ? compact
+        : minimal.length <= budget
+          ? minimal
+          : minimal.slice(0, budget);
+  const title = `${head}${titleSuffix}`;
   const desc = `${n.transliteration} means "${n.meaning[lang]}". ${n.reflection[lang]} — The ${n.order}${ord(n.order)} of the 99 Names of Allah (Asma-ul-Husna) in Islam.${n.quranicRef ? ` Referenced in Quran ${n.quranicRef}.` : ""}`;
   return {
-    title: title.slice(0, 70),
+    title,
     description: desc.slice(0, 300),
     keywords: [
       n.transliteration,
@@ -140,11 +158,7 @@ export default async function NamePage({ params }: Props) {
         <p className="text-xs uppercase tracking-widest text-muted-foreground">
           {n.order} of 99 · Asma-ul-Husna
         </p>
-        <p
-          className="mt-8 font-quran text-[clamp(3rem,7vw,5rem)] leading-none"
-          lang="ar"
-          dir="rtl"
-        >
+        <p className="mt-8 font-quran text-[clamp(3rem,7vw,5rem)] leading-none" lang="ar" dir="rtl">
           {n.arabic}
         </p>
         <h1 className="mt-6 text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold tracking-display">
@@ -164,9 +178,7 @@ export default async function NamePage({ params }: Props) {
         <p className="mt-3 leading-relaxed text-lg">{n.reflection[lang]}</p>
         {n.quranicRef && (
           <p className="mt-6 text-sm text-muted-foreground">
-            <span className="uppercase tracking-widest text-xs">
-              {t("quranicRef")}:{" "}
-            </span>
+            <span className="uppercase tracking-widest text-xs">{t("quranicRef")}: </span>
             <Link
               href={buildAyahHref(n.quranicRef) as "/quran/[surah]/[ayah]"}
               className="focus-ring text-accent hover:underline"
@@ -186,13 +198,12 @@ export default async function NamePage({ params }: Props) {
           About the 99 Names of Allah
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          The 99 Names of Allah — Asma-ul-Husna (الأسماء الحسنى, "The Most
-          Beautiful Names") — are the names by which Allah is described in the
-          Quran and authentic hadith. Each name reveals an attribute of Allah:
-          His mercy, might, wisdom, forgiveness, sustenance, and countless
-          others. The Prophet Muhammad ﷺ said, "Allah has ninety-nine names,
-          one hundred less one; whoever memorises them will enter Paradise"
-          (Sahih al-Bukhari 2736). {n.transliteration} is one of these names.
+          The 99 Names of Allah — Asma-ul-Husna (الأسماء الحسنى, "The Most Beautiful Names") — are
+          the names by which Allah is described in the Quran and authentic hadith. Each name reveals
+          an attribute of Allah: His mercy, might, wisdom, forgiveness, sustenance, and countless
+          others. The Prophet Muhammad ﷺ said, "Allah has ninety-nine names, one hundred less one;
+          whoever memorises them will enter Paradise" (Sahih al-Bukhari 2736). {n.transliteration}{" "}
+          is one of these names.
         </p>
         <p className="mt-3 text-sm">
           <Link href="/names-of-allah" className="text-accent hover:underline">
@@ -204,10 +215,7 @@ export default async function NamePage({ params }: Props) {
       {/* Related names */}
       {related.length > 0 && (
         <section className="mt-8" aria-labelledby="related-names-heading">
-          <h2
-            id="related-names-heading"
-            className="text-lg font-bold tracking-title"
-          >
+          <h2 id="related-names-heading" className="text-lg font-bold tracking-title">
             Nearby names of Allah
           </h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -218,20 +226,12 @@ export default async function NamePage({ params }: Props) {
                 className="focus-ring rounded-xl border border-separator bg-surface p-4 hover:bg-muted transition-colors"
               >
                 <div className="flex items-baseline gap-2">
-                  <span
-                    className="font-quran text-2xl"
-                    lang="ar"
-                    dir="rtl"
-                  >
+                  <span className="font-quran text-2xl" lang="ar" dir="rtl">
                     {r.arabic}
                   </span>
-                  <span className="text-sm font-semibold">
-                    {r.transliteration}
-                  </span>
+                  <span className="text-sm font-semibold">{r.transliteration}</span>
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {r.meaning[lang]}
-                </p>
+                <p className="mt-1 text-xs text-muted-foreground">{r.meaning[lang]}</p>
               </Link>
             ))}
           </div>
@@ -245,16 +245,9 @@ export default async function NamePage({ params }: Props) {
         </h2>
         <div className="mt-4 space-y-4">
           {faqs.map((f) => (
-            <details
-              key={f.q}
-              className="rounded-2xl border border-separator bg-surface p-5"
-            >
-              <summary className="cursor-pointer text-base font-semibold">
-                {f.q}
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {f.a}
-              </p>
+            <details key={f.q} className="rounded-2xl border border-separator bg-surface p-5">
+              <summary className="cursor-pointer text-base font-semibold">{f.q}</summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
             </details>
           ))}
         </div>
@@ -270,9 +263,7 @@ export default async function NamePage({ params }: Props) {
               href={`/names-of-allah/${prev.slug}` as "/names-of-allah/[name]"}
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
-              <span className="block text-xs text-muted-foreground">
-                ← {prev.order}
-              </span>
+              <span className="block text-xs text-muted-foreground">← {prev.order}</span>
               <span className="mt-1 block font-semibold tracking-title">
                 {prev.transliteration}
               </span>
@@ -285,9 +276,7 @@ export default async function NamePage({ params }: Props) {
               href={`/names-of-allah/${next.slug}` as "/names-of-allah/[name]"}
               className="focus-ring block rounded-2xl border border-separator bg-surface p-4 hover:bg-muted transition-colors duration-micro ease-spring"
             >
-              <span className="block text-xs text-muted-foreground">
-                {next.order} →
-              </span>
+              <span className="block text-xs text-muted-foreground">{next.order} →</span>
               <span className="mt-1 block font-semibold tracking-title">
                 {next.transliteration}
               </span>

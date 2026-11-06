@@ -247,6 +247,7 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "home.hero" });
+  const tIntro = await getTranslations({ locale, namespace: "home.intro" });
 
   return (
     <>
@@ -379,6 +380,30 @@ export default async function HomePage({ params }: PageProps) {
       <section className="section">
         <div className="container">
           <HomePrayerWidget />
+        </div>
+      </section>
+
+      {/* About / intro — short crawlable lead describing what Quran Daily
+          offers and who it serves, placed just above the feature grid. Copy
+          lives in messages/ under home.intro so it stays localizable. Styled
+          subtly (muted, constrained width) to keep the clean hub design. */}
+      <section className="section" aria-labelledby="home-intro-heading">
+        <div className="container">
+          <div style={{ maxWidth: 680 }}>
+            <h2 id="home-intro-heading" className="section-title">
+              {tIntro("heading")}
+            </h2>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.6,
+                color: "hsl(var(--muted-foreground))",
+                margin: "8px 0 0",
+              }}
+            >
+              {tIntro("body")}
+            </p>
+          </div>
         </div>
       </section>
 

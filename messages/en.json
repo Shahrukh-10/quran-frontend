@@ -44,6 +44,10 @@
       "ctaPrimary": "Read the Quran",
       "ctaSecondary": "Find a dua"
     },
+    "intro": {
+      "heading": "About Quran Daily",
+      "body": "Quran Daily is a free, non-profit Islamic reference built for everyday practice. Read the complete Quran in Uthmani script with English and Indonesian translations, transliteration, and verse-by-verse audio, with every ayah citing its source. Look up authentic duas and hadith from the six canonical collections, check prayer times and Qibla direction for any city, learn the 99 Names of Allah, and follow step-by-step salah tutorials. Everything works offline after your first visit, with no ads, no tracking, and no account required. It serves practising Muslims, new reverts, and anyone studying the Quran and Islamic practice."
+    },
     "principles": {
       "title": "How this site works",
       "sourced": {

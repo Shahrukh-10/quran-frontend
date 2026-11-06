@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "name": "Quran Daily",
+  "description": "Free, sourced, offline-first Islamic reference: Quran, hadith, duas, prayer times, Qibla, Salah tutorials, Hijri calendar, and the 99 Names of Allah. Every ayah, hadith, dua, and translation cites its source.",
+  "url": "https://qurandaily.org",
+  "provider": {
+    "name": "Quran Daily",
+    "type": "Non-profit",
+    "url": "https://qurandaily.org/about"
+  },
+  "discovery": {
+    "llms_txt": "https://qurandaily.org/llms.txt",
+    "llms_full_txt": "https://qurandaily.org/llms-full.txt",
+    "sitemap": "https://qurandaily.org/sitemap.xml",
+    "robots": "https://qurandaily.org/robots.txt"
+  },
+  "resources": [
+    {
+      "id": "quran",
+      "name": "Quran",
+      "description": "All 114 surahs and 6,236 ayat in Uthmani script with English and Indonesian translations, transliteration, tafsir, and verse audio.",
+      "url": "https://qurandaily.org/quran",
+      "url_patterns": {
+        "surah": "https://qurandaily.org/quran/{surah-slug}",
+        "ayah": "https://qurandaily.org/quran/{surah-slug}/{ayah-number}"
+      }
+    },
+    {
+      "id": "hadith",
+      "name": "Hadith",
+      "description": "The six canonical Sunni collections (Kutub as-Sittah) from Sunnah.com, with authenticity grading where available.",
+      "url": "https://qurandaily.org/hadith"
+    },
+    {
+      "id": "duas",
+      "name": "Duas",
+      "description": "Authentic supplications sourced from Hisnul Muslim, categorised by occasion.",
+      "url": "https://qurandaily.org/duas"
+    },
+    {
+      "id": "names-of-allah",
+      "name": "99 Names of Allah",
+      "description": "Asma-ul-Husna with pronunciation, meaning, and Quranic context.",
+      "url": "https://qurandaily.org/names-of-allah"
+    },
+    {
+      "id": "prayer-times",
+      "name": "Prayer Times",
+      "description": "Per-city prayer times with configurable calculation methods and Qibla direction.",
+      "url": "https://qurandaily.org/prayer-times"
+    }
+  ],
+  "license": "Original written material is CC BY 4.0. Quran and hadith are historical religious texts; individual translations carry their translator's license. See https://qurandaily.org/sources.",
+  "contact": "https://qurandaily.org/about"
+}

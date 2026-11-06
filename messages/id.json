@@ -44,6 +44,10 @@
       "ctaPrimary": "Baca Al-Qur'an",
       "ctaSecondary": "Cari doa"
     },
+    "intro": {
+      "heading": "Tentang Quran Daily",
+      "body": "Quran Daily adalah rujukan Islam gratis dan nirlaba yang dibuat untuk amalan sehari-hari. Baca Al-Quran lengkap dalam tulisan Utsmani dengan terjemahan bahasa Inggris dan Indonesia, transliterasi, dan audio per ayat, dengan setiap ayat mencantumkan sumbernya. Temukan doa dan hadis sahih dari enam kitab hadis utama, lihat jadwal sholat dan arah kiblat untuk kota mana pun, pelajari 99 Nama Allah, dan ikuti tutorial sholat langkah demi langkah. Semuanya berfungsi offline setelah kunjungan pertama Anda, tanpa iklan, tanpa pelacakan, dan tanpa perlu akun. Situs ini melayani Muslim, mualaf baru, dan siapa pun yang mempelajari Al-Quran dan amalan Islam."
+    },
     "principles": {
       "title": "Cara kerja situs ini",
       "sourced": {
